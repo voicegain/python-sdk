@@ -5,6 +5,8 @@
 
 ## Examples
 
+* `✓` sync_transcribe example:
+
 configuration:
 
 ```python
