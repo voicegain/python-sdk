@@ -24,10 +24,10 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from ascalon_web_api_client.configuration import Configuration
-import ascalon_web_api_client.models
-from ascalon_web_api_client import rest
-from ascalon_web_api_client.exceptions import ApiValueError
+from voicegain_speech.configuration import Configuration
+import voicegain_speech.models
+from voicegain_speech import rest
+from voicegain_speech.exceptions import ApiValueError
 
 
 class ApiClient(object):
@@ -280,7 +280,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(ascalon_web_api_client.models, klass)
+                klass = getattr(voicegain_speech.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

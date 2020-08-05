@@ -50,7 +50,7 @@ class Configuration(object):
             name: JSESSIONID  # cookie name
 
     You can programmatically set the cookie:
-      conf = ascalon_web_api_client.Configuration(
+      conf = voicegain_speech.Configuration(
         api_key={'cookieAuth': 'abc123'}
         api_key_prefix={'cookieAuth': 'JSESSIONID'}
       )
@@ -95,7 +95,7 @@ class Configuration(object):
         self.logger = {}
         """Logging Settings
         """
-        self.logger["package_logger"] = logging.getLogger("ascalon_web_api_client")
+        self.logger["package_logger"] = logging.getLogger("voicegain_speech")
         self.logger["urllib3_logger"] = logging.getLogger("urllib3")
         self.logger_format = '%(asctime)s %(levelname)s %(message)s'
         """Log format

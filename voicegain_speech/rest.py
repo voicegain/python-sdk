@@ -25,7 +25,7 @@ import six
 from six.moves.urllib.parse import urlencode
 import urllib3
 
-from ascalon_web_api_client.exceptions import ApiException, ApiValueError
+from voicegain_speech.exceptions import ApiException, ApiValueError
 
 
 logger = logging.getLogger(__name__)

@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from ascalon_web_api_client.configuration import Configuration
+from voicegain_speech.configuration import Configuration
 
 
 class MRCPVersion(object):

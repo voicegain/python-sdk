@@ -18,8 +18,8 @@ import re  # noqa: F401
 # python 2 and python 3 compatibility library
 import six
 
-from ascalon_web_api_client.api_client import ApiClient
-from ascalon_web_api_client.exceptions import (
+from voicegain_speech.api_client import ApiClient
+from voicegain_speech.exceptions import (
     ApiTypeError,
     ApiValueError
 )
