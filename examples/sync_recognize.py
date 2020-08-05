@@ -1,6 +1,6 @@
-from voicegain_api import ApiClient
-from voicegain_api import Configuration
-from voicegain_api import RecognizeApi
+from voicegain_speech import ApiClient
+from voicegain_speech import Configuration
+from voicegain_speech import RecognizeApi
 import base64
 
 
