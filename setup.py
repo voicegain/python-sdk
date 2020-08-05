@@ -10,7 +10,7 @@ setuptools.setup(
     version="0.0.3",
     author="Huishen Zhan, Kuo Zhang, Jacek Jarmulak",
     author_email="huishen@voicegain.ai, kuo@voicegain.ai, jacek@voicegain.ai",
-    description="voicegain speech api python client",
+    description="Voicegain Speech-to-Text Python SDK",
     download_url='https://github.com/voicegain/python-sdk/archive/0.0.1.tar.gz',
     long_description=long_description,
     long_description_content_type="text/markdown",
