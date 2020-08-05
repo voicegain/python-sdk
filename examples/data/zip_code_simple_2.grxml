@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns="http://www.w3.org/2001/06/grammar" version="1.0" xml:lang="en-US" tag-format="semantics/1.0" root="ROOT">
+   <rule id="ROOT">
+      <item>
+         <ruleref uri="#zip" />
+         <tag>out.zip=rules.zip.zip;</tag>
+      </item>
+   </rule>
+   <rule id="zip">
+      <item>
+         <!-- 1 2 3 4 5 -->
+         <item>
+            <ruleref uri="#singleDigit" />
+            <tag>out.d1=rules.singleDigit.d;</tag>
+         </item>
+         <item>
+            <ruleref uri="#singleDigit" />
+            <tag>out.d2=rules.singleDigit.d;</tag>
+         </item>
+         <item>
+            <ruleref uri="#singleDigit" />
+            <tag>out.d3=rules.singleDigit.d;</tag>
+         </item>
+         <item>
+            <ruleref uri="#singleDigit" />
+            <tag>out.d4=rules.singleDigit.d;</tag>
+         </item>
+         <item>
+            <ruleref uri="#singleDigit" />
+            <tag>out.d5=rules.singleDigit.d;</tag>
+         </item>
+      </item>
+      <tag>out.zip=out.d1+out.d2+out.d3+out.d4+out.d5;</tag>
+   </rule>
+   <rule id="singleDigit">
+      <one-of>
+         <item>
+            <one-of>
+               <item>zero</item>
+               <item>oh</item>
+            </one-of>
+            <tag>out.d="0";</tag>
+         </item>
+         <item>
+            <item>one</item>
+            <tag>out.d="1";</tag>
+         </item>
+         <item>
+            <item>two</item>
+            <tag>out.d="2";</tag>
+         </item>
+         <item>
+            <item>three</item>
+            <tag>out.d="3";</tag>
+         </item>
+         <item>
+            <item>four</item>
+            <tag>out.d="4";</tag>
+         </item>
+         <item>
+            <item>five</item>
+            <tag>out.d="5";</tag>
+         </item>
+         <item>
+            <item>six</item>
+            <tag>out.d="6";</tag>
+         </item>
+         <item>
+            <item>seven</item>
+            <tag>out.d="7";</tag>
+         </item>
+         <item>
+            <item>eight</item>
+            <tag>out.d="8";</tag>
+         </item>
+         <item>
+            <item>nine</item>
+            <tag>out.d="9";</tag>
+         </item>
+      </one-of>
+   </rule>
+</grammar>
