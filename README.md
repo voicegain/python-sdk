@@ -3,6 +3,14 @@
 ---
 [Voicegain Home](https://voicegain.github.io/)
 
+## Installation
+
+From [PyPI](https://pypi.org/project/voicegain-speech/) directly:
+
+```
+pip install voicegain-speech
+```
+
 ## Examples
 
 * sync_transcribe example:
