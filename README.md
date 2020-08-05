@@ -1,7 +1,6 @@
 # Voicegain Speech-to-Text Python SDK
 
----
-[Voicegain Home](https://voicegain.github.io/)
+Python SDK for the [Voicegain](https://voicegain.github.io/) Speech-to-Text API.
 
 ## Installation
 
@@ -31,10 +30,10 @@ configuration = Configuration()
 configuration.access_token = JWT
 
 api_client = ApiClient(configuration=configuration)
-transcribe_api = TranscribeApi(api_client)
 ```
 transcribe local file:
 ```python
+transcribe_api = TranscribeApi(api_client)
 file_path = "Your local file path"
 
 with open(file_path, "rb") as f:
@@ -51,9 +50,7 @@ response = transcribe_api.asr_transcribe_post(
         }
     }
 )
-```
-get result:
-```python
+
 alternatives = response.result.alternatives
 if alternatives:
     local_result = alternatives[0].utterance
