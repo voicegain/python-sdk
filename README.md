@@ -5,7 +5,7 @@
 
 ## Examples
 
-* `✓` sync_transcribe example:
+* sync_transcribe example:
 
 configuration:
 
