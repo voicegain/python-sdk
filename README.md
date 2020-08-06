@@ -4,7 +4,7 @@ Python SDK for the [Voicegain](https://www.voicegain.ai) [Speech-to-Text API](ht
 
 ## Requirements
 
-In order to use this API you need account with Voicegain. You can create account by signing up on [Voicegain Portal](https://portal.voicegain.ai/signup). No credit card required to sign up.
+In order to use this API you need account with Voicegain. You can create an account by signing up on [Voicegain Portal](https://portal.voicegain.ai/signup). No credit card required to sign up.
 
 You can see pricing [here](https://www.voicegain.ai/pricing) - basically, it is 1 cent a minute for off-line and 1.25 cents a minute for real-time. There is a Free Tier of 600 minutes that renews each month.
 
