@@ -1,6 +1,6 @@
 # Voicegain Speech-to-Text Python SDK
 
-Python SDK for the [Voicegain](https://voicegain.github.io/) Speech-to-Text API.
+Python SDK for the [Voicegain](https://www.voicegain.ai) [Speech-to-Text API](https://portal.voicegain.ai/api/v1/index.html).
 
 ## Installation
 
