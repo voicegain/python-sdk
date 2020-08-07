@@ -48,6 +48,8 @@ class CoreAIVRSession(object):
         'start_time': 'datetime',
         'telco_data': 'CoreAIVRSessionTelcoData',
         'terminated': 'str',
+        'to_be_recorded': 'bool',
+        'to_be_transcribed': 'bool',
         'user_session_data': 'object',
         'vars': 'object'
     }
@@ -67,11 +69,13 @@ class CoreAIVRSession(object):
         'start_time': 'startTime',
         'telco_data': 'telcoData',
         'terminated': 'terminated',
+        'to_be_recorded': 'toBeRecorded',
+        'to_be_transcribed': 'toBeTranscribed',
         'user_session_data': 'userSessionData',
         'vars': 'vars'
     }
 
-    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sequence=None, start_time=None, telco_data=None, terminated=None, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sequence=None, start_time=None, telco_data=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """CoreAIVRSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -91,6 +95,8 @@ class CoreAIVRSession(object):
         self._start_time = None
         self._telco_data = None
         self._terminated = None
+        self._to_be_recorded = None
+        self._to_be_transcribed = None
         self._user_session_data = None
         self._vars = None
         self.discriminator = None
@@ -120,6 +126,10 @@ class CoreAIVRSession(object):
             self.telco_data = telco_data
         if terminated is not None:
             self.terminated = terminated
+        if to_be_recorded is not None:
+            self.to_be_recorded = to_be_recorded
+        if to_be_transcribed is not None:
+            self.to_be_transcribed = to_be_transcribed
         if user_session_data is not None:
             self.user_session_data = user_session_data
         if vars is not None:
@@ -457,6 +467,52 @@ class CoreAIVRSession(object):
             )
 
         self._terminated = terminated
+
+    @property
+    def to_be_recorded(self):
+        """Gets the to_be_recorded of this CoreAIVRSession.  # noqa: E501
+
+        Whether this call is to be recorded. Value set based on AIVRApp value of recordCalls field.  # noqa: E501
+
+        :return: The to_be_recorded of this CoreAIVRSession.  # noqa: E501
+        :rtype: bool
+        """
+        return self._to_be_recorded
+
+    @to_be_recorded.setter
+    def to_be_recorded(self, to_be_recorded):
+        """Sets the to_be_recorded of this CoreAIVRSession.
+
+        Whether this call is to be recorded. Value set based on AIVRApp value of recordCalls field.  # noqa: E501
+
+        :param to_be_recorded: The to_be_recorded of this CoreAIVRSession.  # noqa: E501
+        :type: bool
+        """
+
+        self._to_be_recorded = to_be_recorded
+
+    @property
+    def to_be_transcribed(self):
+        """Gets the to_be_transcribed of this CoreAIVRSession.  # noqa: E501
+
+        Whether this call is to have a transcript. Value set at start of the call based on percentCallsToTranscribe field in AIVRApp  # noqa: E501
+
+        :return: The to_be_transcribed of this CoreAIVRSession.  # noqa: E501
+        :rtype: bool
+        """
+        return self._to_be_transcribed
+
+    @to_be_transcribed.setter
+    def to_be_transcribed(self, to_be_transcribed):
+        """Sets the to_be_transcribed of this CoreAIVRSession.
+
+        Whether this call is to have a transcript. Value set at start of the call based on percentCallsToTranscribe field in AIVRApp  # noqa: E501
+
+        :param to_be_transcribed: The to_be_transcribed of this CoreAIVRSession.  # noqa: E501
+        :type: bool
+        """
+
+        self._to_be_transcribed = to_be_transcribed
 
     @property
     def user_session_data(self):
