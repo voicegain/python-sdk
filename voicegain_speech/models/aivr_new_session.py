@@ -35,6 +35,7 @@ class AIVRNewSession(object):
     """
     openapi_types = {
         'ani': 'str',
+        'call_is_being_recorded': 'bool',
         'dnis': 'str',
         'estimated_queue_wait_seconds': 'EstimatedQueueWait',
         'logic_type': 'AIVRLogicType',
@@ -42,12 +43,14 @@ class AIVRNewSession(object):
         'sequence': 'int',
         'sid': 'str',
         'start_time': 'datetime',
+        'to_be_transcribed': 'bool',
         'user_app_data': 'str',
         'vars': 'object'
     }
 
     attribute_map = {
         'ani': 'ani',
+        'call_is_being_recorded': 'callIsBeingRecorded',
         'dnis': 'dnis',
         'estimated_queue_wait_seconds': 'estimatedQueueWaitSeconds',
         'logic_type': 'logicType',
@@ -55,17 +58,19 @@ class AIVRNewSession(object):
         'sequence': 'sequence',
         'sid': 'sid',
         'start_time': 'startTime',
+        'to_be_transcribed': 'toBeTranscribed',
         'user_app_data': 'userAppData',
         'vars': 'vars'
     }
 
-    def __init__(self, ani=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ani=None, call_is_being_recorded=False, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, to_be_transcribed=False, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """AIVRNewSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._ani = None
+        self._call_is_being_recorded = None
         self._dnis = None
         self._estimated_queue_wait_seconds = None
         self._logic_type = None
@@ -73,12 +78,15 @@ class AIVRNewSession(object):
         self._sequence = None
         self._sid = None
         self._start_time = None
+        self._to_be_transcribed = None
         self._user_app_data = None
         self._vars = None
         self.discriminator = None
 
         if ani is not None:
             self.ani = ani
+        if call_is_being_recorded is not None:
+            self.call_is_being_recorded = call_is_being_recorded
         if dnis is not None:
             self.dnis = dnis
         if estimated_queue_wait_seconds is not None:
@@ -90,6 +98,8 @@ class AIVRNewSession(object):
         self.sequence = sequence
         self.sid = sid
         self.start_time = start_time
+        if to_be_transcribed is not None:
+            self.to_be_transcribed = to_be_transcribed
         if user_app_data is not None:
             self.user_app_data = user_app_data
         if vars is not None:
@@ -117,6 +127,29 @@ class AIVRNewSession(object):
         """
 
         self._ani = ani
+
+    @property
+    def call_is_being_recorded(self):
+        """Gets the call_is_being_recorded of this AIVRNewSession.  # noqa: E501
+
+        Whether this call is being recorded.  # noqa: E501
+
+        :return: The call_is_being_recorded of this AIVRNewSession.  # noqa: E501
+        :rtype: bool
+        """
+        return self._call_is_being_recorded
+
+    @call_is_being_recorded.setter
+    def call_is_being_recorded(self, call_is_being_recorded):
+        """Sets the call_is_being_recorded of this AIVRNewSession.
+
+        Whether this call is being recorded.  # noqa: E501
+
+        :param call_is_being_recorded: The call_is_being_recorded of this AIVRNewSession.  # noqa: E501
+        :type: bool
+        """
+
+        self._call_is_being_recorded = call_is_being_recorded
 
     @property
     def dnis(self):
@@ -281,6 +314,29 @@ class AIVRNewSession(object):
             raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
+
+    @property
+    def to_be_transcribed(self):
+        """Gets the to_be_transcribed of this AIVRNewSession.  # noqa: E501
+
+        Whether this call is to have a transcript.  # noqa: E501
+
+        :return: The to_be_transcribed of this AIVRNewSession.  # noqa: E501
+        :rtype: bool
+        """
+        return self._to_be_transcribed
+
+    @to_be_transcribed.setter
+    def to_be_transcribed(self, to_be_transcribed):
+        """Sets the to_be_transcribed of this AIVRNewSession.
+
+        Whether this call is to have a transcript.  # noqa: E501
+
+        :param to_be_transcribed: The to_be_transcribed of this AIVRNewSession.  # noqa: E501
+        :type: bool
+        """
+
+        self._to_be_transcribed = to_be_transcribed
 
     @property
     def user_app_data(self):
