@@ -34,24 +34,50 @@ class AsyncResultFullAllOfAudio(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'channel': 'AudioChannel',
         'source': 'AsyncResultFullAllOfAudioSource'
     }
 
     attribute_map = {
+        'channel': 'channel',
         'source': 'source'
     }
 
-    def __init__(self, source=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, channel=None, source=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOfAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._channel = None
         self._source = None
         self.discriminator = None
 
+        if channel is not None:
+            self.channel = channel
         if source is not None:
             self.source = source
+
+    @property
+    def channel(self):
+        """Gets the channel of this AsyncResultFullAllOfAudio.  # noqa: E501
+
+
+        :return: The channel of this AsyncResultFullAllOfAudio.  # noqa: E501
+        :rtype: AudioChannel
+        """
+        return self._channel
+
+    @channel.setter
+    def channel(self, channel):
+        """Sets the channel of this AsyncResultFullAllOfAudio.
+
+
+        :param channel: The channel of this AsyncResultFullAllOfAudio.  # noqa: E501
+        :type: AudioChannel
+        """
+
+        self._channel = channel
 
     @property
     def source(self):
