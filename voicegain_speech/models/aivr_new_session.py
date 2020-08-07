@@ -36,6 +36,7 @@ class AIVRNewSession(object):
     openapi_types = {
         'ani': 'str',
         'call_is_being_recorded': 'bool',
+        'default_voice': 'str',
         'dnis': 'str',
         'estimated_queue_wait_seconds': 'EstimatedQueueWait',
         'logic_type': 'AIVRLogicType',
@@ -51,6 +52,7 @@ class AIVRNewSession(object):
     attribute_map = {
         'ani': 'ani',
         'call_is_being_recorded': 'callIsBeingRecorded',
+        'default_voice': 'defaultVoice',
         'dnis': 'dnis',
         'estimated_queue_wait_seconds': 'estimatedQueueWaitSeconds',
         'logic_type': 'logicType',
@@ -63,7 +65,7 @@ class AIVRNewSession(object):
         'vars': 'vars'
     }
 
-    def __init__(self, ani=None, call_is_being_recorded=False, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, to_be_transcribed=False, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ani=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, to_be_transcribed=False, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """AIVRNewSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class AIVRNewSession(object):
 
         self._ani = None
         self._call_is_being_recorded = None
+        self._default_voice = None
         self._dnis = None
         self._estimated_queue_wait_seconds = None
         self._logic_type = None
@@ -87,6 +90,8 @@ class AIVRNewSession(object):
             self.ani = ani
         if call_is_being_recorded is not None:
             self.call_is_being_recorded = call_is_being_recorded
+        if default_voice is not None:
+            self.default_voice = default_voice
         if dnis is not None:
             self.dnis = dnis
         if estimated_queue_wait_seconds is not None:
@@ -150,6 +155,29 @@ class AIVRNewSession(object):
         """
 
         self._call_is_being_recorded = call_is_being_recorded
+
+    @property
+    def default_voice(self):
+        """Gets the default_voice of this AIVRNewSession.  # noqa: E501
+
+        Default TTS voice that will be used for this call unless overridden by the callback responses.  # noqa: E501
+
+        :return: The default_voice of this AIVRNewSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_voice
+
+    @default_voice.setter
+    def default_voice(self, default_voice):
+        """Sets the default_voice of this AIVRNewSession.
+
+        Default TTS voice that will be used for this call unless overridden by the callback responses.  # noqa: E501
+
+        :param default_voice: The default_voice of this AIVRNewSession.  # noqa: E501
+        :type: str
+        """
+
+        self._default_voice = default_voice
 
     @property
     def dnis(self):
@@ -365,7 +393,7 @@ class AIVRNewSession(object):
     def vars(self):
         """Gets the vars of this AIVRNewSession.  # noqa: E501
 
-        (optional) Map with variables to initate the new session.   # noqa: E501
+        (optional) Map with variables to initiate the new session.   # noqa: E501
 
         :return: The vars of this AIVRNewSession.  # noqa: E501
         :rtype: object
@@ -376,7 +404,7 @@ class AIVRNewSession(object):
     def vars(self, vars):
         """Sets the vars of this AIVRNewSession.
 
-        (optional) Map with variables to initate the new session.   # noqa: E501
+        (optional) Map with variables to initiate the new session.   # noqa: E501
 
         :param vars: The vars of this AIVRNewSession.  # noqa: E501
         :type: object
