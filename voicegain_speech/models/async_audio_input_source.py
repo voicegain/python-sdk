@@ -38,7 +38,7 @@ class AsyncAudioInputSource(object):
         'from_url': 'AudioResourceUri',
         'greg': 'GregAudioInput',
         'inline': 'InlineData',
-        'separate': 'SeparateAudio',
+        'separate': 'object',
         'stream': 'StreamSetup'
     }
 
@@ -166,9 +166,10 @@ class AsyncAudioInputSource(object):
     def separate(self):
         """Gets the separate of this AsyncAudioInputSource.  # noqa: E501
 
+        Audio will be submitted in a PUT request separate from the request that establishes the ASR session.</br> Currently there are no further parameters.   # noqa: E501
 
         :return: The separate of this AsyncAudioInputSource.  # noqa: E501
-        :rtype: SeparateAudio
+        :rtype: object
         """
         return self._separate
 
@@ -176,9 +177,10 @@ class AsyncAudioInputSource(object):
     def separate(self, separate):
         """Sets the separate of this AsyncAudioInputSource.
 
+        Audio will be submitted in a PUT request separate from the request that establishes the ASR session.</br> Currently there are no further parameters.   # noqa: E501
 
         :param separate: The separate of this AsyncAudioInputSource.  # noqa: E501
-        :type: SeparateAudio
+        :type: object
         """
 
         self._separate = separate

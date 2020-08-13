@@ -221,7 +221,6 @@ from voicegain_speech.models.recognition_result import RecognitionResult
 from voicegain_speech.models.requested_content import RequestedContent
 from voicegain_speech.models.resource_uri import ResourceUri
 from voicegain_speech.models.sample_rate import SampleRate
-from voicegain_speech.models.separate_audio import SeparateAudio
 from voicegain_speech.models.session_error_response import SessionErrorResponse
 from voicegain_speech.models.session_init_recognition import SessionInitRecognition
 from voicegain_speech.models.session_init_transcription import SessionInitTranscription
