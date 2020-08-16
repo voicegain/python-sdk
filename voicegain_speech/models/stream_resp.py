@@ -75,7 +75,7 @@ class StreamResp(object):
     def ip(self):
         """Gets the ip of this StreamResp.  # noqa: E501
 
-        IP of the destination to stream audio to.  # noqa: E501
+        IP of the destination to stream audio to (for RTP and ASCALON protocols)  # noqa: E501
 
         :return: The ip of this StreamResp.  # noqa: E501
         :rtype: str
@@ -86,7 +86,7 @@ class StreamResp(object):
     def ip(self, ip):
         """Sets the ip of this StreamResp.
 
-        IP of the destination to stream audio to.  # noqa: E501
+        IP of the destination to stream audio to (for RTP and ASCALON protocols)  # noqa: E501
 
         :param ip: The ip of this StreamResp.  # noqa: E501
         :type: str
@@ -100,7 +100,7 @@ class StreamResp(object):
     def port(self):
         """Gets the port of this StreamResp.  # noqa: E501
 
-        port to stream audio to  # noqa: E501
+        Port to stream audio to (for RTP and ASCALON protocols)  # noqa: E501
 
         :return: The port of this StreamResp.  # noqa: E501
         :rtype: int
@@ -111,7 +111,7 @@ class StreamResp(object):
     def port(self, port):
         """Sets the port of this StreamResp.
 
-        port to stream audio to  # noqa: E501
+        Port to stream audio to (for RTP and ASCALON protocols)  # noqa: E501
 
         :param port: The port of this StreamResp.  # noqa: E501
         :type: int
