@@ -1,6 +1,12 @@
 # Voicegain Speech-to-Text Python SDK
 
-Python SDK for the [Voicegain](https://www.voicegain.ai) [Speech-to-Text API](https://portal.voicegain.ai/api/v1/index.html).
+Python SDK for the [Voicegain](https://www.voicegain.ai) [Speech-to-Text API](https://portal.voicegain.ai/api/v1/index.html). 
+
+This API allows for large vocabulary speech-to-text transcription as well as grammar-based speech recognition. Both real-time and offline use cases are supported.
+
+You can see the core Voicegain API documentation [here](https://portal.voicegain.ai/api/v1/index.html). 
+
+The complete documentation for the API covered by this SDK is available [here](https://portal.voicegain.ai/api-documentation) - this link requires an account on the Voicegain portal - see below for how to sign up. 
 
 ## Requirements
 
