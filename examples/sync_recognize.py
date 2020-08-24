@@ -54,6 +54,7 @@ response = recognize_api.asr_recognize_post(
 alternatives = response.result.alternatives
 if alternatives:
     print("result: {}".format(alternatives[0].utterance))
+    print("tags: {}".format(alternatives[0].semantic_tags))
 else:
     print("no match")
 
@@ -91,5 +92,51 @@ response = recognize_api.asr_recognize_post(
 alternatives = response.result.alternatives
 if alternatives:
     print("result: {}".format(alternatives[0].utterance))
+    print("tags: {}".format(alternatives[0].semantic_tags))
+else:
+    print("no match")
+
+
+# recognize local file using JJSGF grammar
+
+file_path = "data/4_8_1_6_9.wav"
+
+print("Recognize {} using JJSGF grammar".format(file_path))
+
+with open(file_path, "rb") as f:
+    audio_base64 = base64.b64encode(f.read()).decode()
+
+response = recognize_api.asr_recognize_post(
+    sync_recognition_request={
+        "audio": {
+            "source": {
+                "inline": {
+                    "data": audio_base64
+                }
+            }
+        },
+        "settings": {
+            "asr": {
+                "grammars": [
+                    {
+                        "type": "JJSGF",
+                        "grammar": "zipcode",
+                        "public": {
+                            "root": "(<digit> {d1=rules.digit.d;}) (<digit> {d2=rules.digit.d;}) (<digit> {d3=rules.digit.d;}) (<digit> {d4=rules.digit.d;}) (<digit> {d5=rules.digit.d;}) {out.zip=d1+d2+d3+d4+d5;};"
+                        },
+                        "rules": {
+                            "<digit>": "(zero {out.d='0';}) | (one {out.d='1';}) | (two {out.d='2';}) | (three {out.d='3';}) | (four {out.d='4';}) | (five {out.d='5';}) | (six {out.d='6';}) | (seven {out.d='7';}) | (eight {out.d='8';}) | (nine {out.d='9';});"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+)
+
+alternatives = response.result.alternatives
+if alternatives:
+    print("result: {}".format(alternatives[0].utterance))
+    print("tags: {}".format(alternatives[0].semantic_tags))
 else:
     print("no match")
