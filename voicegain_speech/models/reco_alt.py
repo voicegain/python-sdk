@@ -36,6 +36,7 @@ class RecoAlt(object):
     openapi_types = {
         'confidence': 'float',
         'grammar': 'str',
+        'literal_tag': 'str',
         'semantic_tags': 'object',
         'utterance': 'str'
     }
@@ -43,11 +44,12 @@ class RecoAlt(object):
     attribute_map = {
         'confidence': 'confidence',
         'grammar': 'grammar',
+        'literal_tag': 'literalTag',
         'semantic_tags': 'semanticTags',
         'utterance': 'utterance'
     }
 
-    def __init__(self, confidence=None, grammar=None, semantic_tags=None, utterance=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, confidence=None, grammar=None, literal_tag=None, semantic_tags=None, utterance=None, local_vars_configuration=None):  # noqa: E501
         """RecoAlt - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +57,7 @@ class RecoAlt(object):
 
         self._confidence = None
         self._grammar = None
+        self._literal_tag = None
         self._semantic_tags = None
         self._utterance = None
         self.discriminator = None
@@ -62,6 +65,8 @@ class RecoAlt(object):
         self.confidence = confidence
         if grammar is not None:
             self.grammar = grammar
+        if literal_tag is not None:
+            self.literal_tag = literal_tag
         if semantic_tags is not None:
             self.semantic_tags = semantic_tags
         self.utterance = utterance
@@ -121,10 +126,33 @@ class RecoAlt(object):
         self._grammar = grammar
 
     @property
+    def literal_tag(self):
+        """Gets the literal_tag of this RecoAlt.  # noqa: E501
+
+        Applies to grammars with tag-format `semantics/1.0-literals` </br> Value of the literal tag attached to the matching rule. For example:</br> \"cheese\"   # noqa: E501
+
+        :return: The literal_tag of this RecoAlt.  # noqa: E501
+        :rtype: str
+        """
+        return self._literal_tag
+
+    @literal_tag.setter
+    def literal_tag(self, literal_tag):
+        """Sets the literal_tag of this RecoAlt.
+
+        Applies to grammars with tag-format `semantics/1.0-literals` </br> Value of the literal tag attached to the matching rule. For example:</br> \"cheese\"   # noqa: E501
+
+        :param literal_tag: The literal_tag of this RecoAlt.  # noqa: E501
+        :type: str
+        """
+
+        self._literal_tag = literal_tag
+
+    @property
     def semantic_tags(self):
         """Gets the semantic_tags of this RecoAlt.  # noqa: E501
 
-        Map with semantic interpretation according to the tags attached to the grammar rules. For example:</br> topping : \"cheese\"   # noqa: E501
+        Applies to grammars with tag-format `semantics/1.0` </br> Contains map with the semantic interpretation according to the tags attached to the grammar rules. For example:</br> \"topping\" : \"cheese\"   # noqa: E501
 
         :return: The semantic_tags of this RecoAlt.  # noqa: E501
         :rtype: object
@@ -135,7 +163,7 @@ class RecoAlt(object):
     def semantic_tags(self, semantic_tags):
         """Sets the semantic_tags of this RecoAlt.
 
-        Map with semantic interpretation according to the tags attached to the grammar rules. For example:</br> topping : \"cheese\"   # noqa: E501
+        Applies to grammars with tag-format `semantics/1.0` </br> Contains map with the semantic interpretation according to the tags attached to the grammar rules. For example:</br> \"topping\" : \"cheese\"   # noqa: E501
 
         :param semantic_tags: The semantic_tags of this RecoAlt.  # noqa: E501
         :type: object
