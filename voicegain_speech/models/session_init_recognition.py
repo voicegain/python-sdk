@@ -190,7 +190,7 @@ class SessionInitRecognition(object):
     def start_input_timers(self):
         """Gets the start_input_timers of this SessionInitRecognition.  # noqa: E501
 
-        (Optional) By default input timers are started immediately after recognizer is ready to listen. This parameter can be used to disable automatic start of input timers. Currently meant mainly for internal use only as there is no web api to start the input timers on demand.   # noqa: E501
+        (Optional) By default input timers are started immediately after recognizer is ready to listen. This parameter can be used to disable automatic start of input timers. </br> Currently meant mainly for internal use only as there is no web api to start the input timers on demand.   # noqa: E501
 
         :return: The start_input_timers of this SessionInitRecognition.  # noqa: E501
         :rtype: bool
@@ -201,7 +201,7 @@ class SessionInitRecognition(object):
     def start_input_timers(self, start_input_timers):
         """Sets the start_input_timers of this SessionInitRecognition.
 
-        (Optional) By default input timers are started immediately after recognizer is ready to listen. This parameter can be used to disable automatic start of input timers. Currently meant mainly for internal use only as there is no web api to start the input timers on demand.   # noqa: E501
+        (Optional) By default input timers are started immediately after recognizer is ready to listen. This parameter can be used to disable automatic start of input timers. </br> Currently meant mainly for internal use only as there is no web api to start the input timers on demand.   # noqa: E501
 
         :param start_input_timers: The start_input_timers of this SessionInitRecognition.  # noqa: E501
         :type: bool
