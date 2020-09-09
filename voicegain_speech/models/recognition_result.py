@@ -37,17 +37,19 @@ class RecognitionResult(object):
         'alternatives': 'list[RecoAlt]',
         'last_event': 'AsrProcessingEvent',
         'message': 'str',
-        'status': 'AsrProcessingStatus'
+        'status': 'AsrProcessingStatus',
+        'utterance_audio': 'str'
     }
 
     attribute_map = {
         'alternatives': 'alternatives',
         'last_event': 'lastEvent',
         'message': 'message',
-        'status': 'status'
+        'status': 'status',
+        'utterance_audio': 'utteranceAudio'
     }
 
-    def __init__(self, alternatives=None, last_event=None, message=None, status=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, alternatives=None, last_event=None, message=None, status=None, utterance_audio=None, local_vars_configuration=None):  # noqa: E501
         """RecognitionResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class RecognitionResult(object):
         self._last_event = None
         self._message = None
         self._status = None
+        self._utterance_audio = None
         self.discriminator = None
 
         if alternatives is not None:
@@ -67,6 +70,8 @@ class RecognitionResult(object):
             self.message = message
         if status is not None:
             self.status = status
+        if utterance_audio is not None:
+            self.utterance_audio = utterance_audio
 
     @property
     def alternatives(self):
@@ -155,6 +160,29 @@ class RecognitionResult(object):
         """
 
         self._status = status
+
+    @property
+    def utterance_audio(self):
+        """Gets the utterance_audio of this RecognitionResult.  # noqa: E501
+
+        Url that can be used to retrieve the audio utterance that corresponds to recognition. The audio is captured from the moment start of speech is detected until when recognition is complete. Available only if final is true and status is MATCH.    # noqa: E501
+
+        :return: The utterance_audio of this RecognitionResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._utterance_audio
+
+    @utterance_audio.setter
+    def utterance_audio(self, utterance_audio):
+        """Sets the utterance_audio of this RecognitionResult.
+
+        Url that can be used to retrieve the audio utterance that corresponds to recognition. The audio is captured from the moment start of speech is detected until when recognition is complete. Available only if final is true and status is MATCH.    # noqa: E501
+
+        :param utterance_audio: The utterance_audio of this RecognitionResult.  # noqa: E501
+        :type: str
+        """
+
+        self._utterance_audio = utterance_audio
 
     def to_dict(self):
         """Returns the model properties as a dict"""

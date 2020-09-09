@@ -38,6 +38,7 @@ class AsyncRecognitionResult(object):
         'last_event': 'AsrProcessingEvent',
         'message': 'str',
         'status': 'AsrProcessingStatus',
+        'utterance_audio': 'str',
         'final': 'bool'
     }
 
@@ -46,10 +47,11 @@ class AsyncRecognitionResult(object):
         'last_event': 'lastEvent',
         'message': 'message',
         'status': 'status',
+        'utterance_audio': 'utteranceAudio',
         'final': 'final'
     }
 
-    def __init__(self, alternatives=None, last_event=None, message=None, status=None, final=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, alternatives=None, last_event=None, message=None, status=None, utterance_audio=None, final=None, local_vars_configuration=None):  # noqa: E501
         """AsyncRecognitionResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class AsyncRecognitionResult(object):
         self._last_event = None
         self._message = None
         self._status = None
+        self._utterance_audio = None
         self._final = None
         self.discriminator = None
 
@@ -70,6 +73,8 @@ class AsyncRecognitionResult(object):
             self.message = message
         if status is not None:
             self.status = status
+        if utterance_audio is not None:
+            self.utterance_audio = utterance_audio
         if final is not None:
             self.final = final
 
@@ -160,6 +165,29 @@ class AsyncRecognitionResult(object):
         """
 
         self._status = status
+
+    @property
+    def utterance_audio(self):
+        """Gets the utterance_audio of this AsyncRecognitionResult.  # noqa: E501
+
+        Url that can be used to retrieve the audio utterance that corresponds to recognition. The audio is captured from the moment start of speech is detected until when recognition is complete. Available only if final is true and status is MATCH.    # noqa: E501
+
+        :return: The utterance_audio of this AsyncRecognitionResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._utterance_audio
+
+    @utterance_audio.setter
+    def utterance_audio(self, utterance_audio):
+        """Sets the utterance_audio of this AsyncRecognitionResult.
+
+        Url that can be used to retrieve the audio utterance that corresponds to recognition. The audio is captured from the moment start of speech is detected until when recognition is complete. Available only if final is true and status is MATCH.    # noqa: E501
+
+        :param utterance_audio: The utterance_audio of this AsyncRecognitionResult.  # noqa: E501
+        :type: str
+        """
+
+        self._utterance_audio = utterance_audio
 
     @property
     def final(self):
