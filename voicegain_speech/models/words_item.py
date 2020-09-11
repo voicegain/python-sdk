@@ -95,7 +95,7 @@ class WordsItem(object):
     def spk(self):
         """Gets the spk of this WordsItem.  # noqa: E501
 
-        **(Coming soon)** If diarization is enabled (`diarizationMaxSpeakers > 1`) then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarizationMaxSpeakers`.     # noqa: E501
+        **(Coming soon)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.     # noqa: E501
 
         :return: The spk of this WordsItem.  # noqa: E501
         :rtype: int
@@ -106,7 +106,7 @@ class WordsItem(object):
     def spk(self, spk):
         """Sets the spk of this WordsItem.
 
-        **(Coming soon)** If diarization is enabled (`diarizationMaxSpeakers > 1`) then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarizationMaxSpeakers`.     # noqa: E501
+        **(Coming soon)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.     # noqa: E501
 
         :param spk: The spk of this WordsItem.  # noqa: E501
         :type: int
