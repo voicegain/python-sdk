@@ -35,29 +35,34 @@ class Caption(object):
     """
     openapi_types = {
         'duration': 'float',
+        'spk': 'int',
         'text': 'str',
         'time': 'int'
     }
 
     attribute_map = {
         'duration': 'duration',
+        'spk': 'spk',
         'text': 'text',
         'time': 'time'
     }
 
-    def __init__(self, duration=None, text=None, time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, duration=None, spk=None, text=None, time=None, local_vars_configuration=None):  # noqa: E501
         """Caption - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._duration = None
+        self._spk = None
         self._text = None
         self._time = None
         self.discriminator = None
 
         if duration is not None:
             self.duration = duration
+        if spk is not None:
+            self.spk = spk
         self.text = text
         self.time = time
 
@@ -86,6 +91,35 @@ class Caption(object):
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._duration = duration
+
+    @property
+    def spk(self):
+        """Gets the spk of this Caption.  # noqa: E501
+
+        **(Coming soon)** If diarization is enabled (`diarizationMaxSpeakers > 1`) then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarizationMaxSpeakers`.     # noqa: E501
+
+        :return: The spk of this Caption.  # noqa: E501
+        :rtype: int
+        """
+        return self._spk
+
+    @spk.setter
+    def spk(self, spk):
+        """Sets the spk of this Caption.
+
+        **(Coming soon)** If diarization is enabled (`diarizationMaxSpeakers > 1`) then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarizationMaxSpeakers`.     # noqa: E501
+
+        :param spk: The spk of this Caption.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk > 10):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `10`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk < 1):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._spk = spk
 
     @property
     def text(self):

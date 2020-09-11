@@ -35,26 +35,31 @@ class WordsItem(object):
     """
     openapi_types = {
         'confidence': 'float',
+        'spk': 'int',
         'utterance': 'str'
     }
 
     attribute_map = {
         'confidence': 'confidence',
+        'spk': 'spk',
         'utterance': 'utterance'
     }
 
-    def __init__(self, confidence=None, utterance=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, confidence=None, spk=None, utterance=None, local_vars_configuration=None):  # noqa: E501
         """WordsItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._confidence = None
+        self._spk = None
         self._utterance = None
         self.discriminator = None
 
         if confidence is not None:
             self.confidence = confidence
+        if spk is not None:
+            self.spk = spk
         self.utterance = utterance
 
     @property
@@ -85,6 +90,35 @@ class WordsItem(object):
             raise ValueError("Invalid value for `confidence`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._confidence = confidence
+
+    @property
+    def spk(self):
+        """Gets the spk of this WordsItem.  # noqa: E501
+
+        **(Coming soon)** If diarization is enabled (`diarizationMaxSpeakers > 1`) then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarizationMaxSpeakers`.     # noqa: E501
+
+        :return: The spk of this WordsItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._spk
+
+    @spk.setter
+    def spk(self, spk):
+        """Sets the spk of this WordsItem.
+
+        **(Coming soon)** If diarization is enabled (`diarizationMaxSpeakers > 1`) then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarizationMaxSpeakers`.     # noqa: E501
+
+        :param spk: The spk of this WordsItem.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk > 10):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `10`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk < 1):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._spk = spk
 
     @property
     def utterance(self):

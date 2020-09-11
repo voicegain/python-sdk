@@ -34,6 +34,7 @@ class AsrSettingsTranscriptionAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'diarization_max_speakers': 'int',
         'hints': 'list[str]',
         'lang_model': 'str',
         'no_input_timeout': 'int',
@@ -42,6 +43,7 @@ class AsrSettingsTranscriptionAllOf(object):
     }
 
     attribute_map = {
+        'diarization_max_speakers': 'diarizationMaxSpeakers',
         'hints': 'hints',
         'lang_model': 'langModel',
         'no_input_timeout': 'noInputTimeout',
@@ -49,12 +51,13 @@ class AsrSettingsTranscriptionAllOf(object):
         'topic_discovery_config': 'topicDiscoveryConfig'
     }
 
-    def __init__(self, hints=None, lang_model=None, no_input_timeout=15000, speech_analytics_config=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, diarization_max_speakers=1, hints=None, lang_model=None, no_input_timeout=15000, speech_analytics_config=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscriptionAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._diarization_max_speakers = None
         self._hints = None
         self._lang_model = None
         self._no_input_timeout = None
@@ -62,6 +65,8 @@ class AsrSettingsTranscriptionAllOf(object):
         self._topic_discovery_config = None
         self.discriminator = None
 
+        if diarization_max_speakers is not None:
+            self.diarization_max_speakers = diarization_max_speakers
         if hints is not None:
             self.hints = hints
         if lang_model is not None:
@@ -72,6 +77,35 @@ class AsrSettingsTranscriptionAllOf(object):
             self.speech_analytics_config = speech_analytics_config
         if topic_discovery_config is not None:
             self.topic_discovery_config = topic_discovery_config
+
+    @property
+    def diarization_max_speakers(self):
+        """Gets the diarization_max_speakers of this AsrSettingsTranscriptionAllOf.  # noqa: E501
+
+        **(Coming soon)** Use this parameter to enable diarization (by setting to a value > 1).  The exact value set will determine the maximum number of speakers that the diarization algorithm will attempt to recognize in the audio.</br> Default is 1 which means that diarization is disabled.   # noqa: E501
+
+        :return: The diarization_max_speakers of this AsrSettingsTranscriptionAllOf.  # noqa: E501
+        :rtype: int
+        """
+        return self._diarization_max_speakers
+
+    @diarization_max_speakers.setter
+    def diarization_max_speakers(self, diarization_max_speakers):
+        """Sets the diarization_max_speakers of this AsrSettingsTranscriptionAllOf.
+
+        **(Coming soon)** Use this parameter to enable diarization (by setting to a value > 1).  The exact value set will determine the maximum number of speakers that the diarization algorithm will attempt to recognize in the audio.</br> Default is 1 which means that diarization is disabled.   # noqa: E501
+
+        :param diarization_max_speakers: The diarization_max_speakers of this AsrSettingsTranscriptionAllOf.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                diarization_max_speakers is not None and diarization_max_speakers > 10):  # noqa: E501
+            raise ValueError("Invalid value for `diarization_max_speakers`, must be a value less than or equal to `10`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                diarization_max_speakers is not None and diarization_max_speakers < 1):  # noqa: E501
+            raise ValueError("Invalid value for `diarization_max_speakers`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._diarization_max_speakers = diarization_max_speakers
 
     @property
     def hints(self):

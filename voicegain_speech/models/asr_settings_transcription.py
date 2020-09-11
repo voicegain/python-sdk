@@ -40,6 +40,7 @@ class AsrSettingsTranscription(object):
         'max_alternatives': 'int',
         'sensitivity': 'float',
         'speed_vs_accuracy': 'float',
+        'diarization_max_speakers': 'int',
         'hints': 'list[str]',
         'lang_model': 'str',
         'no_input_timeout': 'int',
@@ -54,6 +55,7 @@ class AsrSettingsTranscription(object):
         'max_alternatives': 'maxAlternatives',
         'sensitivity': 'sensitivity',
         'speed_vs_accuracy': 'speedVsAccuracy',
+        'diarization_max_speakers': 'diarizationMaxSpeakers',
         'hints': 'hints',
         'lang_model': 'langModel',
         'no_input_timeout': 'noInputTimeout',
@@ -61,7 +63,7 @@ class AsrSettingsTranscription(object):
         'topic_discovery_config': 'topicDiscoveryConfig'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, hints=None, lang_model=None, no_input_timeout=15000, speech_analytics_config=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, diarization_max_speakers=1, hints=None, lang_model=None, no_input_timeout=15000, speech_analytics_config=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +75,7 @@ class AsrSettingsTranscription(object):
         self._max_alternatives = None
         self._sensitivity = None
         self._speed_vs_accuracy = None
+        self._diarization_max_speakers = None
         self._hints = None
         self._lang_model = None
         self._no_input_timeout = None
@@ -92,6 +95,8 @@ class AsrSettingsTranscription(object):
             self.sensitivity = sensitivity
         if speed_vs_accuracy is not None:
             self.speed_vs_accuracy = speed_vs_accuracy
+        if diarization_max_speakers is not None:
+            self.diarization_max_speakers = diarization_max_speakers
         if hints is not None:
             self.hints = hints
         if lang_model is not None:
@@ -264,6 +269,35 @@ class AsrSettingsTranscription(object):
             raise ValueError("Invalid value for `speed_vs_accuracy`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._speed_vs_accuracy = speed_vs_accuracy
+
+    @property
+    def diarization_max_speakers(self):
+        """Gets the diarization_max_speakers of this AsrSettingsTranscription.  # noqa: E501
+
+        **(Coming soon)** Use this parameter to enable diarization (by setting to a value > 1).  The exact value set will determine the maximum number of speakers that the diarization algorithm will attempt to recognize in the audio.</br> Default is 1 which means that diarization is disabled.   # noqa: E501
+
+        :return: The diarization_max_speakers of this AsrSettingsTranscription.  # noqa: E501
+        :rtype: int
+        """
+        return self._diarization_max_speakers
+
+    @diarization_max_speakers.setter
+    def diarization_max_speakers(self, diarization_max_speakers):
+        """Sets the diarization_max_speakers of this AsrSettingsTranscription.
+
+        **(Coming soon)** Use this parameter to enable diarization (by setting to a value > 1).  The exact value set will determine the maximum number of speakers that the diarization algorithm will attempt to recognize in the audio.</br> Default is 1 which means that diarization is disabled.   # noqa: E501
+
+        :param diarization_max_speakers: The diarization_max_speakers of this AsrSettingsTranscription.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                diarization_max_speakers is not None and diarization_max_speakers > 10):  # noqa: E501
+            raise ValueError("Invalid value for `diarization_max_speakers`, must be a value less than or equal to `10`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                diarization_max_speakers is not None and diarization_max_speakers < 1):  # noqa: E501
+            raise ValueError("Invalid value for `diarization_max_speakers`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._diarization_max_speakers = diarization_max_speakers
 
     @property
     def hints(self):
