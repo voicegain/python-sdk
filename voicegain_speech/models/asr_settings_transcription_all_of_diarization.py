@@ -111,8 +111,8 @@ class AsrSettingsTranscriptionAllOfDiarization(object):
                 min_speakers is not None and min_speakers > 10):  # noqa: E501
             raise ValueError("Invalid value for `min_speakers`, must be a value less than or equal to `10`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                min_speakers is not None and min_speakers < 1):  # noqa: E501
-            raise ValueError("Invalid value for `min_speakers`, must be a value greater than or equal to `1`")  # noqa: E501
+                min_speakers is not None and min_speakers < 2):  # noqa: E501
+            raise ValueError("Invalid value for `min_speakers`, must be a value greater than or equal to `2`")  # noqa: E501
 
         self._min_speakers = min_speakers
 
