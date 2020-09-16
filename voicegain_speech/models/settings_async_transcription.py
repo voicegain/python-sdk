@@ -36,16 +36,20 @@ class SettingsAsyncTranscription(object):
     openapi_types = {
         'asr': 'AsrSettingsTranscription',
         'debug': 'DebugSettings',
-        'preemptible': 'bool'
+        'preemptible': 'bool',
+        'speech_analytics_config': 'str',
+        'topic_discovery_config': 'str'
     }
 
     attribute_map = {
         'asr': 'asr',
         'debug': 'debug',
-        'preemptible': 'preemptible'
+        'preemptible': 'preemptible',
+        'speech_analytics_config': 'speechAnalyticsConfig',
+        'topic_discovery_config': 'topicDiscoveryConfig'
     }
 
-    def __init__(self, asr=None, debug=None, preemptible=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, debug=None, preemptible=False, speech_analytics_config=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
         """SettingsAsyncTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -54,6 +58,8 @@ class SettingsAsyncTranscription(object):
         self._asr = None
         self._debug = None
         self._preemptible = None
+        self._speech_analytics_config = None
+        self._topic_discovery_config = None
         self.discriminator = None
 
         if asr is not None:
@@ -62,6 +68,10 @@ class SettingsAsyncTranscription(object):
             self.debug = debug
         if preemptible is not None:
             self.preemptible = preemptible
+        if speech_analytics_config is not None:
+            self.speech_analytics_config = speech_analytics_config
+        if topic_discovery_config is not None:
+            self.topic_discovery_config = topic_discovery_config
 
     @property
     def asr(self):
@@ -127,6 +137,58 @@ class SettingsAsyncTranscription(object):
         """
 
         self._preemptible = preemptible
+
+    @property
+    def speech_analytics_config(self):
+        """Gets the speech_analytics_config of this SettingsAsyncTranscription.  # noqa: E501
+
+        (Coming Soon) Name or UUID of the Speech Analytics configuration to use. If absent then will not perform Speech Analytics.       # noqa: E501
+
+        :return: The speech_analytics_config of this SettingsAsyncTranscription.  # noqa: E501
+        :rtype: str
+        """
+        return self._speech_analytics_config
+
+    @speech_analytics_config.setter
+    def speech_analytics_config(self, speech_analytics_config):
+        """Sets the speech_analytics_config of this SettingsAsyncTranscription.
+
+        (Coming Soon) Name or UUID of the Speech Analytics configuration to use. If absent then will not perform Speech Analytics.       # noqa: E501
+
+        :param speech_analytics_config: The speech_analytics_config of this SettingsAsyncTranscription.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                speech_analytics_config is not None and len(speech_analytics_config) > 128):
+            raise ValueError("Invalid value for `speech_analytics_config`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._speech_analytics_config = speech_analytics_config
+
+    @property
+    def topic_discovery_config(self):
+        """Gets the topic_discovery_config of this SettingsAsyncTranscription.  # noqa: E501
+
+        (Coming Soon) Name or UUID of the Topic discovery configuration to use. If absent then will not perform Topic Discovery.                 # noqa: E501
+
+        :return: The topic_discovery_config of this SettingsAsyncTranscription.  # noqa: E501
+        :rtype: str
+        """
+        return self._topic_discovery_config
+
+    @topic_discovery_config.setter
+    def topic_discovery_config(self, topic_discovery_config):
+        """Sets the topic_discovery_config of this SettingsAsyncTranscription.
+
+        (Coming Soon) Name or UUID of the Topic discovery configuration to use. If absent then will not perform Topic Discovery.                 # noqa: E501
+
+        :param topic_discovery_config: The topic_discovery_config of this SettingsAsyncTranscription.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                topic_discovery_config is not None and len(topic_discovery_config) > 128):
+            raise ValueError("Invalid value for `topic_discovery_config`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._topic_discovery_config = topic_discovery_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""

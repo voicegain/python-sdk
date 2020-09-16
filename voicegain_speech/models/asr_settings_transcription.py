@@ -43,9 +43,7 @@ class AsrSettingsTranscription(object):
         'diarization': 'AsrSettingsTranscriptionAllOfDiarization',
         'hints': 'list[str]',
         'lang_model': 'str',
-        'no_input_timeout': 'int',
-        'speech_analytics_config': 'str',
-        'topic_discovery_config': 'str'
+        'no_input_timeout': 'int'
     }
 
     attribute_map = {
@@ -58,12 +56,10 @@ class AsrSettingsTranscription(object):
         'diarization': 'diarization',
         'hints': 'hints',
         'lang_model': 'langModel',
-        'no_input_timeout': 'noInputTimeout',
-        'speech_analytics_config': 'speechAnalyticsConfig',
-        'topic_discovery_config': 'topicDiscoveryConfig'
+        'no_input_timeout': 'noInputTimeout'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, diarization=None, hints=None, lang_model=None, no_input_timeout=15000, speech_analytics_config=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, diarization=None, hints=None, lang_model=None, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,8 +75,6 @@ class AsrSettingsTranscription(object):
         self._hints = None
         self._lang_model = None
         self._no_input_timeout = None
-        self._speech_analytics_config = None
-        self._topic_discovery_config = None
         self.discriminator = None
 
         if acoustic_model_non_real_time is not None:
@@ -103,10 +97,6 @@ class AsrSettingsTranscription(object):
             self.lang_model = lang_model
         if no_input_timeout is not None:
             self.no_input_timeout = no_input_timeout
-        if speech_analytics_config is not None:
-            self.speech_analytics_config = speech_analytics_config
-        if topic_discovery_config is not None:
-            self.topic_discovery_config = topic_discovery_config
 
     @property
     def acoustic_model_non_real_time(self):
@@ -362,58 +352,6 @@ class AsrSettingsTranscription(object):
         """
 
         self._no_input_timeout = no_input_timeout
-
-    @property
-    def speech_analytics_config(self):
-        """Gets the speech_analytics_config of this AsrSettingsTranscription.  # noqa: E501
-
-        Name or UUID of the Speech Analytics configuration to use. If absent then will not perform Speech Analytics.  # noqa: E501
-
-        :return: The speech_analytics_config of this AsrSettingsTranscription.  # noqa: E501
-        :rtype: str
-        """
-        return self._speech_analytics_config
-
-    @speech_analytics_config.setter
-    def speech_analytics_config(self, speech_analytics_config):
-        """Sets the speech_analytics_config of this AsrSettingsTranscription.
-
-        Name or UUID of the Speech Analytics configuration to use. If absent then will not perform Speech Analytics.  # noqa: E501
-
-        :param speech_analytics_config: The speech_analytics_config of this AsrSettingsTranscription.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                speech_analytics_config is not None and len(speech_analytics_config) > 128):
-            raise ValueError("Invalid value for `speech_analytics_config`, length must be less than or equal to `128`")  # noqa: E501
-
-        self._speech_analytics_config = speech_analytics_config
-
-    @property
-    def topic_discovery_config(self):
-        """Gets the topic_discovery_config of this AsrSettingsTranscription.  # noqa: E501
-
-        Name or UUID of the Topic discovery configuration to use. If absent then will not perform Topic Discovery.  # noqa: E501
-
-        :return: The topic_discovery_config of this AsrSettingsTranscription.  # noqa: E501
-        :rtype: str
-        """
-        return self._topic_discovery_config
-
-    @topic_discovery_config.setter
-    def topic_discovery_config(self, topic_discovery_config):
-        """Sets the topic_discovery_config of this AsrSettingsTranscription.
-
-        Name or UUID of the Topic discovery configuration to use. If absent then will not perform Topic Discovery.  # noqa: E501
-
-        :param topic_discovery_config: The topic_discovery_config of this AsrSettingsTranscription.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                topic_discovery_config is not None and len(topic_discovery_config) > 128):
-            raise ValueError("Invalid value for `topic_discovery_config`, length must be less than or equal to `128`")  # noqa: E501
-
-        self._topic_discovery_config = topic_discovery_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""
