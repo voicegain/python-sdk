@@ -37,6 +37,7 @@ class AsyncResultFullAllOfResult(object):
         'captions': 'list[Caption]',
         'final': 'bool',
         'last_event': 'AsrProcessingEvent',
+        'number_speakers': 'int',
         'rms_data': 'str',
         'status': 'AsrProcessingStatus',
         'transcript': 'str',
@@ -50,6 +51,7 @@ class AsyncResultFullAllOfResult(object):
         'captions': 'captions',
         'final': 'final',
         'last_event': 'lastEvent',
+        'number_speakers': 'numberSpeakers',
         'rms_data': 'rmsData',
         'status': 'status',
         'transcript': 'transcript',
@@ -59,7 +61,7 @@ class AsyncResultFullAllOfResult(object):
         'words': 'words'
     }
 
-    def __init__(self, captions=None, final=None, last_event=None, rms_data=None, status=None, transcript=None, ttml=None, vad_data=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, captions=None, final=None, last_event=None, number_speakers=None, rms_data=None, status=None, transcript=None, ttml=None, vad_data=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOfResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +70,7 @@ class AsyncResultFullAllOfResult(object):
         self._captions = None
         self._final = None
         self._last_event = None
+        self._number_speakers = None
         self._rms_data = None
         self._status = None
         self._transcript = None
@@ -83,6 +86,8 @@ class AsyncResultFullAllOfResult(object):
             self.final = final
         if last_event is not None:
             self.last_event = last_event
+        if number_speakers is not None:
+            self.number_speakers = number_speakers
         if rms_data is not None:
             self.rms_data = rms_data
         if status is not None:
@@ -166,10 +171,33 @@ class AsyncResultFullAllOfResult(object):
         self._last_event = last_event
 
     @property
+    def number_speakers(self):
+        """Gets the number_speakers of this AsyncResultFullAllOfResult.  # noqa: E501
+
+        Number of speakers detected by diarization (if diarization was requested)  # noqa: E501
+
+        :return: The number_speakers of this AsyncResultFullAllOfResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._number_speakers
+
+    @number_speakers.setter
+    def number_speakers(self, number_speakers):
+        """Sets the number_speakers of this AsyncResultFullAllOfResult.
+
+        Number of speakers detected by diarization (if diarization was requested)  # noqa: E501
+
+        :param number_speakers: The number_speakers of this AsyncResultFullAllOfResult.  # noqa: E501
+        :type: int
+        """
+
+        self._number_speakers = number_speakers
+
+    @property
     def rms_data(self):
         """Gets the rms_data of this AsyncResultFullAllOfResult.  # noqa: E501
 
-        Encoded data with RMS values of the source audio.</br> (Note: This field will be moved to internal API in next release and will no longer be in public API.)   # noqa: E501
+        (Internal use only)</br> Encoded data with RMS values of the source audio.   # noqa: E501
 
         :return: The rms_data of this AsyncResultFullAllOfResult.  # noqa: E501
         :rtype: str
@@ -180,7 +208,7 @@ class AsyncResultFullAllOfResult(object):
     def rms_data(self, rms_data):
         """Sets the rms_data of this AsyncResultFullAllOfResult.
 
-        Encoded data with RMS values of the source audio.</br> (Note: This field will be moved to internal API in next release and will no longer be in public API.)   # noqa: E501
+        (Internal use only)</br> Encoded data with RMS values of the source audio.   # noqa: E501
 
         :param rms_data: The rms_data of this AsyncResultFullAllOfResult.  # noqa: E501
         :type: str
@@ -259,7 +287,7 @@ class AsyncResultFullAllOfResult(object):
     def vad_data(self):
         """Gets the vad_data of this AsyncResultFullAllOfResult.  # noqa: E501
 
-        Encoded data with VAD values of the source audio.</br> (Note: This field will be moved to internal API in next release and will no longer be in public API.)   # noqa: E501
+        (Internal use only)</br> Encoded data with VAD values of the source audio.   # noqa: E501
 
         :return: The vad_data of this AsyncResultFullAllOfResult.  # noqa: E501
         :rtype: str
@@ -270,7 +298,7 @@ class AsyncResultFullAllOfResult(object):
     def vad_data(self, vad_data):
         """Sets the vad_data of this AsyncResultFullAllOfResult.
 
-        Encoded data with VAD values of the source audio.</br> (Note: This field will be moved to internal API in next release and will no longer be in public API.)   # noqa: E501
+        (Internal use only)</br> Encoded data with VAD values of the source audio.   # noqa: E501
 
         :param vad_data: The vad_data of this AsyncResultFullAllOfResult.  # noqa: E501
         :type: str
