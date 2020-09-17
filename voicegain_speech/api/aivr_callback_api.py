@@ -116,6 +116,14 @@ class AivrCallbackApi(object):
                                                         local_var_params['seq'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `seq` when calling `aivr_callback_delete`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('csid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['csid']) > 256):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `csid` when calling `aivr_callback_delete`, length must be less than or equal to `256`")  # noqa: E501
+        if self.api_client.client_side_validation and ('csid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['csid']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `csid` when calling `aivr_callback_delete`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'seq' in local_var_params and local_var_params['seq'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `seq` when calling `aivr_callback_delete`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -240,6 +248,14 @@ class AivrCallbackApi(object):
                                                         local_var_params['seq'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `seq` when calling `aivr_callback_existing`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('csid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['csid']) > 256):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `csid` when calling `aivr_callback_existing`, length must be less than or equal to `256`")  # noqa: E501
+        if self.api_client.client_side_validation and ('csid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['csid']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `csid` when calling `aivr_callback_existing`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'seq' in local_var_params and local_var_params['seq'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `seq` when calling `aivr_callback_existing`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

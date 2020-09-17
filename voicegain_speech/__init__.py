@@ -234,6 +234,8 @@ from voicegain_speech.models.mrcp_version import MRCPVersion
 from voicegain_speech.models.mrc_pv1_asr_settings import MRCPv1AsrSettings
 from voicegain_speech.models.mrc_pv2_asr_settings import MRCPv2AsrSettings
 from voicegain_speech.models.non_session_error_response import NonSessionErrorResponse
+from voicegain_speech.models.non_session_error_response400 import NonSessionErrorResponse400
+from voicegain_speech.models.non_session_error_response401 import NonSessionErrorResponse401
 from voicegain_speech.models.output import Output
 from voicegain_speech.models.output_all_of import OutputAllOf
 from voicegain_speech.models.poll_req import PollReq

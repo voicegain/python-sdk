@@ -108,6 +108,12 @@ class TrainingApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `training_set_get`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `training_set_get`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `training_set_get`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -216,6 +222,12 @@ class TrainingApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `training_set_key_post`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `training_set_key_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `training_set_key_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -436,6 +448,12 @@ class TrainingApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `training_set_put`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `training_set_put`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `training_set_put`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

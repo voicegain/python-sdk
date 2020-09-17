@@ -114,6 +114,12 @@ class TranscribeApi(object):
                                                         local_var_params['session_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `session_id` when calling `asr_transcribe_async_get`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['session_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `session_id` when calling `asr_transcribe_async_get`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['session_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `session_id` when calling `asr_transcribe_async_get`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -232,6 +238,12 @@ class TranscribeApi(object):
                                                         local_var_params['ws_name'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `ws_name` when calling `asr_transcribe_async_get_by_ws_name`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('ws_name' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['ws_name']) > 128):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `ws_name` when calling `asr_transcribe_async_get_by_ws_name`, length must be less than or equal to `128`")  # noqa: E501
+        if self.api_client.client_side_validation and ('ws_name' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['ws_name']) < 2):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `ws_name` when calling `asr_transcribe_async_get_by_ws_name`, length must be greater than or equal to `2`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -342,6 +354,12 @@ class TranscribeApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `asr_transcribe_async_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `asr_transcribe_async_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -398,7 +416,7 @@ class TranscribeApi(object):
         :param str session_id: ID of the session (required)
         :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plaint text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format 
         :param float width: Applicable only to captions. Determines max caption width in number of characters.
-        :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> If value lower than 5 is provided, then the minimum value of 5 seconds will be used. 
+        :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -426,7 +444,7 @@ class TranscribeApi(object):
         :param str session_id: ID of the session (required)
         :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plaint text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format 
         :param float width: Applicable only to captions. Determines max caption width in number of characters.
-        :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> If value lower than 5 is provided, then the minimum value of 5 seconds will be used. 
+        :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -462,10 +480,18 @@ class TranscribeApi(object):
                                                         local_var_params['session_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `session_id` when calling `asr_transcribe_get_transcript`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['session_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `session_id` when calling `asr_transcribe_get_transcript`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['session_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `session_id` when calling `asr_transcribe_get_transcript`, length must be greater than or equal to `16`")  # noqa: E501
         if self.api_client.client_side_validation and 'width' in local_var_params and local_var_params['width'] > 120:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `width` when calling `asr_transcribe_get_transcript`, must be a value less than or equal to `120`")  # noqa: E501
         if self.api_client.client_side_validation and 'width' in local_var_params and local_var_params['width'] < 10:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `width` when calling `asr_transcribe_get_transcript`, must be a value greater than or equal to `10`")  # noqa: E501
+        if self.api_client.client_side_validation and 'interval' in local_var_params and local_var_params['interval'] < 5:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `interval` when calling `asr_transcribe_get_transcript`, must be a value greater than or equal to `5`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -688,6 +714,12 @@ class TranscribeApi(object):
                                                         local_var_params['ws_name'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `ws_name` when calling `ws_transcribe_words`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('ws_name' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['ws_name']) > 128):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `ws_name` when calling `ws_transcribe_words`, length must be less than or equal to `128`")  # noqa: E501
+        if self.api_client.client_side_validation and ('ws_name' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['ws_name']) < 2):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `ws_name` when calling `ws_transcribe_words`, length must be greater than or equal to `2`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

@@ -108,6 +108,12 @@ class AivrApi(object):
                                                         local_var_params['ivr_sid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `ivr_sid` when calling `aivr_get`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('ivr_sid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['ivr_sid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `ivr_sid` when calling `aivr_get`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('ivr_sid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['ivr_sid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `ivr_sid` when calling `aivr_get`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

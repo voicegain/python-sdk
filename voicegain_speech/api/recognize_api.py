@@ -218,6 +218,12 @@ class RecognizeApi(object):
                                                         local_var_params['session_id'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `session_id` when calling `asr_recognize_async_get`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['session_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `session_id` when calling `asr_recognize_async_get`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['session_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `session_id` when calling `asr_recognize_async_get`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

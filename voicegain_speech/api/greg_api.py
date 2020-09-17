@@ -108,6 +108,12 @@ class GregApi(object):
                                                         local_var_params['hash'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `hash` when calling `audio_bytes_get_hash`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('hash' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['hash']) > 512):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `hash` when calling `audio_bytes_get_hash`, length must be less than or equal to `512`")  # noqa: E501
+        if self.api_client.client_side_validation and ('hash' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['hash']) < 32):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `hash` when calling `audio_bytes_get_hash`, length must be greater than or equal to `32`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -216,6 +222,12 @@ class GregApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `audio_bytes_get_id`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `audio_bytes_get_id`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `audio_bytes_get_id`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -324,6 +336,12 @@ class GregApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `exp_recog_query`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `exp_recog_query`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `exp_recog_query`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -430,6 +448,12 @@ class GregApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `experiment_query`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `experiment_query`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -536,6 +560,12 @@ class GregApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `grammar_query`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `grammar_query`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -642,6 +672,12 @@ class GregApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_audio_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_audio_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -758,6 +794,12 @@ class GregApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `greg_audio_set_add`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_audio_set_add`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_audio_set_add`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -874,6 +916,12 @@ class GregApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `greg_audio_set_get`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_audio_set_get`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_audio_set_get`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -982,6 +1030,12 @@ class GregApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_audio_set_query`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_audio_set_query`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1094,6 +1148,12 @@ class GregApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_exp_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_exp_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1216,6 +1276,12 @@ class GregApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `greg_exp_put`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_exp_put`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_exp_put`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1334,6 +1400,12 @@ class GregApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `greg_experiment_get`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_experiment_get`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_experiment_get`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1442,6 +1514,12 @@ class GregApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_grammar_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_grammar_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1556,6 +1634,12 @@ class GregApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `greg_question_get`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_question_get`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `greg_question_get`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1662,6 +1746,12 @@ class GregApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_question_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `greg_question_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1880,6 +1970,12 @@ class GregApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `question_query`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `question_query`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1990,6 +2086,12 @@ class GregApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `question_truth_put`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `question_truth_put`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `question_truth_put`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -2106,6 +2208,12 @@ class GregApi(object):
                                                         local_var_params['uuid'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `uuid` when calling `recog_to_exp_post`")  # noqa: E501
 
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `recog_to_exp_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `recog_to_exp_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
