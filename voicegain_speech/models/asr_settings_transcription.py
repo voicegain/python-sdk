@@ -40,10 +40,12 @@ class AsrSettingsTranscription(object):
         'max_alternatives': 'int',
         'sensitivity': 'float',
         'speed_vs_accuracy': 'float',
+        'complete_timeout': 'int',
         'diarization': 'AsrSettingsTranscriptionAllOfDiarization',
         'hints': 'list[str]',
         'lang_model': 'str',
-        'no_input_timeout': 'int'
+        'no_input_timeout': 'int',
+        'start_input_timers': 'bool'
     }
 
     attribute_map = {
@@ -53,13 +55,15 @@ class AsrSettingsTranscription(object):
         'max_alternatives': 'maxAlternatives',
         'sensitivity': 'sensitivity',
         'speed_vs_accuracy': 'speedVsAccuracy',
+        'complete_timeout': 'completeTimeout',
         'diarization': 'diarization',
         'hints': 'hints',
         'lang_model': 'langModel',
-        'no_input_timeout': 'noInputTimeout'
+        'no_input_timeout': 'noInputTimeout',
+        'start_input_timers': 'startInputTimers'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, diarization=None, hints=None, lang_model=None, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, complete_timeout=-1, diarization=None, hints=None, lang_model=None, no_input_timeout=15000, start_input_timers=False, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,10 +75,12 @@ class AsrSettingsTranscription(object):
         self._max_alternatives = None
         self._sensitivity = None
         self._speed_vs_accuracy = None
+        self._complete_timeout = None
         self._diarization = None
         self._hints = None
         self._lang_model = None
         self._no_input_timeout = None
+        self._start_input_timers = None
         self.discriminator = None
 
         if acoustic_model_non_real_time is not None:
@@ -89,6 +95,8 @@ class AsrSettingsTranscription(object):
             self.sensitivity = sensitivity
         if speed_vs_accuracy is not None:
             self.speed_vs_accuracy = speed_vs_accuracy
+        if complete_timeout is not None:
+            self.complete_timeout = complete_timeout
         if diarization is not None:
             self.diarization = diarization
         if hints is not None:
@@ -97,6 +105,8 @@ class AsrSettingsTranscription(object):
             self.lang_model = lang_model
         if no_input_timeout is not None:
             self.no_input_timeout = no_input_timeout
+        if start_input_timers is not None:
+            self.start_input_timers = start_input_timers
 
     @property
     def acoustic_model_non_real_time(self):
@@ -261,6 +271,35 @@ class AsrSettingsTranscription(object):
         self._speed_vs_accuracy = speed_vs_accuracy
 
     @property
+    def complete_timeout(self):
+        """Gets the complete_timeout of this AsrSettingsTranscription.  # noqa: E501
+
+        (Applies to Real-Time transcription only)</br> Timeout in milliseconds that determines when transcription will stop.  Kicks in once speech has been detected. The timeout threshold is applied to the duration of non-speech following most recent speech. </br> Any value <= 0 means that the timeout will be ignored and transcription will continue until the audio stream is stopped.   # noqa: E501
+
+        :return: The complete_timeout of this AsrSettingsTranscription.  # noqa: E501
+        :rtype: int
+        """
+        return self._complete_timeout
+
+    @complete_timeout.setter
+    def complete_timeout(self, complete_timeout):
+        """Sets the complete_timeout of this AsrSettingsTranscription.
+
+        (Applies to Real-Time transcription only)</br> Timeout in milliseconds that determines when transcription will stop.  Kicks in once speech has been detected. The timeout threshold is applied to the duration of non-speech following most recent speech. </br> Any value <= 0 means that the timeout will be ignored and transcription will continue until the audio stream is stopped.   # noqa: E501
+
+        :param complete_timeout: The complete_timeout of this AsrSettingsTranscription.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                complete_timeout is not None and complete_timeout > 15000):  # noqa: E501
+            raise ValueError("Invalid value for `complete_timeout`, must be a value less than or equal to `15000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                complete_timeout is not None and complete_timeout < -1):  # noqa: E501
+            raise ValueError("Invalid value for `complete_timeout`, must be a value greater than or equal to `-1`")  # noqa: E501
+
+        self._complete_timeout = complete_timeout
+
+    @property
     def diarization(self):
         """Gets the diarization of this AsrSettingsTranscription.  # noqa: E501
 
@@ -334,7 +373,7 @@ class AsrSettingsTranscription(object):
     def no_input_timeout(self):
         """Gets the no_input_timeout of this AsrSettingsTranscription.  # noqa: E501
 
-        Time in milliseconds to wait for speech in audio to start. Any value <= 0 means that the timeout will be ignored.  # noqa: E501
+        (Applies to Real-Time transcription only)</br> Time in milliseconds to wait for speech in audio to start. The wait starts either from:</br> (a) the start of audio if `startInputTimers==true`(the default) </br> (b) other point in time when input timers are enabled (e.g. when prompt finishes playing in `<Connect><Stream>` use case)</br> If the timeout expires due to no speech input then the transcription will be terminated.</br> Any value <= 0 means that the timeout will be ignored. Default value is 15 seconds.   # noqa: E501
 
         :return: The no_input_timeout of this AsrSettingsTranscription.  # noqa: E501
         :rtype: int
@@ -345,13 +384,42 @@ class AsrSettingsTranscription(object):
     def no_input_timeout(self, no_input_timeout):
         """Sets the no_input_timeout of this AsrSettingsTranscription.
 
-        Time in milliseconds to wait for speech in audio to start. Any value <= 0 means that the timeout will be ignored.  # noqa: E501
+        (Applies to Real-Time transcription only)</br> Time in milliseconds to wait for speech in audio to start. The wait starts either from:</br> (a) the start of audio if `startInputTimers==true`(the default) </br> (b) other point in time when input timers are enabled (e.g. when prompt finishes playing in `<Connect><Stream>` use case)</br> If the timeout expires due to no speech input then the transcription will be terminated.</br> Any value <= 0 means that the timeout will be ignored. Default value is 15 seconds.   # noqa: E501
 
         :param no_input_timeout: The no_input_timeout of this AsrSettingsTranscription.  # noqa: E501
         :type: int
         """
+        if (self.local_vars_configuration.client_side_validation and
+                no_input_timeout is not None and no_input_timeout > 60000):  # noqa: E501
+            raise ValueError("Invalid value for `no_input_timeout`, must be a value less than or equal to `60000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                no_input_timeout is not None and no_input_timeout < -1):  # noqa: E501
+            raise ValueError("Invalid value for `no_input_timeout`, must be a value greater than or equal to `-1`")  # noqa: E501
 
         self._no_input_timeout = no_input_timeout
+
+    @property
+    def start_input_timers(self):
+        """Gets the start_input_timers of this AsrSettingsTranscription.  # noqa: E501
+
+        (Optional) By default input timers for transcription are disabled (set to false) which means  that START-OF-INPUT is generated at the very start of audio stream and the transcription will continue until the audio stream stops. This parameter can be used to enable input timers -- input timers are useful for generating NO-INPUT results plus for terminating transcription upon silence following the utterance. </br> NOTE: the default value of startInputTimers for transcription is opposite of the default for recognition.         # noqa: E501
+
+        :return: The start_input_timers of this AsrSettingsTranscription.  # noqa: E501
+        :rtype: bool
+        """
+        return self._start_input_timers
+
+    @start_input_timers.setter
+    def start_input_timers(self, start_input_timers):
+        """Sets the start_input_timers of this AsrSettingsTranscription.
+
+        (Optional) By default input timers for transcription are disabled (set to false) which means  that START-OF-INPUT is generated at the very start of audio stream and the transcription will continue until the audio stream stops. This parameter can be used to enable input timers -- input timers are useful for generating NO-INPUT results plus for terminating transcription upon silence following the utterance. </br> NOTE: the default value of startInputTimers for transcription is opposite of the default for recognition.         # noqa: E501
+
+        :param start_input_timers: The start_input_timers of this AsrSettingsTranscription.  # noqa: E501
+        :type: bool
+        """
+
+        self._start_input_timers = start_input_timers
 
     def to_dict(self):
         """Returns the model properties as a dict"""

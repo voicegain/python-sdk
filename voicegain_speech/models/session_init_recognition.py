@@ -38,8 +38,7 @@ class SessionInitRecognition(object):
         'callback': 'CallbackReqReco',
         'continuous_recognition': 'ContinuousRecognition',
         'extra_params': 'str',
-        'poll': 'PollReq',
-        'start_input_timers': 'bool'
+        'poll': 'PollReq'
     }
 
     attribute_map = {
@@ -47,11 +46,10 @@ class SessionInitRecognition(object):
         'callback': 'callback',
         'continuous_recognition': 'continuousRecognition',
         'extra_params': 'extraParams',
-        'poll': 'poll',
-        'start_input_timers': 'startInputTimers'
+        'poll': 'poll'
     }
 
-    def __init__(self, async_mode=None, callback=None, continuous_recognition=None, extra_params=None, poll=None, start_input_timers=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, callback=None, continuous_recognition=None, extra_params=None, poll=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitRecognition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,7 +60,6 @@ class SessionInitRecognition(object):
         self._continuous_recognition = None
         self._extra_params = None
         self._poll = None
-        self._start_input_timers = None
         self.discriminator = None
 
         self.async_mode = async_mode
@@ -74,8 +71,6 @@ class SessionInitRecognition(object):
             self.extra_params = extra_params
         if poll is not None:
             self.poll = poll
-        if start_input_timers is not None:
-            self.start_input_timers = start_input_timers
 
     @property
     def async_mode(self):
@@ -185,29 +180,6 @@ class SessionInitRecognition(object):
         """
 
         self._poll = poll
-
-    @property
-    def start_input_timers(self):
-        """Gets the start_input_timers of this SessionInitRecognition.  # noqa: E501
-
-        (Optional) By default input timers are started immediately after recognizer is ready to listen. This parameter can be used to disable automatic start of input timers. </br> Currently meant mainly for internal use only as there is no web api to start the input timers on demand.   # noqa: E501
-
-        :return: The start_input_timers of this SessionInitRecognition.  # noqa: E501
-        :rtype: bool
-        """
-        return self._start_input_timers
-
-    @start_input_timers.setter
-    def start_input_timers(self, start_input_timers):
-        """Sets the start_input_timers of this SessionInitRecognition.
-
-        (Optional) By default input timers are started immediately after recognizer is ready to listen. This parameter can be used to disable automatic start of input timers. </br> Currently meant mainly for internal use only as there is no web api to start the input timers on demand.   # noqa: E501
-
-        :param start_input_timers: The start_input_timers of this SessionInitRecognition.  # noqa: E501
-        :type: bool
-        """
-
-        self._start_input_timers = start_input_timers
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -43,7 +43,8 @@ class AsrSettingsRecognition(object):
         'complete_timeout': 'int',
         'grammars': 'list[Grammar]',
         'incomplete_timeout': 'int',
-        'no_input_timeout': 'int'
+        'no_input_timeout': 'int',
+        'start_input_timers': 'bool'
     }
 
     attribute_map = {
@@ -56,10 +57,11 @@ class AsrSettingsRecognition(object):
         'complete_timeout': 'completeTimeout',
         'grammars': 'grammars',
         'incomplete_timeout': 'incompleteTimeout',
-        'no_input_timeout': 'noInputTimeout'
+        'no_input_timeout': 'noInputTimeout',
+        'start_input_timers': 'startInputTimers'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, complete_timeout=2000, grammars=None, incomplete_timeout=5000, no_input_timeout=10000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, complete_timeout=2000, grammars=None, incomplete_timeout=5000, no_input_timeout=10000, start_input_timers=True, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsRecognition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class AsrSettingsRecognition(object):
         self._grammars = None
         self._incomplete_timeout = None
         self._no_input_timeout = None
+        self._start_input_timers = None
         self.discriminator = None
 
         if acoustic_model_non_real_time is not None:
@@ -96,6 +99,8 @@ class AsrSettingsRecognition(object):
             self.incomplete_timeout = incomplete_timeout
         if no_input_timeout is not None:
             self.no_input_timeout = no_input_timeout
+        if start_input_timers is not None:
+            self.start_input_timers = start_input_timers
 
     @property
     def acoustic_model_non_real_time(self):
@@ -283,8 +288,8 @@ class AsrSettingsRecognition(object):
                 complete_timeout is not None and complete_timeout > 15000):  # noqa: E501
             raise ValueError("Invalid value for `complete_timeout`, must be a value less than or equal to `15000`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                complete_timeout is not None and complete_timeout < 0):  # noqa: E501
-            raise ValueError("Invalid value for `complete_timeout`, must be a value greater than or equal to `0`")  # noqa: E501
+                complete_timeout is not None and complete_timeout < 1):  # noqa: E501
+            raise ValueError("Invalid value for `complete_timeout`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._complete_timeout = complete_timeout
 
@@ -337,8 +342,8 @@ class AsrSettingsRecognition(object):
                 incomplete_timeout is not None and incomplete_timeout > 30000):  # noqa: E501
             raise ValueError("Invalid value for `incomplete_timeout`, must be a value less than or equal to `30000`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                incomplete_timeout is not None and incomplete_timeout < 0):  # noqa: E501
-            raise ValueError("Invalid value for `incomplete_timeout`, must be a value greater than or equal to `0`")  # noqa: E501
+                incomplete_timeout is not None and incomplete_timeout < 1):  # noqa: E501
+            raise ValueError("Invalid value for `incomplete_timeout`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._incomplete_timeout = incomplete_timeout
 
@@ -366,10 +371,33 @@ class AsrSettingsRecognition(object):
                 no_input_timeout is not None and no_input_timeout > 60000):  # noqa: E501
             raise ValueError("Invalid value for `no_input_timeout`, must be a value less than or equal to `60000`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                no_input_timeout is not None and no_input_timeout < 0):  # noqa: E501
-            raise ValueError("Invalid value for `no_input_timeout`, must be a value greater than or equal to `0`")  # noqa: E501
+                no_input_timeout is not None and no_input_timeout < 1):  # noqa: E501
+            raise ValueError("Invalid value for `no_input_timeout`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._no_input_timeout = no_input_timeout
+
+    @property
+    def start_input_timers(self):
+        """Gets the start_input_timers of this AsrSettingsRecognition.  # noqa: E501
+
+        (Optional) By default input timers are started immediately after recognizer is ready to listen. This parameter can be used to disable automatic start of input timers. </br> Currently meant mainly for internal use only as there is no web api to start the input timers on demand.   # noqa: E501
+
+        :return: The start_input_timers of this AsrSettingsRecognition.  # noqa: E501
+        :rtype: bool
+        """
+        return self._start_input_timers
+
+    @start_input_timers.setter
+    def start_input_timers(self, start_input_timers):
+        """Sets the start_input_timers of this AsrSettingsRecognition.
+
+        (Optional) By default input timers are started immediately after recognizer is ready to listen. This parameter can be used to disable automatic start of input timers. </br> Currently meant mainly for internal use only as there is no web api to start the input timers on demand.   # noqa: E501
+
+        :param start_input_timers: The start_input_timers of this AsrSettingsRecognition.  # noqa: E501
+        :type: bool
+        """
+
+        self._start_input_timers = start_input_timers
 
     def to_dict(self):
         """Returns the model properties as a dict"""
