@@ -110,7 +110,7 @@ class WordItemTimed(object):
     def spk(self):
         """Gets the spk of this WordItemTimed.  # noqa: E501
 
-        **(Coming soon)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.     # noqa: E501
+        **(beta)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.     # noqa: E501
 
         :return: The spk of this WordItemTimed.  # noqa: E501
         :rtype: int
@@ -121,7 +121,7 @@ class WordItemTimed(object):
     def spk(self, spk):
         """Sets the spk of this WordItemTimed.
 
-        **(Coming soon)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.     # noqa: E501
+        **(beta)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.     # noqa: E501
 
         :param spk: The spk of this WordItemTimed.  # noqa: E501
         :type: int
