@@ -40,8 +40,9 @@ class AsrSettingsTranscriptionDefaults(object):
         'max_alternatives': 'int',
         'sensitivity': 'float',
         'speed_vs_accuracy': 'float',
-        'complete_timeout': 'int',
+        'hints': 'list[str]',
         'lang_model': 'str',
+        'complete_timeout': 'int',
         'no_input_timeout': 'int'
     }
 
@@ -52,12 +53,13 @@ class AsrSettingsTranscriptionDefaults(object):
         'max_alternatives': 'maxAlternatives',
         'sensitivity': 'sensitivity',
         'speed_vs_accuracy': 'speedVsAccuracy',
-        'complete_timeout': 'completeTimeout',
+        'hints': 'hints',
         'lang_model': 'langModel',
+        'complete_timeout': 'completeTimeout',
         'no_input_timeout': 'noInputTimeout'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, complete_timeout=-1, lang_model=None, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, hints=None, lang_model=None, complete_timeout=-1, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscriptionDefaults - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,8 +71,9 @@ class AsrSettingsTranscriptionDefaults(object):
         self._max_alternatives = None
         self._sensitivity = None
         self._speed_vs_accuracy = None
-        self._complete_timeout = None
+        self._hints = None
         self._lang_model = None
+        self._complete_timeout = None
         self._no_input_timeout = None
         self.discriminator = None
 
@@ -86,10 +89,12 @@ class AsrSettingsTranscriptionDefaults(object):
             self.sensitivity = sensitivity
         if speed_vs_accuracy is not None:
             self.speed_vs_accuracy = speed_vs_accuracy
-        if complete_timeout is not None:
-            self.complete_timeout = complete_timeout
+        if hints is not None:
+            self.hints = hints
         if lang_model is not None:
             self.lang_model = lang_model
+        if complete_timeout is not None:
+            self.complete_timeout = complete_timeout
         if no_input_timeout is not None:
             self.no_input_timeout = no_input_timeout
 
@@ -256,6 +261,55 @@ class AsrSettingsTranscriptionDefaults(object):
         self._speed_vs_accuracy = speed_vs_accuracy
 
     @property
+    def hints(self):
+        """Gets the hints of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+
+        Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_'   # noqa: E501
+
+        :return: The hints of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._hints
+
+    @hints.setter
+    def hints(self, hints):
+        """Sets the hints of this AsrSettingsTranscriptionDefaults.
+
+        Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_'   # noqa: E501
+
+        :param hints: The hints of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._hints = hints
+
+    @property
+    def lang_model(self):
+        """Gets the lang_model of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+
+        Name or UUID of the language model to use. If absent then will use default language model.  # noqa: E501
+
+        :return: The lang_model of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :rtype: str
+        """
+        return self._lang_model
+
+    @lang_model.setter
+    def lang_model(self, lang_model):
+        """Sets the lang_model of this AsrSettingsTranscriptionDefaults.
+
+        Name or UUID of the language model to use. If absent then will use default language model.  # noqa: E501
+
+        :param lang_model: The lang_model of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                lang_model is not None and len(lang_model) > 128):
+            raise ValueError("Invalid value for `lang_model`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._lang_model = lang_model
+
+    @property
     def complete_timeout(self):
         """Gets the complete_timeout of this AsrSettingsTranscriptionDefaults.  # noqa: E501
 
@@ -283,32 +337,6 @@ class AsrSettingsTranscriptionDefaults(object):
             raise ValueError("Invalid value for `complete_timeout`, must be a value greater than or equal to `-1`")  # noqa: E501
 
         self._complete_timeout = complete_timeout
-
-    @property
-    def lang_model(self):
-        """Gets the lang_model of this AsrSettingsTranscriptionDefaults.  # noqa: E501
-
-        Name or UUID of the language model (arpa grammar) to use. If absent then will use default language model.  # noqa: E501
-
-        :return: The lang_model of this AsrSettingsTranscriptionDefaults.  # noqa: E501
-        :rtype: str
-        """
-        return self._lang_model
-
-    @lang_model.setter
-    def lang_model(self, lang_model):
-        """Sets the lang_model of this AsrSettingsTranscriptionDefaults.
-
-        Name or UUID of the language model (arpa grammar) to use. If absent then will use default language model.  # noqa: E501
-
-        :param lang_model: The lang_model of this AsrSettingsTranscriptionDefaults.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                lang_model is not None and len(lang_model) > 128):
-            raise ValueError("Invalid value for `lang_model`, length must be less than or equal to `128`")  # noqa: E501
-
-        self._lang_model = lang_model
 
     @property
     def no_input_timeout(self):

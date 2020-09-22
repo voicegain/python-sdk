@@ -34,7 +34,7 @@ class SettingsAsyncTranscription(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'asr': 'AsrSettingsTranscription',
+        'asr': 'AsrSettingsTranscriptionAsync',
         'debug': 'DebugSettings',
         'preemptible': 'bool',
         'speech_analytics_config': 'str',
@@ -79,7 +79,7 @@ class SettingsAsyncTranscription(object):
 
 
         :return: The asr of this SettingsAsyncTranscription.  # noqa: E501
-        :rtype: AsrSettingsTranscription
+        :rtype: AsrSettingsTranscriptionAsync
         """
         return self._asr
 
@@ -89,7 +89,7 @@ class SettingsAsyncTranscription(object):
 
 
         :param asr: The asr of this SettingsAsyncTranscription.  # noqa: E501
-        :type: AsrSettingsTranscription
+        :type: AsrSettingsTranscriptionAsync
         """
 
         self._asr = asr

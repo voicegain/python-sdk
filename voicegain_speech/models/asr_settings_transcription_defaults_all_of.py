@@ -35,31 +35,26 @@ class AsrSettingsTranscriptionDefaultsAllOf(object):
     """
     openapi_types = {
         'complete_timeout': 'int',
-        'lang_model': 'str',
         'no_input_timeout': 'int'
     }
 
     attribute_map = {
         'complete_timeout': 'completeTimeout',
-        'lang_model': 'langModel',
         'no_input_timeout': 'noInputTimeout'
     }
 
-    def __init__(self, complete_timeout=-1, lang_model=None, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, complete_timeout=-1, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscriptionDefaultsAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._complete_timeout = None
-        self._lang_model = None
         self._no_input_timeout = None
         self.discriminator = None
 
         if complete_timeout is not None:
             self.complete_timeout = complete_timeout
-        if lang_model is not None:
-            self.lang_model = lang_model
         if no_input_timeout is not None:
             self.no_input_timeout = no_input_timeout
 
@@ -91,32 +86,6 @@ class AsrSettingsTranscriptionDefaultsAllOf(object):
             raise ValueError("Invalid value for `complete_timeout`, must be a value greater than or equal to `-1`")  # noqa: E501
 
         self._complete_timeout = complete_timeout
-
-    @property
-    def lang_model(self):
-        """Gets the lang_model of this AsrSettingsTranscriptionDefaultsAllOf.  # noqa: E501
-
-        Name or UUID of the language model (arpa grammar) to use. If absent then will use default language model.  # noqa: E501
-
-        :return: The lang_model of this AsrSettingsTranscriptionDefaultsAllOf.  # noqa: E501
-        :rtype: str
-        """
-        return self._lang_model
-
-    @lang_model.setter
-    def lang_model(self, lang_model):
-        """Sets the lang_model of this AsrSettingsTranscriptionDefaultsAllOf.
-
-        Name or UUID of the language model (arpa grammar) to use. If absent then will use default language model.  # noqa: E501
-
-        :param lang_model: The lang_model of this AsrSettingsTranscriptionDefaultsAllOf.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                lang_model is not None and len(lang_model) > 128):
-            raise ValueError("Invalid value for `lang_model`, length must be less than or equal to `128`")  # noqa: E501
-
-        self._lang_model = lang_model
 
     @property
     def no_input_timeout(self):
