@@ -35,6 +35,7 @@ class SessionInitRecognition(object):
     """
     openapi_types = {
         'async_mode': 'AsyncModeRecognition',
+        'audio_channel_selector': 'AudioChannelSelector',
         'callback': 'CallbackReqReco',
         'continuous_recognition': 'ContinuousRecognition',
         'extra_params': 'str',
@@ -43,19 +44,21 @@ class SessionInitRecognition(object):
 
     attribute_map = {
         'async_mode': 'asyncMode',
+        'audio_channel_selector': 'audioChannelSelector',
         'callback': 'callback',
         'continuous_recognition': 'continuousRecognition',
         'extra_params': 'extraParams',
         'poll': 'poll'
     }
 
-    def __init__(self, async_mode=None, callback=None, continuous_recognition=None, extra_params=None, poll=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, continuous_recognition=None, extra_params=None, poll=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitRecognition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._async_mode = None
+        self._audio_channel_selector = None
         self._callback = None
         self._continuous_recognition = None
         self._extra_params = None
@@ -63,6 +66,8 @@ class SessionInitRecognition(object):
         self.discriminator = None
 
         self.async_mode = async_mode
+        if audio_channel_selector is not None:
+            self.audio_channel_selector = audio_channel_selector
         if callback is not None:
             self.callback = callback
         if continuous_recognition is not None:
@@ -94,6 +99,27 @@ class SessionInitRecognition(object):
             raise ValueError("Invalid value for `async_mode`, must not be `None`")  # noqa: E501
 
         self._async_mode = async_mode
+
+    @property
+    def audio_channel_selector(self):
+        """Gets the audio_channel_selector of this SessionInitRecognition.  # noqa: E501
+
+
+        :return: The audio_channel_selector of this SessionInitRecognition.  # noqa: E501
+        :rtype: AudioChannelSelector
+        """
+        return self._audio_channel_selector
+
+    @audio_channel_selector.setter
+    def audio_channel_selector(self, audio_channel_selector):
+        """Sets the audio_channel_selector of this SessionInitRecognition.
+
+
+        :param audio_channel_selector: The audio_channel_selector of this SessionInitRecognition.  # noqa: E501
+        :type: AudioChannelSelector
+        """
+
+        self._audio_channel_selector = audio_channel_selector
 
     @property
     def callback(self):

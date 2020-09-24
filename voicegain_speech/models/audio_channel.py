@@ -33,8 +33,9 @@ class AudioChannel(object):
     RIGHT = "right"
     MIX = "mix"
     MONO = "mono"
+    STEREO = "stereo"
 
-    allowable_values = [LEFT, RIGHT, MIX, MONO]  # noqa: E501
+    allowable_values = [LEFT, RIGHT, MIX, MONO, STEREO]  # noqa: E501
 
     """
     Attributes:

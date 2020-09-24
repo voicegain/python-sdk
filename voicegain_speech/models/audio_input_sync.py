@@ -34,43 +34,74 @@ class AudioInputSync(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'audio_channel_selector': 'AudioChannelSelector',
         'source': 'SyncAudioInputSource',
         'capture': 'bool',
         'channel': 'AudioChannel',
+        'channels': 'AudioChannels',
         'format': 'AudioFormat',
         'rate': 'SampleRate'
     }
 
     attribute_map = {
+        'audio_channel_selector': 'audioChannelSelector',
         'source': 'source',
         'capture': 'capture',
         'channel': 'channel',
+        'channels': 'channels',
         'format': 'format',
         'rate': 'rate'
     }
 
-    def __init__(self, source=None, capture=False, channel=None, format=None, rate=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio_channel_selector=None, source=None, capture=False, channel=None, channels=None, format=None, rate=None, local_vars_configuration=None):  # noqa: E501
         """AudioInputSync - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._audio_channel_selector = None
         self._source = None
         self._capture = None
         self._channel = None
+        self._channels = None
         self._format = None
         self._rate = None
         self.discriminator = None
 
+        if audio_channel_selector is not None:
+            self.audio_channel_selector = audio_channel_selector
         self.source = source
         if capture is not None:
             self.capture = capture
         if channel is not None:
             self.channel = channel
+        if channels is not None:
+            self.channels = channels
         if format is not None:
             self.format = format
         if rate is not None:
             self.rate = rate
+
+    @property
+    def audio_channel_selector(self):
+        """Gets the audio_channel_selector of this AudioInputSync.  # noqa: E501
+
+
+        :return: The audio_channel_selector of this AudioInputSync.  # noqa: E501
+        :rtype: AudioChannelSelector
+        """
+        return self._audio_channel_selector
+
+    @audio_channel_selector.setter
+    def audio_channel_selector(self, audio_channel_selector):
+        """Sets the audio_channel_selector of this AudioInputSync.
+
+
+        :param audio_channel_selector: The audio_channel_selector of this AudioInputSync.  # noqa: E501
+        :type: AudioChannelSelector
+        """
+
+        self._audio_channel_selector = audio_channel_selector
 
     @property
     def source(self):
@@ -138,6 +169,27 @@ class AudioInputSync(object):
         """
 
         self._channel = channel
+
+    @property
+    def channels(self):
+        """Gets the channels of this AudioInputSync.  # noqa: E501
+
+
+        :return: The channels of this AudioInputSync.  # noqa: E501
+        :rtype: AudioChannels
+        """
+        return self._channels
+
+    @channels.setter
+    def channels(self, channels):
+        """Sets the channels of this AudioInputSync.
+
+
+        :param channels: The channels of this AudioInputSync.  # noqa: E501
+        :type: AudioChannels
+        """
+
+        self._channels = channels
 
     @property
     def format(self):

@@ -35,6 +35,7 @@ class SessionInitTranscription(object):
     """
     openapi_types = {
         'async_mode': 'AsyncModeTranscription',
+        'audio_channel_selector': 'AudioChannelSelector',
         'callback': 'CallbackReq',
         'content': 'RequestedContent',
         'extra_params': 'str',
@@ -45,6 +46,7 @@ class SessionInitTranscription(object):
 
     attribute_map = {
         'async_mode': 'asyncMode',
+        'audio_channel_selector': 'audioChannelSelector',
         'callback': 'callback',
         'content': 'content',
         'extra_params': 'extraParams',
@@ -53,13 +55,14 @@ class SessionInitTranscription(object):
         'websocket': 'websocket'
     }
 
-    def __init__(self, async_mode=None, callback=None, content=None, extra_params=None, poll=None, portal=None, websocket=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, extra_params=None, poll=None, portal=None, websocket=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._async_mode = None
+        self._audio_channel_selector = None
         self._callback = None
         self._content = None
         self._extra_params = None
@@ -69,6 +72,8 @@ class SessionInitTranscription(object):
         self.discriminator = None
 
         self.async_mode = async_mode
+        if audio_channel_selector is not None:
+            self.audio_channel_selector = audio_channel_selector
         if callback is not None:
             self.callback = callback
         if content is not None:
@@ -104,6 +109,27 @@ class SessionInitTranscription(object):
             raise ValueError("Invalid value for `async_mode`, must not be `None`")  # noqa: E501
 
         self._async_mode = async_mode
+
+    @property
+    def audio_channel_selector(self):
+        """Gets the audio_channel_selector of this SessionInitTranscription.  # noqa: E501
+
+
+        :return: The audio_channel_selector of this SessionInitTranscription.  # noqa: E501
+        :rtype: AudioChannelSelector
+        """
+        return self._audio_channel_selector
+
+    @audio_channel_selector.setter
+    def audio_channel_selector(self, audio_channel_selector):
+        """Sets the audio_channel_selector of this SessionInitTranscription.
+
+
+        :param audio_channel_selector: The audio_channel_selector of this SessionInitTranscription.  # noqa: E501
+        :type: AudioChannelSelector
+        """
+
+        self._audio_channel_selector = audio_channel_selector
 
     @property
     def callback(self):

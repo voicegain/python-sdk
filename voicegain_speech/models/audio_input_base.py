@@ -36,6 +36,7 @@ class AudioInputBase(object):
     openapi_types = {
         'capture': 'bool',
         'channel': 'AudioChannel',
+        'channels': 'AudioChannels',
         'format': 'AudioFormat',
         'rate': 'SampleRate'
     }
@@ -43,11 +44,12 @@ class AudioInputBase(object):
     attribute_map = {
         'capture': 'capture',
         'channel': 'channel',
+        'channels': 'channels',
         'format': 'format',
         'rate': 'rate'
     }
 
-    def __init__(self, capture=False, channel=None, format=None, rate=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, capture=False, channel=None, channels=None, format=None, rate=None, local_vars_configuration=None):  # noqa: E501
         """AudioInputBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +57,7 @@ class AudioInputBase(object):
 
         self._capture = None
         self._channel = None
+        self._channels = None
         self._format = None
         self._rate = None
         self.discriminator = None
@@ -63,6 +66,8 @@ class AudioInputBase(object):
             self.capture = capture
         if channel is not None:
             self.channel = channel
+        if channels is not None:
+            self.channels = channels
         if format is not None:
             self.format = format
         if rate is not None:
@@ -111,6 +116,27 @@ class AudioInputBase(object):
         """
 
         self._channel = channel
+
+    @property
+    def channels(self):
+        """Gets the channels of this AudioInputBase.  # noqa: E501
+
+
+        :return: The channels of this AudioInputBase.  # noqa: E501
+        :rtype: AudioChannels
+        """
+        return self._channels
+
+    @channels.setter
+    def channels(self, channels):
+        """Sets the channels of this AudioInputBase.
+
+
+        :param channels: The channels of this AudioInputBase.  # noqa: E501
+        :type: AudioChannels
+        """
+
+        self._channels = channels
 
     @property
     def format(self):

@@ -34,23 +34,49 @@ class AudioInputSyncAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'audio_channel_selector': 'AudioChannelSelector',
         'source': 'SyncAudioInputSource'
     }
 
     attribute_map = {
+        'audio_channel_selector': 'audioChannelSelector',
         'source': 'source'
     }
 
-    def __init__(self, source=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio_channel_selector=None, source=None, local_vars_configuration=None):  # noqa: E501
         """AudioInputSyncAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._audio_channel_selector = None
         self._source = None
         self.discriminator = None
 
+        if audio_channel_selector is not None:
+            self.audio_channel_selector = audio_channel_selector
         self.source = source
+
+    @property
+    def audio_channel_selector(self):
+        """Gets the audio_channel_selector of this AudioInputSyncAllOf.  # noqa: E501
+
+
+        :return: The audio_channel_selector of this AudioInputSyncAllOf.  # noqa: E501
+        :rtype: AudioChannelSelector
+        """
+        return self._audio_channel_selector
+
+    @audio_channel_selector.setter
+    def audio_channel_selector(self, audio_channel_selector):
+        """Sets the audio_channel_selector of this AudioInputSyncAllOf.
+
+
+        :param audio_channel_selector: The audio_channel_selector of this AudioInputSyncAllOf.  # noqa: E501
+        :type: AudioChannelSelector
+        """
+
+        self._audio_channel_selector = audio_channel_selector
 
     @property
     def source(self):

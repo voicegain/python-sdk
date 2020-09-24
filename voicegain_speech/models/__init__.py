@@ -94,6 +94,8 @@ from voicegain_speech.models.async_transcription_request import AsyncTranscripti
 from voicegain_speech.models.async_transcription_response import AsyncTranscriptionResponse
 from voicegain_speech.models.async_transcription_response_shared import AsyncTranscriptionResponseShared
 from voicegain_speech.models.audio_channel import AudioChannel
+from voicegain_speech.models.audio_channel_selector import AudioChannelSelector
+from voicegain_speech.models.audio_channels import AudioChannels
 from voicegain_speech.models.audio_format import AudioFormat
 from voicegain_speech.models.audio_input_async import AudioInputAsync
 from voicegain_speech.models.audio_input_async_all_of import AudioInputAsyncAllOf
