@@ -40,7 +40,8 @@ class AIVRCallbackResponse(object):
         'question': 'AIVRQuestion',
         'sequence': 'int',
         'sid': 'str',
-        'transfer': 'AIVRTransfer'
+        'transfer': 'AIVRTransfer',
+        'vars': 'object'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class AIVRCallbackResponse(object):
         'question': 'question',
         'sequence': 'sequence',
         'sid': 'sid',
-        'transfer': 'transfer'
+        'transfer': 'transfer',
+        'vars': 'vars'
     }
 
-    def __init__(self, csid=None, disconnect=None, prompt=None, question=None, sequence=None, sid=None, transfer=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, csid=None, disconnect=None, prompt=None, question=None, sequence=None, sid=None, transfer=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """AIVRCallbackResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class AIVRCallbackResponse(object):
         self._sequence = None
         self._sid = None
         self._transfer = None
+        self._vars = None
         self.discriminator = None
 
         self.csid = csid
@@ -81,6 +84,8 @@ class AIVRCallbackResponse(object):
             self.sid = sid
         if transfer is not None:
             self.transfer = transfer
+        if vars is not None:
+            self.vars = vars
 
     @property
     def csid(self):
@@ -239,6 +244,29 @@ class AIVRCallbackResponse(object):
         """
 
         self._transfer = transfer
+
+    @property
+    def vars(self):
+        """Gets the vars of this AIVRCallbackResponse.  # noqa: E501
+
+        Map with variable names and values to add to the set of vars maintained for this RTC session.</br> Should not be used to encode and store large amounts of data.   # noqa: E501
+
+        :return: The vars of this AIVRCallbackResponse.  # noqa: E501
+        :rtype: object
+        """
+        return self._vars
+
+    @vars.setter
+    def vars(self, vars):
+        """Sets the vars of this AIVRCallbackResponse.
+
+        Map with variable names and values to add to the set of vars maintained for this RTC session.</br> Should not be used to encode and store large amounts of data.   # noqa: E501
+
+        :param vars: The vars of this AIVRCallbackResponse.  # noqa: E501
+        :type: object
+        """
+
+        self._vars = vars
 
     def to_dict(self):
         """Returns the model properties as a dict"""
