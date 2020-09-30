@@ -178,7 +178,7 @@ class Input(object):
     def vui_alternatives(self):
         """Gets the vui_alternatives of this Input.  # noqa: E501
 
-        (applies to speech input only) List of alternative recognition hypotheses. Ordered by confidence (highest confidence at top).  # noqa: E501
+        (applies to speech input only)</br> List of alternative recognition hypotheses. Ordered by confidence (highest confidence at top).<br> `grammar`, `semanticTags`, and `literalTag` are returned only if grammar was specified.   # noqa: E501
 
         :return: The vui_alternatives of this Input.  # noqa: E501
         :rtype: list[RecoAlt]
@@ -189,7 +189,7 @@ class Input(object):
     def vui_alternatives(self, vui_alternatives):
         """Sets the vui_alternatives of this Input.
 
-        (applies to speech input only) List of alternative recognition hypotheses. Ordered by confidence (highest confidence at top).  # noqa: E501
+        (applies to speech input only)</br> List of alternative recognition hypotheses. Ordered by confidence (highest confidence at top).<br> `grammar`, `semanticTags`, and `literalTag` are returned only if grammar was specified.   # noqa: E501
 
         :param vui_alternatives: The vui_alternatives of this Input.  # noqa: E501
         :type: list[RecoAlt]

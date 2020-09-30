@@ -35,28 +35,48 @@ class AIVRResponsePropertiesAudio(object):
     """
     openapi_types = {
         'barge_in': 'bool',
-        'grammar': 'list[Grammar]'
+        'complete_timeout': 'int',
+        'grammar': 'list[Grammar]',
+        'hints': 'list[str]',
+        'incomplete_timeout': 'int',
+        'no_input_timeout': 'int'
     }
 
     attribute_map = {
         'barge_in': 'bargeIn',
-        'grammar': 'grammar'
+        'complete_timeout': 'completeTimeout',
+        'grammar': 'grammar',
+        'hints': 'hints',
+        'incomplete_timeout': 'incompleteTimeout',
+        'no_input_timeout': 'noInputTimeout'
     }
 
-    def __init__(self, barge_in=False, grammar=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, barge_in=False, complete_timeout=2000, grammar=None, hints=None, incomplete_timeout=5000, no_input_timeout=10000, local_vars_configuration=None):  # noqa: E501
         """AIVRResponsePropertiesAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._barge_in = None
+        self._complete_timeout = None
         self._grammar = None
+        self._hints = None
+        self._incomplete_timeout = None
+        self._no_input_timeout = None
         self.discriminator = None
 
         if barge_in is not None:
             self.barge_in = barge_in
+        if complete_timeout is not None:
+            self.complete_timeout = complete_timeout
         if grammar is not None:
             self.grammar = grammar
+        if hints is not None:
+            self.hints = hints
+        if incomplete_timeout is not None:
+            self.incomplete_timeout = incomplete_timeout
+        if no_input_timeout is not None:
+            self.no_input_timeout = no_input_timeout
 
     @property
     def barge_in(self):
@@ -82,10 +102,39 @@ class AIVRResponsePropertiesAudio(object):
         self._barge_in = barge_in
 
     @property
+    def complete_timeout(self):
+        """Gets the complete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
+
+        (for both grammar-based recognition and large-vocabulary transcription)</br> ASR complete timeout (in msec).</br>  For grammar-based recognition - kicks in after grammar match has been completed and no more valid input is possible.   # noqa: E501
+
+        :return: The complete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :rtype: int
+        """
+        return self._complete_timeout
+
+    @complete_timeout.setter
+    def complete_timeout(self, complete_timeout):
+        """Sets the complete_timeout of this AIVRResponsePropertiesAudio.
+
+        (for both grammar-based recognition and large-vocabulary transcription)</br> ASR complete timeout (in msec).</br>  For grammar-based recognition - kicks in after grammar match has been completed and no more valid input is possible.   # noqa: E501
+
+        :param complete_timeout: The complete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                complete_timeout is not None and complete_timeout > 15000):  # noqa: E501
+            raise ValueError("Invalid value for `complete_timeout`, must be a value less than or equal to `15000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                complete_timeout is not None and complete_timeout < 1):  # noqa: E501
+            raise ValueError("Invalid value for `complete_timeout`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._complete_timeout = complete_timeout
+
+    @property
     def grammar(self):
         """Gets the grammar of this AIVRResponsePropertiesAudio.  # noqa: E501
 
-        List of grammars to be used. More than one grammar may be used e.g. 1) normal grammar + universal grammar  2) separate speech and dtmf grammars   # noqa: E501
+        (for grammar-based recognition only) </br> List of grammars to be used.  More than one grammar may be used e.g. 1) normal grammar + universal grammar  2) separate speech and dtmf grammars   # noqa: E501
 
         :return: The grammar of this AIVRResponsePropertiesAudio.  # noqa: E501
         :rtype: list[Grammar]
@@ -96,13 +145,94 @@ class AIVRResponsePropertiesAudio(object):
     def grammar(self, grammar):
         """Sets the grammar of this AIVRResponsePropertiesAudio.
 
-        List of grammars to be used. More than one grammar may be used e.g. 1) normal grammar + universal grammar  2) separate speech and dtmf grammars   # noqa: E501
+        (for grammar-based recognition only) </br> List of grammars to be used.  More than one grammar may be used e.g. 1) normal grammar + universal grammar  2) separate speech and dtmf grammars   # noqa: E501
 
         :param grammar: The grammar of this AIVRResponsePropertiesAudio.  # noqa: E501
         :type: list[Grammar]
         """
 
         self._grammar = grammar
+
+    @property
+    def hints(self):
+        """Gets the hints of this AIVRResponsePropertiesAudio.  # noqa: E501
+
+        (for large-vocabulary transcription only)</br> Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_'   # noqa: E501
+
+        :return: The hints of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._hints
+
+    @hints.setter
+    def hints(self, hints):
+        """Sets the hints of this AIVRResponsePropertiesAudio.
+
+        (for large-vocabulary transcription only)</br> Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_'   # noqa: E501
+
+        :param hints: The hints of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._hints = hints
+
+    @property
+    def incomplete_timeout(self):
+        """Gets the incomplete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
+
+        (for grammar-based recognition only) </br> ASR incomplete timeout (in msec). Kicks in when start-of-speech was detected. Lasts until grammar allows for more valid input.   # noqa: E501
+
+        :return: The incomplete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :rtype: int
+        """
+        return self._incomplete_timeout
+
+    @incomplete_timeout.setter
+    def incomplete_timeout(self, incomplete_timeout):
+        """Sets the incomplete_timeout of this AIVRResponsePropertiesAudio.
+
+        (for grammar-based recognition only) </br> ASR incomplete timeout (in msec). Kicks in when start-of-speech was detected. Lasts until grammar allows for more valid input.   # noqa: E501
+
+        :param incomplete_timeout: The incomplete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                incomplete_timeout is not None and incomplete_timeout > 30000):  # noqa: E501
+            raise ValueError("Invalid value for `incomplete_timeout`, must be a value less than or equal to `30000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                incomplete_timeout is not None and incomplete_timeout < 1):  # noqa: E501
+            raise ValueError("Invalid value for `incomplete_timeout`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._incomplete_timeout = incomplete_timeout
+
+    @property
+    def no_input_timeout(self):
+        """Gets the no_input_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
+
+        Used to determine if NOINPUT should be returned (in msec)  # noqa: E501
+
+        :return: The no_input_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :rtype: int
+        """
+        return self._no_input_timeout
+
+    @no_input_timeout.setter
+    def no_input_timeout(self, no_input_timeout):
+        """Sets the no_input_timeout of this AIVRResponsePropertiesAudio.
+
+        Used to determine if NOINPUT should be returned (in msec)  # noqa: E501
+
+        :param no_input_timeout: The no_input_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                no_input_timeout is not None and no_input_timeout > 60000):  # noqa: E501
+            raise ValueError("Invalid value for `no_input_timeout`, must be a value less than or equal to `60000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                no_input_timeout is not None and no_input_timeout < 1):  # noqa: E501
+            raise ValueError("Invalid value for `no_input_timeout`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._no_input_timeout = no_input_timeout
 
     def to_dict(self):
         """Returns the model properties as a dict"""
