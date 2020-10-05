@@ -63,7 +63,8 @@ class AIVRPrompt(object):
             self.audio_properties = audio_properties
         if html_properties is not None:
             self.html_properties = html_properties
-        self.text = text
+        if text is not None:
+            self.text = text
         if wait_msec is not None:
             self.wait_msec = wait_msec
 
@@ -129,8 +130,6 @@ class AIVRPrompt(object):
         :param text: The text of this AIVRPrompt.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and text is None:  # noqa: E501
-            raise ValueError("Invalid value for `text`, must not be `None`")  # noqa: E501
 
         self._text = text
 

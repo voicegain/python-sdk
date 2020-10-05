@@ -39,7 +39,8 @@ class AIVRResponsePropertiesAudio(object):
         'grammar': 'list[Grammar]',
         'hints': 'list[str]',
         'incomplete_timeout': 'int',
-        'no_input_timeout': 'int'
+        'no_input_timeout': 'int',
+        'question_prompt': 'str'
     }
 
     attribute_map = {
@@ -48,10 +49,11 @@ class AIVRResponsePropertiesAudio(object):
         'grammar': 'grammar',
         'hints': 'hints',
         'incomplete_timeout': 'incompleteTimeout',
-        'no_input_timeout': 'noInputTimeout'
+        'no_input_timeout': 'noInputTimeout',
+        'question_prompt': 'questionPrompt'
     }
 
-    def __init__(self, barge_in=False, complete_timeout=2000, grammar=None, hints=None, incomplete_timeout=5000, no_input_timeout=10000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, barge_in=False, complete_timeout=2000, grammar=None, hints=None, incomplete_timeout=5000, no_input_timeout=10000, question_prompt=None, local_vars_configuration=None):  # noqa: E501
         """AIVRResponsePropertiesAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class AIVRResponsePropertiesAudio(object):
         self._hints = None
         self._incomplete_timeout = None
         self._no_input_timeout = None
+        self._question_prompt = None
         self.discriminator = None
 
         if barge_in is not None:
@@ -77,12 +80,14 @@ class AIVRResponsePropertiesAudio(object):
             self.incomplete_timeout = incomplete_timeout
         if no_input_timeout is not None:
             self.no_input_timeout = no_input_timeout
+        if question_prompt is not None:
+            self.question_prompt = question_prompt
 
     @property
     def barge_in(self):
         """Gets the barge_in of this AIVRResponsePropertiesAudio.  # noqa: E501
 
-        if true then question prompt playback will be stopped as soon as caller starts saying something  # noqa: E501
+        If true then question text playback will be stopped as soon as caller starts saying something.</br> No longer needed now that we have `questionPrompt` in addition to `text`. If set, then will apply only to `text` field for backwards compatibility.   # noqa: E501
 
         :return: The barge_in of this AIVRResponsePropertiesAudio.  # noqa: E501
         :rtype: bool
@@ -93,7 +98,7 @@ class AIVRResponsePropertiesAudio(object):
     def barge_in(self, barge_in):
         """Sets the barge_in of this AIVRResponsePropertiesAudio.
 
-        if true then question prompt playback will be stopped as soon as caller starts saying something  # noqa: E501
+        If true then question text playback will be stopped as soon as caller starts saying something.</br> No longer needed now that we have `questionPrompt` in addition to `text`. If set, then will apply only to `text` field for backwards compatibility.   # noqa: E501
 
         :param barge_in: The barge_in of this AIVRResponsePropertiesAudio.  # noqa: E501
         :type: bool
@@ -233,6 +238,29 @@ class AIVRResponsePropertiesAudio(object):
             raise ValueError("Invalid value for `no_input_timeout`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._no_input_timeout = no_input_timeout
+
+    @property
+    def question_prompt(self):
+        """Gets the question_prompt of this AIVRResponsePropertiesAudio.  # noqa: E501
+
+        The bargin-able question prompt to be presented to the caller.</br> If the intent is to present a non-bargin-able question, then the prompt should be set in the `text`. Combining `text` with `questionPrompt` makes it possible to ask a question that constists from non-bargin-able and bargin-able parts.</br> For audio prompt, the questionPrompt text will be processed by Voicegain Prompt Manager with fallback to TTS in specified voice. If questionPrompt starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
+
+        :return: The question_prompt of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :rtype: str
+        """
+        return self._question_prompt
+
+    @question_prompt.setter
+    def question_prompt(self, question_prompt):
+        """Sets the question_prompt of this AIVRResponsePropertiesAudio.
+
+        The bargin-able question prompt to be presented to the caller.</br> If the intent is to present a non-bargin-able question, then the prompt should be set in the `text`. Combining `text` with `questionPrompt` makes it possible to ask a question that constists from non-bargin-able and bargin-able parts.</br> For audio prompt, the questionPrompt text will be processed by Voicegain Prompt Manager with fallback to TTS in specified voice. If questionPrompt starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
+
+        :param question_prompt: The question_prompt of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :type: str
+        """
+
+        self._question_prompt = question_prompt
 
     def to_dict(self):
         """Returns the model properties as a dict"""
