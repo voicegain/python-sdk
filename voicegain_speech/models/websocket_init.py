@@ -38,7 +38,8 @@ class WebsocketInit(object):
         'if_exists': 'IfExists',
         'label': 'str',
         'minimum_delay': 'int',
-        'name': 'str'
+        'name': 'str',
+        'use_stomp': 'bool'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class WebsocketInit(object):
         'if_exists': 'ifExists',
         'label': 'label',
         'minimum_delay': 'minimumDelay',
-        'name': 'name'
+        'name': 'name',
+        'use_stomp': 'useSTOMP'
     }
 
-    def __init__(self, ad_hoc=False, if_exists=None, label=None, minimum_delay=4000, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ad_hoc=False, if_exists=None, label=None, minimum_delay=4000, name=None, use_stomp=True, local_vars_configuration=None):  # noqa: E501
         """WebsocketInit - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class WebsocketInit(object):
         self._label = None
         self._minimum_delay = None
         self._name = None
+        self._use_stomp = None
         self.discriminator = None
 
         if ad_hoc is not None:
@@ -72,6 +75,8 @@ class WebsocketInit(object):
             self.minimum_delay = minimum_delay
         if name is not None:
             self.name = name
+        if use_stomp is not None:
+            self.use_stomp = use_stomp
 
     @property
     def ad_hoc(self):
@@ -191,6 +196,29 @@ class WebsocketInit(object):
         """
 
         self._name = name
+
+    @property
+    def use_stomp(self):
+        """Gets the use_stomp of this WebsocketInit.  # noqa: E501
+
+        (Coming Soon) </br>  If useSTOMP==true then the results will be sent using [STOMP over Webscoket](http://jmesnil.net/stomp-websocket/doc/).  STOMP is handy for broadcasting, but adds complexity to the client implementation. Format of the STOMP messages that we use is described [here](https://support.voicegain.ai/hc/en-us/articles/360045569592-Websocket-STOMP-payload-for-real-time-transcription-results).</br> If useSTOMP==false then plain vanilla Websockets will be used to send the results. They will be formatted same way as STOMP messages.</br> The default is `true` for backwards compatibility.   # noqa: E501
+
+        :return: The use_stomp of this WebsocketInit.  # noqa: E501
+        :rtype: bool
+        """
+        return self._use_stomp
+
+    @use_stomp.setter
+    def use_stomp(self, use_stomp):
+        """Sets the use_stomp of this WebsocketInit.
+
+        (Coming Soon) </br>  If useSTOMP==true then the results will be sent using [STOMP over Webscoket](http://jmesnil.net/stomp-websocket/doc/).  STOMP is handy for broadcasting, but adds complexity to the client implementation. Format of the STOMP messages that we use is described [here](https://support.voicegain.ai/hc/en-us/articles/360045569592-Websocket-STOMP-payload-for-real-time-transcription-results).</br> If useSTOMP==false then plain vanilla Websockets will be used to send the results. They will be formatted same way as STOMP messages.</br> The default is `true` for backwards compatibility.   # noqa: E501
+
+        :param use_stomp: The use_stomp of this WebsocketInit.  # noqa: E501
+        :type: bool
+        """
+
+        self._use_stomp = use_stomp
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -62,7 +62,7 @@ class WebsocketResp(object):
     def name(self):
         """Gets the name of this WebsocketResp.  # noqa: E501
 
-        (Required) Name of the websocket to connect to  # noqa: E501
+        Name of the STOMP websocket topic to connect/subscribe to. Only returned if useSTOMP==true  # noqa: E501
 
         :return: The name of this WebsocketResp.  # noqa: E501
         :rtype: str
@@ -73,7 +73,7 @@ class WebsocketResp(object):
     def name(self, name):
         """Sets the name of this WebsocketResp.
 
-        (Required) Name of the websocket to connect to  # noqa: E501
+        Name of the STOMP websocket topic to connect/subscribe to. Only returned if useSTOMP==true  # noqa: E501
 
         :param name: The name of this WebsocketResp.  # noqa: E501
         :type: str
