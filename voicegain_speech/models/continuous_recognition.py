@@ -35,7 +35,7 @@ class ContinuousRecognition(object):
     """
     openapi_types = {
         'enable': 'bool',
-        'no_callback_for': 'list[AsrProcessingStatusForCallback]',
+        'no_callback_for': 'list[AsrProcessingStatusAfterInputStarted]',
         'stop_on': 'list[AsrProcessingStatusAfterInputStarted]'
     }
 
@@ -45,7 +45,7 @@ class ContinuousRecognition(object):
         'stop_on': 'stopOn'
     }
 
-    def __init__(self, enable=False, no_callback_for=["INPUT-STARTED"], stop_on=["MATCH","ERROR"], local_vars_configuration=None):  # noqa: E501
+    def __init__(self, enable=False, no_callback_for=[], stop_on=["MATCH","ERROR"], local_vars_configuration=None):  # noqa: E501
         """ContinuousRecognition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,10 +90,10 @@ class ContinuousRecognition(object):
     def no_callback_for(self):
         """Gets the no_callback_for of this ContinuousRecognition.  # noqa: E501
 
-        Applies only if callbacks have been requested. It specifies for which event(s) no callback needs to be made.</br> Note, by default `INPUT-STARTED` event does not trigger callback. It can be requested as callback to obtain notification of the start of speech.   # noqa: E501
+        Specifies for which event(s) no callback needs to be made.   # noqa: E501
 
         :return: The no_callback_for of this ContinuousRecognition.  # noqa: E501
-        :rtype: list[AsrProcessingStatusForCallback]
+        :rtype: list[AsrProcessingStatusAfterInputStarted]
         """
         return self._no_callback_for
 
@@ -101,10 +101,10 @@ class ContinuousRecognition(object):
     def no_callback_for(self, no_callback_for):
         """Sets the no_callback_for of this ContinuousRecognition.
 
-        Applies only if callbacks have been requested. It specifies for which event(s) no callback needs to be made.</br> Note, by default `INPUT-STARTED` event does not trigger callback. It can be requested as callback to obtain notification of the start of speech.   # noqa: E501
+        Specifies for which event(s) no callback needs to be made.   # noqa: E501
 
         :param no_callback_for: The no_callback_for of this ContinuousRecognition.  # noqa: E501
-        :type: list[AsrProcessingStatusForCallback]
+        :type: list[AsrProcessingStatusAfterInputStarted]
         """
 
         self._no_callback_for = no_callback_for
