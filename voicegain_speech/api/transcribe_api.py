@@ -406,7 +406,7 @@ class TranscribeApi(object):
     def asr_transcribe_get_transcript(self, session_id, **kwargs):  # noqa: E501
         """Transcript Content  # noqa: E501
 
-        Retrieve transcript  (after transcription is complete) if one of several possible formats.</br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br> Transcript data is available for the `session.poll.persist` period as specified in the initial POST request.</br>   # noqa: E501
+        Retrieve transcript  (after transcription is complete) in one of several possible formats.</br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br> Transcript data is available for the `session.poll.persist` period as specified in the initial POST request.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_get_transcript(session_id, async_req=True)
@@ -434,7 +434,7 @@ class TranscribeApi(object):
     def asr_transcribe_get_transcript_with_http_info(self, session_id, **kwargs):  # noqa: E501
         """Transcript Content  # noqa: E501
 
-        Retrieve transcript  (after transcription is complete) if one of several possible formats.</br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br> Transcript data is available for the `session.poll.persist` period as specified in the initial POST request.</br>   # noqa: E501
+        Retrieve transcript  (after transcription is complete) in one of several possible formats.</br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br> Transcript data is available for the `session.poll.persist` period as specified in the initial POST request.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_get_transcript_with_http_info(session_id, async_req=True)
