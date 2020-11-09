@@ -43,6 +43,8 @@ class AsrSettingsTranscriptionAsync(object):
         'hints': 'list[str]',
         'lang_model': 'str',
         'diarization': 'AsrSettingsTranscriptionAllOfDiarization',
+        'identify_speaker_age': 'bool',
+        'identify_speaker_gender': 'bool',
         'complete_timeout': 'int',
         'no_input_timeout': 'int',
         'start_input_timers': 'bool'
@@ -58,12 +60,14 @@ class AsrSettingsTranscriptionAsync(object):
         'hints': 'hints',
         'lang_model': 'langModel',
         'diarization': 'diarization',
+        'identify_speaker_age': 'identifySpeakerAge',
+        'identify_speaker_gender': 'identifySpeakerGender',
         'complete_timeout': 'completeTimeout',
         'no_input_timeout': 'noInputTimeout',
         'start_input_timers': 'startInputTimers'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, hints=None, lang_model=None, diarization=None, complete_timeout=-1, no_input_timeout=15000, start_input_timers=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, hints=None, lang_model=None, diarization=None, identify_speaker_age=None, identify_speaker_gender=None, complete_timeout=-1, no_input_timeout=15000, start_input_timers=False, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscriptionAsync - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +82,8 @@ class AsrSettingsTranscriptionAsync(object):
         self._hints = None
         self._lang_model = None
         self._diarization = None
+        self._identify_speaker_age = None
+        self._identify_speaker_gender = None
         self._complete_timeout = None
         self._no_input_timeout = None
         self._start_input_timers = None
@@ -101,6 +107,10 @@ class AsrSettingsTranscriptionAsync(object):
             self.lang_model = lang_model
         if diarization is not None:
             self.diarization = diarization
+        if identify_speaker_age is not None:
+            self.identify_speaker_age = identify_speaker_age
+        if identify_speaker_gender is not None:
+            self.identify_speaker_gender = identify_speaker_gender
         if complete_timeout is not None:
             self.complete_timeout = complete_timeout
         if no_input_timeout is not None:
@@ -339,6 +349,52 @@ class AsrSettingsTranscriptionAsync(object):
         """
 
         self._diarization = diarization
+
+    @property
+    def identify_speaker_age(self):
+        """Gets the identify_speaker_age of this AsrSettingsTranscriptionAsync.  # noqa: E501
+
+        If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+
+        :return: The identify_speaker_age of this AsrSettingsTranscriptionAsync.  # noqa: E501
+        :rtype: bool
+        """
+        return self._identify_speaker_age
+
+    @identify_speaker_age.setter
+    def identify_speaker_age(self, identify_speaker_age):
+        """Sets the identify_speaker_age of this AsrSettingsTranscriptionAsync.
+
+        If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+
+        :param identify_speaker_age: The identify_speaker_age of this AsrSettingsTranscriptionAsync.  # noqa: E501
+        :type: bool
+        """
+
+        self._identify_speaker_age = identify_speaker_age
+
+    @property
+    def identify_speaker_gender(self):
+        """Gets the identify_speaker_gender of this AsrSettingsTranscriptionAsync.  # noqa: E501
+
+        If set to true then the system will try to identify most likely speaker gender based on the voice characteristics.</br> Capable of recognizing only two genders: male and female.   # noqa: E501
+
+        :return: The identify_speaker_gender of this AsrSettingsTranscriptionAsync.  # noqa: E501
+        :rtype: bool
+        """
+        return self._identify_speaker_gender
+
+    @identify_speaker_gender.setter
+    def identify_speaker_gender(self, identify_speaker_gender):
+        """Sets the identify_speaker_gender of this AsrSettingsTranscriptionAsync.
+
+        If set to true then the system will try to identify most likely speaker gender based on the voice characteristics.</br> Capable of recognizing only two genders: male and female.   # noqa: E501
+
+        :param identify_speaker_gender: The identify_speaker_gender of this AsrSettingsTranscriptionAsync.  # noqa: E501
+        :type: bool
+        """
+
+        self._identify_speaker_gender = identify_speaker_gender
 
     @property
     def complete_timeout(self):

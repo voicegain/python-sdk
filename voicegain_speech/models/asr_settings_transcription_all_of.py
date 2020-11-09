@@ -34,24 +34,34 @@ class AsrSettingsTranscriptionAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'diarization': 'AsrSettingsTranscriptionAllOfDiarization'
+        'diarization': 'AsrSettingsTranscriptionAllOfDiarization',
+        'identify_speaker_age': 'bool',
+        'identify_speaker_gender': 'bool'
     }
 
     attribute_map = {
-        'diarization': 'diarization'
+        'diarization': 'diarization',
+        'identify_speaker_age': 'identifySpeakerAge',
+        'identify_speaker_gender': 'identifySpeakerGender'
     }
 
-    def __init__(self, diarization=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, diarization=None, identify_speaker_age=None, identify_speaker_gender=None, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscriptionAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._diarization = None
+        self._identify_speaker_age = None
+        self._identify_speaker_gender = None
         self.discriminator = None
 
         if diarization is not None:
             self.diarization = diarization
+        if identify_speaker_age is not None:
+            self.identify_speaker_age = identify_speaker_age
+        if identify_speaker_gender is not None:
+            self.identify_speaker_gender = identify_speaker_gender
 
     @property
     def diarization(self):
@@ -73,6 +83,52 @@ class AsrSettingsTranscriptionAllOf(object):
         """
 
         self._diarization = diarization
+
+    @property
+    def identify_speaker_age(self):
+        """Gets the identify_speaker_age of this AsrSettingsTranscriptionAllOf.  # noqa: E501
+
+        If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+
+        :return: The identify_speaker_age of this AsrSettingsTranscriptionAllOf.  # noqa: E501
+        :rtype: bool
+        """
+        return self._identify_speaker_age
+
+    @identify_speaker_age.setter
+    def identify_speaker_age(self, identify_speaker_age):
+        """Sets the identify_speaker_age of this AsrSettingsTranscriptionAllOf.
+
+        If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+
+        :param identify_speaker_age: The identify_speaker_age of this AsrSettingsTranscriptionAllOf.  # noqa: E501
+        :type: bool
+        """
+
+        self._identify_speaker_age = identify_speaker_age
+
+    @property
+    def identify_speaker_gender(self):
+        """Gets the identify_speaker_gender of this AsrSettingsTranscriptionAllOf.  # noqa: E501
+
+        If set to true then the system will try to identify most likely speaker gender based on the voice characteristics.</br> Capable of recognizing only two genders: male and female.   # noqa: E501
+
+        :return: The identify_speaker_gender of this AsrSettingsTranscriptionAllOf.  # noqa: E501
+        :rtype: bool
+        """
+        return self._identify_speaker_gender
+
+    @identify_speaker_gender.setter
+    def identify_speaker_gender(self, identify_speaker_gender):
+        """Sets the identify_speaker_gender of this AsrSettingsTranscriptionAllOf.
+
+        If set to true then the system will try to identify most likely speaker gender based on the voice characteristics.</br> Capable of recognizing only two genders: male and female.   # noqa: E501
+
+        :param identify_speaker_gender: The identify_speaker_gender of this AsrSettingsTranscriptionAllOf.  # noqa: E501
+        :type: bool
+        """
+
+        self._identify_speaker_gender = identify_speaker_gender
 
     def to_dict(self):
         """Returns the model properties as a dict"""
