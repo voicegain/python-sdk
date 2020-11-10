@@ -268,6 +268,7 @@ from voicegain_speech.models.settings_async_transcription import SettingsAsyncTr
 from voicegain_speech.models.settings_recognition import SettingsRecognition
 from voicegain_speech.models.settings_sync_transcription import SettingsSyncTranscription
 from voicegain_speech.models.sos_ref import SosRef
+from voicegain_speech.models.speaker_result import SpeakerResult
 from voicegain_speech.models.stream_resp import StreamResp
 from voicegain_speech.models.stream_setup import StreamSetup
 from voicegain_speech.models.streaming_protocol import StreamingProtocol
