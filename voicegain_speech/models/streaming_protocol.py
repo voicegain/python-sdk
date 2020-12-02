@@ -29,14 +29,13 @@ class StreamingProtocol(object):
     """
     allowed enum values
     """
-    RTP = "RTP"
-    ASCALON = "ASCALON"
-    ASCALON_C = "ASCALON_C"
     WEBSOCKET = "WEBSOCKET"
     TWIML = "TWIML"
     LAML = "LAML"
+    RTP = "RTP"
+    ASCALON = "ASCALON"
 
-    allowable_values = [RTP, ASCALON, ASCALON_C, WEBSOCKET, TWIML, LAML]  # noqa: E501
+    allowable_values = [WEBSOCKET, TWIML, LAML, RTP, ASCALON]  # noqa: E501
 
     """
     Attributes:

@@ -201,7 +201,7 @@ class WebsocketInit(object):
     def use_stomp(self):
         """Gets the use_stomp of this WebsocketInit.  # noqa: E501
 
-        If useSTOMP==true then the results will be sent using [STOMP over Webscoket](http://jmesnil.net/stomp-websocket/doc/).  STOMP is handy for broadcasting, but adds complexity to the client implementation. Format of the STOMP messages that we use is described [here](https://support.voicegain.ai/hc/en-us/articles/360045569592-Websocket-STOMP-payload-for-real-time-transcription-results).</br> If useSTOMP==false then plain vanilla Websockets will be used to send the results. They will be formatted same way as STOMP messages.</br> The default is `true` for backwards compatibility.   # noqa: E501
+        If `useSTOMP==true` then the results will be sent using [STOMP over Webscoket](http://jmesnil.net/stomp-websocket/doc/) protocol.  STOMP adds complexity to the client implementation and consumes more server resources,  but has the benefit of  (1) being supported in Voicegain CC-App viewer, and  (2) being more suitable for very long transcriptions, i.e., several hours long.  Format of the STOMP messages that we use is described [here](https://support.voicegain.ai/hc/en-us/articles/360045569592-Websocket-STOMP-payload-for-real-time-transcription-results).</br> If `useSTOMP==false` then the **more efficient** plain vanilla Websockets will be used to send the results. The messages sent will be formatted same way as STOMP messages.</br> The default value of `useSTOMP` is `true` for backwards compatibility as originally only the STOMP protocol was supported.   # noqa: E501
 
         :return: The use_stomp of this WebsocketInit.  # noqa: E501
         :rtype: bool
@@ -212,7 +212,7 @@ class WebsocketInit(object):
     def use_stomp(self, use_stomp):
         """Sets the use_stomp of this WebsocketInit.
 
-        If useSTOMP==true then the results will be sent using [STOMP over Webscoket](http://jmesnil.net/stomp-websocket/doc/).  STOMP is handy for broadcasting, but adds complexity to the client implementation. Format of the STOMP messages that we use is described [here](https://support.voicegain.ai/hc/en-us/articles/360045569592-Websocket-STOMP-payload-for-real-time-transcription-results).</br> If useSTOMP==false then plain vanilla Websockets will be used to send the results. They will be formatted same way as STOMP messages.</br> The default is `true` for backwards compatibility.   # noqa: E501
+        If `useSTOMP==true` then the results will be sent using [STOMP over Webscoket](http://jmesnil.net/stomp-websocket/doc/) protocol.  STOMP adds complexity to the client implementation and consumes more server resources,  but has the benefit of  (1) being supported in Voicegain CC-App viewer, and  (2) being more suitable for very long transcriptions, i.e., several hours long.  Format of the STOMP messages that we use is described [here](https://support.voicegain.ai/hc/en-us/articles/360045569592-Websocket-STOMP-payload-for-real-time-transcription-results).</br> If `useSTOMP==false` then the **more efficient** plain vanilla Websockets will be used to send the results. The messages sent will be formatted same way as STOMP messages.</br> The default value of `useSTOMP` is `true` for backwards compatibility as originally only the STOMP protocol was supported.   # noqa: E501
 
         :param use_stomp: The use_stomp of this WebsocketInit.  # noqa: E501
         :type: bool
