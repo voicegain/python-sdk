@@ -38,9 +38,9 @@ class AivrCallbackApi(object):
         self.api_client = api_client
 
     def aivr_callback_delete(self, csid, seq, **kwargs):  # noqa: E501
-        """End RTC Session  # noqa: E501
+        """End Bot Session  # noqa: E501
 
-        Specification of a callback method that Voicegain Platform will use to communicate end of RTC session to the User's dialog control logic.</br> **Note 1:** the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).<br> **Note 2:** it is possible to configure AIVR app to send the `csid` either in the path (as in example here), in the query, or in the body of the callback request.  Request definition specifies what data will be sent from Voicegain to User system.</br> Response definition specifies what data will be sent from User system to Voicegain.     # noqa: E501
+        Specification of a callback method that Voicegain Platform will use to communicate end of Telephony Bot Session to the User's dialog control logic.</br> **Note 1:** the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).<br> **Note 2:** it is possible to configure AIVR app to send the `csid` either in the path (as in example here), in the query, or in the body of the callback request.  Request definition specifies what data will be sent from Voicegain to User system.</br> Response definition specifies what data will be sent from User system to Voicegain.     # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.aivr_callback_delete(csid, seq, async_req=True)
@@ -49,7 +49,7 @@ class AivrCallbackApi(object):
         :param async_req bool: execute request asynchronously
         :param str csid: ID of the AIVR session on customer's system.   (required)
         :param int seq: Interaction sequences of the AIVR session on Voicegain system.   (required)
-        :param AIVRExistingSession aivr_existing_session: Body of RTC Callback request.
+        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -65,9 +65,9 @@ class AivrCallbackApi(object):
         return self.aivr_callback_delete_with_http_info(csid, seq, **kwargs)  # noqa: E501
 
     def aivr_callback_delete_with_http_info(self, csid, seq, **kwargs):  # noqa: E501
-        """End RTC Session  # noqa: E501
+        """End Bot Session  # noqa: E501
 
-        Specification of a callback method that Voicegain Platform will use to communicate end of RTC session to the User's dialog control logic.</br> **Note 1:** the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).<br> **Note 2:** it is possible to configure AIVR app to send the `csid` either in the path (as in example here), in the query, or in the body of the callback request.  Request definition specifies what data will be sent from Voicegain to User system.</br> Response definition specifies what data will be sent from User system to Voicegain.     # noqa: E501
+        Specification of a callback method that Voicegain Platform will use to communicate end of Telephony Bot Session to the User's dialog control logic.</br> **Note 1:** the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).<br> **Note 2:** it is possible to configure AIVR app to send the `csid` either in the path (as in example here), in the query, or in the body of the callback request.  Request definition specifies what data will be sent from Voicegain to User system.</br> Response definition specifies what data will be sent from User system to Voicegain.     # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.aivr_callback_delete_with_http_info(csid, seq, async_req=True)
@@ -76,7 +76,7 @@ class AivrCallbackApi(object):
         :param async_req bool: execute request asynchronously
         :param str csid: ID of the AIVR session on customer's system.   (required)
         :param int seq: Interaction sequences of the AIVR session on Voicegain system.   (required)
-        :param AIVRExistingSession aivr_existing_session: Body of RTC Callback request.
+        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -170,9 +170,9 @@ class AivrCallbackApi(object):
             collection_formats=collection_formats)
 
     def aivr_callback_existing(self, csid, seq, **kwargs):  # noqa: E501
-        """Existing RTC Session  # noqa: E501
+        """Existing Bot Session  # noqa: E501
 
-        Specification of a callback method that Voicegain Platform will use to communicate events from an existing RTC session to the User's dialog control logic.</br> **Note 1:** the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).<br> **Note 2:** it is possible to configure AIVR app to send the `csid` either in the path (as in example here), in the query, or in the body of the callback request.  **Request** definition specifies what data will be sent from Voicegain RTC Session to User system.</br>  **Response** definition specifies what data will be sent from User dialog system to Voicegain RTC Session Engine.  Response contains instructions for Voicegain RTC Session Engine (including TTS and ASR) in response to the data received in the Callback request.</br> Possible actions that may be requested from Voicegain are: + prompt + question + disconnect + transfer   # noqa: E501
+        Specification of a callback method that Voicegain Platform will use to communicate events from an existing Telephony Bot session to the User's dialog control logic.</br> **Note 1:** the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).<br> **Note 2:** it is possible to configure Phone App to send the `csid` either in the path (as in example here), in the query, or in the body of the callback request.  **Request** definition specifies what data will be sent from Voicegain Telephony Bot Session to User system.</br>  **Response** definition specifies what data will be sent from User dialog system to Voicegain Telephony Bot Session Engine.  Response contains instructions for Voicegain Telephony Bot Session Engine (including TTS and ASR) in response to the data received in the Callback request.</br> Possible actions that may be requested from Voicegain are: + prompt + question + disconnect + transfer   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.aivr_callback_existing(csid, seq, async_req=True)
@@ -181,7 +181,7 @@ class AivrCallbackApi(object):
         :param async_req bool: execute request asynchronously
         :param str csid: ID of the AIVR session on customer's system.   (required)
         :param int seq: Interaction sequences of the AIVR session on Voicegain system.   (required)
-        :param AIVRExistingSession aivr_existing_session: Body of RTC Callback request.
+        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -197,9 +197,9 @@ class AivrCallbackApi(object):
         return self.aivr_callback_existing_with_http_info(csid, seq, **kwargs)  # noqa: E501
 
     def aivr_callback_existing_with_http_info(self, csid, seq, **kwargs):  # noqa: E501
-        """Existing RTC Session  # noqa: E501
+        """Existing Bot Session  # noqa: E501
 
-        Specification of a callback method that Voicegain Platform will use to communicate events from an existing RTC session to the User's dialog control logic.</br> **Note 1:** the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).<br> **Note 2:** it is possible to configure AIVR app to send the `csid` either in the path (as in example here), in the query, or in the body of the callback request.  **Request** definition specifies what data will be sent from Voicegain RTC Session to User system.</br>  **Response** definition specifies what data will be sent from User dialog system to Voicegain RTC Session Engine.  Response contains instructions for Voicegain RTC Session Engine (including TTS and ASR) in response to the data received in the Callback request.</br> Possible actions that may be requested from Voicegain are: + prompt + question + disconnect + transfer   # noqa: E501
+        Specification of a callback method that Voicegain Platform will use to communicate events from an existing Telephony Bot session to the User's dialog control logic.</br> **Note 1:** the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).<br> **Note 2:** it is possible to configure Phone App to send the `csid` either in the path (as in example here), in the query, or in the body of the callback request.  **Request** definition specifies what data will be sent from Voicegain Telephony Bot Session to User system.</br>  **Response** definition specifies what data will be sent from User dialog system to Voicegain Telephony Bot Session Engine.  Response contains instructions for Voicegain Telephony Bot Session Engine (including TTS and ASR) in response to the data received in the Callback request.</br> Possible actions that may be requested from Voicegain are: + prompt + question + disconnect + transfer   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.aivr_callback_existing_with_http_info(csid, seq, async_req=True)
@@ -208,7 +208,7 @@ class AivrCallbackApi(object):
         :param async_req bool: execute request asynchronously
         :param str csid: ID of the AIVR session on customer's system.   (required)
         :param int seq: Interaction sequences of the AIVR session on Voicegain system.   (required)
-        :param AIVRExistingSession aivr_existing_session: Body of RTC Callback request.
+        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -302,16 +302,16 @@ class AivrCallbackApi(object):
             collection_formats=collection_formats)
 
     def aivr_callback_new(self, **kwargs):  # noqa: E501
-        """New RTC Session  # noqa: E501
+        """New Bot Session  # noqa: E501
 
-        Specification of a callback method that Voicegain Platform will invoke to indicate start of new RTC session to the User's dialog control logic.</br> Note: the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).  **Request** definition specifies what data will be sent from Voicegain RTC Session to User system.</br>  **Response** definition specifies what data will be sent from User dialog system to Voicegain RTC Session Engine.  Response contains instructions for Voicegain RTC Session Engine (including TTS and ASR) in response to the data received in the Callback request.</br> Possible actions that may be requested from Voicegain are: + prompt + question + disconnect + transfer   # noqa: E501
+        Specification of a callback method that Voicegain Platform will invoke to indicate start of new Telephony Bot session to the User's dialog control logic.</br> Note: the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).  **Request** definition specifies what data will be sent from Voicegain Telephony Bot Session to User system.</br>  **Response** definition specifies what data will be sent from User dialog system to Voicegain Telephony Bot Session Engine.  Response contains instructions for Voicegain Telephony Bot Session Engine (including TTS and ASR) in response to the data received in the Callback request.</br> Possible actions that may be requested from Voicegain are: + prompt + question + disconnect + transfer   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.aivr_callback_new(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AIVRNewSession aivr_new_session: Body of RTC Callback request.
+        :param AIVRNewSession aivr_new_session: Body of Telephony Bot Callback request.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -327,16 +327,16 @@ class AivrCallbackApi(object):
         return self.aivr_callback_new_with_http_info(**kwargs)  # noqa: E501
 
     def aivr_callback_new_with_http_info(self, **kwargs):  # noqa: E501
-        """New RTC Session  # noqa: E501
+        """New Bot Session  # noqa: E501
 
-        Specification of a callback method that Voicegain Platform will invoke to indicate start of new RTC session to the User's dialog control logic.</br> Note: the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).  **Request** definition specifies what data will be sent from Voicegain RTC Session to User system.</br>  **Response** definition specifies what data will be sent from User dialog system to Voicegain RTC Session Engine.  Response contains instructions for Voicegain RTC Session Engine (including TTS and ASR) in response to the data received in the Callback request.</br> Possible actions that may be requested from Voicegain are: + prompt + question + disconnect + transfer   # noqa: E501
+        Specification of a callback method that Voicegain Platform will invoke to indicate start of new Telephony Bot session to the User's dialog control logic.</br> Note: the url provided here is not relevant. User can implement this method on any url (consistent with corresponding PUT and DELETE methods).  **Request** definition specifies what data will be sent from Voicegain Telephony Bot Session to User system.</br>  **Response** definition specifies what data will be sent from User dialog system to Voicegain Telephony Bot Session Engine.  Response contains instructions for Voicegain Telephony Bot Session Engine (including TTS and ASR) in response to the data received in the Callback request.</br> Possible actions that may be requested from Voicegain are: + prompt + question + disconnect + transfer   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.aivr_callback_new_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AIVRNewSession aivr_new_session: Body of RTC Callback request.
+        :param AIVRNewSession aivr_new_session: Body of Telephony Bot Callback request.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

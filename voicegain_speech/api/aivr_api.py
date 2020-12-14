@@ -40,7 +40,7 @@ class AivrApi(object):
     def aivr_get(self, ivr_sid, **kwargs):  # noqa: E501
         """Get AIVR Session  # noqa: E501
 
-        Get AIVR Session with given session id   # noqa: E501
+        Get AIVR Session (Telephony Bot Session) with given session id   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.aivr_get(ivr_sid, async_req=True)
@@ -65,7 +65,7 @@ class AivrApi(object):
     def aivr_get_with_http_info(self, ivr_sid, **kwargs):  # noqa: E501
         """Get AIVR Session  # noqa: E501
 
-        Get AIVR Session with given session id   # noqa: E501
+        Get AIVR Session (Telephony Bot Session) with given session id   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.aivr_get_with_http_info(ivr_sid, async_req=True)
