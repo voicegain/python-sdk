@@ -44,6 +44,7 @@ class CoreAIVRSession(object):
         'loop': 'str',
         'prompt': 'dict(str, AIVRPromptPlaying)',
         'recordings': 'list[AIVRRecording]',
+        'sa_session_id': 'str',
         'sequence': 'int',
         'start_time': 'datetime',
         'telco_data': 'CoreAIVRSessionTelcoData',
@@ -65,6 +66,7 @@ class CoreAIVRSession(object):
         'loop': 'loop',
         'prompt': 'prompt',
         'recordings': 'recordings',
+        'sa_session_id': 'saSessionId',
         'sequence': 'sequence',
         'start_time': 'startTime',
         'telco_data': 'telcoData',
@@ -75,7 +77,7 @@ class CoreAIVRSession(object):
         'vars': 'vars'
     }
 
-    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sequence=None, start_time=None, telco_data=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sa_session_id=None, sequence=None, start_time=None, telco_data=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """CoreAIVRSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -91,6 +93,7 @@ class CoreAIVRSession(object):
         self._loop = None
         self._prompt = None
         self._recordings = None
+        self._sa_session_id = None
         self._sequence = None
         self._start_time = None
         self._telco_data = None
@@ -119,6 +122,8 @@ class CoreAIVRSession(object):
             self.prompt = prompt
         if recordings is not None:
             self.recordings = recordings
+        if sa_session_id is not None:
+            self.sa_session_id = sa_session_id
         if sequence is not None:
             self.sequence = sequence
         self.start_time = start_time
@@ -366,6 +371,29 @@ class CoreAIVRSession(object):
         """
 
         self._recordings = recordings
+
+    @property
+    def sa_session_id(self):
+        """Gets the sa_session_id of this CoreAIVRSession.  # noqa: E501
+
+        (replaces old `asrSid` which was inside `recordings` field)</br> Note: currently SA Session handles only up to 2 channels.  Because of that AIVR sessions that have more than 2 channels recorded will only have 2 channels transcribed and speech analyzed.   # noqa: E501
+
+        :return: The sa_session_id of this CoreAIVRSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._sa_session_id
+
+    @sa_session_id.setter
+    def sa_session_id(self, sa_session_id):
+        """Sets the sa_session_id of this CoreAIVRSession.
+
+        (replaces old `asrSid` which was inside `recordings` field)</br> Note: currently SA Session handles only up to 2 channels.  Because of that AIVR sessions that have more than 2 channels recorded will only have 2 channels transcribed and speech analyzed.   # noqa: E501
+
+        :param sa_session_id: The sa_session_id of this CoreAIVRSession.  # noqa: E501
+        :type: str
+        """
+
+        self._sa_session_id = sa_session_id
 
     @property
     def sequence(self):

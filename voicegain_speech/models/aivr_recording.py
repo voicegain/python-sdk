@@ -82,7 +82,7 @@ class AIVRRecording(object):
     def asr_sid(self):
         """Gets the asr_sid of this AIVRRecording.  # noqa: E501
 
-        uuid of the ASR session that has the transcript and the speech analytics results  # noqa: E501
+        (replaced by `saSessionId`) uuid of the ASR session that has the transcript and the speech analytics results  # noqa: E501
 
         :return: The asr_sid of this AIVRRecording.  # noqa: E501
         :rtype: str
@@ -93,7 +93,7 @@ class AIVRRecording(object):
     def asr_sid(self, asr_sid):
         """Sets the asr_sid of this AIVRRecording.
 
-        uuid of the ASR session that has the transcript and the speech analytics results  # noqa: E501
+        (replaced by `saSessionId`) uuid of the ASR session that has the transcript and the speech analytics results  # noqa: E501
 
         :param asr_sid: The asr_sid of this AIVRRecording.  # noqa: E501
         :type: str
