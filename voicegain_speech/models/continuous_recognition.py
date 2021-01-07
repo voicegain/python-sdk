@@ -35,31 +35,31 @@ class ContinuousRecognition(object):
     """
     openapi_types = {
         'enable': 'bool',
-        'no_callback_for': 'list[AsrProcessingStatusAfterInputStarted]',
+        'no_response_for': 'list[AsrProcessingStatusForCallback]',
         'stop_on': 'list[AsrProcessingStatusAfterInputStarted]'
     }
 
     attribute_map = {
         'enable': 'enable',
-        'no_callback_for': 'noCallbackFor',
+        'no_response_for': 'noResponseFor',
         'stop_on': 'stopOn'
     }
 
-    def __init__(self, enable=False, no_callback_for=[], stop_on=["MATCH","ERROR"], local_vars_configuration=None):  # noqa: E501
+    def __init__(self, enable=False, no_response_for=["INPUT-STARTED"], stop_on=["MATCH","ERROR"], local_vars_configuration=None):  # noqa: E501
         """ContinuousRecognition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._enable = None
-        self._no_callback_for = None
+        self._no_response_for = None
         self._stop_on = None
         self.discriminator = None
 
         if enable is not None:
             self.enable = enable
-        if no_callback_for is not None:
-            self.no_callback_for = no_callback_for
+        if no_response_for is not None:
+            self.no_response_for = no_response_for
         if stop_on is not None:
             self.stop_on = stop_on
 
@@ -87,27 +87,27 @@ class ContinuousRecognition(object):
         self._enable = enable
 
     @property
-    def no_callback_for(self):
-        """Gets the no_callback_for of this ContinuousRecognition.  # noqa: E501
+    def no_response_for(self):
+        """Gets the no_response_for of this ContinuousRecognition.  # noqa: E501
 
-        Specifies for which event(s) no callback needs to be made.   # noqa: E501
+        Specifies for which event(s) no result responses needs to be sent.   # noqa: E501
 
-        :return: The no_callback_for of this ContinuousRecognition.  # noqa: E501
-        :rtype: list[AsrProcessingStatusAfterInputStarted]
+        :return: The no_response_for of this ContinuousRecognition.  # noqa: E501
+        :rtype: list[AsrProcessingStatusForCallback]
         """
-        return self._no_callback_for
+        return self._no_response_for
 
-    @no_callback_for.setter
-    def no_callback_for(self, no_callback_for):
-        """Sets the no_callback_for of this ContinuousRecognition.
+    @no_response_for.setter
+    def no_response_for(self, no_response_for):
+        """Sets the no_response_for of this ContinuousRecognition.
 
-        Specifies for which event(s) no callback needs to be made.   # noqa: E501
+        Specifies for which event(s) no result responses needs to be sent.   # noqa: E501
 
-        :param no_callback_for: The no_callback_for of this ContinuousRecognition.  # noqa: E501
-        :type: list[AsrProcessingStatusAfterInputStarted]
+        :param no_response_for: The no_response_for of this ContinuousRecognition.  # noqa: E501
+        :type: list[AsrProcessingStatusForCallback]
         """
 
-        self._no_callback_for = no_callback_for
+        self._no_response_for = no_response_for
 
     @property
     def stop_on(self):

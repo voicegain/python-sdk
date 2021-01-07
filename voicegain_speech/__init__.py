@@ -70,7 +70,9 @@ from voicegain_speech.models.aivr_transfer import AIVRTransfer
 from voicegain_speech.models.account_and_context_id import AccountAndContextId
 from voicegain_speech.models.asr_processing_event import AsrProcessingEvent
 from voicegain_speech.models.asr_processing_status import AsrProcessingStatus
+from voicegain_speech.models.asr_processing_status_additional import AsrProcessingStatusAdditional
 from voicegain_speech.models.asr_processing_status_after_input_started import AsrProcessingStatusAfterInputStarted
+from voicegain_speech.models.asr_processing_status_for_callback import AsrProcessingStatusForCallback
 from voicegain_speech.models.asr_recognition_result import AsrRecognitionResult
 from voicegain_speech.models.asr_settings_common import AsrSettingsCommon
 from voicegain_speech.models.asr_settings_recognition import AsrSettingsRecognition
@@ -294,6 +296,7 @@ from voicegain_speech.models.transfer import Transfer
 from voicegain_speech.models.transfer_all_of import TransferAllOf
 from voicegain_speech.models.websocket import Websocket
 from voicegain_speech.models.websocket_init import WebsocketInit
+from voicegain_speech.models.websocket_init_reco import WebsocketInitReco
 from voicegain_speech.models.websocket_modifiable import WebsocketModifiable
 from voicegain_speech.models.websocket_msg import WebsocketMsg
 from voicegain_speech.models.websocket_resp import WebsocketResp
