@@ -49,6 +49,7 @@ class SecurityApi(object):
         :param async_req bool: execute request asynchronously
         :param str aud: Domain from which the requests using this JWT should be allowed.</br> Will be inspected only if the request has \"Origin\" header, which will generally be true for requests coming from web browser.</br> Subdomains with wildcards are allowed, see example. Wildcard alone, i.e. \"*\" is allowed, but not recommended.  (required)
         :param int exp_in_sec: Number of seconds from now when the JWT is to expire
+        :param str api: API to which the generated JWT may apply.  This results in different `sub` value within JWT value being generated, e.g., \"sub\": \"api:/data-prep:bd14fd94-0c3c-4c9a-82ee-ccf0dbef6729\". This can be used in limiting applicability of the JWT only to certain APIs. 
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -76,6 +77,7 @@ class SecurityApi(object):
         :param async_req bool: execute request asynchronously
         :param str aud: Domain from which the requests using this JWT should be allowed.</br> Will be inspected only if the request has \"Origin\" header, which will generally be true for requests coming from web browser.</br> Subdomains with wildcards are allowed, see example. Wildcard alone, i.e. \"*\" is allowed, but not recommended.  (required)
         :param int exp_in_sec: Number of seconds from now when the JWT is to expire
+        :param str api: API to which the generated JWT may apply.  This results in different `sub` value within JWT value being generated, e.g., \"sub\": \"api:/data-prep:bd14fd94-0c3c-4c9a-82ee-ccf0dbef6729\". This can be used in limiting applicability of the JWT only to certain APIs. 
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -93,7 +95,7 @@ class SecurityApi(object):
 
         local_var_params = locals()
 
-        all_params = ['aud', 'exp_in_sec', 'context_id']  # noqa: E501
+        all_params = ['aud', 'exp_in_sec', 'api', 'context_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -119,6 +121,9 @@ class SecurityApi(object):
             raise ApiValueError("Invalid value for parameter `exp_in_sec` when calling `security_jwt_get`, must be a value less than or equal to `3600`")  # noqa: E501
         if self.api_client.client_side_validation and 'exp_in_sec' in local_var_params and local_var_params['exp_in_sec'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `exp_in_sec` when calling `security_jwt_get`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and ('api' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['api']) > 128):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `api` when calling `security_jwt_get`, length must be less than or equal to `128`")  # noqa: E501
         if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['context_id']) > 48):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `context_id` when calling `security_jwt_get`, length must be less than or equal to `48`")  # noqa: E501
@@ -134,6 +139,8 @@ class SecurityApi(object):
             query_params.append(('expInSec', local_var_params['exp_in_sec']))  # noqa: E501
         if 'aud' in local_var_params and local_var_params['aud'] is not None:  # noqa: E501
             query_params.append(('aud', local_var_params['aud']))  # noqa: E501
+        if 'api' in local_var_params and local_var_params['api'] is not None:  # noqa: E501
+            query_params.append(('api', local_var_params['api']))  # noqa: E501
         if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
             query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
 
