@@ -36,16 +36,18 @@ class AsrSettingsRecognitionDefaultsAllOf(object):
     openapi_types = {
         'complete_timeout': 'int',
         'incomplete_timeout': 'int',
+        'lang_model': 'str',
         'no_input_timeout': 'int'
     }
 
     attribute_map = {
         'complete_timeout': 'completeTimeout',
         'incomplete_timeout': 'incompleteTimeout',
+        'lang_model': 'langModel',
         'no_input_timeout': 'noInputTimeout'
     }
 
-    def __init__(self, complete_timeout=2000, incomplete_timeout=5000, no_input_timeout=10000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, complete_timeout=2000, incomplete_timeout=5000, lang_model=None, no_input_timeout=10000, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsRecognitionDefaultsAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,6 +55,7 @@ class AsrSettingsRecognitionDefaultsAllOf(object):
 
         self._complete_timeout = None
         self._incomplete_timeout = None
+        self._lang_model = None
         self._no_input_timeout = None
         self.discriminator = None
 
@@ -60,6 +63,8 @@ class AsrSettingsRecognitionDefaultsAllOf(object):
             self.complete_timeout = complete_timeout
         if incomplete_timeout is not None:
             self.incomplete_timeout = incomplete_timeout
+        if lang_model is not None:
+            self.lang_model = lang_model
         if no_input_timeout is not None:
             self.no_input_timeout = no_input_timeout
 
@@ -120,6 +125,32 @@ class AsrSettingsRecognitionDefaultsAllOf(object):
             raise ValueError("Invalid value for `incomplete_timeout`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._incomplete_timeout = incomplete_timeout
+
+    @property
+    def lang_model(self):
+        """Gets the lang_model of this AsrSettingsRecognitionDefaultsAllOf.  # noqa: E501
+
+        (Only applicable if large-vocabulary recognition has been enabled by using the special transcribe grammar.) </br> Name or UUID of the language model to use. If absent then will use default language model.   # noqa: E501
+
+        :return: The lang_model of this AsrSettingsRecognitionDefaultsAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._lang_model
+
+    @lang_model.setter
+    def lang_model(self, lang_model):
+        """Sets the lang_model of this AsrSettingsRecognitionDefaultsAllOf.
+
+        (Only applicable if large-vocabulary recognition has been enabled by using the special transcribe grammar.) </br> Name or UUID of the language model to use. If absent then will use default language model.   # noqa: E501
+
+        :param lang_model: The lang_model of this AsrSettingsRecognitionDefaultsAllOf.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                lang_model is not None and len(lang_model) > 128):
+            raise ValueError("Invalid value for `lang_model`, length must be less than or equal to `128`")  # noqa: E501
+
+        self._lang_model = lang_model
 
     @property
     def no_input_timeout(self):
