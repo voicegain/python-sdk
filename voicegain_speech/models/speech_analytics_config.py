@@ -50,6 +50,7 @@ class SpeechAnalyticsConfig(object):
         'overtalk_single_duration_maximum_threshold': 'float',
         'overtalk_total_percentage_threshold': 'float',
         'phrases': 'list[PhraseSpotItem]',
+        'pii_redaction': 'list[PIIRedactionConf]',
         'profanity': 'bool',
         'published': 'bool',
         'sentiment': 'bool',
@@ -75,6 +76,7 @@ class SpeechAnalyticsConfig(object):
         'overtalk_single_duration_maximum_threshold': 'overtalkSingleDurationMaximumThreshold',
         'overtalk_total_percentage_threshold': 'overtalkTotalPercentageThreshold',
         'phrases': 'phrases',
+        'pii_redaction': 'piiRedaction',
         'profanity': 'profanity',
         'published': 'published',
         'sentiment': 'sentiment',
@@ -83,7 +85,7 @@ class SpeechAnalyticsConfig(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=None, call_resolution_phrases=None, competitor_keyword_groups=None, entities=None, gender=None, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrases=None, profanity=None, published=False, sentiment=None, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=None, call_resolution_phrases=None, competitor_keyword_groups=None, entities=None, gender=None, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrases=None, pii_redaction=None, profanity=None, published=False, sentiment=None, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfig - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -105,6 +107,7 @@ class SpeechAnalyticsConfig(object):
         self._overtalk_single_duration_maximum_threshold = None
         self._overtalk_total_percentage_threshold = None
         self._phrases = None
+        self._pii_redaction = None
         self._profanity = None
         self._published = None
         self._sentiment = None
@@ -144,6 +147,8 @@ class SpeechAnalyticsConfig(object):
             self.overtalk_total_percentage_threshold = overtalk_total_percentage_threshold
         if phrases is not None:
             self.phrases = phrases
+        if pii_redaction is not None:
+            self.pii_redaction = pii_redaction
         if profanity is not None:
             self.profanity = profanity
         if published is not None:
@@ -338,7 +343,7 @@ class SpeechAnalyticsConfig(object):
     def entities(self):
         """Gets the entities of this SpeechAnalyticsConfig.  # noqa: E501
 
-        Selection of Named Entity types to detect </br> Types of Named Entities: + CARDINAL - Numerals that do not fall under another type. + DATE - Absolute or relative dates or periods. + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + QUANTITY - Measurements, as of weight or distance. + TIME - Named documents made into laws.          # noqa: E501
+        Selection of Named Entity types to detect </br> Types of Named Entities: + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card (coming soon) + DATE - Absolute or relative dates or periods. + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number (coming soon) + TIME - Named documents made into laws.          # noqa: E501
 
         :return: The entities of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[NamedEntityType]
@@ -349,7 +354,7 @@ class SpeechAnalyticsConfig(object):
     def entities(self, entities):
         """Sets the entities of this SpeechAnalyticsConfig.
 
-        Selection of Named Entity types to detect </br> Types of Named Entities: + CARDINAL - Numerals that do not fall under another type. + DATE - Absolute or relative dates or periods. + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + QUANTITY - Measurements, as of weight or distance. + TIME - Named documents made into laws.          # noqa: E501
+        Selection of Named Entity types to detect </br> Types of Named Entities: + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card (coming soon) + DATE - Absolute or relative dates or periods. + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number (coming soon) + TIME - Named documents made into laws.          # noqa: E501
 
         :param entities: The entities of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[NamedEntityType]
@@ -549,6 +554,29 @@ class SpeechAnalyticsConfig(object):
         """
 
         self._phrases = phrases
+
+    @property
+    def pii_redaction(self):
+        """Gets the pii_redaction of this SpeechAnalyticsConfig.  # noqa: E501
+
+        (optional) list specifying the types of entities to be redacted from the transctipt and/or audio  # noqa: E501
+
+        :return: The pii_redaction of this SpeechAnalyticsConfig.  # noqa: E501
+        :rtype: list[PIIRedactionConf]
+        """
+        return self._pii_redaction
+
+    @pii_redaction.setter
+    def pii_redaction(self, pii_redaction):
+        """Sets the pii_redaction of this SpeechAnalyticsConfig.
+
+        (optional) list specifying the types of entities to be redacted from the transctipt and/or audio  # noqa: E501
+
+        :param pii_redaction: The pii_redaction of this SpeechAnalyticsConfig.  # noqa: E501
+        :type: list[PIIRedactionConf]
+        """
+
+        self._pii_redaction = pii_redaction
 
     @property
     def profanity(self):

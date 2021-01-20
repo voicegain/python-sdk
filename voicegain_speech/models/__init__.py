@@ -244,6 +244,7 @@ from voicegain_speech.models.non_session_error_response401 import NonSessionErro
 from voicegain_speech.models.output import Output
 from voicegain_speech.models.output_all_of import OutputAllOf
 from voicegain_speech.models.overtalk import Overtalk
+from voicegain_speech.models.pii_redaction_conf import PIIRedactionConf
 from voicegain_speech.models.phrase_spot_example import PhraseSpotExample
 from voicegain_speech.models.phrase_spot_item import PhraseSpotItem
 from voicegain_speech.models.poll_req import PollReq
