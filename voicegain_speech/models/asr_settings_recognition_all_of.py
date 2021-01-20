@@ -36,6 +36,7 @@ class AsrSettingsRecognitionAllOf(object):
     openapi_types = {
         'complete_timeout': 'int',
         'grammars': 'list[Grammar]',
+        'greg_experiment': 'str',
         'incomplete_timeout': 'int',
         'lang_model': 'str',
         'no_input_timeout': 'int',
@@ -45,13 +46,14 @@ class AsrSettingsRecognitionAllOf(object):
     attribute_map = {
         'complete_timeout': 'completeTimeout',
         'grammars': 'grammars',
+        'greg_experiment': 'gregExperiment',
         'incomplete_timeout': 'incompleteTimeout',
         'lang_model': 'langModel',
         'no_input_timeout': 'noInputTimeout',
         'start_input_timers': 'startInputTimers'
     }
 
-    def __init__(self, complete_timeout=2000, grammars=None, incomplete_timeout=5000, lang_model=None, no_input_timeout=10000, start_input_timers=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, complete_timeout=2000, grammars=None, greg_experiment=None, incomplete_timeout=5000, lang_model=None, no_input_timeout=10000, start_input_timers=True, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsRecognitionAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class AsrSettingsRecognitionAllOf(object):
 
         self._complete_timeout = None
         self._grammars = None
+        self._greg_experiment = None
         self._incomplete_timeout = None
         self._lang_model = None
         self._no_input_timeout = None
@@ -68,6 +71,8 @@ class AsrSettingsRecognitionAllOf(object):
         if complete_timeout is not None:
             self.complete_timeout = complete_timeout
         self.grammars = grammars
+        if greg_experiment is not None:
+            self.greg_experiment = greg_experiment
         if incomplete_timeout is not None:
             self.incomplete_timeout = incomplete_timeout
         if lang_model is not None:
@@ -130,6 +135,35 @@ class AsrSettingsRecognitionAllOf(object):
             raise ValueError("Invalid value for `grammars`, must not be `None`")  # noqa: E501
 
         self._grammars = grammars
+
+    @property
+    def greg_experiment(self):
+        """Gets the greg_experiment of this AsrSettingsRecognitionAllOf.  # noqa: E501
+
+        (optional) Id of the GREG Experiment used to capture the audio and the recognition result. GREG Experiment status needs to be IMPORTING for capture to happen. If the status is READY no capture will be done.   # noqa: E501
+
+        :return: The greg_experiment of this AsrSettingsRecognitionAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._greg_experiment
+
+    @greg_experiment.setter
+    def greg_experiment(self, greg_experiment):
+        """Sets the greg_experiment of this AsrSettingsRecognitionAllOf.
+
+        (optional) Id of the GREG Experiment used to capture the audio and the recognition result. GREG Experiment status needs to be IMPORTING for capture to happen. If the status is READY no capture will be done.   # noqa: E501
+
+        :param greg_experiment: The greg_experiment of this AsrSettingsRecognitionAllOf.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                greg_experiment is not None and len(greg_experiment) > 48):
+            raise ValueError("Invalid value for `greg_experiment`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                greg_experiment is not None and len(greg_experiment) < 16):
+            raise ValueError("Invalid value for `greg_experiment`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._greg_experiment = greg_experiment
 
     @property
     def incomplete_timeout(self):
