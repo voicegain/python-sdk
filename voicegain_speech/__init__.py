@@ -69,6 +69,8 @@ from voicegain_speech.models.aivr_session_user_base import AIVRSessionUserBase
 from voicegain_speech.models.aivr_session_user_fs import AIVRSessionUserFS
 from voicegain_speech.models.aivr_transfer import AIVRTransfer
 from voicegain_speech.models.account_and_context_id import AccountAndContextId
+from voicegain_speech.models.aircall import Aircall
+from voicegain_speech.models.aircall_all_of import AircallAllOf
 from voicegain_speech.models.asr_processing_event import AsrProcessingEvent
 from voicegain_speech.models.asr_processing_status import AsrProcessingStatus
 from voicegain_speech.models.asr_processing_status_additional import AsrProcessingStatusAdditional
@@ -163,6 +165,8 @@ from voicegain_speech.models.data_object_with_audio import DataObjectWithAudio
 from voicegain_speech.models.data_object_with_audio_all_of import DataObjectWithAudioAllOf
 from voicegain_speech.models.debug_info import DebugInfo
 from voicegain_speech.models.debug_settings import DebugSettings
+from voicegain_speech.models.demo import Demo
+from voicegain_speech.models.demo_all_of import DemoAllOf
 from voicegain_speech.models.diarization_data import DiarizationData
 from voicegain_speech.models.diarization_zone import DiarizationZone
 from voicegain_speech.models.diarization_zone_item import DiarizationZoneItem
@@ -245,6 +249,7 @@ from voicegain_speech.models.inline_object import InlineObject
 from voicegain_speech.models.inline_object1 import InlineObject1
 from voicegain_speech.models.input import Input
 from voicegain_speech.models.input_all_of import InputAllOf
+from voicegain_speech.models.integration import Integration
 from voicegain_speech.models.jjsgf import JJSGF
 from voicegain_speech.models.jjsgf_all_of import JJSGFAllOf
 from voicegain_speech.models.keyword_spot_example import KeywordSpotExample
@@ -287,6 +292,8 @@ from voicegain_speech.models.recog_obj_no_exp import RecogObjNoExp
 from voicegain_speech.models.recognition_result import RecognitionResult
 from voicegain_speech.models.requested_content import RequestedContent
 from voicegain_speech.models.resource_uri import ResourceUri
+from voicegain_speech.models.s3 import S3
+from voicegain_speech.models.s3_all_of import S3AllOf
 from voicegain_speech.models.sample_rate import SampleRate
 from voicegain_speech.models.session_error_response import SessionErrorResponse
 from voicegain_speech.models.session_init_recognition import SessionInitRecognition
