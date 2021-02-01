@@ -29,10 +29,11 @@ class TrainingSetStoreType(object):
     """
     allowed enum values
     """
+    S3 = "s3"
     BACKBLAZE = "backblaze"
     MINIO = "minio"
 
-    allowable_values = [BACKBLAZE, MINIO]  # noqa: E501
+    allowable_values = [S3, BACKBLAZE, MINIO]  # noqa: E501
 
     """
     Attributes:
