@@ -34,9 +34,9 @@ class SpeechAnalyticsKeywordItem(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'end_idx': 'int',
+        'end_idx': 'str',
         'end_time': 'int',
-        'start_idx': 'int',
+        'start_idx': 'str',
         'start_time': 'int',
         'phrase': 'str',
         'tag': 'str'
@@ -82,10 +82,10 @@ class SpeechAnalyticsKeywordItem(object):
     def end_idx(self):
         """Gets the end_idx of this SpeechAnalyticsKeywordItem.  # noqa: E501
 
-        end index of a word  # noqa: E501
+        End index of a word.</br> This can be a simple index into a list of words, e.g. '5' indicating the 5th word - the first word index is '1'.</br> Alternatively it may be a complex index, e.g., 'lin=5&csec=2.3' where 'lin=5' indicates position '5' of a linear index, and 'csec=2.3' indicates combined sectional index with section #2 and word #3 in that section.  Combined sectional index e.g. identifies words within multiChannelWords field, where the two channel words are combined and then grouped into sections.   # noqa: E501
 
         :return: The end_idx of this SpeechAnalyticsKeywordItem.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._end_idx
 
@@ -93,10 +93,10 @@ class SpeechAnalyticsKeywordItem(object):
     def end_idx(self, end_idx):
         """Sets the end_idx of this SpeechAnalyticsKeywordItem.
 
-        end index of a word  # noqa: E501
+        End index of a word.</br> This can be a simple index into a list of words, e.g. '5' indicating the 5th word - the first word index is '1'.</br> Alternatively it may be a complex index, e.g., 'lin=5&csec=2.3' where 'lin=5' indicates position '5' of a linear index, and 'csec=2.3' indicates combined sectional index with section #2 and word #3 in that section.  Combined sectional index e.g. identifies words within multiChannelWords field, where the two channel words are combined and then grouped into sections.   # noqa: E501
 
         :param end_idx: The end_idx of this SpeechAnalyticsKeywordItem.  # noqa: E501
-        :type: int
+        :type: str
         """
 
         self._end_idx = end_idx
@@ -128,10 +128,10 @@ class SpeechAnalyticsKeywordItem(object):
     def start_idx(self):
         """Gets the start_idx of this SpeechAnalyticsKeywordItem.  # noqa: E501
 
-        start index of a word  # noqa: E501
+        Start index of a word.</br> This can be a simple index into a list of words, e.g. '5' indicating the 5th word - the first word index is '1'.</br> Alternatively it may be a complex index, e.g., 'lin=5&csec=2.3' where 'lin=5' indicates position '5' of a linear index, and 'csec=2.3' indicates combined sectional index with section #2 and word #3 in that section.  Combined sectional index e.g. identifies words within multiChannelWords field, where the two channel words are combined and then grouped into sections.   # noqa: E501
 
         :return: The start_idx of this SpeechAnalyticsKeywordItem.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._start_idx
 
@@ -139,14 +139,11 @@ class SpeechAnalyticsKeywordItem(object):
     def start_idx(self, start_idx):
         """Sets the start_idx of this SpeechAnalyticsKeywordItem.
 
-        start index of a word  # noqa: E501
+        Start index of a word.</br> This can be a simple index into a list of words, e.g. '5' indicating the 5th word - the first word index is '1'.</br> Alternatively it may be a complex index, e.g., 'lin=5&csec=2.3' where 'lin=5' indicates position '5' of a linear index, and 'csec=2.3' indicates combined sectional index with section #2 and word #3 in that section.  Combined sectional index e.g. identifies words within multiChannelWords field, where the two channel words are combined and then grouped into sections.   # noqa: E501
 
         :param start_idx: The start_idx of this SpeechAnalyticsKeywordItem.  # noqa: E501
-        :type: int
+        :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                start_idx is not None and start_idx < 1):  # noqa: E501
-            raise ValueError("Invalid value for `start_idx`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._start_idx = start_idx
 
