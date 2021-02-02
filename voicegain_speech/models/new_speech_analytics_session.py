@@ -81,8 +81,7 @@ class NewSpeechAnalyticsSession(object):
             self.call_review_config = call_review_config
         if label is not None:
             self.label = label
-        if sa_config is not None:
-            self.sa_config = sa_config
+        self.sa_config = sa_config
         if speaker_channels is not None:
             self.speaker_channels = speaker_channels
         if topic_discovery_config is not None:
@@ -155,7 +154,7 @@ class NewSpeechAnalyticsSession(object):
     def call_review_config(self):
         """Gets the call_review_config of this NewSpeechAnalyticsSession.  # noqa: E501
 
-        _(coming soon)_ id of the Call Review (Score Card) configuration to use.    # noqa: E501
+        _(coming soon)_ (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
 
         :return: The call_review_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :rtype: str
@@ -166,7 +165,7 @@ class NewSpeechAnalyticsSession(object):
     def call_review_config(self, call_review_config):
         """Sets the call_review_config of this NewSpeechAnalyticsSession.
 
-        _(coming soon)_ id of the Call Review (Score Card) configuration to use.    # noqa: E501
+        _(coming soon)_ (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
 
         :param call_review_config: The call_review_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :type: str
@@ -210,7 +209,7 @@ class NewSpeechAnalyticsSession(object):
     def sa_config(self):
         """Gets the sa_config of this NewSpeechAnalyticsSession.  # noqa: E501
 
-        id of the Speech Analytics configuration to use. If not provided then default SA Config for the context will be used.  # noqa: E501
+        id of the Speech Analytics configuration to use. If not provided then default SA Config for the context will be used.   # noqa: E501
 
         :return: The sa_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :rtype: str
@@ -221,11 +220,13 @@ class NewSpeechAnalyticsSession(object):
     def sa_config(self, sa_config):
         """Sets the sa_config of this NewSpeechAnalyticsSession.
 
-        id of the Speech Analytics configuration to use. If not provided then default SA Config for the context will be used.  # noqa: E501
+        id of the Speech Analytics configuration to use. If not provided then default SA Config for the context will be used.   # noqa: E501
 
         :param sa_config: The sa_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and sa_config is None:  # noqa: E501
+            raise ValueError("Invalid value for `sa_config`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 sa_config is not None and len(sa_config) > 48):
             raise ValueError("Invalid value for `sa_config`, length must be less than or equal to `48`")  # noqa: E501
@@ -262,7 +263,7 @@ class NewSpeechAnalyticsSession(object):
     def topic_discovery_config(self):
         """Gets the topic_discovery_config of this NewSpeechAnalyticsSession.  # noqa: E501
 
-        _(coming soon)_ id of the Topic Discovery configuration to use.  If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
+        _(coming soon)_ (optional) id of the Topic Discovery configuration to use.  If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
 
         :return: The topic_discovery_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :rtype: str
@@ -273,7 +274,7 @@ class NewSpeechAnalyticsSession(object):
     def topic_discovery_config(self, topic_discovery_config):
         """Sets the topic_discovery_config of this NewSpeechAnalyticsSession.
 
-        _(coming soon)_ id of the Topic Discovery configuration to use.  If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
+        _(coming soon)_ (optional) id of the Topic Discovery configuration to use.  If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
 
         :param topic_discovery_config: The topic_discovery_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :type: str

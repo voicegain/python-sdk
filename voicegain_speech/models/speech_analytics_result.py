@@ -37,6 +37,7 @@ class SpeechAnalyticsResult(object):
         'account_id': 'str',
         'channels': 'list[SpeechAnalyticsChannelResult]',
         'context_id': 'str',
+        'cr_answers_id': 'str',
         'label': 'str',
         'multi_channel_audio': 'str',
         'multi_channel_diarization': 'DiarizationData',
@@ -51,6 +52,7 @@ class SpeechAnalyticsResult(object):
         'account_id': 'accountId',
         'channels': 'channels',
         'context_id': 'contextId',
+        'cr_answers_id': 'crAnswersId',
         'label': 'label',
         'multi_channel_audio': 'multiChannelAudio',
         'multi_channel_diarization': 'multiChannelDiarization',
@@ -61,7 +63,7 @@ class SpeechAnalyticsResult(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, channels=None, context_id=None, label=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, sa_session_id=None, silence=None, single_channel_audio=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, channels=None, context_id=None, cr_answers_id=None, label=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, sa_session_id=None, silence=None, single_channel_audio=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,6 +72,7 @@ class SpeechAnalyticsResult(object):
         self._account_id = None
         self._channels = None
         self._context_id = None
+        self._cr_answers_id = None
         self._label = None
         self._multi_channel_audio = None
         self._multi_channel_diarization = None
@@ -86,6 +89,8 @@ class SpeechAnalyticsResult(object):
             self.channels = channels
         if context_id is not None:
             self.context_id = context_id
+        if cr_answers_id is not None:
+            self.cr_answers_id = cr_answers_id
         if label is not None:
             self.label = label
         if multi_channel_audio is not None:
@@ -183,6 +188,35 @@ class SpeechAnalyticsResult(object):
             raise ValueError("Invalid value for `context_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._context_id = context_id
+
+    @property
+    def cr_answers_id(self):
+        """Gets the cr_answers_id of this SpeechAnalyticsResult.  # noqa: E501
+
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.    # noqa: E501
+
+        :return: The cr_answers_id of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._cr_answers_id
+
+    @cr_answers_id.setter
+    def cr_answers_id(self, cr_answers_id):
+        """Sets the cr_answers_id of this SpeechAnalyticsResult.
+
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.    # noqa: E501
+
+        :param cr_answers_id: The cr_answers_id of this SpeechAnalyticsResult.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                cr_answers_id is not None and len(cr_answers_id) > 48):
+            raise ValueError("Invalid value for `cr_answers_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                cr_answers_id is not None and len(cr_answers_id) < 16):
+            raise ValueError("Invalid value for `cr_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._cr_answers_id = cr_answers_id
 
     @property
     def label(self):

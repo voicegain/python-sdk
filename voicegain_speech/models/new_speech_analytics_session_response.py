@@ -35,6 +35,7 @@ class NewSpeechAnalyticsSessionResponse(object):
     """
     openapi_types = {
         'audio': 'AsyncPostResponseBaseAudio',
+        'cr_answers_id': 'str',
         'poll': 'NewSpeechAnalyticsSessionResponsePoll',
         'sa_session_id': 'str',
         'speaker_channels': 'list[SpeechAnalyticsChannelWithTranscribe]',
@@ -43,19 +44,21 @@ class NewSpeechAnalyticsSessionResponse(object):
 
     attribute_map = {
         'audio': 'audio',
+        'cr_answers_id': 'crAnswersId',
         'poll': 'poll',
         'sa_session_id': 'saSessionId',
         'speaker_channels': 'speakerChannels',
         'websocket': 'websocket'
     }
 
-    def __init__(self, audio=None, poll=None, sa_session_id=None, speaker_channels=None, websocket=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio=None, cr_answers_id=None, poll=None, sa_session_id=None, speaker_channels=None, websocket=None, local_vars_configuration=None):  # noqa: E501
         """NewSpeechAnalyticsSessionResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._audio = None
+        self._cr_answers_id = None
         self._poll = None
         self._sa_session_id = None
         self._speaker_channels = None
@@ -64,6 +67,8 @@ class NewSpeechAnalyticsSessionResponse(object):
 
         if audio is not None:
             self.audio = audio
+        if cr_answers_id is not None:
+            self.cr_answers_id = cr_answers_id
         self.poll = poll
         self.sa_session_id = sa_session_id
         if speaker_channels is not None:
@@ -91,6 +96,35 @@ class NewSpeechAnalyticsSessionResponse(object):
         """
 
         self._audio = audio
+
+    @property
+    def cr_answers_id(self):
+        """Gets the cr_answers_id of this NewSpeechAnalyticsSessionResponse.  # noqa: E501
+
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.    # noqa: E501
+
+        :return: The cr_answers_id of this NewSpeechAnalyticsSessionResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._cr_answers_id
+
+    @cr_answers_id.setter
+    def cr_answers_id(self, cr_answers_id):
+        """Sets the cr_answers_id of this NewSpeechAnalyticsSessionResponse.
+
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.    # noqa: E501
+
+        :param cr_answers_id: The cr_answers_id of this NewSpeechAnalyticsSessionResponse.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                cr_answers_id is not None and len(cr_answers_id) > 48):
+            raise ValueError("Invalid value for `cr_answers_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                cr_answers_id is not None and len(cr_answers_id) < 16):
+            raise ValueError("Invalid value for `cr_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._cr_answers_id = cr_answers_id
 
     @property
     def poll(self):
