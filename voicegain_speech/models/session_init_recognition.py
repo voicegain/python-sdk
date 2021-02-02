@@ -39,6 +39,7 @@ class SessionInitRecognition(object):
         'callback': 'CallbackReqReco',
         'continuous_recognition': 'ContinuousRecognition',
         'extra_params': 'str',
+        'metadata': 'list[NameValuePair]',
         'poll': 'PollReq',
         'websocket': 'WebsocketInitReco'
     }
@@ -49,11 +50,12 @@ class SessionInitRecognition(object):
         'callback': 'callback',
         'continuous_recognition': 'continuousRecognition',
         'extra_params': 'extraParams',
+        'metadata': 'metadata',
         'poll': 'poll',
         'websocket': 'websocket'
     }
 
-    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, continuous_recognition=None, extra_params=None, poll=None, websocket=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, continuous_recognition=None, extra_params=None, metadata=None, poll=None, websocket=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitRecognition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,6 +66,7 @@ class SessionInitRecognition(object):
         self._callback = None
         self._continuous_recognition = None
         self._extra_params = None
+        self._metadata = None
         self._poll = None
         self._websocket = None
         self.discriminator = None
@@ -77,6 +80,8 @@ class SessionInitRecognition(object):
             self.continuous_recognition = continuous_recognition
         if extra_params is not None:
             self.extra_params = extra_params
+        if metadata is not None:
+            self.metadata = metadata
         if poll is not None:
             self.poll = poll
         if websocket is not None:
@@ -190,6 +195,29 @@ class SessionInitRecognition(object):
         """
 
         self._extra_params = extra_params
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this SessionInitRecognition.  # noqa: E501
+
+        Metadata passed with the request to async transcription or recognition. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription, the metadata will be saved together with the result.   # noqa: E501
+
+        :return: The metadata of this SessionInitRecognition.  # noqa: E501
+        :rtype: list[NameValuePair]
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this SessionInitRecognition.
+
+        Metadata passed with the request to async transcription or recognition. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription, the metadata will be saved together with the result.   # noqa: E501
+
+        :param metadata: The metadata of this SessionInitRecognition.  # noqa: E501
+        :type: list[NameValuePair]
+        """
+
+        self._metadata = metadata
 
     @property
     def poll(self):
