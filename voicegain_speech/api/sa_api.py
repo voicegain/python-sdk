@@ -398,6 +398,7 @@ class SaApi(object):
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param str name: Name to match. If the provided name ends with a star `*` then a prefix match will be performed.</br> Note - the star is allowed only in the last position (arbitrary wildcard matching is not supported). 
         :param bool incl_other_context_published: If true then will also retrieve Speech Analytics Configurations from other contexts on this account which have been published.
+        :param SAConfType type: speech Analytics Configuration Type - `user`, `built-in`, or `any` (any is a union of user and built-in)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -425,6 +426,7 @@ class SaApi(object):
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param str name: Name to match. If the provided name ends with a star `*` then a prefix match will be performed.</br> Note - the star is allowed only in the last position (arbitrary wildcard matching is not supported). 
         :param bool incl_other_context_published: If true then will also retrieve Speech Analytics Configurations from other contexts on this account which have been published.
+        :param SAConfType type: speech Analytics Configuration Type - `user`, `built-in`, or `any` (any is a union of user and built-in)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -441,7 +443,7 @@ class SaApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'name', 'incl_other_context_published']  # noqa: E501
+        all_params = ['context_id', 'name', 'incl_other_context_published', 'type']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -479,6 +481,8 @@ class SaApi(object):
             query_params.append(('name', local_var_params['name']))  # noqa: E501
         if 'incl_other_context_published' in local_var_params and local_var_params['incl_other_context_published'] is not None:  # noqa: E501
             query_params.append(('inclOtherContextPublished', local_var_params['incl_other_context_published']))  # noqa: E501
+        if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
+            query_params.append(('type', local_var_params['type']))  # noqa: E501
 
         header_params = {}
 

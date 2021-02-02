@@ -193,7 +193,7 @@ class SpeechAnalyticsConfig(object):
     def built_in(self):
         """Gets the built_in of this SpeechAnalyticsConfig.  # noqa: E501
 
-        set to true for a Built-In Speech Analytics configuration  # noqa: E501
+        Set to true for a Built-In Speech Analytics configuration. Built-In SA Configs are available to all accounts.   # noqa: E501
 
         :return: The built_in of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: bool
@@ -204,7 +204,7 @@ class SpeechAnalyticsConfig(object):
     def built_in(self, built_in):
         """Sets the built_in of this SpeechAnalyticsConfig.
 
-        set to true for a Built-In Speech Analytics configuration  # noqa: E501
+        Set to true for a Built-In Speech Analytics configuration. Built-In SA Configs are available to all accounts.   # noqa: E501
 
         :param built_in: The built_in of this SpeechAnalyticsConfig.  # noqa: E501
         :type: bool

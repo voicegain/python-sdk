@@ -270,6 +270,7 @@ from voicegain_speech.models.requested_content import RequestedContent
 from voicegain_speech.models.resource_uri import ResourceUri
 from voicegain_speech.models.s3 import S3
 from voicegain_speech.models.s3_all_of import S3AllOf
+from voicegain_speech.models.sa_conf_type import SAConfType
 from voicegain_speech.models.sample_rate import SampleRate
 from voicegain_speech.models.session_error_response import SessionErrorResponse
 from voicegain_speech.models.session_init_recognition import SessionInitRecognition
