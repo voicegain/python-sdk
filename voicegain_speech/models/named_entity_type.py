@@ -30,6 +30,7 @@ class NamedEntityType(object):
     allowed enum values
     """
     CARDINAL = "CARDINAL"
+    CC = "CC"
     DATE = "DATE"
     EVENT = "EVENT"
     FAC = "FAC"
@@ -41,9 +42,10 @@ class NamedEntityType(object):
     PERCENT = "PERCENT"
     PERSON = "PERSON"
     QUANTITY = "QUANTITY"
+    SSN = "SSN"
     TIME = "TIME"
 
-    allowable_values = [CARDINAL, DATE, EVENT, FAC, GPE, NORP, MONEY, ORDINAL, ORG, PERCENT, PERSON, QUANTITY, TIME]  # noqa: E501
+    allowable_values = [CARDINAL, CC, DATE, EVENT, FAC, GPE, NORP, MONEY, ORDINAL, ORG, PERCENT, PERSON, QUANTITY, SSN, TIME]  # noqa: E501
 
     """
     Attributes:
