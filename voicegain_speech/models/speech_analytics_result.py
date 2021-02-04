@@ -45,6 +45,7 @@ class SpeechAnalyticsResult(object):
         'sa_session_id': 'str',
         'silence': 'Silence',
         'single_channel_audio': 'str',
+        'topics': 'list[TopicScore]',
         'word_cloud': 'list[WordCloudItem]'
     }
 
@@ -60,10 +61,11 @@ class SpeechAnalyticsResult(object):
         'sa_session_id': 'saSessionId',
         'silence': 'silence',
         'single_channel_audio': 'singleChannelAudio',
+        'topics': 'topics',
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, channels=None, context_id=None, cr_answers_id=None, label=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, sa_session_id=None, silence=None, single_channel_audio=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, channels=None, context_id=None, cr_answers_id=None, label=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, sa_session_id=None, silence=None, single_channel_audio=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,6 +82,7 @@ class SpeechAnalyticsResult(object):
         self._sa_session_id = None
         self._silence = None
         self._single_channel_audio = None
+        self._topics = None
         self._word_cloud = None
         self.discriminator = None
 
@@ -105,6 +108,8 @@ class SpeechAnalyticsResult(object):
             self.silence = silence
         if single_channel_audio is not None:
             self.single_channel_audio = single_channel_audio
+        if topics is not None:
+            self.topics = topics
         if word_cloud is not None:
             self.word_cloud = word_cloud
 
@@ -395,6 +400,29 @@ class SpeechAnalyticsResult(object):
             raise ValueError("Invalid value for `single_channel_audio`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._single_channel_audio = single_channel_audio
+
+    @property
+    def topics(self):
+        """Gets the topics of this SpeechAnalyticsResult.  # noqa: E501
+
+        List of Topic Scores - a single call/transcript may have 1 or more identified in it  # noqa: E501
+
+        :return: The topics of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: list[TopicScore]
+        """
+        return self._topics
+
+    @topics.setter
+    def topics(self, topics):
+        """Sets the topics of this SpeechAnalyticsResult.
+
+        List of Topic Scores - a single call/transcript may have 1 or more identified in it  # noqa: E501
+
+        :param topics: The topics of this SpeechAnalyticsResult.  # noqa: E501
+        :type: list[TopicScore]
+        """
+
+        self._topics = topics
 
     @property
     def word_cloud(self):

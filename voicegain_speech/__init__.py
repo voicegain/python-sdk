@@ -337,6 +337,7 @@ from voicegain_speech.models.sync_transcription_request import SyncTranscription
 from voicegain_speech.models.sync_transcription_response import SyncTranscriptionResponse
 from voicegain_speech.models.sync_transcription_result import SyncTranscriptionResult
 from voicegain_speech.models.talk_time import TalkTime
+from voicegain_speech.models.topic_score import TopicScore
 from voicegain_speech.models.training_set_bucket_type import TrainingSetBucketType
 from voicegain_speech.models.training_set_doc import TrainingSetDoc
 from voicegain_speech.models.training_set_doc_defaults import TrainingSetDocDefaults
