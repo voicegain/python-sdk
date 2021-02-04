@@ -36,20 +36,24 @@ class S3AllOf(object):
     openapi_types = {
         'access_key': 'str',
         'bucket': 'str',
+        'metadata_mapping': 'list[S3MetadataMapping]',
         'notify_method': 'str',
         'notify_url': 'str',
-        'secret_key': 'str'
+        'secret_key': 'str',
+        'tag_mapping': 'list[S3TagMapping]'
     }
 
     attribute_map = {
         'access_key': 'accessKey',
         'bucket': 'bucket',
+        'metadata_mapping': 'metadataMapping',
         'notify_method': 'notifyMethod',
         'notify_url': 'notifyUrl',
-        'secret_key': 'secretKey'
+        'secret_key': 'secretKey',
+        'tag_mapping': 'tagMapping'
     }
 
-    def __init__(self, access_key=None, bucket=None, notify_method=None, notify_url=None, secret_key=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, access_key=None, bucket=None, metadata_mapping=None, notify_method=None, notify_url=None, secret_key=None, tag_mapping=None, local_vars_configuration=None):  # noqa: E501
         """S3AllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,21 +61,27 @@ class S3AllOf(object):
 
         self._access_key = None
         self._bucket = None
+        self._metadata_mapping = None
         self._notify_method = None
         self._notify_url = None
         self._secret_key = None
+        self._tag_mapping = None
         self.discriminator = None
 
         if access_key is not None:
             self.access_key = access_key
         if bucket is not None:
             self.bucket = bucket
+        if metadata_mapping is not None:
+            self.metadata_mapping = metadata_mapping
         if notify_method is not None:
             self.notify_method = notify_method
         if notify_url is not None:
             self.notify_url = notify_url
         if secret_key is not None:
             self.secret_key = secret_key
+        if tag_mapping is not None:
+            self.tag_mapping = tag_mapping
 
     @property
     def access_key(self):
@@ -118,6 +128,27 @@ class S3AllOf(object):
         """
 
         self._bucket = bucket
+
+    @property
+    def metadata_mapping(self):
+        """Gets the metadata_mapping of this S3AllOf.  # noqa: E501
+
+
+        :return: The metadata_mapping of this S3AllOf.  # noqa: E501
+        :rtype: list[S3MetadataMapping]
+        """
+        return self._metadata_mapping
+
+    @metadata_mapping.setter
+    def metadata_mapping(self, metadata_mapping):
+        """Sets the metadata_mapping of this S3AllOf.
+
+
+        :param metadata_mapping: The metadata_mapping of this S3AllOf.  # noqa: E501
+        :type: list[S3MetadataMapping]
+        """
+
+        self._metadata_mapping = metadata_mapping
 
     @property
     def notify_method(self):
@@ -193,6 +224,27 @@ class S3AllOf(object):
         """
 
         self._secret_key = secret_key
+
+    @property
+    def tag_mapping(self):
+        """Gets the tag_mapping of this S3AllOf.  # noqa: E501
+
+
+        :return: The tag_mapping of this S3AllOf.  # noqa: E501
+        :rtype: list[S3TagMapping]
+        """
+        return self._tag_mapping
+
+    @tag_mapping.setter
+    def tag_mapping(self, tag_mapping):
+        """Sets the tag_mapping of this S3AllOf.
+
+
+        :param tag_mapping: The tag_mapping of this S3AllOf.  # noqa: E501
+        :type: list[S3TagMapping]
+        """
+
+        self._tag_mapping = tag_mapping
 
     def to_dict(self):
         """Returns the model properties as a dict"""

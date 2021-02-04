@@ -120,6 +120,7 @@ from voicegain_speech.models.audio_zone_class import AudioZoneClass
 from voicegain_speech.models.audio_zone_item import AudioZoneItem
 from voicegain_speech.models.builtin import BUILTIN
 from voicegain_speech.models.builtin_all_of import BUILTINAllOf
+from voicegain_speech.models.call_attributes import CallAttributes
 from voicegain_speech.models.call_resolution_phrase import CallResolutionPhrase
 from voicegain_speech.models.callback_req import CallbackReq
 from voicegain_speech.models.callback_req_reco import CallbackReqReco
@@ -270,6 +271,8 @@ from voicegain_speech.models.requested_content import RequestedContent
 from voicegain_speech.models.resource_uri import ResourceUri
 from voicegain_speech.models.s3 import S3
 from voicegain_speech.models.s3_all_of import S3AllOf
+from voicegain_speech.models.s3_metadata_mapping import S3MetadataMapping
+from voicegain_speech.models.s3_tag_mapping import S3TagMapping
 from voicegain_speech.models.sa_conf_type import SAConfType
 from voicegain_speech.models.sample_rate import SampleRate
 from voicegain_speech.models.session_error_response import SessionErrorResponse
