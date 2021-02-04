@@ -29,9 +29,11 @@ class NamedEntityType(object):
     """
     allowed enum values
     """
+    ADDRESS = "ADDRESS"
     CARDINAL = "CARDINAL"
     CC = "CC"
     DATE = "DATE"
+    EMAIL = "EMAIL"
     EVENT = "EVENT"
     FAC = "FAC"
     GPE = "GPE"
@@ -41,11 +43,13 @@ class NamedEntityType(object):
     ORG = "ORG"
     PERCENT = "PERCENT"
     PERSON = "PERSON"
+    PHONE = "PHONE"
     QUANTITY = "QUANTITY"
     SSN = "SSN"
     TIME = "TIME"
+    ZIP = "ZIP"
 
-    allowable_values = [CARDINAL, CC, DATE, EVENT, FAC, GPE, NORP, MONEY, ORDINAL, ORG, PERCENT, PERSON, QUANTITY, SSN, TIME]  # noqa: E501
+    allowable_values = [ADDRESS, CARDINAL, CC, DATE, EMAIL, EVENT, FAC, GPE, NORP, MONEY, ORDINAL, ORG, PERCENT, PERSON, PHONE, QUANTITY, SSN, TIME, ZIP]  # noqa: E501
 
     """
     Attributes:
