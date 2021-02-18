@@ -30,15 +30,15 @@ class MoodType(object):
     allowed enum values
     """
     NEUTRAL = "neutral"
-    CALM = "calm"
-    HAPPY = "happy"
-    SAD = "sad"
-    ANGRY = "angry"
-    FEARFUL = "fearful"
+    ANGER = "anger"
     DISGUST = "disgust"
-    SURPRISED = "surprised"
+    FEAR = "fear"
+    ANGRY = "angry"
+    HAPPINESS = "happiness"
+    SADNESS = "sadness"
+    SURPRISE = "surprise"
 
-    allowable_values = [NEUTRAL, CALM, HAPPY, SAD, ANGRY, FEARFUL, DISGUST, SURPRISED]  # noqa: E501
+    allowable_values = [NEUTRAL, ANGER, DISGUST, FEAR, ANGRY, HAPPINESS, SADNESS, SURPRISE]  # noqa: E501
 
     """
     Attributes:
