@@ -266,6 +266,7 @@ from voicegain_speech.models.mrc_pv1_asr_settings import MRCPv1AsrSettings
 from voicegain_speech.models.mrc_pv2_asr_settings import MRCPv2AsrSettings
 from voicegain_speech.models.mood_type import MoodType
 from voicegain_speech.models.name_value_pair import NameValuePair
+from voicegain_speech.models.named_entity_concept import NamedEntityConcept
 from voicegain_speech.models.named_entity_type import NamedEntityType
 from voicegain_speech.models.new_speech_analytics_session import NewSpeechAnalyticsSession
 from voicegain_speech.models.new_speech_analytics_session_response import NewSpeechAnalyticsSessionResponse

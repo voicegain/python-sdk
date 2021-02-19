@@ -38,6 +38,7 @@ class SpeechAnalyticsNamedEntityItem(object):
         'end_time': 'int',
         'start_idx': 'str',
         'start_time': 'int',
+        'concepts': 'list[NamedEntityConcept]',
         'entity': 'NamedEntityType',
         'phrase': 'str'
     }
@@ -47,11 +48,12 @@ class SpeechAnalyticsNamedEntityItem(object):
         'end_time': 'endTime',
         'start_idx': 'startIdx',
         'start_time': 'startTime',
+        'concepts': 'concepts',
         'entity': 'entity',
         'phrase': 'phrase'
     }
 
-    def __init__(self, end_idx=None, end_time=None, start_idx=None, start_time=None, entity=None, phrase=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, end_idx=None, end_time=None, start_idx=None, start_time=None, concepts=None, entity=None, phrase=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsNamedEntityItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class SpeechAnalyticsNamedEntityItem(object):
         self._end_time = None
         self._start_idx = None
         self._start_time = None
+        self._concepts = None
         self._entity = None
         self._phrase = None
         self.discriminator = None
@@ -73,6 +76,8 @@ class SpeechAnalyticsNamedEntityItem(object):
             self.start_idx = start_idx
         if start_time is not None:
             self.start_time = start_time
+        if concepts is not None:
+            self.concepts = concepts
         if entity is not None:
             self.entity = entity
         if phrase is not None:
@@ -169,6 +174,29 @@ class SpeechAnalyticsNamedEntityItem(object):
         """
 
         self._start_time = start_time
+
+    @property
+    def concepts(self):
+        """Gets the concepts of this SpeechAnalyticsNamedEntityItem.  # noqa: E501
+
+        List of concepts associated with discovered Named Entity.  # noqa: E501
+
+        :return: The concepts of this SpeechAnalyticsNamedEntityItem.  # noqa: E501
+        :rtype: list[NamedEntityConcept]
+        """
+        return self._concepts
+
+    @concepts.setter
+    def concepts(self, concepts):
+        """Sets the concepts of this SpeechAnalyticsNamedEntityItem.
+
+        List of concepts associated with discovered Named Entity.  # noqa: E501
+
+        :param concepts: The concepts of this SpeechAnalyticsNamedEntityItem.  # noqa: E501
+        :type: list[NamedEntityConcept]
+        """
+
+        self._concepts = concepts
 
     @property
     def entity(self):
