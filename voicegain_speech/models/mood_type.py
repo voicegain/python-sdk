@@ -33,12 +33,11 @@ class MoodType(object):
     ANGER = "anger"
     DISGUST = "disgust"
     FEAR = "fear"
-    ANGRY = "angry"
     HAPPINESS = "happiness"
     SADNESS = "sadness"
     SURPRISE = "surprise"
 
-    allowable_values = [NEUTRAL, ANGER, DISGUST, FEAR, ANGRY, HAPPINESS, SADNESS, SURPRISE]  # noqa: E501
+    allowable_values = [NEUTRAL, ANGER, DISGUST, FEAR, HAPPINESS, SADNESS, SURPRISE]  # noqa: E501
 
     """
     Attributes:
