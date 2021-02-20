@@ -47,7 +47,7 @@ class AudioResourceUri(object):
         'pre_fetch': 'preFetch'
     }
 
-    def __init__(self, auth_conf=None, fetch_timeout=15000, url=None, pre_fetch=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, auth_conf=None, fetch_timeout=20000, url=None, pre_fetch=False, local_vars_configuration=None):  # noqa: E501
         """AudioResourceUri - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -98,7 +98,7 @@ class AudioResourceUri(object):
     def fetch_timeout(self):
         """Gets the fetch_timeout of this AudioResourceUri.  # noqa: E501
 
-        Max time (in msec) to wait to fetch a resource. Default is 15 seconds.  # noqa: E501
+        Max time (in msec) to wait to fetch a resource. Default is 20 seconds.  # noqa: E501
 
         :return: The fetch_timeout of this AudioResourceUri.  # noqa: E501
         :rtype: int
@@ -109,7 +109,7 @@ class AudioResourceUri(object):
     def fetch_timeout(self, fetch_timeout):
         """Sets the fetch_timeout of this AudioResourceUri.
 
-        Max time (in msec) to wait to fetch a resource. Default is 15 seconds.  # noqa: E501
+        Max time (in msec) to wait to fetch a resource. Default is 20 seconds.  # noqa: E501
 
         :param fetch_timeout: The fetch_timeout of this AudioResourceUri.  # noqa: E501
         :type: int
