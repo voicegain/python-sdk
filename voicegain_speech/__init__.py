@@ -146,7 +146,6 @@ from voicegain_speech.models.audio_zone_item import AudioZoneItem
 from voicegain_speech.models.builtin import BUILTIN
 from voicegain_speech.models.builtin_all_of import BUILTINAllOf
 from voicegain_speech.models.call_attributes import CallAttributes
-from voicegain_speech.models.call_resolution_phrase import CallResolutionPhrase
 from voicegain_speech.models.callback_req import CallbackReq
 from voicegain_speech.models.callback_req_reco import CallbackReqReco
 from voicegain_speech.models.callback_resp import CallbackResp

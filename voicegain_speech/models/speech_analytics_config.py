@@ -39,7 +39,7 @@ class SpeechAnalyticsConfig(object):
         'context_id': 'str',
         'sa_conf_id': 'str',
         'age': 'bool',
-        'call_resolution_phrases': 'list[CallResolutionPhrase]',
+        'call_resolution_question_id': 'str',
         'competitor_keyword_groups': 'list[str]',
         'entities': 'list[NamedEntityType]',
         'gender': 'bool',
@@ -65,7 +65,7 @@ class SpeechAnalyticsConfig(object):
         'context_id': 'contextId',
         'sa_conf_id': 'saConfId',
         'age': 'age',
-        'call_resolution_phrases': 'callResolutionPhrases',
+        'call_resolution_question_id': 'callResolutionQuestionId',
         'competitor_keyword_groups': 'competitorKeywordGroups',
         'entities': 'entities',
         'gender': 'gender',
@@ -85,7 +85,7 @@ class SpeechAnalyticsConfig(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=None, call_resolution_phrases=None, competitor_keyword_groups=None, entities=None, gender=None, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrases=None, pii_redaction=None, profanity=None, published=False, sentiment=None, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=None, call_resolution_question_id=None, competitor_keyword_groups=None, entities=None, gender=None, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrases=None, pii_redaction=None, profanity=None, published=False, sentiment=None, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfig - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -96,7 +96,7 @@ class SpeechAnalyticsConfig(object):
         self._context_id = None
         self._sa_conf_id = None
         self._age = None
-        self._call_resolution_phrases = None
+        self._call_resolution_question_id = None
         self._competitor_keyword_groups = None
         self._entities = None
         self._gender = None
@@ -125,8 +125,8 @@ class SpeechAnalyticsConfig(object):
         self.sa_conf_id = sa_conf_id
         if age is not None:
             self.age = age
-        if call_resolution_phrases is not None:
-            self.call_resolution_phrases = call_resolution_phrases
+        if call_resolution_question_id is not None:
+            self.call_resolution_question_id = call_resolution_question_id
         if competitor_keyword_groups is not None:
             self.competitor_keyword_groups = competitor_keyword_groups
         if entities is not None:
@@ -294,27 +294,33 @@ class SpeechAnalyticsConfig(object):
         self._age = age
 
     @property
-    def call_resolution_phrases(self):
-        """Gets the call_resolution_phrases of this SpeechAnalyticsConfig.  # noqa: E501
+    def call_resolution_question_id(self):
+        """Gets the call_resolution_question_id of this SpeechAnalyticsConfig.  # noqa: E501
 
-        _(coming soon)_ Phrases from the call script that might indicate call resolution  # noqa: E501
+        id of the `crQuestionId` in Call Review that identifies question and answer regarding Call Resolution  # noqa: E501
 
-        :return: The call_resolution_phrases of this SpeechAnalyticsConfig.  # noqa: E501
-        :rtype: list[CallResolutionPhrase]
+        :return: The call_resolution_question_id of this SpeechAnalyticsConfig.  # noqa: E501
+        :rtype: str
         """
-        return self._call_resolution_phrases
+        return self._call_resolution_question_id
 
-    @call_resolution_phrases.setter
-    def call_resolution_phrases(self, call_resolution_phrases):
-        """Sets the call_resolution_phrases of this SpeechAnalyticsConfig.
+    @call_resolution_question_id.setter
+    def call_resolution_question_id(self, call_resolution_question_id):
+        """Sets the call_resolution_question_id of this SpeechAnalyticsConfig.
 
-        _(coming soon)_ Phrases from the call script that might indicate call resolution  # noqa: E501
+        id of the `crQuestionId` in Call Review that identifies question and answer regarding Call Resolution  # noqa: E501
 
-        :param call_resolution_phrases: The call_resolution_phrases of this SpeechAnalyticsConfig.  # noqa: E501
-        :type: list[CallResolutionPhrase]
+        :param call_resolution_question_id: The call_resolution_question_id of this SpeechAnalyticsConfig.  # noqa: E501
+        :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                call_resolution_question_id is not None and len(call_resolution_question_id) > 48):
+            raise ValueError("Invalid value for `call_resolution_question_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                call_resolution_question_id is not None and len(call_resolution_question_id) < 16):
+            raise ValueError("Invalid value for `call_resolution_question_id`, length must be greater than or equal to `16`")  # noqa: E501
 
-        self._call_resolution_phrases = call_resolution_phrases
+        self._call_resolution_question_id = call_resolution_question_id
 
     @property
     def competitor_keyword_groups(self):
