@@ -528,6 +528,7 @@ class SaApi(object):
         :param float decibels: If this parameter has a value then the result will contain an array of decibel values for the audio data.</br> Each value in the array will reflect the power of the audio over the specified millisecond interval.</br> For example, if `decibels=25` then each value will be the power of the audio signal in **dbFS** (sinusoid) over the interval of 25 msec. 
         :param bool audio_zones: If `true` then audioZones information will be returned
         :param bool word_cloud: If `true` then word cloud data for the transcript will be returned
+        :param bool summary: _(coming soon)_ If `true` then summary data for the transcript will be returned
         :param bool emotion: If `true` then emotion (mood and sentiment) information will be returned
         :param bool keywords: If `true` then keywords spotted in the text will be returned
         :param bool entities: If `true` then named entities spotted in the text will be returned
@@ -561,6 +562,7 @@ class SaApi(object):
         :param float decibels: If this parameter has a value then the result will contain an array of decibel values for the audio data.</br> Each value in the array will reflect the power of the audio over the specified millisecond interval.</br> For example, if `decibels=25` then each value will be the power of the audio signal in **dbFS** (sinusoid) over the interval of 25 msec. 
         :param bool audio_zones: If `true` then audioZones information will be returned
         :param bool word_cloud: If `true` then word cloud data for the transcript will be returned
+        :param bool summary: _(coming soon)_ If `true` then summary data for the transcript will be returned
         :param bool emotion: If `true` then emotion (mood and sentiment) information will be returned
         :param bool keywords: If `true` then keywords spotted in the text will be returned
         :param bool entities: If `true` then named entities spotted in the text will be returned
@@ -581,7 +583,7 @@ class SaApi(object):
 
         local_var_params = locals()
 
-        all_params = ['sa_session_id', 'audio', 'decibels', 'audio_zones', 'word_cloud', 'emotion', 'keywords', 'entities', 'phrases']  # noqa: E501
+        all_params = ['sa_session_id', 'audio', 'decibels', 'audio_zones', 'word_cloud', 'summary', 'emotion', 'keywords', 'entities', 'phrases']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -623,6 +625,8 @@ class SaApi(object):
             query_params.append(('audioZones', local_var_params['audio_zones']))  # noqa: E501
         if 'word_cloud' in local_var_params and local_var_params['word_cloud'] is not None:  # noqa: E501
             query_params.append(('wordCloud', local_var_params['word_cloud']))  # noqa: E501
+        if 'summary' in local_var_params and local_var_params['summary'] is not None:  # noqa: E501
+            query_params.append(('summary', local_var_params['summary']))  # noqa: E501
         if 'emotion' in local_var_params and local_var_params['emotion'] is not None:  # noqa: E501
             query_params.append(('emotion', local_var_params['emotion']))  # noqa: E501
         if 'keywords' in local_var_params and local_var_params['keywords'] is not None:  # noqa: E501
