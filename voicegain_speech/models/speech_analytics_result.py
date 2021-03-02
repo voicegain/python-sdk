@@ -35,9 +35,11 @@ class SpeechAnalyticsResult(object):
     """
     openapi_types = {
         'account_id': 'str',
+        'async_mode': 'AsyncModeTranscription',
         'channels': 'list[SpeechAnalyticsChannelResult]',
         'context_id': 'str',
         'cr_answers_id': 'str',
+        'duration_sec': 'float',
         'label': 'str',
         'metadata': 'list[NameValuePair]',
         'multi_channel_audio': 'str',
@@ -46,15 +48,18 @@ class SpeechAnalyticsResult(object):
         'sa_session_id': 'str',
         'silence': 'Silence',
         'single_channel_audio': 'str',
+        'start_time': 'datetime',
         'topics': 'list[TopicScore]',
         'word_cloud': 'list[WordCloudItem]'
     }
 
     attribute_map = {
         'account_id': 'accountId',
+        'async_mode': 'asyncMode',
         'channels': 'channels',
         'context_id': 'contextId',
         'cr_answers_id': 'crAnswersId',
+        'duration_sec': 'durationSec',
         'label': 'label',
         'metadata': 'metadata',
         'multi_channel_audio': 'multiChannelAudio',
@@ -63,20 +68,23 @@ class SpeechAnalyticsResult(object):
         'sa_session_id': 'saSessionId',
         'silence': 'silence',
         'single_channel_audio': 'singleChannelAudio',
+        'start_time': 'startTime',
         'topics': 'topics',
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, channels=None, context_id=None, cr_answers_id=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, sa_session_id=None, silence=None, single_channel_audio=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, async_mode=None, channels=None, context_id=None, cr_answers_id=None, duration_sec=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, sa_session_id=None, silence=None, single_channel_audio=None, start_time=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._account_id = None
+        self._async_mode = None
         self._channels = None
         self._context_id = None
         self._cr_answers_id = None
+        self._duration_sec = None
         self._label = None
         self._metadata = None
         self._multi_channel_audio = None
@@ -85,18 +93,23 @@ class SpeechAnalyticsResult(object):
         self._sa_session_id = None
         self._silence = None
         self._single_channel_audio = None
+        self._start_time = None
         self._topics = None
         self._word_cloud = None
         self.discriminator = None
 
         if account_id is not None:
             self.account_id = account_id
+        if async_mode is not None:
+            self.async_mode = async_mode
         if channels is not None:
             self.channels = channels
         if context_id is not None:
             self.context_id = context_id
         if cr_answers_id is not None:
             self.cr_answers_id = cr_answers_id
+        if duration_sec is not None:
+            self.duration_sec = duration_sec
         if label is not None:
             self.label = label
         if metadata is not None:
@@ -113,6 +126,8 @@ class SpeechAnalyticsResult(object):
             self.silence = silence
         if single_channel_audio is not None:
             self.single_channel_audio = single_channel_audio
+        if start_time is not None:
+            self.start_time = start_time
         if topics is not None:
             self.topics = topics
         if word_cloud is not None:
@@ -146,6 +161,27 @@ class SpeechAnalyticsResult(object):
             raise ValueError("Invalid value for `account_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._account_id = account_id
+
+    @property
+    def async_mode(self):
+        """Gets the async_mode of this SpeechAnalyticsResult.  # noqa: E501
+
+
+        :return: The async_mode of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: AsyncModeTranscription
+        """
+        return self._async_mode
+
+    @async_mode.setter
+    def async_mode(self, async_mode):
+        """Sets the async_mode of this SpeechAnalyticsResult.
+
+
+        :param async_mode: The async_mode of this SpeechAnalyticsResult.  # noqa: E501
+        :type: AsyncModeTranscription
+        """
+
+        self._async_mode = async_mode
 
     @property
     def channels(self):
@@ -203,7 +239,7 @@ class SpeechAnalyticsResult(object):
     def cr_answers_id(self):
         """Gets the cr_answers_id of this SpeechAnalyticsResult.  # noqa: E501
 
-        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.    # noqa: E501
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.                         # noqa: E501
 
         :return: The cr_answers_id of this SpeechAnalyticsResult.  # noqa: E501
         :rtype: str
@@ -214,7 +250,7 @@ class SpeechAnalyticsResult(object):
     def cr_answers_id(self, cr_answers_id):
         """Sets the cr_answers_id of this SpeechAnalyticsResult.
 
-        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.    # noqa: E501
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.                         # noqa: E501
 
         :param cr_answers_id: The cr_answers_id of this SpeechAnalyticsResult.  # noqa: E501
         :type: str
@@ -227,6 +263,29 @@ class SpeechAnalyticsResult(object):
             raise ValueError("Invalid value for `cr_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._cr_answers_id = cr_answers_id
+
+    @property
+    def duration_sec(self):
+        """Gets the duration_sec of this SpeechAnalyticsResult.  # noqa: E501
+
+        duration [in seconds] of the audio that was transcribed  # noqa: E501
+
+        :return: The duration_sec of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._duration_sec
+
+    @duration_sec.setter
+    def duration_sec(self, duration_sec):
+        """Sets the duration_sec of this SpeechAnalyticsResult.
+
+        duration [in seconds] of the audio that was transcribed  # noqa: E501
+
+        :param duration_sec: The duration_sec of this SpeechAnalyticsResult.  # noqa: E501
+        :type: float
+        """
+
+        self._duration_sec = duration_sec
 
     @property
     def label(self):
@@ -428,6 +487,29 @@ class SpeechAnalyticsResult(object):
             raise ValueError("Invalid value for `single_channel_audio`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._single_channel_audio = single_channel_audio
+
+    @property
+    def start_time(self):
+        """Gets the start_time of this SpeechAnalyticsResult.  # noqa: E501
+
+        start time of Speech Analytics session  # noqa: E501
+
+        :return: The start_time of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._start_time
+
+    @start_time.setter
+    def start_time(self, start_time):
+        """Sets the start_time of this SpeechAnalyticsResult.
+
+        start time of Speech Analytics session  # noqa: E501
+
+        :param start_time: The start_time of this SpeechAnalyticsResult.  # noqa: E501
+        :type: datetime
+        """
+
+        self._start_time = start_time
 
     @property
     def topics(self):
