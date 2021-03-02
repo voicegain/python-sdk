@@ -39,12 +39,14 @@ class SpeechAnalyticsResult(object):
         'channels': 'list[SpeechAnalyticsChannelResult]',
         'context_id': 'str',
         'cr_answers_id': 'str',
+        'creator': 'str',
         'duration_sec': 'float',
         'label': 'str',
         'metadata': 'list[NameValuePair]',
         'multi_channel_audio': 'str',
         'multi_channel_diarization': 'DiarizationData',
         'multi_channel_words': 'list[WordsSection]',
+        'persist': 'float',
         'sa_session_id': 'str',
         'silence': 'Silence',
         'single_channel_audio': 'str',
@@ -59,12 +61,14 @@ class SpeechAnalyticsResult(object):
         'channels': 'channels',
         'context_id': 'contextId',
         'cr_answers_id': 'crAnswersId',
+        'creator': 'creator',
         'duration_sec': 'durationSec',
         'label': 'label',
         'metadata': 'metadata',
         'multi_channel_audio': 'multiChannelAudio',
         'multi_channel_diarization': 'multiChannelDiarization',
         'multi_channel_words': 'multiChannelWords',
+        'persist': 'persist',
         'sa_session_id': 'saSessionId',
         'silence': 'silence',
         'single_channel_audio': 'singleChannelAudio',
@@ -73,7 +77,7 @@ class SpeechAnalyticsResult(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, async_mode=None, channels=None, context_id=None, cr_answers_id=None, duration_sec=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, sa_session_id=None, silence=None, single_channel_audio=None, start_time=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, async_mode=None, channels=None, context_id=None, cr_answers_id=None, creator=None, duration_sec=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, persist=None, sa_session_id=None, silence=None, single_channel_audio=None, start_time=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,12 +88,14 @@ class SpeechAnalyticsResult(object):
         self._channels = None
         self._context_id = None
         self._cr_answers_id = None
+        self._creator = None
         self._duration_sec = None
         self._label = None
         self._metadata = None
         self._multi_channel_audio = None
         self._multi_channel_diarization = None
         self._multi_channel_words = None
+        self._persist = None
         self._sa_session_id = None
         self._silence = None
         self._single_channel_audio = None
@@ -108,6 +114,8 @@ class SpeechAnalyticsResult(object):
             self.context_id = context_id
         if cr_answers_id is not None:
             self.cr_answers_id = cr_answers_id
+        if creator is not None:
+            self.creator = creator
         if duration_sec is not None:
             self.duration_sec = duration_sec
         if label is not None:
@@ -120,6 +128,8 @@ class SpeechAnalyticsResult(object):
             self.multi_channel_diarization = multi_channel_diarization
         if multi_channel_words is not None:
             self.multi_channel_words = multi_channel_words
+        if persist is not None:
+            self.persist = persist
         if sa_session_id is not None:
             self.sa_session_id = sa_session_id
         if silence is not None:
@@ -265,6 +275,35 @@ class SpeechAnalyticsResult(object):
         self._cr_answers_id = cr_answers_id
 
     @property
+    def creator(self):
+        """Gets the creator of this SpeechAnalyticsResult.  # noqa: E501
+
+        Id od the user who started this Speech Analytics session  # noqa: E501
+
+        :return: The creator of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._creator
+
+    @creator.setter
+    def creator(self, creator):
+        """Sets the creator of this SpeechAnalyticsResult.
+
+        Id od the user who started this Speech Analytics session  # noqa: E501
+
+        :param creator: The creator of this SpeechAnalyticsResult.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                creator is not None and len(creator) > 48):
+            raise ValueError("Invalid value for `creator`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                creator is not None and len(creator) < 16):
+            raise ValueError("Invalid value for `creator`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._creator = creator
+
+    @property
     def duration_sec(self):
         """Gets the duration_sec of this SpeechAnalyticsResult.  # noqa: E501
 
@@ -408,6 +447,32 @@ class SpeechAnalyticsResult(object):
         """
 
         self._multi_channel_words = multi_channel_words
+
+    @property
+    def persist(self):
+        """Gets the persist of this SpeechAnalyticsResult.  # noqa: E501
+
+        Time (in msec) to retain the result/outcome data. Once this time expires the result will be deleted.   # noqa: E501
+
+        :return: The persist of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._persist
+
+    @persist.setter
+    def persist(self, persist):
+        """Sets the persist of this SpeechAnalyticsResult.
+
+        Time (in msec) to retain the result/outcome data. Once this time expires the result will be deleted.   # noqa: E501
+
+        :param persist: The persist of this SpeechAnalyticsResult.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                persist is not None and persist < -1):  # noqa: E501
+            raise ValueError("Invalid value for `persist`, must be a value greater than or equal to `-1`")  # noqa: E501
+
+        self._persist = persist
 
     @property
     def sa_session_id(self):
