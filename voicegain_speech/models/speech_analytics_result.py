@@ -39,6 +39,7 @@ class SpeechAnalyticsResult(object):
         'context_id': 'str',
         'cr_answers_id': 'str',
         'label': 'str',
+        'metadata': 'list[NameValuePair]',
         'multi_channel_audio': 'str',
         'multi_channel_diarization': 'DiarizationData',
         'multi_channel_words': 'list[WordsSection]',
@@ -55,6 +56,7 @@ class SpeechAnalyticsResult(object):
         'context_id': 'contextId',
         'cr_answers_id': 'crAnswersId',
         'label': 'label',
+        'metadata': 'metadata',
         'multi_channel_audio': 'multiChannelAudio',
         'multi_channel_diarization': 'multiChannelDiarization',
         'multi_channel_words': 'multiChannelWords',
@@ -65,7 +67,7 @@ class SpeechAnalyticsResult(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, channels=None, context_id=None, cr_answers_id=None, label=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, sa_session_id=None, silence=None, single_channel_audio=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, channels=None, context_id=None, cr_answers_id=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, sa_session_id=None, silence=None, single_channel_audio=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,6 +78,7 @@ class SpeechAnalyticsResult(object):
         self._context_id = None
         self._cr_answers_id = None
         self._label = None
+        self._metadata = None
         self._multi_channel_audio = None
         self._multi_channel_diarization = None
         self._multi_channel_words = None
@@ -96,6 +99,8 @@ class SpeechAnalyticsResult(object):
             self.cr_answers_id = cr_answers_id
         if label is not None:
             self.label = label
+        if metadata is not None:
+            self.metadata = metadata
         if multi_channel_audio is not None:
             self.multi_channel_audio = multi_channel_audio
         if multi_channel_diarization is not None:
@@ -248,6 +253,29 @@ class SpeechAnalyticsResult(object):
             raise ValueError("Invalid value for `label`, length must be less than or equal to `64`")  # noqa: E501
 
         self._label = label
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this SpeechAnalyticsResult.  # noqa: E501
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :return: The metadata of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: list[NameValuePair]
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this SpeechAnalyticsResult.
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :param metadata: The metadata of this SpeechAnalyticsResult.  # noqa: E501
+        :type: list[NameValuePair]
+        """
+
+        self._metadata = metadata
 
     @property
     def multi_channel_audio(self):

@@ -205,7 +205,7 @@ class SessionInitTranscription(object):
     def metadata(self):
         """Gets the metadata of this SessionInitTranscription.  # noqa: E501
 
-        Metadata passed with the request to async transcription or recognition. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription, the metadata will be saved together with the result.   # noqa: E501
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
 
         :return: The metadata of this SessionInitTranscription.  # noqa: E501
         :rtype: list[NameValuePair]
@@ -216,7 +216,7 @@ class SessionInitTranscription(object):
     def metadata(self, metadata):
         """Sets the metadata of this SessionInitTranscription.
 
-        Metadata passed with the request to async transcription or recognition. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription, the metadata will be saved together with the result.   # noqa: E501
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
 
         :param metadata: The metadata of this SessionInitTranscription.  # noqa: E501
         :type: list[NameValuePair]

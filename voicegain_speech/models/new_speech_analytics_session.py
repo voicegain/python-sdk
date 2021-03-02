@@ -39,6 +39,7 @@ class NewSpeechAnalyticsSession(object):
         'audio': 'AudioInputAsync',
         'call_review_config': 'str',
         'label': 'str',
+        'metadata': 'list[NameValuePair]',
         'sa_config': 'str',
         'speaker_channels': 'list[SpeechAnalyticsChannel]',
         'topic_discovery_config': 'str'
@@ -50,12 +51,13 @@ class NewSpeechAnalyticsSession(object):
         'audio': 'audio',
         'call_review_config': 'callReviewConfig',
         'label': 'label',
+        'metadata': 'metadata',
         'sa_config': 'saConfig',
         'speaker_channels': 'speakerChannels',
         'topic_discovery_config': 'topicDiscoveryConfig'
     }
 
-    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, label=None, sa_config=None, speaker_channels=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, label=None, metadata=None, sa_config=None, speaker_channels=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
         """NewSpeechAnalyticsSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class NewSpeechAnalyticsSession(object):
         self._audio = None
         self._call_review_config = None
         self._label = None
+        self._metadata = None
         self._sa_config = None
         self._speaker_channels = None
         self._topic_discovery_config = None
@@ -81,6 +84,8 @@ class NewSpeechAnalyticsSession(object):
             self.call_review_config = call_review_config
         if label is not None:
             self.label = label
+        if metadata is not None:
+            self.metadata = metadata
         self.sa_config = sa_config
         if speaker_channels is not None:
             self.speaker_channels = speaker_channels
@@ -204,6 +209,29 @@ class NewSpeechAnalyticsSession(object):
             raise ValueError("Invalid value for `label`, length must be less than or equal to `64`")  # noqa: E501
 
         self._label = label
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this NewSpeechAnalyticsSession.  # noqa: E501
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :return: The metadata of this NewSpeechAnalyticsSession.  # noqa: E501
+        :rtype: list[NameValuePair]
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this NewSpeechAnalyticsSession.
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :param metadata: The metadata of this NewSpeechAnalyticsSession.  # noqa: E501
+        :type: list[NameValuePair]
+        """
+
+        self._metadata = metadata
 
     @property
     def sa_config(self):

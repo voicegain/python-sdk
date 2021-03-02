@@ -904,7 +904,7 @@ class SaApi(object):
     def sa_query(self, **kwargs):  # noqa: E501
         """Query Sp. Analytics Data  # noqa: E501
 
-        Get Speech Analytics data that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those use [GET /sa/{saSessionId}](#operation/saDataGet) with the parameters that it offers.   # noqa: E501
+        Get Speech Analytics data that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_query(async_req=True)
@@ -912,6 +912,8 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param bool from_all_contexts: If `true` then results from all contexts will be retrieved
+        :param int limit: set the maximum number of returned results
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -929,7 +931,7 @@ class SaApi(object):
     def sa_query_with_http_info(self, **kwargs):  # noqa: E501
         """Query Sp. Analytics Data  # noqa: E501
 
-        Get Speech Analytics data that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those use [GET /sa/{saSessionId}](#operation/saDataGet) with the parameters that it offers.   # noqa: E501
+        Get Speech Analytics data that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_query_with_http_info(async_req=True)
@@ -937,6 +939,8 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param bool from_all_contexts: If `true` then results from all contexts will be retrieved
+        :param int limit: set the maximum number of returned results
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -953,7 +957,7 @@ class SaApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id']  # noqa: E501
+        all_params = ['context_id', 'from_all_contexts', 'limit']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -974,6 +978,8 @@ class SaApi(object):
         if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['context_id']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_query`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `sa_query`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -981,6 +987,10 @@ class SaApi(object):
         query_params = []
         if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
             query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+        if 'from_all_contexts' in local_var_params and local_var_params['from_all_contexts'] is not None:  # noqa: E501
+            query_params.append(('fromAllContexts', local_var_params['from_all_contexts']))  # noqa: E501
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
 
         header_params = {}
 
