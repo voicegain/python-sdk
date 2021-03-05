@@ -53,6 +53,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'sentiment': 'bool',
         'silence_single_duration_maximum_threshold': 'float',
         'silence_total_percentage_threshold': 'float',
+        'summary': 'bool',
         'word_cloud': 'bool'
     }
 
@@ -76,10 +77,11 @@ class SpeechAnalyticsConfigModifiable(object):
         'sentiment': 'sentiment',
         'silence_single_duration_maximum_threshold': 'silenceSingleDurationMaximumThreshold',
         'silence_total_percentage_threshold': 'silenceTotalPercentageThreshold',
+        'summary': 'summary',
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, age=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, entities=None, gender=None, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrases=None, pii_redaction=None, profanity=None, published=False, sentiment=None, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, entities=None, gender=None, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrases=None, pii_redaction=None, profanity=None, published=False, sentiment=None, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -104,6 +106,7 @@ class SpeechAnalyticsConfigModifiable(object):
         self._sentiment = None
         self._silence_single_duration_maximum_threshold = None
         self._silence_total_percentage_threshold = None
+        self._summary = None
         self._word_cloud = None
         self.discriminator = None
 
@@ -145,6 +148,8 @@ class SpeechAnalyticsConfigModifiable(object):
             self.silence_single_duration_maximum_threshold = silence_single_duration_maximum_threshold
         if silence_total_percentage_threshold is not None:
             self.silence_total_percentage_threshold = silence_total_percentage_threshold
+        if summary is not None:
+            self.summary = summary
         if word_cloud is not None:
             self.word_cloud = word_cloud
 
@@ -617,6 +622,29 @@ class SpeechAnalyticsConfigModifiable(object):
             raise ValueError("Invalid value for `silence_total_percentage_threshold`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._silence_total_percentage_threshold = silence_total_percentage_threshold
+
+    @property
+    def summary(self):
+        """Gets the summary of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+
+        set to true to enable output of summary of the transcript (summary is always accross all channels)  # noqa: E501
+
+        :return: The summary of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :rtype: bool
+        """
+        return self._summary
+
+    @summary.setter
+    def summary(self, summary):
+        """Sets the summary of this SpeechAnalyticsConfigModifiable.
+
+        set to true to enable output of summary of the transcript (summary is always accross all channels)  # noqa: E501
+
+        :param summary: The summary of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :type: bool
+        """
+
+        self._summary = summary
 
     @property
     def word_cloud(self):
