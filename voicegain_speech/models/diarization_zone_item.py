@@ -146,7 +146,7 @@ class DiarizationZoneItem(object):
     def start_time(self):
         """Gets the start_time of this DiarizationZoneItem.  # noqa: E501
 
-        start time for in msec since start of audio  # noqa: E501
+        start time in msec since start of audio  # noqa: E501
 
         :return: The start_time of this DiarizationZoneItem.  # noqa: E501
         :rtype: int
@@ -157,7 +157,7 @@ class DiarizationZoneItem(object):
     def start_time(self, start_time):
         """Sets the start_time of this DiarizationZoneItem.
 
-        start time for in msec since start of audio  # noqa: E501
+        start time in msec since start of audio  # noqa: E501
 
         :param start_time: The start_time of this DiarizationZoneItem.  # noqa: E501
         :type: int

@@ -141,7 +141,7 @@ class TranscriptPositionRange(object):
     def start_time(self):
         """Gets the start_time of this TranscriptPositionRange.  # noqa: E501
 
-        start time for in msec since start of audio  # noqa: E501
+        start time in msec since start of audio  # noqa: E501
 
         :return: The start_time of this TranscriptPositionRange.  # noqa: E501
         :rtype: int
@@ -152,7 +152,7 @@ class TranscriptPositionRange(object):
     def start_time(self, start_time):
         """Sets the start_time of this TranscriptPositionRange.
 
-        start time for in msec since start of audio  # noqa: E501
+        start time in msec since start of audio  # noqa: E501
 
         :param start_time: The start_time of this TranscriptPositionRange.  # noqa: E501
         :type: int
