@@ -40,6 +40,7 @@ class NewSpeechAnalyticsSession(object):
         'call_review_config': 'str',
         'label': 'str',
         'metadata': 'list[NameValuePair]',
+        'persist': 'float',
         'sa_config': 'str',
         'speaker_channels': 'list[SpeechAnalyticsChannel]',
         'tags': 'list[str]',
@@ -53,13 +54,14 @@ class NewSpeechAnalyticsSession(object):
         'call_review_config': 'callReviewConfig',
         'label': 'label',
         'metadata': 'metadata',
+        'persist': 'persist',
         'sa_config': 'saConfig',
         'speaker_channels': 'speakerChannels',
         'tags': 'tags',
         'topic_discovery_config': 'topicDiscoveryConfig'
     }
 
-    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, label=None, metadata=None, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, label=None, metadata=None, persist=3600000, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
         """NewSpeechAnalyticsSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class NewSpeechAnalyticsSession(object):
         self._call_review_config = None
         self._label = None
         self._metadata = None
+        self._persist = None
         self._sa_config = None
         self._speaker_channels = None
         self._tags = None
@@ -89,6 +92,8 @@ class NewSpeechAnalyticsSession(object):
             self.label = label
         if metadata is not None:
             self.metadata = metadata
+        if persist is not None:
+            self.persist = persist
         self.sa_config = sa_config
         if speaker_channels is not None:
             self.speaker_channels = speaker_channels
@@ -237,6 +242,32 @@ class NewSpeechAnalyticsSession(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def persist(self):
+        """Gets the persist of this NewSpeechAnalyticsSession.  # noqa: E501
+
+        Time (in msec) to retain the result data after processing has completed.  For Cloud, maximum persistence is 7 days. For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available.             # noqa: E501
+
+        :return: The persist of this NewSpeechAnalyticsSession.  # noqa: E501
+        :rtype: float
+        """
+        return self._persist
+
+    @persist.setter
+    def persist(self, persist):
+        """Sets the persist of this NewSpeechAnalyticsSession.
+
+        Time (in msec) to retain the result data after processing has completed.  For Cloud, maximum persistence is 7 days. For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available.             # noqa: E501
+
+        :param persist: The persist of this NewSpeechAnalyticsSession.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                persist is not None and persist < -1):  # noqa: E501
+            raise ValueError("Invalid value for `persist`, must be a value greater than or equal to `-1`")  # noqa: E501
+
+        self._persist = persist
 
     @property
     def sa_config(self):
