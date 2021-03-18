@@ -42,6 +42,7 @@ class SessionInitTranscription(object):
         'metadata': 'list[NameValuePair]',
         'poll': 'PollReq',
         'portal': 'PortalOutputInit',
+        'tags': 'list[str]',
         'websocket': 'WebsocketInit'
     }
 
@@ -54,10 +55,11 @@ class SessionInitTranscription(object):
         'metadata': 'metadata',
         'poll': 'poll',
         'portal': 'portal',
+        'tags': 'tags',
         'websocket': 'websocket'
     }
 
-    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, extra_params=None, metadata=None, poll=None, portal=None, websocket=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, extra_params=None, metadata=None, poll=None, portal=None, tags=None, websocket=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class SessionInitTranscription(object):
         self._metadata = None
         self._poll = None
         self._portal = None
+        self._tags = None
         self._websocket = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class SessionInitTranscription(object):
             self.poll = poll
         if portal is not None:
             self.portal = portal
+        if tags is not None:
+            self.tags = tags
         if websocket is not None:
             self.websocket = websocket
 
@@ -265,6 +270,29 @@ class SessionInitTranscription(object):
         """
 
         self._portal = portal
+
+    @property
+    def tags(self):
+        """Gets the tags of this SessionInitTranscription.  # noqa: E501
+
+        Tags associated with the Transcription session. Each tag is a string with max length of 64 characters.  # noqa: E501
+
+        :return: The tags of this SessionInitTranscription.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this SessionInitTranscription.
+
+        Tags associated with the Transcription session. Each tag is a string with max length of 64 characters.  # noqa: E501
+
+        :param tags: The tags of this SessionInitTranscription.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     @property
     def websocket(self):
