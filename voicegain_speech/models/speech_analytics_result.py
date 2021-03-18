@@ -51,7 +51,7 @@ class SpeechAnalyticsResult(object):
         'silence': 'Silence',
         'single_channel_audio': 'str',
         'start_time': 'datetime',
-        'summary': 'list[str]',
+        'summary': 'list[SummaryItem]',
         'topics': 'list[TopicScore]',
         'word_cloud': 'list[WordCloudItem]'
     }
@@ -588,7 +588,7 @@ class SpeechAnalyticsResult(object):
         _(coming soon)_ Most characteristic sentences from the transcript. Can be used as a summary for the entire text.  # noqa: E501
 
         :return: The summary of this SpeechAnalyticsResult.  # noqa: E501
-        :rtype: list[str]
+        :rtype: list[SummaryItem]
         """
         return self._summary
 
@@ -599,7 +599,7 @@ class SpeechAnalyticsResult(object):
         _(coming soon)_ Most characteristic sentences from the transcript. Can be used as a summary for the entire text.  # noqa: E501
 
         :param summary: The summary of this SpeechAnalyticsResult.  # noqa: E501
-        :type: list[str]
+        :type: list[SummaryItem]
         """
 
         self._summary = summary

@@ -332,6 +332,8 @@ from voicegain_speech.models.speech_analytics_result import SpeechAnalyticsResul
 from voicegain_speech.models.stream_resp import StreamResp
 from voicegain_speech.models.stream_setup import StreamSetup
 from voicegain_speech.models.streaming_protocol import StreamingProtocol
+from voicegain_speech.models.summary_item import SummaryItem
+from voicegain_speech.models.summary_item_all_of import SummaryItemAllOf
 from voicegain_speech.models.sync_audio_input_source import SyncAudioInputSource
 from voicegain_speech.models.sync_recognition_request import SyncRecognitionRequest
 from voicegain_speech.models.sync_recognition_response import SyncRecognitionResponse
