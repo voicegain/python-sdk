@@ -42,6 +42,7 @@ class NewSpeechAnalyticsSession(object):
         'metadata': 'list[NameValuePair]',
         'sa_config': 'str',
         'speaker_channels': 'list[SpeechAnalyticsChannel]',
+        'tags': 'list[str]',
         'topic_discovery_config': 'str'
     }
 
@@ -54,10 +55,11 @@ class NewSpeechAnalyticsSession(object):
         'metadata': 'metadata',
         'sa_config': 'saConfig',
         'speaker_channels': 'speakerChannels',
+        'tags': 'tags',
         'topic_discovery_config': 'topicDiscoveryConfig'
     }
 
-    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, label=None, metadata=None, sa_config=None, speaker_channels=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, label=None, metadata=None, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
         """NewSpeechAnalyticsSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class NewSpeechAnalyticsSession(object):
         self._metadata = None
         self._sa_config = None
         self._speaker_channels = None
+        self._tags = None
         self._topic_discovery_config = None
         self.discriminator = None
 
@@ -89,6 +92,8 @@ class NewSpeechAnalyticsSession(object):
         self.sa_config = sa_config
         if speaker_channels is not None:
             self.speaker_channels = speaker_channels
+        if tags is not None:
+            self.tags = tags
         if topic_discovery_config is not None:
             self.topic_discovery_config = topic_discovery_config
 
@@ -286,6 +291,29 @@ class NewSpeechAnalyticsSession(object):
         """
 
         self._speaker_channels = speaker_channels
+
+    @property
+    def tags(self):
+        """Gets the tags of this NewSpeechAnalyticsSession.  # noqa: E501
+
+        Tags associated with the Speech Analytics session. Each tag is a string with max length of 64 characters.  # noqa: E501
+
+        :return: The tags of this NewSpeechAnalyticsSession.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this NewSpeechAnalyticsSession.
+
+        Tags associated with the Speech Analytics session. Each tag is a string with max length of 64 characters.  # noqa: E501
+
+        :param tags: The tags of this NewSpeechAnalyticsSession.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     @property
     def topic_discovery_config(self):

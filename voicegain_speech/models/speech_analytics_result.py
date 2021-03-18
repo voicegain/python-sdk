@@ -52,6 +52,7 @@ class SpeechAnalyticsResult(object):
         'single_channel_audio': 'str',
         'start_time': 'datetime',
         'summary': 'list[SummaryItem]',
+        'tags': 'list[str]',
         'topics': 'list[TopicScore]',
         'word_cloud': 'list[WordCloudItem]'
     }
@@ -75,11 +76,12 @@ class SpeechAnalyticsResult(object):
         'single_channel_audio': 'singleChannelAudio',
         'start_time': 'startTime',
         'summary': 'summary',
+        'tags': 'tags',
         'topics': 'topics',
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, async_mode=None, channels=None, context_id=None, cr_answers_id=None, creator=None, duration_sec=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, persist=None, sa_session_id=None, silence=None, single_channel_audio=None, start_time=None, summary=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, async_mode=None, channels=None, context_id=None, cr_answers_id=None, creator=None, duration_sec=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, persist=None, sa_session_id=None, silence=None, single_channel_audio=None, start_time=None, summary=None, tags=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -103,6 +105,7 @@ class SpeechAnalyticsResult(object):
         self._single_channel_audio = None
         self._start_time = None
         self._summary = None
+        self._tags = None
         self._topics = None
         self._word_cloud = None
         self.discriminator = None
@@ -143,6 +146,8 @@ class SpeechAnalyticsResult(object):
             self.start_time = start_time
         if summary is not None:
             self.summary = summary
+        if tags is not None:
+            self.tags = tags
         if topics is not None:
             self.topics = topics
         if word_cloud is not None:
@@ -603,6 +608,29 @@ class SpeechAnalyticsResult(object):
         """
 
         self._summary = summary
+
+    @property
+    def tags(self):
+        """Gets the tags of this SpeechAnalyticsResult.  # noqa: E501
+
+        Tags associated with the Speech Analytics session. Each tag is a string with max length of 64 characters.  # noqa: E501
+
+        :return: The tags of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._tags
+
+    @tags.setter
+    def tags(self, tags):
+        """Sets the tags of this SpeechAnalyticsResult.
+
+        Tags associated with the Speech Analytics session. Each tag is a string with max length of 64 characters.  # noqa: E501
+
+        :param tags: The tags of this SpeechAnalyticsResult.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._tags = tags
 
     @property
     def topics(self):
