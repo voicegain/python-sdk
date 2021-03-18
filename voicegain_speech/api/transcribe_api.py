@@ -143,7 +143,7 @@ class TranscribeApi(object):
             ['application/json'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearerJWTAuth']  # noqa: E501
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
 
         return self.api_client.call_api(
             '/asr/transcribe/{sessionId}', 'DELETE',
@@ -520,6 +520,138 @@ class TranscribeApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='AsyncTranscPostResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def asr_transcribe_async_put(self, session_id, **kwargs):  # noqa: E501
+        """Modify Transcribe Sess.  # noqa: E501
+
+        Modify existing Transcription session.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.asr_transcribe_async_put(session_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str session_id: ID of the session (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param TranscribeSessionModifyRequest transcribe_session_modify_request: Parameters to modify
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: SessionSuccessResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.asr_transcribe_async_put_with_http_info(session_id, **kwargs)  # noqa: E501
+
+    def asr_transcribe_async_put_with_http_info(self, session_id, **kwargs):  # noqa: E501
+        """Modify Transcribe Sess.  # noqa: E501
+
+        Modify existing Transcription session.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.asr_transcribe_async_put_with_http_info(session_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str session_id: ID of the session (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param TranscribeSessionModifyRequest transcribe_session_modify_request: Parameters to modify
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(SessionSuccessResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['session_id', 'context_id', 'transcribe_session_modify_request']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method asr_transcribe_async_put" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'session_id' is set
+        if self.api_client.client_side_validation and ('session_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['session_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `session_id` when calling `asr_transcribe_async_put`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['session_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `session_id` when calling `asr_transcribe_async_put`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['session_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `session_id` when calling `asr_transcribe_async_put`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `asr_transcribe_async_put`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `asr_transcribe_async_put`, length must be greater than or equal to `16`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'session_id' in local_var_params:
+            path_params['sessionId'] = local_var_params['session_id']  # noqa: E501
+
+        query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'transcribe_session_modify_request' in local_var_params:
+            body_params = local_var_params['transcribe_session_modify_request']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/asr/transcribe/{sessionId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SessionSuccessResponse',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

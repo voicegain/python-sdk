@@ -328,6 +328,7 @@ from voicegain_speech.models.training_set_status import TrainingSetStatus
 from voicegain_speech.models.training_set_status_modifiable import TrainingSetStatusModifiable
 from voicegain_speech.models.training_set_store_type import TrainingSetStoreType
 from voicegain_speech.models.transcribe_alt import TranscribeAlt
+from voicegain_speech.models.transcribe_session_modify_request import TranscribeSessionModifyRequest
 from voicegain_speech.models.transcript_position_range import TranscriptPositionRange
 from voicegain_speech.models.transfer import Transfer
 from voicegain_speech.models.transfer_all_of import TransferAllOf
