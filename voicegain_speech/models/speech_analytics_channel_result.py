@@ -45,6 +45,7 @@ class SpeechAnalyticsChannelResult(object):
         'overtalk': 'Overtalk',
         'phrases': 'SpeechAnalyticsPhraseData',
         'spk': 'int',
+        'spk_name': 'str',
         'talk': 'TalkTime',
         'transcribe_sid': 'object'
     }
@@ -61,11 +62,12 @@ class SpeechAnalyticsChannelResult(object):
         'overtalk': 'overtalk',
         'phrases': 'phrases',
         'spk': 'spk',
+        'spk_name': 'spkName',
         'talk': 'talk',
         'transcribe_sid': 'transcribeSid'
     }
 
-    def __init__(self, age=None, audio_zones=None, decibels=None, emotion=None, gender=None, is_agent=None, keywords=None, named_entities=None, overtalk=None, phrases=None, spk=None, talk=None, transcribe_sid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=None, audio_zones=None, decibels=None, emotion=None, gender=None, is_agent=None, keywords=None, named_entities=None, overtalk=None, phrases=None, spk=None, spk_name=None, talk=None, transcribe_sid=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsChannelResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,6 +84,7 @@ class SpeechAnalyticsChannelResult(object):
         self._overtalk = None
         self._phrases = None
         self._spk = None
+        self._spk_name = None
         self._talk = None
         self._transcribe_sid = None
         self.discriminator = None
@@ -108,6 +111,8 @@ class SpeechAnalyticsChannelResult(object):
             self.phrases = phrases
         if spk is not None:
             self.spk = spk
+        if spk_name is not None:
+            self.spk_name = spk_name
         if talk is not None:
             self.talk = talk
         if transcribe_sid is not None:
@@ -368,13 +373,39 @@ class SpeechAnalyticsChannelResult(object):
         :type: int
         """
         if (self.local_vars_configuration.client_side_validation and
-                spk is not None and spk > 2):  # noqa: E501
-            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `2`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
                 spk is not None and spk < 1):  # noqa: E501
             raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._spk = spk
+
+    @property
+    def spk_name(self):
+        """Gets the spk_name of this SpeechAnalyticsChannelResult.  # noqa: E501
+
+        Name of the speaker. Typically provided later manually via Web UI.     # noqa: E501
+
+        :return: The spk_name of this SpeechAnalyticsChannelResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._spk_name
+
+    @spk_name.setter
+    def spk_name(self, spk_name):
+        """Sets the spk_name of this SpeechAnalyticsChannelResult.
+
+        Name of the speaker. Typically provided later manually via Web UI.     # noqa: E501
+
+        :param spk_name: The spk_name of this SpeechAnalyticsChannelResult.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                spk_name is not None and len(spk_name) > 64):
+            raise ValueError("Invalid value for `spk_name`, length must be less than or equal to `64`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                spk_name is not None and len(spk_name) < 1):
+            raise ValueError("Invalid value for `spk_name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._spk_name = spk_name
 
     @property
     def talk(self):
