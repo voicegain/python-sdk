@@ -43,7 +43,8 @@ class LanguageModelDoc(object):
         'name': 'str',
         'published': 'bool',
         'status': 'LangModelStatus',
-        'status_msg': 'str'
+        'status_msg': 'str',
+        'summary': 'str'
     }
 
     attribute_map = {
@@ -56,10 +57,11 @@ class LanguageModelDoc(object):
         'name': 'name',
         'published': 'published',
         'status': 'status',
-        'status_msg': 'statusMsg'
+        'status_msg': 'statusMsg',
+        'summary': 'summary'
     }
 
-    def __init__(self, account_id=None, arpa=None, built_in=False, context_id=None, corpus=None, lm_id=None, name=None, published=False, status=None, status_msg=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, arpa=None, built_in=False, context_id=None, corpus=None, lm_id=None, name=None, published=False, status=None, status_msg=None, summary=None, local_vars_configuration=None):  # noqa: E501
         """LanguageModelDoc - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class LanguageModelDoc(object):
         self._published = None
         self._status = None
         self._status_msg = None
+        self._summary = None
         self.discriminator = None
 
         if account_id is not None:
@@ -96,6 +99,8 @@ class LanguageModelDoc(object):
             self.status = status
         if status_msg is not None:
             self.status_msg = status_msg
+        if summary is not None:
+            self.summary = summary
 
     @property
     def account_id(self):
@@ -325,6 +330,32 @@ class LanguageModelDoc(object):
         """
 
         self._status_msg = status_msg
+
+    @property
+    def summary(self):
+        """Gets the summary of this LanguageModelDoc.  # noqa: E501
+
+        some kind of summary of the content of this language model, could be top words present in it, or something else that gives good indication of the content  # noqa: E501
+
+        :return: The summary of this LanguageModelDoc.  # noqa: E501
+        :rtype: str
+        """
+        return self._summary
+
+    @summary.setter
+    def summary(self, summary):
+        """Sets the summary of this LanguageModelDoc.
+
+        some kind of summary of the content of this language model, could be top words present in it, or something else that gives good indication of the content  # noqa: E501
+
+        :param summary: The summary of this LanguageModelDoc.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                summary is not None and len(summary) > 512):
+            raise ValueError("Invalid value for `summary`, length must be less than or equal to `512`")  # noqa: E501
+
+        self._summary = summary
 
     def to_dict(self):
         """Returns the model properties as a dict"""
