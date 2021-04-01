@@ -219,6 +219,7 @@ from voicegain_speech.models.html_choice_item import HtmlChoiceItem
 from voicegain_speech.models.html_radio_buttons import HtmlRadioButtons
 from voicegain_speech.models.html_text_entry import HtmlTextEntry
 from voicegain_speech.models.if_exists import IfExists
+from voicegain_speech.models.incident import Incident
 from voicegain_speech.models.inline_data import InlineData
 from voicegain_speech.models.inline_object import InlineObject
 from voicegain_speech.models.inline_object1 import InlineObject1

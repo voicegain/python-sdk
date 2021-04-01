@@ -41,6 +41,7 @@ class SpeechAnalyticsResult(object):
         'cr_answers_id': 'str',
         'creator': 'str',
         'duration_sec': 'float',
+        'incidents': 'list[Incident]',
         'label': 'str',
         'metadata': 'list[NameValuePair]',
         'multi_channel_audio': 'str',
@@ -65,6 +66,7 @@ class SpeechAnalyticsResult(object):
         'cr_answers_id': 'crAnswersId',
         'creator': 'creator',
         'duration_sec': 'durationSec',
+        'incidents': 'incidents',
         'label': 'label',
         'metadata': 'metadata',
         'multi_channel_audio': 'multiChannelAudio',
@@ -81,7 +83,7 @@ class SpeechAnalyticsResult(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, async_mode=None, channels=None, context_id=None, cr_answers_id=None, creator=None, duration_sec=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, persist=None, sa_session_id=None, silence=None, single_channel_audio=None, start_time=None, summary=None, tags=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, async_mode=None, channels=None, context_id=None, cr_answers_id=None, creator=None, duration_sec=None, incidents=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, persist=None, sa_session_id=None, silence=None, single_channel_audio=None, start_time=None, summary=None, tags=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -94,6 +96,7 @@ class SpeechAnalyticsResult(object):
         self._cr_answers_id = None
         self._creator = None
         self._duration_sec = None
+        self._incidents = None
         self._label = None
         self._metadata = None
         self._multi_channel_audio = None
@@ -124,6 +127,8 @@ class SpeechAnalyticsResult(object):
             self.creator = creator
         if duration_sec is not None:
             self.duration_sec = duration_sec
+        if incidents is not None:
+            self.incidents = incidents
         if label is not None:
             self.label = label
         if metadata is not None:
@@ -335,6 +340,29 @@ class SpeechAnalyticsResult(object):
         """
 
         self._duration_sec = duration_sec
+
+    @property
+    def incidents(self):
+        """Gets the incidents of this SpeechAnalyticsResult.  # noqa: E501
+
+        List of detected incidents (silence, overtalk) during the call.   # noqa: E501
+
+        :return: The incidents of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: list[Incident]
+        """
+        return self._incidents
+
+    @incidents.setter
+    def incidents(self, incidents):
+        """Sets the incidents of this SpeechAnalyticsResult.
+
+        List of detected incidents (silence, overtalk) during the call.   # noqa: E501
+
+        :param incidents: The incidents of this SpeechAnalyticsResult.  # noqa: E501
+        :type: list[Incident]
+        """
+
+        self._incidents = incidents
 
     @property
     def label(self):

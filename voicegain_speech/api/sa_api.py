@@ -533,6 +533,7 @@ class SaApi(object):
         :param bool keywords: If `true` then keywords spotted in the text will be returned
         :param bool entities: If `true` then named entities spotted in the text will be returned
         :param bool phrases: _(coming soon)_ If `true` then phrases spotted in the text will be returned
+        :param bool incidents: If `true` then list of incidents (silence, overtalk) identified in the call will be returned
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -567,6 +568,7 @@ class SaApi(object):
         :param bool keywords: If `true` then keywords spotted in the text will be returned
         :param bool entities: If `true` then named entities spotted in the text will be returned
         :param bool phrases: _(coming soon)_ If `true` then phrases spotted in the text will be returned
+        :param bool incidents: If `true` then list of incidents (silence, overtalk) identified in the call will be returned
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -583,7 +585,7 @@ class SaApi(object):
 
         local_var_params = locals()
 
-        all_params = ['sa_session_id', 'audio', 'decibels', 'audio_zones', 'word_cloud', 'summary', 'emotion', 'keywords', 'entities', 'phrases']  # noqa: E501
+        all_params = ['sa_session_id', 'audio', 'decibels', 'audio_zones', 'word_cloud', 'summary', 'emotion', 'keywords', 'entities', 'phrases', 'incidents']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -635,6 +637,8 @@ class SaApi(object):
             query_params.append(('entities', local_var_params['entities']))  # noqa: E501
         if 'phrases' in local_var_params and local_var_params['phrases'] is not None:  # noqa: E501
             query_params.append(('phrases', local_var_params['phrases']))  # noqa: E501
+        if 'incidents' in local_var_params and local_var_params['incidents'] is not None:  # noqa: E501
+            query_params.append(('incidents', local_var_params['incidents']))  # noqa: E501
 
         header_params = {}
 
