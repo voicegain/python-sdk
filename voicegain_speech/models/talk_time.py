@@ -34,13 +34,13 @@ class TalkTime(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'average_streak_msec': 'int',
+        'average_streak_msec': 'str',
         'energy': 'QuartilesEnergy',
-        'maximum_streak_msec': 'int',
-        'percentage_of_call_time': 'float',
-        'percentage_of_speaker_time': 'float',
+        'maximum_streak_msec': 'str',
+        'percentage_of_call_time': 'str',
+        'percentage_of_speaker_time': 'str',
         'pitch': 'QuartilesPitch',
-        'talk_rate': 'float',
+        'talk_rate': 'str',
         'total_msec': 'int'
     }
 
@@ -92,10 +92,10 @@ class TalkTime(object):
     def average_streak_msec(self):
         """Gets the average_streak_msec of this TalkTime.  # noqa: E501
 
-        average length in milliseconds talk streaks for this speaker  # noqa: E501
+        Average length [in milliseconds] of talk streaks for this speaker.</br> green range is <60s </br> yellow range is <90s  # noqa: E501
 
         :return: The average_streak_msec of this TalkTime.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._average_streak_msec
 
@@ -103,14 +103,14 @@ class TalkTime(object):
     def average_streak_msec(self, average_streak_msec):
         """Sets the average_streak_msec of this TalkTime.
 
-        average length in milliseconds talk streaks for this speaker  # noqa: E501
+        Average length [in milliseconds] of talk streaks for this speaker.</br> green range is <60s </br> yellow range is <90s  # noqa: E501
 
         :param average_streak_msec: The average_streak_msec of this TalkTime.  # noqa: E501
-        :type: int
+        :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                average_streak_msec is not None and average_streak_msec < 0):  # noqa: E501
-            raise ValueError("Invalid value for `average_streak_msec`, must be a value greater than or equal to `0`")  # noqa: E501
+                average_streak_msec is not None and len(average_streak_msec) > 64):
+            raise ValueError("Invalid value for `average_streak_msec`, length must be less than or equal to `64`")  # noqa: E501
 
         self._average_streak_msec = average_streak_msec
 
@@ -139,10 +139,10 @@ class TalkTime(object):
     def maximum_streak_msec(self):
         """Gets the maximum_streak_msec of this TalkTime.  # noqa: E501
 
-        length in milliseconds of the longest talk streak for this speaker  # noqa: E501
+        Length in milliseconds of the longest talk streak for this speaker.</br> green range is <120s </br> yellow range is <180s  # noqa: E501
 
         :return: The maximum_streak_msec of this TalkTime.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._maximum_streak_msec
 
@@ -150,14 +150,14 @@ class TalkTime(object):
     def maximum_streak_msec(self, maximum_streak_msec):
         """Sets the maximum_streak_msec of this TalkTime.
 
-        length in milliseconds of the longest talk streak for this speaker  # noqa: E501
+        Length in milliseconds of the longest talk streak for this speaker.</br> green range is <120s </br> yellow range is <180s  # noqa: E501
 
         :param maximum_streak_msec: The maximum_streak_msec of this TalkTime.  # noqa: E501
-        :type: int
+        :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                maximum_streak_msec is not None and maximum_streak_msec < 0):  # noqa: E501
-            raise ValueError("Invalid value for `maximum_streak_msec`, must be a value greater than or equal to `0`")  # noqa: E501
+                maximum_streak_msec is not None and len(maximum_streak_msec) > 64):
+            raise ValueError("Invalid value for `maximum_streak_msec`, length must be less than or equal to `64`")  # noqa: E501
 
         self._maximum_streak_msec = maximum_streak_msec
 
@@ -165,10 +165,10 @@ class TalkTime(object):
     def percentage_of_call_time(self):
         """Gets the percentage_of_call_time of this TalkTime.  # noqa: E501
 
-        total talk time of this speaker as percentage of the total call time  # noqa: E501
+        Total talk time of this speaker as percentage of the total call time</br> green range is <75% </br> yellow range is <85%  # noqa: E501
 
         :return: The percentage_of_call_time of this TalkTime.  # noqa: E501
-        :rtype: float
+        :rtype: str
         """
         return self._percentage_of_call_time
 
@@ -176,17 +176,14 @@ class TalkTime(object):
     def percentage_of_call_time(self, percentage_of_call_time):
         """Sets the percentage_of_call_time of this TalkTime.
 
-        total talk time of this speaker as percentage of the total call time  # noqa: E501
+        Total talk time of this speaker as percentage of the total call time</br> green range is <75% </br> yellow range is <85%  # noqa: E501
 
         :param percentage_of_call_time: The percentage_of_call_time of this TalkTime.  # noqa: E501
-        :type: float
+        :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                percentage_of_call_time is not None and percentage_of_call_time > 100.0):  # noqa: E501
-            raise ValueError("Invalid value for `percentage_of_call_time`, must be a value less than or equal to `100.0`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                percentage_of_call_time is not None and percentage_of_call_time < 0.0):  # noqa: E501
-            raise ValueError("Invalid value for `percentage_of_call_time`, must be a value greater than or equal to `0.0`")  # noqa: E501
+                percentage_of_call_time is not None and len(percentage_of_call_time) > 64):
+            raise ValueError("Invalid value for `percentage_of_call_time`, length must be less than or equal to `64`")  # noqa: E501
 
         self._percentage_of_call_time = percentage_of_call_time
 
@@ -194,10 +191,10 @@ class TalkTime(object):
     def percentage_of_speaker_time(self):
         """Gets the percentage_of_speaker_time of this TalkTime.  # noqa: E501
 
-        total talk time of this speaker as percentage of the total talk time over all speakers  # noqa: E501
+        Total talk time of this speaker as percentage of the total talk time over all speakers.</br> green range is <80% </br> yellow range is <90%  # noqa: E501
 
         :return: The percentage_of_speaker_time of this TalkTime.  # noqa: E501
-        :rtype: float
+        :rtype: str
         """
         return self._percentage_of_speaker_time
 
@@ -205,17 +202,14 @@ class TalkTime(object):
     def percentage_of_speaker_time(self, percentage_of_speaker_time):
         """Sets the percentage_of_speaker_time of this TalkTime.
 
-        total talk time of this speaker as percentage of the total talk time over all speakers  # noqa: E501
+        Total talk time of this speaker as percentage of the total talk time over all speakers.</br> green range is <80% </br> yellow range is <90%  # noqa: E501
 
         :param percentage_of_speaker_time: The percentage_of_speaker_time of this TalkTime.  # noqa: E501
-        :type: float
+        :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                percentage_of_speaker_time is not None and percentage_of_speaker_time > 100.0):  # noqa: E501
-            raise ValueError("Invalid value for `percentage_of_speaker_time`, must be a value less than or equal to `100.0`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                percentage_of_speaker_time is not None and percentage_of_speaker_time < 0.0):  # noqa: E501
-            raise ValueError("Invalid value for `percentage_of_speaker_time`, must be a value greater than or equal to `0.0`")  # noqa: E501
+                percentage_of_speaker_time is not None and len(percentage_of_speaker_time) > 64):
+            raise ValueError("Invalid value for `percentage_of_speaker_time`, length must be less than or equal to `64`")  # noqa: E501
 
         self._percentage_of_speaker_time = percentage_of_speaker_time
 
@@ -244,10 +238,10 @@ class TalkTime(object):
     def talk_rate(self):
         """Gets the talk_rate of this TalkTime.  # noqa: E501
 
-        talk rate of this speaker in words-per-minute (WPM)  # noqa: E501
+        Talk rate of this speaker in words-per-minute (WPM) </br> green range is (120-150) </br> yellow range is (100-175)  # noqa: E501
 
         :return: The talk_rate of this TalkTime.  # noqa: E501
-        :rtype: float
+        :rtype: str
         """
         return self._talk_rate
 
@@ -255,14 +249,14 @@ class TalkTime(object):
     def talk_rate(self, talk_rate):
         """Sets the talk_rate of this TalkTime.
 
-        talk rate of this speaker in words-per-minute (WPM)  # noqa: E501
+        Talk rate of this speaker in words-per-minute (WPM) </br> green range is (120-150) </br> yellow range is (100-175)  # noqa: E501
 
         :param talk_rate: The talk_rate of this TalkTime.  # noqa: E501
-        :type: float
+        :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                talk_rate is not None and talk_rate < 0):  # noqa: E501
-            raise ValueError("Invalid value for `talk_rate`, must be a value greater than or equal to `0`")  # noqa: E501
+                talk_rate is not None and len(talk_rate) > 64):
+            raise ValueError("Invalid value for `talk_rate`, length must be less than or equal to `64`")  # noqa: E501
 
         self._talk_rate = talk_rate
 

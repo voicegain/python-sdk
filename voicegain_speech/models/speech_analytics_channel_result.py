@@ -122,7 +122,7 @@ class SpeechAnalyticsChannelResult(object):
     def age(self):
         """Gets the age of this SpeechAnalyticsChannelResult.  # noqa: E501
 
-        estimated age of the speaker based on the voice characterstics  # noqa: E501
+        (Coming in the future) estimated age of the speaker based on the voice characterstics  # noqa: E501
 
         :return: The age of this SpeechAnalyticsChannelResult.  # noqa: E501
         :rtype: str
@@ -133,7 +133,7 @@ class SpeechAnalyticsChannelResult(object):
     def age(self, age):
         """Sets the age of this SpeechAnalyticsChannelResult.
 
-        estimated age of the speaker based on the voice characterstics  # noqa: E501
+        (Coming in the future) estimated age of the speaker based on the voice characterstics  # noqa: E501
 
         :param age: The age of this SpeechAnalyticsChannelResult.  # noqa: E501
         :type: str

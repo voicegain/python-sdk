@@ -35,9 +35,9 @@ class Silence(object):
     """
     openapi_types = {
         'incident_count': 'int',
-        'maximum_msec': 'int',
-        'percentage': 'float',
-        'total_msec': 'int'
+        'maximum_msec': 'str',
+        'percentage': 'str',
+        'total_msec': 'str'
     }
 
     attribute_map = {
@@ -72,7 +72,7 @@ class Silence(object):
     def incident_count(self):
         """Gets the incident_count of this Silence.  # noqa: E501
 
-        total count of silence incidents  # noqa: E501
+        Total count of silence incidents.  The threshold used to decide if an occurence of silence is considered as incident is defined in SA Config, see: `silenceSingleDurationMaximumThreshold` and `silenceTotalPercentageThreshold`    # noqa: E501
 
         :return: The incident_count of this Silence.  # noqa: E501
         :rtype: int
@@ -83,7 +83,7 @@ class Silence(object):
     def incident_count(self, incident_count):
         """Sets the incident_count of this Silence.
 
-        total count of silence incidents  # noqa: E501
+        Total count of silence incidents.  The threshold used to decide if an occurence of silence is considered as incident is defined in SA Config, see: `silenceSingleDurationMaximumThreshold` and `silenceTotalPercentageThreshold`    # noqa: E501
 
         :param incident_count: The incident_count of this Silence.  # noqa: E501
         :type: int
@@ -98,10 +98,10 @@ class Silence(object):
     def maximum_msec(self):
         """Gets the maximum_msec of this Silence.  # noqa: E501
 
-        length in milliseconds of the longest incident of silence  # noqa: E501
+        Length in milliseconds of the longest case of silence.</br> green range is <10s </br> yellow range is <20s   # noqa: E501
 
         :return: The maximum_msec of this Silence.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._maximum_msec
 
@@ -109,14 +109,14 @@ class Silence(object):
     def maximum_msec(self, maximum_msec):
         """Sets the maximum_msec of this Silence.
 
-        length in milliseconds of the longest incident of silence  # noqa: E501
+        Length in milliseconds of the longest case of silence.</br> green range is <10s </br> yellow range is <20s   # noqa: E501
 
         :param maximum_msec: The maximum_msec of this Silence.  # noqa: E501
-        :type: int
+        :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                maximum_msec is not None and maximum_msec < 0):  # noqa: E501
-            raise ValueError("Invalid value for `maximum_msec`, must be a value greater than or equal to `0`")  # noqa: E501
+                maximum_msec is not None and len(maximum_msec) > 64):
+            raise ValueError("Invalid value for `maximum_msec`, length must be less than or equal to `64`")  # noqa: E501
 
         self._maximum_msec = maximum_msec
 
@@ -124,10 +124,10 @@ class Silence(object):
     def percentage(self):
         """Gets the percentage of this Silence.  # noqa: E501
 
-        total silence time as percentage of the total call time  # noqa: E501
+        Total silence time as percentage of the total call time.</br> green range is <10% </br> yellow range is <20%   # noqa: E501
 
         :return: The percentage of this Silence.  # noqa: E501
-        :rtype: float
+        :rtype: str
         """
         return self._percentage
 
@@ -135,17 +135,14 @@ class Silence(object):
     def percentage(self, percentage):
         """Sets the percentage of this Silence.
 
-        total silence time as percentage of the total call time  # noqa: E501
+        Total silence time as percentage of the total call time.</br> green range is <10% </br> yellow range is <20%   # noqa: E501
 
         :param percentage: The percentage of this Silence.  # noqa: E501
-        :type: float
+        :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                percentage is not None and percentage > 100.0):  # noqa: E501
-            raise ValueError("Invalid value for `percentage`, must be a value less than or equal to `100.0`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                percentage is not None and percentage < 0.0):  # noqa: E501
-            raise ValueError("Invalid value for `percentage`, must be a value greater than or equal to `0.0`")  # noqa: E501
+                percentage is not None and len(percentage) > 64):
+            raise ValueError("Invalid value for `percentage`, length must be less than or equal to `64`")  # noqa: E501
 
         self._percentage = percentage
 
@@ -153,10 +150,10 @@ class Silence(object):
     def total_msec(self):
         """Gets the total_msec of this Silence.  # noqa: E501
 
-        combined total duration of silence in milliseconds  # noqa: E501
+        Combined length of all the silence.</br> green range is <30s </br> yellow range is <45s   # noqa: E501
 
         :return: The total_msec of this Silence.  # noqa: E501
-        :rtype: int
+        :rtype: str
         """
         return self._total_msec
 
@@ -164,14 +161,14 @@ class Silence(object):
     def total_msec(self, total_msec):
         """Sets the total_msec of this Silence.
 
-        combined total duration of silence in milliseconds  # noqa: E501
+        Combined length of all the silence.</br> green range is <30s </br> yellow range is <45s   # noqa: E501
 
         :param total_msec: The total_msec of this Silence.  # noqa: E501
-        :type: int
+        :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                total_msec is not None and total_msec < 0):  # noqa: E501
-            raise ValueError("Invalid value for `total_msec`, must be a value greater than or equal to `0`")  # noqa: E501
+                total_msec is not None and len(total_msec) > 64):
+            raise ValueError("Invalid value for `total_msec`, length must be less than or equal to `64`")  # noqa: E501
 
         self._total_msec = total_msec
 
