@@ -330,6 +330,8 @@ from voicegain_speech.models.speech_analytics_phrase import SpeechAnalyticsPhras
 from voicegain_speech.models.speech_analytics_phrase_data import SpeechAnalyticsPhraseData
 from voicegain_speech.models.speech_analytics_phrase_item import SpeechAnalyticsPhraseItem
 from voicegain_speech.models.speech_analytics_result import SpeechAnalyticsResult
+from voicegain_speech.models.stomp_word_correction import StompWordCorrection
+from voicegain_speech.models.stomp_ws_word import StompWsWord
 from voicegain_speech.models.stream_resp import StreamResp
 from voicegain_speech.models.stream_setup import StreamSetup
 from voicegain_speech.models.streaming_protocol import StreamingProtocol
