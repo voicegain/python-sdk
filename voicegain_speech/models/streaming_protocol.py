@@ -33,9 +33,10 @@ class StreamingProtocol(object):
     TWIML = "TWIML"
     LAML = "LAML"
     RTP = "RTP"
+    RTP_2CHN = "RTP-2CHN"
     ASCALON = "ASCALON"
 
-    allowable_values = [WEBSOCKET, TWIML, LAML, RTP, ASCALON]  # noqa: E501
+    allowable_values = [WEBSOCKET, TWIML, LAML, RTP, RTP_2CHN, ASCALON]  # noqa: E501
 
     """
     Attributes:

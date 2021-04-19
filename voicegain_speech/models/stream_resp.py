@@ -36,7 +36,7 @@ class StreamResp(object):
     openapi_types = {
         'ip': 'str',
         'port': 'int',
-        'public_key': 'str',
+        'port_chn2': 'int',
         'sid': 'int',
         'websocket_url': 'str'
     }
@@ -44,12 +44,12 @@ class StreamResp(object):
     attribute_map = {
         'ip': 'ip',
         'port': 'port',
-        'public_key': 'publicKey',
+        'port_chn2': 'portChn2',
         'sid': 'sid',
         'websocket_url': 'websocketUrl'
     }
 
-    def __init__(self, ip=None, port=None, public_key=None, sid=None, websocket_url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ip=None, port=None, port_chn2=None, sid=None, websocket_url=None, local_vars_configuration=None):  # noqa: E501
         """StreamResp - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,15 +57,17 @@ class StreamResp(object):
 
         self._ip = None
         self._port = None
-        self._public_key = None
+        self._port_chn2 = None
         self._sid = None
         self._websocket_url = None
         self.discriminator = None
 
-        self.ip = ip
-        self.port = port
-        if public_key is not None:
-            self.public_key = public_key
+        if ip is not None:
+            self.ip = ip
+        if port is not None:
+            self.port = port
+        if port_chn2 is not None:
+            self.port_chn2 = port_chn2
         if sid is not None:
             self.sid = sid
         if websocket_url is not None:
@@ -75,7 +77,7 @@ class StreamResp(object):
     def ip(self):
         """Gets the ip of this StreamResp.  # noqa: E501
 
-        For RTP and ASCALON protocols - IP of the destination to stream audio to.  # noqa: E501
+        For RTP, RTP-2CHN, and ASCALON protocols - IP of the destination to stream audio to.  # noqa: E501
 
         :return: The ip of this StreamResp.  # noqa: E501
         :rtype: str
@@ -86,13 +88,11 @@ class StreamResp(object):
     def ip(self, ip):
         """Sets the ip of this StreamResp.
 
-        For RTP and ASCALON protocols - IP of the destination to stream audio to.  # noqa: E501
+        For RTP, RTP-2CHN, and ASCALON protocols - IP of the destination to stream audio to.  # noqa: E501
 
         :param ip: The ip of this StreamResp.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and ip is None:  # noqa: E501
-            raise ValueError("Invalid value for `ip`, must not be `None`")  # noqa: E501
 
         self._ip = ip
 
@@ -100,7 +100,7 @@ class StreamResp(object):
     def port(self):
         """Gets the port of this StreamResp.  # noqa: E501
 
-        For RTP and ASCALON protocols - Port to stream audio to.  # noqa: E501
+        For RTP, RTP-2CHN, and ASCALON protocols - Port to stream audio to.  # noqa: E501
 
         :return: The port of this StreamResp.  # noqa: E501
         :rtype: int
@@ -111,13 +111,11 @@ class StreamResp(object):
     def port(self, port):
         """Sets the port of this StreamResp.
 
-        For RTP and ASCALON protocols - Port to stream audio to.  # noqa: E501
+        For RTP, RTP-2CHN, and ASCALON protocols - Port to stream audio to.  # noqa: E501
 
         :param port: The port of this StreamResp.  # noqa: E501
         :type: int
         """
-        if self.local_vars_configuration.client_side_validation and port is None:  # noqa: E501
-            raise ValueError("Invalid value for `port`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 port is not None and port > 60000):  # noqa: E501
             raise ValueError("Invalid value for `port`, must be a value less than or equal to `60000`")  # noqa: E501
@@ -128,33 +126,39 @@ class StreamResp(object):
         self._port = port
 
     @property
-    def public_key(self):
-        """Gets the public_key of this StreamResp.  # noqa: E501
+    def port_chn2(self):
+        """Gets the port_chn2 of this StreamResp.  # noqa: E501
 
-        For ASCALON_C protocol only - public key that client can use to send an encrypted key for the stream  # noqa: E501
+        For RTP-2CHN protocol only - Port to stream second audio channel to.</br> If present, then `portChn2` is mapped to the right audio channel, and `port` to the left audio channel,  so use the `sessions[].audioChannelSelector` parameter accordingly.          # noqa: E501
 
-        :return: The public_key of this StreamResp.  # noqa: E501
-        :rtype: str
+        :return: The port_chn2 of this StreamResp.  # noqa: E501
+        :rtype: int
         """
-        return self._public_key
+        return self._port_chn2
 
-    @public_key.setter
-    def public_key(self, public_key):
-        """Sets the public_key of this StreamResp.
+    @port_chn2.setter
+    def port_chn2(self, port_chn2):
+        """Sets the port_chn2 of this StreamResp.
 
-        For ASCALON_C protocol only - public key that client can use to send an encrypted key for the stream  # noqa: E501
+        For RTP-2CHN protocol only - Port to stream second audio channel to.</br> If present, then `portChn2` is mapped to the right audio channel, and `port` to the left audio channel,  so use the `sessions[].audioChannelSelector` parameter accordingly.          # noqa: E501
 
-        :param public_key: The public_key of this StreamResp.  # noqa: E501
-        :type: str
+        :param port_chn2: The port_chn2 of this StreamResp.  # noqa: E501
+        :type: int
         """
+        if (self.local_vars_configuration.client_side_validation and
+                port_chn2 is not None and port_chn2 > 60000):  # noqa: E501
+            raise ValueError("Invalid value for `port_chn2`, must be a value less than or equal to `60000`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                port_chn2 is not None and port_chn2 < 5000):  # noqa: E501
+            raise ValueError("Invalid value for `port_chn2`, must be a value greater than or equal to `5000`")  # noqa: E501
 
-        self._public_key = public_key
+        self._port_chn2 = port_chn2
 
     @property
     def sid(self):
         """Gets the sid of this StreamResp.  # noqa: E501
 
-        For ASCALON and ASCALON_C protocol only - required id for the UDP packets for this audio stream  # noqa: E501
+        For ASCALON protocol only - required id for the UDP packets for this audio stream  # noqa: E501
 
         :return: The sid of this StreamResp.  # noqa: E501
         :rtype: int
@@ -165,7 +169,7 @@ class StreamResp(object):
     def sid(self, sid):
         """Sets the sid of this StreamResp.
 
-        For ASCALON and ASCALON_C protocol only - required id for the UDP packets for this audio stream  # noqa: E501
+        For ASCALON protocol only - required id for the UDP packets for this audio stream  # noqa: E501
 
         :param sid: The sid of this StreamResp.  # noqa: E501
         :type: int
