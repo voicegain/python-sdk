@@ -34,83 +34,81 @@ class PhraseSpotExample(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'phrase': 'str',
-        'type': 'str'
+        'sensitivity': 'float',
+        'sentence': 'str'
     }
 
     attribute_map = {
-        'phrase': 'phrase',
-        'type': 'type'
+        'sensitivity': 'sensitivity',
+        'sentence': 'sentence'
     }
 
-    def __init__(self, phrase=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, sensitivity=0.5, sentence=None, local_vars_configuration=None):  # noqa: E501
         """PhraseSpotExample - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._phrase = None
-        self._type = None
+        self._sensitivity = None
+        self._sentence = None
         self.discriminator = None
 
-        self.phrase = phrase
-        self.type = type
+        if sensitivity is not None:
+            self.sensitivity = sensitivity
+        if sentence is not None:
+            self.sentence = sentence
 
     @property
-    def phrase(self):
-        """Gets the phrase of this PhraseSpotExample.  # noqa: E501
+    def sensitivity(self):
+        """Gets the sensitivity of this PhraseSpotExample.  # noqa: E501
+
+        sensitivity of 1.0 requires the closest match, sensitivity of 0.0 allows for vague matches  # noqa: E501
+
+        :return: The sensitivity of this PhraseSpotExample.  # noqa: E501
+        :rtype: float
+        """
+        return self._sensitivity
+
+    @sensitivity.setter
+    def sensitivity(self, sensitivity):
+        """Sets the sensitivity of this PhraseSpotExample.
+
+        sensitivity of 1.0 requires the closest match, sensitivity of 0.0 allows for vague matches  # noqa: E501
+
+        :param sensitivity: The sensitivity of this PhraseSpotExample.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                sensitivity is not None and sensitivity > 1.0):  # noqa: E501
+            raise ValueError("Invalid value for `sensitivity`, must be a value less than or equal to `1.0`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                sensitivity is not None and sensitivity < 0.0):  # noqa: E501
+            raise ValueError("Invalid value for `sensitivity`, must be a value greater than or equal to `0.0`")  # noqa: E501
+
+        self._sensitivity = sensitivity
+
+    @property
+    def sentence(self):
+        """Gets the sentence of this PhraseSpotExample.  # noqa: E501
 
         phrase to match - this or equivalent (as determined by NLU) phrase will be matched  # noqa: E501
 
-        :return: The phrase of this PhraseSpotExample.  # noqa: E501
+        :return: The sentence of this PhraseSpotExample.  # noqa: E501
         :rtype: str
         """
-        return self._phrase
+        return self._sentence
 
-    @phrase.setter
-    def phrase(self, phrase):
-        """Sets the phrase of this PhraseSpotExample.
+    @sentence.setter
+    def sentence(self, sentence):
+        """Sets the sentence of this PhraseSpotExample.
 
         phrase to match - this or equivalent (as determined by NLU) phrase will be matched  # noqa: E501
 
-        :param phrase: The phrase of this PhraseSpotExample.  # noqa: E501
+        :param sentence: The sentence of this PhraseSpotExample.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and phrase is None:  # noqa: E501
-            raise ValueError("Invalid value for `phrase`, must not be `None`")  # noqa: E501
 
-        self._phrase = phrase
-
-    @property
-    def type(self):
-        """Gets the type of this PhraseSpotExample.  # noqa: E501
-
-        Type of the phrase. + statment - just a phrase match is required + questionConfirmed - phrase (which is assumed to be a question) match plus confirming response is required + questionDisconfirmed - phrase (which is assumed to be a question) match plus disconfirming response is required   # noqa: E501
-
-        :return: The type of this PhraseSpotExample.  # noqa: E501
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type):
-        """Sets the type of this PhraseSpotExample.
-
-        Type of the phrase. + statment - just a phrase match is required + questionConfirmed - phrase (which is assumed to be a question) match plus confirming response is required + questionDisconfirmed - phrase (which is assumed to be a question) match plus disconfirming response is required   # noqa: E501
-
-        :param type: The type of this PhraseSpotExample.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
-            raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["statement", "questionConfirmed", "questionDisconfirmed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
-                .format(type, allowed_values)
-            )
-
-        self._type = type
+        self._sentence = sentence
 
     def to_dict(self):
         """Returns the model properties as a dict"""

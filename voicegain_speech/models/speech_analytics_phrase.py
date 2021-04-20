@@ -35,26 +35,31 @@ class SpeechAnalyticsPhrase(object):
     """
     openapi_types = {
         'phrase': 'str',
+        'slots': 'SpeechAnalyticsPhraseSlots',
         'tag': 'str'
     }
 
     attribute_map = {
         'phrase': 'phrase',
+        'slots': 'slots',
         'tag': 'tag'
     }
 
-    def __init__(self, phrase=None, tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, phrase=None, slots=None, tag=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsPhrase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._phrase = None
+        self._slots = None
         self._tag = None
         self.discriminator = None
 
         if phrase is not None:
             self.phrase = phrase
+        if slots is not None:
+            self.slots = slots
         if tag is not None:
             self.tag = tag
 
@@ -80,6 +85,27 @@ class SpeechAnalyticsPhrase(object):
         """
 
         self._phrase = phrase
+
+    @property
+    def slots(self):
+        """Gets the slots of this SpeechAnalyticsPhrase.  # noqa: E501
+
+
+        :return: The slots of this SpeechAnalyticsPhrase.  # noqa: E501
+        :rtype: SpeechAnalyticsPhraseSlots
+        """
+        return self._slots
+
+    @slots.setter
+    def slots(self, slots):
+        """Sets the slots of this SpeechAnalyticsPhrase.
+
+
+        :param slots: The slots of this SpeechAnalyticsPhrase.  # noqa: E501
+        :type: SpeechAnalyticsPhraseSlots
+        """
+
+        self._slots = slots
 
     @property
     def tag(self):

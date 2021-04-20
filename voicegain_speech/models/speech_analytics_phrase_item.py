@@ -39,6 +39,7 @@ class SpeechAnalyticsPhraseItem(object):
         'start_idx': 'str',
         'start_time': 'int',
         'phrase': 'str',
+        'slots': 'SpeechAnalyticsPhraseSlots',
         'tag': 'str'
     }
 
@@ -48,10 +49,11 @@ class SpeechAnalyticsPhraseItem(object):
         'start_idx': 'startIdx',
         'start_time': 'startTime',
         'phrase': 'phrase',
+        'slots': 'slots',
         'tag': 'tag'
     }
 
-    def __init__(self, end_idx=None, end_time=None, start_idx=None, start_time=None, phrase=None, tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, end_idx=None, end_time=None, start_idx=None, start_time=None, phrase=None, slots=None, tag=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsPhraseItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +64,7 @@ class SpeechAnalyticsPhraseItem(object):
         self._start_idx = None
         self._start_time = None
         self._phrase = None
+        self._slots = None
         self._tag = None
         self.discriminator = None
 
@@ -75,6 +78,8 @@ class SpeechAnalyticsPhraseItem(object):
             self.start_time = start_time
         if phrase is not None:
             self.phrase = phrase
+        if slots is not None:
+            self.slots = slots
         if tag is not None:
             self.tag = tag
 
@@ -192,6 +197,27 @@ class SpeechAnalyticsPhraseItem(object):
         """
 
         self._phrase = phrase
+
+    @property
+    def slots(self):
+        """Gets the slots of this SpeechAnalyticsPhraseItem.  # noqa: E501
+
+
+        :return: The slots of this SpeechAnalyticsPhraseItem.  # noqa: E501
+        :rtype: SpeechAnalyticsPhraseSlots
+        """
+        return self._slots
+
+    @slots.setter
+    def slots(self, slots):
+        """Sets the slots of this SpeechAnalyticsPhraseItem.
+
+
+        :param slots: The slots of this SpeechAnalyticsPhraseItem.  # noqa: E501
+        :type: SpeechAnalyticsPhraseSlots
+        """
+
+        self._slots = slots
 
     @property
     def tag(self):

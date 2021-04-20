@@ -48,6 +48,7 @@ class SpeechAnalyticsResult(object):
         'multi_channel_diarization': 'DiarizationData',
         'multi_channel_words': 'list[WordsSection]',
         'persist': 'float',
+        'phrase_groups': 'SpeechAnalyticsPhraseGroupData',
         'sa_session_id': 'str',
         'silence': 'Silence',
         'single_channel_audio': 'str',
@@ -73,6 +74,7 @@ class SpeechAnalyticsResult(object):
         'multi_channel_diarization': 'multiChannelDiarization',
         'multi_channel_words': 'multiChannelWords',
         'persist': 'persist',
+        'phrase_groups': 'phraseGroups',
         'sa_session_id': 'saSessionId',
         'silence': 'silence',
         'single_channel_audio': 'singleChannelAudio',
@@ -83,7 +85,7 @@ class SpeechAnalyticsResult(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, async_mode=None, channels=None, context_id=None, cr_answers_id=None, creator=None, duration_sec=None, incidents=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, persist=None, sa_session_id=None, silence=None, single_channel_audio=None, start_time=None, summary=None, tags=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, async_mode=None, channels=None, context_id=None, cr_answers_id=None, creator=None, duration_sec=None, incidents=None, label=None, metadata=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, persist=None, phrase_groups=None, sa_session_id=None, silence=None, single_channel_audio=None, start_time=None, summary=None, tags=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -103,6 +105,7 @@ class SpeechAnalyticsResult(object):
         self._multi_channel_diarization = None
         self._multi_channel_words = None
         self._persist = None
+        self._phrase_groups = None
         self._sa_session_id = None
         self._silence = None
         self._single_channel_audio = None
@@ -141,6 +144,8 @@ class SpeechAnalyticsResult(object):
             self.multi_channel_words = multi_channel_words
         if persist is not None:
             self.persist = persist
+        if phrase_groups is not None:
+            self.phrase_groups = phrase_groups
         if sa_session_id is not None:
             self.sa_session_id = sa_session_id
         if silence is not None:
@@ -511,6 +516,27 @@ class SpeechAnalyticsResult(object):
             raise ValueError("Invalid value for `persist`, must be a value greater than or equal to `-1`")  # noqa: E501
 
         self._persist = persist
+
+    @property
+    def phrase_groups(self):
+        """Gets the phrase_groups of this SpeechAnalyticsResult.  # noqa: E501
+
+
+        :return: The phrase_groups of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: SpeechAnalyticsPhraseGroupData
+        """
+        return self._phrase_groups
+
+    @phrase_groups.setter
+    def phrase_groups(self, phrase_groups):
+        """Sets the phrase_groups of this SpeechAnalyticsResult.
+
+
+        :param phrase_groups: The phrase_groups of this SpeechAnalyticsResult.  # noqa: E501
+        :type: SpeechAnalyticsPhraseGroupData
+        """
+
+        self._phrase_groups = phrase_groups
 
     @property
     def sa_session_id(self):

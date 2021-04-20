@@ -36,16 +36,18 @@ class KeywordSpotItem(object):
     openapi_types = {
         'examples': 'list[KeywordSpotExample]',
         'expand': 'bool',
+        'hide_if_group': 'bool',
         'tag': 'str'
     }
 
     attribute_map = {
         'examples': 'examples',
         'expand': 'expand',
+        'hide_if_group': 'hideIfGroup',
         'tag': 'tag'
     }
 
-    def __init__(self, examples=None, expand=False, tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, examples=None, expand=False, hide_if_group=False, tag=None, local_vars_configuration=None):  # noqa: E501
         """KeywordSpotItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,12 +55,15 @@ class KeywordSpotItem(object):
 
         self._examples = None
         self._expand = None
+        self._hide_if_group = None
         self._tag = None
         self.discriminator = None
 
         self.examples = examples
         if expand is not None:
             self.expand = expand
+        if hide_if_group is not None:
+            self.hide_if_group = hide_if_group
         self.tag = tag
 
     @property
@@ -106,6 +111,29 @@ class KeywordSpotItem(object):
         """
 
         self._expand = expand
+
+    @property
+    def hide_if_group(self):
+        """Gets the hide_if_group of this KeywordSpotItem.  # noqa: E501
+
+        do not return this keyword directly if part of the group, return only the group  # noqa: E501
+
+        :return: The hide_if_group of this KeywordSpotItem.  # noqa: E501
+        :rtype: bool
+        """
+        return self._hide_if_group
+
+    @hide_if_group.setter
+    def hide_if_group(self, hide_if_group):
+        """Sets the hide_if_group of this KeywordSpotItem.
+
+        do not return this keyword directly if part of the group, return only the group  # noqa: E501
+
+        :param hide_if_group: The hide_if_group of this KeywordSpotItem.  # noqa: E501
+        :type: bool
+        """
+
+        self._hide_if_group = hide_if_group
 
     @property
     def tag(self):

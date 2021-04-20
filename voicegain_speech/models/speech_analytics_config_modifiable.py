@@ -46,6 +46,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'name': 'str',
         'overtalk_single_duration_maximum_threshold': 'float',
         'overtalk_total_percentage_threshold': 'float',
+        'phrase_groups': 'list[PhraseSpotGroup]',
         'phrases': 'list[PhraseSpotItem]',
         'pii_redaction': 'list[PIIRedactionConf]',
         'profanity': 'bool',
@@ -70,6 +71,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'name': 'name',
         'overtalk_single_duration_maximum_threshold': 'overtalkSingleDurationMaximumThreshold',
         'overtalk_total_percentage_threshold': 'overtalkTotalPercentageThreshold',
+        'phrase_groups': 'phraseGroups',
         'phrases': 'phrases',
         'pii_redaction': 'piiRedaction',
         'profanity': 'profanity',
@@ -81,7 +83,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, age=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, entities=None, gender=None, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrases=None, pii_redaction=None, profanity=None, published=False, sentiment=None, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, entities=None, gender=None, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=None, published=False, sentiment=None, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -99,6 +101,7 @@ class SpeechAnalyticsConfigModifiable(object):
         self._name = None
         self._overtalk_single_duration_maximum_threshold = None
         self._overtalk_total_percentage_threshold = None
+        self._phrase_groups = None
         self._phrases = None
         self._pii_redaction = None
         self._profanity = None
@@ -134,6 +137,8 @@ class SpeechAnalyticsConfigModifiable(object):
             self.overtalk_single_duration_maximum_threshold = overtalk_single_duration_maximum_threshold
         if overtalk_total_percentage_threshold is not None:
             self.overtalk_total_percentage_threshold = overtalk_total_percentage_threshold
+        if phrase_groups is not None:
+            self.phrase_groups = phrase_groups
         if phrases is not None:
             self.phrases = phrases
         if pii_redaction is not None:
@@ -451,10 +456,31 @@ class SpeechAnalyticsConfigModifiable(object):
         self._overtalk_total_percentage_threshold = overtalk_total_percentage_threshold
 
     @property
+    def phrase_groups(self):
+        """Gets the phrase_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+
+
+        :return: The phrase_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :rtype: list[PhraseSpotGroup]
+        """
+        return self._phrase_groups
+
+    @phrase_groups.setter
+    def phrase_groups(self, phrase_groups):
+        """Sets the phrase_groups of this SpeechAnalyticsConfigModifiable.
+
+
+        :param phrase_groups: The phrase_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :type: list[PhraseSpotGroup]
+        """
+
+        self._phrase_groups = phrase_groups
+
+    @property
     def phrases(self):
         """Gets the phrases of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        _(coming soon)_ Phrases detected in the text.  # noqa: E501
+        _(coming soon)_ Phrases/Intents detected in the text. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.   # noqa: E501
 
         :return: The phrases of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[PhraseSpotItem]
@@ -465,7 +491,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def phrases(self, phrases):
         """Sets the phrases of this SpeechAnalyticsConfigModifiable.
 
-        _(coming soon)_ Phrases detected in the text.  # noqa: E501
+        _(coming soon)_ Phrases/Intents detected in the text. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.   # noqa: E501
 
         :param phrases: The phrases of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[PhraseSpotItem]
