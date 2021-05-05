@@ -169,7 +169,7 @@ class NewSpeechAnalyticsSession(object):
     def call_review_config(self):
         """Gets the call_review_config of this NewSpeechAnalyticsSession.  # noqa: E501
 
-        _(coming soon)_ (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
+        (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
 
         :return: The call_review_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :rtype: str
@@ -180,7 +180,7 @@ class NewSpeechAnalyticsSession(object):
     def call_review_config(self, call_review_config):
         """Sets the call_review_config of this NewSpeechAnalyticsSession.
 
-        _(coming soon)_ (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
+        (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
 
         :param call_review_config: The call_review_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :type: str

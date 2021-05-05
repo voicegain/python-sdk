@@ -802,9 +802,9 @@ class SaApi(object):
             collection_formats=collection_formats)
 
     def sa_post(self, **kwargs):  # noqa: E501
-        """New Sp. Analytics Ses.  # noqa: E501
+        """New Speech Analytics Ses.  # noqa: E501
 
-        Create new Speech Analytics Session    # noqa: E501
+        Create and launch new [Speech Analytics](#section/Speech-Analytics-API) Session.  It will transcribe and analyze the provided speech audio.    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_post(async_req=True)
@@ -827,9 +827,9 @@ class SaApi(object):
         return self.sa_post_with_http_info(**kwargs)  # noqa: E501
 
     def sa_post_with_http_info(self, **kwargs):  # noqa: E501
-        """New Sp. Analytics Ses.  # noqa: E501
+        """New Speech Analytics Ses.  # noqa: E501
 
-        Create new Speech Analytics Session    # noqa: E501
+        Create and launch new [Speech Analytics](#section/Speech-Analytics-API) Session.  It will transcribe and analyze the provided speech audio.    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_post_with_http_info(async_req=True)

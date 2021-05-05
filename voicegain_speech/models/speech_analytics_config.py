@@ -575,7 +575,7 @@ class SpeechAnalyticsConfig(object):
     def phrases(self):
         """Gets the phrases of this SpeechAnalyticsConfig.  # noqa: E501
 
-        _(coming soon)_ Phrases/Intents detected in the text. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.   # noqa: E501
+        Phrases/Intents detected in the text. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.   # noqa: E501
 
         :return: The phrases of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[PhraseSpotItem]
@@ -586,7 +586,7 @@ class SpeechAnalyticsConfig(object):
     def phrases(self, phrases):
         """Sets the phrases of this SpeechAnalyticsConfig.
 
-        _(coming soon)_ Phrases/Intents detected in the text. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.   # noqa: E501
+        Phrases/Intents detected in the text. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.   # noqa: E501
 
         :param phrases: The phrases of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[PhraseSpotItem]
