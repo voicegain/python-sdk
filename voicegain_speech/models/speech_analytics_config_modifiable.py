@@ -354,6 +354,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def moods(self):
         """Gets the moods of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
+        choose the moods to report  # noqa: E501
 
         :return: The moods of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[MoodType]
@@ -364,6 +365,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def moods(self, moods):
         """Sets the moods of this SpeechAnalyticsConfigModifiable.
 
+        choose the moods to report  # noqa: E501
 
         :param moods: The moods of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[MoodType]

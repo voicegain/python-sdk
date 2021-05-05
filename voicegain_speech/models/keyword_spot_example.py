@@ -86,7 +86,7 @@ class KeywordSpotExample(object):
     def usage(self):
         """Gets the usage of this KeywordSpotExample.  # noqa: E501
 
-        Example clarifying the meaning of the `phrase` in case there would be any ambiguity  # noqa: E501
+        Example clarifying the meaning of the `phrase` in case there would be any ambiguity Currently used only to document the meaning of the keyword. In the future, `usage` will be used in conjuction with the `expand` parameter.   # noqa: E501
 
         :return: The usage of this KeywordSpotExample.  # noqa: E501
         :rtype: str
@@ -97,7 +97,7 @@ class KeywordSpotExample(object):
     def usage(self, usage):
         """Sets the usage of this KeywordSpotExample.
 
-        Example clarifying the meaning of the `phrase` in case there would be any ambiguity  # noqa: E501
+        Example clarifying the meaning of the `phrase` in case there would be any ambiguity Currently used only to document the meaning of the keyword. In the future, `usage` will be used in conjuction with the `expand` parameter.   # noqa: E501
 
         :param usage: The usage of this KeywordSpotExample.  # noqa: E501
         :type: str

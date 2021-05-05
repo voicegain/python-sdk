@@ -447,6 +447,7 @@ class SpeechAnalyticsConfig(object):
     def moods(self):
         """Gets the moods of this SpeechAnalyticsConfig.  # noqa: E501
 
+        choose the moods to report  # noqa: E501
 
         :return: The moods of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[MoodType]
@@ -457,6 +458,7 @@ class SpeechAnalyticsConfig(object):
     def moods(self, moods):
         """Sets the moods of this SpeechAnalyticsConfig.
 
+        choose the moods to report  # noqa: E501
 
         :param moods: The moods of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[MoodType]

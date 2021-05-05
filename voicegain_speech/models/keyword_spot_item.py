@@ -93,7 +93,7 @@ class KeywordSpotItem(object):
     def expand(self):
         """Gets the expand of this KeywordSpotItem.  # noqa: E501
 
-        set to true to enable smart expansion of examples to synonymous ones  # noqa: E501
+        _(Coming soon)_ set to true to enable smart expansion of examples to synonymous ones  # noqa: E501
 
         :return: The expand of this KeywordSpotItem.  # noqa: E501
         :rtype: bool
@@ -104,7 +104,7 @@ class KeywordSpotItem(object):
     def expand(self, expand):
         """Sets the expand of this KeywordSpotItem.
 
-        set to true to enable smart expansion of examples to synonymous ones  # noqa: E501
+        _(Coming soon)_ set to true to enable smart expansion of examples to synonymous ones  # noqa: E501
 
         :param expand: The expand of this KeywordSpotItem.  # noqa: E501
         :type: bool
