@@ -811,6 +811,7 @@ class SaApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param NewSpeechAnalyticsSession new_speech_analytics_session: Data for new started Speech Analytics Session
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -836,6 +837,7 @@ class SaApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param NewSpeechAnalyticsSession new_speech_analytics_session: Data for new started Speech Analytics Session
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -853,7 +855,7 @@ class SaApi(object):
 
         local_var_params = locals()
 
-        all_params = ['new_speech_analytics_session']  # noqa: E501
+        all_params = ['context_id', 'new_speech_analytics_session']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -868,11 +870,19 @@ class SaApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
 
         query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
 
         header_params = {}
 
