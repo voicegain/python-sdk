@@ -37,6 +37,7 @@ class AsyncResultFullAllOfResult(object):
         'captions': 'list[Caption]',
         'final': 'bool',
         'last_event': 'AsrProcessingEvent',
+        'message': 'str',
         'number_speakers': 'int',
         'rms_data': 'str',
         'speakers': 'list[SpeakerResult]',
@@ -52,6 +53,7 @@ class AsyncResultFullAllOfResult(object):
         'captions': 'captions',
         'final': 'final',
         'last_event': 'lastEvent',
+        'message': 'message',
         'number_speakers': 'numberSpeakers',
         'rms_data': 'rmsData',
         'speakers': 'speakers',
@@ -63,7 +65,7 @@ class AsyncResultFullAllOfResult(object):
         'words': 'words'
     }
 
-    def __init__(self, captions=None, final=None, last_event=None, number_speakers=None, rms_data=None, speakers=None, status=None, transcript=None, ttml=None, vad_data=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, captions=None, final=None, last_event=None, message=None, number_speakers=None, rms_data=None, speakers=None, status=None, transcript=None, ttml=None, vad_data=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOfResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class AsyncResultFullAllOfResult(object):
         self._captions = None
         self._final = None
         self._last_event = None
+        self._message = None
         self._number_speakers = None
         self._rms_data = None
         self._speakers = None
@@ -89,6 +92,8 @@ class AsyncResultFullAllOfResult(object):
             self.final = final
         if last_event is not None:
             self.last_event = last_event
+        if message is not None:
+            self.message = message
         if number_speakers is not None:
             self.number_speakers = number_speakers
         if rms_data is not None:
@@ -174,6 +179,29 @@ class AsyncResultFullAllOfResult(object):
         """
 
         self._last_event = last_event
+
+    @property
+    def message(self):
+        """Gets the message of this AsyncResultFullAllOfResult.  # noqa: E501
+
+        (optional) message accompanying the status value, e.g. if status==ERROR, then message may contain the reason for the error  # noqa: E501
+
+        :return: The message of this AsyncResultFullAllOfResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this AsyncResultFullAllOfResult.
+
+        (optional) message accompanying the status value, e.g. if status==ERROR, then message may contain the reason for the error  # noqa: E501
+
+        :param message: The message of this AsyncResultFullAllOfResult.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
 
     @property
     def number_speakers(self):

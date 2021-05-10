@@ -39,6 +39,7 @@ class AsyncResultIncrementalDetailResult(object):
         'final': 'bool',
         'incremental_transcript': 'str',
         'last_event': 'AsrProcessingEvent',
+        'message': 'str',
         'status': 'AsrProcessingStatus',
         'word_tree': 'list[WordTreeItem]',
         'words': 'list[WordItemTimed]'
@@ -50,12 +51,13 @@ class AsyncResultIncrementalDetailResult(object):
         'final': 'final',
         'incremental_transcript': 'incrementalTranscript',
         'last_event': 'lastEvent',
+        'message': 'message',
         'status': 'status',
         'word_tree': 'wordTree',
         'words': 'words'
     }
 
-    def __init__(self, captions=None, corrections=None, final=None, incremental_transcript=None, last_event=None, status=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, captions=None, corrections=None, final=None, incremental_transcript=None, last_event=None, message=None, status=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultIncrementalDetailResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class AsyncResultIncrementalDetailResult(object):
         self._final = None
         self._incremental_transcript = None
         self._last_event = None
+        self._message = None
         self._status = None
         self._word_tree = None
         self._words = None
@@ -81,6 +84,8 @@ class AsyncResultIncrementalDetailResult(object):
             self.incremental_transcript = incremental_transcript
         if last_event is not None:
             self.last_event = last_event
+        if message is not None:
+            self.message = message
         if status is not None:
             self.status = status
         if word_tree is not None:
@@ -200,6 +205,29 @@ class AsyncResultIncrementalDetailResult(object):
         """
 
         self._last_event = last_event
+
+    @property
+    def message(self):
+        """Gets the message of this AsyncResultIncrementalDetailResult.  # noqa: E501
+
+        (optional) message accompanying the status value, e.g. if status==ERROR, then message may contain the reason for the error  # noqa: E501
+
+        :return: The message of this AsyncResultIncrementalDetailResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._message
+
+    @message.setter
+    def message(self, message):
+        """Sets the message of this AsyncResultIncrementalDetailResult.
+
+        (optional) message accompanying the status value, e.g. if status==ERROR, then message may contain the reason for the error  # noqa: E501
+
+        :param message: The message of this AsyncResultIncrementalDetailResult.  # noqa: E501
+        :type: str
+        """
+
+        self._message = message
 
     @property
     def status(self):
