@@ -39,6 +39,7 @@ class AsrSettingsTranscriptionCommon(object):
         'confidence_threshold': 'float',
         'max_alternatives': 'int',
         'sensitivity': 'float',
+        'speech_context': 'str',
         'speed_vs_accuracy': 'float',
         'hints': 'list[str]',
         'lang_model': 'str'
@@ -50,12 +51,13 @@ class AsrSettingsTranscriptionCommon(object):
         'confidence_threshold': 'confidenceThreshold',
         'max_alternatives': 'maxAlternatives',
         'sensitivity': 'sensitivity',
+        'speech_context': 'speechContext',
         'speed_vs_accuracy': 'speedVsAccuracy',
         'hints': 'hints',
         'lang_model': 'langModel'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, hints=None, lang_model=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speech_context='normal', speed_vs_accuracy=None, hints=None, lang_model=None, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscriptionCommon - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class AsrSettingsTranscriptionCommon(object):
         self._confidence_threshold = None
         self._max_alternatives = None
         self._sensitivity = None
+        self._speech_context = None
         self._speed_vs_accuracy = None
         self._hints = None
         self._lang_model = None
@@ -81,6 +84,8 @@ class AsrSettingsTranscriptionCommon(object):
             self.max_alternatives = max_alternatives
         if sensitivity is not None:
             self.sensitivity = sensitivity
+        if speech_context is not None:
+            self.speech_context = speech_context
         if speed_vs_accuracy is not None:
             self.speed_vs_accuracy = speed_vs_accuracy
         if hints is not None:
@@ -220,6 +225,35 @@ class AsrSettingsTranscriptionCommon(object):
             raise ValueError("Invalid value for `sensitivity`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._sensitivity = sensitivity
+
+    @property
+    def speech_context(self):
+        """Gets the speech_context of this AsrSettingsTranscriptionCommon.  # noqa: E501
+
+        A \"hint\" to the acoustic model regarding what content to expect in speech: + normal - the default suitable to normal blend of speech + digits - use when expecting mainly digits in speech to enhance digit recognition    # noqa: E501
+
+        :return: The speech_context of this AsrSettingsTranscriptionCommon.  # noqa: E501
+        :rtype: str
+        """
+        return self._speech_context
+
+    @speech_context.setter
+    def speech_context(self, speech_context):
+        """Sets the speech_context of this AsrSettingsTranscriptionCommon.
+
+        A \"hint\" to the acoustic model regarding what content to expect in speech: + normal - the default suitable to normal blend of speech + digits - use when expecting mainly digits in speech to enhance digit recognition    # noqa: E501
+
+        :param speech_context: The speech_context of this AsrSettingsTranscriptionCommon.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["normal", "digits"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and speech_context not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `speech_context` ({0}), must be one of {1}"  # noqa: E501
+                .format(speech_context, allowed_values)
+            )
+
+        self._speech_context = speech_context
 
     @property
     def speed_vs_accuracy(self):

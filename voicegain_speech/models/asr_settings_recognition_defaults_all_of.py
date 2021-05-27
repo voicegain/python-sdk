@@ -72,7 +72,7 @@ class AsrSettingsRecognitionDefaultsAllOf(object):
     def complete_timeout(self):
         """Gets the complete_timeout of this AsrSettingsRecognitionDefaultsAllOf.  # noqa: E501
 
-        ASR complete timeout (in msec). Kicks in after grammar match has been completed. No more valid input is possible.  # noqa: E501
+        ASR complete timeout (in msec). Kicks in after grammar match has been completed and no more valid input is possible.  # noqa: E501
 
         :return: The complete_timeout of this AsrSettingsRecognitionDefaultsAllOf.  # noqa: E501
         :rtype: int
@@ -83,7 +83,7 @@ class AsrSettingsRecognitionDefaultsAllOf(object):
     def complete_timeout(self, complete_timeout):
         """Sets the complete_timeout of this AsrSettingsRecognitionDefaultsAllOf.
 
-        ASR complete timeout (in msec). Kicks in after grammar match has been completed. No more valid input is possible.  # noqa: E501
+        ASR complete timeout (in msec). Kicks in after grammar match has been completed and no more valid input is possible.  # noqa: E501
 
         :param complete_timeout: The complete_timeout of this AsrSettingsRecognitionDefaultsAllOf.  # noqa: E501
         :type: int

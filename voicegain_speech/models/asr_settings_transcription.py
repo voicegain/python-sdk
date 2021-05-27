@@ -39,6 +39,7 @@ class AsrSettingsTranscription(object):
         'confidence_threshold': 'float',
         'max_alternatives': 'int',
         'sensitivity': 'float',
+        'speech_context': 'str',
         'speed_vs_accuracy': 'float',
         'hints': 'list[str]',
         'lang_model': 'str',
@@ -53,6 +54,7 @@ class AsrSettingsTranscription(object):
         'confidence_threshold': 'confidenceThreshold',
         'max_alternatives': 'maxAlternatives',
         'sensitivity': 'sensitivity',
+        'speech_context': 'speechContext',
         'speed_vs_accuracy': 'speedVsAccuracy',
         'hints': 'hints',
         'lang_model': 'langModel',
@@ -61,7 +63,7 @@ class AsrSettingsTranscription(object):
         'identify_speaker_gender': 'identifySpeakerGender'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speed_vs_accuracy=None, hints=None, lang_model=None, diarization=None, identify_speaker_age=None, identify_speaker_gender=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speech_context='normal', speed_vs_accuracy=None, hints=None, lang_model=None, diarization=None, identify_speaker_age=None, identify_speaker_gender=None, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class AsrSettingsTranscription(object):
         self._confidence_threshold = None
         self._max_alternatives = None
         self._sensitivity = None
+        self._speech_context = None
         self._speed_vs_accuracy = None
         self._hints = None
         self._lang_model = None
@@ -90,6 +93,8 @@ class AsrSettingsTranscription(object):
             self.max_alternatives = max_alternatives
         if sensitivity is not None:
             self.sensitivity = sensitivity
+        if speech_context is not None:
+            self.speech_context = speech_context
         if speed_vs_accuracy is not None:
             self.speed_vs_accuracy = speed_vs_accuracy
         if hints is not None:
@@ -237,6 +242,35 @@ class AsrSettingsTranscription(object):
         self._sensitivity = sensitivity
 
     @property
+    def speech_context(self):
+        """Gets the speech_context of this AsrSettingsTranscription.  # noqa: E501
+
+        A \"hint\" to the acoustic model regarding what content to expect in speech: + normal - the default suitable to normal blend of speech + digits - use when expecting mainly digits in speech to enhance digit recognition    # noqa: E501
+
+        :return: The speech_context of this AsrSettingsTranscription.  # noqa: E501
+        :rtype: str
+        """
+        return self._speech_context
+
+    @speech_context.setter
+    def speech_context(self, speech_context):
+        """Sets the speech_context of this AsrSettingsTranscription.
+
+        A \"hint\" to the acoustic model regarding what content to expect in speech: + normal - the default suitable to normal blend of speech + digits - use when expecting mainly digits in speech to enhance digit recognition    # noqa: E501
+
+        :param speech_context: The speech_context of this AsrSettingsTranscription.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["normal", "digits"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and speech_context not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `speech_context` ({0}), must be one of {1}"  # noqa: E501
+                .format(speech_context, allowed_values)
+            )
+
+        self._speech_context = speech_context
+
+    @property
     def speed_vs_accuracy(self):
         """Gets the speed_vs_accuracy of this AsrSettingsTranscription.  # noqa: E501
 
@@ -339,7 +373,7 @@ class AsrSettingsTranscription(object):
     def identify_speaker_age(self):
         """Gets the identify_speaker_age of this AsrSettingsTranscription.  # noqa: E501
 
-        If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+        __(coming in the future)__ If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
 
         :return: The identify_speaker_age of this AsrSettingsTranscription.  # noqa: E501
         :rtype: bool
@@ -350,7 +384,7 @@ class AsrSettingsTranscription(object):
     def identify_speaker_age(self, identify_speaker_age):
         """Sets the identify_speaker_age of this AsrSettingsTranscription.
 
-        If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+        __(coming in the future)__ If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
 
         :param identify_speaker_age: The identify_speaker_age of this AsrSettingsTranscription.  # noqa: E501
         :type: bool

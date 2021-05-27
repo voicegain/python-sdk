@@ -88,7 +88,7 @@ class AsrSettingsTranscriptionAllOf(object):
     def identify_speaker_age(self):
         """Gets the identify_speaker_age of this AsrSettingsTranscriptionAllOf.  # noqa: E501
 
-        If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+        __(coming in the future)__ If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
 
         :return: The identify_speaker_age of this AsrSettingsTranscriptionAllOf.  # noqa: E501
         :rtype: bool
@@ -99,7 +99,7 @@ class AsrSettingsTranscriptionAllOf(object):
     def identify_speaker_age(self, identify_speaker_age):
         """Sets the identify_speaker_age of this AsrSettingsTranscriptionAllOf.
 
-        If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+        __(coming in the future)__ If set to true then the system will try to identify most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
 
         :param identify_speaker_age: The identify_speaker_age of this AsrSettingsTranscriptionAllOf.  # noqa: E501
         :type: bool
