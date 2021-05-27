@@ -43,6 +43,7 @@ class SessionInitTranscription(object):
         'poll': 'PollReq',
         'portal': 'PortalOutputInit',
         'tags': 'list[str]',
+        'vad_mode': 'VadMode',
         'websocket': 'WebsocketInit'
     }
 
@@ -56,10 +57,11 @@ class SessionInitTranscription(object):
         'poll': 'poll',
         'portal': 'portal',
         'tags': 'tags',
+        'vad_mode': 'vadMode',
         'websocket': 'websocket'
     }
 
-    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, extra_params=None, metadata=None, poll=None, portal=None, tags=None, websocket=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, extra_params=None, metadata=None, poll=None, portal=None, tags=None, vad_mode=None, websocket=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class SessionInitTranscription(object):
         self._poll = None
         self._portal = None
         self._tags = None
+        self._vad_mode = None
         self._websocket = None
         self.discriminator = None
 
@@ -94,6 +97,8 @@ class SessionInitTranscription(object):
             self.portal = portal
         if tags is not None:
             self.tags = tags
+        if vad_mode is not None:
+            self.vad_mode = vad_mode
         if websocket is not None:
             self.websocket = websocket
 
@@ -293,6 +298,27 @@ class SessionInitTranscription(object):
         """
 
         self._tags = tags
+
+    @property
+    def vad_mode(self):
+        """Gets the vad_mode of this SessionInitTranscription.  # noqa: E501
+
+
+        :return: The vad_mode of this SessionInitTranscription.  # noqa: E501
+        :rtype: VadMode
+        """
+        return self._vad_mode
+
+    @vad_mode.setter
+    def vad_mode(self, vad_mode):
+        """Sets the vad_mode of this SessionInitTranscription.
+
+
+        :param vad_mode: The vad_mode of this SessionInitTranscription.  # noqa: E501
+        :type: VadMode
+        """
+
+        self._vad_mode = vad_mode
 
     @property
     def websocket(self):

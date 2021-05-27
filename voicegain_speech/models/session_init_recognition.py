@@ -41,6 +41,7 @@ class SessionInitRecognition(object):
         'extra_params': 'str',
         'metadata': 'list[NameValuePair]',
         'poll': 'PollReq',
+        'vad_mode': 'VadMode',
         'websocket': 'WebsocketInitReco'
     }
 
@@ -52,10 +53,11 @@ class SessionInitRecognition(object):
         'extra_params': 'extraParams',
         'metadata': 'metadata',
         'poll': 'poll',
+        'vad_mode': 'vadMode',
         'websocket': 'websocket'
     }
 
-    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, continuous_recognition=None, extra_params=None, metadata=None, poll=None, websocket=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, continuous_recognition=None, extra_params=None, metadata=None, poll=None, vad_mode=None, websocket=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitRecognition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,6 +70,7 @@ class SessionInitRecognition(object):
         self._extra_params = None
         self._metadata = None
         self._poll = None
+        self._vad_mode = None
         self._websocket = None
         self.discriminator = None
 
@@ -84,6 +87,8 @@ class SessionInitRecognition(object):
             self.metadata = metadata
         if poll is not None:
             self.poll = poll
+        if vad_mode is not None:
+            self.vad_mode = vad_mode
         if websocket is not None:
             self.websocket = websocket
 
@@ -239,6 +244,27 @@ class SessionInitRecognition(object):
         """
 
         self._poll = poll
+
+    @property
+    def vad_mode(self):
+        """Gets the vad_mode of this SessionInitRecognition.  # noqa: E501
+
+
+        :return: The vad_mode of this SessionInitRecognition.  # noqa: E501
+        :rtype: VadMode
+        """
+        return self._vad_mode
+
+    @vad_mode.setter
+    def vad_mode(self, vad_mode):
+        """Sets the vad_mode of this SessionInitRecognition.
+
+
+        :param vad_mode: The vad_mode of this SessionInitRecognition.  # noqa: E501
+        :type: VadMode
+        """
+
+        self._vad_mode = vad_mode
 
     @property
     def websocket(self):

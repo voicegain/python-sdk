@@ -36,16 +36,18 @@ class SpeechAnalyticsChannelWithTranscribe(object):
     openapi_types = {
         'audio_channel_selector': 'AudioChannelSelector',
         'is_agent': 'bool',
+        'vad_mode': 'VadMode',
         'transcribe_session_id': 'str'
     }
 
     attribute_map = {
         'audio_channel_selector': 'audioChannelSelector',
         'is_agent': 'isAgent',
+        'vad_mode': 'vadMode',
         'transcribe_session_id': 'transcribeSessionId'
     }
 
-    def __init__(self, audio_channel_selector=None, is_agent=False, transcribe_session_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio_channel_selector=None, is_agent=False, vad_mode=None, transcribe_session_id=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsChannelWithTranscribe - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,6 +55,7 @@ class SpeechAnalyticsChannelWithTranscribe(object):
 
         self._audio_channel_selector = None
         self._is_agent = None
+        self._vad_mode = None
         self._transcribe_session_id = None
         self.discriminator = None
 
@@ -60,6 +63,8 @@ class SpeechAnalyticsChannelWithTranscribe(object):
             self.audio_channel_selector = audio_channel_selector
         if is_agent is not None:
             self.is_agent = is_agent
+        if vad_mode is not None:
+            self.vad_mode = vad_mode
         if transcribe_session_id is not None:
             self.transcribe_session_id = transcribe_session_id
 
@@ -88,7 +93,7 @@ class SpeechAnalyticsChannelWithTranscribe(object):
     def is_agent(self):
         """Gets the is_agent of this SpeechAnalyticsChannelWithTranscribe.  # noqa: E501
 
-        Set to true if this channels contains Agent audio. Only one channel can be Agent channel.   # noqa: E501
+        Set to true if this channels contains Agent audio. Only one channel can be Agent channel.</br> If an Agent channel may include music-on-hold then it is recommended to set vadMode to total_music_reject   # noqa: E501
 
         :return: The is_agent of this SpeechAnalyticsChannelWithTranscribe.  # noqa: E501
         :rtype: bool
@@ -99,13 +104,34 @@ class SpeechAnalyticsChannelWithTranscribe(object):
     def is_agent(self, is_agent):
         """Sets the is_agent of this SpeechAnalyticsChannelWithTranscribe.
 
-        Set to true if this channels contains Agent audio. Only one channel can be Agent channel.   # noqa: E501
+        Set to true if this channels contains Agent audio. Only one channel can be Agent channel.</br> If an Agent channel may include music-on-hold then it is recommended to set vadMode to total_music_reject   # noqa: E501
 
         :param is_agent: The is_agent of this SpeechAnalyticsChannelWithTranscribe.  # noqa: E501
         :type: bool
         """
 
         self._is_agent = is_agent
+
+    @property
+    def vad_mode(self):
+        """Gets the vad_mode of this SpeechAnalyticsChannelWithTranscribe.  # noqa: E501
+
+
+        :return: The vad_mode of this SpeechAnalyticsChannelWithTranscribe.  # noqa: E501
+        :rtype: VadMode
+        """
+        return self._vad_mode
+
+    @vad_mode.setter
+    def vad_mode(self, vad_mode):
+        """Sets the vad_mode of this SpeechAnalyticsChannelWithTranscribe.
+
+
+        :param vad_mode: The vad_mode of this SpeechAnalyticsChannelWithTranscribe.  # noqa: E501
+        :type: VadMode
+        """
+
+        self._vad_mode = vad_mode
 
     @property
     def transcribe_session_id(self):
