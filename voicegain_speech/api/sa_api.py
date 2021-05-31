@@ -266,7 +266,7 @@ class SaApi(object):
     def sa_config_put(self, sa_config_id, **kwargs):  # noqa: E501
         """Mod Sp. Analytics Cfg.  # noqa: E501
 
-        Modify new Speech Analytics Configuration    # noqa: E501
+        Modify existing Speech Analytics Configuration    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_put(sa_config_id, async_req=True)
@@ -292,7 +292,7 @@ class SaApi(object):
     def sa_config_put_with_http_info(self, sa_config_id, **kwargs):  # noqa: E501
         """Mod Sp. Analytics Cfg.  # noqa: E501
 
-        Modify new Speech Analytics Configuration    # noqa: E501
+        Modify existing Speech Analytics Configuration    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_put_with_http_info(sa_config_id, async_req=True)
