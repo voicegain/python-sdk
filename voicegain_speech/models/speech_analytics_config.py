@@ -284,7 +284,7 @@ class SpeechAnalyticsConfig(object):
     def age(self):
         """Gets the age of this SpeechAnalyticsConfig.  # noqa: E501
 
-        set to true to enable speaker age estimation  # noqa: E501
+        _(future functionality)_ Set to true to enable speaker age estimation  # noqa: E501
 
         :return: The age of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: bool
@@ -295,7 +295,7 @@ class SpeechAnalyticsConfig(object):
     def age(self, age):
         """Sets the age of this SpeechAnalyticsConfig.
 
-        set to true to enable speaker age estimation  # noqa: E501
+        _(future functionality)_ Set to true to enable speaker age estimation  # noqa: E501
 
         :param age: The age of this SpeechAnalyticsConfig.  # noqa: E501
         :type: bool
@@ -307,7 +307,7 @@ class SpeechAnalyticsConfig(object):
     def call_resolution_question_id(self):
         """Gets the call_resolution_question_id of this SpeechAnalyticsConfig.  # noqa: E501
 
-        id of the `crQuestionId` in Call Review that identifies question and answer regarding Call Resolution  # noqa: E501
+        _(beta)_ id of the `crQuestionId` in Call Review that identifies question and answer regarding Call Resolution  # noqa: E501
 
         :return: The call_resolution_question_id of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: str
@@ -318,7 +318,7 @@ class SpeechAnalyticsConfig(object):
     def call_resolution_question_id(self, call_resolution_question_id):
         """Sets the call_resolution_question_id of this SpeechAnalyticsConfig.
 
-        id of the `crQuestionId` in Call Review that identifies question and answer regarding Call Resolution  # noqa: E501
+        _(beta)_ id of the `crQuestionId` in Call Review that identifies question and answer regarding Call Resolution  # noqa: E501
 
         :param call_resolution_question_id: The call_resolution_question_id of this SpeechAnalyticsConfig.  # noqa: E501
         :type: str
@@ -336,7 +336,7 @@ class SpeechAnalyticsConfig(object):
     def competitor_keyword_groups(self):
         """Gets the competitor_keyword_groups of this SpeechAnalyticsConfig.  # noqa: E501
 
-        Set of one or more keyword group tags that should be interpreted as identifying competitor mentions.  # noqa: E501
+        _(Meant for Speech Analytics UI)_ Set of one or more keyword group tags that should be interpreted as identifying competitor mentions.    # noqa: E501
 
         :return: The competitor_keyword_groups of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[str]
@@ -347,7 +347,7 @@ class SpeechAnalyticsConfig(object):
     def competitor_keyword_groups(self, competitor_keyword_groups):
         """Sets the competitor_keyword_groups of this SpeechAnalyticsConfig.
 
-        Set of one or more keyword group tags that should be interpreted as identifying competitor mentions.  # noqa: E501
+        _(Meant for Speech Analytics UI)_ Set of one or more keyword group tags that should be interpreted as identifying competitor mentions.    # noqa: E501
 
         :param competitor_keyword_groups: The competitor_keyword_groups of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[str]
@@ -359,7 +359,7 @@ class SpeechAnalyticsConfig(object):
     def entities(self):
         """Gets the entities of this SpeechAnalyticsConfig.  # noqa: E501
 
-        Selection of Named Entity types to detect </br> Types of Named Entities: + ADDRESS - Postal address. + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card + DATE - Absolute or relative dates or periods. + EMAIL - (coming soon) Email address + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + PHONE - Phone number. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number + TIME - Times smaller than a day. + ZIP - Zip Code (if not part of an Address)       # noqa: E501
+        Selection of Named Entity types to detect. </br> Entities are different from keywords in that an entity may have a large number of possible values  which do not have to be enumerated in order to be detected. </br> Types of Named Entities: + ADDRESS - Postal address. + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card + DATE - Absolute or relative dates or periods. + EMAIL - (coming soon) Email address + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + PHONE - Phone number. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number + TIME - Times smaller than a day. + ZIP - Zip Code (if not part of an Address)       # noqa: E501
 
         :return: The entities of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[NamedEntityType]
@@ -370,7 +370,7 @@ class SpeechAnalyticsConfig(object):
     def entities(self, entities):
         """Sets the entities of this SpeechAnalyticsConfig.
 
-        Selection of Named Entity types to detect </br> Types of Named Entities: + ADDRESS - Postal address. + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card + DATE - Absolute or relative dates or periods. + EMAIL - (coming soon) Email address + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + PHONE - Phone number. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number + TIME - Times smaller than a day. + ZIP - Zip Code (if not part of an Address)       # noqa: E501
+        Selection of Named Entity types to detect. </br> Entities are different from keywords in that an entity may have a large number of possible values  which do not have to be enumerated in order to be detected. </br> Types of Named Entities: + ADDRESS - Postal address. + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card + DATE - Absolute or relative dates or periods. + EMAIL - (coming soon) Email address + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + PHONE - Phone number. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number + TIME - Times smaller than a day. + ZIP - Zip Code (if not part of an Address)       # noqa: E501
 
         :param entities: The entities of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[NamedEntityType]
@@ -382,7 +382,7 @@ class SpeechAnalyticsConfig(object):
     def gender(self):
         """Gets the gender of this SpeechAnalyticsConfig.  # noqa: E501
 
-        set to true to enable voice gender classifcation  # noqa: E501
+        _(not available for real-time mode yet)_ Set to true to enable voice gender classifcation  # noqa: E501
 
         :return: The gender of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: bool
@@ -393,7 +393,7 @@ class SpeechAnalyticsConfig(object):
     def gender(self, gender):
         """Sets the gender of this SpeechAnalyticsConfig.
 
-        set to true to enable voice gender classifcation  # noqa: E501
+        _(not available for real-time mode yet)_ Set to true to enable voice gender classifcation  # noqa: E501
 
         :param gender: The gender of this SpeechAnalyticsConfig.  # noqa: E501
         :type: bool
@@ -426,6 +426,7 @@ class SpeechAnalyticsConfig(object):
     def keywords(self):
         """Gets the keywords of this SpeechAnalyticsConfig.  # noqa: E501
 
+        Configuration that specifies keywords to be detected. In detection we use text matching with stemming, etc.</br> Keywords are different from phrases - phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. Phrase detection works better with long phrases.   # noqa: E501
 
         :return: The keywords of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[KeywordSpotItem]
@@ -436,6 +437,7 @@ class SpeechAnalyticsConfig(object):
     def keywords(self, keywords):
         """Sets the keywords of this SpeechAnalyticsConfig.
 
+        Configuration that specifies keywords to be detected. In detection we use text matching with stemming, etc.</br> Keywords are different from phrases - phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. Phrase detection works better with long phrases.   # noqa: E501
 
         :param keywords: The keywords of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[KeywordSpotItem]
@@ -447,7 +449,7 @@ class SpeechAnalyticsConfig(object):
     def moods(self):
         """Gets the moods of this SpeechAnalyticsConfig.  # noqa: E501
 
-        choose the moods to report  # noqa: E501
+        Choose the moods to report  # noqa: E501
 
         :return: The moods of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[MoodType]
@@ -458,7 +460,7 @@ class SpeechAnalyticsConfig(object):
     def moods(self, moods):
         """Sets the moods of this SpeechAnalyticsConfig.
 
-        choose the moods to report  # noqa: E501
+        Choose the moods to report  # noqa: E501
 
         :param moods: The moods of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[MoodType]
@@ -575,7 +577,7 @@ class SpeechAnalyticsConfig(object):
     def phrases(self):
         """Gets the phrases of this SpeechAnalyticsConfig.  # noqa: E501
 
-        Phrases/Intents detected in the text. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.   # noqa: E501
+        Phrases/Intents detected in the text. Phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups. If you want to match individual workds or 2- or 3-word phrases it is better to use keywords.   # noqa: E501
 
         :return: The phrases of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[PhraseSpotItem]
@@ -586,7 +588,7 @@ class SpeechAnalyticsConfig(object):
     def phrases(self, phrases):
         """Sets the phrases of this SpeechAnalyticsConfig.
 
-        Phrases/Intents detected in the text. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.   # noqa: E501
+        Phrases/Intents detected in the text. Phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups. If you want to match individual workds or 2- or 3-word phrases it is better to use keywords.   # noqa: E501
 
         :param phrases: The phrases of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[PhraseSpotItem]
@@ -598,7 +600,7 @@ class SpeechAnalyticsConfig(object):
     def pii_redaction(self):
         """Gets the pii_redaction of this SpeechAnalyticsConfig.  # noqa: E501
 
-        (optional) list specifying the types of entities to be redacted from the transctipt and/or audio  # noqa: E501
+        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transctipt and/or audio  # noqa: E501
 
         :return: The pii_redaction of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[PIIRedactionConf]
@@ -609,7 +611,7 @@ class SpeechAnalyticsConfig(object):
     def pii_redaction(self, pii_redaction):
         """Sets the pii_redaction of this SpeechAnalyticsConfig.
 
-        (optional) list specifying the types of entities to be redacted from the transctipt and/or audio  # noqa: E501
+        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transctipt and/or audio  # noqa: E501
 
         :param pii_redaction: The pii_redaction of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[PIIRedactionConf]
@@ -621,7 +623,7 @@ class SpeechAnalyticsConfig(object):
     def profanity(self):
         """Gets the profanity of this SpeechAnalyticsConfig.  # noqa: E501
 
-        set to true to enable detection of profanity. will be output together with spotted keywords  # noqa: E501
+        Set to true to enable detection of profanity. Will be output together with spotted keywords  # noqa: E501
 
         :return: The profanity of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: bool
@@ -632,7 +634,7 @@ class SpeechAnalyticsConfig(object):
     def profanity(self, profanity):
         """Sets the profanity of this SpeechAnalyticsConfig.
 
-        set to true to enable detection of profanity. will be output together with spotted keywords  # noqa: E501
+        Set to true to enable detection of profanity. Will be output together with spotted keywords  # noqa: E501
 
         :param profanity: The profanity of this SpeechAnalyticsConfig.  # noqa: E501
         :type: bool
@@ -667,7 +669,7 @@ class SpeechAnalyticsConfig(object):
     def sentiment(self):
         """Gets the sentiment of this SpeechAnalyticsConfig.  # noqa: E501
 
-        set to true to enable sentiment analytics  # noqa: E501
+        Set to true to enable sentiment analytics  # noqa: E501
 
         :return: The sentiment of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: bool
@@ -678,7 +680,7 @@ class SpeechAnalyticsConfig(object):
     def sentiment(self, sentiment):
         """Sets the sentiment of this SpeechAnalyticsConfig.
 
-        set to true to enable sentiment analytics  # noqa: E501
+        Set to true to enable sentiment analytics  # noqa: E501
 
         :param sentiment: The sentiment of this SpeechAnalyticsConfig.  # noqa: E501
         :type: bool
@@ -748,7 +750,7 @@ class SpeechAnalyticsConfig(object):
     def summary(self):
         """Gets the summary of this SpeechAnalyticsConfig.  # noqa: E501
 
-        set to true to enable output of summary of the transcript (summary is always accross all channels)  # noqa: E501
+        _(not available for real-time mode yet)_ Set to true to enable output of summary of the transcript (summary is always accross all channels)  # noqa: E501
 
         :return: The summary of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: bool
@@ -759,7 +761,7 @@ class SpeechAnalyticsConfig(object):
     def summary(self, summary):
         """Sets the summary of this SpeechAnalyticsConfig.
 
-        set to true to enable output of summary of the transcript (summary is always accross all channels)  # noqa: E501
+        _(not available for real-time mode yet)_ Set to true to enable output of summary of the transcript (summary is always accross all channels)  # noqa: E501
 
         :param summary: The summary of this SpeechAnalyticsConfig.  # noqa: E501
         :type: bool
@@ -771,7 +773,7 @@ class SpeechAnalyticsConfig(object):
     def word_cloud(self):
         """Gets the word_cloud of this SpeechAnalyticsConfig.  # noqa: E501
 
-        set to true to enable output of word cloud data  # noqa: E501
+        _(not for real-time mode)_ Set to true to enable output of word cloud data  # noqa: E501
 
         :return: The word_cloud of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: bool
@@ -782,7 +784,7 @@ class SpeechAnalyticsConfig(object):
     def word_cloud(self, word_cloud):
         """Sets the word_cloud of this SpeechAnalyticsConfig.
 
-        set to true to enable output of word cloud data  # noqa: E501
+        _(not for real-time mode)_ Set to true to enable output of word cloud data  # noqa: E501
 
         :param word_cloud: The word_cloud of this SpeechAnalyticsConfig.  # noqa: E501
         :type: bool
