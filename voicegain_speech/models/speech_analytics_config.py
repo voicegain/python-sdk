@@ -405,6 +405,7 @@ class SpeechAnalyticsConfig(object):
     def keyword_groups(self):
         """Gets the keyword_groups of this SpeechAnalyticsConfig.  # noqa: E501
 
+        Keyword groups - Group tags used must be different from the tags used for keywords.   # noqa: E501
 
         :return: The keyword_groups of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[KeywordSpotGroup]
@@ -415,6 +416,7 @@ class SpeechAnalyticsConfig(object):
     def keyword_groups(self, keyword_groups):
         """Sets the keyword_groups of this SpeechAnalyticsConfig.
 
+        Keyword groups - Group tags used must be different from the tags used for keywords.   # noqa: E501
 
         :param keyword_groups: The keyword_groups of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[KeywordSpotGroup]
