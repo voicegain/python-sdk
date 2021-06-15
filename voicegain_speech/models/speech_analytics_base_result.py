@@ -44,6 +44,7 @@ class SpeechAnalyticsBaseResult(object):
         'persist': 'float',
         'sa_session_id': 'str',
         'start_time': 'datetime',
+        'status': 'str',
         'tags': 'list[str]',
         'topics': 'list[TopicScore]'
     }
@@ -59,11 +60,12 @@ class SpeechAnalyticsBaseResult(object):
         'persist': 'persist',
         'sa_session_id': 'saSessionId',
         'start_time': 'startTime',
+        'status': 'status',
         'tags': 'tags',
         'topics': 'topics'
     }
 
-    def __init__(self, account_id=None, async_mode=None, context_id=None, creator=None, duration_sec=None, label=None, metadata=None, persist=None, sa_session_id=None, start_time=None, tags=None, topics=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, async_mode=None, context_id=None, creator=None, duration_sec=None, label=None, metadata=None, persist=None, sa_session_id=None, start_time=None, status=None, tags=None, topics=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsBaseResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,6 +81,7 @@ class SpeechAnalyticsBaseResult(object):
         self._persist = None
         self._sa_session_id = None
         self._start_time = None
+        self._status = None
         self._tags = None
         self._topics = None
         self.discriminator = None
@@ -103,6 +106,8 @@ class SpeechAnalyticsBaseResult(object):
             self.sa_session_id = sa_session_id
         if start_time is not None:
             self.start_time = start_time
+        if status is not None:
+            self.status = status
         if tags is not None:
             self.tags = tags
         if topics is not None:
@@ -365,6 +370,35 @@ class SpeechAnalyticsBaseResult(object):
         """
 
         self._start_time = start_time
+
+    @property
+    def status(self):
+        """Gets the status of this SpeechAnalyticsBaseResult.  # noqa: E501
+
+        status of Speech Analytics session  # noqa: E501
+
+        :return: The status of this SpeechAnalyticsBaseResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this SpeechAnalyticsBaseResult.
+
+        status of Speech Analytics session  # noqa: E501
+
+        :param status: The status of this SpeechAnalyticsBaseResult.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["processing", "ready", "error"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
+
+        self._status = status
 
     @property
     def tags(self):

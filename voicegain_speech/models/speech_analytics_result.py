@@ -44,6 +44,7 @@ class SpeechAnalyticsResult(object):
         'persist': 'float',
         'sa_session_id': 'str',
         'start_time': 'datetime',
+        'status': 'str',
         'tags': 'list[str]',
         'topics': 'list[TopicScore]',
         'channels': 'list[SpeechAnalyticsChannelResult]',
@@ -70,6 +71,7 @@ class SpeechAnalyticsResult(object):
         'persist': 'persist',
         'sa_session_id': 'saSessionId',
         'start_time': 'startTime',
+        'status': 'status',
         'tags': 'tags',
         'topics': 'topics',
         'channels': 'channels',
@@ -85,7 +87,7 @@ class SpeechAnalyticsResult(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, async_mode=None, context_id=None, creator=None, duration_sec=None, label=None, metadata=None, persist=None, sa_session_id=None, start_time=None, tags=None, topics=None, channels=None, cr_answers_id=None, incidents=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, phrase_groups=None, silence=None, single_channel_audio=None, summary=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, async_mode=None, context_id=None, creator=None, duration_sec=None, label=None, metadata=None, persist=None, sa_session_id=None, start_time=None, status=None, tags=None, topics=None, channels=None, cr_answers_id=None, incidents=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, phrase_groups=None, silence=None, single_channel_audio=None, summary=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -101,6 +103,7 @@ class SpeechAnalyticsResult(object):
         self._persist = None
         self._sa_session_id = None
         self._start_time = None
+        self._status = None
         self._tags = None
         self._topics = None
         self._channels = None
@@ -136,6 +139,8 @@ class SpeechAnalyticsResult(object):
             self.sa_session_id = sa_session_id
         if start_time is not None:
             self.start_time = start_time
+        if status is not None:
+            self.status = status
         if tags is not None:
             self.tags = tags
         if topics is not None:
@@ -420,6 +425,35 @@ class SpeechAnalyticsResult(object):
         """
 
         self._start_time = start_time
+
+    @property
+    def status(self):
+        """Gets the status of this SpeechAnalyticsResult.  # noqa: E501
+
+        status of Speech Analytics session  # noqa: E501
+
+        :return: The status of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._status
+
+    @status.setter
+    def status(self, status):
+        """Sets the status of this SpeechAnalyticsResult.
+
+        status of Speech Analytics session  # noqa: E501
+
+        :param status: The status of this SpeechAnalyticsResult.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["processing", "ready", "error"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and status not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `status` ({0}), must be one of {1}"  # noqa: E501
+                .format(status, allowed_values)
+            )
+
+        self._status = status
 
     @property
     def tags(self):
