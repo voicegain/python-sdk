@@ -5,7 +5,7 @@
 
     # New  [Telephony Bot API](#tag/aivr-callback) for building interactive speech-enabled phone applications  (IVR, Voicebots, etc.).    # Intro to Voicegain APIs The APIs are provided by [Voicegain](https://www.voicegain.ai) to its registered customers. </br> The core APIs are for Speech-to-Text (STT), either transcription or recognition (further described in next Sections).</br> Other available APIs include: + Telephony Bot APIs which in addition to speech-to-text allow for control of real-time communications (RTC) session (e.g., a telephone call). + Websocket APIs for managing broadcast websockets used in real-time transcription. + Language Model creation and manipulation APIs. + Data upload APIs that help in certain STT use scenarios. + Speech Analytics APIs (currently in **beta**) + Training Set APIs - for use in preparing data for acoustic model training. + GREG APIs - for working with ASR and Grammar tuning tool - GREG. + Security APIs.   Python SDK for this API is available at [PyPI Repository](https://pypi.org/project/voicegain-speech/)  In addition to this API Spec document please also consult our Knowledge Base Articles: * [Web API Section](https://support.voicegain.ai/hc/en-us/categories/360001288691-Web-API) of our Knowledge Base   * [Authentication for Web API](https://support.voicegain.ai/hc/en-us/sections/360004485831-Authentication-for-Web-API) - how to generate and use JWT   * [Basic Web API Use Cases](https://support.voicegain.ai/hc/en-us/sections/360004660632-Basic-Web-API-Use-Cases)   * [Example applications using Voicegain API](https://support.voicegain.ai/hc/en-us/sections/360009682932-Example-applications-using-Voicegain-API)  **NOTE:** Most of the request and response examples in this API document are generated from schema example annotation. This may result in the response example not matching the request data example.</br> We will be adding specific examples to certain API methods if we notice that this is needed to clarify the usage.  # Transcribe API  **/asr/transcribe**</br> The Transcribe API allows you to submit audio and receive the transcribed text word-for-word from the STT engine.  This API uses our Large Vocabulary language model and supports long form audio in async mode. </br> The API can, e.g., be used to transcribe audio data - whether it is podcasts, voicemails, call recordings, etc.  In real-time streaming mode it can, e.g., be used for building voice-bots (your the application will have to provide NLU capabilities to determine intent from the transcribed text).    The result of transcription can be returned in four formats. These are requested inside session[].content when making initial transcribe request:  + **Transcript** - Contains the complete text of transcription + **Words** - Intermediate results will contain new words, with timing and confidences, since the previous intermediate result. The final result will contain complete transcription. + **Word-Tree** - Contains a tree of all feasible alternatives. Use this when integrating with NL postprocessing to determine the final utterance and its meaning. + **Captions** - Intermediate results will be suitable to use as captions (this feature is in beta).  # Recognize API  **/asr/recognize**</br> This API should be used if you want to constrain STT recognition results to the speech-grammar that is submitted along with the audio  (grammars are used in place of large vocabulary language model).</br> While building grammars can be time-consuming step, they can simplify the development of applications since the semantic  meaning can be extracted along with the text. </br> Voicegain supports grammars in the JSGF and GRXML formats – both grammar standards used by enterprises in IVRs since early 2000s.</br> The recognize API only supports short form audio - no more than 30 seconds.   # Sync/Async Mode  Speech-to-Text APIs can be accessed in two modes:  + **Sync mode:**  This is the default mode that is invoked when a client makes a request for the Transcribe (/asr/transcribe) and Recognize (/asr/recognize) urls.</br> A Speech-to-Text API synchronous request is the simplest method for performing processing on speech audio data.  Speech-to-Text can process up to 1 minute of speech audio data sent in a synchronous request.  After Speech-to-Text processes all of the audio, it returns a response.</br> A synchronous request is blocking, meaning that Speech-to-Text must return a response before processing the next request.  Speech-to-Text typically processes audio faster than realtime.</br> For longer audio please use Async mode.    + **Async Mode:**  This is invoked by adding the /async to the Transcribe and Recognize url (so /asr/transcribe/async and /asr/recognize/async respectively). </br> In this mode the initial HTTP request request will return as soon as the STT session is established.  The response will contain a session id which can be used to obtain either incremental or full result of speech-to-text processing.  In this mode, the Voicegain platform can provide multiple intermediate recognition/transcription responses to the client as they become available before sending a final response.  ## Async Sessions: Real-Time, Semi Real-Time, and Off-Line  There are 3 types of Async ASR session that can be started:  + **REAL-TIME** - Real-time processing of streaming audio. For the recognition API, results are available within less than one second after end of utterance.  For the transcription API, real-time incremental results will be sent back with under 1 seconds delay.  + **OFF-LINE** - offline transcription or recognition. Has higher accuracy than REAL-TIME. Results are delivered once the complete audio has been processed.  Currently, 1 hour long audio is processed in about 10 minutes. + **SEMI-REAL-TIME** - Similar in use to REAL-TIME, but the results are available with a delay of about 30-45 seconds (or earlier for shorter audio).  Same accuracy as OFF-LINE.  It is possible to start up to 2 simultaneous sessions attached to the same audio.   The allowed combinations of the types of two sessions are:  + REAL-TIME + SEMI-REAL-TIME - one possible use case is a combination of live transcription with transcription for online streaming (which may be delayed w.r.t of real time). The benefit of using separate SEMI-REAL-TIME session is that it has higher accuracy. + REAL-TIME + OFF-LINE - one possible use case is combination of live transcription with higher quality off-line transcription for archival purposes. + 2x REAL-TIME - for example for separately transcribing left and right channels of stereo audio  Other combinations of session types, including more than 2 sessions, are currently not supported.  Please, let us know if you think you have a valid use case for other combinations.  # Telephony Bot API  (previously called RTC Callback API, where RTC stands for Real Time Communications)   Voicegain Telephony Bot APIs work on audio data that is part of an RTC session (a telephone call for example).  # Speech Analytics API  Voicegain Speech Analytics analyzes both the transcript and the audio (typically of a telephone call).  The results are returned per channel (real or diarized) except where the recognized entities span more than one channel. For entities where it is applicable we return the location in the audio (start and end time) and the transcript (index of the words).  ## Capabilities of Speech Analytics  Voicegain Speech Analytics can identify/compute the following: + **named entities** - (NER i.e. named entity recognition) - the following entities are recognized:   + ADDRESS - Postal address.   + CARDINAL - Numerals that do not fall under another type.   + CC - Credit Card   + DATE - Absolute or relative dates or periods.   + EMAIL - (coming soon) Email address   + EVENT - Named hurricanes, battles, wars, sports events, etc.   + FAC - Buildings, airports, highways, bridges, etc.   + GPE - Countries, cities, states.   + NORP - Nationalities or religious or political groups.   + MONEY - Monetary values, including unit.   + ORDINAL - \"first\", \"second\", etc.   + ORG - Companies, agencies, institutions, etc.   + PERCENT - Percentage, including \"%\".   + PERSON - People, including fictional.   + PHONE - Phone number.   + QUANTITY - Measurements, as of weight or distance.   + SSN - Social Security number   + TIME - Times smaller than a day.   + ZIP - Zip Code (if not part of an ADDRESS)    In addition to returning the named entity itself, we return the sub-concepts within entity, e.g. for ADDRESs we will return state (e.g. TX) and zip code if found.  + **keywords** - these are single words or short phrases e.g. company or product names.    Currently, keywords are detected using simple matching using stemming - so e.g. a keyword \"cancel\" will match \"cancellation\".    In near future we will support \"smart expansion\" which will also match synonyms while paying attention to the correct meaning of the word.     In addition to keywords we return keyword groups, e.g. several company name keywords can be combined into a `Competition` keyword group.  + **phrases (intent)** - allows for detection of phrases/intents that match the meaning of the phrases specified in the example training Sections).</br>   For each detected phrase/intent the system will also return entities and keywords contained in the phrase, if configured to do so.   For example, transcript \"Hello, my name is Lucy\" may match phrase/intent \"INTRODUCTION\" with the NER of PERSON and value \"Lucy\".       The configuration for phrase/intent detection takes the following parameters:     + _list_ of example phrases - each phrase has a sensitivity value which determines how close it has to match (sensitivity of 1.0 requires the closest match, sensitivity of 0.0 allows for vague matches).     + _regex_ - optional regex phrases to augment the examples - these require exact match     + _slots_ - types on named entities and keywords to be recognized within the phrase/intent</br>       Note: support for slots of same type but different meaning will be added in the future.       Currently it is possible e.g. to recognize places (GPE) but not possible to distinguish e.g. between types of them, like departure or destination place.     + _location_ - this narrows down where the phrase/match must occur - the options are:       + channel - agent or caller        + time in the call - from the start or from the end       + dialogue act - require the phrase to be part of a specified dialogue act, see https://web.stanford.edu/~jurafsky/ws97/manual.august1.html, first table, column SWBD    + **phrase groups** - computed across all channels - this is more powerful than keyword groups as it can be configured to require all phrases/intents in the groups to be present in any or fixed order.   One use case would be to detect a pair of a question and a confirming answer - for example to determine call resolution: \"Have I answered all your question?\", \"Yes\". + **topics** - computed from text across all channels - assigns to the call a set of likely topics with their scores.    A topic classifier is built in a separate step using a corpus. The build process requires manual labeling of the topics.    For each call, the entire transcript is fed to the topic classifier and we get back the set of detected topics and their scores (in the 0..1 range).   It is useful e.g. for separating Billing calls from Troubleshooting calls from Account Change calls, etc.  + **summary** - computed from text across all channels - provides a summary of the call in a form of a set of sentences.   These may either be key sentences directly pulled from the transcript, or sentences generated by summarizing entire call or sections of the call.  + **sentiment** - computed from text - standard call sentiment as used in Call Center Speech Analytics.   Returns sentiment values from -1.0 (negative/mad/angry) to +1.0 (positive/happy/satisfied) + **mood** - computed from text - can distinguish 6 moods:   + neutral    + anger    + disgust    + fear    + happiness   + sadness   + surprise     Values are returned as a map from mood enum values to a number in (0.0, 1.0) range - multiple moods can be detected in the same place in the transcript in varying degrees. + **gender** - computed to audio - Estimates the gender of the speaker as far as it is possible to do it from the voice alone. + **word cloud** - returns word cloud data (map from words/phrases to frequencies) - the algorithm uses: stop word removal, stemming, frequent phrase detection. + **call metrics** - these are simple metrics computed from the audio and the transcript    + _silence_ - amount of silence in the call   + _talk_ - talk streaks for each of the channels   + _overtalk_ - amount of time when call participants talk over ove another   + _energy_ - the volume of the call and the variation   + _pitch_ - the pitch (frequency of the voice) and the variation  Voicegain allows for configuring Speech Analytics processing by preparing a Speech Analytics Configuration which is basically a selection of the capabilities mentioned above plus configuration of variable elements like keywords, phrases, etc.  </br> You can configure Speech Analytics using **[/sa/config API](#operation/saConfigPost)**   Once the configuration is complete you can launch speech transcription and analytics session using the **[/sa API](#operation/saPost)**   ### Offline vs Real-Time Speech Analytics  Speech audio can be transcribed and the analyzed in one of two modes: + **OFF-LINE** - audio will be queued for transcription, then transcribed, and both the audio and transcript will pass through various speech analytics algorithms according to the specified configuration.   The results of transcription and speech analytics can be retrieved using the [GET **/sa/{sid}/data** API](#operation/saDataGet)   + **REAL-TIME** - audio will immediately be submitted to real-time transcription and the stream of transcribed words will be fed to real-time speech analytics.    The results of transcription and speech analytics will be returned over websocket as soon as they are available.    The format of the returned messages is defined [here](#operation/saWebsocketPayload).     The results will also be available afterwards using the [GET **/sa/{sid}/data** API](#operation/saDataGet)  ## Agent Review Form  Data computed by Speech Analytics can be used to automatically fill/answer questions of the Call/Agent Review Form.   The automatic answers can be computed by rules/condition looking at the following parameters:   + **call metrics**   + **regex** - match of the text of the transcript   + **keywords** - any keywords or keyword groups   + **NER** - any named entities   + **phrases** - any phrases/intents or phrase groups   + **dialogElements** - selection of custom hardcoded rules that may accomplish tasks not possible with other conditions  The individual rules/conditions can be further narrowed down using filters like:   + _channel_ - agent or caller    + _time in the call_ - from the start or from the end  Multiple rules can be combined to form any logical AND/OR expression. Finally, the rules can be negated so the the absence of certain events is considered as a positive answer to a question.  When Review Form rules match/fire the system provides a detailed justification information so it is easily possible to verify that the automated answer on a Review Form was correct.  ## PII Redaction  Being able to recognize occurrence of certain elements in the transcript allows us to remove them from both the text and the audio - this is called PII Redaction where PII stands for Personally Identifiable Information.  Currently, PII Redaction is limited to named entities (NER).  User can select any NER type detected by [Speech Analytics](#section/Speech-Analytics-API/Capabilities-of-Speech-Analytics) to be replaced by a specified placeholder in the text and by silence in the audio.  If your Enterprise account with Voicegain is setup with PCI-DSS compliance option, then PII Redaction of credit card numbers is enabled by default and cannot be disabled.    # Audio Input  The speech audio can be submitted in variety of ways:  + **Inline** - Short audio data can be encoded inside a request as a base64 string. + **Retrieved from URL** - Audio can be retrieved from a provided URL. The URL can also point to a live stream. + **Streamed via RTP** - Recommended only for Edge use cases (not for Cloud). + **Streamed via proprietary UDP protocol** - We provide a Java utility to do this. The utility can stream directly from an audio device, or from a file. + **Streamed via Websocket** - Can be used, e.g., to do microphone capture directly from the web browser. + **From Object Store** - Currently it works only with files uploaded to Voicegain object store, but will be expanded to support other Object Stores.  # Pagination  For methods that support pagination Voicegain has standardized on using the following query parameters: + page={page number} + per_page={number items per page}  In responses, Voicegain APIs use the [Link Header standard](https://tools.ietf.org/html/rfc5988) to provide the pagination information. The following values of the `rel` field are used: self, first, prev, next, last.  In addition to the `Link` header, the `X-Total-Count` header is used to provide the total count of items matching a query.  An example response header might look like (note: we have broken the Link header in multiple lines for readability )  ``` X-Total-Count: 255 Link: <https://api.voicegain.ai/v1/sa/call?page=1&per_page=50>; rel=\"first\",       <https://api.voicegain.ai/v1/sa/call?page=2&per_page=50>; rel=\"prev\",       <https://api.voicegain.ai/v1/sa/call?page=3&per_page=50>; rel=\"self\",       <https://api.voicegain.ai/v1/sa/call?page=4&per_page=50>; rel=\"next\",       <https://api.voicegain.ai/v1/sa/call?page=6&per_page=50>; rel=\"last\" ```  # JWT Authentication Almost all methods from this API require authentication by means of a JWT Token. A valid token can be obtained from the [Voicegain Portal](https://portal.voicegain.ai).   Each Context within the Account has its own JWT token. The accountId and contextId are encoded inside the token,  that is why API method requests do not require these in their request parameters.  More information about generating and using JWT with Voicegain API can be found in our  [Support Pages](https://support.voicegain.ai/hc/en-us/articles/360028023691-JWT-Authentication).   # noqa: E501
 
-    The version of the OpenAPI document: 1.32.2 - updated June 8, 2021
+    The version of the OpenAPI document: 1.32.3 - updated June 10, 2021
     Contact: api.support@voicegain.ai
     Generated by: https://openapi-generator.tech
 """
@@ -83,7 +83,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, age=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, entities=None, gender=None, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=None, published=False, sentiment=None, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=False, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, entities=None, gender=False, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -214,7 +214,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def competitor_keyword_groups(self):
         """Gets the competitor_keyword_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        _(Meant for Speech Analytics UI)_ Set of one or more keyword group tags that should be interpreted as identifying competitor mentions.    # noqa: E501
+        _(internal use - for Speech Analytics UI)_ Set of one or more keyword group tags that should be interpreted as identifying competitor mentions.    # noqa: E501
 
         :return: The competitor_keyword_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[str]
@@ -225,7 +225,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def competitor_keyword_groups(self, competitor_keyword_groups):
         """Sets the competitor_keyword_groups of this SpeechAnalyticsConfigModifiable.
 
-        _(Meant for Speech Analytics UI)_ Set of one or more keyword group tags that should be interpreted as identifying competitor mentions.    # noqa: E501
+        _(internal use - for Speech Analytics UI)_ Set of one or more keyword group tags that should be interpreted as identifying competitor mentions.    # noqa: E501
 
         :param competitor_keyword_groups: The competitor_keyword_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[str]
@@ -237,7 +237,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def context_id(self):
         """Gets the context_id of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        (In request needed only if making request using MAC Authentication. Otherwise will be taken from JWT.)  # noqa: E501
+        (Needed only if making a request using MAC Authentication. Otherwise will be taken from JWT.)  # noqa: E501
 
         :return: The context_id of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: str
@@ -248,7 +248,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def context_id(self, context_id):
         """Sets the context_id of this SpeechAnalyticsConfigModifiable.
 
-        (In request needed only if making request using MAC Authentication. Otherwise will be taken from JWT.)  # noqa: E501
+        (Needed only if making a request using MAC Authentication. Otherwise will be taken from JWT.)  # noqa: E501
 
         :param context_id: The context_id of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: str
@@ -266,7 +266,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def entities(self):
         """Gets the entities of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        Selection of Named Entity types to detect. </br> Entities are different from keywords in that an entity may have a large number of possible values  which do not have to be enumerated in order to be detected. </br> Types of Named Entities: + ADDRESS - Postal address. + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card + DATE - Absolute or relative dates or periods. + EMAIL - (coming soon) Email address + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + PHONE - Phone number. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number + TIME - Times smaller than a day. + ZIP - Zip Code (if not part of an Address)       # noqa: E501
+        Selection of Named Entity types to detect. </br> Entities are different from keywords in that an entity may have a large number of possible values  which do not have to be enumerated in order to be detected. </br> Types of Named Entities: + ADDRESS - Postal address. + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card + DATE - Absolute or relative dates or periods. + EMAIL - (coming soon) Email address + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + PHONE - Phone number. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number + TIME - Times smaller than a day. + ZIP - Zip Code (if not part of an Address)      Default is no NERs selected.    # noqa: E501
 
         :return: The entities of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[NamedEntityType]
@@ -277,7 +277,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def entities(self, entities):
         """Sets the entities of this SpeechAnalyticsConfigModifiable.
 
-        Selection of Named Entity types to detect. </br> Entities are different from keywords in that an entity may have a large number of possible values  which do not have to be enumerated in order to be detected. </br> Types of Named Entities: + ADDRESS - Postal address. + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card + DATE - Absolute or relative dates or periods. + EMAIL - (coming soon) Email address + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + PHONE - Phone number. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number + TIME - Times smaller than a day. + ZIP - Zip Code (if not part of an Address)       # noqa: E501
+        Selection of Named Entity types to detect. </br> Entities are different from keywords in that an entity may have a large number of possible values  which do not have to be enumerated in order to be detected. </br> Types of Named Entities: + ADDRESS - Postal address. + CARDINAL - Numerals that do not fall under another type. + CC - Credit Card + DATE - Absolute or relative dates or periods. + EMAIL - (coming soon) Email address + EVENT - Named hurricanes, battles, wars, sports events, etc. + FAC - Buildings, airports, highways, bridges, etc. + GPE - Countries, cities, states. + NORP - Nationalities or religious or political groups. + MONEY - Monetary values, including unit. + ORDINAL - \"first\", \"second\", etc. + ORG - Companies, agencies, institutions, etc. + PERCENT - Percentage, including \"%\". + PERSON - People, including fictional. + PHONE - Phone number. + QUANTITY - Measurements, as of weight or distance. + SSN - Social Security number + TIME - Times smaller than a day. + ZIP - Zip Code (if not part of an Address)      Default is no NERs selected.    # noqa: E501
 
         :param entities: The entities of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[NamedEntityType]
@@ -312,7 +312,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def keyword_groups(self):
         """Gets the keyword_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        Keyword groups - Group tags used must be different from the tags used for keywords.   # noqa: E501
+        Keyword groups - Group tags must be different from the tags used for keywords. One use for keyword groups is that the GET /sa/call-stats API supports reporting stats of keywords within a Group.</br> Default tehre are no keyword groups.   # noqa: E501
 
         :return: The keyword_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[KeywordSpotGroup]
@@ -323,7 +323,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def keyword_groups(self, keyword_groups):
         """Sets the keyword_groups of this SpeechAnalyticsConfigModifiable.
 
-        Keyword groups - Group tags used must be different from the tags used for keywords.   # noqa: E501
+        Keyword groups - Group tags must be different from the tags used for keywords. One use for keyword groups is that the GET /sa/call-stats API supports reporting stats of keywords within a Group.</br> Default tehre are no keyword groups.   # noqa: E501
 
         :param keyword_groups: The keyword_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[KeywordSpotGroup]
@@ -335,7 +335,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def keywords(self):
         """Gets the keywords of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        Configuration that specifies keywords to be detected. In detection we use text matching with stemming, etc.</br> Keywords are different from phrases - phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. Phrase detection works better with long phrases.   # noqa: E501
+        Configuration that specifies keywords to be detected. The keyword detection algorithm uses text matching with simple text manipulations like e.g. stemming.</br> Keywords are different in that respect from phrases - phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning.</br> Default is not keyword detection.   # noqa: E501
 
         :return: The keywords of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[KeywordSpotItem]
@@ -346,7 +346,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def keywords(self, keywords):
         """Sets the keywords of this SpeechAnalyticsConfigModifiable.
 
-        Configuration that specifies keywords to be detected. In detection we use text matching with stemming, etc.</br> Keywords are different from phrases - phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. Phrase detection works better with long phrases.   # noqa: E501
+        Configuration that specifies keywords to be detected. The keyword detection algorithm uses text matching with simple text manipulations like e.g. stemming.</br> Keywords are different in that respect from phrases - phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning.</br> Default is not keyword detection.   # noqa: E501
 
         :param keywords: The keywords of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[KeywordSpotItem]
@@ -358,7 +358,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def moods(self):
         """Gets the moods of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        Choose the moods to report  # noqa: E501
+        Choose the moods to report.</br> Default no moods are reported.   # noqa: E501
 
         :return: The moods of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[MoodType]
@@ -369,7 +369,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def moods(self, moods):
         """Sets the moods of this SpeechAnalyticsConfigModifiable.
 
-        Choose the moods to report  # noqa: E501
+        Choose the moods to report.</br> Default no moods are reported.   # noqa: E501
 
         :param moods: The moods of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[MoodType]
@@ -381,7 +381,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def name(self):
         """Gets the name of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        A **unique**, human friendly, name to identify the Speech Analytics configuration.</br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with digit or letter.    # noqa: E501
+        A **unique**, human friendly, name to identify the Speech Analytics configuration.</br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with a digit or letter.    # noqa: E501
 
         :return: The name of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: str
@@ -392,7 +392,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def name(self, name):
         """Sets the name of this SpeechAnalyticsConfigModifiable.
 
-        A **unique**, human friendly, name to identify the Speech Analytics configuration.</br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with digit or letter.    # noqa: E501
+        A **unique**, human friendly, name to identify the Speech Analytics configuration.</br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with a digit or letter.    # noqa: E501
 
         :param name: The name of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: str
@@ -400,6 +400,9 @@ class SpeechAnalyticsConfigModifiable(object):
         if (self.local_vars_configuration.client_side_validation and
                 name is not None and len(name) > 128):
             raise ValueError("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._name = name
 
@@ -465,6 +468,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def phrase_groups(self):
         """Gets the phrase_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
+        Group of phrases/intents. Can be used to detect combinations of phrases in the caller.</br> By default there are no phrase groups.   # noqa: E501
 
         :return: The phrase_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[PhraseSpotGroup]
@@ -475,6 +479,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def phrase_groups(self, phrase_groups):
         """Sets the phrase_groups of this SpeechAnalyticsConfigModifiable.
 
+        Group of phrases/intents. Can be used to detect combinations of phrases in the caller.</br> By default there are no phrase groups.   # noqa: E501
 
         :param phrase_groups: The phrase_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[PhraseSpotGroup]
@@ -486,7 +491,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def phrases(self):
         """Gets the phrases of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        Phrases/Intents detected in the text. Phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups. If you want to match individual workds or 2- or 3-word phrases it is better to use keywords.   # noqa: E501
+        Phrases/Intents detected in the text. Phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. Phrase matching is applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.</br> If you want to match individual words or 2- or 3-word phrases it may be better to use keywords.</br> Default is no phrase detection.   # noqa: E501
 
         :return: The phrases of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[PhraseSpotItem]
@@ -497,7 +502,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def phrases(self, phrases):
         """Sets the phrases of this SpeechAnalyticsConfigModifiable.
 
-        Phrases/Intents detected in the text. Phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. These are applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups. If you want to match individual workds or 2- or 3-word phrases it is better to use keywords.   # noqa: E501
+        Phrases/Intents detected in the text. Phrase detection uses NLU algorithm with neural networks which allows for matching based on approximate meaning. Phrase matching is applied to one sentence at a time. To match multiple sentences in a row please use phraseGroups.</br> If you want to match individual words or 2- or 3-word phrases it may be better to use keywords.</br> Default is no phrase detection.   # noqa: E501
 
         :param phrases: The phrases of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[PhraseSpotItem]
@@ -509,7 +514,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def pii_redaction(self):
         """Gets the pii_redaction of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transctipt and/or audio  # noqa: E501
+        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transctipt and/or audio</br> Default no PII redaction is performed.   # noqa: E501
 
         :return: The pii_redaction of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[PIIRedactionConf]
@@ -520,7 +525,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def pii_redaction(self, pii_redaction):
         """Sets the pii_redaction of this SpeechAnalyticsConfigModifiable.
 
-        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transctipt and/or audio  # noqa: E501
+        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transctipt and/or audio</br> Default no PII redaction is performed.   # noqa: E501
 
         :param pii_redaction: The pii_redaction of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[PIIRedactionConf]
@@ -555,7 +560,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def published(self):
         """Gets the published of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        Specifies if Speech Analytics configuration can be used outside its context.  For built-in configurations, specifies if the configuration is visible to end-users of Voicegain. Only user with \"cmp\" role is able to see built-in configurations that are not published.   # noqa: E501
+        Specifies if Speech Analytics configuration can be used outside its context.</br> For built-in configurations, specifies if the configuration is visible to end-users of Voicegain. Only user with \"cmp\" role is able to see built-in configurations that are not published.   # noqa: E501
 
         :return: The published of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: bool
@@ -566,7 +571,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def published(self, published):
         """Sets the published of this SpeechAnalyticsConfigModifiable.
 
-        Specifies if Speech Analytics configuration can be used outside its context.  For built-in configurations, specifies if the configuration is visible to end-users of Voicegain. Only user with \"cmp\" role is able to see built-in configurations that are not published.   # noqa: E501
+        Specifies if Speech Analytics configuration can be used outside its context.</br> For built-in configurations, specifies if the configuration is visible to end-users of Voicegain. Only user with \"cmp\" role is able to see built-in configurations that are not published.   # noqa: E501
 
         :param published: The published of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: bool
