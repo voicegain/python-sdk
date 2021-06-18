@@ -37,6 +37,8 @@ class NamedEntityType(object):
     EVENT = "EVENT"
     FAC = "FAC"
     GPE = "GPE"
+    LANGUAGE = "LANGUAGE"
+    LAW = "LAW"
     NORP = "NORP"
     MONEY = "MONEY"
     ORDINAL = "ORDINAL"
@@ -44,12 +46,14 @@ class NamedEntityType(object):
     PERCENT = "PERCENT"
     PERSON = "PERSON"
     PHONE = "PHONE"
+    PRODUCT = "PRODUCT"
     QUANTITY = "QUANTITY"
     SSN = "SSN"
     TIME = "TIME"
+    WORK_OF_ART = "WORK_OF_ART"
     ZIP = "ZIP"
 
-    allowable_values = [ADDRESS, CARDINAL, CC, DATE, EMAIL, EVENT, FAC, GPE, NORP, MONEY, ORDINAL, ORG, PERCENT, PERSON, PHONE, QUANTITY, SSN, TIME, ZIP]  # noqa: E501
+    allowable_values = [ADDRESS, CARDINAL, CC, DATE, EMAIL, EVENT, FAC, GPE, LANGUAGE, LAW, NORP, MONEY, ORDINAL, ORG, PERCENT, PERSON, PHONE, PRODUCT, QUANTITY, SSN, TIME, WORK_OF_ART, ZIP]  # noqa: E501
 
     """
     Attributes:
