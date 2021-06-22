@@ -40,6 +40,7 @@ class NewSpeechAnalyticsSession(object):
         'call_review_config': 'str',
         'label': 'str',
         'metadata': 'list[NameValuePair]',
+        'notify_stomp_topic': 'str',
         'persist': 'float',
         'sa_config': 'str',
         'speaker_channels': 'list[SpeechAnalyticsChannel]',
@@ -54,6 +55,7 @@ class NewSpeechAnalyticsSession(object):
         'call_review_config': 'callReviewConfig',
         'label': 'label',
         'metadata': 'metadata',
+        'notify_stomp_topic': 'notifyStompTopic',
         'persist': 'persist',
         'sa_config': 'saConfig',
         'speaker_channels': 'speakerChannels',
@@ -61,7 +63,7 @@ class NewSpeechAnalyticsSession(object):
         'topic_discovery_config': 'topicDiscoveryConfig'
     }
 
-    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, label=None, metadata=None, persist=3600000, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, label=None, metadata=None, notify_stomp_topic=None, persist=3600000, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
         """NewSpeechAnalyticsSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +75,7 @@ class NewSpeechAnalyticsSession(object):
         self._call_review_config = None
         self._label = None
         self._metadata = None
+        self._notify_stomp_topic = None
         self._persist = None
         self._sa_config = None
         self._speaker_channels = None
@@ -92,6 +95,8 @@ class NewSpeechAnalyticsSession(object):
             self.label = label
         if metadata is not None:
             self.metadata = metadata
+        if notify_stomp_topic is not None:
+            self.notify_stomp_topic = notify_stomp_topic
         if persist is not None:
             self.persist = persist
         self.sa_config = sa_config
@@ -242,6 +247,35 @@ class NewSpeechAnalyticsSession(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def notify_stomp_topic(self):
+        """Gets the notify_stomp_topic of this NewSpeechAnalyticsSession.  # noqa: E501
+
+        (optional) STOMP Topic name - if present then the entire POST /sa response will be sent over websocket to the specified STOMP topic.    # noqa: E501
+
+        :return: The notify_stomp_topic of this NewSpeechAnalyticsSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._notify_stomp_topic
+
+    @notify_stomp_topic.setter
+    def notify_stomp_topic(self, notify_stomp_topic):
+        """Sets the notify_stomp_topic of this NewSpeechAnalyticsSession.
+
+        (optional) STOMP Topic name - if present then the entire POST /sa response will be sent over websocket to the specified STOMP topic.    # noqa: E501
+
+        :param notify_stomp_topic: The notify_stomp_topic of this NewSpeechAnalyticsSession.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                notify_stomp_topic is not None and len(notify_stomp_topic) > 128):
+            raise ValueError("Invalid value for `notify_stomp_topic`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                notify_stomp_topic is not None and len(notify_stomp_topic) < 16):
+            raise ValueError("Invalid value for `notify_stomp_topic`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._notify_stomp_topic = notify_stomp_topic
 
     @property
     def persist(self):
