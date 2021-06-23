@@ -57,7 +57,7 @@ class NewSpeechAnalyticsSessionResponsePoll(object):
     def url(self):
         """Gets the url of this NewSpeechAnalyticsSessionResponsePoll.  # noqa: E501
 
-        Exact complete URL to use to poll for progress info.  # noqa: E501
+        Exact complete URL to use to poll for progress info. Look for the `status` field  # noqa: E501
 
         :return: The url of this NewSpeechAnalyticsSessionResponsePoll.  # noqa: E501
         :rtype: str
@@ -68,7 +68,7 @@ class NewSpeechAnalyticsSessionResponsePoll(object):
     def url(self, url):
         """Sets the url of this NewSpeechAnalyticsSessionResponsePoll.
 
-        Exact complete URL to use to poll for progress info.  # noqa: E501
+        Exact complete URL to use to poll for progress info. Look for the `status` field  # noqa: E501
 
         :param url: The url of this NewSpeechAnalyticsSessionResponsePoll.  # noqa: E501
         :type: str
