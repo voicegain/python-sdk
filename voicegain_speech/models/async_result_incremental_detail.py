@@ -34,24 +34,50 @@ class AsyncResultIncrementalDetail(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'control_status': 'AsyncResultIncrementalDetailControlStatus',
         'result': 'AsyncResultIncrementalDetailResult'
     }
 
     attribute_map = {
+        'control_status': 'controlStatus',
         'result': 'result'
     }
 
-    def __init__(self, result=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, control_status=None, result=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultIncrementalDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._control_status = None
         self._result = None
         self.discriminator = None
 
+        if control_status is not None:
+            self.control_status = control_status
         if result is not None:
             self.result = result
+
+    @property
+    def control_status(self):
+        """Gets the control_status of this AsyncResultIncrementalDetail.  # noqa: E501
+
+
+        :return: The control_status of this AsyncResultIncrementalDetail.  # noqa: E501
+        :rtype: AsyncResultIncrementalDetailControlStatus
+        """
+        return self._control_status
+
+    @control_status.setter
+    def control_status(self, control_status):
+        """Sets the control_status of this AsyncResultIncrementalDetail.
+
+
+        :param control_status: The control_status of this AsyncResultIncrementalDetail.  # noqa: E501
+        :type: AsyncResultIncrementalDetailControlStatus
+        """
+
+        self._control_status = control_status
 
     @property
     def result(self):
