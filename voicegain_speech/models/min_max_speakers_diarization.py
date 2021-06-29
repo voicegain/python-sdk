@@ -43,7 +43,7 @@ class MinMaxSpeakersDiarization(object):
         'min_speakers': 'minSpeakers'
     }
 
-    def __init__(self, max_speakers=2, min_speakers=2, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, max_speakers=2, min_speakers=1, local_vars_configuration=None):  # noqa: E501
         """MinMaxSpeakersDiarization - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,7 +62,7 @@ class MinMaxSpeakersDiarization(object):
     def max_speakers(self):
         """Gets the max_speakers of this MinMaxSpeakersDiarization.  # noqa: E501
 
-        (optional) This value will determine the maximum number of speakers that the diarization algorithm will attempt to recognize in the audio.   # noqa: E501
+        (optional) This value will determine the maximum number of speakers that the diarization algorithm will attempt to recognize in the audio. If you enable diarization without providing maxSpeakers then the default will be 2.   # noqa: E501
 
         :return: The max_speakers of this MinMaxSpeakersDiarization.  # noqa: E501
         :rtype: int
@@ -73,7 +73,7 @@ class MinMaxSpeakersDiarization(object):
     def max_speakers(self, max_speakers):
         """Sets the max_speakers of this MinMaxSpeakersDiarization.
 
-        (optional) This value will determine the maximum number of speakers that the diarization algorithm will attempt to recognize in the audio.   # noqa: E501
+        (optional) This value will determine the maximum number of speakers that the diarization algorithm will attempt to recognize in the audio. If you enable diarization without providing maxSpeakers then the default will be 2.   # noqa: E501
 
         :param max_speakers: The max_speakers of this MinMaxSpeakersDiarization.  # noqa: E501
         :type: int
@@ -91,7 +91,7 @@ class MinMaxSpeakersDiarization(object):
     def min_speakers(self):
         """Gets the min_speakers of this MinMaxSpeakersDiarization.  # noqa: E501
 
-        (optional) Hint to the diarization algorithm regarding the minimum number of the speakers present in the audio.   # noqa: E501
+        (optional) Hint to the diarization algorithm regarding the minimum number of the speakers present in the audio.  If you enable diarization without providing minSpeakers then the default will be 1.   # noqa: E501
 
         :return: The min_speakers of this MinMaxSpeakersDiarization.  # noqa: E501
         :rtype: int
@@ -102,7 +102,7 @@ class MinMaxSpeakersDiarization(object):
     def min_speakers(self, min_speakers):
         """Sets the min_speakers of this MinMaxSpeakersDiarization.
 
-        (optional) Hint to the diarization algorithm regarding the minimum number of the speakers present in the audio.   # noqa: E501
+        (optional) Hint to the diarization algorithm regarding the minimum number of the speakers present in the audio.  If you enable diarization without providing minSpeakers then the default will be 1.   # noqa: E501
 
         :param min_speakers: The min_speakers of this MinMaxSpeakersDiarization.  # noqa: E501
         :type: int
