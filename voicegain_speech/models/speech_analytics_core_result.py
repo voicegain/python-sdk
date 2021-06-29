@@ -47,7 +47,9 @@ class SpeechAnalyticsCoreResult(object):
         'status': 'str',
         'tags': 'list[str]',
         'topics': 'list[TopicScore]',
+        'num_channels': 'int',
         'num_incidents': 'int',
+        'num_speakers': 'int',
         'short_summary': 'str',
         'top_keywords': 'list[str]'
     }
@@ -66,12 +68,14 @@ class SpeechAnalyticsCoreResult(object):
         'status': 'status',
         'tags': 'tags',
         'topics': 'topics',
+        'num_channels': 'numChannels',
         'num_incidents': 'numIncidents',
+        'num_speakers': 'numSpeakers',
         'short_summary': 'shortSummary',
         'top_keywords': 'topKeywords'
     }
 
-    def __init__(self, account_id=None, async_mode=None, context_id=None, creator=None, duration_sec=None, label=None, metadata=None, persist=None, sa_session_id=None, start_time=None, status=None, tags=None, topics=None, num_incidents=None, short_summary=None, top_keywords=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, async_mode=None, context_id=None, creator=None, duration_sec=None, label=None, metadata=None, persist=None, sa_session_id=None, start_time=None, status=None, tags=None, topics=None, num_channels=None, num_incidents=None, num_speakers=None, short_summary=None, top_keywords=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsCoreResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,7 +94,9 @@ class SpeechAnalyticsCoreResult(object):
         self._status = None
         self._tags = None
         self._topics = None
+        self._num_channels = None
         self._num_incidents = None
+        self._num_speakers = None
         self._short_summary = None
         self._top_keywords = None
         self.discriminator = None
@@ -121,8 +127,12 @@ class SpeechAnalyticsCoreResult(object):
             self.tags = tags
         if topics is not None:
             self.topics = topics
+        if num_channels is not None:
+            self.num_channels = num_channels
         if num_incidents is not None:
             self.num_incidents = num_incidents
+        if num_speakers is not None:
+            self.num_speakers = num_speakers
         if short_summary is not None:
             self.short_summary = short_summary
         if top_keywords is not None:
@@ -462,6 +472,32 @@ class SpeechAnalyticsCoreResult(object):
         self._topics = topics
 
     @property
+    def num_channels(self):
+        """Gets the num_channels of this SpeechAnalyticsCoreResult.  # noqa: E501
+
+        number of audio channels  # noqa: E501
+
+        :return: The num_channels of this SpeechAnalyticsCoreResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._num_channels
+
+    @num_channels.setter
+    def num_channels(self, num_channels):
+        """Sets the num_channels of this SpeechAnalyticsCoreResult.
+
+        number of audio channels  # noqa: E501
+
+        :param num_channels: The num_channels of this SpeechAnalyticsCoreResult.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                num_channels is not None and num_channels < 1):  # noqa: E501
+            raise ValueError("Invalid value for `num_channels`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._num_channels = num_channels
+
+    @property
     def num_incidents(self):
         """Gets the num_incidents of this SpeechAnalyticsCoreResult.  # noqa: E501
 
@@ -486,6 +522,32 @@ class SpeechAnalyticsCoreResult(object):
             raise ValueError("Invalid value for `num_incidents`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._num_incidents = num_incidents
+
+    @property
+    def num_speakers(self):
+        """Gets the num_speakers of this SpeechAnalyticsCoreResult.  # noqa: E501
+
+        number of speakers detected in audio  # noqa: E501
+
+        :return: The num_speakers of this SpeechAnalyticsCoreResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._num_speakers
+
+    @num_speakers.setter
+    def num_speakers(self, num_speakers):
+        """Sets the num_speakers of this SpeechAnalyticsCoreResult.
+
+        number of speakers detected in audio  # noqa: E501
+
+        :param num_speakers: The num_speakers of this SpeechAnalyticsCoreResult.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                num_speakers is not None and num_speakers < 1):  # noqa: E501
+            raise ValueError("Invalid value for `num_speakers`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._num_speakers = num_speakers
 
     @property
     def short_summary(self):
