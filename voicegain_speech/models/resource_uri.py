@@ -110,8 +110,8 @@ class ResourceUri(object):
         :type: int
         """
         if (self.local_vars_configuration.client_side_validation and
-                fetch_timeout is not None and fetch_timeout > 60000):  # noqa: E501
-            raise ValueError("Invalid value for `fetch_timeout`, must be a value less than or equal to `60000`")  # noqa: E501
+                fetch_timeout is not None and fetch_timeout > 90000):  # noqa: E501
+            raise ValueError("Invalid value for `fetch_timeout`, must be a value less than or equal to `90000`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 fetch_timeout is not None and fetch_timeout < 100):  # noqa: E501
             raise ValueError("Invalid value for `fetch_timeout`, must be a value greater than or equal to `100`")  # noqa: E501
