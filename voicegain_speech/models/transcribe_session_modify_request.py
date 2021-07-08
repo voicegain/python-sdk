@@ -47,7 +47,7 @@ class TranscribeSessionModifyRequest(object):
         'persist': 'persist'
     }
 
-    def __init__(self, metadata=None, mute=None, pause=None, persist=3600000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, metadata=None, mute=None, pause=None, persist=None, local_vars_configuration=None):  # noqa: E501
         """TranscribeSessionModifyRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
