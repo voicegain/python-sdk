@@ -7,11 +7,11 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="voicegain-speech",
-    version="1.36.2",
+    version="1.36.3",
     author="Huishen Zhan, Kuo Zhang, Jacek Jarmulak",
     author_email="huishen@voicegain.ai, kuo@voicegain.ai, jacek@voicegain.ai",
     description="Voicegain Speech-to-Text Python SDK",
-    download_url='https://github.com/voicegain/python-sdk/archive/refs/tags/1.36.2.tar.gz',
+    download_url='https://github.com/voicegain/python-sdk/archive/refs/tags/1.36.3.tar.gz',
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=REQUIRES,
