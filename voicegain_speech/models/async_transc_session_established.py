@@ -193,7 +193,7 @@ class AsyncTranscSessionEstablished(object):
     def session_url(self):
         """Gets the session_url of this AsyncTranscSessionEstablished.  # noqa: E501
 
-        the url that may be used to modify the session using PUT command  # noqa: E501
+        the url that may be used to modify the session using [PUT command](#operation/asrTranscribeAsyncPut)  # noqa: E501
 
         :return: The session_url of this AsyncTranscSessionEstablished.  # noqa: E501
         :rtype: str
@@ -204,7 +204,7 @@ class AsyncTranscSessionEstablished(object):
     def session_url(self, session_url):
         """Sets the session_url of this AsyncTranscSessionEstablished.
 
-        the url that may be used to modify the session using PUT command  # noqa: E501
+        the url that may be used to modify the session using [PUT command](#operation/asrTranscribeAsyncPut)  # noqa: E501
 
         :param session_url: The session_url of this AsyncTranscSessionEstablished.  # noqa: E501
         :type: str
