@@ -132,7 +132,7 @@ class StompWsWord(object):
     def spk(self):
         """Gets the spk of this StompWsWord.  # noqa: E501
 
-        Speaker id - see separate speaker messages on how the spk related to channel and if it is an Agent. If this word is part of an Edit then spk value may be absent (redundant).   # noqa: E501
+        Speaker id, starting from 1.</br> If this word is part of an Edit then spk value may be absent (redundant).</br> Even if diarization is enabled, a value of 0 may also be output for the `spk` (or `spk` may be missing)  if the system cannot assign diarization.  If this is output from real-time speech analytics,  then there will be separate **speaker** messages indicating how the spk is related to channel and if it is an Agent.   # noqa: E501
 
         :return: The spk of this StompWsWord.  # noqa: E501
         :rtype: int
@@ -143,7 +143,7 @@ class StompWsWord(object):
     def spk(self, spk):
         """Sets the spk of this StompWsWord.
 
-        Speaker id - see separate speaker messages on how the spk related to channel and if it is an Agent. If this word is part of an Edit then spk value may be absent (redundant).   # noqa: E501
+        Speaker id, starting from 1.</br> If this word is part of an Edit then spk value may be absent (redundant).</br> Even if diarization is enabled, a value of 0 may also be output for the `spk` (or `spk` may be missing)  if the system cannot assign diarization.  If this is output from real-time speech analytics,  then there will be separate **speaker** messages indicating how the spk is related to channel and if it is an Agent.   # noqa: E501
 
         :param spk: The spk of this StompWsWord.  # noqa: E501
         :type: int

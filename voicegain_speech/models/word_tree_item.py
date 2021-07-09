@@ -115,7 +115,7 @@ class WordTreeItem(object):
     def spk(self):
         """Gets the spk of this WordTreeItem.  # noqa: E501
 
-        **(beta)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.   Value of 0 may also be output for the `spk` if the system cannot assign diarization.   # noqa: E501
+        **(beta)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.  </br> Value of 0 may also be output for the `spk` (or `spk` may be missing)  if the system cannot assign diarization.   # noqa: E501
 
         :return: The spk of this WordTreeItem.  # noqa: E501
         :rtype: int
@@ -126,7 +126,7 @@ class WordTreeItem(object):
     def spk(self, spk):
         """Sets the spk of this WordTreeItem.
 
-        **(beta)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.   Value of 0 may also be output for the `spk` if the system cannot assign diarization.   # noqa: E501
+        **(beta)** If diarization is enabled then this field will contain the speaker index for this word. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.  </br> Value of 0 may also be output for the `spk` (or `spk` may be missing)  if the system cannot assign diarization.   # noqa: E501
 
         :param spk: The spk of this WordTreeItem.  # noqa: E501
         :type: int
