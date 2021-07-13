@@ -317,7 +317,7 @@ class SpeechAnalyticsConfig(object):
     def call_resolution_criteria(self):
         """Gets the call_resolution_criteria of this SpeechAnalyticsConfig.  # noqa: E501
 
-        _(beta)_  list of tags of the Criteria used to determine if the call was resolved. If *any* of these criteria are satisfied then the call will be considered as resolved   # noqa: E501
+        _(beta)_  list of tags of the Criteria used to determine if the call was resolved. If *any* of these criteria are satisfied then the call will be considered as resolved.   # noqa: E501
 
         :return: The call_resolution_criteria of this SpeechAnalyticsConfig.  # noqa: E501
         :rtype: list[str]
@@ -328,7 +328,7 @@ class SpeechAnalyticsConfig(object):
     def call_resolution_criteria(self, call_resolution_criteria):
         """Sets the call_resolution_criteria of this SpeechAnalyticsConfig.
 
-        _(beta)_  list of tags of the Criteria used to determine if the call was resolved. If *any* of these criteria are satisfied then the call will be considered as resolved   # noqa: E501
+        _(beta)_  list of tags of the Criteria used to determine if the call was resolved. If *any* of these criteria are satisfied then the call will be considered as resolved.   # noqa: E501
 
         :param call_resolution_criteria: The call_resolution_criteria of this SpeechAnalyticsConfig.  # noqa: E501
         :type: list[str]
