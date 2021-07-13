@@ -35,6 +35,7 @@ class SpeechAnalyticsConfigModifiable(object):
     """
     openapi_types = {
         'age': 'bool',
+        'call_resolution_criteria': 'list[str]',
         'call_resolution_question_id': 'str',
         'competitor_keyword_groups': 'list[str]',
         'context_id': 'str',
@@ -61,6 +62,7 @@ class SpeechAnalyticsConfigModifiable(object):
 
     attribute_map = {
         'age': 'age',
+        'call_resolution_criteria': 'callResolutionCriteria',
         'call_resolution_question_id': 'callResolutionQuestionId',
         'competitor_keyword_groups': 'competitorKeywordGroups',
         'context_id': 'contextId',
@@ -85,13 +87,14 @@ class SpeechAnalyticsConfigModifiable(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, age=False, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._age = None
+        self._call_resolution_criteria = None
         self._call_resolution_question_id = None
         self._competitor_keyword_groups = None
         self._context_id = None
@@ -118,6 +121,8 @@ class SpeechAnalyticsConfigModifiable(object):
 
         if age is not None:
             self.age = age
+        if call_resolution_criteria is not None:
+            self.call_resolution_criteria = call_resolution_criteria
         if call_resolution_question_id is not None:
             self.call_resolution_question_id = call_resolution_question_id
         if competitor_keyword_groups is not None:
@@ -185,6 +190,29 @@ class SpeechAnalyticsConfigModifiable(object):
         """
 
         self._age = age
+
+    @property
+    def call_resolution_criteria(self):
+        """Gets the call_resolution_criteria of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+
+        _(beta)_  list of tags of the Criteria used to determine if the call was resolved. If *any* of these criteria are satisfied then the call will be considered as resolved   # noqa: E501
+
+        :return: The call_resolution_criteria of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._call_resolution_criteria
+
+    @call_resolution_criteria.setter
+    def call_resolution_criteria(self, call_resolution_criteria):
+        """Sets the call_resolution_criteria of this SpeechAnalyticsConfigModifiable.
+
+        _(beta)_  list of tags of the Criteria used to determine if the call was resolved. If *any* of these criteria are satisfied then the call will be considered as resolved   # noqa: E501
+
+        :param call_resolution_criteria: The call_resolution_criteria of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._call_resolution_criteria = call_resolution_criteria
 
     @property
     def call_resolution_question_id(self):
