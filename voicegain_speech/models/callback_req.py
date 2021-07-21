@@ -35,26 +35,36 @@ class CallbackReq(object):
     """
     openapi_types = {
         'auth_conf': 'str',
+        'format': 'str',
+        'time_stamp_interval': 'float',
         'uri': 'str'
     }
 
     attribute_map = {
         'auth_conf': 'authConf',
+        'format': 'format',
+        'time_stamp_interval': 'timeStampInterval',
         'uri': 'uri'
     }
 
-    def __init__(self, auth_conf=None, uri=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, auth_conf=None, format='json', time_stamp_interval=None, uri=None, local_vars_configuration=None):  # noqa: E501
         """CallbackReq - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._auth_conf = None
+        self._format = None
+        self._time_stamp_interval = None
         self._uri = None
         self.discriminator = None
 
         if auth_conf is not None:
             self.auth_conf = auth_conf
+        if format is not None:
+            self.format = format
+        if time_stamp_interval is not None:
+            self.time_stamp_interval = time_stamp_interval
         if uri is not None:
             self.uri = uri
 
@@ -83,6 +93,61 @@ class CallbackReq(object):
             raise ValueError("Invalid value for `auth_conf`, length must be less than or equal to `128`")  # noqa: E501
 
         self._auth_conf = auth_conf
+
+    @property
+    def format(self):
+        """Gets the format of this CallbackReq.  # noqa: E501
+
+        Format of the callback payload: + json - complete transcript data with all detail for each word - content is the same as the response from polling  + text - plain text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format   # noqa: E501
+
+        :return: The format of this CallbackReq.  # noqa: E501
+        :rtype: str
+        """
+        return self._format
+
+    @format.setter
+    def format(self, format):
+        """Sets the format of this CallbackReq.
+
+        Format of the callback payload: + json - complete transcript data with all detail for each word - content is the same as the response from polling  + text - plain text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format   # noqa: E501
+
+        :param format: The format of this CallbackReq.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["json", "text", "srt", "vtt", "ttml"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and format not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `format` ({0}), must be one of {1}"  # noqa: E501
+                .format(format, allowed_values)
+            )
+
+        self._format = format
+
+    @property
+    def time_stamp_interval(self):
+        """Gets the time_stamp_interval of this CallbackReq.  # noqa: E501
+
+        Applicable only to plain text transcript submitted in callback.  Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.            # noqa: E501
+
+        :return: The time_stamp_interval of this CallbackReq.  # noqa: E501
+        :rtype: float
+        """
+        return self._time_stamp_interval
+
+    @time_stamp_interval.setter
+    def time_stamp_interval(self, time_stamp_interval):
+        """Sets the time_stamp_interval of this CallbackReq.
+
+        Applicable only to plain text transcript submitted in callback.  Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.            # noqa: E501
+
+        :param time_stamp_interval: The time_stamp_interval of this CallbackReq.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                time_stamp_interval is not None and time_stamp_interval < 5):  # noqa: E501
+            raise ValueError("Invalid value for `time_stamp_interval`, must be a value greater than or equal to `5`")  # noqa: E501
+
+        self._time_stamp_interval = time_stamp_interval
 
     @property
     def uri(self):

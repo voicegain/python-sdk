@@ -684,7 +684,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_session_id: Session ID for Speech Analytics (required)
-        :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plaint text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format 
+        :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plain text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format 
         :param float width: Applicable only to captions. Determines max caption width in number of characters.
         :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -712,7 +712,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_session_id: Session ID for Speech Analytics (required)
-        :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plaint text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format 
+        :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plain text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format 
         :param float width: Applicable only to captions. Determines max caption width in number of characters.
         :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> 
         :param _return_http_data_only: response data without head status code
