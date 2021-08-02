@@ -46,7 +46,8 @@ class NewSpeechAnalyticsSession(object):
         'sa_config': 'str',
         'speaker_channels': 'list[SpeechAnalyticsChannel]',
         'tags': 'list[str]',
-        'topic_discovery_config': 'str'
+        'topic_discovery_config': 'str',
+        'virtual_dual_channel_enabled': 'bool'
     }
 
     attribute_map = {
@@ -62,10 +63,11 @@ class NewSpeechAnalyticsSession(object):
         'sa_config': 'saConfig',
         'speaker_channels': 'speakerChannels',
         'tags': 'tags',
-        'topic_discovery_config': 'topicDiscoveryConfig'
+        'topic_discovery_config': 'topicDiscoveryConfig',
+        'virtual_dual_channel_enabled': 'virtualDualChannelEnabled'
     }
 
-    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, creator=None, label=None, metadata=None, notify_stomp_topic=None, persist=3600000, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, creator=None, label=None, metadata=None, notify_stomp_topic=None, persist=3600000, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, virtual_dual_channel_enabled=True, local_vars_configuration=None):  # noqa: E501
         """NewSpeechAnalyticsSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,6 +86,7 @@ class NewSpeechAnalyticsSession(object):
         self._speaker_channels = None
         self._tags = None
         self._topic_discovery_config = None
+        self._virtual_dual_channel_enabled = None
         self.discriminator = None
 
         if asr is not None:
@@ -111,6 +114,8 @@ class NewSpeechAnalyticsSession(object):
             self.tags = tags
         if topic_discovery_config is not None:
             self.topic_discovery_config = topic_discovery_config
+        if virtual_dual_channel_enabled is not None:
+            self.virtual_dual_channel_enabled = virtual_dual_channel_enabled
 
     @property
     def asr(self):
@@ -372,7 +377,7 @@ class NewSpeechAnalyticsSession(object):
     def speaker_channels(self):
         """Gets the speaker_channels of this NewSpeechAnalyticsSession.  # noqa: E501
 
-        For stereo audio this is used to map audio channels to processing sessions and to identify which one is Agent.</br> For mono audio, specify just one session. Diarization will be automatically turned on.  Determination of which speaker is Agent will be attempted from the transcript.          # noqa: E501
+        For **stereo** audio this is used to map audio channels to processing sessions and to identify which one is Agent.</br> For **mono** audio, specify just one session.  Diarization will be automatically turned on if `virtualDualChannelEnabled` is true.  Determination of which speaker is Agent will be attempted from the transcript. </br> Note, current version does not handle audio with more than 2 channels.   # noqa: E501
 
         :return: The speaker_channels of this NewSpeechAnalyticsSession.  # noqa: E501
         :rtype: list[SpeechAnalyticsChannel]
@@ -383,7 +388,7 @@ class NewSpeechAnalyticsSession(object):
     def speaker_channels(self, speaker_channels):
         """Sets the speaker_channels of this NewSpeechAnalyticsSession.
 
-        For stereo audio this is used to map audio channels to processing sessions and to identify which one is Agent.</br> For mono audio, specify just one session. Diarization will be automatically turned on.  Determination of which speaker is Agent will be attempted from the transcript.          # noqa: E501
+        For **stereo** audio this is used to map audio channels to processing sessions and to identify which one is Agent.</br> For **mono** audio, specify just one session.  Diarization will be automatically turned on if `virtualDualChannelEnabled` is true.  Determination of which speaker is Agent will be attempted from the transcript. </br> Note, current version does not handle audio with more than 2 channels.   # noqa: E501
 
         :param speaker_channels: The speaker_channels of this NewSpeechAnalyticsSession.  # noqa: E501
         :type: list[SpeechAnalyticsChannel]
@@ -442,6 +447,29 @@ class NewSpeechAnalyticsSession(object):
             raise ValueError("Invalid value for `topic_discovery_config`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._topic_discovery_config = topic_discovery_config
+
+    @property
+    def virtual_dual_channel_enabled(self):
+        """Gets the virtual_dual_channel_enabled of this NewSpeechAnalyticsSession.  # noqa: E501
+
+        Applies only if the source audio is mono (1 channel).  This is intended to be used in cases where we want to process a call center call that was recorded in mono.</br> If audio is mono and `virtualDualChannelEnabled` is true then: + diarization will we set to `minSpeakers=2` and `maxSpeakers=2` + simulated (virtual) `multiChannelAudio` will be generated.   If `virtualDualChannelEnabled` is **false** then no matter what the setting of diarization is **no** `multiChannelAudio` will be generated.   # noqa: E501
+
+        :return: The virtual_dual_channel_enabled of this NewSpeechAnalyticsSession.  # noqa: E501
+        :rtype: bool
+        """
+        return self._virtual_dual_channel_enabled
+
+    @virtual_dual_channel_enabled.setter
+    def virtual_dual_channel_enabled(self, virtual_dual_channel_enabled):
+        """Sets the virtual_dual_channel_enabled of this NewSpeechAnalyticsSession.
+
+        Applies only if the source audio is mono (1 channel).  This is intended to be used in cases where we want to process a call center call that was recorded in mono.</br> If audio is mono and `virtualDualChannelEnabled` is true then: + diarization will we set to `minSpeakers=2` and `maxSpeakers=2` + simulated (virtual) `multiChannelAudio` will be generated.   If `virtualDualChannelEnabled` is **false** then no matter what the setting of diarization is **no** `multiChannelAudio` will be generated.   # noqa: E501
+
+        :param virtual_dual_channel_enabled: The virtual_dual_channel_enabled of this NewSpeechAnalyticsSession.  # noqa: E501
+        :type: bool
+        """
+
+        self._virtual_dual_channel_enabled = virtual_dual_channel_enabled
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -606,7 +606,7 @@ class SpeechAnalyticsResult(object):
     def multi_channel_audio(self):
         """Gets the multi_channel_audio of this SpeechAnalyticsResult.  # noqa: E501
 
-        UUID of a Data Object containing multichannel audio if applicable. If diarization was performed then this will be simulated multichannel (stereo) audio.     Currently, multi-channel means dual-channel. </br> NOTE: `multiChannelAudio` data if present will be accompanied by `multiChannelDiarization` and `multiChannelWords` data. That data could also be obtained from the transcription session(s) referenced by `channels.transcribeSid`, however,  is provided here so that Web UI does not have to do extra processing to generate it.   # noqa: E501
+        UUID of a Data Object containing multichannel audio  (only if original was stereo and we processed it as 2-channel or if original was mono and `virtualDualChannelEnabled` was set to true).</br> Currently, multi-channel means dual-channel. </br> NOTE: `multiChannelAudio` data if present will be accompanied by `multiChannelDiarization` and `multiChannelWords` data. That data could also be obtained from the transcription session(s) referenced by `channels.transcribeSid`, however,  it is provided here so that Web UI does not have to do extra processing to generate it.   # noqa: E501
 
         :return: The multi_channel_audio of this SpeechAnalyticsResult.  # noqa: E501
         :rtype: str
@@ -617,7 +617,7 @@ class SpeechAnalyticsResult(object):
     def multi_channel_audio(self, multi_channel_audio):
         """Sets the multi_channel_audio of this SpeechAnalyticsResult.
 
-        UUID of a Data Object containing multichannel audio if applicable. If diarization was performed then this will be simulated multichannel (stereo) audio.     Currently, multi-channel means dual-channel. </br> NOTE: `multiChannelAudio` data if present will be accompanied by `multiChannelDiarization` and `multiChannelWords` data. That data could also be obtained from the transcription session(s) referenced by `channels.transcribeSid`, however,  is provided here so that Web UI does not have to do extra processing to generate it.   # noqa: E501
+        UUID of a Data Object containing multichannel audio  (only if original was stereo and we processed it as 2-channel or if original was mono and `virtualDualChannelEnabled` was set to true).</br> Currently, multi-channel means dual-channel. </br> NOTE: `multiChannelAudio` data if present will be accompanied by `multiChannelDiarization` and `multiChannelWords` data. That data could also be obtained from the transcription session(s) referenced by `channels.transcribeSid`, however,  it is provided here so that Web UI does not have to do extra processing to generate it.   # noqa: E501
 
         :param multi_channel_audio: The multi_channel_audio of this SpeechAnalyticsResult.  # noqa: E501
         :type: str
@@ -656,7 +656,7 @@ class SpeechAnalyticsResult(object):
     def multi_channel_words(self):
         """Gets the multi_channel_words of this SpeechAnalyticsResult.  # noqa: E501
 
-        Words data for multi-channel case ready to be consumed by web-ui. If we have real multi-channel input audio then the words will be merged from all channels. If the multi-channel is virtual, then the words data will be just a copy from transcription session.   # noqa: E501
+        (See note on multiChannelAudio)</br> Words data for multi-channel case ready to be consumed by web-ui. If we have real multi-channel input audio then the words will be merged from all channels. If the multi-channel is virtual, then the words data will be just a copy from transcription session.   # noqa: E501
 
         :return: The multi_channel_words of this SpeechAnalyticsResult.  # noqa: E501
         :rtype: list[WordsSection]
@@ -667,7 +667,7 @@ class SpeechAnalyticsResult(object):
     def multi_channel_words(self, multi_channel_words):
         """Sets the multi_channel_words of this SpeechAnalyticsResult.
 
-        Words data for multi-channel case ready to be consumed by web-ui. If we have real multi-channel input audio then the words will be merged from all channels. If the multi-channel is virtual, then the words data will be just a copy from transcription session.   # noqa: E501
+        (See note on multiChannelAudio)</br> Words data for multi-channel case ready to be consumed by web-ui. If we have real multi-channel input audio then the words will be merged from all channels. If the multi-channel is virtual, then the words data will be just a copy from transcription session.   # noqa: E501
 
         :param multi_channel_words: The multi_channel_words of this SpeechAnalyticsResult.  # noqa: E501
         :type: list[WordsSection]
@@ -721,7 +721,7 @@ class SpeechAnalyticsResult(object):
     def single_channel_audio(self):
         """Gets the single_channel_audio of this SpeechAnalyticsResult.  # noqa: E501
 
-        UUID of a Data Object containing single channel audio if applicable.   # noqa: E501
+        UUID of a Data Object containing single channel audio if the input audio was mono  (or stereo with just one channel or mix selected for transcription) and `virtualDualChannelEnabled` was false. To get the words you will need to access the transcription session using the id from `channels[0].transcribeSid`   # noqa: E501
 
         :return: The single_channel_audio of this SpeechAnalyticsResult.  # noqa: E501
         :rtype: str
@@ -732,7 +732,7 @@ class SpeechAnalyticsResult(object):
     def single_channel_audio(self, single_channel_audio):
         """Sets the single_channel_audio of this SpeechAnalyticsResult.
 
-        UUID of a Data Object containing single channel audio if applicable.   # noqa: E501
+        UUID of a Data Object containing single channel audio if the input audio was mono  (or stereo with just one channel or mix selected for transcription) and `virtualDualChannelEnabled` was false. To get the words you will need to access the transcription session using the id from `channels[0].transcribeSid`   # noqa: E501
 
         :param single_channel_audio: The single_channel_audio of this SpeechAnalyticsResult.  # noqa: E501
         :type: str
