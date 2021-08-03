@@ -510,7 +510,7 @@ class SpeechAnalyticsResult(object):
     def channels(self):
         """Gets the channels of this SpeechAnalyticsResult.  # noqa: E501
 
-        Speech analytics results specific to each channel.</br> Value of `channels[].audioChannelSelector` tells us how the channel corresponds to the original audio.   # noqa: E501
+        Speech analytics results specific to each channel. There are 3 cases + **dual channel** input audio - the `audioChannelSelector` will indicate the original audio channnels.  No diarization was done as each channel is assumed to have just one speaker. + **virtual dual** channel - the `audioChannelSelector` will indicate the virtual audio channnels. Diarization used was set to 2 speakers. + **single channel** audio with diarization - the `audioChannelSelector` will indicate which channel from the original audio was transcribed. Each element in `channels` list will correspond to 1 diarized speaker.  Some of the values are not available in this case, e.g., `gender`, `age`, `overtalk`.  `audioZones` and `decibels` can be obtained from transcript session via `transcribeSid`   # noqa: E501
 
         :return: The channels of this SpeechAnalyticsResult.  # noqa: E501
         :rtype: list[SpeechAnalyticsChannelResult]
@@ -521,7 +521,7 @@ class SpeechAnalyticsResult(object):
     def channels(self, channels):
         """Sets the channels of this SpeechAnalyticsResult.
 
-        Speech analytics results specific to each channel.</br> Value of `channels[].audioChannelSelector` tells us how the channel corresponds to the original audio.   # noqa: E501
+        Speech analytics results specific to each channel. There are 3 cases + **dual channel** input audio - the `audioChannelSelector` will indicate the original audio channnels.  No diarization was done as each channel is assumed to have just one speaker. + **virtual dual** channel - the `audioChannelSelector` will indicate the virtual audio channnels. Diarization used was set to 2 speakers. + **single channel** audio with diarization - the `audioChannelSelector` will indicate which channel from the original audio was transcribed. Each element in `channels` list will correspond to 1 diarized speaker.  Some of the values are not available in this case, e.g., `gender`, `age`, `overtalk`.  `audioZones` and `decibels` can be obtained from transcript session via `transcribeSid`   # noqa: E501
 
         :param channels: The channels of this SpeechAnalyticsResult.  # noqa: E501
         :type: list[SpeechAnalyticsChannelResult]
