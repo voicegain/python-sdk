@@ -614,7 +614,7 @@ class DataApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['audio/*, text/*, */*', 'application/json'])  # noqa: E501
+            ['audio/*, text/*, image/*, */*', 'application/json'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
