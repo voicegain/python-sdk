@@ -41,8 +41,10 @@ class AsrSettingsTranscriptionDefaults(object):
         'sensitivity': 'float',
         'speech_context': 'str',
         'speed_vs_accuracy': 'float',
+        'decoder_factor': 'float',
         'hints': 'list[str]',
         'lang_model': 'str',
+        'lang_model_factor': 'float',
         'complete_timeout': 'int',
         'no_input_timeout': 'int'
     }
@@ -55,13 +57,15 @@ class AsrSettingsTranscriptionDefaults(object):
         'sensitivity': 'sensitivity',
         'speech_context': 'speechContext',
         'speed_vs_accuracy': 'speedVsAccuracy',
+        'decoder_factor': 'decoderFactor',
         'hints': 'hints',
         'lang_model': 'langModel',
+        'lang_model_factor': 'langModelFactor',
         'complete_timeout': 'completeTimeout',
         'no_input_timeout': 'noInputTimeout'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speech_context='normal', speed_vs_accuracy=None, hints=None, lang_model=None, complete_timeout=-1, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speech_context='normal', speed_vs_accuracy=None, decoder_factor=None, hints=None, lang_model=None, lang_model_factor=None, complete_timeout=-1, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscriptionDefaults - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,8 +78,10 @@ class AsrSettingsTranscriptionDefaults(object):
         self._sensitivity = None
         self._speech_context = None
         self._speed_vs_accuracy = None
+        self._decoder_factor = None
         self._hints = None
         self._lang_model = None
+        self._lang_model_factor = None
         self._complete_timeout = None
         self._no_input_timeout = None
         self.discriminator = None
@@ -94,10 +100,14 @@ class AsrSettingsTranscriptionDefaults(object):
             self.speech_context = speech_context
         if speed_vs_accuracy is not None:
             self.speed_vs_accuracy = speed_vs_accuracy
+        if decoder_factor is not None:
+            self.decoder_factor = decoder_factor
         if hints is not None:
             self.hints = hints
         if lang_model is not None:
             self.lang_model = lang_model
+        if lang_model_factor is not None:
+            self.lang_model_factor = lang_model_factor
         if complete_timeout is not None:
             self.complete_timeout = complete_timeout
         if no_input_timeout is not None:
@@ -295,10 +305,37 @@ class AsrSettingsTranscriptionDefaults(object):
         self._speed_vs_accuracy = speed_vs_accuracy
 
     @property
+    def decoder_factor(self):
+        """Gets the decoder_factor of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+
+
+        :return: The decoder_factor of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :rtype: float
+        """
+        return self._decoder_factor
+
+    @decoder_factor.setter
+    def decoder_factor(self, decoder_factor):
+        """Sets the decoder_factor of this AsrSettingsTranscriptionDefaults.
+
+
+        :param decoder_factor: The decoder_factor of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                decoder_factor is not None and decoder_factor > 1.0):  # noqa: E501
+            raise ValueError("Invalid value for `decoder_factor`, must be a value less than or equal to `1.0`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                decoder_factor is not None and decoder_factor < 0.0):  # noqa: E501
+            raise ValueError("Invalid value for `decoder_factor`, must be a value greater than or equal to `0.0`")  # noqa: E501
+
+        self._decoder_factor = decoder_factor
+
+    @property
     def hints(self):
         """Gets the hints of this AsrSettingsTranscriptionDefaults.  # noqa: E501
 
-        Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_'   # noqa: E501
+        Can be provided to indicate that given words/phrases are more likely to appear in the audio input.</br> It is possible to provide a weight for a hint - it is a value from 1 to 10 (with 5 being the default) - the higher the value the more likely the hint is to be picked up but also more likely that it will be picked up by mistake. The weight value is separated from hint by `:`, e.g. \"Arioch:10\" </br> Up to 50 hints may be provided per request.  No special characters allowed except for '_' which is used in phrases.</br> For more info about hints see [here](https://support.voicegain.ai/hc/en-us/articles/4407993206548-Using-Hints)   # noqa: E501
 
         :return: The hints of this AsrSettingsTranscriptionDefaults.  # noqa: E501
         :rtype: list[str]
@@ -309,7 +346,7 @@ class AsrSettingsTranscriptionDefaults(object):
     def hints(self, hints):
         """Sets the hints of this AsrSettingsTranscriptionDefaults.
 
-        Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_'   # noqa: E501
+        Can be provided to indicate that given words/phrases are more likely to appear in the audio input.</br> It is possible to provide a weight for a hint - it is a value from 1 to 10 (with 5 being the default) - the higher the value the more likely the hint is to be picked up but also more likely that it will be picked up by mistake. The weight value is separated from hint by `:`, e.g. \"Arioch:10\" </br> Up to 50 hints may be provided per request.  No special characters allowed except for '_' which is used in phrases.</br> For more info about hints see [here](https://support.voicegain.ai/hc/en-us/articles/4407993206548-Using-Hints)   # noqa: E501
 
         :param hints: The hints of this AsrSettingsTranscriptionDefaults.  # noqa: E501
         :type: list[str]
@@ -321,7 +358,7 @@ class AsrSettingsTranscriptionDefaults(object):
     def lang_model(self):
         """Gets the lang_model of this AsrSettingsTranscriptionDefaults.  # noqa: E501
 
-        Name or UUID of the language model to use. If absent then will use default language model.  # noqa: E501
+        Name or UUID of the user-defined language model to use.</br> For more info about language models see [here](https://support.voicegain.ai/hc/en-us/articles/4407994215828-Using-Language-Models)   # noqa: E501
 
         :return: The lang_model of this AsrSettingsTranscriptionDefaults.  # noqa: E501
         :rtype: str
@@ -332,7 +369,7 @@ class AsrSettingsTranscriptionDefaults(object):
     def lang_model(self, lang_model):
         """Sets the lang_model of this AsrSettingsTranscriptionDefaults.
 
-        Name or UUID of the language model to use. If absent then will use default language model.  # noqa: E501
+        Name or UUID of the user-defined language model to use.</br> For more info about language models see [here](https://support.voicegain.ai/hc/en-us/articles/4407994215828-Using-Language-Models)   # noqa: E501
 
         :param lang_model: The lang_model of this AsrSettingsTranscriptionDefaults.  # noqa: E501
         :type: str
@@ -342,6 +379,33 @@ class AsrSettingsTranscriptionDefaults(object):
             raise ValueError("Invalid value for `lang_model`, length must be less than or equal to `128`")  # noqa: E501
 
         self._lang_model = lang_model
+
+    @property
+    def lang_model_factor(self):
+        """Gets the lang_model_factor of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+
+
+        :return: The lang_model_factor of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :rtype: float
+        """
+        return self._lang_model_factor
+
+    @lang_model_factor.setter
+    def lang_model_factor(self, lang_model_factor):
+        """Sets the lang_model_factor of this AsrSettingsTranscriptionDefaults.
+
+
+        :param lang_model_factor: The lang_model_factor of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                lang_model_factor is not None and lang_model_factor > 1.0):  # noqa: E501
+            raise ValueError("Invalid value for `lang_model_factor`, must be a value less than or equal to `1.0`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                lang_model_factor is not None and lang_model_factor < 0.0):  # noqa: E501
+            raise ValueError("Invalid value for `lang_model_factor`, must be a value greater than or equal to `0.0`")  # noqa: E501
+
+        self._lang_model_factor = lang_model_factor
 
     @property
     def complete_timeout(self):
