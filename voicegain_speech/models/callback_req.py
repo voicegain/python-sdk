@@ -72,7 +72,7 @@ class CallbackReq(object):
     def auth_conf(self):
         """Gets the auth_conf of this CallbackReq.  # noqa: E501
 
-        Name of the authentication config for accessing the URI, if missing then no authentication will be attempted.</br> Can be defined via Voicegain Portal. **(Not implemented yet)**   # noqa: E501
+        Name of the authentication config for accessing the URI, if missing then no authentication will be attempted.</br> Can be defined via Voicegain Console. For details see this [Knowledge Base article](https://support.voicegain.ai/hc/en-us/articles/4408977638292-Using-authConf-for-Callbacks).   # noqa: E501
 
         :return: The auth_conf of this CallbackReq.  # noqa: E501
         :rtype: str
@@ -83,7 +83,7 @@ class CallbackReq(object):
     def auth_conf(self, auth_conf):
         """Sets the auth_conf of this CallbackReq.
 
-        Name of the authentication config for accessing the URI, if missing then no authentication will be attempted.</br> Can be defined via Voicegain Portal. **(Not implemented yet)**   # noqa: E501
+        Name of the authentication config for accessing the URI, if missing then no authentication will be attempted.</br> Can be defined via Voicegain Console. For details see this [Knowledge Base article](https://support.voicegain.ai/hc/en-us/articles/4408977638292-Using-authConf-for-Callbacks).   # noqa: E501
 
         :param auth_conf: The auth_conf of this CallbackReq.  # noqa: E501
         :type: str
