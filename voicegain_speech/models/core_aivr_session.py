@@ -46,6 +46,7 @@ class CoreAIVRSession(object):
         'recordings': 'list[AIVRRecording]',
         'sa_session_id': 'str',
         'sequence': 'int',
+        'session_duration': 'int',
         'start_time': 'datetime',
         'telco_data': 'CoreAIVRSessionTelcoData',
         'terminated': 'str',
@@ -68,6 +69,7 @@ class CoreAIVRSession(object):
         'recordings': 'recordings',
         'sa_session_id': 'saSessionId',
         'sequence': 'sequence',
+        'session_duration': 'sessionDuration',
         'start_time': 'startTime',
         'telco_data': 'telcoData',
         'terminated': 'terminated',
@@ -77,7 +79,7 @@ class CoreAIVRSession(object):
         'vars': 'vars'
     }
 
-    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sa_session_id=None, sequence=None, start_time=None, telco_data=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sa_session_id=None, sequence=None, session_duration=None, start_time=None, telco_data=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """CoreAIVRSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -95,6 +97,7 @@ class CoreAIVRSession(object):
         self._recordings = None
         self._sa_session_id = None
         self._sequence = None
+        self._session_duration = None
         self._start_time = None
         self._telco_data = None
         self._terminated = None
@@ -126,6 +129,8 @@ class CoreAIVRSession(object):
             self.sa_session_id = sa_session_id
         if sequence is not None:
             self.sequence = sequence
+        if session_duration is not None:
+            self.session_duration = session_duration
         self.start_time = start_time
         if telco_data is not None:
             self.telco_data = telco_data
@@ -420,6 +425,29 @@ class CoreAIVRSession(object):
             raise ValueError("Invalid value for `sequence`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._sequence = sequence
+
+    @property
+    def session_duration(self):
+        """Gets the session_duration of this CoreAIVRSession.  # noqa: E501
+
+        Overall session duration in milliseconds.   # noqa: E501
+
+        :return: The session_duration of this CoreAIVRSession.  # noqa: E501
+        :rtype: int
+        """
+        return self._session_duration
+
+    @session_duration.setter
+    def session_duration(self, session_duration):
+        """Sets the session_duration of this CoreAIVRSession.
+
+        Overall session duration in milliseconds.   # noqa: E501
+
+        :param session_duration: The session_duration of this CoreAIVRSession.  # noqa: E501
+        :type: int
+        """
+
+        self._session_duration = session_duration
 
     @property
     def start_time(self):
