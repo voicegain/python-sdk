@@ -34,29 +34,58 @@ class SettingsAsyncTranscriptionFormatters(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'parameters': 'dict(str, str)',
         'type': 'str'
     }
 
     attribute_map = {
+        'parameters': 'parameters',
         'type': 'type'
     }
 
-    def __init__(self, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, parameters=None, type=None, local_vars_configuration=None):  # noqa: E501
         """SettingsAsyncTranscriptionFormatters - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._parameters = None
         self._type = None
         self.discriminator = None
 
+        if parameters is not None:
+            self.parameters = parameters
         if type is not None:
             self.type = type
+
+    @property
+    def parameters(self):
+        """Gets the parameters of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
+
+        (optional) parameters for the formatter (a key-value map)  # noqa: E501
+
+        :return: The parameters of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._parameters
+
+    @parameters.setter
+    def parameters(self, parameters):
+        """Sets the parameters of this SettingsAsyncTranscriptionFormatters.
+
+        (optional) parameters for the formatter (a key-value map)  # noqa: E501
+
+        :param parameters: The parameters of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._parameters = parameters
 
     @property
     def type(self):
         """Gets the type of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
 
+        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no properties + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\"    # noqa: E501
 
         :return: The type of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
         :rtype: str
@@ -67,11 +96,12 @@ class SettingsAsyncTranscriptionFormatters(object):
     def type(self, type):
         """Sets the type of this SettingsAsyncTranscriptionFormatters.
 
+        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no properties + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\"    # noqa: E501
 
         :param type: The type of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
         :type: str
         """
-        allowed_values = ["digits"]  # noqa: E501
+        allowed_values = ["digits", "spelling"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

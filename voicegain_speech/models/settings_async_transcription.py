@@ -114,7 +114,7 @@ class SettingsAsyncTranscription(object):
     def formatters(self):
         """Gets the formatters of this SettingsAsyncTranscription.  # noqa: E501
 
-        (optional) Configuration for text formatters. Currently only digits formatter is available. More types of formatters with various options will be added in the future.  # noqa: E501
+        (optional) Configuration for text formatters.  Currently only digits formatter and english US/GB spelling enforcer are available. </br> More types of formatters with various options will be added in the future.   # noqa: E501
 
         :return: The formatters of this SettingsAsyncTranscription.  # noqa: E501
         :rtype: list[SettingsAsyncTranscriptionFormatters]
@@ -125,7 +125,7 @@ class SettingsAsyncTranscription(object):
     def formatters(self, formatters):
         """Sets the formatters of this SettingsAsyncTranscription.
 
-        (optional) Configuration for text formatters. Currently only digits formatter is available. More types of formatters with various options will be added in the future.  # noqa: E501
+        (optional) Configuration for text formatters.  Currently only digits formatter and english US/GB spelling enforcer are available. </br> More types of formatters with various options will be added in the future.   # noqa: E501
 
         :param formatters: The formatters of this SettingsAsyncTranscription.  # noqa: E501
         :type: list[SettingsAsyncTranscriptionFormatters]
