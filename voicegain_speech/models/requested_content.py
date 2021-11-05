@@ -62,7 +62,7 @@ class RequestedContent(object):
     def full(self):
         """Gets the full of this RequestedContent.  # noqa: E501
 
-        Types of content to be returned when ASR is done with processing all audio.</br> Note 1: In order for [GET /asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript) to return results - `words` need to be selected. </br> Note 2: To suppress full result, specify empty array to replace the default.   # noqa: E501
+        Types of content to be returned when ASR is done with processing all audio.</br> Note 1: In order for [GET /asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript) to return results - `words` needs to be selected. </br> Note 2: To suppress full result, specify empty array to replace the default.</br> Note 3: There is currently a bug  (rcj-377) where if you specify only `transcript` then callback (if requested) will not contain any transcript. A workaround is to specify also `words`, however, this will result in the callback containing both transcript and the time-annotated words.    # noqa: E501
 
         :return: The full of this RequestedContent.  # noqa: E501
         :rtype: list[ContentType]
@@ -73,7 +73,7 @@ class RequestedContent(object):
     def full(self, full):
         """Sets the full of this RequestedContent.
 
-        Types of content to be returned when ASR is done with processing all audio.</br> Note 1: In order for [GET /asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript) to return results - `words` need to be selected. </br> Note 2: To suppress full result, specify empty array to replace the default.   # noqa: E501
+        Types of content to be returned when ASR is done with processing all audio.</br> Note 1: In order for [GET /asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript) to return results - `words` needs to be selected. </br> Note 2: To suppress full result, specify empty array to replace the default.</br> Note 3: There is currently a bug  (rcj-377) where if you specify only `transcript` then callback (if requested) will not contain any transcript. A workaround is to specify also `words`, however, this will result in the callback containing both transcript and the time-annotated words.    # noqa: E501
 
         :param full: The full of this RequestedContent.  # noqa: E501
         :type: list[ContentType]
