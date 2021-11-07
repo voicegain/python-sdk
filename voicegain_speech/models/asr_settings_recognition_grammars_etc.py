@@ -86,7 +86,7 @@ class AsrSettingsRecognitionGrammarsEtc(object):
     def complete_timeout(self):
         """Gets the complete_timeout of this AsrSettingsRecognitionGrammarsEtc.  # noqa: E501
 
-        ASR complete timeout (in msec). Kicks in after grammar match has been completed. Not more valid input is possible.  # noqa: E501
+        ASR complete timeout (in msec). The length of silence required following user speech before the speech recognizer finalizes a result  (either accepting it or throwing a nomatch event).  The `completeTimeout` is used when the speech is a complete match of an active grammar and no further words can be spoken that would match the grammar.   # noqa: E501
 
         :return: The complete_timeout of this AsrSettingsRecognitionGrammarsEtc.  # noqa: E501
         :rtype: int
@@ -97,7 +97,7 @@ class AsrSettingsRecognitionGrammarsEtc(object):
     def complete_timeout(self, complete_timeout):
         """Sets the complete_timeout of this AsrSettingsRecognitionGrammarsEtc.
 
-        ASR complete timeout (in msec). Kicks in after grammar match has been completed. Not more valid input is possible.  # noqa: E501
+        ASR complete timeout (in msec). The length of silence required following user speech before the speech recognizer finalizes a result  (either accepting it or throwing a nomatch event).  The `completeTimeout` is used when the speech is a complete match of an active grammar and no further words can be spoken that would match the grammar.   # noqa: E501
 
         :param complete_timeout: The complete_timeout of this AsrSettingsRecognitionGrammarsEtc.  # noqa: E501
         :type: int
@@ -169,7 +169,7 @@ class AsrSettingsRecognitionGrammarsEtc(object):
     def incomplete_timeout(self):
         """Gets the incomplete_timeout of this AsrSettingsRecognitionGrammarsEtc.  # noqa: E501
 
-        ASR incomplete timeout (in msec). Kicks in when start-of-speech was detected. Lasts until grammar allows for move valid input.  # noqa: E501
+        ASR incomplete timeout (in msec).  The length of silence required following user speech before the speech recognizer finalizes a result  (by either accepting it or throwing a nomatch event).  In contrast to `completeTimeout`, the `incompleteTimeout` is used when the speech is an incomplete match to an active grammar,  **or** when the speech is a match but it is possible to speak further and match the grammar.</br> A too short incomplete timeout may lead to an utterance being broken up inappropriately, or throwing a nomatch while user has still not finished speaking.  A too long incomplete timeout value delays the result completion and therefore makes the system responses feel slow to the user.    # noqa: E501
 
         :return: The incomplete_timeout of this AsrSettingsRecognitionGrammarsEtc.  # noqa: E501
         :rtype: int
@@ -180,7 +180,7 @@ class AsrSettingsRecognitionGrammarsEtc(object):
     def incomplete_timeout(self, incomplete_timeout):
         """Sets the incomplete_timeout of this AsrSettingsRecognitionGrammarsEtc.
 
-        ASR incomplete timeout (in msec). Kicks in when start-of-speech was detected. Lasts until grammar allows for move valid input.  # noqa: E501
+        ASR incomplete timeout (in msec).  The length of silence required following user speech before the speech recognizer finalizes a result  (by either accepting it or throwing a nomatch event).  In contrast to `completeTimeout`, the `incompleteTimeout` is used when the speech is an incomplete match to an active grammar,  **or** when the speech is a match but it is possible to speak further and match the grammar.</br> A too short incomplete timeout may lead to an utterance being broken up inappropriately, or throwing a nomatch while user has still not finished speaking.  A too long incomplete timeout value delays the result completion and therefore makes the system responses feel slow to the user.    # noqa: E501
 
         :param incomplete_timeout: The incomplete_timeout of this AsrSettingsRecognitionGrammarsEtc.  # noqa: E501
         :type: int
