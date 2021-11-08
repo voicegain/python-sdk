@@ -88,7 +88,7 @@ class PortalOutputInit(object):
     def persist(self):
         """Gets the persist of this PortalOutputInit.  # noqa: E501
 
-        Time (in msec) to retain the result/outcome data after processing has completed.  For Cloud, maximum persistence is 7 days. For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available in the portal.   # noqa: E501
+        Time (in msec) to retain the result/outcome data after processing has completed. The default value applies only if portal field is in the request.  If portal field is not in the request at all then it is same as if portal.persist was 0. </br>  For Cloud, maximum persistence is 7 days. For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available in the portal.   # noqa: E501
 
         :return: The persist of this PortalOutputInit.  # noqa: E501
         :rtype: float
@@ -99,7 +99,7 @@ class PortalOutputInit(object):
     def persist(self, persist):
         """Sets the persist of this PortalOutputInit.
 
-        Time (in msec) to retain the result/outcome data after processing has completed.  For Cloud, maximum persistence is 7 days. For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available in the portal.   # noqa: E501
+        Time (in msec) to retain the result/outcome data after processing has completed. The default value applies only if portal field is in the request.  If portal field is not in the request at all then it is same as if portal.persist was 0. </br>  For Cloud, maximum persistence is 7 days. For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available in the portal.   # noqa: E501
 
         :param persist: The persist of this PortalOutputInit.  # noqa: E501
         :type: float
