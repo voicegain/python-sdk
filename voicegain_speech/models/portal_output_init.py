@@ -53,8 +53,7 @@ class PortalOutputInit(object):
         self._persist = None
         self.discriminator = None
 
-        if label is not None:
-            self.label = label
+        self.label = label
         if persist is not None:
             self.persist = persist
 
@@ -62,7 +61,7 @@ class PortalOutputInit(object):
     def label(self):
         """Gets the label of this PortalOutputInit.  # noqa: E501
 
-        Label for the result. </br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with digit or letter.    # noqa: E501
+        Label for the result so that it can be easily identified in the portal (Web Console). </br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with digit or letter.    # noqa: E501
 
         :return: The label of this PortalOutputInit.  # noqa: E501
         :rtype: str
@@ -73,11 +72,13 @@ class PortalOutputInit(object):
     def label(self, label):
         """Sets the label of this PortalOutputInit.
 
-        Label for the result. </br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with digit or letter.    # noqa: E501
+        Label for the result so that it can be easily identified in the portal (Web Console). </br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with digit or letter.    # noqa: E501
 
         :param label: The label of this PortalOutputInit.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and label is None:  # noqa: E501
+            raise ValueError("Invalid value for `label`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 label is not None and len(label) > 128):
             raise ValueError("Invalid value for `label`, length must be less than or equal to `128`")  # noqa: E501
