@@ -110,7 +110,7 @@ class AIVRResponsePropertiesAudio(object):
     def complete_timeout(self):
         """Gets the complete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
 
-        (for both grammar-based recognition and large-vocabulary transcription)</br> ASR complete timeout (in msec).</br>  For grammar-based recognition - kicks in after grammar match has been completed and no more valid input is possible.   # noqa: E501
+        (for both grammar-based recognition and large-vocabulary transcription)</br> ASR complete timeout (in msec).</br>  For grammar-based recognition - kicks in after grammar match has been completed and no more valid input is possible. </br>There is an internal minimum of 500ms needed for detection of end-of-speech so setting value between 1 and 500 will result in effectively the value being 500.   # noqa: E501
 
         :return: The complete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
         :rtype: int
@@ -121,7 +121,7 @@ class AIVRResponsePropertiesAudio(object):
     def complete_timeout(self, complete_timeout):
         """Sets the complete_timeout of this AIVRResponsePropertiesAudio.
 
-        (for both grammar-based recognition and large-vocabulary transcription)</br> ASR complete timeout (in msec).</br>  For grammar-based recognition - kicks in after grammar match has been completed and no more valid input is possible.   # noqa: E501
+        (for both grammar-based recognition and large-vocabulary transcription)</br> ASR complete timeout (in msec).</br>  For grammar-based recognition - kicks in after grammar match has been completed and no more valid input is possible. </br>There is an internal minimum of 500ms needed for detection of end-of-speech so setting value between 1 and 500 will result in effectively the value being 500.   # noqa: E501
 
         :param complete_timeout: The complete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
         :type: int
@@ -185,7 +185,7 @@ class AIVRResponsePropertiesAudio(object):
     def incomplete_timeout(self):
         """Gets the incomplete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
 
-        (for grammar-based recognition only) </br> ASR incomplete timeout (in msec). Kicks in when start-of-speech was detected. Lasts until grammar allows for more valid input.   # noqa: E501
+        (for grammar-based recognition only) </br> ASR incomplete timeout (in msec). Kicks in when start-of-speech was detected. Lasts until grammar allows for more valid input. </br>There is an internal minimum of 500ms needed for detection of end-of-speech so setting value between 1 and 500 will result in effectively the value being 500.   # noqa: E501
 
         :return: The incomplete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
         :rtype: int
@@ -196,7 +196,7 @@ class AIVRResponsePropertiesAudio(object):
     def incomplete_timeout(self, incomplete_timeout):
         """Sets the incomplete_timeout of this AIVRResponsePropertiesAudio.
 
-        (for grammar-based recognition only) </br> ASR incomplete timeout (in msec). Kicks in when start-of-speech was detected. Lasts until grammar allows for more valid input.   # noqa: E501
+        (for grammar-based recognition only) </br> ASR incomplete timeout (in msec). Kicks in when start-of-speech was detected. Lasts until grammar allows for more valid input. </br>There is an internal minimum of 500ms needed for detection of end-of-speech so setting value between 1 and 500 will result in effectively the value being 500.   # noqa: E501
 
         :param incomplete_timeout: The incomplete_timeout of this AIVRResponsePropertiesAudio.  # noqa: E501
         :type: int

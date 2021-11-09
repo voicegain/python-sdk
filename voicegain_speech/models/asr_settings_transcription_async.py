@@ -498,7 +498,7 @@ class AsrSettingsTranscriptionAsync(object):
     def complete_timeout(self):
         """Gets the complete_timeout of this AsrSettingsTranscriptionAsync.  # noqa: E501
 
-        (Applies to Real-Time transcription only)</br> Timeout in milliseconds that determines when transcription will stop.  Kicks in once speech has been detected. The timeout threshold is applied to the duration of non-speech following most recent speech. </br> Any value <= 0 means that the timeout will be ignored and transcription will continue until the audio stream is stopped.   # noqa: E501
+        (Applies to Real-Time transcription only)</br> Timeout in milliseconds that determines when transcription will stop.  Kicks in once speech has been detected. The timeout threshold is applied to the duration of non-speech following most recent speech. </br> Any value <= 0 means that the timeout will be ignored and transcription will continue until the audio stream is stopped. </br>There is an internal minimum of 500ms needed for detection of end-of-speech so setting value between 1 and 500 will result in effectively the value being 500.   # noqa: E501
 
         :return: The complete_timeout of this AsrSettingsTranscriptionAsync.  # noqa: E501
         :rtype: int
@@ -509,7 +509,7 @@ class AsrSettingsTranscriptionAsync(object):
     def complete_timeout(self, complete_timeout):
         """Sets the complete_timeout of this AsrSettingsTranscriptionAsync.
 
-        (Applies to Real-Time transcription only)</br> Timeout in milliseconds that determines when transcription will stop.  Kicks in once speech has been detected. The timeout threshold is applied to the duration of non-speech following most recent speech. </br> Any value <= 0 means that the timeout will be ignored and transcription will continue until the audio stream is stopped.   # noqa: E501
+        (Applies to Real-Time transcription only)</br> Timeout in milliseconds that determines when transcription will stop.  Kicks in once speech has been detected. The timeout threshold is applied to the duration of non-speech following most recent speech. </br> Any value <= 0 means that the timeout will be ignored and transcription will continue until the audio stream is stopped. </br>There is an internal minimum of 500ms needed for detection of end-of-speech so setting value between 1 and 500 will result in effectively the value being 500.   # noqa: E501
 
         :param complete_timeout: The complete_timeout of this AsrSettingsTranscriptionAsync.  # noqa: E501
         :type: int
