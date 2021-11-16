@@ -201,7 +201,7 @@ class JJSGF(object):
     def rules(self):
         """Gets the rules of this JJSGF.  # noqa: E501
 
-        Other JSGF rules.  Each object key is a rule name and each value is a corresponding rule.  Example rules are:  command : \"\\<action\\> \\<object\\>\",  action : \"/10/ open |/2/ close |/1/ delete |/1/ move\",  object : \"[the | a] (window | file | menu )\",             # noqa: E501
+        Other JSGF rules.  Each object key is a rule name and each value is a corresponding rule.<br> NOTE: dashes in rule names are not allowed, so e.g. \"five-digits\" would be a wrong rule name.  Example rules are:  command : \"\\<action\\> \\<object\\>\",  action : \"/10/ open |/2/ close |/1/ delete |/1/ move\",  object : \"[the | a] (window | file | menu )\",             # noqa: E501
 
         :return: The rules of this JJSGF.  # noqa: E501
         :rtype: dict(str, str)
@@ -212,7 +212,7 @@ class JJSGF(object):
     def rules(self, rules):
         """Sets the rules of this JJSGF.
 
-        Other JSGF rules.  Each object key is a rule name and each value is a corresponding rule.  Example rules are:  command : \"\\<action\\> \\<object\\>\",  action : \"/10/ open |/2/ close |/1/ delete |/1/ move\",  object : \"[the | a] (window | file | menu )\",             # noqa: E501
+        Other JSGF rules.  Each object key is a rule name and each value is a corresponding rule.<br> NOTE: dashes in rule names are not allowed, so e.g. \"five-digits\" would be a wrong rule name.  Example rules are:  command : \"\\<action\\> \\<object\\>\",  action : \"/10/ open |/2/ close |/1/ delete |/1/ move\",  object : \"[the | a] (window | file | menu )\",             # noqa: E501
 
         :param rules: The rules of this JJSGF.  # noqa: E501
         :type: dict(str, str)
