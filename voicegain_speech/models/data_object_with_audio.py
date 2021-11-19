@@ -36,6 +36,7 @@ class DataObjectWithAudio(object):
     openapi_types = {
         'content_type': 'str',
         'description': 'str',
+        'long_persist': 'bool',
         'name': 'str',
         'tags': 'list[str]',
         'transcoded': 'bool',
@@ -45,13 +46,14 @@ class DataObjectWithAudio(object):
     attribute_map = {
         'content_type': 'contentType',
         'description': 'description',
+        'long_persist': 'longPersist',
         'name': 'name',
         'tags': 'tags',
         'transcoded': 'transcoded',
         'audio': 'audio'
     }
 
-    def __init__(self, content_type=None, description=None, name=None, tags=None, transcoded=False, audio=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, content_type=None, description=None, long_persist=False, name=None, tags=None, transcoded=False, audio=None, local_vars_configuration=None):  # noqa: E501
         """DataObjectWithAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class DataObjectWithAudio(object):
 
         self._content_type = None
         self._description = None
+        self._long_persist = None
         self._name = None
         self._tags = None
         self._transcoded = None
@@ -69,6 +72,8 @@ class DataObjectWithAudio(object):
             self.content_type = content_type
         if description is not None:
             self.description = description
+        if long_persist is not None:
+            self.long_persist = long_persist
         if name is not None:
             self.name = name
         if tags is not None:
@@ -81,7 +86,7 @@ class DataObjectWithAudio(object):
     def content_type(self):
         """Gets the content_type of this DataObjectWithAudio.  # noqa: E501
 
-        Type of the data stored with this Data Object. This type will be used in response when retrieving it raw.  # noqa: E501
+        Type of the data stored with this Data Object (e.g. audio/wav).  This value will be set in the response Content-Type header when retrieving the data raw.   # noqa: E501
 
         :return: The content_type of this DataObjectWithAudio.  # noqa: E501
         :rtype: str
@@ -92,7 +97,7 @@ class DataObjectWithAudio(object):
     def content_type(self, content_type):
         """Sets the content_type of this DataObjectWithAudio.
 
-        Type of the data stored with this Data Object. This type will be used in response when retrieving it raw.  # noqa: E501
+        Type of the data stored with this Data Object (e.g. audio/wav).  This value will be set in the response Content-Type header when retrieving the data raw.   # noqa: E501
 
         :param content_type: The content_type of this DataObjectWithAudio.  # noqa: E501
         :type: str
@@ -122,6 +127,29 @@ class DataObjectWithAudio(object):
         """
 
         self._description = description
+
+    @property
+    def long_persist(self):
+        """Gets the long_persist of this DataObjectWithAudio.  # noqa: E501
+
+        Default value `false` means that the DataObject will be garbage collected if there are no more references to it and the DataObject is older than `context.ageThresholdForDataObjectCleanup`. If you set value to `true` then the DataObject will **not** be garbage collected. Note, that you may be responsible for storage fees.    # noqa: E501
+
+        :return: The long_persist of this DataObjectWithAudio.  # noqa: E501
+        :rtype: bool
+        """
+        return self._long_persist
+
+    @long_persist.setter
+    def long_persist(self, long_persist):
+        """Sets the long_persist of this DataObjectWithAudio.
+
+        Default value `false` means that the DataObject will be garbage collected if there are no more references to it and the DataObject is older than `context.ageThresholdForDataObjectCleanup`. If you set value to `true` then the DataObject will **not** be garbage collected. Note, that you may be responsible for storage fees.    # noqa: E501
+
+        :param long_persist: The long_persist of this DataObjectWithAudio.  # noqa: E501
+        :type: bool
+        """
+
+        self._long_persist = long_persist
 
     @property
     def name(self):
