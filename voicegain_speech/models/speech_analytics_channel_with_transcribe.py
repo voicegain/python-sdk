@@ -119,7 +119,7 @@ class SpeechAnalyticsChannelWithTranscribe(object):
     def is_agent(self):
         """Gets the is_agent of this SpeechAnalyticsChannelWithTranscribe.  # noqa: E501
 
-        Set to true if this channels contains Agent audio. Only one channel can be Agent channel.</br> If an Agent channel may include music-on-hold then it is recommended to set vadMode to total_music_reject   # noqa: E501
+        Set to true if this channel contains Agent audio. Only one channel can be Agent channel.</br> If an Agent channel may include music-on-hold then it is recommended to set vadMode to total_music_reject   # noqa: E501
 
         :return: The is_agent of this SpeechAnalyticsChannelWithTranscribe.  # noqa: E501
         :rtype: bool
@@ -130,7 +130,7 @@ class SpeechAnalyticsChannelWithTranscribe(object):
     def is_agent(self, is_agent):
         """Sets the is_agent of this SpeechAnalyticsChannelWithTranscribe.
 
-        Set to true if this channels contains Agent audio. Only one channel can be Agent channel.</br> If an Agent channel may include music-on-hold then it is recommended to set vadMode to total_music_reject   # noqa: E501
+        Set to true if this channel contains Agent audio. Only one channel can be Agent channel.</br> If an Agent channel may include music-on-hold then it is recommended to set vadMode to total_music_reject   # noqa: E501
 
         :param is_agent: The is_agent of this SpeechAnalyticsChannelWithTranscribe.  # noqa: E501
         :type: bool
