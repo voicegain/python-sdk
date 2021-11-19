@@ -35,29 +35,34 @@ class SpeechAnalyticsChannel(object):
     """
     openapi_types = {
         'audio_channel_selector': 'AudioChannelSelector',
+        'diarization': 'SpeechAnalyticsChannelDiarization',
         'is_agent': 'bool',
         'vad_mode': 'VadMode'
     }
 
     attribute_map = {
         'audio_channel_selector': 'audioChannelSelector',
+        'diarization': 'diarization',
         'is_agent': 'isAgent',
         'vad_mode': 'vadMode'
     }
 
-    def __init__(self, audio_channel_selector=None, is_agent=False, vad_mode=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio_channel_selector=None, diarization=None, is_agent=False, vad_mode=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsChannel - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._audio_channel_selector = None
+        self._diarization = None
         self._is_agent = None
         self._vad_mode = None
         self.discriminator = None
 
         if audio_channel_selector is not None:
             self.audio_channel_selector = audio_channel_selector
+        if diarization is not None:
+            self.diarization = diarization
         if is_agent is not None:
             self.is_agent = is_agent
         if vad_mode is not None:
@@ -83,6 +88,27 @@ class SpeechAnalyticsChannel(object):
         """
 
         self._audio_channel_selector = audio_channel_selector
+
+    @property
+    def diarization(self):
+        """Gets the diarization of this SpeechAnalyticsChannel.  # noqa: E501
+
+
+        :return: The diarization of this SpeechAnalyticsChannel.  # noqa: E501
+        :rtype: SpeechAnalyticsChannelDiarization
+        """
+        return self._diarization
+
+    @diarization.setter
+    def diarization(self, diarization):
+        """Sets the diarization of this SpeechAnalyticsChannel.
+
+
+        :param diarization: The diarization of this SpeechAnalyticsChannel.  # noqa: E501
+        :type: SpeechAnalyticsChannelDiarization
+        """
+
+        self._diarization = diarization
 
     @property
     def is_agent(self):
