@@ -85,7 +85,7 @@ class SettingsAsyncTranscriptionFormatters(object):
     def type(self):
         """Gets the type of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
 
-        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no properties + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\"    # noqa: E501
+        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no properties + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\" + basic - **default formatter** - provides punctuation and capitalization, has one parameter `enabled` with the default value being true   # noqa: E501
 
         :return: The type of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
         :rtype: str
@@ -96,12 +96,12 @@ class SettingsAsyncTranscriptionFormatters(object):
     def type(self, type):
         """Sets the type of this SettingsAsyncTranscriptionFormatters.
 
-        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no properties + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\"    # noqa: E501
+        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no properties + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\" + basic - **default formatter** - provides punctuation and capitalization, has one parameter `enabled` with the default value being true   # noqa: E501
 
         :param type: The type of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
         :type: str
         """
-        allowed_values = ["digits", "spelling"]  # noqa: E501
+        allowed_values = ["digits", "spelling", "basic"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
