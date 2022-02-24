@@ -1271,6 +1271,8 @@ class DataApi(object):
         :param str tags_incl: Tag or tags to match in results, multiple tags should be separated by comma `,`  Assumes an OR if multiple tags provided. 
         :param str tags_excl: Tag or tags to not include in results, multiple tags should be separated by comma `,` Assumes an OR if multiple tags provided. 
         :param str name: Name to match. If the provided name ends with a star `*` then a prefix match will be performed.</br> Note - the star is allowed only in the last position (arbitrary wildcard matching is not supported). 
+        :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
+        :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1299,6 +1301,8 @@ class DataApi(object):
         :param str tags_incl: Tag or tags to match in results, multiple tags should be separated by comma `,`  Assumes an OR if multiple tags provided. 
         :param str tags_excl: Tag or tags to not include in results, multiple tags should be separated by comma `,` Assumes an OR if multiple tags provided. 
         :param str name: Name to match. If the provided name ends with a star `*` then a prefix match will be performed.</br> Note - the star is allowed only in the last position (arbitrary wildcard matching is not supported). 
+        :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
+        :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1315,7 +1319,7 @@ class DataApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'tags_incl', 'tags_excl', 'name']  # noqa: E501
+        all_params = ['context_id', 'tags_incl', 'tags_excl', 'name', 'from_time', 'to_time']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1342,6 +1346,12 @@ class DataApi(object):
         if self.api_client.client_side_validation and ('name' in local_var_params and  # noqa: E501
                                                         len(local_var_params['name']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `name` when calling `data_query`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and ('from_time' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['from_time']) > 32):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `from_time` when calling `data_query`, length must be less than or equal to `32`")  # noqa: E501
+        if self.api_client.client_side_validation and ('to_time' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['to_time']) > 32):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `to_time` when calling `data_query`, length must be less than or equal to `32`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -1355,6 +1365,10 @@ class DataApi(object):
             query_params.append(('tagsExcl', local_var_params['tags_excl']))  # noqa: E501
         if 'name' in local_var_params and local_var_params['name'] is not None:  # noqa: E501
             query_params.append(('name', local_var_params['name']))  # noqa: E501
+        if 'from_time' in local_var_params and local_var_params['from_time'] is not None:  # noqa: E501
+            query_params.append(('fromTime', local_var_params['from_time']))  # noqa: E501
+        if 'to_time' in local_var_params and local_var_params['to_time'] is not None:  # noqa: E501
+            query_params.append(('toTime', local_var_params['to_time']))  # noqa: E501
 
         header_params = {}
 
