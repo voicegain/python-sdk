@@ -129,7 +129,7 @@ class AIVRQuestion(object):
     def text(self):
         """Gets the text of this AIVRQuestion.  # noqa: E501
 
-        Text to be said or displayed.<br> For audio prompt, the text will be processed by Voicegain Prompt Manager with fallback to TTS in specified voice.</br> If text starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
+        Text to be said or displayed.<br> For audio prompt this text is non-bargeinable (also it is optional). The text will be processed by Voicegain Prompt Manager with fallback to TTS in the specified voice.</br> If text starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
 
         :return: The text of this AIVRQuestion.  # noqa: E501
         :rtype: str
@@ -140,7 +140,7 @@ class AIVRQuestion(object):
     def text(self, text):
         """Sets the text of this AIVRQuestion.
 
-        Text to be said or displayed.<br> For audio prompt, the text will be processed by Voicegain Prompt Manager with fallback to TTS in specified voice.</br> If text starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
+        Text to be said or displayed.<br> For audio prompt this text is non-bargeinable (also it is optional). The text will be processed by Voicegain Prompt Manager with fallback to TTS in the specified voice.</br> If text starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
 
         :param text: The text of this AIVRQuestion.  # noqa: E501
         :type: str
