@@ -132,6 +132,7 @@ from voicegain_speech.models.audio_zone_class import AudioZoneClass
 from voicegain_speech.models.audio_zone_item import AudioZoneItem
 from voicegain_speech.models.builtin import BUILTIN
 from voicegain_speech.models.builtin_all_of import BUILTINAllOf
+from voicegain_speech.models.basic_success_response import BasicSuccessResponse
 from voicegain_speech.models.call_attributes import CallAttributes
 from voicegain_speech.models.callback_req import CallbackReq
 from voicegain_speech.models.callback_req_reco import CallbackReqReco
@@ -347,6 +348,7 @@ from voicegain_speech.models.speech_analytics_phrase_itemfor_phrase import Speec
 from voicegain_speech.models.speech_analytics_phrase_slots import SpeechAnalyticsPhraseSlots
 from voicegain_speech.models.speech_analytics_result import SpeechAnalyticsResult
 from voicegain_speech.models.speech_analytics_result_detail import SpeechAnalyticsResultDetail
+from voicegain_speech.models.speech_analytics_session_modifiable import SpeechAnalyticsSessionModifiable
 from voicegain_speech.models.speech_analytics_session_poll_response import SpeechAnalyticsSessionPollResponse
 from voicegain_speech.models.start_end_time_for_sub_criterion import StartEndTimeForSubCriterion
 from voicegain_speech.models.stomp_word_correction import StompWordCorrection

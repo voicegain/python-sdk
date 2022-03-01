@@ -787,6 +787,120 @@ class SaApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def sa_delete(self, sa_session_id, **kwargs):  # noqa: E501
+        """Delete Sp. Analytics  # noqa: E501
+
+        Delete all data related to specified Speech Analytics session.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_delete(sa_session_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str sa_session_id: Session ID for Speech Analytics (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: BasicSuccessResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.sa_delete_with_http_info(sa_session_id, **kwargs)  # noqa: E501
+
+    def sa_delete_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
+        """Delete Sp. Analytics  # noqa: E501
+
+        Delete all data related to specified Speech Analytics session.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_delete_with_http_info(sa_session_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str sa_session_id: Session ID for Speech Analytics (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(BasicSuccessResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['sa_session_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method sa_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'sa_session_id' is set
+        if self.api_client.client_side_validation and ('sa_session_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['sa_session_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `sa_session_id` when calling `sa_delete`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('sa_session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['sa_session_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `sa_session_id` when calling `sa_delete`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('sa_session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['sa_session_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `sa_session_id` when calling `sa_delete`, length must be greater than or equal to `16`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'sa_session_id' in local_var_params:
+            path_params['saSessionId'] = local_var_params['sa_session_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/sa/{saSessionId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='BasicSuccessResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def sa_get_transcript(self, sa_session_id, **kwargs):  # noqa: E501
         """SA Transcript Content  # noqa: E501
 
@@ -1030,6 +1144,128 @@ class SaApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='NewSpeechAnalyticsSessionResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def sa_put(self, sa_session_id, **kwargs):  # noqa: E501
+        """Mod Sp. Analytics  # noqa: E501
+
+        Modify data associated with Speech Analytics session    # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_put(sa_session_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str sa_session_id: Session ID for Speech Analytics (required)
+        :param SpeechAnalyticsSessionModifiable speech_analytics_session_modifiable: Modifications to Speech Analytics Session
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: SpeechAnalyticsCoreResult
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.sa_put_with_http_info(sa_session_id, **kwargs)  # noqa: E501
+
+    def sa_put_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
+        """Mod Sp. Analytics  # noqa: E501
+
+        Modify data associated with Speech Analytics session    # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_put_with_http_info(sa_session_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str sa_session_id: Session ID for Speech Analytics (required)
+        :param SpeechAnalyticsSessionModifiable speech_analytics_session_modifiable: Modifications to Speech Analytics Session
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(SpeechAnalyticsCoreResult, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['sa_session_id', 'speech_analytics_session_modifiable']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method sa_put" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'sa_session_id' is set
+        if self.api_client.client_side_validation and ('sa_session_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['sa_session_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `sa_session_id` when calling `sa_put`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('sa_session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['sa_session_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `sa_session_id` when calling `sa_put`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('sa_session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['sa_session_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `sa_session_id` when calling `sa_put`, length must be greater than or equal to `16`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'sa_session_id' in local_var_params:
+            path_params['saSessionId'] = local_var_params['sa_session_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'speech_analytics_session_modifiable' in local_var_params:
+            body_params = local_var_params['speech_analytics_session_modifiable']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/sa/{saSessionId}', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SpeechAnalyticsCoreResult',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
