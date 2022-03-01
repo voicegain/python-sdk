@@ -48,7 +48,6 @@ class SpeechAnalyticsConfig(object):
         'keyword_groups': 'list[KeywordSpotGroup]',
         'keywords': 'list[KeywordSpotItem]',
         'moods': 'list[MoodType]',
-        'name': 'str',
         'overtalk_single_duration_maximum_threshold': 'float',
         'overtalk_total_percentage_threshold': 'float',
         'phrase_groups': 'list[PhraseSpotGroup]',
@@ -60,7 +59,8 @@ class SpeechAnalyticsConfig(object):
         'silence_single_duration_maximum_threshold': 'float',
         'silence_total_percentage_threshold': 'float',
         'summary': 'bool',
-        'word_cloud': 'bool'
+        'word_cloud': 'bool',
+        'name': 'str'
     }
 
     attribute_map = {
@@ -78,7 +78,6 @@ class SpeechAnalyticsConfig(object):
         'keyword_groups': 'keywordGroups',
         'keywords': 'keywords',
         'moods': 'moods',
-        'name': 'name',
         'overtalk_single_duration_maximum_threshold': 'overtalkSingleDurationMaximumThreshold',
         'overtalk_total_percentage_threshold': 'overtalkTotalPercentageThreshold',
         'phrase_groups': 'phraseGroups',
@@ -90,10 +89,11 @@ class SpeechAnalyticsConfig(object):
         'silence_single_duration_maximum_threshold': 'silenceSingleDurationMaximumThreshold',
         'silence_total_percentage_threshold': 'silenceTotalPercentageThreshold',
         'summary': 'summary',
-        'word_cloud': 'wordCloud'
+        'word_cloud': 'wordCloud',
+        'name': 'name'
     }
 
-    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, moods=None, name=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfig - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -113,7 +113,6 @@ class SpeechAnalyticsConfig(object):
         self._keyword_groups = None
         self._keywords = None
         self._moods = None
-        self._name = None
         self._overtalk_single_duration_maximum_threshold = None
         self._overtalk_total_percentage_threshold = None
         self._phrase_groups = None
@@ -126,6 +125,7 @@ class SpeechAnalyticsConfig(object):
         self._silence_total_percentage_threshold = None
         self._summary = None
         self._word_cloud = None
+        self._name = None
         self.discriminator = None
 
         if account_id is not None:
@@ -155,8 +155,6 @@ class SpeechAnalyticsConfig(object):
             self.keywords = keywords
         if moods is not None:
             self.moods = moods
-        if name is not None:
-            self.name = name
         if overtalk_single_duration_maximum_threshold is not None:
             self.overtalk_single_duration_maximum_threshold = overtalk_single_duration_maximum_threshold
         if overtalk_total_percentage_threshold is not None:
@@ -181,6 +179,7 @@ class SpeechAnalyticsConfig(object):
             self.summary = summary
         if word_cloud is not None:
             self.word_cloud = word_cloud
+        self.name = name
 
     @property
     def account_id(self):
@@ -527,35 +526,6 @@ class SpeechAnalyticsConfig(object):
         self._moods = moods
 
     @property
-    def name(self):
-        """Gets the name of this SpeechAnalyticsConfig.  # noqa: E501
-
-        A **unique**, human friendly, name to identify the Speech Analytics configuration.</br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with a digit or letter.    # noqa: E501
-
-        :return: The name of this SpeechAnalyticsConfig.  # noqa: E501
-        :rtype: str
-        """
-        return self._name
-
-    @name.setter
-    def name(self, name):
-        """Sets the name of this SpeechAnalyticsConfig.
-
-        A **unique**, human friendly, name to identify the Speech Analytics configuration.</br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with a digit or letter.    # noqa: E501
-
-        :param name: The name of this SpeechAnalyticsConfig.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) > 128):
-            raise ValueError("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                name is not None and len(name) < 1):
-            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._name = name
-
-    @property
     def overtalk_single_duration_maximum_threshold(self):
         """Gets the overtalk_single_duration_maximum_threshold of this SpeechAnalyticsConfig.  # noqa: E501
 
@@ -854,6 +824,37 @@ class SpeechAnalyticsConfig(object):
         """
 
         self._word_cloud = word_cloud
+
+    @property
+    def name(self):
+        """Gets the name of this SpeechAnalyticsConfig.  # noqa: E501
+
+        A **unique**, human friendly, name to identify the Speech Analytics configuration.</br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with a digit or letter.    # noqa: E501
+
+        :return: The name of this SpeechAnalyticsConfig.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this SpeechAnalyticsConfig.
+
+        A **unique**, human friendly, name to identify the Speech Analytics configuration.</br> May contain only us-asci letters, digits, and following symbols `.` `-` `_`  </br> Consecutive symbols are not allowed. Must start and end with a digit or letter.    # noqa: E501
+
+        :param name: The name of this SpeechAnalyticsConfig.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and name is None:  # noqa: E501
+            raise ValueError("Invalid value for `name`, must not be `None`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) > 128):
+            raise ValueError("Invalid value for `name`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                name is not None and len(name) < 1):
+            raise ValueError("Invalid value for `name`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._name = name
 
     def to_dict(self):
         """Returns the model properties as a dict"""
