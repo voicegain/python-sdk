@@ -37,6 +37,120 @@ class SaApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def sa_config_delete(self, sa_config_id, **kwargs):  # noqa: E501
+        """Delete SA Cfg.  # noqa: E501
+
+        Delete Speech Analytics configuration for given id.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_config_delete(sa_config_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str sa_config_id: Configuration ID for Speech Analytics (required)
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: SpeechAnalyticsConfig
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.sa_config_delete_with_http_info(sa_config_id, **kwargs)  # noqa: E501
+
+    def sa_config_delete_with_http_info(self, sa_config_id, **kwargs):  # noqa: E501
+        """Delete SA Cfg.  # noqa: E501
+
+        Delete Speech Analytics configuration for given id.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_config_delete_with_http_info(sa_config_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str sa_config_id: Configuration ID for Speech Analytics (required)
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(SpeechAnalyticsConfig, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['sa_config_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method sa_config_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'sa_config_id' is set
+        if self.api_client.client_side_validation and ('sa_config_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['sa_config_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `sa_config_id` when calling `sa_config_delete`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('sa_config_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['sa_config_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `sa_config_id` when calling `sa_config_delete`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('sa_config_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['sa_config_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `sa_config_id` when calling `sa_config_delete`, length must be greater than or equal to `16`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'sa_config_id' in local_var_params:
+            path_params['saConfigId'] = local_var_params['sa_config_id']  # noqa: E501
+
+        query_params = []
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/sa/config/{saConfigId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='SpeechAnalyticsConfig',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def sa_config_get(self, sa_config_id, **kwargs):  # noqa: E501
         """Get Sp. Analytics Cfg.  # noqa: E501
 
