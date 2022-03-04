@@ -902,7 +902,7 @@ class TranscribeApi(object):
     def ws_transcribe_words(self, ws_name, **kwargs):  # noqa: E501
         """Words via websocket  # noqa: E501
 
-        Access the word stream via a websocket.  This will provide access to websocket stream containing words (with optional corrections).      NOTE, the websocket will be using STOMP protocol with messages encoded in application/json        # noqa: E501
+        Access the word stream via a websocket.  This will provide access to websocket stream containing words (with optional corrections).      NOTE, the websocket messages will be encoded in application/json        # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.ws_transcribe_words(ws_name, async_req=True)
@@ -927,7 +927,7 @@ class TranscribeApi(object):
     def ws_transcribe_words_with_http_info(self, ws_name, **kwargs):  # noqa: E501
         """Words via websocket  # noqa: E501
 
-        Access the word stream via a websocket.  This will provide access to websocket stream containing words (with optional corrections).      NOTE, the websocket will be using STOMP protocol with messages encoded in application/json        # noqa: E501
+        Access the word stream via a websocket.  This will provide access to websocket stream containing words (with optional corrections).      NOTE, the websocket messages will be encoded in application/json        # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.ws_transcribe_words_with_http_info(ws_name, async_req=True)
