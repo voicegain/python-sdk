@@ -85,7 +85,7 @@ class SettingsAsyncTranscriptionFormatters(object):
     def type(self):
         """Gets the type of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
 
-        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no properties + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\" + basic - **default formatter** - provides punctuation and capitalization, has one parameter `enabled` with the default value being true   # noqa: E501
+        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no parameters. + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\" + profanity - masks any profanities contained in the transcribed text. Two types of masking are available to be specified in parameters, either \"mask\" : \"full\" (e.g. `****`) or \"mask\" : \"partial\" (e.g. `s**t`) + basic - **default formatter** - provides punctuation and capitalization, has one parameter `enabled` with the default value being true   # noqa: E501
 
         :return: The type of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
         :rtype: str
@@ -96,7 +96,7 @@ class SettingsAsyncTranscriptionFormatters(object):
     def type(self, type):
         """Sets the type of this SettingsAsyncTranscriptionFormatters.
 
-        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no properties + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\" + basic - **default formatter** - provides punctuation and capitalization, has one parameter `enabled` with the default value being true   # noqa: E501
+        Type of formatter: + digits - outputs numbers and digits using digits rather then using the default method of spelling them out as words. This formatter takes no parameters. + spelling - ensures that output follows specific English spelling. Specify desired spelling in parameters as either \"lang\" : \"en-US\" or \"lang\" : \"en-GB\" + profanity - masks any profanities contained in the transcribed text. Two types of masking are available to be specified in parameters, either \"mask\" : \"full\" (e.g. `****`) or \"mask\" : \"partial\" (e.g. `s**t`) + basic - **default formatter** - provides punctuation and capitalization, has one parameter `enabled` with the default value being true   # noqa: E501
 
         :param type: The type of this SettingsAsyncTranscriptionFormatters.  # noqa: E501
         :type: str
