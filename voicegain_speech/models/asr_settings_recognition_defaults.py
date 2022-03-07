@@ -37,6 +37,7 @@ class AsrSettingsRecognitionDefaults(object):
         'acoustic_model_non_real_time': 'str',
         'acoustic_model_real_time': 'str',
         'confidence_threshold': 'float',
+        'languages': 'list[Language]',
         'max_alternatives': 'int',
         'sensitivity': 'float',
         'speech_context': 'str',
@@ -51,6 +52,7 @@ class AsrSettingsRecognitionDefaults(object):
         'acoustic_model_non_real_time': 'acousticModelNonRealTime',
         'acoustic_model_real_time': 'acousticModelRealTime',
         'confidence_threshold': 'confidenceThreshold',
+        'languages': 'languages',
         'max_alternatives': 'maxAlternatives',
         'sensitivity': 'sensitivity',
         'speech_context': 'speechContext',
@@ -61,7 +63,7 @@ class AsrSettingsRecognitionDefaults(object):
         'no_input_timeout': 'noInputTimeout'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, max_alternatives=1, sensitivity=None, speech_context='normal', speed_vs_accuracy=None, complete_timeout=2000, incomplete_timeout=5000, lang_model=None, no_input_timeout=10000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, languages=None, max_alternatives=1, sensitivity=None, speech_context='normal', speed_vs_accuracy=None, complete_timeout=2000, incomplete_timeout=5000, lang_model=None, no_input_timeout=10000, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsRecognitionDefaults - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,6 +72,7 @@ class AsrSettingsRecognitionDefaults(object):
         self._acoustic_model_non_real_time = None
         self._acoustic_model_real_time = None
         self._confidence_threshold = None
+        self._languages = None
         self._max_alternatives = None
         self._sensitivity = None
         self._speech_context = None
@@ -86,6 +89,8 @@ class AsrSettingsRecognitionDefaults(object):
             self.acoustic_model_real_time = acoustic_model_real_time
         if confidence_threshold is not None:
             self.confidence_threshold = confidence_threshold
+        if languages is not None:
+            self.languages = languages
         if max_alternatives is not None:
             self.max_alternatives = max_alternatives
         if sensitivity is not None:
@@ -177,6 +182,29 @@ class AsrSettingsRecognitionDefaults(object):
             raise ValueError("Invalid value for `confidence_threshold`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._confidence_threshold = confidence_threshold
+
+    @property
+    def languages(self):
+        """Gets the languages of this AsrSettingsRecognitionDefaults.  # noqa: E501
+
+        Language that should be recognized - this is important for acousticModels that support more than one language.</br> This is a list parameter because in the future we will support multiple language recognition - for those cases where the exact language spoken in the audio is not known up-front.    # noqa: E501
+
+        :return: The languages of this AsrSettingsRecognitionDefaults.  # noqa: E501
+        :rtype: list[Language]
+        """
+        return self._languages
+
+    @languages.setter
+    def languages(self, languages):
+        """Sets the languages of this AsrSettingsRecognitionDefaults.
+
+        Language that should be recognized - this is important for acousticModels that support more than one language.</br> This is a list parameter because in the future we will support multiple language recognition - for those cases where the exact language spoken in the audio is not known up-front.    # noqa: E501
+
+        :param languages: The languages of this AsrSettingsRecognitionDefaults.  # noqa: E501
+        :type: list[Language]
+        """
+
+        self._languages = languages
 
     @property
     def max_alternatives(self):

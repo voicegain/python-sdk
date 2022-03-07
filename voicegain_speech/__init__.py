@@ -273,6 +273,7 @@ from voicegain_speech.models.keyword_spot_group import KeywordSpotGroup
 from voicegain_speech.models.keyword_spot_item import KeywordSpotItem
 from voicegain_speech.models.lm_type import LMType
 from voicegain_speech.models.lang_model_status import LangModelStatus
+from voicegain_speech.models.language import Language
 from voicegain_speech.models.language_model_doc import LanguageModelDoc
 from voicegain_speech.models.language_model_doc_modifiable import LanguageModelDocModifiable
 from voicegain_speech.models.language_model_src_data import LanguageModelSrcData
