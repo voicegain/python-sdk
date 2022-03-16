@@ -36,6 +36,7 @@ class DataObjectWithAudio(object):
     openapi_types = {
         'content_type': 'str',
         'description': 'str',
+        'encryption': 'str',
         'long_persist': 'bool',
         'name': 'str',
         'tags': 'list[str]',
@@ -46,6 +47,7 @@ class DataObjectWithAudio(object):
     attribute_map = {
         'content_type': 'contentType',
         'description': 'description',
+        'encryption': 'encryption',
         'long_persist': 'longPersist',
         'name': 'name',
         'tags': 'tags',
@@ -53,7 +55,7 @@ class DataObjectWithAudio(object):
         'audio': 'audio'
     }
 
-    def __init__(self, content_type=None, description=None, long_persist=False, name=None, tags=None, transcoded=False, audio=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, content_type=None, description=None, encryption=None, long_persist=False, name=None, tags=None, transcoded=False, audio=None, local_vars_configuration=None):  # noqa: E501
         """DataObjectWithAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class DataObjectWithAudio(object):
 
         self._content_type = None
         self._description = None
+        self._encryption = None
         self._long_persist = None
         self._name = None
         self._tags = None
@@ -72,6 +75,8 @@ class DataObjectWithAudio(object):
             self.content_type = content_type
         if description is not None:
             self.description = description
+        if encryption is not None:
+            self.encryption = encryption
         if long_persist is not None:
             self.long_persist = long_persist
         if name is not None:
@@ -127,6 +132,35 @@ class DataObjectWithAudio(object):
         """
 
         self._description = description
+
+    @property
+    def encryption(self):
+        """Gets the encryption of this DataObjectWithAudio.  # noqa: E501
+
+        Controls encryption of the data in storage. Applies mainly to Edge deployments (default encryption setting is specified in the Edge cluster configuration).  + none - do not use encryption in storage + standard - encrypt in storage + enhanced - use JWT as part of the encryption key - this basically allows the client to control encryption of individual Data objects (client can create a unique JWT for accessing each Data object)  For Cloud `standard` is the default - `none` will be treated as `standard` and attempt to use `enhanced` will result in error.   # noqa: E501
+
+        :return: The encryption of this DataObjectWithAudio.  # noqa: E501
+        :rtype: str
+        """
+        return self._encryption
+
+    @encryption.setter
+    def encryption(self, encryption):
+        """Sets the encryption of this DataObjectWithAudio.
+
+        Controls encryption of the data in storage. Applies mainly to Edge deployments (default encryption setting is specified in the Edge cluster configuration).  + none - do not use encryption in storage + standard - encrypt in storage + enhanced - use JWT as part of the encryption key - this basically allows the client to control encryption of individual Data objects (client can create a unique JWT for accessing each Data object)  For Cloud `standard` is the default - `none` will be treated as `standard` and attempt to use `enhanced` will result in error.   # noqa: E501
+
+        :param encryption: The encryption of this DataObjectWithAudio.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["none", "standard", "enhanced"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and encryption not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `encryption` ({0}), must be one of {1}"  # noqa: E501
+                .format(encryption, allowed_values)
+            )
+
+        self._encryption = encryption
 
     @property
     def long_persist(self):
