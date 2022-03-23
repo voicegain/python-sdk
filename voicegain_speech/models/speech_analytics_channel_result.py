@@ -40,8 +40,10 @@ class SpeechAnalyticsChannelResult(object):
         'channel_type': 'str',
         'decibels': 'list[list]',
         'emotion': 'SpeechAnalyticsEmotionData',
+        'external_user_id': 'float',
         'gender': 'str',
         'is_agent': 'bool',
+        'is_host': 'bool',
         'keywords': 'SpeechAnalyticsKeywordData',
         'named_entities': 'list[SpeechAnalyticsNamedEntityItem]',
         'overtalk': 'Overtalk',
@@ -59,8 +61,10 @@ class SpeechAnalyticsChannelResult(object):
         'channel_type': 'channelType',
         'decibels': 'decibels',
         'emotion': 'emotion',
+        'external_user_id': 'externalUserId',
         'gender': 'gender',
         'is_agent': 'isAgent',
+        'is_host': 'isHost',
         'keywords': 'keywords',
         'named_entities': 'namedEntities',
         'overtalk': 'overtalk',
@@ -71,7 +75,7 @@ class SpeechAnalyticsChannelResult(object):
         'transcribe_sid': 'transcribeSid'
     }
 
-    def __init__(self, age=None, audio_channel_selector=None, audio_zones=None, channel_type=None, decibels=None, emotion=None, gender=None, is_agent=None, keywords=None, named_entities=None, overtalk=None, phrases=None, spk=None, spk_name=None, talk=None, transcribe_sid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=None, audio_channel_selector=None, audio_zones=None, channel_type=None, decibels=None, emotion=None, external_user_id=None, gender=None, is_agent=None, is_host=None, keywords=None, named_entities=None, overtalk=None, phrases=None, spk=None, spk_name=None, talk=None, transcribe_sid=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsChannelResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -83,8 +87,10 @@ class SpeechAnalyticsChannelResult(object):
         self._channel_type = None
         self._decibels = None
         self._emotion = None
+        self._external_user_id = None
         self._gender = None
         self._is_agent = None
+        self._is_host = None
         self._keywords = None
         self._named_entities = None
         self._overtalk = None
@@ -107,10 +113,14 @@ class SpeechAnalyticsChannelResult(object):
             self.decibels = decibels
         if emotion is not None:
             self.emotion = emotion
+        if external_user_id is not None:
+            self.external_user_id = external_user_id
         if gender is not None:
             self.gender = gender
         if is_agent is not None:
             self.is_agent = is_agent
+        if is_host is not None:
+            self.is_host = is_host
         if keywords is not None:
             self.keywords = keywords
         if named_entities is not None:
@@ -227,7 +237,7 @@ class SpeechAnalyticsChannelResult(object):
         :param channel_type: The channel_type of this SpeechAnalyticsChannelResult.  # noqa: E501
         :type: str
         """
-        allowed_values = ["actual", "virtual", "diarized_speaker"]  # noqa: E501
+        allowed_values = ["actual", "virtual", "diarized_speaker", "speaker_timeline"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and channel_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `channel_type` ({0}), must be one of {1}"  # noqa: E501
@@ -281,6 +291,29 @@ class SpeechAnalyticsChannelResult(object):
         self._emotion = emotion
 
     @property
+    def external_user_id(self):
+        """Gets the external_user_id of this SpeechAnalyticsChannelResult.  # noqa: E501
+
+        (optional) External id of the speaking user.   # noqa: E501
+
+        :return: The external_user_id of this SpeechAnalyticsChannelResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._external_user_id
+
+    @external_user_id.setter
+    def external_user_id(self, external_user_id):
+        """Sets the external_user_id of this SpeechAnalyticsChannelResult.
+
+        (optional) External id of the speaking user.   # noqa: E501
+
+        :param external_user_id: The external_user_id of this SpeechAnalyticsChannelResult.  # noqa: E501
+        :type: float
+        """
+
+        self._external_user_id = external_user_id
+
+    @property
     def gender(self):
         """Gets the gender of this SpeechAnalyticsChannelResult.  # noqa: E501
 
@@ -331,6 +364,29 @@ class SpeechAnalyticsChannelResult(object):
         """
 
         self._is_agent = is_agent
+
+    @property
+    def is_host(self):
+        """Gets the is_host of this SpeechAnalyticsChannelResult.  # noqa: E501
+
+        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)             # noqa: E501
+
+        :return: The is_host of this SpeechAnalyticsChannelResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_host
+
+    @is_host.setter
+    def is_host(self, is_host):
+        """Sets the is_host of this SpeechAnalyticsChannelResult.
+
+        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)             # noqa: E501
+
+        :param is_host: The is_host of this SpeechAnalyticsChannelResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_host = is_host
 
     @property
     def keywords(self):
@@ -422,7 +478,7 @@ class SpeechAnalyticsChannelResult(object):
     def spk(self):
         """Gets the spk of this SpeechAnalyticsChannelResult.  # noqa: E501
 
-        The speaker id (if diarization was used)  # noqa: E501
+        The speaker id (used to labels words)  # noqa: E501
 
         :return: The spk of this SpeechAnalyticsChannelResult.  # noqa: E501
         :rtype: int
@@ -433,7 +489,7 @@ class SpeechAnalyticsChannelResult(object):
     def spk(self, spk):
         """Sets the spk of this SpeechAnalyticsChannelResult.
 
-        The speaker id (if diarization was used)  # noqa: E501
+        The speaker id (used to labels words)  # noqa: E501
 
         :param spk: The spk of this SpeechAnalyticsChannelResult.  # noqa: E501
         :type: int
