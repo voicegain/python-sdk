@@ -35,31 +35,46 @@ class SpeakerResult(object):
     """
     openapi_types = {
         'age': 'str',
+        'external_user_id': 'float',
         'gender': 'str',
+        'is_host': 'bool',
+        'name': 'str',
         'spk': 'int'
     }
 
     attribute_map = {
         'age': 'age',
+        'external_user_id': 'externalUserId',
         'gender': 'gender',
+        'is_host': 'isHost',
+        'name': 'name',
         'spk': 'spk'
     }
 
-    def __init__(self, age=None, gender=None, spk=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=None, external_user_id=None, gender=None, is_host=None, name=None, spk=None, local_vars_configuration=None):  # noqa: E501
         """SpeakerResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._age = None
+        self._external_user_id = None
         self._gender = None
+        self._is_host = None
+        self._name = None
         self._spk = None
         self.discriminator = None
 
         if age is not None:
             self.age = age
+        if external_user_id is not None:
+            self.external_user_id = external_user_id
         if gender is not None:
             self.gender = gender
+        if is_host is not None:
+            self.is_host = is_host
+        if name is not None:
+            self.name = name
         if spk is not None:
             self.spk = spk
 
@@ -67,7 +82,7 @@ class SpeakerResult(object):
     def age(self):
         """Gets the age of this SpeakerResult.  # noqa: E501
 
-        Most likely speaker age category based on the voice characteristics.</br>   Possible age categories that will be identified are:   + young-adult - up to about 30-35 years old   + senior - over about 60-65 years old   + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+        (Future Functionality) Most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
 
         :return: The age of this SpeakerResult.  # noqa: E501
         :rtype: str
@@ -78,7 +93,7 @@ class SpeakerResult(object):
     def age(self, age):
         """Sets the age of this SpeakerResult.
 
-        Most likely speaker age category based on the voice characteristics.</br>   Possible age categories that will be identified are:   + young-adult - up to about 30-35 years old   + senior - over about 60-65 years old   + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
+        (Future Functionality) Most likely speaker age category based on the voice characteristics.</br> Possible age categories that will be identified are: + young-adult - up to about 30-35 years old + senior - over about 60-65 years old + unknown - it is impossible to determine age category based on voice alone   # noqa: E501
 
         :param age: The age of this SpeakerResult.  # noqa: E501
         :type: str
@@ -93,10 +108,33 @@ class SpeakerResult(object):
         self._age = age
 
     @property
+    def external_user_id(self):
+        """Gets the external_user_id of this SpeakerResult.  # noqa: E501
+
+        (optional) External id of the speaking user.   # noqa: E501
+
+        :return: The external_user_id of this SpeakerResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._external_user_id
+
+    @external_user_id.setter
+    def external_user_id(self, external_user_id):
+        """Sets the external_user_id of this SpeakerResult.
+
+        (optional) External id of the speaking user.   # noqa: E501
+
+        :param external_user_id: The external_user_id of this SpeakerResult.  # noqa: E501
+        :type: float
+        """
+
+        self._external_user_id = external_user_id
+
+    @property
     def gender(self):
         """Gets the gender of this SpeakerResult.  # noqa: E501
 
-        Most likely speaker gender based on the voice characteristics.</br> Capable of recognizing only two genders: male and female.   # noqa: E501
+        (optional) Most likely speaker gender based on the voice characteristics.</br> Capable of recognizing only two genders: male and female.   # noqa: E501
 
         :return: The gender of this SpeakerResult.  # noqa: E501
         :rtype: str
@@ -107,7 +145,7 @@ class SpeakerResult(object):
     def gender(self, gender):
         """Sets the gender of this SpeakerResult.
 
-        Most likely speaker gender based on the voice characteristics.</br> Capable of recognizing only two genders: male and female.   # noqa: E501
+        (optional) Most likely speaker gender based on the voice characteristics.</br> Capable of recognizing only two genders: male and female.   # noqa: E501
 
         :param gender: The gender of this SpeakerResult.  # noqa: E501
         :type: str
@@ -122,10 +160,56 @@ class SpeakerResult(object):
         self._gender = gender
 
     @property
+    def is_host(self):
+        """Gets the is_host of this SpeakerResult.  # noqa: E501
+
+        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)   # noqa: E501
+
+        :return: The is_host of this SpeakerResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_host
+
+    @is_host.setter
+    def is_host(self, is_host):
+        """Sets the is_host of this SpeakerResult.
+
+        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)   # noqa: E501
+
+        :param is_host: The is_host of this SpeakerResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_host = is_host
+
+    @property
+    def name(self):
+        """Gets the name of this SpeakerResult.  # noqa: E501
+
+        (optional) Name of the speaker    # noqa: E501
+
+        :return: The name of this SpeakerResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this SpeakerResult.
+
+        (optional) Name of the speaker    # noqa: E501
+
+        :param name: The name of this SpeakerResult.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
     def spk(self):
         """Gets the spk of this SpeakerResult.  # noqa: E501
 
-        Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.  # noqa: E501
+        Speaker index is an integer starting from `1` </br> If diarization was used it will go up to at most `diarization.maxSpeakers`. </br> If speaker timeline was used then it will go up to the number of distinct speakers in the timeline.     # noqa: E501
 
         :return: The spk of this SpeakerResult.  # noqa: E501
         :rtype: int
@@ -136,7 +220,7 @@ class SpeakerResult(object):
     def spk(self, spk):
         """Sets the spk of this SpeakerResult.
 
-        Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.  # noqa: E501
+        Speaker index is an integer starting from `1` </br> If diarization was used it will go up to at most `diarization.maxSpeakers`. </br> If speaker timeline was used then it will go up to the number of distinct speakers in the timeline.     # noqa: E501
 
         :param spk: The spk of this SpeakerResult.  # noqa: E501
         :type: int

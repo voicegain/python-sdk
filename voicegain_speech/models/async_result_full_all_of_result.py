@@ -253,7 +253,7 @@ class AsyncResultFullAllOfResult(object):
     def speakers(self):
         """Gets the speakers of this AsyncResultFullAllOfResult.  # noqa: E501
 
-        Speaker data - currently gender and age  # noqa: E501
+        Speaker data - may come from: + diarization + speaker timeline + provided via PUT API  + obtained via ML - currently gender (future age)   # noqa: E501
 
         :return: The speakers of this AsyncResultFullAllOfResult.  # noqa: E501
         :rtype: list[SpeakerResult]
@@ -264,7 +264,7 @@ class AsyncResultFullAllOfResult(object):
     def speakers(self, speakers):
         """Sets the speakers of this AsyncResultFullAllOfResult.
 
-        Speaker data - currently gender and age  # noqa: E501
+        Speaker data - may come from: + diarization + speaker timeline + provided via PUT API  + obtained via ML - currently gender (future age)   # noqa: E501
 
         :param speakers: The speakers of this AsyncResultFullAllOfResult.  # noqa: E501
         :type: list[SpeakerResult]
