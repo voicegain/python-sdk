@@ -60,8 +60,9 @@ class Language(object):
     ES_PR = "es-pr"
     ES_UY = "es-uy"
     ES_VE = "es-ve"
+    KO = "ko"
 
-    allowable_values = [EN, EN_US, EN_GB, EN_CA, EN_AU, EN_BZ, EN_IE, EN_JM, EN_NZ, EN_ZA, EN_TT, DE, ES, ES_AR, ES_BO, ES_CL, ES_CO, ES_CR, ES_DO, ES_EC, ES_SV, ES_GT, ES_HN, ES_MX, ES_NI, ES_PA, ES_PY, ES_PE, ES_PR, ES_UY, ES_VE]  # noqa: E501
+    allowable_values = [EN, EN_US, EN_GB, EN_CA, EN_AU, EN_BZ, EN_IE, EN_JM, EN_NZ, EN_ZA, EN_TT, DE, ES, ES_AR, ES_BO, ES_CL, ES_CO, ES_CR, ES_DO, ES_EC, ES_SV, ES_GT, ES_HN, ES_MX, ES_NI, ES_PA, ES_PY, ES_PE, ES_PR, ES_UY, ES_VE, KO]  # noqa: E501
 
     """
     Attributes:
