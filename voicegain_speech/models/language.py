@@ -29,6 +29,7 @@ class Language(object):
     """
     allowed enum values
     """
+    DE = "de"
     EN = "en"
     EN_US = "en-us"
     EN_GB = "en-gb"
@@ -40,7 +41,6 @@ class Language(object):
     EN_NZ = "en-nz"
     EN_ZA = "en-za"
     EN_TT = "en-tt"
-    DE = "de"
     ES = "es"
     ES_AR = "es-ar"
     ES_BO = "es-bo"
@@ -60,9 +60,13 @@ class Language(object):
     ES_PR = "es-pr"
     ES_UY = "es-uy"
     ES_VE = "es-ve"
+    FR = "fr"
+    HI = "hi"
     KO = "ko"
+    PL = "pl"
+    PT = "pt"
 
-    allowable_values = [EN, EN_US, EN_GB, EN_CA, EN_AU, EN_BZ, EN_IE, EN_JM, EN_NZ, EN_ZA, EN_TT, DE, ES, ES_AR, ES_BO, ES_CL, ES_CO, ES_CR, ES_DO, ES_EC, ES_SV, ES_GT, ES_HN, ES_MX, ES_NI, ES_PA, ES_PY, ES_PE, ES_PR, ES_UY, ES_VE, KO]  # noqa: E501
+    allowable_values = [DE, EN, EN_US, EN_GB, EN_CA, EN_AU, EN_BZ, EN_IE, EN_JM, EN_NZ, EN_ZA, EN_TT, ES, ES_AR, ES_BO, ES_CL, ES_CO, ES_CR, ES_DO, ES_EC, ES_SV, ES_GT, ES_HN, ES_MX, ES_NI, ES_PA, ES_PY, ES_PE, ES_PR, ES_UY, ES_VE, FR, HI, KO, PL, PT]  # noqa: E501
 
     """
     Attributes:
