@@ -35,29 +35,34 @@ class TimelineSpeaker(object):
     """
     openapi_types = {
         'is_host': 'bool',
+        'is_phone': 'bool',
         'name': 'str',
         'spk_user_id': 'float'
     }
 
     attribute_map = {
         'is_host': 'isHost',
+        'is_phone': 'isPhone',
         'name': 'name',
         'spk_user_id': 'spkUserId'
     }
 
-    def __init__(self, is_host=None, name=None, spk_user_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, is_host=None, is_phone=None, name=None, spk_user_id=None, local_vars_configuration=None):  # noqa: E501
         """TimelineSpeaker - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._is_host = None
+        self._is_phone = None
         self._name = None
         self._spk_user_id = None
         self.discriminator = None
 
         if is_host is not None:
             self.is_host = is_host
+        if is_phone is not None:
+            self.is_phone = is_phone
         if name is not None:
             self.name = name
         self.spk_user_id = spk_user_id
@@ -84,6 +89,29 @@ class TimelineSpeaker(object):
         """
 
         self._is_host = is_host
+
+    @property
+    def is_phone(self):
+        """Gets the is_phone of this TimelineSpeaker.  # noqa: E501
+
+        true if the speaker joined the meeting by phone  # noqa: E501
+
+        :return: The is_phone of this TimelineSpeaker.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_phone
+
+    @is_phone.setter
+    def is_phone(self, is_phone):
+        """Sets the is_phone of this TimelineSpeaker.
+
+        true if the speaker joined the meeting by phone  # noqa: E501
+
+        :param is_phone: The is_phone of this TimelineSpeaker.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_phone = is_phone
 
     @property
     def name(self):

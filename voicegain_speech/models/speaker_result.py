@@ -38,6 +38,7 @@ class SpeakerResult(object):
         'external_user_id': 'float',
         'gender': 'str',
         'is_host': 'bool',
+        'is_phone': 'bool',
         'name': 'str',
         'spk': 'int'
     }
@@ -47,11 +48,12 @@ class SpeakerResult(object):
         'external_user_id': 'externalUserId',
         'gender': 'gender',
         'is_host': 'isHost',
+        'is_phone': 'isPhone',
         'name': 'name',
         'spk': 'spk'
     }
 
-    def __init__(self, age=None, external_user_id=None, gender=None, is_host=None, name=None, spk=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=None, external_user_id=None, gender=None, is_host=None, is_phone=None, name=None, spk=None, local_vars_configuration=None):  # noqa: E501
         """SpeakerResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class SpeakerResult(object):
         self._external_user_id = None
         self._gender = None
         self._is_host = None
+        self._is_phone = None
         self._name = None
         self._spk = None
         self.discriminator = None
@@ -73,6 +76,8 @@ class SpeakerResult(object):
             self.gender = gender
         if is_host is not None:
             self.is_host = is_host
+        if is_phone is not None:
+            self.is_phone = is_phone
         if name is not None:
             self.name = name
         if spk is not None:
@@ -181,6 +186,29 @@ class SpeakerResult(object):
         """
 
         self._is_host = is_host
+
+    @property
+    def is_phone(self):
+        """Gets the is_phone of this SpeakerResult.  # noqa: E501
+
+        (optional) True if the speaker joined the meeting by phone (if transcript is of a meeting)   # noqa: E501
+
+        :return: The is_phone of this SpeakerResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_phone
+
+    @is_phone.setter
+    def is_phone(self, is_phone):
+        """Sets the is_phone of this SpeakerResult.
+
+        (optional) True if the speaker joined the meeting by phone (if transcript is of a meeting)   # noqa: E501
+
+        :param is_phone: The is_phone of this SpeakerResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_phone = is_phone
 
     @property
     def name(self):

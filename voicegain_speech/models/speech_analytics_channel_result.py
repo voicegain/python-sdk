@@ -44,6 +44,7 @@ class SpeechAnalyticsChannelResult(object):
         'gender': 'str',
         'is_agent': 'bool',
         'is_host': 'bool',
+        'is_phone': 'bool',
         'keywords': 'SpeechAnalyticsKeywordData',
         'named_entities': 'list[SpeechAnalyticsNamedEntityItem]',
         'overtalk': 'Overtalk',
@@ -65,6 +66,7 @@ class SpeechAnalyticsChannelResult(object):
         'gender': 'gender',
         'is_agent': 'isAgent',
         'is_host': 'isHost',
+        'is_phone': 'isPhone',
         'keywords': 'keywords',
         'named_entities': 'namedEntities',
         'overtalk': 'overtalk',
@@ -75,7 +77,7 @@ class SpeechAnalyticsChannelResult(object):
         'transcribe_sid': 'transcribeSid'
     }
 
-    def __init__(self, age=None, audio_channel_selector=None, audio_zones=None, channel_type=None, decibels=None, emotion=None, external_user_id=None, gender=None, is_agent=None, is_host=None, keywords=None, named_entities=None, overtalk=None, phrases=None, spk=None, spk_name=None, talk=None, transcribe_sid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=None, audio_channel_selector=None, audio_zones=None, channel_type=None, decibels=None, emotion=None, external_user_id=None, gender=None, is_agent=None, is_host=None, is_phone=None, keywords=None, named_entities=None, overtalk=None, phrases=None, spk=None, spk_name=None, talk=None, transcribe_sid=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsChannelResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -91,6 +93,7 @@ class SpeechAnalyticsChannelResult(object):
         self._gender = None
         self._is_agent = None
         self._is_host = None
+        self._is_phone = None
         self._keywords = None
         self._named_entities = None
         self._overtalk = None
@@ -121,6 +124,8 @@ class SpeechAnalyticsChannelResult(object):
             self.is_agent = is_agent
         if is_host is not None:
             self.is_host = is_host
+        if is_phone is not None:
+            self.is_phone = is_phone
         if keywords is not None:
             self.keywords = keywords
         if named_entities is not None:
@@ -369,7 +374,7 @@ class SpeechAnalyticsChannelResult(object):
     def is_host(self):
         """Gets the is_host of this SpeechAnalyticsChannelResult.  # noqa: E501
 
-        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)             # noqa: E501
+        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)          # noqa: E501
 
         :return: The is_host of this SpeechAnalyticsChannelResult.  # noqa: E501
         :rtype: bool
@@ -380,13 +385,36 @@ class SpeechAnalyticsChannelResult(object):
     def is_host(self, is_host):
         """Sets the is_host of this SpeechAnalyticsChannelResult.
 
-        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)             # noqa: E501
+        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)          # noqa: E501
 
         :param is_host: The is_host of this SpeechAnalyticsChannelResult.  # noqa: E501
         :type: bool
         """
 
         self._is_host = is_host
+
+    @property
+    def is_phone(self):
+        """Gets the is_phone of this SpeechAnalyticsChannelResult.  # noqa: E501
+
+        (optional) True if the speaker joined the meeting by phone (if transcript is of a meeting)        # noqa: E501
+
+        :return: The is_phone of this SpeechAnalyticsChannelResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._is_phone
+
+    @is_phone.setter
+    def is_phone(self, is_phone):
+        """Sets the is_phone of this SpeechAnalyticsChannelResult.
+
+        (optional) True if the speaker joined the meeting by phone (if transcript is of a meeting)        # noqa: E501
+
+        :param is_phone: The is_phone of this SpeechAnalyticsChannelResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._is_phone = is_phone
 
     @property
     def keywords(self):
