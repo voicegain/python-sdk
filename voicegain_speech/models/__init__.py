@@ -315,7 +315,6 @@ from voicegain_speech.models.silence import Silence
 from voicegain_speech.models.slot_entity import SlotEntity
 from voicegain_speech.models.slot_keyword import SlotKeyword
 from voicegain_speech.models.sos_ref import SosRef
-from voicegain_speech.models.speaker_activity import SpeakerActivity
 from voicegain_speech.models.speaker_result import SpeakerResult
 from voicegain_speech.models.speech_analytics_base_result import SpeechAnalyticsBaseResult
 from voicegain_speech.models.speech_analytics_channel import SpeechAnalyticsChannel
@@ -371,8 +370,6 @@ from voicegain_speech.models.sync_transcription_request import SyncTranscription
 from voicegain_speech.models.sync_transcription_response import SyncTranscriptionResponse
 from voicegain_speech.models.sync_transcription_result import SyncTranscriptionResult
 from voicegain_speech.models.talk_time import TalkTime
-from voicegain_speech.models.timeline_speaker import TimelineSpeaker
-from voicegain_speech.models.timeline_with_speakers import TimelineWithSpeakers
 from voicegain_speech.models.topic_score import TopicScore
 from voicegain_speech.models.training_set_bucket_type import TrainingSetBucketType
 from voicegain_speech.models.training_set_doc import TrainingSetDoc

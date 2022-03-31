@@ -35,49 +35,34 @@ class SpeakerResult(object):
     """
     openapi_types = {
         'age': 'str',
-        'external_user_id': 'float',
         'gender': 'str',
-        'is_host': 'bool',
-        'is_phone': 'bool',
         'name': 'str',
         'spk': 'int'
     }
 
     attribute_map = {
         'age': 'age',
-        'external_user_id': 'externalUserId',
         'gender': 'gender',
-        'is_host': 'isHost',
-        'is_phone': 'isPhone',
         'name': 'name',
         'spk': 'spk'
     }
 
-    def __init__(self, age=None, external_user_id=None, gender=None, is_host=None, is_phone=None, name=None, spk=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=None, gender=None, name=None, spk=None, local_vars_configuration=None):  # noqa: E501
         """SpeakerResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._age = None
-        self._external_user_id = None
         self._gender = None
-        self._is_host = None
-        self._is_phone = None
         self._name = None
         self._spk = None
         self.discriminator = None
 
         if age is not None:
             self.age = age
-        if external_user_id is not None:
-            self.external_user_id = external_user_id
         if gender is not None:
             self.gender = gender
-        if is_host is not None:
-            self.is_host = is_host
-        if is_phone is not None:
-            self.is_phone = is_phone
         if name is not None:
             self.name = name
         if spk is not None:
@@ -113,29 +98,6 @@ class SpeakerResult(object):
         self._age = age
 
     @property
-    def external_user_id(self):
-        """Gets the external_user_id of this SpeakerResult.  # noqa: E501
-
-        (optional) External id of the speaking user.   # noqa: E501
-
-        :return: The external_user_id of this SpeakerResult.  # noqa: E501
-        :rtype: float
-        """
-        return self._external_user_id
-
-    @external_user_id.setter
-    def external_user_id(self, external_user_id):
-        """Sets the external_user_id of this SpeakerResult.
-
-        (optional) External id of the speaking user.   # noqa: E501
-
-        :param external_user_id: The external_user_id of this SpeakerResult.  # noqa: E501
-        :type: float
-        """
-
-        self._external_user_id = external_user_id
-
-    @property
     def gender(self):
         """Gets the gender of this SpeakerResult.  # noqa: E501
 
@@ -165,52 +127,6 @@ class SpeakerResult(object):
         self._gender = gender
 
     @property
-    def is_host(self):
-        """Gets the is_host of this SpeakerResult.  # noqa: E501
-
-        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)   # noqa: E501
-
-        :return: The is_host of this SpeakerResult.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_host
-
-    @is_host.setter
-    def is_host(self, is_host):
-        """Sets the is_host of this SpeakerResult.
-
-        (optional) True if the speaker is the host of the meeting (if transcript is of a meeting)   # noqa: E501
-
-        :param is_host: The is_host of this SpeakerResult.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_host = is_host
-
-    @property
-    def is_phone(self):
-        """Gets the is_phone of this SpeakerResult.  # noqa: E501
-
-        (optional) True if the speaker joined the meeting by phone (if transcript is of a meeting)   # noqa: E501
-
-        :return: The is_phone of this SpeakerResult.  # noqa: E501
-        :rtype: bool
-        """
-        return self._is_phone
-
-    @is_phone.setter
-    def is_phone(self, is_phone):
-        """Sets the is_phone of this SpeakerResult.
-
-        (optional) True if the speaker joined the meeting by phone (if transcript is of a meeting)   # noqa: E501
-
-        :param is_phone: The is_phone of this SpeakerResult.  # noqa: E501
-        :type: bool
-        """
-
-        self._is_phone = is_phone
-
-    @property
     def name(self):
         """Gets the name of this SpeakerResult.  # noqa: E501
 
@@ -237,7 +153,7 @@ class SpeakerResult(object):
     def spk(self):
         """Gets the spk of this SpeakerResult.  # noqa: E501
 
-        Speaker index is an integer starting from `1` </br> If diarization was used it will go up to at most `diarization.maxSpeakers`. </br> If speaker timeline was used then it will go up to the number of distinct speakers in the timeline.     # noqa: E501
+        Speaker index is an integer starting from `1` </br> If diarization was used it will go up to at most `diarization.maxSpeakers`. </br>   # noqa: E501
 
         :return: The spk of this SpeakerResult.  # noqa: E501
         :rtype: int
@@ -248,7 +164,7 @@ class SpeakerResult(object):
     def spk(self, spk):
         """Sets the spk of this SpeakerResult.
 
-        Speaker index is an integer starting from `1` </br> If diarization was used it will go up to at most `diarization.maxSpeakers`. </br> If speaker timeline was used then it will go up to the number of distinct speakers in the timeline.     # noqa: E501
+        Speaker index is an integer starting from `1` </br> If diarization was used it will go up to at most `diarization.maxSpeakers`. </br>   # noqa: E501
 
         :param spk: The spk of this SpeakerResult.  # noqa: E501
         :type: int

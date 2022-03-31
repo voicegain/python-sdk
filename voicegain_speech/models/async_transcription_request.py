@@ -36,18 +36,16 @@ class AsyncTranscriptionRequest(object):
     openapi_types = {
         'audio': 'AudioInputAsync',
         'sessions': 'list[SessionInitTranscription]',
-        'settings': 'SettingsAsyncTranscription',
-        'speaker_timeline': 'TimelineWithSpeakers'
+        'settings': 'SettingsAsyncTranscription'
     }
 
     attribute_map = {
         'audio': 'audio',
         'sessions': 'sessions',
-        'settings': 'settings',
-        'speaker_timeline': 'speakerTimeline'
+        'settings': 'settings'
     }
 
-    def __init__(self, audio=None, sessions=None, settings=None, speaker_timeline=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio=None, sessions=None, settings=None, local_vars_configuration=None):  # noqa: E501
         """AsyncTranscriptionRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,15 +54,12 @@ class AsyncTranscriptionRequest(object):
         self._audio = None
         self._sessions = None
         self._settings = None
-        self._speaker_timeline = None
         self.discriminator = None
 
         self.audio = audio
         self.sessions = sessions
         if settings is not None:
             self.settings = settings
-        if speaker_timeline is not None:
-            self.speaker_timeline = speaker_timeline
 
     @property
     def audio(self):
@@ -132,27 +127,6 @@ class AsyncTranscriptionRequest(object):
         """
 
         self._settings = settings
-
-    @property
-    def speaker_timeline(self):
-        """Gets the speaker_timeline of this AsyncTranscriptionRequest.  # noqa: E501
-
-
-        :return: The speaker_timeline of this AsyncTranscriptionRequest.  # noqa: E501
-        :rtype: TimelineWithSpeakers
-        """
-        return self._speaker_timeline
-
-    @speaker_timeline.setter
-    def speaker_timeline(self, speaker_timeline):
-        """Sets the speaker_timeline of this AsyncTranscriptionRequest.
-
-
-        :param speaker_timeline: The speaker_timeline of this AsyncTranscriptionRequest.  # noqa: E501
-        :type: TimelineWithSpeakers
-        """
-
-        self._speaker_timeline = speaker_timeline
 
     def to_dict(self):
         """Returns the model properties as a dict"""

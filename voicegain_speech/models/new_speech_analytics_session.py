@@ -45,7 +45,6 @@ class NewSpeechAnalyticsSession(object):
         'persist': 'float',
         'sa_config': 'str',
         'speaker_channels': 'list[SpeechAnalyticsChannel]',
-        'speaker_timeline': 'TimelineWithSpeakers',
         'tags': 'list[str]',
         'topic_discovery_config': 'str',
         'virtual_dual_channel_enabled': 'bool'
@@ -63,13 +62,12 @@ class NewSpeechAnalyticsSession(object):
         'persist': 'persist',
         'sa_config': 'saConfig',
         'speaker_channels': 'speakerChannels',
-        'speaker_timeline': 'speakerTimeline',
         'tags': 'tags',
         'topic_discovery_config': 'topicDiscoveryConfig',
         'virtual_dual_channel_enabled': 'virtualDualChannelEnabled'
     }
 
-    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, creator=None, label=None, metadata=None, notify_stomp_topic=None, persist=3600000, sa_config=None, speaker_channels=None, speaker_timeline=None, tags=None, topic_discovery_config=None, virtual_dual_channel_enabled=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, creator=None, label=None, metadata=None, notify_stomp_topic=None, persist=3600000, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, virtual_dual_channel_enabled=True, local_vars_configuration=None):  # noqa: E501
         """NewSpeechAnalyticsSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,7 +84,6 @@ class NewSpeechAnalyticsSession(object):
         self._persist = None
         self._sa_config = None
         self._speaker_channels = None
-        self._speaker_timeline = None
         self._tags = None
         self._topic_discovery_config = None
         self._virtual_dual_channel_enabled = None
@@ -113,8 +110,6 @@ class NewSpeechAnalyticsSession(object):
         self.sa_config = sa_config
         if speaker_channels is not None:
             self.speaker_channels = speaker_channels
-        if speaker_timeline is not None:
-            self.speaker_timeline = speaker_timeline
         if tags is not None:
             self.tags = tags
         if topic_discovery_config is not None:
@@ -400,27 +395,6 @@ class NewSpeechAnalyticsSession(object):
         """
 
         self._speaker_channels = speaker_channels
-
-    @property
-    def speaker_timeline(self):
-        """Gets the speaker_timeline of this NewSpeechAnalyticsSession.  # noqa: E501
-
-
-        :return: The speaker_timeline of this NewSpeechAnalyticsSession.  # noqa: E501
-        :rtype: TimelineWithSpeakers
-        """
-        return self._speaker_timeline
-
-    @speaker_timeline.setter
-    def speaker_timeline(self, speaker_timeline):
-        """Sets the speaker_timeline of this NewSpeechAnalyticsSession.
-
-
-        :param speaker_timeline: The speaker_timeline of this NewSpeechAnalyticsSession.  # noqa: E501
-        :type: TimelineWithSpeakers
-        """
-
-        self._speaker_timeline = speaker_timeline
 
     @property
     def tags(self):
