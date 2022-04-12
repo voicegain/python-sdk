@@ -44,7 +44,7 @@ class SpeechAnalyticsResultDetail(object):
         'phrase_groups': 'SpeechAnalyticsPhraseGroupData',
         'silence': 'Silence',
         'single_channel_audio': 'str',
-        'summary': 'list[SummaryItem]',
+        'summary': 'list[str]',
         'word_cloud': 'list[WordCloudItem]'
     }
 
@@ -352,10 +352,10 @@ class SpeechAnalyticsResultDetail(object):
     def summary(self):
         """Gets the summary of this SpeechAnalyticsResultDetail.  # noqa: E501
 
-        Most characteristic sentences from the transcript. Can be used as a summary for the entire text.  # noqa: E501
+        Sentences comprising summary of the entire transcript.  # noqa: E501
 
         :return: The summary of this SpeechAnalyticsResultDetail.  # noqa: E501
-        :rtype: list[SummaryItem]
+        :rtype: list[str]
         """
         return self._summary
 
@@ -363,10 +363,10 @@ class SpeechAnalyticsResultDetail(object):
     def summary(self, summary):
         """Sets the summary of this SpeechAnalyticsResultDetail.
 
-        Most characteristic sentences from the transcript. Can be used as a summary for the entire text.  # noqa: E501
+        Sentences comprising summary of the entire transcript.  # noqa: E501
 
         :param summary: The summary of this SpeechAnalyticsResultDetail.  # noqa: E501
-        :type: list[SummaryItem]
+        :type: list[str]
         """
 
         self._summary = summary

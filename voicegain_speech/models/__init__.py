@@ -361,8 +361,6 @@ from voicegain_speech.models.stream_setup import StreamSetup
 from voicegain_speech.models.streaming_protocol import StreamingProtocol
 from voicegain_speech.models.sub_criterion_config import SubCriterionConfig
 from voicegain_speech.models.sub_criterion_satisfied import SubCriterionSatisfied
-from voicegain_speech.models.summary_fragment import SummaryFragment
-from voicegain_speech.models.summary_item import SummaryItem
 from voicegain_speech.models.sync_audio_input_source import SyncAudioInputSource
 from voicegain_speech.models.sync_recognition_request import SyncRecognitionRequest
 from voicegain_speech.models.sync_recognition_response import SyncRecognitionResponse
