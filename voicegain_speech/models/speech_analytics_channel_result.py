@@ -439,6 +439,9 @@ class SpeechAnalyticsChannelResult(object):
         :type: int
         """
         if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk > 80):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
                 spk is not None and spk < 1):  # noqa: E501
             raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
 
