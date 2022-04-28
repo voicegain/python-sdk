@@ -127,7 +127,7 @@ class WordsSection(object):
     def start(self):
         """Gets the start of this WordsSection.  # noqa: E501
 
-        start time (in msec) of the word since the beginning of the audio  # noqa: E501
+        start time (in msec) of this section/paragraph since the beginning of the audio  # noqa: E501
 
         :return: The start of this WordsSection.  # noqa: E501
         :rtype: int
@@ -138,7 +138,7 @@ class WordsSection(object):
     def start(self, start):
         """Sets the start of this WordsSection.
 
-        start time (in msec) of the word since the beginning of the audio  # noqa: E501
+        start time (in msec) of this section/paragraph since the beginning of the audio  # noqa: E501
 
         :param start: The start of this WordsSection.  # noqa: E501
         :type: int
@@ -153,6 +153,7 @@ class WordsSection(object):
     def words(self):
         """Gets the words of this WordsSection.  # noqa: E501
 
+        Detailed data for all the words in this section/paragraph  # noqa: E501
 
         :return: The words of this WordsSection.  # noqa: E501
         :rtype: list[WordItemTimed]
@@ -163,6 +164,7 @@ class WordsSection(object):
     def words(self, words):
         """Sets the words of this WordsSection.
 
+        Detailed data for all the words in this section/paragraph  # noqa: E501
 
         :param words: The words of this WordsSection.  # noqa: E501
         :type: list[WordItemTimed]
