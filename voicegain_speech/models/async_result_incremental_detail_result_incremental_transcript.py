@@ -35,26 +35,31 @@ class AsyncResultIncrementalDetailResultIncrementalTranscript(object):
     """
     openapi_types = {
         'final': 'str',
+        'final_confidence': 'float',
         'hypothesis': 'str'
     }
 
     attribute_map = {
         'final': 'final',
+        'final_confidence': 'finalConfidence',
         'hypothesis': 'hypothesis'
     }
 
-    def __init__(self, final=None, hypothesis=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, final=None, final_confidence=None, hypothesis=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultIncrementalDetailResultIncrementalTranscript - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._final = None
+        self._final_confidence = None
         self._hypothesis = None
         self.discriminator = None
 
         if final is not None:
             self.final = final
+        if final_confidence is not None:
+            self.final_confidence = final_confidence
         if hypothesis is not None:
             self.hypothesis = hypothesis
 
@@ -62,7 +67,7 @@ class AsyncResultIncrementalDetailResultIncrementalTranscript(object):
     def final(self):
         """Gets the final of this AsyncResultIncrementalDetailResultIncrementalTranscript.  # noqa: E501
 
-        Incremental part of the transcript that will no longer change as result of changing hypothesis.</br> Note 1, this exact value will not be returned on next polling request.</br> Note 2, the value may be missing if there is no new final part of transcript since last poll.     # noqa: E501
+        Incremental part of the transcript that will no longer change as result of changing hypothesis.</br> Note 1: this exact value will **not** be returned (repeated) in the response to the next polling request.</br> Note 2: the value may be missing if there is no new final part of transcript since last poll.     # noqa: E501
 
         :return: The final of this AsyncResultIncrementalDetailResultIncrementalTranscript.  # noqa: E501
         :rtype: str
@@ -73,7 +78,7 @@ class AsyncResultIncrementalDetailResultIncrementalTranscript(object):
     def final(self, final):
         """Sets the final of this AsyncResultIncrementalDetailResultIncrementalTranscript.
 
-        Incremental part of the transcript that will no longer change as result of changing hypothesis.</br> Note 1, this exact value will not be returned on next polling request.</br> Note 2, the value may be missing if there is no new final part of transcript since last poll.     # noqa: E501
+        Incremental part of the transcript that will no longer change as result of changing hypothesis.</br> Note 1: this exact value will **not** be returned (repeated) in the response to the next polling request.</br> Note 2: the value may be missing if there is no new final part of transcript since last poll.     # noqa: E501
 
         :param final: The final of this AsyncResultIncrementalDetailResultIncrementalTranscript.  # noqa: E501
         :type: str
@@ -82,10 +87,39 @@ class AsyncResultIncrementalDetailResultIncrementalTranscript(object):
         self._final = final
 
     @property
+    def final_confidence(self):
+        """Gets the final_confidence of this AsyncResultIncrementalDetailResultIncrementalTranscript.  # noqa: E501
+
+        If `final` value is present then this will be the confidence of that finalized transcript snippet   # noqa: E501
+
+        :return: The final_confidence of this AsyncResultIncrementalDetailResultIncrementalTranscript.  # noqa: E501
+        :rtype: float
+        """
+        return self._final_confidence
+
+    @final_confidence.setter
+    def final_confidence(self, final_confidence):
+        """Sets the final_confidence of this AsyncResultIncrementalDetailResultIncrementalTranscript.
+
+        If `final` value is present then this will be the confidence of that finalized transcript snippet   # noqa: E501
+
+        :param final_confidence: The final_confidence of this AsyncResultIncrementalDetailResultIncrementalTranscript.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                final_confidence is not None and final_confidence > 1.0):  # noqa: E501
+            raise ValueError("Invalid value for `final_confidence`, must be a value less than or equal to `1.0`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                final_confidence is not None and final_confidence < 0.0):  # noqa: E501
+            raise ValueError("Invalid value for `final_confidence`, must be a value greater than or equal to `0.0`")  # noqa: E501
+
+        self._final_confidence = final_confidence
+
+    @property
     def hypothesis(self):
         """Gets the hypothesis of this AsyncResultIncrementalDetailResultIncrementalTranscript.  # noqa: E501
 
-        Non-finalized hypothesis, it may change on next polling request. Note, the hypothesis is always presented in full, for example:</br> \"fox jump\" may be replaced by \"fox jumped over\".</br> Once the hypotheses is finalized (it can no longer change) it is moved/appended to `final` field.</br> Note, the value may be missing if there is no new hypothesis part of transcript since last poll.    # noqa: E501
+        Non-finalized hypothesis, it may change on next polling request. Note, the hypothesis is always presented in full, for example:</br> \"fox jump\" may be **replaced** by \"fox jumped over\".</br> Once the hypotheses is finalized (it can no longer change) it is moved to `final` field.</br> Note, the value may be missing if there is no new hypothesis part of transcript since last poll.    # noqa: E501
 
         :return: The hypothesis of this AsyncResultIncrementalDetailResultIncrementalTranscript.  # noqa: E501
         :rtype: str
@@ -96,7 +130,7 @@ class AsyncResultIncrementalDetailResultIncrementalTranscript(object):
     def hypothesis(self, hypothesis):
         """Sets the hypothesis of this AsyncResultIncrementalDetailResultIncrementalTranscript.
 
-        Non-finalized hypothesis, it may change on next polling request. Note, the hypothesis is always presented in full, for example:</br> \"fox jump\" may be replaced by \"fox jumped over\".</br> Once the hypotheses is finalized (it can no longer change) it is moved/appended to `final` field.</br> Note, the value may be missing if there is no new hypothesis part of transcript since last poll.    # noqa: E501
+        Non-finalized hypothesis, it may change on next polling request. Note, the hypothesis is always presented in full, for example:</br> \"fox jump\" may be **replaced** by \"fox jumped over\".</br> Once the hypotheses is finalized (it can no longer change) it is moved to `final` field.</br> Note, the value may be missing if there is no new hypothesis part of transcript since last poll.    # noqa: E501
 
         :param hypothesis: The hypothesis of this AsyncResultIncrementalDetailResultIncrementalTranscript.  # noqa: E501
         :type: str
