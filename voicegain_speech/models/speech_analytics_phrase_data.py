@@ -34,7 +34,7 @@ class SpeechAnalyticsPhraseData(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'counts': 'dict(str, str)',
+        'counts': 'dict(str, int)',
         'list': 'list[SpeechAnalyticsPhraseItem]'
     }
 
@@ -65,7 +65,7 @@ class SpeechAnalyticsPhraseData(object):
         Map from from phrase tag to the count of number spotted  # noqa: E501
 
         :return: The counts of this SpeechAnalyticsPhraseData.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: dict(str, int)
         """
         return self._counts
 
@@ -76,7 +76,7 @@ class SpeechAnalyticsPhraseData(object):
         Map from from phrase tag to the count of number spotted  # noqa: E501
 
         :param counts: The counts of this SpeechAnalyticsPhraseData.  # noqa: E501
-        :type: dict(str, str)
+        :type: dict(str, int)
         """
 
         self._counts = counts
