@@ -242,7 +242,7 @@ class NewSpeechAnalyticsSession(object):
     def label(self):
         """Gets the label of this NewSpeechAnalyticsSession.  # noqa: E501
 
-        Short labels to assign to the speech Analytics session. May be displayed in a table to make identifying a session easier.  # noqa: E501
+        Label to assign to the Speech Analytics session. May be displayed in a table to make identifying a session easier.</br> Generally follows the same limitations as a file name. </br> Can contain any unicode character except control characters and except < > : \" / \\ |  ? * </br> Moreover, spaces and dots in front and at the end are not allowed.   # noqa: E501
 
         :return: The label of this NewSpeechAnalyticsSession.  # noqa: E501
         :rtype: str
@@ -253,7 +253,7 @@ class NewSpeechAnalyticsSession(object):
     def label(self, label):
         """Sets the label of this NewSpeechAnalyticsSession.
 
-        Short labels to assign to the speech Analytics session. May be displayed in a table to make identifying a session easier.  # noqa: E501
+        Label to assign to the Speech Analytics session. May be displayed in a table to make identifying a session easier.</br> Generally follows the same limitations as a file name. </br> Can contain any unicode character except control characters and except < > : \" / \\ |  ? * </br> Moreover, spaces and dots in front and at the end are not allowed.   # noqa: E501
 
         :param label: The label of this NewSpeechAnalyticsSession.  # noqa: E501
         :type: str

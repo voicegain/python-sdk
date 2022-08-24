@@ -57,7 +57,7 @@ class SpeechAnalyticsSessionModifiable(object):
     def label(self):
         """Gets the label of this SpeechAnalyticsSessionModifiable.  # noqa: E501
 
-        Short labels to assign to the speech Analytics session. May be displayed in a table to make identifying a session easier.  # noqa: E501
+        Label to assign to the Speech Analytics session. May be displayed in a table to make identifying a session easier.</br> Generally follows the same limitations as a file name. </br> Can contain any unicode character except control characters and except < > : \" / \\ |  ? * </br> Moreover, spaces and dots in front and at the end are not allowed.   # noqa: E501
 
         :return: The label of this SpeechAnalyticsSessionModifiable.  # noqa: E501
         :rtype: str
@@ -68,14 +68,14 @@ class SpeechAnalyticsSessionModifiable(object):
     def label(self, label):
         """Sets the label of this SpeechAnalyticsSessionModifiable.
 
-        Short labels to assign to the speech Analytics session. May be displayed in a table to make identifying a session easier.  # noqa: E501
+        Label to assign to the Speech Analytics session. May be displayed in a table to make identifying a session easier.</br> Generally follows the same limitations as a file name. </br> Can contain any unicode character except control characters and except < > : \" / \\ |  ? * </br> Moreover, spaces and dots in front and at the end are not allowed.   # noqa: E501
 
         :param label: The label of this SpeechAnalyticsSessionModifiable.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                label is not None and len(label) > 64):
-            raise ValueError("Invalid value for `label`, length must be less than or equal to `64`")  # noqa: E501
+                label is not None and len(label) > 256):
+            raise ValueError("Invalid value for `label`, length must be less than or equal to `256`")  # noqa: E501
 
         self._label = label
 
