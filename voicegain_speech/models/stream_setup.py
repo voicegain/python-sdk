@@ -67,7 +67,7 @@ class StreamSetup(object):
     def auth_conf(self):
         """Gets the auth_conf of this StreamSetup.  # noqa: E501
 
-        Name or UUID of the Authentication Config used to specify the allowed src_ip of the client.  If absent only stream coming from the same IP as the web API request will be allowed.</br> Can be defined via Voicegain Console. **(Not implemented yet)**   # noqa: E501
+        Name or UUID of the Authentication Config used to specify the allowed src_ip of the client.  If absent only stream coming from the same IP as the web API request will be allowed.</br> Can be defined via Voicegain Console. See also [Context API](#operation/contextPut).   # noqa: E501
 
         :return: The auth_conf of this StreamSetup.  # noqa: E501
         :rtype: str
@@ -78,7 +78,7 @@ class StreamSetup(object):
     def auth_conf(self, auth_conf):
         """Sets the auth_conf of this StreamSetup.
 
-        Name or UUID of the Authentication Config used to specify the allowed src_ip of the client.  If absent only stream coming from the same IP as the web API request will be allowed.</br> Can be defined via Voicegain Console. **(Not implemented yet)**   # noqa: E501
+        Name or UUID of the Authentication Config used to specify the allowed src_ip of the client.  If absent only stream coming from the same IP as the web API request will be allowed.</br> Can be defined via Voicegain Console. See also [Context API](#operation/contextPut).   # noqa: E501
 
         :param auth_conf: The auth_conf of this StreamSetup.  # noqa: E501
         :type: str

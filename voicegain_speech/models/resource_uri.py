@@ -67,7 +67,7 @@ class ResourceUri(object):
     def auth_conf(self):
         """Gets the auth_conf of this ResourceUri.  # noqa: E501
 
-        Name or UUID of the authentication config for accessing the URI, if missing then no authentication will be attempted. Can be defined via Voicegain Console. **(Not implemented yet)**   # noqa: E501
+        Name or UUID of the authentication config for accessing the URI, if missing then no authentication will be attempted. Can be defined via Voicegain Console. See also [Context API](#operation/contextPut).   # noqa: E501
 
         :return: The auth_conf of this ResourceUri.  # noqa: E501
         :rtype: str
@@ -78,7 +78,7 @@ class ResourceUri(object):
     def auth_conf(self, auth_conf):
         """Sets the auth_conf of this ResourceUri.
 
-        Name or UUID of the authentication config for accessing the URI, if missing then no authentication will be attempted. Can be defined via Voicegain Console. **(Not implemented yet)**   # noqa: E501
+        Name or UUID of the authentication config for accessing the URI, if missing then no authentication will be attempted. Can be defined via Voicegain Console. See also [Context API](#operation/contextPut).   # noqa: E501
 
         :param auth_conf: The auth_conf of this ResourceUri.  # noqa: E501
         :type: str
