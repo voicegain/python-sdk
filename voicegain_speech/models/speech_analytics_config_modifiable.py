@@ -368,7 +368,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def keyword_groups(self):
         """Gets the keyword_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        Keyword groups - Group tags must be different from the tags used for keywords. One use for keyword groups is that the GET /sa/call-stats API supports reporting stats of keywords within a Group.</br> Default tehre are no keyword groups.   # noqa: E501
+        Keyword groups - Group tags must be different from the tags used for keywords. One use for keyword groups is that the GET /sa/call-stats API supports reporting stats of keywords within a Group.</br> Default - there are no keyword groups.   # noqa: E501
 
         :return: The keyword_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: list[KeywordSpotGroup]
@@ -379,7 +379,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def keyword_groups(self, keyword_groups):
         """Sets the keyword_groups of this SpeechAnalyticsConfigModifiable.
 
-        Keyword groups - Group tags must be different from the tags used for keywords. One use for keyword groups is that the GET /sa/call-stats API supports reporting stats of keywords within a Group.</br> Default tehre are no keyword groups.   # noqa: E501
+        Keyword groups - Group tags must be different from the tags used for keywords. One use for keyword groups is that the GET /sa/call-stats API supports reporting stats of keywords within a Group.</br> Default - there are no keyword groups.   # noqa: E501
 
         :param keyword_groups: The keyword_groups of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: list[KeywordSpotGroup]
