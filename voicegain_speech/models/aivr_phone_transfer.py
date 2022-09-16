@@ -57,7 +57,7 @@ class AIVRPhoneTransfer(object):
     def phone_number(self):
         """Gets the phone_number of this AIVRPhoneTransfer.  # noqa: E501
 
-        E.164 formatted phone number to transfer to  # noqa: E501
+        E.164 formatted phone number or a SIP URI to transfer to.  SIP URI may include transport type and headers, e.g., edfe769d-3c83-4320-b9e4-27f7e3@fs.acme.com:5080;transport=tcp?x-mycustomheader=foo   # noqa: E501
 
         :return: The phone_number of this AIVRPhoneTransfer.  # noqa: E501
         :rtype: str
@@ -68,7 +68,7 @@ class AIVRPhoneTransfer(object):
     def phone_number(self, phone_number):
         """Sets the phone_number of this AIVRPhoneTransfer.
 
-        E.164 formatted phone number to transfer to  # noqa: E501
+        E.164 formatted phone number or a SIP URI to transfer to.  SIP URI may include transport type and headers, e.g., edfe769d-3c83-4320-b9e4-27f7e3@fs.acme.com:5080;transport=tcp?x-mycustomheader=foo   # noqa: E501
 
         :param phone_number: The phone_number of this AIVRPhoneTransfer.  # noqa: E501
         :type: str
