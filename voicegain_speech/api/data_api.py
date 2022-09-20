@@ -47,7 +47,7 @@ class DataApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param str context_id: Context Id. Normally JWT contains a contextId so this parameter is only relevant if making a request using MAC Access Authentication.</br> If contextId is provided (either via JWT or this query parmeter) then the DataObject will be associated with a Context.</br> If it is not provided then the DataObject will be associated with the Account. 
         :param bool reuse: This parameter is now ignored. A new object is always created. 
         :param str transcode: Controls transcode of audio data to lossless FLAC format upon upload. By default, audio transcode is disabled. Transcode should be used only when the original format is L16, PCMU, or PCMA to reduce the storage requirements.</br> NOTE: Offline transcription supports all formats supported by ffmpeg irrespective if transcode is enabled or disabled. 
         :param DataObjectWithAudio data_object_with_audio: Request body with info about the audio data source.
@@ -75,7 +75,7 @@ class DataApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param str context_id: Context Id. Normally JWT contains a contextId so this parameter is only relevant if making a request using MAC Access Authentication.</br> If contextId is provided (either via JWT or this query parmeter) then the DataObject will be associated with a Context.</br> If it is not provided then the DataObject will be associated with the Account. 
         :param bool reuse: This parameter is now ignored. A new object is always created. 
         :param str transcode: Controls transcode of audio data to lossless FLAC format upon upload. By default, audio transcode is disabled. Transcode should be used only when the original format is L16, PCMU, or PCMA to reduce the storage requirements.</br> NOTE: Offline transcription supports all formats supported by ffmpeg irrespective if transcode is enabled or disabled. 
         :param DataObjectWithAudio data_object_with_audio: Request body with info about the audio data source.
@@ -645,7 +645,7 @@ class DataApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param str context_id: Context Id. Normally JWT contains a contextId so this parameter is only relevant if making a request using MAC Access Authentication.</br> If contextId is provided (either via JWT or this query parmeter) then the DataObject will be associated with a Context.</br> If it is not provided then the DataObject will be associated with the Account. 
         :param bool reuse: This parameter is now ignored. A new object is always created. 
         :param str transcode: Controls transcode of audio data to lossless FLAC format upon upload. By default, audio transcode is disabled. Transcode should be used only when the original format is L16, PCMU, or PCMA to reduce the storage requirements.</br> NOTE: Offline transcription supports all formats supported by ffmpeg irrespective if transcode is enabled or disabled. 
         :param file file: Part of the form labeled 'file' contains file to be uploaded
@@ -674,7 +674,7 @@ class DataApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param str context_id: Context Id. Normally JWT contains a contextId so this parameter is only relevant if making a request using MAC Access Authentication.</br> If contextId is provided (either via JWT or this query parmeter) then the DataObject will be associated with a Context.</br> If it is not provided then the DataObject will be associated with the Account. 
         :param bool reuse: This parameter is now ignored. A new object is always created. 
         :param str transcode: Controls transcode of audio data to lossless FLAC format upon upload. By default, audio transcode is disabled. Transcode should be used only when the original format is L16, PCMU, or PCMA to reduce the storage requirements.</br> NOTE: Offline transcription supports all formats supported by ffmpeg irrespective if transcode is enabled or disabled. 
         :param file file: Part of the form labeled 'file' contains file to be uploaded

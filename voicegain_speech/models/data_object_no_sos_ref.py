@@ -133,7 +133,7 @@ class DataObjectNoSosRef(object):
     def context_id(self):
         """Gets the context_id of this DataObjectNoSosRef.  # noqa: E501
 
-        Context Id. Note, when a Context is deleted, all Data Objects belonging to that Context are deleted too.  # noqa: E501
+        Context Id - if specified then this DataObject is associated with a given context;  if not then the DataObject is associated with the Account.</br> Note: If contextId is specified then when a Context is deleted, this object will be deleted if all references to it are from within the Context. If it is referenced from outside the Context, then this object becomes read-only when Context is deleted.   # noqa: E501
 
         :return: The context_id of this DataObjectNoSosRef.  # noqa: E501
         :rtype: str
@@ -144,7 +144,7 @@ class DataObjectNoSosRef(object):
     def context_id(self, context_id):
         """Sets the context_id of this DataObjectNoSosRef.
 
-        Context Id. Note, when a Context is deleted, all Data Objects belonging to that Context are deleted too.  # noqa: E501
+        Context Id - if specified then this DataObject is associated with a given context;  if not then the DataObject is associated with the Account.</br> Note: If contextId is specified then when a Context is deleted, this object will be deleted if all references to it are from within the Context. If it is referenced from outside the Context, then this object becomes read-only when Context is deleted.   # noqa: E501
 
         :param context_id: The context_id of this DataObjectNoSosRef.  # noqa: E501
         :type: str
