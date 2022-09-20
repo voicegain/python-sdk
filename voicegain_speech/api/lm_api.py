@@ -276,7 +276,7 @@ class LmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param bool built_in: Set to true to indicate that a built-in model is to be created. Only users with \"cmp\" permission are allowed to create built-in models. 
-        :param bool build: if true the build will start, e.g. the backend may change the appropriate status field value to \"starting\"
+        :param bool build: if true then build will start, e.g. the backend may change the appropriate status field value to \"starting\"
         :param LanguageModelDocModifiable language_model_doc_modifiable: This example shows minimal content of the request
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -303,7 +303,7 @@ class LmApi(object):
 
         :param async_req bool: execute request asynchronously
         :param bool built_in: Set to true to indicate that a built-in model is to be created. Only users with \"cmp\" permission are allowed to create built-in models. 
-        :param bool build: if true the build will start, e.g. the backend may change the appropriate status field value to \"starting\"
+        :param bool build: if true then build will start, e.g. the backend may change the appropriate status field value to \"starting\"
         :param LanguageModelDocModifiable language_model_doc_modifiable: This example shows minimal content of the request
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -393,7 +393,7 @@ class LmApi(object):
         :param async_req bool: execute request asynchronously
         :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
         :param bool append: How should lists be modified. If true then new data will be appended to old, if false then old data will be replace by new.
-        :param bool build: if true the build will start, e.g. the backend may change the appropriate status field value to \"starting\"
+        :param bool build: if true then build will start, e.g. the backend may change the appropriate status field value to \"starting\"
         :param LanguageModelDocModifiable language_model_doc_modifiable: Data with modifications to be applied to the model
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -421,7 +421,7 @@ class LmApi(object):
         :param async_req bool: execute request asynchronously
         :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
         :param bool append: How should lists be modified. If true then new data will be appended to old, if false then old data will be replace by new.
-        :param bool build: if true the build will start, e.g. the backend may change the appropriate status field value to \"starting\"
+        :param bool build: if true then build will start, e.g. the backend may change the appropriate status field value to \"starting\"
         :param LanguageModelDocModifiable language_model_doc_modifiable: Data with modifications to be applied to the model
         :param _return_http_data_only: response data without head status code
                                        and headers

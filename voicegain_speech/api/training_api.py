@@ -384,7 +384,7 @@ class TrainingApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
-        :param bool build: if true the build will start, e.g. the backend may change the appropriate status field value to \"starting\"
+        :param bool build: if true then build will start, e.g. the backend may change the appropriate status field value to \"starting\"
         :param TrainingSetModifiable training_set_modifiable: Data with modifications to be applied to the TrainingSet
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -411,7 +411,7 @@ class TrainingApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
-        :param bool build: if true the build will start, e.g. the backend may change the appropriate status field value to \"starting\"
+        :param bool build: if true then build will start, e.g. the backend may change the appropriate status field value to \"starting\"
         :param TrainingSetModifiable training_set_modifiable: Data with modifications to be applied to the TrainingSet
         :param _return_http_data_only: response data without head status code
                                        and headers
