@@ -790,7 +790,7 @@ class SaApi(object):
     def sa_delete(self, sa_session_id, **kwargs):  # noqa: E501
         """Delete Sp. Analytics  # noqa: E501
 
-        Delete all data related to specified Speech Analytics session. Note, this also works for sessions created using `POST /sa/offline`   # noqa: E501
+        Delete all data related to specified Speech Analytics session.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_delete(sa_session_id, async_req=True)
@@ -815,7 +815,7 @@ class SaApi(object):
     def sa_delete_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Delete Sp. Analytics  # noqa: E501
 
-        Delete all data related to specified Speech Analytics session. Note, this also works for sessions created using `POST /sa/offline`   # noqa: E501
+        Delete all data related to specified Speech Analytics session.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_delete_with_http_info(sa_session_id, async_req=True)
