@@ -258,7 +258,7 @@ class ACControlMessages(object):
     def stt_generic_data(self):
         """Gets the stt_generic_data of this ACControlMessages.  # noqa: E501
 
-        Used to pass additional information to the recognizer. Details of how to use it will be documented soon.             # noqa: E501
+        Used to pass additional information to the recognizer. The content of this filed will be a serialized JSON. Details of the allowed JSON payload are [here](#operation/sttGenericData)   # noqa: E501
 
         :return: The stt_generic_data of this ACControlMessages.  # noqa: E501
         :rtype: str
@@ -269,7 +269,7 @@ class ACControlMessages(object):
     def stt_generic_data(self, stt_generic_data):
         """Sets the stt_generic_data of this ACControlMessages.
 
-        Used to pass additional information to the recognizer. Details of how to use it will be documented soon.             # noqa: E501
+        Used to pass additional information to the recognizer. The content of this filed will be a serialized JSON. Details of the allowed JSON payload are [here](#operation/sttGenericData)   # noqa: E501
 
         :param stt_generic_data: The stt_generic_data of this ACControlMessages.  # noqa: E501
         :type: str

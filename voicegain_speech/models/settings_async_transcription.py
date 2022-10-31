@@ -36,7 +36,7 @@ class SettingsAsyncTranscription(object):
     openapi_types = {
         'asr': 'AsrSettingsTranscriptionAsync',
         'debug': 'DebugSettings',
-        'formatters': 'list[SettingsAsyncTranscriptionFormatters]',
+        'formatters': 'list[object]',
         'preemptible': 'bool'
     }
 
@@ -117,7 +117,7 @@ class SettingsAsyncTranscription(object):
         (optional) Configuration for text formatters.  Currently four formatters are available: + digits formatter, + basic punctuation/capitalization formatter, + profanity masking formatter, + english US/GB spelling enforcer. </br>  More types of formatters with various options will be added in the future.</br> Some formatters, like e.g. \"basic\" are **default formatters**, which means that they can be considered as always included with their default parameter values. You need to explicitly specify them only if you need to override the default parameters or provide parameters which do nor have defaults. For example, to disable punctuation/capitalization you can provide  ``` [{\"type\" : \"basic\", \"parameters\" : {\"enabled\" : false}}] ```   # noqa: E501
 
         :return: The formatters of this SettingsAsyncTranscription.  # noqa: E501
-        :rtype: list[SettingsAsyncTranscriptionFormatters]
+        :rtype: list[object]
         """
         return self._formatters
 
@@ -128,7 +128,7 @@ class SettingsAsyncTranscription(object):
         (optional) Configuration for text formatters.  Currently four formatters are available: + digits formatter, + basic punctuation/capitalization formatter, + profanity masking formatter, + english US/GB spelling enforcer. </br>  More types of formatters with various options will be added in the future.</br> Some formatters, like e.g. \"basic\" are **default formatters**, which means that they can be considered as always included with their default parameter values. You need to explicitly specify them only if you need to override the default parameters or provide parameters which do nor have defaults. For example, to disable punctuation/capitalization you can provide  ``` [{\"type\" : \"basic\", \"parameters\" : {\"enabled\" : false}}] ```   # noqa: E501
 
         :param formatters: The formatters of this SettingsAsyncTranscription.  # noqa: E501
-        :type: list[SettingsAsyncTranscriptionFormatters]
+        :type: list[object]
         """
 
         self._formatters = formatters

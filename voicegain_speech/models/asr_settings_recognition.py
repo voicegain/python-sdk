@@ -69,7 +69,7 @@ class AsrSettingsRecognition(object):
         'start_input_timers': 'startInputTimers'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, languages=None, max_alternatives=1, sensitivity=0.5, speech_context='normal', speed_vs_accuracy=0.5, complete_timeout=2000, grammars=None, greg_experiment=None, incomplete_timeout=5000, lang_model=None, no_input_timeout=10000, start_input_timers=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, languages=None, max_alternatives=1, sensitivity=0.5, speech_context=None, speed_vs_accuracy=0.5, complete_timeout=2000, grammars=None, greg_experiment=None, incomplete_timeout=5000, lang_model=None, no_input_timeout=10000, start_input_timers=True, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsRecognition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -282,7 +282,6 @@ class AsrSettingsRecognition(object):
     def speech_context(self):
         """Gets the speech_context of this AsrSettingsRecognition.  # noqa: E501
 
-        A \"hint\" to the acoustic model regarding what content to expect in speech: + normal - the default suitable to normal blend of speech + digits - use when expecting mainly digits in speech to enhance digit recognition    # noqa: E501
 
         :return: The speech_context of this AsrSettingsRecognition.  # noqa: E501
         :rtype: str
@@ -293,7 +292,6 @@ class AsrSettingsRecognition(object):
     def speech_context(self, speech_context):
         """Sets the speech_context of this AsrSettingsRecognition.
 
-        A \"hint\" to the acoustic model regarding what content to expect in speech: + normal - the default suitable to normal blend of speech + digits - use when expecting mainly digits in speech to enhance digit recognition    # noqa: E501
 
         :param speech_context: The speech_context of this AsrSettingsRecognition.  # noqa: E501
         :type: str
