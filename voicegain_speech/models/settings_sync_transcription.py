@@ -35,29 +35,34 @@ class SettingsSyncTranscription(object):
     """
     openapi_types = {
         'asr': 'AsrSettingsTranscription',
+        'compliance': 'ComplianceSettings',
         'debug': 'DebugSettings',
         'preemptible': 'bool'
     }
 
     attribute_map = {
         'asr': 'asr',
+        'compliance': 'compliance',
         'debug': 'debug',
         'preemptible': 'preemptible'
     }
 
-    def __init__(self, asr=None, debug=None, preemptible=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, compliance=None, debug=None, preemptible=False, local_vars_configuration=None):  # noqa: E501
         """SettingsSyncTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._asr = None
+        self._compliance = None
         self._debug = None
         self._preemptible = None
         self.discriminator = None
 
         if asr is not None:
             self.asr = asr
+        if compliance is not None:
+            self.compliance = compliance
         if debug is not None:
             self.debug = debug
         if preemptible is not None:
@@ -83,6 +88,27 @@ class SettingsSyncTranscription(object):
         """
 
         self._asr = asr
+
+    @property
+    def compliance(self):
+        """Gets the compliance of this SettingsSyncTranscription.  # noqa: E501
+
+
+        :return: The compliance of this SettingsSyncTranscription.  # noqa: E501
+        :rtype: ComplianceSettings
+        """
+        return self._compliance
+
+    @compliance.setter
+    def compliance(self, compliance):
+        """Sets the compliance of this SettingsSyncTranscription.
+
+
+        :param compliance: The compliance of this SettingsSyncTranscription.  # noqa: E501
+        :type: ComplianceSettings
+        """
+
+        self._compliance = compliance
 
     @property
     def debug(self):
