@@ -79,8 +79,8 @@ class TopicScore(object):
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                label is not None and len(label) > 32):
-            raise ValueError("Invalid value for `label`, length must be less than or equal to `32`")  # noqa: E501
+                label is not None and len(label) > 64):
+            raise ValueError("Invalid value for `label`, length must be less than or equal to `64`")  # noqa: E501
 
         self._label = label
 
