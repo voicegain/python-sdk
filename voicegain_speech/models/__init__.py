@@ -169,6 +169,7 @@ from voicegain_speech.models.error_info import ErrorInfo
 from voicegain_speech.models.estimated_queue_wait import EstimatedQueueWait
 from voicegain_speech.models.experiment_platform import ExperimentPlatform
 from voicegain_speech.models.file_location import FileLocation
+from voicegain_speech.models.formatter import Formatter
 from voicegain_speech.models.greg import GREG
 from voicegain_speech.models.greg_all_of import GREGAllOf
 from voicegain_speech.models.grxml import GRXML
