@@ -44,6 +44,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'gender': 'bool',
         'keyword_groups': 'list[KeywordSpotGroup]',
         'keywords': 'list[KeywordSpotItem]',
+        'meeting_minutes': 'SpeechAnalyticsConfigModifiableBaseMeetingMinutes',
         'moods': 'list[MoodType]',
         'overtalk_single_duration_maximum_threshold': 'float',
         'overtalk_total_percentage_threshold': 'float',
@@ -71,6 +72,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'gender': 'gender',
         'keyword_groups': 'keywordGroups',
         'keywords': 'keywords',
+        'meeting_minutes': 'meetingMinutes',
         'moods': 'moods',
         'overtalk_single_duration_maximum_threshold': 'overtalkSingleDurationMaximumThreshold',
         'overtalk_total_percentage_threshold': 'overtalkTotalPercentageThreshold',
@@ -87,7 +89,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'name': 'name'
     }
 
-    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, meeting_minutes=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -103,6 +105,7 @@ class SpeechAnalyticsConfigModifiable(object):
         self._gender = None
         self._keyword_groups = None
         self._keywords = None
+        self._meeting_minutes = None
         self._moods = None
         self._overtalk_single_duration_maximum_threshold = None
         self._overtalk_total_percentage_threshold = None
@@ -139,6 +142,8 @@ class SpeechAnalyticsConfigModifiable(object):
             self.keyword_groups = keyword_groups
         if keywords is not None:
             self.keywords = keywords
+        if meeting_minutes is not None:
+            self.meeting_minutes = meeting_minutes
         if moods is not None:
             self.moods = moods
         if overtalk_single_duration_maximum_threshold is not None:
@@ -409,6 +414,27 @@ class SpeechAnalyticsConfigModifiable(object):
         """
 
         self._keywords = keywords
+
+    @property
+    def meeting_minutes(self):
+        """Gets the meeting_minutes of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+
+
+        :return: The meeting_minutes of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :rtype: SpeechAnalyticsConfigModifiableBaseMeetingMinutes
+        """
+        return self._meeting_minutes
+
+    @meeting_minutes.setter
+    def meeting_minutes(self, meeting_minutes):
+        """Sets the meeting_minutes of this SpeechAnalyticsConfigModifiable.
+
+
+        :param meeting_minutes: The meeting_minutes of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :type: SpeechAnalyticsConfigModifiableBaseMeetingMinutes
+        """
+
+        self._meeting_minutes = meeting_minutes
 
     @property
     def moods(self):
