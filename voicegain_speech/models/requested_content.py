@@ -62,7 +62,7 @@ class RequestedContent(object):
     def full(self):
         """Gets the full of this RequestedContent.  # noqa: E501
 
-        Types of content to be returned when ASR is done with processing all audio.</br> Note 1: In order for [GET /asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript) to return results - `words` needs to be selected. </br> Note 2: To suppress full result, specify empty array to replace the default.</br> Note 3: If audioChannelSelector:two-channel is selected, then only `progress`, `words`, and `transcript` can be returned (any other settings will be ignored). `transcript` will be a simple merged transcript of the two channels. </br>   # noqa: E501
+        Types of content to be returned when ASR is done with processing all audio.</br> Note 1: `words` needs to be selected if accurate punctuation is required, even if you only are interested in `transcript`</br> Note 2: `words` needs to be selected also in order for [GET /asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript) to return results. </br> Note 3: To suppress full result, specify empty array to replace the default.</br> Note 4: If audioChannelSelector:two-channel is selected, then only `progress`, `words`, and `transcript` can be returned (any other settings will be ignored). `transcript` will be a simple merged transcript of the two channels. </br>   # noqa: E501
 
         :return: The full of this RequestedContent.  # noqa: E501
         :rtype: list[ContentType]
@@ -73,7 +73,7 @@ class RequestedContent(object):
     def full(self, full):
         """Sets the full of this RequestedContent.
 
-        Types of content to be returned when ASR is done with processing all audio.</br> Note 1: In order for [GET /asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript) to return results - `words` needs to be selected. </br> Note 2: To suppress full result, specify empty array to replace the default.</br> Note 3: If audioChannelSelector:two-channel is selected, then only `progress`, `words`, and `transcript` can be returned (any other settings will be ignored). `transcript` will be a simple merged transcript of the two channels. </br>   # noqa: E501
+        Types of content to be returned when ASR is done with processing all audio.</br> Note 1: `words` needs to be selected if accurate punctuation is required, even if you only are interested in `transcript`</br> Note 2: `words` needs to be selected also in order for [GET /asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript) to return results. </br> Note 3: To suppress full result, specify empty array to replace the default.</br> Note 4: If audioChannelSelector:two-channel is selected, then only `progress`, `words`, and `transcript` can be returned (any other settings will be ignored). `transcript` will be a simple merged transcript of the two channels. </br>   # noqa: E501
 
         :param full: The full of this RequestedContent.  # noqa: E501
         :type: list[ContentType]
