@@ -38,6 +38,8 @@ class PhraseSpotItem(object):
         'examples': 'list[PhraseSpotExample]',
         'hide_if_group': 'bool',
         'location': 'PhraseSpotItemLocation',
+        'meeting_minutes': 'bool',
+        'must_be_question': 'bool',
         'regex': 'list[str]',
         'slots': 'PhraseSpotItemSlots',
         'tag': 'str'
@@ -48,12 +50,14 @@ class PhraseSpotItem(object):
         'examples': 'examples',
         'hide_if_group': 'hideIfGroup',
         'location': 'location',
+        'meeting_minutes': 'meetingMinutes',
+        'must_be_question': 'mustBeQuestion',
         'regex': 'regex',
         'slots': 'slots',
         'tag': 'tag'
     }
 
-    def __init__(self, built_in=False, examples=None, hide_if_group=False, location=None, regex=None, slots=None, tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, built_in=False, examples=None, hide_if_group=False, location=None, meeting_minutes=False, must_be_question=False, regex=None, slots=None, tag=None, local_vars_configuration=None):  # noqa: E501
         """PhraseSpotItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +67,8 @@ class PhraseSpotItem(object):
         self._examples = None
         self._hide_if_group = None
         self._location = None
+        self._meeting_minutes = None
+        self._must_be_question = None
         self._regex = None
         self._slots = None
         self._tag = None
@@ -76,6 +82,10 @@ class PhraseSpotItem(object):
             self.hide_if_group = hide_if_group
         if location is not None:
             self.location = location
+        if meeting_minutes is not None:
+            self.meeting_minutes = meeting_minutes
+        if must_be_question is not None:
+            self.must_be_question = must_be_question
         if regex is not None:
             self.regex = regex
         if slots is not None:
@@ -86,7 +96,7 @@ class PhraseSpotItem(object):
     def built_in(self):
         """Gets the built_in of this PhraseSpotItem.  # noqa: E501
 
-        If true then a built-in configuration for the given `tag` value will be used, any further parameters provided for this phrase will be ignored. (This is internal use at the moment, in the future we will provide a list os supported builIn phrase.)   # noqa: E501
+        If true then a built-in configuration for the given `tag` value will be used, any further parameters provided for this phrase will be ignored. (This is internal use at the moment, in the future we will provide a list of supported builtIn phrases.)   # noqa: E501
 
         :return: The built_in of this PhraseSpotItem.  # noqa: E501
         :rtype: bool
@@ -97,7 +107,7 @@ class PhraseSpotItem(object):
     def built_in(self, built_in):
         """Sets the built_in of this PhraseSpotItem.
 
-        If true then a built-in configuration for the given `tag` value will be used, any further parameters provided for this phrase will be ignored. (This is internal use at the moment, in the future we will provide a list os supported builIn phrase.)   # noqa: E501
+        If true then a built-in configuration for the given `tag` value will be used, any further parameters provided for this phrase will be ignored. (This is internal use at the moment, in the future we will provide a list of supported builtIn phrases.)   # noqa: E501
 
         :param built_in: The built_in of this PhraseSpotItem.  # noqa: E501
         :type: bool
@@ -171,6 +181,52 @@ class PhraseSpotItem(object):
         """
 
         self._location = location
+
+    @property
+    def meeting_minutes(self):
+        """Gets the meeting_minutes of this PhraseSpotItem.  # noqa: E501
+
+        If present and true then this Phrase will be used as Key Item for Meeeting Minutes (if Meeting Minutes are enabled).   # noqa: E501
+
+        :return: The meeting_minutes of this PhraseSpotItem.  # noqa: E501
+        :rtype: bool
+        """
+        return self._meeting_minutes
+
+    @meeting_minutes.setter
+    def meeting_minutes(self, meeting_minutes):
+        """Sets the meeting_minutes of this PhraseSpotItem.
+
+        If present and true then this Phrase will be used as Key Item for Meeeting Minutes (if Meeting Minutes are enabled).   # noqa: E501
+
+        :param meeting_minutes: The meeting_minutes of this PhraseSpotItem.  # noqa: E501
+        :type: bool
+        """
+
+        self._meeting_minutes = meeting_minutes
+
+    @property
+    def must_be_question(self):
+        """Gets the must_be_question of this PhraseSpotItem.  # noqa: E501
+
+        it true then the phrase match will be considered complete only if the matching sentence is a question  # noqa: E501
+
+        :return: The must_be_question of this PhraseSpotItem.  # noqa: E501
+        :rtype: bool
+        """
+        return self._must_be_question
+
+    @must_be_question.setter
+    def must_be_question(self, must_be_question):
+        """Sets the must_be_question of this PhraseSpotItem.
+
+        it true then the phrase match will be considered complete only if the matching sentence is a question  # noqa: E501
+
+        :param must_be_question: The must_be_question of this PhraseSpotItem.  # noqa: E501
+        :type: bool
+        """
+
+        self._must_be_question = must_be_question
 
     @property
     def regex(self):
