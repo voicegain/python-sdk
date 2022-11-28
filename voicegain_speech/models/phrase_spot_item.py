@@ -39,8 +39,8 @@ class PhraseSpotItem(object):
         'hide_if_group': 'bool',
         'location': 'PhraseSpotItemLocation',
         'meeting_minutes': 'bool',
-        'must_be_question': 'bool',
         'regex': 'list[str]',
+        'sentence_type': 'str',
         'slots': 'PhraseSpotItemSlots',
         'tag': 'str'
     }
@@ -51,13 +51,13 @@ class PhraseSpotItem(object):
         'hide_if_group': 'hideIfGroup',
         'location': 'location',
         'meeting_minutes': 'meetingMinutes',
-        'must_be_question': 'mustBeQuestion',
         'regex': 'regex',
+        'sentence_type': 'sentenceType',
         'slots': 'slots',
         'tag': 'tag'
     }
 
-    def __init__(self, built_in=False, examples=None, hide_if_group=False, location=None, meeting_minutes=False, must_be_question=False, regex=None, slots=None, tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, built_in=False, examples=None, hide_if_group=False, location=None, meeting_minutes=False, regex=None, sentence_type='any', slots=None, tag=None, local_vars_configuration=None):  # noqa: E501
         """PhraseSpotItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -68,8 +68,8 @@ class PhraseSpotItem(object):
         self._hide_if_group = None
         self._location = None
         self._meeting_minutes = None
-        self._must_be_question = None
         self._regex = None
+        self._sentence_type = None
         self._slots = None
         self._tag = None
         self.discriminator = None
@@ -84,10 +84,10 @@ class PhraseSpotItem(object):
             self.location = location
         if meeting_minutes is not None:
             self.meeting_minutes = meeting_minutes
-        if must_be_question is not None:
-            self.must_be_question = must_be_question
         if regex is not None:
             self.regex = regex
+        if sentence_type is not None:
+            self.sentence_type = sentence_type
         if slots is not None:
             self.slots = slots
         self.tag = tag
@@ -206,29 +206,6 @@ class PhraseSpotItem(object):
         self._meeting_minutes = meeting_minutes
 
     @property
-    def must_be_question(self):
-        """Gets the must_be_question of this PhraseSpotItem.  # noqa: E501
-
-        it true then the phrase match will be considered complete only if the matching sentence is a question  # noqa: E501
-
-        :return: The must_be_question of this PhraseSpotItem.  # noqa: E501
-        :rtype: bool
-        """
-        return self._must_be_question
-
-    @must_be_question.setter
-    def must_be_question(self, must_be_question):
-        """Sets the must_be_question of this PhraseSpotItem.
-
-        it true then the phrase match will be considered complete only if the matching sentence is a question  # noqa: E501
-
-        :param must_be_question: The must_be_question of this PhraseSpotItem.  # noqa: E501
-        :type: bool
-        """
-
-        self._must_be_question = must_be_question
-
-    @property
     def regex(self):
         """Gets the regex of this PhraseSpotItem.  # noqa: E501
 
@@ -250,6 +227,35 @@ class PhraseSpotItem(object):
         """
 
         self._regex = regex
+
+    @property
+    def sentence_type(self):
+        """Gets the sentence_type of this PhraseSpotItem.  # noqa: E501
+
+        if specified then the phrase match will be considered complete only if the matching sentence is of a given type  # noqa: E501
+
+        :return: The sentence_type of this PhraseSpotItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._sentence_type
+
+    @sentence_type.setter
+    def sentence_type(self, sentence_type):
+        """Sets the sentence_type of this PhraseSpotItem.
+
+        if specified then the phrase match will be considered complete only if the matching sentence is of a given type  # noqa: E501
+
+        :param sentence_type: The sentence_type of this PhraseSpotItem.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["statement", "question", "any"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and sentence_type not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `sentence_type` ({0}), must be one of {1}"  # noqa: E501
+                .format(sentence_type, allowed_values)
+            )
+
+        self._sentence_type = sentence_type
 
     @property
     def slots(self):

@@ -34,70 +34,34 @@ class WordsSectionMeta(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'column_pos': 'int',
         'duration': 'float',
-        'num_columns': 'int',
         'spk': 'int',
         'start': 'int'
     }
 
     attribute_map = {
-        'column_pos': 'columnPos',
         'duration': 'duration',
-        'num_columns': 'numColumns',
         'spk': 'spk',
         'start': 'start'
     }
 
-    def __init__(self, column_pos=1, duration=None, num_columns=1, spk=None, start=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, duration=None, spk=None, start=None, local_vars_configuration=None):  # noqa: E501
         """WordsSectionMeta - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._column_pos = None
         self._duration = None
-        self._num_columns = None
         self._spk = None
         self._start = None
         self.discriminator = None
 
-        if column_pos is not None:
-            self.column_pos = column_pos
         if duration is not None:
             self.duration = duration
-        if num_columns is not None:
-            self.num_columns = num_columns
         if spk is not None:
             self.spk = spk
         if start is not None:
             self.start = start
-
-    @property
-    def column_pos(self):
-        """Gets the column_pos of this WordsSectionMeta.  # noqa: E501
-
-        Only relevant if `numColumns` is greater than 1.</br> Indicates into which overlapping column the text of this section should be placed when displayed.</br> Columns are numbered starting from 1.   # noqa: E501
-
-        :return: The column_pos of this WordsSectionMeta.  # noqa: E501
-        :rtype: int
-        """
-        return self._column_pos
-
-    @column_pos.setter
-    def column_pos(self, column_pos):
-        """Sets the column_pos of this WordsSectionMeta.
-
-        Only relevant if `numColumns` is greater than 1.</br> Indicates into which overlapping column the text of this section should be placed when displayed.</br> Columns are numbered starting from 1.   # noqa: E501
-
-        :param column_pos: The column_pos of this WordsSectionMeta.  # noqa: E501
-        :type: int
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                column_pos is not None and column_pos < 1):  # noqa: E501
-            raise ValueError("Invalid value for `column_pos`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._column_pos = column_pos
 
     @property
     def duration(self):
@@ -124,32 +88,6 @@ class WordsSectionMeta(object):
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._duration = duration
-
-    @property
-    def num_columns(self):
-        """Gets the num_columns of this WordsSectionMeta.  # noqa: E501
-
-        Number of columns of overlapping text.  This will be greater than 1 only if this section of text overlaps in time with other section(s) of text.   # noqa: E501
-
-        :return: The num_columns of this WordsSectionMeta.  # noqa: E501
-        :rtype: int
-        """
-        return self._num_columns
-
-    @num_columns.setter
-    def num_columns(self, num_columns):
-        """Sets the num_columns of this WordsSectionMeta.
-
-        Number of columns of overlapping text.  This will be greater than 1 only if this section of text overlaps in time with other section(s) of text.   # noqa: E501
-
-        :param num_columns: The num_columns of this WordsSectionMeta.  # noqa: E501
-        :type: int
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                num_columns is not None and num_columns < 1):  # noqa: E501
-            raise ValueError("Invalid value for `num_columns`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._num_columns = num_columns
 
     @property
     def spk(self):

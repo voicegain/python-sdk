@@ -904,7 +904,7 @@ class SaApi(object):
     def sa_get_transcript(self, sa_session_id, **kwargs):  # noqa: E501
         """SA Transcript Content  # noqa: E501
 
-        Retrieve transcript from Speech Analytics session (after transcription is complete) in one of several possible formats.</br> **NOTE: currently only `json` and `text` formats are supported.** </br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br>   # noqa: E501
+        Retrieve transcript from Speech Analytics session (after transcription is complete) in one of several possible formats.</br>  The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_get_transcript(sa_session_id, async_req=True)
@@ -912,7 +912,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_session_id: Session ID for Speech Analytics (required)
-        :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plain text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format 
+        :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plain text transcript with optional timing information 
         :param float width: Applicable only to captions. Determines max caption width in number of characters.
         :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -922,7 +922,7 @@ class SaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: list[WordsSection]
+        :return: list[WordsSectionSingleColumn]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -932,7 +932,7 @@ class SaApi(object):
     def sa_get_transcript_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """SA Transcript Content  # noqa: E501
 
-        Retrieve transcript from Speech Analytics session (after transcription is complete) in one of several possible formats.</br> **NOTE: currently only `json` and `text` formats are supported.** </br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br>   # noqa: E501
+        Retrieve transcript from Speech Analytics session (after transcription is complete) in one of several possible formats.</br>  The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_get_transcript_with_http_info(sa_session_id, async_req=True)
@@ -940,7 +940,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_session_id: Session ID for Speech Analytics (required)
-        :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plain text transcript with optional timing information + srt - transcript in SRT caption format + vtt - transcript in WebVTT caption format + ttml - transcript in TTML (XML) caption format 
+        :param str format: Format of the transcript to be returned: + json - complete transcript data with all detail for each word + text - plain text transcript with optional timing information 
         :param float width: Applicable only to captions. Determines max caption width in number of characters.
         :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> 
         :param _return_http_data_only: response data without head status code
@@ -952,7 +952,7 @@ class SaApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(list[WordsSection], status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(list[WordsSectionSingleColumn], status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -1012,7 +1012,7 @@ class SaApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json', 'text/plain', 'text/srt', 'text/vtt', 'text/xml'])  # noqa: E501
+            ['application/json', 'text/plain'])  # noqa: E501
 
         # Authentication setting
         auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
@@ -1025,7 +1025,7 @@ class SaApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='list[WordsSection]',  # noqa: E501
+            response_type='list[WordsSectionSingleColumn]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

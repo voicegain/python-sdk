@@ -436,6 +436,8 @@ from voicegain_speech.models.word_tree_item import WordTreeItem
 from voicegain_speech.models.words_item import WordsItem
 from voicegain_speech.models.words_section import WordsSection
 from voicegain_speech.models.words_section_meta import WordsSectionMeta
+from voicegain_speech.models.words_section_meta_mc import WordsSectionMetaMC
+from voicegain_speech.models.words_section_single_column import WordsSectionSingleColumn
 from voicegain_speech.models.words_section_words import WordsSectionWords
 from voicegain_speech.models.words_websocket_item import WordsWebsocketItem
 
