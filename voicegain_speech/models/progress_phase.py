@@ -30,6 +30,7 @@ class ProgressPhase(object):
     allowed enum values
     """
     ACCEPTED = "ACCEPTED"
+    WAITING = "WAITING"
     QUEUED = "QUEUED"
     FETCHING = "FETCHING"
     FETCHED = "FETCHED"
@@ -38,7 +39,7 @@ class ProgressPhase(object):
     STOPPED = "STOPPED"
     ERROR = "ERROR"
 
-    allowable_values = [ACCEPTED, QUEUED, FETCHING, FETCHED, PROCESSING, DONE, STOPPED, ERROR]  # noqa: E501
+    allowable_values = [ACCEPTED, WAITING, QUEUED, FETCHING, FETCHED, PROCESSING, DONE, STOPPED, ERROR]  # noqa: E501
 
     """
     Attributes:
