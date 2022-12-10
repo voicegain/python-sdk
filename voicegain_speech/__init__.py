@@ -420,6 +420,7 @@ from voicegain_speech.models.transcript_position_range_for_phrase_with_chn impor
 from voicegain_speech.models.transfer import Transfer
 from voicegain_speech.models.transfer_all_of import TransferAllOf
 from voicegain_speech.models.vad_mode import VadMode
+from voicegain_speech.models.version import Version
 from voicegain_speech.models.websocket import Websocket
 from voicegain_speech.models.websocket_init import WebsocketInit
 from voicegain_speech.models.websocket_init_reco import WebsocketInitReco
