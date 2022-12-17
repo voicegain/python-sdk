@@ -141,6 +141,7 @@ from voicegain_speech.models.callback_req_reco import CallbackReqReco
 from voicegain_speech.models.callback_resp import CallbackResp
 from voicegain_speech.models.caption import Caption
 from voicegain_speech.models.compliance_settings import ComplianceSettings
+from voicegain_speech.models.config_value_status import ConfigValueStatus
 from voicegain_speech.models.content_type import ContentType
 from voicegain_speech.models.continuous_recognition import ContinuousRecognition
 from voicegain_speech.models.core_aivr_session import CoreAIVRSession

@@ -34,106 +34,132 @@ class AdvancedRegex(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'min_w': 'int',
-        'neg': 'str',
-        'rule': 'str'
+        'minimum_words': 'int',
+        'negative_rule': 'str',
+        'positive_rule': 'str',
+        'state': 'ConfigValueStatus'
     }
 
     attribute_map = {
-        'min_w': 'minW',
-        'neg': 'neg',
-        'rule': 'rule'
+        'minimum_words': 'minimumWords',
+        'negative_rule': 'negativeRule',
+        'positive_rule': 'positiveRule',
+        'state': 'state'
     }
 
-    def __init__(self, min_w=1, neg=None, rule=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, minimum_words=1, negative_rule=None, positive_rule=None, state=None, local_vars_configuration=None):  # noqa: E501
         """AdvancedRegex - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._min_w = None
-        self._neg = None
-        self._rule = None
+        self._minimum_words = None
+        self._negative_rule = None
+        self._positive_rule = None
+        self._state = None
         self.discriminator = None
 
-        if min_w is not None:
-            self.min_w = min_w
-        if neg is not None:
-            self.neg = neg
-        if rule is not None:
-            self.rule = rule
+        if minimum_words is not None:
+            self.minimum_words = minimum_words
+        if negative_rule is not None:
+            self.negative_rule = negative_rule
+        if positive_rule is not None:
+            self.positive_rule = positive_rule
+        if state is not None:
+            self.state = state
 
     @property
-    def min_w(self):
-        """Gets the min_w of this AdvancedRegex.  # noqa: E501
+    def minimum_words(self):
+        """Gets the minimum_words of this AdvancedRegex.  # noqa: E501
 
         minimum number of words that must be in a matching phrase  # noqa: E501
 
-        :return: The min_w of this AdvancedRegex.  # noqa: E501
+        :return: The minimum_words of this AdvancedRegex.  # noqa: E501
         :rtype: int
         """
-        return self._min_w
+        return self._minimum_words
 
-    @min_w.setter
-    def min_w(self, min_w):
-        """Sets the min_w of this AdvancedRegex.
+    @minimum_words.setter
+    def minimum_words(self, minimum_words):
+        """Sets the minimum_words of this AdvancedRegex.
 
         minimum number of words that must be in a matching phrase  # noqa: E501
 
-        :param min_w: The min_w of this AdvancedRegex.  # noqa: E501
+        :param minimum_words: The minimum_words of this AdvancedRegex.  # noqa: E501
         :type: int
         """
         if (self.local_vars_configuration.client_side_validation and
-                min_w is not None and min_w < 1):  # noqa: E501
-            raise ValueError("Invalid value for `min_w`, must be a value greater than or equal to `1`")  # noqa: E501
+                minimum_words is not None and minimum_words < 1):  # noqa: E501
+            raise ValueError("Invalid value for `minimum_words`, must be a value greater than or equal to `1`")  # noqa: E501
 
-        self._min_w = min_w
+        self._minimum_words = minimum_words
 
     @property
-    def neg(self):
-        """Gets the neg of this AdvancedRegex.  # noqa: E501
+    def negative_rule(self):
+        """Gets the negative_rule of this AdvancedRegex.  # noqa: E501
 
         this (negative) regex rule may **not** match  # noqa: E501
 
-        :return: The neg of this AdvancedRegex.  # noqa: E501
+        :return: The negative_rule of this AdvancedRegex.  # noqa: E501
         :rtype: str
         """
-        return self._neg
+        return self._negative_rule
 
-    @neg.setter
-    def neg(self, neg):
-        """Sets the neg of this AdvancedRegex.
+    @negative_rule.setter
+    def negative_rule(self, negative_rule):
+        """Sets the negative_rule of this AdvancedRegex.
 
         this (negative) regex rule may **not** match  # noqa: E501
 
-        :param neg: The neg of this AdvancedRegex.  # noqa: E501
+        :param negative_rule: The negative_rule of this AdvancedRegex.  # noqa: E501
         :type: str
         """
 
-        self._neg = neg
+        self._negative_rule = negative_rule
 
     @property
-    def rule(self):
-        """Gets the rule of this AdvancedRegex.  # noqa: E501
+    def positive_rule(self):
+        """Gets the positive_rule of this AdvancedRegex.  # noqa: E501
 
         this regex rule must match  # noqa: E501
 
-        :return: The rule of this AdvancedRegex.  # noqa: E501
+        :return: The positive_rule of this AdvancedRegex.  # noqa: E501
         :rtype: str
         """
-        return self._rule
+        return self._positive_rule
 
-    @rule.setter
-    def rule(self, rule):
-        """Sets the rule of this AdvancedRegex.
+    @positive_rule.setter
+    def positive_rule(self, positive_rule):
+        """Sets the positive_rule of this AdvancedRegex.
 
         this regex rule must match  # noqa: E501
 
-        :param rule: The rule of this AdvancedRegex.  # noqa: E501
+        :param positive_rule: The positive_rule of this AdvancedRegex.  # noqa: E501
         :type: str
         """
 
-        self._rule = rule
+        self._positive_rule = positive_rule
+
+    @property
+    def state(self):
+        """Gets the state of this AdvancedRegex.  # noqa: E501
+
+
+        :return: The state of this AdvancedRegex.  # noqa: E501
+        :rtype: ConfigValueStatus
+        """
+        return self._state
+
+    @state.setter
+    def state(self, state):
+        """Sets the state of this AdvancedRegex.
+
+
+        :param state: The state of this AdvancedRegex.  # noqa: E501
+        :type: ConfigValueStatus
+        """
+
+        self._state = state
 
     def to_dict(self):
         """Returns the model properties as a dict"""
