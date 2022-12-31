@@ -34,33 +34,61 @@ class PhraseSpotExample(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'negative_example': 'bool',
         'sensitivity': 'float',
         'sentence': 'str',
         'state': 'ConfigValueStatus'
     }
 
     attribute_map = {
+        'negative_example': 'negativeExample',
         'sensitivity': 'sensitivity',
         'sentence': 'sentence',
         'state': 'state'
     }
 
-    def __init__(self, sensitivity=0.5, sentence=None, state=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, negative_example=False, sensitivity=0.5, sentence=None, state=None, local_vars_configuration=None):  # noqa: E501
         """PhraseSpotExample - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._negative_example = None
         self._sensitivity = None
         self._sentence = None
         self._state = None
         self.discriminator = None
 
+        if negative_example is not None:
+            self.negative_example = negative_example
         if sensitivity is not None:
             self.sensitivity = sensitivity
         self.sentence = sentence
         if state is not None:
             self.state = state
+
+    @property
+    def negative_example(self):
+        """Gets the negative_example of this PhraseSpotExample.  # noqa: E501
+
+        if set to true then this is negative example (what the phrase should not be)  # noqa: E501
+
+        :return: The negative_example of this PhraseSpotExample.  # noqa: E501
+        :rtype: bool
+        """
+        return self._negative_example
+
+    @negative_example.setter
+    def negative_example(self, negative_example):
+        """Sets the negative_example of this PhraseSpotExample.
+
+        if set to true then this is negative example (what the phrase should not be)  # noqa: E501
+
+        :param negative_example: The negative_example of this PhraseSpotExample.  # noqa: E501
+        :type: bool
+        """
+
+        self._negative_example = negative_example
 
     @property
     def sensitivity(self):

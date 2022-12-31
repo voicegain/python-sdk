@@ -35,6 +35,7 @@ class AdvancedRegex(object):
     """
     openapi_types = {
         'minimum_words': 'int',
+        'negative_regex': 'bool',
         'negative_rule': 'str',
         'positive_rule': 'str',
         'state': 'ConfigValueStatus'
@@ -42,18 +43,20 @@ class AdvancedRegex(object):
 
     attribute_map = {
         'minimum_words': 'minimumWords',
+        'negative_regex': 'negativeRegex',
         'negative_rule': 'negativeRule',
         'positive_rule': 'positiveRule',
         'state': 'state'
     }
 
-    def __init__(self, minimum_words=1, negative_rule=None, positive_rule=None, state=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, minimum_words=1, negative_regex=False, negative_rule=None, positive_rule=None, state=None, local_vars_configuration=None):  # noqa: E501
         """AdvancedRegex - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._minimum_words = None
+        self._negative_regex = None
         self._negative_rule = None
         self._positive_rule = None
         self._state = None
@@ -61,6 +64,8 @@ class AdvancedRegex(object):
 
         if minimum_words is not None:
             self.minimum_words = minimum_words
+        if negative_regex is not None:
+            self.negative_regex = negative_regex
         if negative_rule is not None:
             self.negative_rule = negative_rule
         if positive_rule is not None:
@@ -93,6 +98,29 @@ class AdvancedRegex(object):
             raise ValueError("Invalid value for `minimum_words`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._minimum_words = minimum_words
+
+    @property
+    def negative_regex(self):
+        """Gets the negative_regex of this AdvancedRegex.  # noqa: E501
+
+        If set to true then this is negative example (what the phrase should not be). Note: this is difefrent from the `negativeRule` which applies only to this regex. `negativeRegex` applies to the entire phrase   # noqa: E501
+
+        :return: The negative_regex of this AdvancedRegex.  # noqa: E501
+        :rtype: bool
+        """
+        return self._negative_regex
+
+    @negative_regex.setter
+    def negative_regex(self, negative_regex):
+        """Sets the negative_regex of this AdvancedRegex.
+
+        If set to true then this is negative example (what the phrase should not be). Note: this is difefrent from the `negativeRule` which applies only to this regex. `negativeRegex` applies to the entire phrase   # noqa: E501
+
+        :param negative_regex: The negative_regex of this AdvancedRegex.  # noqa: E501
+        :type: bool
+        """
+
+        self._negative_regex = negative_regex
 
     @property
     def negative_rule(self):
