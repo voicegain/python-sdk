@@ -91,7 +91,7 @@ class PollReq(object):
     def persist(self):
         """Gets the persist of this PollReq.  # noqa: E501
 
-        Time (in msec) to retain the result data after processing has completed.  Default setting is 5 minutes.</br> The result data can be retained indefinitely if value is -1, in this case you will need to explicitly DELETE the session.</br> As long as the `persist` has not expired the result data will be available for the poll request  and (if you are doing transcription) for  GET [/v1/asr/transcribe/{sessionId}/transcript](http://localhost:8082/internal-index.html#operation/asrTranscribeGetTranscript)  and GET [/v1/asr/transcribe/{sessionId}/data](#operation/asrTranscribeGetData)</br> Note that there are charges for data stored in the Voicegain Cloud.   # noqa: E501
+        Time (in msec) to retain the result data after processing has completed.  Default setting is 5 minutes.</br> The result data can be retained indefinitely if value is -1, in this case you will need to explicitly DELETE the session.</br> As long as the `persist` has not expired the result data will be available for the poll request  and (if you are doing transcription) for  GET [/v1/asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript)  and GET [/v1/asr/transcribe/{sessionId}/data](#operation/asrTranscribeGetData)</br> Note that there are charges for data stored in the Voicegain Cloud.   # noqa: E501
 
         :return: The persist of this PollReq.  # noqa: E501
         :rtype: float
@@ -102,7 +102,7 @@ class PollReq(object):
     def persist(self, persist):
         """Sets the persist of this PollReq.
 
-        Time (in msec) to retain the result data after processing has completed.  Default setting is 5 minutes.</br> The result data can be retained indefinitely if value is -1, in this case you will need to explicitly DELETE the session.</br> As long as the `persist` has not expired the result data will be available for the poll request  and (if you are doing transcription) for  GET [/v1/asr/transcribe/{sessionId}/transcript](http://localhost:8082/internal-index.html#operation/asrTranscribeGetTranscript)  and GET [/v1/asr/transcribe/{sessionId}/data](#operation/asrTranscribeGetData)</br> Note that there are charges for data stored in the Voicegain Cloud.   # noqa: E501
+        Time (in msec) to retain the result data after processing has completed.  Default setting is 5 minutes.</br> The result data can be retained indefinitely if value is -1, in this case you will need to explicitly DELETE the session.</br> As long as the `persist` has not expired the result data will be available for the poll request  and (if you are doing transcription) for  GET [/v1/asr/transcribe/{sessionId}/transcript](#operation/asrTranscribeGetTranscript)  and GET [/v1/asr/transcribe/{sessionId}/data](#operation/asrTranscribeGetData)</br> Note that there are charges for data stored in the Voicegain Cloud.   # noqa: E501
 
         :param persist: The persist of this PollReq.  # noqa: E501
         :type: float

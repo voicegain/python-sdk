@@ -34,7 +34,7 @@ class AsyncResultFullAllOfAudio(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'channel': 'AudioChannel',
+        'channel': 'AudioChannelSelector',
         'source': 'AsyncResultFullAllOfAudioSource'
     }
 
@@ -64,7 +64,7 @@ class AsyncResultFullAllOfAudio(object):
 
 
         :return: The channel of this AsyncResultFullAllOfAudio.  # noqa: E501
-        :rtype: AudioChannel
+        :rtype: AudioChannelSelector
         """
         return self._channel
 
@@ -74,7 +74,7 @@ class AsyncResultFullAllOfAudio(object):
 
 
         :param channel: The channel of this AsyncResultFullAllOfAudio.  # noqa: E501
-        :type: AudioChannel
+        :type: AudioChannelSelector
         """
 
         self._channel = channel
