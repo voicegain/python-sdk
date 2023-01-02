@@ -36,6 +36,7 @@ class PhraseSpotItem(object):
     openapi_types = {
         'advanced_regex': 'list[AdvancedRegex]',
         'built_in': 'bool',
+        'disabled': 'bool',
         'examples': 'list[PhraseSpotExample]',
         'hide_if_group': 'bool',
         'location': 'PhraseSpotItemLocation',
@@ -50,6 +51,7 @@ class PhraseSpotItem(object):
     attribute_map = {
         'advanced_regex': 'advancedRegex',
         'built_in': 'builtIn',
+        'disabled': 'disabled',
         'examples': 'examples',
         'hide_if_group': 'hideIfGroup',
         'location': 'location',
@@ -61,7 +63,7 @@ class PhraseSpotItem(object):
         'tag': 'tag'
     }
 
-    def __init__(self, advanced_regex=None, built_in=False, examples=None, hide_if_group=False, location=None, meeting_minutes=False, must_be_noun_phrase=False, regex=None, sentence_type='any', slots=None, tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, advanced_regex=None, built_in=False, disabled=False, examples=None, hide_if_group=False, location=None, meeting_minutes=False, must_be_noun_phrase=False, regex=None, sentence_type='any', slots=None, tag=None, local_vars_configuration=None):  # noqa: E501
         """PhraseSpotItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class PhraseSpotItem(object):
 
         self._advanced_regex = None
         self._built_in = None
+        self._disabled = None
         self._examples = None
         self._hide_if_group = None
         self._location = None
@@ -84,6 +87,8 @@ class PhraseSpotItem(object):
             self.advanced_regex = advanced_regex
         if built_in is not None:
             self.built_in = built_in
+        if disabled is not None:
+            self.disabled = disabled
         if examples is not None:
             self.examples = examples
         if hide_if_group is not None:
@@ -147,6 +152,29 @@ class PhraseSpotItem(object):
         """
 
         self._built_in = built_in
+
+    @property
+    def disabled(self):
+        """Gets the disabled of this PhraseSpotItem.  # noqa: E501
+
+        Can be used to disable this Phrase without deleting the Phrase configuration.   # noqa: E501
+
+        :return: The disabled of this PhraseSpotItem.  # noqa: E501
+        :rtype: bool
+        """
+        return self._disabled
+
+    @disabled.setter
+    def disabled(self, disabled):
+        """Sets the disabled of this PhraseSpotItem.
+
+        Can be used to disable this Phrase without deleting the Phrase configuration.   # noqa: E501
+
+        :param disabled: The disabled of this PhraseSpotItem.  # noqa: E501
+        :type: bool
+        """
+
+        self._disabled = disabled
 
     @property
     def examples(self):
