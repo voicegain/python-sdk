@@ -62,7 +62,7 @@ class Formatter(object):
     def parameters(self):
         """Gets the parameters of this Formatter.  # noqa: E501
 
-        (optional) parameters for the formatter (a key-value map)  # noqa: E501
+        (optional) Parameters for the formatter (a key-value map, value is always a String)   # noqa: E501
 
         :return: The parameters of this Formatter.  # noqa: E501
         :rtype: dict(str, str)
@@ -73,7 +73,7 @@ class Formatter(object):
     def parameters(self, parameters):
         """Sets the parameters of this Formatter.
 
-        (optional) parameters for the formatter (a key-value map)  # noqa: E501
+        (optional) Parameters for the formatter (a key-value map, value is always a String)   # noqa: E501
 
         :param parameters: The parameters of this Formatter.  # noqa: E501
         :type: dict(str, str)
