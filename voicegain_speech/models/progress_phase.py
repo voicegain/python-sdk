@@ -37,9 +37,10 @@ class ProgressPhase(object):
     PROCESSING = "PROCESSING"
     DONE = "DONE"
     STOPPED = "STOPPED"
+    RECOMPUTING = "RECOMPUTING"
     ERROR = "ERROR"
 
-    allowable_values = [ACCEPTED, WAITING, QUEUED, FETCHING, FETCHED, PROCESSING, DONE, STOPPED, ERROR]  # noqa: E501
+    allowable_values = [ACCEPTED, WAITING, QUEUED, FETCHING, FETCHED, PROCESSING, DONE, STOPPED, RECOMPUTING, ERROR]  # noqa: E501
 
     """
     Attributes:
