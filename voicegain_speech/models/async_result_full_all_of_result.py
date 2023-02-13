@@ -36,6 +36,7 @@ class AsyncResultFullAllOfResult(object):
     openapi_types = {
         'captions': 'list[Caption]',
         'final': 'bool',
+        'language': 'Language',
         'last_event': 'AsrProcessingEvent',
         'message': 'str',
         'number_speakers': 'int',
@@ -52,6 +53,7 @@ class AsyncResultFullAllOfResult(object):
     attribute_map = {
         'captions': 'captions',
         'final': 'final',
+        'language': 'language',
         'last_event': 'lastEvent',
         'message': 'message',
         'number_speakers': 'numberSpeakers',
@@ -65,7 +67,7 @@ class AsyncResultFullAllOfResult(object):
         'words': 'words'
     }
 
-    def __init__(self, captions=None, final=None, last_event=None, message=None, number_speakers=None, rms_data=None, speakers=None, status=None, transcript=None, ttml=None, vad_data=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, captions=None, final=None, language=None, last_event=None, message=None, number_speakers=None, rms_data=None, speakers=None, status=None, transcript=None, ttml=None, vad_data=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOfResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +75,7 @@ class AsyncResultFullAllOfResult(object):
 
         self._captions = None
         self._final = None
+        self._language = None
         self._last_event = None
         self._message = None
         self._number_speakers = None
@@ -90,6 +93,8 @@ class AsyncResultFullAllOfResult(object):
             self.captions = captions
         if final is not None:
             self.final = final
+        if language is not None:
+            self.language = language
         if last_event is not None:
             self.last_event = last_event
         if message is not None:
@@ -158,6 +163,27 @@ class AsyncResultFullAllOfResult(object):
         """
 
         self._final = final
+
+    @property
+    def language(self):
+        """Gets the language of this AsyncResultFullAllOfResult.  # noqa: E501
+
+
+        :return: The language of this AsyncResultFullAllOfResult.  # noqa: E501
+        :rtype: Language
+        """
+        return self._language
+
+    @language.setter
+    def language(self, language):
+        """Sets the language of this AsyncResultFullAllOfResult.
+
+
+        :param language: The language of this AsyncResultFullAllOfResult.  # noqa: E501
+        :type: Language
+        """
+
+        self._language = language
 
     @property
     def last_event(self):

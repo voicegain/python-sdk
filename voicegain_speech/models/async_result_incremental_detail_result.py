@@ -38,6 +38,7 @@ class AsyncResultIncrementalDetailResult(object):
         'corrections': 'list[WordCorrection]',
         'final': 'bool',
         'incremental_transcript': 'AsyncResultIncrementalDetailResultIncrementalTranscript',
+        'language': 'Language',
         'last_event': 'AsrProcessingEvent',
         'message': 'str',
         'status': 'AsrProcessingStatus',
@@ -50,6 +51,7 @@ class AsyncResultIncrementalDetailResult(object):
         'corrections': 'corrections',
         'final': 'final',
         'incremental_transcript': 'incrementalTranscript',
+        'language': 'language',
         'last_event': 'lastEvent',
         'message': 'message',
         'status': 'status',
@@ -57,7 +59,7 @@ class AsyncResultIncrementalDetailResult(object):
         'words': 'words'
     }
 
-    def __init__(self, captions=None, corrections=None, final=None, incremental_transcript=None, last_event=None, message=None, status=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, captions=None, corrections=None, final=None, incremental_transcript=None, language=None, last_event=None, message=None, status=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultIncrementalDetailResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -67,6 +69,7 @@ class AsyncResultIncrementalDetailResult(object):
         self._corrections = None
         self._final = None
         self._incremental_transcript = None
+        self._language = None
         self._last_event = None
         self._message = None
         self._status = None
@@ -82,6 +85,8 @@ class AsyncResultIncrementalDetailResult(object):
             self.final = final
         if incremental_transcript is not None:
             self.incremental_transcript = incremental_transcript
+        if language is not None:
+            self.language = language
         if last_event is not None:
             self.last_event = last_event
         if message is not None:
@@ -182,6 +187,27 @@ class AsyncResultIncrementalDetailResult(object):
         """
 
         self._incremental_transcript = incremental_transcript
+
+    @property
+    def language(self):
+        """Gets the language of this AsyncResultIncrementalDetailResult.  # noqa: E501
+
+
+        :return: The language of this AsyncResultIncrementalDetailResult.  # noqa: E501
+        :rtype: Language
+        """
+        return self._language
+
+    @language.setter
+    def language(self, language):
+        """Sets the language of this AsyncResultIncrementalDetailResult.
+
+
+        :param language: The language of this AsyncResultIncrementalDetailResult.  # noqa: E501
+        :type: Language
+        """
+
+        self._language = language
 
     @property
     def last_event(self):
