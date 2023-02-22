@@ -93,7 +93,7 @@ class StreamSetup(object):
     def control_websocket(self):
         """Gets the control_websocket of this StreamSetup.  # noqa: E501
 
-        (Relevant only to the ASCALON protocol).</br> Name of websocket that will be used by the Audio Sender Daemon to receive control commands like MUTE/UNMUTE, START/STOP.</br> In most cases, this will be the same websocket that is used to output the transcription result.</br> Note, this is not the websocket that is used to stream the audio if the protocol is WEBSOCKET.   # noqa: E501
+        (Relevant only to the ASCALON protocol).</br> Name of websocket that will be used by the Audio Sender Daemon to receive control commands like MUTE/UNMUTE, START/STOP.</br> In most cases, this will be the same websocket that is used to output the transcription result.</br> Note, this is not the websocket that is used to stream the audio if the protocol is `WS`` or `WSS``.   # noqa: E501
 
         :return: The control_websocket of this StreamSetup.  # noqa: E501
         :rtype: str
@@ -104,7 +104,7 @@ class StreamSetup(object):
     def control_websocket(self, control_websocket):
         """Sets the control_websocket of this StreamSetup.
 
-        (Relevant only to the ASCALON protocol).</br> Name of websocket that will be used by the Audio Sender Daemon to receive control commands like MUTE/UNMUTE, START/STOP.</br> In most cases, this will be the same websocket that is used to output the transcription result.</br> Note, this is not the websocket that is used to stream the audio if the protocol is WEBSOCKET.   # noqa: E501
+        (Relevant only to the ASCALON protocol).</br> Name of websocket that will be used by the Audio Sender Daemon to receive control commands like MUTE/UNMUTE, START/STOP.</br> In most cases, this will be the same websocket that is used to output the transcription result.</br> Note, this is not the websocket that is used to stream the audio if the protocol is `WS`` or `WSS``.   # noqa: E501
 
         :param control_websocket: The control_websocket of this StreamSetup.  # noqa: E501
         :type: str
