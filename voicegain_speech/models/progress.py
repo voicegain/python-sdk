@@ -37,6 +37,7 @@ class Progress(object):
         'audio_duration': 'int',
         'audio_end_time': 'int',
         'audio_start_time': 'int',
+        'callback': 'ProgressCallback',
         'clock_end_time': 'int',
         'clock_start_time': 'int',
         'message': 'str',
@@ -49,6 +50,7 @@ class Progress(object):
         'audio_duration': 'audioDuration',
         'audio_end_time': 'audioEndTime',
         'audio_start_time': 'audioStartTime',
+        'callback': 'callback',
         'clock_end_time': 'clockEndTime',
         'clock_start_time': 'clockStartTime',
         'message': 'message',
@@ -57,7 +59,7 @@ class Progress(object):
         'x_real_time': 'xRealTime'
     }
 
-    def __init__(self, audio_duration=None, audio_end_time=None, audio_start_time=None, clock_end_time=None, clock_start_time=None, message=None, percent_completed=None, phase=None, x_real_time=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio_duration=None, audio_end_time=None, audio_start_time=None, callback=None, clock_end_time=None, clock_start_time=None, message=None, percent_completed=None, phase=None, x_real_time=None, local_vars_configuration=None):  # noqa: E501
         """Progress - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class Progress(object):
         self._audio_duration = None
         self._audio_end_time = None
         self._audio_start_time = None
+        self._callback = None
         self._clock_end_time = None
         self._clock_start_time = None
         self._message = None
@@ -80,6 +83,8 @@ class Progress(object):
             self.audio_end_time = audio_end_time
         if audio_start_time is not None:
             self.audio_start_time = audio_start_time
+        if callback is not None:
+            self.callback = callback
         if clock_end_time is not None:
             self.clock_end_time = clock_end_time
         if clock_start_time is not None:
@@ -170,6 +175,27 @@ class Progress(object):
             raise ValueError("Invalid value for `audio_start_time`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._audio_start_time = audio_start_time
+
+    @property
+    def callback(self):
+        """Gets the callback of this Progress.  # noqa: E501
+
+
+        :return: The callback of this Progress.  # noqa: E501
+        :rtype: ProgressCallback
+        """
+        return self._callback
+
+    @callback.setter
+    def callback(self, callback):
+        """Sets the callback of this Progress.
+
+
+        :param callback: The callback of this Progress.  # noqa: E501
+        :type: ProgressCallback
+        """
+
+        self._callback = callback
 
     @property
     def clock_end_time(self):

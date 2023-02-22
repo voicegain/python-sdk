@@ -316,6 +316,7 @@ from voicegain_speech.models.poll_resp import PollResp
 from voicegain_speech.models.portal_output_init import PortalOutputInit
 from voicegain_speech.models.pre_fetch import PreFetch
 from voicegain_speech.models.progress import Progress
+from voicegain_speech.models.progress_callback import ProgressCallback
 from voicegain_speech.models.progress_phase import ProgressPhase
 from voicegain_speech.models.quartiles_energy import QuartilesEnergy
 from voicegain_speech.models.quartiles_pitch import QuartilesPitch
@@ -428,6 +429,7 @@ from voicegain_speech.models.websocket_init import WebsocketInit
 from voicegain_speech.models.websocket_init_reco import WebsocketInitReco
 from voicegain_speech.models.websocket_modifiable import WebsocketModifiable
 from voicegain_speech.models.websocket_msg import WebsocketMsg
+from voicegain_speech.models.websocket_protocol import WebsocketProtocol
 from voicegain_speech.models.websocket_resp import WebsocketResp
 from voicegain_speech.models.word_alternatives import WordAlternatives
 from voicegain_speech.models.word_cloud_item import WordCloudItem
