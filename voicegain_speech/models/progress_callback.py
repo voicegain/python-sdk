@@ -35,26 +35,31 @@ class ProgressCallback(object):
     """
     openapi_types = {
         'code': 'int',
+        'time': 'int',
         'url': 'str'
     }
 
     attribute_map = {
         'code': 'code',
+        'time': 'time',
         'url': 'url'
     }
 
-    def __init__(self, code=None, url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, code=None, time=None, url=None, local_vars_configuration=None):  # noqa: E501
         """ProgressCallback - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._code = None
+        self._time = None
         self._url = None
         self.discriminator = None
 
         if code is not None:
             self.code = code
+        if time is not None:
+            self.time = time
         if url is not None:
             self.url = url
 
@@ -83,6 +88,29 @@ class ProgressCallback(object):
             raise ValueError("Invalid value for `code`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._code = code
+
+    @property
+    def time(self):
+        """Gets the time of this ProgressCallback.  # noqa: E501
+
+        time of the callback (in Unix epoch time milliseconds)  # noqa: E501
+
+        :return: The time of this ProgressCallback.  # noqa: E501
+        :rtype: int
+        """
+        return self._time
+
+    @time.setter
+    def time(self, time):
+        """Sets the time of this ProgressCallback.
+
+        time of the callback (in Unix epoch time milliseconds)  # noqa: E501
+
+        :param time: The time of this ProgressCallback.  # noqa: E501
+        :type: int
+        """
+
+        self._time = time
 
     @property
     def url(self):
