@@ -122,7 +122,7 @@ class AsrSettingsTranscription(object):
     def acoustic_model_non_real_time(self):
         """Gets the acoustic_model_non_real_time of this AsrSettingsTranscription.  # noqa: E501
 
-        (Optional) Name of an Acoustic Model that is to be used for offline and semi-real-time processing.  May include version number separated by `:` , for example, **Voicegain-BD_en-us:11** </br> If not provided a suitable default will be used.   # noqa: E501
+        (Optional) Name of an Acoustic Model that is to be used for offline and semi-real-time processing.  In the Cloud, the currently available offline models are: - **Voicegain-omega** - the default model - best suited to general transcription tasks, - **Voicegain-omega-x** - model trained on call-center calls  If model name not provided, a suitable default will be used.</br> In some Edge deployments, may include version number separated by `:` , for example, **Voicegain-BD_en-us:11**   # noqa: E501
 
         :return: The acoustic_model_non_real_time of this AsrSettingsTranscription.  # noqa: E501
         :rtype: str
@@ -133,7 +133,7 @@ class AsrSettingsTranscription(object):
     def acoustic_model_non_real_time(self, acoustic_model_non_real_time):
         """Sets the acoustic_model_non_real_time of this AsrSettingsTranscription.
 
-        (Optional) Name of an Acoustic Model that is to be used for offline and semi-real-time processing.  May include version number separated by `:` , for example, **Voicegain-BD_en-us:11** </br> If not provided a suitable default will be used.   # noqa: E501
+        (Optional) Name of an Acoustic Model that is to be used for offline and semi-real-time processing.  In the Cloud, the currently available offline models are: - **Voicegain-omega** - the default model - best suited to general transcription tasks, - **Voicegain-omega-x** - model trained on call-center calls  If model name not provided, a suitable default will be used.</br> In some Edge deployments, may include version number separated by `:` , for example, **Voicegain-BD_en-us:11**   # noqa: E501
 
         :param acoustic_model_non_real_time: The acoustic_model_non_real_time of this AsrSettingsTranscription.  # noqa: E501
         :type: str
@@ -145,7 +145,7 @@ class AsrSettingsTranscription(object):
     def acoustic_model_real_time(self):
         """Gets the acoustic_model_real_time of this AsrSettingsTranscription.  # noqa: E501
 
-        (Optional) Name of a real-time capable Acoustic Model.  May include version number separated by `:`, for example, **Voicegain-IVR_en-us:3**</br> If not provided a suitable default will be used.   # noqa: E501
+        (Optional) Name of a real-time capable Acoustic Model.  In the Cloud, the currently available real-time models are: - **Voicegain-kappa** - default model, best accuracy, longer latency - **Voicegain-rho** - lower latency, somewhat lower accuracy - **Voicegain-rho-en-us** - lowest (best) latency, lower accuracy than Voicegain-rho  If model name is not provided, a suitable default will be used.</br> In some Edge deployments, may include version number separated by `:`, for example, **Voicegain-IVR_en-us:3**   # noqa: E501
 
         :return: The acoustic_model_real_time of this AsrSettingsTranscription.  # noqa: E501
         :rtype: str
@@ -156,7 +156,7 @@ class AsrSettingsTranscription(object):
     def acoustic_model_real_time(self, acoustic_model_real_time):
         """Sets the acoustic_model_real_time of this AsrSettingsTranscription.
 
-        (Optional) Name of a real-time capable Acoustic Model.  May include version number separated by `:`, for example, **Voicegain-IVR_en-us:3**</br> If not provided a suitable default will be used.   # noqa: E501
+        (Optional) Name of a real-time capable Acoustic Model.  In the Cloud, the currently available real-time models are: - **Voicegain-kappa** - default model, best accuracy, longer latency - **Voicegain-rho** - lower latency, somewhat lower accuracy - **Voicegain-rho-en-us** - lowest (best) latency, lower accuracy than Voicegain-rho  If model name is not provided, a suitable default will be used.</br> In some Edge deployments, may include version number separated by `:`, for example, **Voicegain-IVR_en-us:3**   # noqa: E501
 
         :param acoustic_model_real_time: The acoustic_model_real_time of this AsrSettingsTranscription.  # noqa: E501
         :type: str
