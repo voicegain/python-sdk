@@ -35,26 +35,31 @@ class AsyncResultFullAllOf(object):
     """
     openapi_types = {
         'audio': 'AsyncResultFullAllOfAudio',
+        'audio_callback': 'AsyncResultFullAllOfAudioCallback',
         'result': 'AsyncResultFullAllOfResult'
     }
 
     attribute_map = {
         'audio': 'audio',
+        'audio_callback': 'audioCallback',
         'result': 'result'
     }
 
-    def __init__(self, audio=None, result=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio=None, audio_callback=None, result=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._audio = None
+        self._audio_callback = None
         self._result = None
         self.discriminator = None
 
         if audio is not None:
             self.audio = audio
+        if audio_callback is not None:
+            self.audio_callback = audio_callback
         if result is not None:
             self.result = result
 
@@ -78,6 +83,27 @@ class AsyncResultFullAllOf(object):
         """
 
         self._audio = audio
+
+    @property
+    def audio_callback(self):
+        """Gets the audio_callback of this AsyncResultFullAllOf.  # noqa: E501
+
+
+        :return: The audio_callback of this AsyncResultFullAllOf.  # noqa: E501
+        :rtype: AsyncResultFullAllOfAudioCallback
+        """
+        return self._audio_callback
+
+    @audio_callback.setter
+    def audio_callback(self, audio_callback):
+        """Sets the audio_callback of this AsyncResultFullAllOf.
+
+
+        :param audio_callback: The audio_callback of this AsyncResultFullAllOf.  # noqa: E501
+        :type: AsyncResultFullAllOfAudioCallback
+        """
+
+        self._audio_callback = audio_callback
 
     @property
     def result(self):
