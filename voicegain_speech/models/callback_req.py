@@ -91,6 +91,9 @@ class CallbackReq(object):
         if (self.local_vars_configuration.client_side_validation and
                 auth_conf is not None and len(auth_conf) > 128):
             raise ValueError("Invalid value for `auth_conf`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                auth_conf is not None and len(auth_conf) < 1):
+            raise ValueError("Invalid value for `auth_conf`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._auth_conf = auth_conf
 
