@@ -96,7 +96,7 @@ class AudioInputCallbackCallback(object):
     def method(self):
         """Gets the method of this AudioInputCallbackCallback.  # noqa: E501
 
-        (Optional) HTTP method to use for the callback.  Normally POST, unless we automatically detect that the callback URL is an AWS S3 or Google Data Store Object URL, in which case PUT is used.   # noqa: E501
+        (Optional) Method to use for the callback.  Default depends on the URI. If URI starts with \"s3://\" then method is \"S3\", otherwise it is \"POST\".</br> For s3:// URIs only \"S3\" method is allowed.</br>   # noqa: E501
 
         :return: The method of this AudioInputCallbackCallback.  # noqa: E501
         :rtype: str
@@ -107,12 +107,12 @@ class AudioInputCallbackCallback(object):
     def method(self, method):
         """Sets the method of this AudioInputCallbackCallback.
 
-        (Optional) HTTP method to use for the callback.  Normally POST, unless we automatically detect that the callback URL is an AWS S3 or Google Data Store Object URL, in which case PUT is used.   # noqa: E501
+        (Optional) Method to use for the callback.  Default depends on the URI. If URI starts with \"s3://\" then method is \"S3\", otherwise it is \"POST\".</br> For s3:// URIs only \"S3\" method is allowed.</br>   # noqa: E501
 
         :param method: The method of this AudioInputCallbackCallback.  # noqa: E501
         :type: str
         """
-        allowed_values = ["POST", "PUT"]  # noqa: E501
+        allowed_values = ["POST", "PUT", "S3"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and method not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `method` ({0}), must be one of {1}"  # noqa: E501
@@ -125,7 +125,7 @@ class AudioInputCallbackCallback(object):
     def uri(self):
         """Gets the uri of this AudioInputCallbackCallback.  # noqa: E501
 
-        (Required) uri to which the callback should be made  # noqa: E501
+        (Required) uri to which the callback should be made.</br> For S3 it needs to be `s3://<bucket>/<file>`</br>   # noqa: E501
 
         :return: The uri of this AudioInputCallbackCallback.  # noqa: E501
         :rtype: str
@@ -136,7 +136,7 @@ class AudioInputCallbackCallback(object):
     def uri(self, uri):
         """Sets the uri of this AudioInputCallbackCallback.
 
-        (Required) uri to which the callback should be made  # noqa: E501
+        (Required) uri to which the callback should be made.</br> For S3 it needs to be `s3://<bucket>/<file>`</br>   # noqa: E501
 
         :param uri: The uri of this AudioInputCallbackCallback.  # noqa: E501
         :type: str

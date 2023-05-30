@@ -34,34 +34,39 @@ class AsyncResultFullAllOfAudioCallback(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'auth_conf': 'str',
         'code': 'int',
         'method': 'str',
         'response': 'str',
         'time': 'int',
-        'url': 'str'
+        'uri': 'str'
     }
 
     attribute_map = {
+        'auth_conf': 'authConf',
         'code': 'code',
         'method': 'method',
         'response': 'response',
         'time': 'time',
-        'url': 'url'
+        'uri': 'uri'
     }
 
-    def __init__(self, code=None, method=None, response=None, time=None, url=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, auth_conf=None, code=None, method=None, response=None, time=None, uri=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOfAudioCallback - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._auth_conf = None
         self._code = None
         self._method = None
         self._response = None
         self._time = None
-        self._url = None
+        self._uri = None
         self.discriminator = None
 
+        if auth_conf is not None:
+            self.auth_conf = auth_conf
         if code is not None:
             self.code = code
         if method is not None:
@@ -70,8 +75,37 @@ class AsyncResultFullAllOfAudioCallback(object):
             self.response = response
         if time is not None:
             self.time = time
-        if url is not None:
-            self.url = url
+        if uri is not None:
+            self.uri = uri
+
+    @property
+    def auth_conf(self):
+        """Gets the auth_conf of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+
+        name of the authConfig used for the callback  # noqa: E501
+
+        :return: The auth_conf of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_conf
+
+    @auth_conf.setter
+    def auth_conf(self, auth_conf):
+        """Sets the auth_conf of this AsyncResultFullAllOfAudioCallback.
+
+        name of the authConfig used for the callback  # noqa: E501
+
+        :param auth_conf: The auth_conf of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                auth_conf is not None and len(auth_conf) > 128):
+            raise ValueError("Invalid value for `auth_conf`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                auth_conf is not None and len(auth_conf) < 1):
+            raise ValueError("Invalid value for `auth_conf`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._auth_conf = auth_conf
 
     @property
     def code(self):
@@ -103,7 +137,7 @@ class AsyncResultFullAllOfAudioCallback(object):
     def method(self):
         """Gets the method of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
 
-        HTTP method used for the callback.    # noqa: E501
+        Method used for the callback. Either HTTP (POST, PUT) or S3. </br>   # noqa: E501
 
         :return: The method of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
         :rtype: str
@@ -114,12 +148,12 @@ class AsyncResultFullAllOfAudioCallback(object):
     def method(self, method):
         """Sets the method of this AsyncResultFullAllOfAudioCallback.
 
-        HTTP method used for the callback.    # noqa: E501
+        Method used for the callback. Either HTTP (POST, PUT) or S3. </br>   # noqa: E501
 
         :param method: The method of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
         :type: str
         """
-        allowed_values = ["POST", "PUT"]  # noqa: E501
+        allowed_values = ["POST", "PUT", "S3"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and method not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `method` ({0}), must be one of {1}"  # noqa: E501
@@ -132,7 +166,7 @@ class AsyncResultFullAllOfAudioCallback(object):
     def response(self):
         """Gets the response of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
 
-        response from the callback request  # noqa: E501
+        response from the callback request (usually an error message if present)  # noqa: E501
 
         :return: The response of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
         :rtype: str
@@ -143,7 +177,7 @@ class AsyncResultFullAllOfAudioCallback(object):
     def response(self, response):
         """Sets the response of this AsyncResultFullAllOfAudioCallback.
 
-        response from the callback request  # noqa: E501
+        response from the callback request (usually an error message if present)  # noqa: E501
 
         :param response: The response of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
         :type: str
@@ -175,27 +209,27 @@ class AsyncResultFullAllOfAudioCallback(object):
         self._time = time
 
     @property
-    def url(self):
-        """Gets the url of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+    def uri(self):
+        """Gets the uri of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
 
-        actual url to which the audio callback was made  # noqa: E501
+        actual uri to which the audio callback was made  # noqa: E501
 
-        :return: The url of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+        :return: The uri of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
         :rtype: str
         """
-        return self._url
+        return self._uri
 
-    @url.setter
-    def url(self, url):
-        """Sets the url of this AsyncResultFullAllOfAudioCallback.
+    @uri.setter
+    def uri(self, uri):
+        """Sets the uri of this AsyncResultFullAllOfAudioCallback.
 
-        actual url to which the audio callback was made  # noqa: E501
+        actual uri to which the audio callback was made  # noqa: E501
 
-        :param url: The url of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+        :param uri: The uri of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
         :type: str
         """
 
-        self._url = url
+        self._uri = uri
 
     def to_dict(self):
         """Returns the model properties as a dict"""
