@@ -125,7 +125,7 @@ class AudioInputCallbackCallback(object):
     def uri(self):
         """Gets the uri of this AudioInputCallbackCallback.  # noqa: E501
 
-        (Required) uri to which the callback should be made.</br> For S3 it needs to be `s3://<bucket>/<file>`</br>   # noqa: E501
+        (Required) uri to which the callback should be made.</br> For S3 it needs to be `s3://<bucket>/<file>`</br> Allows substitution of {sessionId} parameter.</br>   # noqa: E501
 
         :return: The uri of this AudioInputCallbackCallback.  # noqa: E501
         :rtype: str
@@ -136,7 +136,7 @@ class AudioInputCallbackCallback(object):
     def uri(self, uri):
         """Sets the uri of this AudioInputCallbackCallback.
 
-        (Required) uri to which the callback should be made.</br> For S3 it needs to be `s3://<bucket>/<file>`</br>   # noqa: E501
+        (Required) uri to which the callback should be made.</br> For S3 it needs to be `s3://<bucket>/<file>`</br> Allows substitution of {sessionId} parameter.</br>   # noqa: E501
 
         :param uri: The uri of this AudioInputCallbackCallback.  # noqa: E501
         :type: str
