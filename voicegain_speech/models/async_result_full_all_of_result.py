@@ -150,7 +150,7 @@ class AsyncResultFullAllOfResult(object):
     def final(self):
         """Gets the final of this AsyncResultFullAllOfResult.  # noqa: E501
 
-        whether the result is final or if it can still change  # noqa: E501
+        Whether the result is final or if it can still change. </br> If it is final and audioCallback was requested then it means that both the transcript is complete and the callback was made.   # noqa: E501
 
         :return: The final of this AsyncResultFullAllOfResult.  # noqa: E501
         :rtype: bool
@@ -161,7 +161,7 @@ class AsyncResultFullAllOfResult(object):
     def final(self, final):
         """Sets the final of this AsyncResultFullAllOfResult.
 
-        whether the result is final or if it can still change  # noqa: E501
+        Whether the result is final or if it can still change. </br> If it is final and audioCallback was requested then it means that both the transcript is complete and the callback was made.   # noqa: E501
 
         :param final: The final of this AsyncResultFullAllOfResult.  # noqa: E501
         :type: bool

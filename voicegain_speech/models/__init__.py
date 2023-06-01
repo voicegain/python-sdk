@@ -274,6 +274,7 @@ from voicegain_speech.models.mrc_pv2_asr_settings import MRCPv2AsrSettings
 from voicegain_speech.models.min_max_speakers import MinMaxSpeakers
 from voicegain_speech.models.min_max_speakers_diarization import MinMaxSpeakersDiarization
 from voicegain_speech.models.mood_type import MoodType
+from voicegain_speech.models.multipart_form_data_field import MultipartFormDataField
 from voicegain_speech.models.name_value_pair import NameValuePair
 from voicegain_speech.models.named_entity_concept import NamedEntityConcept
 from voicegain_speech.models.named_entity_type import NamedEntityType

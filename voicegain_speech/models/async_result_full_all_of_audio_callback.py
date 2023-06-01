@@ -37,6 +37,7 @@ class AsyncResultFullAllOfAudioCallback(object):
         'auth_conf': 'str',
         'code': 'int',
         'method': 'str',
+        'multipart_form_data': 'list[MultipartFormDataField]',
         'response': 'str',
         'time': 'int',
         'uri': 'str'
@@ -46,12 +47,13 @@ class AsyncResultFullAllOfAudioCallback(object):
         'auth_conf': 'authConf',
         'code': 'code',
         'method': 'method',
+        'multipart_form_data': 'multipartFormData',
         'response': 'response',
         'time': 'time',
         'uri': 'uri'
     }
 
-    def __init__(self, auth_conf=None, code=None, method=None, response=None, time=None, uri=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, auth_conf=None, code=None, method=None, multipart_form_data=None, response=None, time=None, uri=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOfAudioCallback - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class AsyncResultFullAllOfAudioCallback(object):
         self._auth_conf = None
         self._code = None
         self._method = None
+        self._multipart_form_data = None
         self._response = None
         self._time = None
         self._uri = None
@@ -71,6 +74,8 @@ class AsyncResultFullAllOfAudioCallback(object):
             self.code = code
         if method is not None:
             self.method = method
+        if multipart_form_data is not None:
+            self.multipart_form_data = multipart_form_data
         if response is not None:
             self.response = response
         if time is not None:
@@ -161,6 +166,29 @@ class AsyncResultFullAllOfAudioCallback(object):
             )
 
         self._method = method
+
+    @property
+    def multipart_form_data(self):
+        """Gets the multipart_form_data of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+
+        Present if the callback was made using multipart/form-data. </br> Will contain the actual fields submitted as part of the callback request (except for the audio file itself).   # noqa: E501
+
+        :return: The multipart_form_data of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+        :rtype: list[MultipartFormDataField]
+        """
+        return self._multipart_form_data
+
+    @multipart_form_data.setter
+    def multipart_form_data(self, multipart_form_data):
+        """Sets the multipart_form_data of this AsyncResultFullAllOfAudioCallback.
+
+        Present if the callback was made using multipart/form-data. </br> Will contain the actual fields submitted as part of the callback request (except for the audio file itself).   # noqa: E501
+
+        :param multipart_form_data: The multipart_form_data of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+        :type: list[MultipartFormDataField]
+        """
+
+        self._multipart_form_data = multipart_form_data
 
     @property
     def response(self):
