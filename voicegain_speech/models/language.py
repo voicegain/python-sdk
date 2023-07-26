@@ -152,10 +152,11 @@ class Language(object):
     UR = "ur"
     UZ = "uz"
     VI = "vi"
+    YI = "yi"
     YO = "yo"
     ZH = "zh"
 
-    allowable_values = [AR, DE, EN, EN_US, EN_GB, EN_CA, EN_AU, EN_BZ, EN_IE, EN_JM, EN_NZ, EN_ZA, EN_TT, ES, ES_AR, ES_BO, ES_CL, ES_CO, ES_CR, ES_DO, ES_EC, ES_SV, ES_GT, ES_HN, ES_MX, ES_NI, ES_PA, ES_PY, ES_PE, ES_PR, ES_UY, ES_VE, FR, HI, KO, NL, PL, PT, IT, UK, AF, AM, AS, AZ, BA, BE, BG, BN, BO, BR, BS, CA, CS, CY, DA, EL, ET, EU, FA, FI, FO, GL, GU, HA, HE, HR, HT, HU, HY, ID, IS, JA, JW, KA, KK, KM, KN, LA, LB, LN, LO, LT, LV, MG, MI, MK, ML, MN, MR, MS, MT, MY, NE, NN, NO, OC, PA, PS, RO, RU, SA, SD, SI, SK, SL, SN, SO, SQ, SR, SU, SV, SW, TA, TE, TG, TH, TK, TL, TR, TT, UR, UZ, VI, YO, ZH]  # noqa: E501
+    allowable_values = [AR, DE, EN, EN_US, EN_GB, EN_CA, EN_AU, EN_BZ, EN_IE, EN_JM, EN_NZ, EN_ZA, EN_TT, ES, ES_AR, ES_BO, ES_CL, ES_CO, ES_CR, ES_DO, ES_EC, ES_SV, ES_GT, ES_HN, ES_MX, ES_NI, ES_PA, ES_PY, ES_PE, ES_PR, ES_UY, ES_VE, FR, HI, KO, NL, PL, PT, IT, UK, AF, AM, AS, AZ, BA, BE, BG, BN, BO, BR, BS, CA, CS, CY, DA, EL, ET, EU, FA, FI, FO, GL, GU, HA, HE, HR, HT, HU, HY, ID, IS, JA, JW, KA, KK, KM, KN, LA, LB, LN, LO, LT, LV, MG, MI, MK, ML, MN, MR, MS, MT, MY, NE, NN, NO, OC, PA, PS, RO, RU, SA, SD, SI, SK, SL, SN, SO, SQ, SR, SU, SV, SW, TA, TE, TG, TH, TK, TL, TR, TT, UR, UZ, VI, YI, YO, ZH]  # noqa: E501
 
     """
     Attributes:
