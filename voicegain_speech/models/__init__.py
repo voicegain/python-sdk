@@ -263,12 +263,7 @@ from voicegain_speech.models.jjsgf_all_of import JJSGFAllOf
 from voicegain_speech.models.keyword_spot_example import KeywordSpotExample
 from voicegain_speech.models.keyword_spot_group import KeywordSpotGroup
 from voicegain_speech.models.keyword_spot_item import KeywordSpotItem
-from voicegain_speech.models.lm_type import LMType
-from voicegain_speech.models.lang_model_status import LangModelStatus
 from voicegain_speech.models.language import Language
-from voicegain_speech.models.language_model_doc import LanguageModelDoc
-from voicegain_speech.models.language_model_doc_modifiable import LanguageModelDocModifiable
-from voicegain_speech.models.language_model_src_data import LanguageModelSrcData
 from voicegain_speech.models.mrcp_version import MRCPVersion
 from voicegain_speech.models.mrc_pv1_asr_settings import MRCPv1AsrSettings
 from voicegain_speech.models.mrc_pv2_asr_settings import MRCPv2AsrSettings

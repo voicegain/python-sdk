@@ -24,7 +24,6 @@ from voicegain_speech.api.asr_callback_api import AsrCallbackApi
 from voicegain_speech.api.audiocodes_api import AudiocodesApi
 from voicegain_speech.api.data_api import DataApi
 from voicegain_speech.api.greg_api import GregApi
-from voicegain_speech.api.lm_api import LmApi
 from voicegain_speech.api.recognize_api import RecognizeApi
 from voicegain_speech.api.sa_api import SaApi
 from voicegain_speech.api.security_api import SecurityApi
@@ -289,12 +288,7 @@ from voicegain_speech.models.jjsgf_all_of import JJSGFAllOf
 from voicegain_speech.models.keyword_spot_example import KeywordSpotExample
 from voicegain_speech.models.keyword_spot_group import KeywordSpotGroup
 from voicegain_speech.models.keyword_spot_item import KeywordSpotItem
-from voicegain_speech.models.lm_type import LMType
-from voicegain_speech.models.lang_model_status import LangModelStatus
 from voicegain_speech.models.language import Language
-from voicegain_speech.models.language_model_doc import LanguageModelDoc
-from voicegain_speech.models.language_model_doc_modifiable import LanguageModelDocModifiable
-from voicegain_speech.models.language_model_src_data import LanguageModelSrcData
 from voicegain_speech.models.mrcp_version import MRCPVersion
 from voicegain_speech.models.mrc_pv1_asr_settings import MRCPv1AsrSettings
 from voicegain_speech.models.mrc_pv2_asr_settings import MRCPv2AsrSettings
