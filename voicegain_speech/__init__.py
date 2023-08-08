@@ -316,6 +316,7 @@ from voicegain_speech.models.output import Output
 from voicegain_speech.models.output_all_of import OutputAllOf
 from voicegain_speech.models.overtalk import Overtalk
 from voicegain_speech.models.pii_redaction_conf import PIIRedactionConf
+from voicegain_speech.models.performed_redaction import PerformedRedaction
 from voicegain_speech.models.phone_audio_input import PhoneAudioInput
 from voicegain_speech.models.phone_audio_input_prompt import PhoneAudioInputPrompt
 from voicegain_speech.models.phrase_spot_example import PhraseSpotExample

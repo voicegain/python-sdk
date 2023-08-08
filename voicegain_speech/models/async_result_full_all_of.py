@@ -36,16 +36,18 @@ class AsyncResultFullAllOf(object):
     openapi_types = {
         'audio': 'AsyncResultFullAllOfAudio',
         'audio_callback': 'AsyncResultFullAllOfAudioCallback',
+        'redactions': 'list[PerformedRedaction]',
         'result': 'AsyncResultFullAllOfResult'
     }
 
     attribute_map = {
         'audio': 'audio',
         'audio_callback': 'audioCallback',
+        'redactions': 'redactions',
         'result': 'result'
     }
 
-    def __init__(self, audio=None, audio_callback=None, result=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio=None, audio_callback=None, redactions=None, result=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,6 +55,7 @@ class AsyncResultFullAllOf(object):
 
         self._audio = None
         self._audio_callback = None
+        self._redactions = None
         self._result = None
         self.discriminator = None
 
@@ -60,6 +63,8 @@ class AsyncResultFullAllOf(object):
             self.audio = audio
         if audio_callback is not None:
             self.audio_callback = audio_callback
+        if redactions is not None:
+            self.redactions = redactions
         if result is not None:
             self.result = result
 
@@ -104,6 +109,27 @@ class AsyncResultFullAllOf(object):
         """
 
         self._audio_callback = audio_callback
+
+    @property
+    def redactions(self):
+        """Gets the redactions of this AsyncResultFullAllOf.  # noqa: E501
+
+
+        :return: The redactions of this AsyncResultFullAllOf.  # noqa: E501
+        :rtype: list[PerformedRedaction]
+        """
+        return self._redactions
+
+    @redactions.setter
+    def redactions(self, redactions):
+        """Sets the redactions of this AsyncResultFullAllOf.
+
+
+        :param redactions: The redactions of this AsyncResultFullAllOf.  # noqa: E501
+        :type: list[PerformedRedaction]
+        """
+
+        self._redactions = redactions
 
     @property
     def result(self):
