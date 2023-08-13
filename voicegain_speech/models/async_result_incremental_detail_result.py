@@ -41,6 +41,7 @@ class AsyncResultIncrementalDetailResult(object):
         'language': 'Language',
         'last_event': 'AsrProcessingEvent',
         'message': 'str',
+        'segments': 'list[SentenceHypothesisOrRecognition]',
         'sentences': 'list[SentenceHypothesisOrRecognition]',
         'status': 'AsrProcessingStatus',
         'word_tree': 'list[WordTreeItem]',
@@ -55,13 +56,14 @@ class AsyncResultIncrementalDetailResult(object):
         'language': 'language',
         'last_event': 'lastEvent',
         'message': 'message',
+        'segments': 'segments',
         'sentences': 'sentences',
         'status': 'status',
         'word_tree': 'wordTree',
         'words': 'words'
     }
 
-    def __init__(self, captions=None, corrections=None, final=None, incremental_transcript=None, language=None, last_event=None, message=None, sentences=None, status=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, captions=None, corrections=None, final=None, incremental_transcript=None, language=None, last_event=None, message=None, segments=None, sentences=None, status=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultIncrementalDetailResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class AsyncResultIncrementalDetailResult(object):
         self._language = None
         self._last_event = None
         self._message = None
+        self._segments = None
         self._sentences = None
         self._status = None
         self._word_tree = None
@@ -94,6 +97,8 @@ class AsyncResultIncrementalDetailResult(object):
             self.last_event = last_event
         if message is not None:
             self.message = message
+        if segments is not None:
+            self.segments = segments
         if sentences is not None:
             self.sentences = sentences
         if status is not None:
@@ -259,9 +264,31 @@ class AsyncResultIncrementalDetailResult(object):
         self._message = message
 
     @property
+    def segments(self):
+        """Gets the segments of this AsyncResultIncrementalDetailResult.  # noqa: E501
+
+
+        :return: The segments of this AsyncResultIncrementalDetailResult.  # noqa: E501
+        :rtype: list[SentenceHypothesisOrRecognition]
+        """
+        return self._segments
+
+    @segments.setter
+    def segments(self, segments):
+        """Sets the segments of this AsyncResultIncrementalDetailResult.
+
+
+        :param segments: The segments of this AsyncResultIncrementalDetailResult.  # noqa: E501
+        :type: list[SentenceHypothesisOrRecognition]
+        """
+
+        self._segments = segments
+
+    @property
     def sentences(self):
         """Gets the sentences of this AsyncResultIncrementalDetailResult.  # noqa: E501
 
+        deprecated and replaced by `segments` field   # noqa: E501
 
         :return: The sentences of this AsyncResultIncrementalDetailResult.  # noqa: E501
         :rtype: list[SentenceHypothesisOrRecognition]
@@ -272,6 +299,7 @@ class AsyncResultIncrementalDetailResult(object):
     def sentences(self, sentences):
         """Sets the sentences of this AsyncResultIncrementalDetailResult.
 
+        deprecated and replaced by `segments` field   # noqa: E501
 
         :param sentences: The sentences of this AsyncResultIncrementalDetailResult.  # noqa: E501
         :type: list[SentenceHypothesisOrRecognition]

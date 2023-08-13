@@ -41,6 +41,7 @@ class AsyncResultFullAllOfResult(object):
         'message': 'str',
         'number_speakers': 'int',
         'rms_data': 'str',
+        'segments': 'list[SentenceRecognition]',
         'sentences': 'list[SentenceRecognition]',
         'speakers': 'list[SpeakerResult]',
         'status': 'AsrProcessingStatus',
@@ -59,6 +60,7 @@ class AsyncResultFullAllOfResult(object):
         'message': 'message',
         'number_speakers': 'numberSpeakers',
         'rms_data': 'rmsData',
+        'segments': 'segments',
         'sentences': 'sentences',
         'speakers': 'speakers',
         'status': 'status',
@@ -69,7 +71,7 @@ class AsyncResultFullAllOfResult(object):
         'words': 'words'
     }
 
-    def __init__(self, captions=None, final=None, language=None, last_event=None, message=None, number_speakers=None, rms_data=None, sentences=None, speakers=None, status=None, transcript=None, ttml=None, vad_data=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, captions=None, final=None, language=None, last_event=None, message=None, number_speakers=None, rms_data=None, segments=None, sentences=None, speakers=None, status=None, transcript=None, ttml=None, vad_data=None, word_tree=None, words=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOfResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -82,6 +84,7 @@ class AsyncResultFullAllOfResult(object):
         self._message = None
         self._number_speakers = None
         self._rms_data = None
+        self._segments = None
         self._sentences = None
         self._speakers = None
         self._status = None
@@ -106,6 +109,8 @@ class AsyncResultFullAllOfResult(object):
             self.number_speakers = number_speakers
         if rms_data is not None:
             self.rms_data = rms_data
+        if segments is not None:
+            self.segments = segments
         if sentences is not None:
             self.sentences = sentences
         if speakers is not None:
@@ -281,9 +286,31 @@ class AsyncResultFullAllOfResult(object):
         self._rms_data = rms_data
 
     @property
+    def segments(self):
+        """Gets the segments of this AsyncResultFullAllOfResult.  # noqa: E501
+
+
+        :return: The segments of this AsyncResultFullAllOfResult.  # noqa: E501
+        :rtype: list[SentenceRecognition]
+        """
+        return self._segments
+
+    @segments.setter
+    def segments(self, segments):
+        """Sets the segments of this AsyncResultFullAllOfResult.
+
+
+        :param segments: The segments of this AsyncResultFullAllOfResult.  # noqa: E501
+        :type: list[SentenceRecognition]
+        """
+
+        self._segments = segments
+
+    @property
     def sentences(self):
         """Gets the sentences of this AsyncResultFullAllOfResult.  # noqa: E501
 
+        deprecated and replaced by `segments` field   # noqa: E501
 
         :return: The sentences of this AsyncResultFullAllOfResult.  # noqa: E501
         :rtype: list[SentenceRecognition]
@@ -294,6 +321,7 @@ class AsyncResultFullAllOfResult(object):
     def sentences(self, sentences):
         """Sets the sentences of this AsyncResultFullAllOfResult.
 
+        deprecated and replaced by `segments` field   # noqa: E501
 
         :param sentences: The sentences of this AsyncResultFullAllOfResult.  # noqa: E501
         :type: list[SentenceRecognition]

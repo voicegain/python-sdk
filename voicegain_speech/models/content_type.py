@@ -32,11 +32,12 @@ class ContentType(object):
     PROGRESS = "progress"
     WORDS = "words"
     WORD_TREE = "word-tree"
-    SENTENCES = "sentences"
+    SEGMENTS = "segments"
     TRANSCRIPT = "transcript"
     CAPTIONS = "captions"
+    SENTENCES = "sentences"
 
-    allowable_values = [PROGRESS, WORDS, WORD_TREE, SENTENCES, TRANSCRIPT, CAPTIONS]  # noqa: E501
+    allowable_values = [PROGRESS, WORDS, WORD_TREE, SEGMENTS, TRANSCRIPT, CAPTIONS, SENTENCES]  # noqa: E501
 
     """
     Attributes:

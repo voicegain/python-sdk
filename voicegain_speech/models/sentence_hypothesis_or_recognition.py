@@ -99,7 +99,7 @@ class SentenceHypothesisOrRecognition(object):
     def duration(self):
         """Gets the duration of this SentenceHypothesisOrRecognition.  # noqa: E501
 
-        duration of the sentence in msec  # noqa: E501
+        duration of the segment in msec  # noqa: E501
 
         :return: The duration of this SentenceHypothesisOrRecognition.  # noqa: E501
         :rtype: float
@@ -110,7 +110,7 @@ class SentenceHypothesisOrRecognition(object):
     def duration(self, duration):
         """Sets the duration of this SentenceHypothesisOrRecognition.
 
-        duration of the sentence in msec  # noqa: E501
+        duration of the segment in msec  # noqa: E501
 
         :param duration: The duration of this SentenceHypothesisOrRecognition.  # noqa: E501
         :type: float
@@ -154,7 +154,7 @@ class SentenceHypothesisOrRecognition(object):
     def time(self):
         """Gets the time of this SentenceHypothesisOrRecognition.  # noqa: E501
 
-        start time of the sentence in msec since beginning of the audio stream  # noqa: E501
+        start time of the segment in msec since beginning of the audio stream  # noqa: E501
 
         :return: The time of this SentenceHypothesisOrRecognition.  # noqa: E501
         :rtype: int
@@ -165,7 +165,7 @@ class SentenceHypothesisOrRecognition(object):
     def time(self, time):
         """Sets the time of this SentenceHypothesisOrRecognition.
 
-        start time of the sentence in msec since beginning of the audio stream  # noqa: E501
+        start time of the segment in msec since beginning of the audio stream  # noqa: E501
 
         :param time: The time of this SentenceHypothesisOrRecognition.  # noqa: E501
         :type: int
