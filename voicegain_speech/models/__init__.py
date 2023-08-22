@@ -311,6 +311,7 @@ from voicegain_speech.models.recog_obj_no_exp import RecogObjNoExp
 from voicegain_speech.models.recognition_result import RecognitionResult
 from voicegain_speech.models.requested_content import RequestedContent
 from voicegain_speech.models.resource_uri import ResourceUri
+from voicegain_speech.models.resource_uri_local_auth_conf import ResourceUriLocalAuthConf
 from voicegain_speech.models.results_websocket_mode import ResultsWebsocketMode
 from voicegain_speech.models.s3 import S3
 from voicegain_speech.models.s3_all_of import S3AllOf

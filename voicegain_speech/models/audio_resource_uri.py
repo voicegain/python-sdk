@@ -36,6 +36,7 @@ class AudioResourceUri(object):
     openapi_types = {
         'auth_conf': 'str',
         'fetch_timeout': 'int',
+        'local_auth_conf': 'ResourceUriLocalAuthConf',
         'url': 'str',
         'pre_fetch': 'bool'
     }
@@ -43,11 +44,12 @@ class AudioResourceUri(object):
     attribute_map = {
         'auth_conf': 'authConf',
         'fetch_timeout': 'fetchTimeout',
+        'local_auth_conf': 'localAuthConf',
         'url': 'url',
         'pre_fetch': 'preFetch'
     }
 
-    def __init__(self, auth_conf=None, fetch_timeout=20000, url=None, pre_fetch=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, auth_conf=None, fetch_timeout=20000, local_auth_conf=None, url=None, pre_fetch=False, local_vars_configuration=None):  # noqa: E501
         """AudioResourceUri - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +57,7 @@ class AudioResourceUri(object):
 
         self._auth_conf = None
         self._fetch_timeout = None
+        self._local_auth_conf = None
         self._url = None
         self._pre_fetch = None
         self.discriminator = None
@@ -63,6 +66,8 @@ class AudioResourceUri(object):
             self.auth_conf = auth_conf
         if fetch_timeout is not None:
             self.fetch_timeout = fetch_timeout
+        if local_auth_conf is not None:
+            self.local_auth_conf = local_auth_conf
         if url is not None:
             self.url = url
         if pre_fetch is not None:
@@ -125,6 +130,27 @@ class AudioResourceUri(object):
             raise ValueError("Invalid value for `fetch_timeout`, must be a value greater than or equal to `100`")  # noqa: E501
 
         self._fetch_timeout = fetch_timeout
+
+    @property
+    def local_auth_conf(self):
+        """Gets the local_auth_conf of this AudioResourceUri.  # noqa: E501
+
+
+        :return: The local_auth_conf of this AudioResourceUri.  # noqa: E501
+        :rtype: ResourceUriLocalAuthConf
+        """
+        return self._local_auth_conf
+
+    @local_auth_conf.setter
+    def local_auth_conf(self, local_auth_conf):
+        """Sets the local_auth_conf of this AudioResourceUri.
+
+
+        :param local_auth_conf: The local_auth_conf of this AudioResourceUri.  # noqa: E501
+        :type: ResourceUriLocalAuthConf
+        """
+
+        self._local_auth_conf = local_auth_conf
 
     @property
     def url(self):
