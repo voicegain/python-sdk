@@ -77,4 +77,4 @@ else:
 More examples can be found in [examples](https://github.com/voicegain/python-sdk/tree/master/examples) folder on our [GitHub](https://github.com/voicegain/python-sdk)
 
 ---
-Learn more about Voicegain Platform at [www.voicegain.ai](https://www.voicegain.ai)
+Learn more about the Voicegain Voice AI Platform at [www.voicegain.ai](https://www.voicegain.ai)
