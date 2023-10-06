@@ -35,6 +35,7 @@ class AIVRPromptPlaying(object):
     """
     openapi_types = {
         'audio_properties': 'AIVRPromptPropertiesAudio',
+        'dtmf': 'str',
         'html_properties': 'AIVRPromptPropertiesHtml',
         'text': 'str',
         'wait_msec': 'int',
@@ -43,19 +44,21 @@ class AIVRPromptPlaying(object):
 
     attribute_map = {
         'audio_properties': 'audioProperties',
+        'dtmf': 'dtmf',
         'html_properties': 'htmlProperties',
         'text': 'text',
         'wait_msec': 'waitMsec',
         'end_reason': 'endReason'
     }
 
-    def __init__(self, audio_properties=None, html_properties=None, text=None, wait_msec=None, end_reason=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio_properties=None, dtmf=None, html_properties=None, text=None, wait_msec=None, end_reason=None, local_vars_configuration=None):  # noqa: E501
         """AIVRPromptPlaying - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._audio_properties = None
+        self._dtmf = None
         self._html_properties = None
         self._text = None
         self._wait_msec = None
@@ -64,6 +67,8 @@ class AIVRPromptPlaying(object):
 
         if audio_properties is not None:
             self.audio_properties = audio_properties
+        if dtmf is not None:
+            self.dtmf = dtmf
         if html_properties is not None:
             self.html_properties = html_properties
         if text is not None:
@@ -93,6 +98,29 @@ class AIVRPromptPlaying(object):
         """
 
         self._audio_properties = audio_properties
+
+    @property
+    def dtmf(self):
+        """Gets the dtmf of this AIVRPromptPlaying.  # noqa: E501
+
+        (optional) DTMF digits to be played to the caller, e.g. \"1234#\".</br> If `text` field is present then `dtmf` will be played after the text prompt is finished.</br>   # noqa: E501
+
+        :return: The dtmf of this AIVRPromptPlaying.  # noqa: E501
+        :rtype: str
+        """
+        return self._dtmf
+
+    @dtmf.setter
+    def dtmf(self, dtmf):
+        """Sets the dtmf of this AIVRPromptPlaying.
+
+        (optional) DTMF digits to be played to the caller, e.g. \"1234#\".</br> If `text` field is present then `dtmf` will be played after the text prompt is finished.</br>   # noqa: E501
+
+        :param dtmf: The dtmf of this AIVRPromptPlaying.  # noqa: E501
+        :type: str
+        """
+
+        self._dtmf = dtmf
 
     @property
     def html_properties(self):
