@@ -39,6 +39,7 @@ class CoreAIVRSession(object):
         'audio_server_url': 'str',
         'current_active_logic': 'AIVRLogicType',
         'current_media': 'AIVRLogicMedia',
+        'end_time': 'datetime',
         'events': 'list[AIVREvent]',
         'ivr_sid': 'str',
         'loop': 'str',
@@ -62,6 +63,7 @@ class CoreAIVRSession(object):
         'audio_server_url': 'audioServerUrl',
         'current_active_logic': 'currentActiveLogic',
         'current_media': 'currentMedia',
+        'end_time': 'endTime',
         'events': 'events',
         'ivr_sid': 'ivrSid',
         'loop': 'loop',
@@ -79,7 +81,7 @@ class CoreAIVRSession(object):
         'vars': 'vars'
     }
 
-    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sa_session_id=None, sequence=None, session_duration=None, start_time=None, telco_data=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, end_time=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sa_session_id=None, sequence=None, session_duration=None, start_time=None, telco_data=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """CoreAIVRSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -90,6 +92,7 @@ class CoreAIVRSession(object):
         self._audio_server_url = None
         self._current_active_logic = None
         self._current_media = None
+        self._end_time = None
         self._events = None
         self._ivr_sid = None
         self._loop = None
@@ -116,6 +119,8 @@ class CoreAIVRSession(object):
             self.current_active_logic = current_active_logic
         if current_media is not None:
             self.current_media = current_media
+        if end_time is not None:
+            self.end_time = end_time
         if events is not None:
             self.events = events
         self.ivr_sid = ivr_sid
@@ -255,6 +260,29 @@ class CoreAIVRSession(object):
         """
 
         self._current_media = current_media
+
+    @property
+    def end_time(self):
+        """Gets the end_time of this CoreAIVRSession.  # noqa: E501
+
+        End time of the AIVR session  # noqa: E501
+
+        :return: The end_time of this CoreAIVRSession.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._end_time
+
+    @end_time.setter
+    def end_time(self, end_time):
+        """Sets the end_time of this CoreAIVRSession.
+
+        End time of the AIVR session  # noqa: E501
+
+        :param end_time: The end_time of this CoreAIVRSession.  # noqa: E501
+        :type: datetime
+        """
+
+        self._end_time = end_time
 
     @property
     def events(self):
