@@ -27,7 +27,10 @@ from voicegain_speech.models.ac_start import ACStart
 from voicegain_speech.models.ac_start_stt_speech_contexts import ACStartSttSpeechContexts
 from voicegain_speech.models.ac_started import ACStarted
 from voicegain_speech.models.ac_stop import ACStop
+from voicegain_speech.models.aivr_callback_core_response import AIVRCallbackCoreResponse
+from voicegain_speech.models.aivr_callback_core_response_all_of import AIVRCallbackCoreResponseAllOf
 from voicegain_speech.models.aivr_callback_response import AIVRCallbackResponse
+from voicegain_speech.models.aivr_callback_response_all_of import AIVRCallbackResponseAllOf
 from voicegain_speech.models.aivr_callback_response_final import AIVRCallbackResponseFinal
 from voicegain_speech.models.aivr_conference_transfer import AIVRConferenceTransfer
 from voicegain_speech.models.aivr_disconnect import AIVRDisconnect
@@ -55,6 +58,7 @@ from voicegain_speech.models.aivr_session_user import AIVRSessionUser
 from voicegain_speech.models.aivr_session_user_base import AIVRSessionUserBase
 from voicegain_speech.models.aivr_session_user_fs import AIVRSessionUserFS
 from voicegain_speech.models.aivr_transfer import AIVRTransfer
+from voicegain_speech.models.aivr_vars import AIVRVars
 from voicegain_speech.models.account_and_context_id import AccountAndContextId
 from voicegain_speech.models.advanced_regex import AdvancedRegex
 from voicegain_speech.models.aircall import Aircall

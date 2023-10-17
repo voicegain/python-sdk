@@ -40,7 +40,8 @@ class AIVRResponsePropertiesAudio(object):
         'hints': 'list[str]',
         'incomplete_timeout': 'int',
         'no_input_timeout': 'int',
-        'question_prompt': 'str'
+        'question_prompt': 'str',
+        'streaming_websocket': 'str'
     }
 
     attribute_map = {
@@ -50,10 +51,11 @@ class AIVRResponsePropertiesAudio(object):
         'hints': 'hints',
         'incomplete_timeout': 'incompleteTimeout',
         'no_input_timeout': 'noInputTimeout',
-        'question_prompt': 'questionPrompt'
+        'question_prompt': 'questionPrompt',
+        'streaming_websocket': 'streamingWebsocket'
     }
 
-    def __init__(self, barge_in=False, complete_timeout=2000, grammar=None, hints=None, incomplete_timeout=5000, no_input_timeout=10000, question_prompt=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, barge_in=False, complete_timeout=2000, grammar=None, hints=None, incomplete_timeout=5000, no_input_timeout=10000, question_prompt=None, streaming_websocket=None, local_vars_configuration=None):  # noqa: E501
         """AIVRResponsePropertiesAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +68,7 @@ class AIVRResponsePropertiesAudio(object):
         self._incomplete_timeout = None
         self._no_input_timeout = None
         self._question_prompt = None
+        self._streaming_websocket = None
         self.discriminator = None
 
         if barge_in is not None:
@@ -82,6 +85,8 @@ class AIVRResponsePropertiesAudio(object):
             self.no_input_timeout = no_input_timeout
         if question_prompt is not None:
             self.question_prompt = question_prompt
+        if streaming_websocket is not None:
+            self.streaming_websocket = streaming_websocket
 
     @property
     def barge_in(self):
@@ -261,6 +266,29 @@ class AIVRResponsePropertiesAudio(object):
         """
 
         self._question_prompt = question_prompt
+
+    @property
+    def streaming_websocket(self):
+        """Gets the streaming_websocket of this AIVRResponsePropertiesAudio.  # noqa: E501
+
+        (optional) URI of the websocket to which ASR results will be sent. </br> If this is used, then AIVR will start sending the transcription or recognition results to this websocket. Whoever is listening on the websocket will need to parse the results and determine when the transcription or recognition is to end.<br> Format of the data sent over the websocket as well as possible response messages is described [here](#tag/aivr/operation/wsAivr).</br> Next AIVR callback will be sent only when the websocket is closed by the receiving party.</br>   # noqa: E501
+
+        :return: The streaming_websocket of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :rtype: str
+        """
+        return self._streaming_websocket
+
+    @streaming_websocket.setter
+    def streaming_websocket(self, streaming_websocket):
+        """Sets the streaming_websocket of this AIVRResponsePropertiesAudio.
+
+        (optional) URI of the websocket to which ASR results will be sent. </br> If this is used, then AIVR will start sending the transcription or recognition results to this websocket. Whoever is listening on the websocket will need to parse the results and determine when the transcription or recognition is to end.<br> Format of the data sent over the websocket as well as possible response messages is described [here](#tag/aivr/operation/wsAivr).</br> Next AIVR callback will be sent only when the websocket is closed by the receiving party.</br>   # noqa: E501
+
+        :param streaming_websocket: The streaming_websocket of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :type: str
+        """
+
+        self._streaming_websocket = streaming_websocket
 
     def to_dict(self):
         """Returns the model properties as a dict"""
