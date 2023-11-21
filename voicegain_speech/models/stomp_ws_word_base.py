@@ -36,20 +36,20 @@ class StompWsWordBase(object):
     openapi_types = {
         'conf': 'float',
         'gap': 'int',
-        'spk': 'int',
         'start': 'int',
-        'utt': 'str'
+        'utt': 'str',
+        'spk': 'int'
     }
 
     attribute_map = {
         'conf': 'conf',
         'gap': 'gap',
-        'spk': 'spk',
         'start': 'start',
-        'utt': 'utt'
+        'utt': 'utt',
+        'spk': 'spk'
     }
 
-    def __init__(self, conf=None, gap=None, spk=None, start=None, utt=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, conf=None, gap=None, start=None, utt=None, spk=None, local_vars_configuration=None):  # noqa: E501
         """StompWsWordBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,21 +57,21 @@ class StompWsWordBase(object):
 
         self._conf = None
         self._gap = None
-        self._spk = None
         self._start = None
         self._utt = None
+        self._spk = None
         self.discriminator = None
 
         if conf is not None:
             self.conf = conf
         if gap is not None:
             self.gap = gap
-        if spk is not None:
-            self.spk = spk
         if start is not None:
             self.start = start
         if utt is not None:
             self.utt = utt
+        if spk is not None:
+            self.spk = spk
 
     @property
     def conf(self):
@@ -129,35 +129,6 @@ class StompWsWordBase(object):
         self._gap = gap
 
     @property
-    def spk(self):
-        """Gets the spk of this StompWsWordBase.  # noqa: E501
-
-        Speaker id, starting from 1.</br> Even if diarization is enabled, a value of 0 may also be output for the `spk` (or `spk` may be missing)  if the system cannot assign diarization.  If this is output from real-time speech analytics,  then there will be separate **speaker** messages indicating how the spk is related to channel and if it is an Agent.   # noqa: E501
-
-        :return: The spk of this StompWsWordBase.  # noqa: E501
-        :rtype: int
-        """
-        return self._spk
-
-    @spk.setter
-    def spk(self, spk):
-        """Sets the spk of this StompWsWordBase.
-
-        Speaker id, starting from 1.</br> Even if diarization is enabled, a value of 0 may also be output for the `spk` (or `spk` may be missing)  if the system cannot assign diarization.  If this is output from real-time speech analytics,  then there will be separate **speaker** messages indicating how the spk is related to channel and if it is an Agent.   # noqa: E501
-
-        :param spk: The spk of this StompWsWordBase.  # noqa: E501
-        :type: int
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                spk is not None and spk > 80):  # noqa: E501
-            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                spk is not None and spk < 1):  # noqa: E501
-            raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._spk = spk
-
-    @property
     def start(self):
         """Gets the start of this StompWsWordBase.  # noqa: E501
 
@@ -208,6 +179,35 @@ class StompWsWordBase(object):
             raise ValueError("Invalid value for `utt`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._utt = utt
+
+    @property
+    def spk(self):
+        """Gets the spk of this StompWsWordBase.  # noqa: E501
+
+        Speaker id, starting from 1.</br> Even if diarization is enabled, a value of 0 may also be output for the `spk` (or `spk` may be missing)  if the system cannot assign diarization.  If this is output from real-time speech analytics,  then there will be separate **speaker** messages indicating how the spk is related to channel and if it is an Agent.   # noqa: E501
+
+        :return: The spk of this StompWsWordBase.  # noqa: E501
+        :rtype: int
+        """
+        return self._spk
+
+    @spk.setter
+    def spk(self, spk):
+        """Sets the spk of this StompWsWordBase.
+
+        Speaker id, starting from 1.</br> Even if diarization is enabled, a value of 0 may also be output for the `spk` (or `spk` may be missing)  if the system cannot assign diarization.  If this is output from real-time speech analytics,  then there will be separate **speaker** messages indicating how the spk is related to channel and if it is an Agent.   # noqa: E501
+
+        :param spk: The spk of this StompWsWordBase.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk > 80):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk < 1):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._spk = spk
 
     def to_dict(self):
         """Returns the model properties as a dict"""

@@ -34,7 +34,7 @@ class SentenceRecognition(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'alternatives': 'list[SentenceHypothesisOrRecognitionAlternatives]',
+        'alternatives': 'list[BaseSentenceHypothesisOrRecognitionAlternatives]',
         'duration': 'float',
         'spk': 'int',
         'time': 'int'
@@ -75,7 +75,7 @@ class SentenceRecognition(object):
         recognition result - possibly multiple alternatives  # noqa: E501
 
         :return: The alternatives of this SentenceRecognition.  # noqa: E501
-        :rtype: list[SentenceHypothesisOrRecognitionAlternatives]
+        :rtype: list[BaseSentenceHypothesisOrRecognitionAlternatives]
         """
         return self._alternatives
 
@@ -86,7 +86,7 @@ class SentenceRecognition(object):
         recognition result - possibly multiple alternatives  # noqa: E501
 
         :param alternatives: The alternatives of this SentenceRecognition.  # noqa: E501
-        :type: list[SentenceHypothesisOrRecognitionAlternatives]
+        :type: list[BaseSentenceHypothesisOrRecognitionAlternatives]
         """
 
         self._alternatives = alternatives

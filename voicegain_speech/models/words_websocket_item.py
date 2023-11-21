@@ -36,14 +36,14 @@ class WordsWebsocketItem(object):
     openapi_types = {
         'conf': 'float',
         'gap': 'int',
-        'spk': 'int',
         'start': 'int',
         'utt': 'str',
+        'spk': 'int',
         'ss_id': 'str',
         '_del': 'float',
         'edit': 'list[StompWsWordBase]',
         'ping': 'str',
-        'alternatives': 'list[SentenceHypothesisOrRecognitionAlternatives]',
+        'alternatives': 'list[BaseSentenceHypothesisOrRecognitionAlternatives]',
         'duration': 'float',
         'time': 'int',
         'type': 'str'
@@ -52,9 +52,9 @@ class WordsWebsocketItem(object):
     attribute_map = {
         'conf': 'conf',
         'gap': 'gap',
-        'spk': 'spk',
         'start': 'start',
         'utt': 'utt',
+        'spk': 'spk',
         'ss_id': 'ssId',
         '_del': 'del',
         'edit': 'edit',
@@ -65,7 +65,7 @@ class WordsWebsocketItem(object):
         'type': 'type'
     }
 
-    def __init__(self, conf=None, gap=None, spk=None, start=None, utt=None, ss_id=None, _del=None, edit=None, ping=None, alternatives=None, duration=None, time=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, conf=None, gap=None, start=None, utt=None, spk=None, ss_id=None, _del=None, edit=None, ping=None, alternatives=None, duration=None, time=None, type=None, local_vars_configuration=None):  # noqa: E501
         """WordsWebsocketItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,9 +73,9 @@ class WordsWebsocketItem(object):
 
         self._conf = None
         self._gap = None
-        self._spk = None
         self._start = None
         self._utt = None
+        self._spk = None
         self._ss_id = None
         self.__del = None
         self._edit = None
@@ -90,12 +90,12 @@ class WordsWebsocketItem(object):
             self.conf = conf
         if gap is not None:
             self.gap = gap
-        if spk is not None:
-            self.spk = spk
         if start is not None:
             self.start = start
         if utt is not None:
             self.utt = utt
+        if spk is not None:
+            self.spk = spk
         if ss_id is not None:
             self.ss_id = ss_id
         self._del = _del
@@ -166,35 +166,6 @@ class WordsWebsocketItem(object):
         self._gap = gap
 
     @property
-    def spk(self):
-        """Gets the spk of this WordsWebsocketItem.  # noqa: E501
-
-        **(beta)** If diarization is enabled then this field will contain the speaker index for this session. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.              # noqa: E501
-
-        :return: The spk of this WordsWebsocketItem.  # noqa: E501
-        :rtype: int
-        """
-        return self._spk
-
-    @spk.setter
-    def spk(self, spk):
-        """Sets the spk of this WordsWebsocketItem.
-
-        **(beta)** If diarization is enabled then this field will contain the speaker index for this session. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.              # noqa: E501
-
-        :param spk: The spk of this WordsWebsocketItem.  # noqa: E501
-        :type: int
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                spk is not None and spk > 80):  # noqa: E501
-            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                spk is not None and spk < 1):  # noqa: E501
-            raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._spk = spk
-
-    @property
     def start(self):
         """Gets the start of this WordsWebsocketItem.  # noqa: E501
 
@@ -245,6 +216,35 @@ class WordsWebsocketItem(object):
             raise ValueError("Invalid value for `utt`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._utt = utt
+
+    @property
+    def spk(self):
+        """Gets the spk of this WordsWebsocketItem.  # noqa: E501
+
+        **(beta)** If diarization is enabled then this field will contain the speaker index for this session. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.              # noqa: E501
+
+        :return: The spk of this WordsWebsocketItem.  # noqa: E501
+        :rtype: int
+        """
+        return self._spk
+
+    @spk.setter
+    def spk(self, spk):
+        """Sets the spk of this WordsWebsocketItem.
+
+        **(beta)** If diarization is enabled then this field will contain the speaker index for this session. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.              # noqa: E501
+
+        :param spk: The spk of this WordsWebsocketItem.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk > 80):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk < 1):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._spk = spk
 
     @property
     def ss_id(self):
@@ -359,7 +359,7 @@ class WordsWebsocketItem(object):
         recognition result - possibly multiple alternatives  # noqa: E501
 
         :return: The alternatives of this WordsWebsocketItem.  # noqa: E501
-        :rtype: list[SentenceHypothesisOrRecognitionAlternatives]
+        :rtype: list[BaseSentenceHypothesisOrRecognitionAlternatives]
         """
         return self._alternatives
 
@@ -370,7 +370,7 @@ class WordsWebsocketItem(object):
         recognition result - possibly multiple alternatives  # noqa: E501
 
         :param alternatives: The alternatives of this WordsWebsocketItem.  # noqa: E501
-        :type: list[SentenceHypothesisOrRecognitionAlternatives]
+        :type: list[BaseSentenceHypothesisOrRecognitionAlternatives]
         """
 
         self._alternatives = alternatives

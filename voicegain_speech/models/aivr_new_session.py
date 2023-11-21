@@ -91,8 +91,7 @@ class AIVRNewSession(object):
 
         if ani is not None:
             self.ani = ani
-        if auth_token is not None:
-            self.auth_token = auth_token
+        self.auth_token = auth_token
         if call_is_being_recorded is not None:
             self.call_is_being_recorded = call_is_being_recorded
         if default_voice is not None:
@@ -142,7 +141,7 @@ class AIVRNewSession(object):
     def auth_token(self):
         """Gets the auth_token of this AIVRNewSession.  # noqa: E501
 
-        (optional) Unique token that can be used to authenticate session related API requests outside of the callback. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut)   # noqa: E501
+        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut)   # noqa: E501
 
         :return: The auth_token of this AIVRNewSession.  # noqa: E501
         :rtype: str
@@ -153,11 +152,13 @@ class AIVRNewSession(object):
     def auth_token(self, auth_token):
         """Sets the auth_token of this AIVRNewSession.
 
-        (optional) Unique token that can be used to authenticate session related API requests outside of the callback. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut)   # noqa: E501
+        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut)   # noqa: E501
 
         :param auth_token: The auth_token of this AIVRNewSession.  # noqa: E501
         :type: str
         """
+        if self.local_vars_configuration.client_side_validation and auth_token is None:  # noqa: E501
+            raise ValueError("Invalid value for `auth_token`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 auth_token is not None and len(auth_token) < 128):
             raise ValueError("Invalid value for `auth_token`, length must be greater than or equal to `128`")  # noqa: E501
@@ -300,7 +301,7 @@ class AIVRNewSession(object):
     def sequence(self):
         """Gets the sequence of this AIVRNewSession.  # noqa: E501
 
-        sequential number within session of this callback  # noqa: E501
+        sequential number within session of this callback or websocket message  # noqa: E501
 
         :return: The sequence of this AIVRNewSession.  # noqa: E501
         :rtype: int
@@ -311,7 +312,7 @@ class AIVRNewSession(object):
     def sequence(self, sequence):
         """Sets the sequence of this AIVRNewSession.
 
-        sequential number within session of this callback  # noqa: E501
+        sequential number within session of this callback or websocket message  # noqa: E501
 
         :param sequence: The sequence of this AIVRNewSession.  # noqa: E501
         :type: int

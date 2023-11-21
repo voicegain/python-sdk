@@ -34,24 +34,24 @@ class WSSentenceHypothesisOrRecognition(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'alternatives': 'list[SentenceHypothesisOrRecognitionAlternatives]',
+        'alternatives': 'list[BaseSentenceHypothesisOrRecognitionAlternatives]',
         'duration': 'float',
-        'spk': 'int',
         'time': 'int',
         'type': 'str',
+        'spk': 'int',
         'ss_id': 'str'
     }
 
     attribute_map = {
         'alternatives': 'alternatives',
         'duration': 'duration',
-        'spk': 'spk',
         'time': 'time',
         'type': 'type',
+        'spk': 'spk',
         'ss_id': 'ssId'
     }
 
-    def __init__(self, alternatives=None, duration=None, spk=None, time=None, type=None, ss_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, alternatives=None, duration=None, time=None, type=None, spk=None, ss_id=None, local_vars_configuration=None):  # noqa: E501
         """WSSentenceHypothesisOrRecognition - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,9 +59,9 @@ class WSSentenceHypothesisOrRecognition(object):
 
         self._alternatives = None
         self._duration = None
-        self._spk = None
         self._time = None
         self._type = None
+        self._spk = None
         self._ss_id = None
         self.discriminator = None
 
@@ -69,11 +69,11 @@ class WSSentenceHypothesisOrRecognition(object):
             self.alternatives = alternatives
         if duration is not None:
             self.duration = duration
-        if spk is not None:
-            self.spk = spk
         if time is not None:
             self.time = time
         self.type = type
+        if spk is not None:
+            self.spk = spk
         if ss_id is not None:
             self.ss_id = ss_id
 
@@ -84,7 +84,7 @@ class WSSentenceHypothesisOrRecognition(object):
         recognition result - possibly multiple alternatives  # noqa: E501
 
         :return: The alternatives of this WSSentenceHypothesisOrRecognition.  # noqa: E501
-        :rtype: list[SentenceHypothesisOrRecognitionAlternatives]
+        :rtype: list[BaseSentenceHypothesisOrRecognitionAlternatives]
         """
         return self._alternatives
 
@@ -95,7 +95,7 @@ class WSSentenceHypothesisOrRecognition(object):
         recognition result - possibly multiple alternatives  # noqa: E501
 
         :param alternatives: The alternatives of this WSSentenceHypothesisOrRecognition.  # noqa: E501
-        :type: list[SentenceHypothesisOrRecognitionAlternatives]
+        :type: list[BaseSentenceHypothesisOrRecognitionAlternatives]
         """
 
         self._alternatives = alternatives
@@ -125,35 +125,6 @@ class WSSentenceHypothesisOrRecognition(object):
             raise ValueError("Invalid value for `duration`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._duration = duration
-
-    @property
-    def spk(self):
-        """Gets the spk of this WSSentenceHypothesisOrRecognition.  # noqa: E501
-
-        **(beta)** If diarization is enabled then this field will contain the speaker index for this session. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.              # noqa: E501
-
-        :return: The spk of this WSSentenceHypothesisOrRecognition.  # noqa: E501
-        :rtype: int
-        """
-        return self._spk
-
-    @spk.setter
-    def spk(self, spk):
-        """Sets the spk of this WSSentenceHypothesisOrRecognition.
-
-        **(beta)** If diarization is enabled then this field will contain the speaker index for this session. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.              # noqa: E501
-
-        :param spk: The spk of this WSSentenceHypothesisOrRecognition.  # noqa: E501
-        :type: int
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                spk is not None and spk > 80):  # noqa: E501
-            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `80`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                spk is not None and spk < 1):  # noqa: E501
-            raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
-
-        self._spk = spk
 
     @property
     def time(self):
@@ -211,6 +182,35 @@ class WSSentenceHypothesisOrRecognition(object):
             )
 
         self._type = type
+
+    @property
+    def spk(self):
+        """Gets the spk of this WSSentenceHypothesisOrRecognition.  # noqa: E501
+
+        **(beta)** If diarization is enabled then this field will contain the speaker index for this session. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.              # noqa: E501
+
+        :return: The spk of this WSSentenceHypothesisOrRecognition.  # noqa: E501
+        :rtype: int
+        """
+        return self._spk
+
+    @spk.setter
+    def spk(self, spk):
+        """Sets the spk of this WSSentenceHypothesisOrRecognition.
+
+        **(beta)** If diarization is enabled then this field will contain the speaker index for this session. Speaker index is an integer from `1` up to at most `diarization.maxSpeakers`.              # noqa: E501
+
+        :param spk: The spk of this WSSentenceHypothesisOrRecognition.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk > 80):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value less than or equal to `80`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                spk is not None and spk < 1):  # noqa: E501
+            raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._spk = spk
 
     @property
     def ss_id(self):

@@ -34,6 +34,7 @@ class AIVREvent(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'completion_state': 'str',
         'logic_type': 'AIVRLogicType',
         'sequence': 'str',
         'time_msec': 'int',
@@ -41,6 +42,7 @@ class AIVREvent(object):
     }
 
     attribute_map = {
+        'completion_state': 'completionState',
         'logic_type': 'logicType',
         'sequence': 'sequence',
         'time_msec': 'timeMsec',
@@ -56,23 +58,55 @@ class AIVREvent(object):
         'input': 'Input'
     }
 
-    def __init__(self, logic_type=None, sequence=None, time_msec=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, completion_state='completed', logic_type=None, sequence=None, time_msec=None, type=None, local_vars_configuration=None):  # noqa: E501
         """AIVREvent - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._completion_state = None
         self._logic_type = None
         self._sequence = None
         self._time_msec = None
         self._type = None
         self.discriminator = 'type'
 
+        if completion_state is not None:
+            self.completion_state = completion_state
         if logic_type is not None:
             self.logic_type = logic_type
         self.sequence = sequence
         self.time_msec = time_msec
         self.type = type
+
+    @property
+    def completion_state(self):
+        """Gets the completion_state of this AIVREvent.  # noqa: E501
+
+        Completion state of the event, if the event was a result of a command.  `interrupted` and `skipped` apply to commands submitted via the websocket API.   # noqa: E501
+
+        :return: The completion_state of this AIVREvent.  # noqa: E501
+        :rtype: str
+        """
+        return self._completion_state
+
+    @completion_state.setter
+    def completion_state(self, completion_state):
+        """Sets the completion_state of this AIVREvent.
+
+        Completion state of the event, if the event was a result of a command.  `interrupted` and `skipped` apply to commands submitted via the websocket API.   # noqa: E501
+
+        :param completion_state: The completion_state of this AIVREvent.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["completed", "interrupted", "skipped"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and completion_state not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `completion_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(completion_state, allowed_values)
+            )
+
+        self._completion_state = completion_state
 
     @property
     def logic_type(self):
