@@ -293,7 +293,7 @@ class PhraseSpotItem(object):
     def regex(self):
         """Gets the regex of this PhraseSpotItem.  # noqa: E501
 
-        Optional regex phrases to augment the examples, any one of them may match  # noqa: E501
+        (use `advancedRegex`) Optional regex phrases to augment the examples, any one of them may match.  # noqa: E501
 
         :return: The regex of this PhraseSpotItem.  # noqa: E501
         :rtype: list[str]
@@ -304,7 +304,7 @@ class PhraseSpotItem(object):
     def regex(self, regex):
         """Sets the regex of this PhraseSpotItem.
 
-        Optional regex phrases to augment the examples, any one of them may match  # noqa: E501
+        (use `advancedRegex`) Optional regex phrases to augment the examples, any one of them may match.  # noqa: E501
 
         :param regex: The regex of this PhraseSpotItem.  # noqa: E501
         :type: list[str]
