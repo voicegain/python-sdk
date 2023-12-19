@@ -45,6 +45,7 @@ class AIVRNewSession(object):
         'sequence': 'int',
         'sid': 'str',
         'start_time': 'datetime',
+        'temp_code': 'str',
         'to_be_transcribed': 'bool',
         'user_app_data': 'str',
         'vars': 'object'
@@ -62,12 +63,13 @@ class AIVRNewSession(object):
         'sequence': 'sequence',
         'sid': 'sid',
         'start_time': 'startTime',
+        'temp_code': 'tempCode',
         'to_be_transcribed': 'toBeTranscribed',
         'user_app_data': 'userAppData',
         'vars': 'vars'
     }
 
-    def __init__(self, ani=None, auth_token=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, to_be_transcribed=False, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ani=None, auth_token=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """AIVRNewSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -84,6 +86,7 @@ class AIVRNewSession(object):
         self._sequence = None
         self._sid = None
         self._start_time = None
+        self._temp_code = None
         self._to_be_transcribed = None
         self._user_app_data = None
         self._vars = None
@@ -107,6 +110,8 @@ class AIVRNewSession(object):
         self.sequence = sequence
         self.sid = sid
         self.start_time = start_time
+        if temp_code is not None:
+            self.temp_code = temp_code
         if to_be_transcribed is not None:
             self.to_be_transcribed = to_be_transcribed
         if user_app_data is not None:
@@ -374,6 +379,35 @@ class AIVRNewSession(object):
             raise ValueError("Invalid value for `start_time`, must not be `None`")  # noqa: E501
 
         self._start_time = start_time
+
+    @property
+    def temp_code(self):
+        """Gets the temp_code of this AIVRNewSession.  # noqa: E501
+
+        Temporary random code that can be used to lookup this session. This code is generated when the session is created and is valid for up to 30 minutes after the AIVR session ends. Within that time period it can be used to query the session.</br> The code, while valid, is guaranteed to be unique within an Account. The code is a random conbination of 4 digits or letters (upper case).</br> Note: the time the code is valid and the code length may change in future version of this API.   # noqa: E501
+
+        :return: The temp_code of this AIVRNewSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._temp_code
+
+    @temp_code.setter
+    def temp_code(self, temp_code):
+        """Sets the temp_code of this AIVRNewSession.
+
+        Temporary random code that can be used to lookup this session. This code is generated when the session is created and is valid for up to 30 minutes after the AIVR session ends. Within that time period it can be used to query the session.</br> The code, while valid, is guaranteed to be unique within an Account. The code is a random conbination of 4 digits or letters (upper case).</br> Note: the time the code is valid and the code length may change in future version of this API.   # noqa: E501
+
+        :param temp_code: The temp_code of this AIVRNewSession.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                temp_code is not None and len(temp_code) > 4):
+            raise ValueError("Invalid value for `temp_code`, length must be less than or equal to `4`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                temp_code is not None and len(temp_code) < 4):
+            raise ValueError("Invalid value for `temp_code`, length must be greater than or equal to `4`")  # noqa: E501
+
+        self._temp_code = temp_code
 
     @property
     def to_be_transcribed(self):

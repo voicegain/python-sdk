@@ -50,6 +50,7 @@ class CoreAIVRSession(object):
         'session_duration': 'int',
         'start_time': 'datetime',
         'telco_data': 'CoreAIVRSessionTelcoData',
+        'temp_code': 'str',
         'terminated': 'str',
         'to_be_recorded': 'bool',
         'to_be_transcribed': 'bool',
@@ -74,6 +75,7 @@ class CoreAIVRSession(object):
         'session_duration': 'sessionDuration',
         'start_time': 'startTime',
         'telco_data': 'telcoData',
+        'temp_code': 'tempCode',
         'terminated': 'terminated',
         'to_be_recorded': 'toBeRecorded',
         'to_be_transcribed': 'toBeTranscribed',
@@ -81,7 +83,7 @@ class CoreAIVRSession(object):
         'vars': 'vars'
     }
 
-    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, end_time=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sa_session_id=None, sequence=None, session_duration=None, start_time=None, telco_data=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, end_time=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sa_session_id=None, sequence=None, session_duration=None, start_time=None, telco_data=None, temp_code=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """CoreAIVRSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -103,6 +105,7 @@ class CoreAIVRSession(object):
         self._session_duration = None
         self._start_time = None
         self._telco_data = None
+        self._temp_code = None
         self._terminated = None
         self._to_be_recorded = None
         self._to_be_transcribed = None
@@ -139,6 +142,8 @@ class CoreAIVRSession(object):
         self.start_time = start_time
         if telco_data is not None:
             self.telco_data = telco_data
+        if temp_code is not None:
+            self.temp_code = temp_code
         if terminated is not None:
             self.terminated = terminated
         if to_be_recorded is not None:
@@ -522,6 +527,35 @@ class CoreAIVRSession(object):
         """
 
         self._telco_data = telco_data
+
+    @property
+    def temp_code(self):
+        """Gets the temp_code of this CoreAIVRSession.  # noqa: E501
+
+        Temporary random code that can be used to lookup this session. This code is generated when the session is created and is valid for up to 30 minutes after the AIVR session ends. Within that time period it can be used to query the session.</br> The code, while valid, is guaranteed to be unique within an Account. The code is a random conbination of 4 digits or letters (upper case).</br> Note: the time the code is valid and the code length may change in future version of this API.   # noqa: E501
+
+        :return: The temp_code of this CoreAIVRSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._temp_code
+
+    @temp_code.setter
+    def temp_code(self, temp_code):
+        """Sets the temp_code of this CoreAIVRSession.
+
+        Temporary random code that can be used to lookup this session. This code is generated when the session is created and is valid for up to 30 minutes after the AIVR session ends. Within that time period it can be used to query the session.</br> The code, while valid, is guaranteed to be unique within an Account. The code is a random conbination of 4 digits or letters (upper case).</br> Note: the time the code is valid and the code length may change in future version of this API.   # noqa: E501
+
+        :param temp_code: The temp_code of this CoreAIVRSession.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                temp_code is not None and len(temp_code) > 4):
+            raise ValueError("Invalid value for `temp_code`, length must be less than or equal to `4`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                temp_code is not None and len(temp_code) < 4):
+            raise ValueError("Invalid value for `temp_code`, length must be greater than or equal to `4`")  # noqa: E501
+
+        self._temp_code = temp_code
 
     @property
     def terminated(self):
