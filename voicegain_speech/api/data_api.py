@@ -899,6 +899,420 @@ class DataApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def data_file_url_get(self, uuid, **kwargs):  # noqa: E501
+        """Get data file URL  # noqa: E501
+
+        Get URL for the data object. </br> This method will return temporary pre-signed URL that can be used to retrieve the file stored under the Data Object.</br> The URL will have format defined in this API method [GET /data/{uuid}/file/{fnameWithExt}](#tag/data/operation/dataFileXkeyGet)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.data_file_url_get(uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
+        :param int exp_in_sec: Number of seconds from now when the pre-signed URL is to expire. Maximum value is 1 hour.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: PresignedDataFileUrlResponse
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.data_file_url_get_with_http_info(uuid, **kwargs)  # noqa: E501
+
+    def data_file_url_get_with_http_info(self, uuid, **kwargs):  # noqa: E501
+        """Get data file URL  # noqa: E501
+
+        Get URL for the data object. </br> This method will return temporary pre-signed URL that can be used to retrieve the file stored under the Data Object.</br> The URL will have format defined in this API method [GET /data/{uuid}/file/{fnameWithExt}](#tag/data/operation/dataFileXkeyGet)   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.data_file_url_get_with_http_info(uuid, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
+        :param int exp_in_sec: Number of seconds from now when the pre-signed URL is to expire. Maximum value is 1 hour.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(PresignedDataFileUrlResponse, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['uuid', 'exp_in_sec']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method data_file_url_get" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'uuid' is set
+        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
+                                                        local_var_params['uuid'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `uuid` when calling `data_file_url_get`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `data_file_url_get`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `data_file_url_get`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and 'exp_in_sec' in local_var_params and local_var_params['exp_in_sec'] > 3600:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `exp_in_sec` when calling `data_file_url_get`, must be a value less than or equal to `3600`")  # noqa: E501
+        if self.api_client.client_side_validation and 'exp_in_sec' in local_var_params and local_var_params['exp_in_sec'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `exp_in_sec` when calling `data_file_url_get`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'uuid' in local_var_params:
+            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+
+        query_params = []
+        if 'exp_in_sec' in local_var_params and local_var_params['exp_in_sec'] is not None:  # noqa: E501
+            query_params.append(('expInSec', local_var_params['exp_in_sec']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/data/{uuid}/file/url', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='PresignedDataFileUrlResponse',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def data_file_xkey_get(self, uuid, fname_with_ext, **kwargs):  # noqa: E501
+        """Get data file presigned  # noqa: E501
+
+        Get data object using presigned URL. </br>  We will have two typical scenarios: + Return raw (file) object data from simple object store. This presigned url can be obtained using [GET /data/{uuid}/file/url](#operation/dataFileUrlGet)</br> These parameters will be used:   + `fileType` = **self** (the default)   + `tokenType` = **jwt** (the default)   + `token` = a JWT token limited to this api request only and having limited lifetime. + Return a redirect to S3 location of a file associated with this data object (redirect will be to a S3 presigned url).  Typically this will be  one of the files referenced in the mpd file. These parameters will be used:   + `fileType` = **s3**   + `tokenType` = **dataObj**   + `token` = a simple, time-limited, token with scope limited to this data object. May be stored in redis as a concatenation of the Data Object UUID and the token.   Notice that the same token can be used for all S3 files associated with this data object.    This token will be generated e.g. when a call is made to either of these methods that return the mpd file:     + [GET /data/{uuid}/mpd](#tag/data/operation/dataMpdGet) - this accesses the mpd directly     + [GET /data/{uuid}/file/audio.mpd](#tag/data/operation/dataFileXkeyGet) - this accesses the mpd via presigned URL   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.data_file_xkey_get(uuid, fname_with_ext, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
+        :param str fname_with_ext: Filename with extension - e.g. audio.mpd, or init-stream0.m4s (required)
+        :param str file_type: Type of file to be returned. Either: + `self` - returns the Data Object file itself + `s3` - assumes that the file to be returned resides in S3 in folder assigned to this Data Object.  The filename is specified in `fnameWithExt` path parameter 
+        :param str token_type: Type of token used. Either: + `jwt` - JWT token generated for this specific request + `dataObj` - simple token with limited lifetime with scope limited to the specific data object  
+        :param str token: A token used to authenticate this request. See `tokenType` parameter for the possible types of tokens.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: file
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.data_file_xkey_get_with_http_info(uuid, fname_with_ext, **kwargs)  # noqa: E501
+
+    def data_file_xkey_get_with_http_info(self, uuid, fname_with_ext, **kwargs):  # noqa: E501
+        """Get data file presigned  # noqa: E501
+
+        Get data object using presigned URL. </br>  We will have two typical scenarios: + Return raw (file) object data from simple object store. This presigned url can be obtained using [GET /data/{uuid}/file/url](#operation/dataFileUrlGet)</br> These parameters will be used:   + `fileType` = **self** (the default)   + `tokenType` = **jwt** (the default)   + `token` = a JWT token limited to this api request only and having limited lifetime. + Return a redirect to S3 location of a file associated with this data object (redirect will be to a S3 presigned url).  Typically this will be  one of the files referenced in the mpd file. These parameters will be used:   + `fileType` = **s3**   + `tokenType` = **dataObj**   + `token` = a simple, time-limited, token with scope limited to this data object. May be stored in redis as a concatenation of the Data Object UUID and the token.   Notice that the same token can be used for all S3 files associated with this data object.    This token will be generated e.g. when a call is made to either of these methods that return the mpd file:     + [GET /data/{uuid}/mpd](#tag/data/operation/dataMpdGet) - this accesses the mpd directly     + [GET /data/{uuid}/file/audio.mpd](#tag/data/operation/dataFileXkeyGet) - this accesses the mpd via presigned URL   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.data_file_xkey_get_with_http_info(uuid, fname_with_ext, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
+        :param str fname_with_ext: Filename with extension - e.g. audio.mpd, or init-stream0.m4s (required)
+        :param str file_type: Type of file to be returned. Either: + `self` - returns the Data Object file itself + `s3` - assumes that the file to be returned resides in S3 in folder assigned to this Data Object.  The filename is specified in `fnameWithExt` path parameter 
+        :param str token_type: Type of token used. Either: + `jwt` - JWT token generated for this specific request + `dataObj` - simple token with limited lifetime with scope limited to the specific data object  
+        :param str token: A token used to authenticate this request. See `tokenType` parameter for the possible types of tokens.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(file, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['uuid', 'fname_with_ext', 'file_type', 'token_type', 'token']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method data_file_xkey_get" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'uuid' is set
+        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
+                                                        local_var_params['uuid'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `uuid` when calling `data_file_xkey_get`")  # noqa: E501
+        # verify the required parameter 'fname_with_ext' is set
+        if self.api_client.client_side_validation and ('fname_with_ext' not in local_var_params or  # noqa: E501
+                                                        local_var_params['fname_with_ext'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `fname_with_ext` when calling `data_file_xkey_get`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `data_file_xkey_get`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `data_file_xkey_get`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and ('fname_with_ext' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['fname_with_ext']) > 512):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `fname_with_ext` when calling `data_file_xkey_get`, length must be less than or equal to `512`")  # noqa: E501
+        if self.api_client.client_side_validation and ('fname_with_ext' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['fname_with_ext']) < 3):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `fname_with_ext` when calling `data_file_xkey_get`, length must be greater than or equal to `3`")  # noqa: E501
+        if self.api_client.client_side_validation and ('token' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['token']) > 512):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `token` when calling `data_file_xkey_get`, length must be less than or equal to `512`")  # noqa: E501
+        if self.api_client.client_side_validation and ('token' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['token']) < 128):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `token` when calling `data_file_xkey_get`, length must be greater than or equal to `128`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'uuid' in local_var_params:
+            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        if 'fname_with_ext' in local_var_params:
+            path_params['fnameWithExt'] = local_var_params['fname_with_ext']  # noqa: E501
+
+        query_params = []
+        if 'file_type' in local_var_params and local_var_params['file_type'] is not None:  # noqa: E501
+            query_params.append(('fileType', local_var_params['file_type']))  # noqa: E501
+        if 'token_type' in local_var_params and local_var_params['token_type'] is not None:  # noqa: E501
+            query_params.append(('tokenType', local_var_params['token_type']))  # noqa: E501
+        if 'token' in local_var_params and local_var_params['token'] is not None:  # noqa: E501
+            query_params.append(('token', local_var_params['token']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['audio/*, text/*, image/*, */*, application/dash+xml', 'plain/text', 'application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/data/{uuid}/file/{fnameWithExt}', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='file',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def data_file_xkey_head(self, uuid, fname_with_ext, **kwargs):  # noqa: E501
+        """Get data file presigned  # noqa: E501
+
+        Get header info for data object using presigned URL, see [GET /data/{uuid}/file/{fnameWithExt}](#tag/data/operation/dataFileXkeyGet)</br>    # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.data_file_xkey_head(uuid, fname_with_ext, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
+        :param str fname_with_ext: Filename with extension - e.g. audio.mpd, or init-stream0.m4s (required)
+        :param str file_type: Type of file to be returned. Either: + `self` - returns the Data Object file itself + `s3` - assumes that the file to be returned resides in S3 in folder assigned to this Data Object.  The filename is specified in `fnameWithExt` path parameter 
+        :param str token_type: Type of token used. Either: + `jwt` - JWT token generated for this specific request + `dataObj` - simple token with limited lifetime with scope limited to the specific data object  
+        :param str token: A token used to authenticate this request. See `tokenType` parameter for the possible types of tokens.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.data_file_xkey_head_with_http_info(uuid, fname_with_ext, **kwargs)  # noqa: E501
+
+    def data_file_xkey_head_with_http_info(self, uuid, fname_with_ext, **kwargs):  # noqa: E501
+        """Get data file presigned  # noqa: E501
+
+        Get header info for data object using presigned URL, see [GET /data/{uuid}/file/{fnameWithExt}](#tag/data/operation/dataFileXkeyGet)</br>    # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.data_file_xkey_head_with_http_info(uuid, fname_with_ext, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
+        :param str fname_with_ext: Filename with extension - e.g. audio.mpd, or init-stream0.m4s (required)
+        :param str file_type: Type of file to be returned. Either: + `self` - returns the Data Object file itself + `s3` - assumes that the file to be returned resides in S3 in folder assigned to this Data Object.  The filename is specified in `fnameWithExt` path parameter 
+        :param str token_type: Type of token used. Either: + `jwt` - JWT token generated for this specific request + `dataObj` - simple token with limited lifetime with scope limited to the specific data object  
+        :param str token: A token used to authenticate this request. See `tokenType` parameter for the possible types of tokens.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: None
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['uuid', 'fname_with_ext', 'file_type', 'token_type', 'token']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method data_file_xkey_head" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'uuid' is set
+        if self.api_client.client_side_validation and ('uuid' not in local_var_params or  # noqa: E501
+                                                        local_var_params['uuid'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `uuid` when calling `data_file_xkey_head`")  # noqa: E501
+        # verify the required parameter 'fname_with_ext' is set
+        if self.api_client.client_side_validation and ('fname_with_ext' not in local_var_params or  # noqa: E501
+                                                        local_var_params['fname_with_ext'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `fname_with_ext` when calling `data_file_xkey_head`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `data_file_xkey_head`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['uuid']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `uuid` when calling `data_file_xkey_head`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and ('fname_with_ext' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['fname_with_ext']) > 512):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `fname_with_ext` when calling `data_file_xkey_head`, length must be less than or equal to `512`")  # noqa: E501
+        if self.api_client.client_side_validation and ('fname_with_ext' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['fname_with_ext']) < 3):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `fname_with_ext` when calling `data_file_xkey_head`, length must be greater than or equal to `3`")  # noqa: E501
+        if self.api_client.client_side_validation and ('token' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['token']) > 512):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `token` when calling `data_file_xkey_head`, length must be less than or equal to `512`")  # noqa: E501
+        if self.api_client.client_side_validation and ('token' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['token']) < 128):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `token` when calling `data_file_xkey_head`, length must be greater than or equal to `128`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'uuid' in local_var_params:
+            path_params['uuid'] = local_var_params['uuid']  # noqa: E501
+        if 'fname_with_ext' in local_var_params:
+            path_params['fnameWithExt'] = local_var_params['fname_with_ext']  # noqa: E501
+
+        query_params = []
+        if 'file_type' in local_var_params and local_var_params['file_type'] is not None:  # noqa: E501
+            query_params.append(('fileType', local_var_params['file_type']))  # noqa: E501
+        if 'token_type' in local_var_params and local_var_params['token_type'] is not None:  # noqa: E501
+            query_params.append(('tokenType', local_var_params['token_type']))  # noqa: E501
+        if 'token' in local_var_params and local_var_params['token'] is not None:  # noqa: E501
+            query_params.append(('token', local_var_params['token']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = []  # noqa: E501
+
+        return self.api_client.call_api(
+            '/data/{uuid}/file/{fnameWithExt}', 'HEAD',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type=None,  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def data_get(self, uuid, **kwargs):  # noqa: E501
         """Get data object.  # noqa: E501
 
@@ -1392,6 +1806,124 @@ class DataApi(object):
             post_params=form_params,
             files=local_var_files,
             response_type='list[DataObject]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
+    def data_s3_post(self, **kwargs):  # noqa: E501
+        """Create data object (S3)  # noqa: E501
+
+        Creates a new DataObject and returns its ID plus the presigned S3 URL for uploading the data.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.data_s3_post(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param DataObjectBase data_object_base:
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: DataObjectNoSosRefPresignedS3
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.data_s3_post_with_http_info(**kwargs)  # noqa: E501
+
+    def data_s3_post_with_http_info(self, **kwargs):  # noqa: E501
+        """Create data object (S3)  # noqa: E501
+
+        Creates a new DataObject and returns its ID plus the presigned S3 URL for uploading the data.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.data_s3_post_with_http_info(async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param DataObjectBase data_object_base:
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(DataObjectNoSosRefPresignedS3, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['context_id', 'data_object_base']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method data_s3_post" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `data_s3_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `data_s3_post`, length must be greater than or equal to `16`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'data_object_base' in local_var_params:
+            body_params = local_var_params['data_object_base']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/JSON'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/data/s3', 'POST',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='DataObjectNoSosRefPresignedS3',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501

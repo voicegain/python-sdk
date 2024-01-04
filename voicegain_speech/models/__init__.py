@@ -174,6 +174,8 @@ from voicegain_speech.models.data_object_all_of import DataObjectAllOf
 from voicegain_speech.models.data_object_base import DataObjectBase
 from voicegain_speech.models.data_object_ids import DataObjectIds
 from voicegain_speech.models.data_object_no_sos_ref import DataObjectNoSosRef
+from voicegain_speech.models.data_object_no_sos_ref_presigned_s3 import DataObjectNoSosRefPresignedS3
+from voicegain_speech.models.data_object_no_sos_ref_presigned_s3_all_of import DataObjectNoSosRefPresignedS3AllOf
 from voicegain_speech.models.data_object_with_audio import DataObjectWithAudio
 from voicegain_speech.models.debug_info import DebugInfo
 from voicegain_speech.models.debug_settings import DebugSettings
@@ -305,6 +307,7 @@ from voicegain_speech.models.poll_req import PollReq
 from voicegain_speech.models.poll_resp import PollResp
 from voicegain_speech.models.portal_output_init import PortalOutputInit
 from voicegain_speech.models.pre_fetch import PreFetch
+from voicegain_speech.models.presigned_data_file_url_response import PresignedDataFileUrlResponse
 from voicegain_speech.models.progress import Progress
 from voicegain_speech.models.progress_callback import ProgressCallback
 from voicegain_speech.models.progress_phase import ProgressPhase
