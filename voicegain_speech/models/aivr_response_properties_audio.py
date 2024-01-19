@@ -34,7 +34,6 @@ class AIVRResponsePropertiesAudio(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'barge_in': 'bool',
         'complete_timeout': 'int',
         'grammar': 'list[Grammar]',
         'hints': 'list[str]',
@@ -45,7 +44,6 @@ class AIVRResponsePropertiesAudio(object):
     }
 
     attribute_map = {
-        'barge_in': 'bargeIn',
         'complete_timeout': 'completeTimeout',
         'grammar': 'grammar',
         'hints': 'hints',
@@ -55,13 +53,12 @@ class AIVRResponsePropertiesAudio(object):
         'streaming': 'streaming'
     }
 
-    def __init__(self, barge_in=False, complete_timeout=2000, grammar=None, hints=None, incomplete_timeout=5000, no_input_timeout=10000, question_prompt=None, streaming='none', local_vars_configuration=None):  # noqa: E501
+    def __init__(self, complete_timeout=2000, grammar=None, hints=None, incomplete_timeout=5000, no_input_timeout=10000, question_prompt=None, streaming='none', local_vars_configuration=None):  # noqa: E501
         """AIVRResponsePropertiesAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._barge_in = None
         self._complete_timeout = None
         self._grammar = None
         self._hints = None
@@ -71,8 +68,6 @@ class AIVRResponsePropertiesAudio(object):
         self._streaming = None
         self.discriminator = None
 
-        if barge_in is not None:
-            self.barge_in = barge_in
         if complete_timeout is not None:
             self.complete_timeout = complete_timeout
         if grammar is not None:
@@ -87,29 +82,6 @@ class AIVRResponsePropertiesAudio(object):
             self.question_prompt = question_prompt
         if streaming is not None:
             self.streaming = streaming
-
-    @property
-    def barge_in(self):
-        """Gets the barge_in of this AIVRResponsePropertiesAudio.  # noqa: E501
-
-        If true then question text playback will be stopped as soon as caller starts saying something.</br> No longer needed now that we have `questionPrompt` in addition to `text`. If set, then will apply only to `text` field for backwards compatibility.   # noqa: E501
-
-        :return: The barge_in of this AIVRResponsePropertiesAudio.  # noqa: E501
-        :rtype: bool
-        """
-        return self._barge_in
-
-    @barge_in.setter
-    def barge_in(self, barge_in):
-        """Sets the barge_in of this AIVRResponsePropertiesAudio.
-
-        If true then question text playback will be stopped as soon as caller starts saying something.</br> No longer needed now that we have `questionPrompt` in addition to `text`. If set, then will apply only to `text` field for backwards compatibility.   # noqa: E501
-
-        :param barge_in: The barge_in of this AIVRResponsePropertiesAudio.  # noqa: E501
-        :type: bool
-        """
-
-        self._barge_in = barge_in
 
     @property
     def complete_timeout(self):
