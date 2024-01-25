@@ -114,8 +114,8 @@ class PollResp(object):
         if self.local_vars_configuration.client_side_validation and persist is None:  # noqa: E501
             raise ValueError("Invalid value for `persist`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                persist is not None and persist > 604800000):  # noqa: E501
-            raise ValueError("Invalid value for `persist`, must be a value less than or equal to `604800000`")  # noqa: E501
+                persist is not None and persist > 1814400000):  # noqa: E501
+            raise ValueError("Invalid value for `persist`, must be a value less than or equal to `1814400000`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 persist is not None and persist < -1):  # noqa: E501
             raise ValueError("Invalid value for `persist`, must be a value greater than or equal to `-1`")  # noqa: E501
