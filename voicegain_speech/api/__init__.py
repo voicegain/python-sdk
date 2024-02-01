@@ -9,6 +9,7 @@ from voicegain_speech.api.asr_callback_api import AsrCallbackApi
 from voicegain_speech.api.audiocodes_api import AudiocodesApi
 from voicegain_speech.api.data_api import DataApi
 from voicegain_speech.api.greg_api import GregApi
+from voicegain_speech.api.meeting_api import MeetingApi
 from voicegain_speech.api.recognize_api import RecognizeApi
 from voicegain_speech.api.sa_api import SaApi
 from voicegain_speech.api.security_api import SecurityApi
