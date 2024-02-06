@@ -73,7 +73,7 @@ class AIVRPromptCompletion(object):
         :param end_reason: The end_reason of this AIVRPromptCompletion.  # noqa: E501
         :type: str
         """
-        allowed_values = ["completed", "bargeIn"]  # noqa: E501
+        allowed_values = ["completed", "bargeIn", "interrupted"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and end_reason not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `end_reason` ({0}), must be one of {1}"  # noqa: E501
