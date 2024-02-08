@@ -118,7 +118,7 @@ class AsrSettingsMeetingTranscription(object):
     def sensitivity(self):
         """Gets the sensitivity of this AsrSettingsMeetingTranscription.  # noqa: E501
 
-        Affects start-of-speech and end-of-speech detection. </br> 1 is most sensitive and corresponds to -90 dbFS </br> 0 is least sensitive and corresponds to -50 dbFS </br> If some background noise/speech is causing a too early start-of-speech try a lower value of sensitivity.   # noqa: E501
+        Determines the threshold for rejection of low volume background speech (or bleed-through from other channels). </br> 1 is most sensitive (least rejection) and corresponds to -90 dbFS </br> 0 is least sensitive (most rejection) and corresponds to -50 dbFS </br>   # noqa: E501
 
         :return: The sensitivity of this AsrSettingsMeetingTranscription.  # noqa: E501
         :rtype: float
@@ -129,7 +129,7 @@ class AsrSettingsMeetingTranscription(object):
     def sensitivity(self, sensitivity):
         """Sets the sensitivity of this AsrSettingsMeetingTranscription.
 
-        Affects start-of-speech and end-of-speech detection. </br> 1 is most sensitive and corresponds to -90 dbFS </br> 0 is least sensitive and corresponds to -50 dbFS </br> If some background noise/speech is causing a too early start-of-speech try a lower value of sensitivity.   # noqa: E501
+        Determines the threshold for rejection of low volume background speech (or bleed-through from other channels). </br> 1 is most sensitive (least rejection) and corresponds to -90 dbFS </br> 0 is least sensitive (most rejection) and corresponds to -50 dbFS </br>   # noqa: E501
 
         :param sensitivity: The sensitivity of this AsrSettingsMeetingTranscription.  # noqa: E501
         :type: float
