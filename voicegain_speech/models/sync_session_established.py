@@ -34,23 +34,51 @@ class SyncSessionEstablished(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'model_name': 'str',
         'session_id': 'str'
     }
 
     attribute_map = {
+        'model_name': 'modelName',
         'session_id': 'sessionId'
     }
 
-    def __init__(self, session_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, model_name=None, session_id=None, local_vars_configuration=None):  # noqa: E501
         """SyncSessionEstablished - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._model_name = None
         self._session_id = None
         self.discriminator = None
 
+        if model_name is not None:
+            self.model_name = model_name
         self.session_id = session_id
+
+    @property
+    def model_name(self):
+        """Gets the model_name of this SyncSessionEstablished.  # noqa: E501
+
+        Name of the model actually used for the session.    # noqa: E501
+
+        :return: The model_name of this SyncSessionEstablished.  # noqa: E501
+        :rtype: str
+        """
+        return self._model_name
+
+    @model_name.setter
+    def model_name(self, model_name):
+        """Sets the model_name of this SyncSessionEstablished.
+
+        Name of the model actually used for the session.    # noqa: E501
+
+        :param model_name: The model_name of this SyncSessionEstablished.  # noqa: E501
+        :type: str
+        """
+
+        self._model_name = model_name
 
     @property
     def session_id(self):

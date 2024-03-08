@@ -36,6 +36,7 @@ class AsyncTranscSessionEstablished(object):
     openapi_types = {
         'async_mode': 'AsyncMode',
         'callback': 'CallbackResp',
+        'model_name': 'str',
         'poll': 'PollResp',
         'session_id': 'str',
         'websocket': 'WebsocketResp',
@@ -46,6 +47,7 @@ class AsyncTranscSessionEstablished(object):
     attribute_map = {
         'async_mode': 'asyncMode',
         'callback': 'callback',
+        'model_name': 'modelName',
         'poll': 'poll',
         'session_id': 'sessionId',
         'websocket': 'websocket',
@@ -53,7 +55,7 @@ class AsyncTranscSessionEstablished(object):
         'content': 'content'
     }
 
-    def __init__(self, async_mode=None, callback=None, poll=None, session_id=None, websocket=None, session_url=None, content=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, callback=None, model_name=None, poll=None, session_id=None, websocket=None, session_url=None, content=None, local_vars_configuration=None):  # noqa: E501
         """AsyncTranscSessionEstablished - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class AsyncTranscSessionEstablished(object):
 
         self._async_mode = None
         self._callback = None
+        self._model_name = None
         self._poll = None
         self._session_id = None
         self._websocket = None
@@ -71,6 +74,8 @@ class AsyncTranscSessionEstablished(object):
         self.async_mode = async_mode
         if callback is not None:
             self.callback = callback
+        if model_name is not None:
+            self.model_name = model_name
         if poll is not None:
             self.poll = poll
         self.session_id = session_id
@@ -123,6 +128,29 @@ class AsyncTranscSessionEstablished(object):
         """
 
         self._callback = callback
+
+    @property
+    def model_name(self):
+        """Gets the model_name of this AsyncTranscSessionEstablished.  # noqa: E501
+
+        Name of the model actually used for the session.    # noqa: E501
+
+        :return: The model_name of this AsyncTranscSessionEstablished.  # noqa: E501
+        :rtype: str
+        """
+        return self._model_name
+
+    @model_name.setter
+    def model_name(self, model_name):
+        """Sets the model_name of this AsyncTranscSessionEstablished.
+
+        Name of the model actually used for the session.    # noqa: E501
+
+        :param model_name: The model_name of this AsyncTranscSessionEstablished.  # noqa: E501
+        :type: str
+        """
+
+        self._model_name = model_name
 
     @property
     def poll(self):
