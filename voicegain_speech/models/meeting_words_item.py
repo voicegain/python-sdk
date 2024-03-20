@@ -95,7 +95,7 @@ class MeetingWordsItem(object):
     def spk(self):
         """Gets the spk of this MeetingWordsItem.  # noqa: E501
 
-        Speaker id.</br> Range from 1 to 99 corresponds to speakers that were provided in the POST /asr/meeting requests in the `speakers` array. (It is the index into that array, with first element having index 1.)</br> Range 100 and above corresponds to Speakers not identified up-font  (either single speaker per audio or diarized speaker).</br>   `floor( spk / 100 )` will identify the input audio file.</br> `spk modulo 100` will be speaker id within single audio file</br>   # noqa: E501
+        Speaker id.</br> Range from 1 to 99 corresponds to speakers that were provided in the POST /asr/meeting (or POST /sa/offline) requests in the `speakers` array. (It is the index into that array, with first element having index 1.)</br> Range 100 and above corresponds to Speakers not identified up-font  (either single speaker per audio or diarized speaker).</br>   `floor( spk / 100 )` will identify the input audio file.</br> `spk modulo 100` will be speaker id within single audio file</br>   # noqa: E501
 
         :return: The spk of this MeetingWordsItem.  # noqa: E501
         :rtype: int
@@ -106,7 +106,7 @@ class MeetingWordsItem(object):
     def spk(self, spk):
         """Sets the spk of this MeetingWordsItem.
 
-        Speaker id.</br> Range from 1 to 99 corresponds to speakers that were provided in the POST /asr/meeting requests in the `speakers` array. (It is the index into that array, with first element having index 1.)</br> Range 100 and above corresponds to Speakers not identified up-font  (either single speaker per audio or diarized speaker).</br>   `floor( spk / 100 )` will identify the input audio file.</br> `spk modulo 100` will be speaker id within single audio file</br>   # noqa: E501
+        Speaker id.</br> Range from 1 to 99 corresponds to speakers that were provided in the POST /asr/meeting (or POST /sa/offline) requests in the `speakers` array. (It is the index into that array, with first element having index 1.)</br> Range 100 and above corresponds to Speakers not identified up-font  (either single speaker per audio or diarized speaker).</br>   `floor( spk / 100 )` will identify the input audio file.</br> `spk modulo 100` will be speaker id within single audio file</br>   # noqa: E501
 
         :param spk: The spk of this MeetingWordsItem.  # noqa: E501
         :type: int
