@@ -102,7 +102,7 @@ class MeetingSpeakerResult(object):
     def external_user_id(self):
         """Gets the external_user_id of this MeetingSpeakerResult.  # noqa: E501
 
-        (optional) External id of the speaking user. Corresponds to `speakers[].skpUserId` in POST /asr/meeting   # noqa: E501
+        (optional) External id of the speaking user. Corresponds to `speakers[].spkUserId` in POST /asr/meeting   # noqa: E501
 
         :return: The external_user_id of this MeetingSpeakerResult.  # noqa: E501
         :rtype: float
@@ -113,7 +113,7 @@ class MeetingSpeakerResult(object):
     def external_user_id(self, external_user_id):
         """Sets the external_user_id of this MeetingSpeakerResult.
 
-        (optional) External id of the speaking user. Corresponds to `speakers[].skpUserId` in POST /asr/meeting   # noqa: E501
+        (optional) External id of the speaking user. Corresponds to `speakers[].spkUserId` in POST /asr/meeting   # noqa: E501
 
         :param external_user_id: The external_user_id of this MeetingSpeakerResult.  # noqa: E501
         :type: float
