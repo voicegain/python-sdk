@@ -40,6 +40,7 @@ class SessionInitTranscription(object):
         'content': 'RequestedContent',
         'diarization': 'SessionInitTranscriptionDiarization',
         'extra_params': 'str',
+        'initial_prompt': 'str',
         'metadata': 'list[NameValuePair]',
         'poll': 'PollReq',
         'portal': 'PortalOutputInit',
@@ -55,6 +56,7 @@ class SessionInitTranscription(object):
         'content': 'content',
         'diarization': 'diarization',
         'extra_params': 'extraParams',
+        'initial_prompt': 'initialPrompt',
         'metadata': 'metadata',
         'poll': 'poll',
         'portal': 'portal',
@@ -63,7 +65,7 @@ class SessionInitTranscription(object):
         'websocket': 'websocket'
     }
 
-    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, diarization=None, extra_params=None, metadata=None, poll=None, portal=None, tags=None, vad_mode=None, websocket=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, diarization=None, extra_params=None, initial_prompt=None, metadata=None, poll=None, portal=None, tags=None, vad_mode=None, websocket=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class SessionInitTranscription(object):
         self._content = None
         self._diarization = None
         self._extra_params = None
+        self._initial_prompt = None
         self._metadata = None
         self._poll = None
         self._portal = None
@@ -94,6 +97,8 @@ class SessionInitTranscription(object):
             self.diarization = diarization
         if extra_params is not None:
             self.extra_params = extra_params
+        if initial_prompt is not None:
+            self.initial_prompt = initial_prompt
         if metadata is not None:
             self.metadata = metadata
         if poll is not None:
@@ -236,6 +241,29 @@ class SessionInitTranscription(object):
         """
 
         self._extra_params = extra_params
+
+    @property
+    def initial_prompt(self):
+        """Gets the initial_prompt of this SessionInitTranscription.  # noqa: E501
+
+        (Only for Whisper models) A sequence of words given as prior information, typically a sequence of words decoded in the audio segment preceding the one currently being processed.  Its goal is to keep a consistent output between segments by keeping track of previously transcribed information. It is also particularly helpful when transcribing conversation audio that has been recorded over multiple channels - one speaker per channel. This way one can provide some context regarding each speaker. It is best to provide the `initialPrompt` in the English language, irrespective of the language of the audio.   # noqa: E501
+
+        :return: The initial_prompt of this SessionInitTranscription.  # noqa: E501
+        :rtype: str
+        """
+        return self._initial_prompt
+
+    @initial_prompt.setter
+    def initial_prompt(self, initial_prompt):
+        """Sets the initial_prompt of this SessionInitTranscription.
+
+        (Only for Whisper models) A sequence of words given as prior information, typically a sequence of words decoded in the audio segment preceding the one currently being processed.  Its goal is to keep a consistent output between segments by keeping track of previously transcribed information. It is also particularly helpful when transcribing conversation audio that has been recorded over multiple channels - one speaker per channel. This way one can provide some context regarding each speaker. It is best to provide the `initialPrompt` in the English language, irrespective of the language of the audio.   # noqa: E501
+
+        :param initial_prompt: The initial_prompt of this SessionInitTranscription.  # noqa: E501
+        :type: str
+        """
+
+        self._initial_prompt = initial_prompt
 
     @property
     def metadata(self):
