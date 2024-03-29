@@ -55,7 +55,8 @@ class CoreAIVRSession(object):
         'to_be_recorded': 'bool',
         'to_be_transcribed': 'bool',
         'user_session_data': 'object',
-        'vars': 'object'
+        'vars': 'object',
+        'version': 'int'
     }
 
     attribute_map = {
@@ -80,10 +81,11 @@ class CoreAIVRSession(object):
         'to_be_recorded': 'toBeRecorded',
         'to_be_transcribed': 'toBeTranscribed',
         'user_session_data': 'userSessionData',
-        'vars': 'vars'
+        'vars': 'vars',
+        'version': 'version'
     }
 
-    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, end_time=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sa_session_id=None, sequence=None, session_duration=None, start_time=None, telco_data=None, temp_code=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, aivr_logic=None, audio_server_url=None, current_active_logic=None, current_media=None, end_time=None, events=None, ivr_sid=None, loop=None, prompt=None, recordings=None, sa_session_id=None, sequence=None, session_duration=None, start_time=None, telco_data=None, temp_code=None, terminated=None, to_be_recorded=False, to_be_transcribed=False, user_session_data=None, vars=None, version=1, local_vars_configuration=None):  # noqa: E501
         """CoreAIVRSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -111,6 +113,7 @@ class CoreAIVRSession(object):
         self._to_be_transcribed = None
         self._user_session_data = None
         self._vars = None
+        self._version = None
         self.discriminator = None
 
         self.aivr_app_id = aivr_app_id
@@ -154,6 +157,8 @@ class CoreAIVRSession(object):
             self.user_session_data = user_session_data
         if vars is not None:
             self.vars = vars
+        if version is not None:
+            self.version = version
 
     @property
     def aivr_app_id(self):
@@ -677,6 +682,35 @@ class CoreAIVRSession(object):
         """
 
         self._vars = vars
+
+    @property
+    def version(self):
+        """Gets the version of this CoreAIVRSession.  # noqa: E501
+
+        Version of the AIVR session. Version 1 uses `/sa` API for recordings and version 2 uses `/sa/offline` API.  # noqa: E501
+
+        :return: The version of this CoreAIVRSession.  # noqa: E501
+        :rtype: int
+        """
+        return self._version
+
+    @version.setter
+    def version(self, version):
+        """Sets the version of this CoreAIVRSession.
+
+        Version of the AIVR session. Version 1 uses `/sa` API for recordings and version 2 uses `/sa/offline` API.  # noqa: E501
+
+        :param version: The version of this CoreAIVRSession.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                version is not None and version > 2):  # noqa: E501
+            raise ValueError("Invalid value for `version`, must be a value less than or equal to `2`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                version is not None and version < 1):  # noqa: E501
+            raise ValueError("Invalid value for `version`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._version = version
 
     def to_dict(self):
         """Returns the model properties as a dict"""
