@@ -302,6 +302,8 @@ from voicegain_speech.models.keyword_spot_example import KeywordSpotExample
 from voicegain_speech.models.keyword_spot_group import KeywordSpotGroup
 from voicegain_speech.models.keyword_spot_item import KeywordSpotItem
 from voicegain_speech.models.language import Language
+from voicegain_speech.models.logic import Logic
+from voicegain_speech.models.logic_all_of import LogicAllOf
 from voicegain_speech.models.mrcp_version import MRCPVersion
 from voicegain_speech.models.mrc_pv1_asr_settings import MRCPv1AsrSettings
 from voicegain_speech.models.mrc_pv2_asr_settings import MRCPv2AsrSettings

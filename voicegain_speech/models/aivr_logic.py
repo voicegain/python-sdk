@@ -77,7 +77,7 @@ class AIVRLogic(object):
     def callback_url(self):
         """Gets the callback_url of this AIVRLogic.  # noqa: E501
 
-        Callback URL. If not provided then will run a basic test LUA script to verify connectivity.  # noqa: E501
+        Callback URL. This is deprecated and if provided together with `callbackUrls` it will be ignored.   # noqa: E501
 
         :return: The callback_url of this AIVRLogic.  # noqa: E501
         :rtype: str
@@ -88,7 +88,7 @@ class AIVRLogic(object):
     def callback_url(self, callback_url):
         """Sets the callback_url of this AIVRLogic.
 
-        Callback URL. If not provided then will run a basic test LUA script to verify connectivity.  # noqa: E501
+        Callback URL. This is deprecated and if provided together with `callbackUrls` it will be ignored.   # noqa: E501
 
         :param callback_url: The callback_url of this AIVRLogic.  # noqa: E501
         :type: str
@@ -165,7 +165,7 @@ class AIVRLogic(object):
     def user_app_data(self):
         """Gets the user_app_data of this AIVRLogic.  # noqa: E501
 
-        (optional) App specific data that was associated in the AIVR portal with this AIVR number/application.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.   # noqa: E501
+        (optional) App specific data that was associated in the AIVR portal with this AIVR number/application.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.</br> This is deprecated and if provided together with `callbackUrls` it will be ignored.   # noqa: E501
 
         :return: The user_app_data of this AIVRLogic.  # noqa: E501
         :rtype: str
@@ -176,7 +176,7 @@ class AIVRLogic(object):
     def user_app_data(self, user_app_data):
         """Sets the user_app_data of this AIVRLogic.
 
-        (optional) App specific data that was associated in the AIVR portal with this AIVR number/application.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.   # noqa: E501
+        (optional) App specific data that was associated in the AIVR portal with this AIVR number/application.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.</br> This is deprecated and if provided together with `callbackUrls` it will be ignored.   # noqa: E501
 
         :param user_app_data: The user_app_data of this AIVRLogic.  # noqa: E501
         :type: str

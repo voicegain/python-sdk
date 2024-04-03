@@ -29,6 +29,7 @@ class AIVREventType(object):
     """
     allowed enum values
     """
+    LOGIC = "logic"
     OUTPUT = "output"
     INPUT = "input"
     HANGUP = "hangup"
@@ -36,7 +37,7 @@ class AIVREventType(object):
     TRANSFER = "transfer"
     ERROR = "error"
 
-    allowable_values = [OUTPUT, INPUT, HANGUP, DISCONNECT, TRANSFER, ERROR]  # noqa: E501
+    allowable_values = [LOGIC, OUTPUT, INPUT, HANGUP, DISCONNECT, TRANSFER, ERROR]  # noqa: E501
 
     """
     Attributes:
