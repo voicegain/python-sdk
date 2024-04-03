@@ -333,6 +333,7 @@ from voicegain_speech.models.modifiable_meeting_data_response import ModifiableM
 from voicegain_speech.models.mood_type import MoodType
 from voicegain_speech.models.multipart_form_data_field import MultipartFormDataField
 from voicegain_speech.models.name_value_pair import NameValuePair
+from voicegain_speech.models.named_callback_url import NamedCallbackUrl
 from voicegain_speech.models.named_entity_concept import NamedEntityConcept
 from voicegain_speech.models.named_entity_type import NamedEntityType
 from voicegain_speech.models.named_speaker import NamedSpeaker
