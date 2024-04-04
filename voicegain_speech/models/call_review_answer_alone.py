@@ -34,7 +34,7 @@ class CallReviewAnswerAlone(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'ai_justification': 'list[SubCriterionSatisfied]',
+        'ai_justification': 'list[CriterionSatisfied]',
         'answer_choice': 'str',
         'answer_value': 'float',
         'answered_by': 'str',
@@ -85,7 +85,7 @@ class CallReviewAnswerAlone(object):
         Present only if the answer was provided by AI. Lists all the sub-criteria that were satisfied to determine the answer.    # noqa: E501
 
         :return: The ai_justification of this CallReviewAnswerAlone.  # noqa: E501
-        :rtype: list[SubCriterionSatisfied]
+        :rtype: list[CriterionSatisfied]
         """
         return self._ai_justification
 
@@ -96,7 +96,7 @@ class CallReviewAnswerAlone(object):
         Present only if the answer was provided by AI. Lists all the sub-criteria that were satisfied to determine the answer.    # noqa: E501
 
         :param ai_justification: The ai_justification of this CallReviewAnswerAlone.  # noqa: E501
-        :type: list[SubCriterionSatisfied]
+        :type: list[CriterionSatisfied]
         """
 
         self._ai_justification = ai_justification
