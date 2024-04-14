@@ -346,7 +346,7 @@ class CoreAIVRSession(object):
     def loop(self):
         """Gets the loop of this CoreAIVRSession.  # noqa: E501
 
-        State of the processing loop: - new - session was just created and loop has not been started yet - start - request has been placed to start the loop - running - loop has been started and is running - stop - request has been placed to stop the loop - stopped - loop has been stopped - session processing has finished  Note: A single session may execute multiple loops, each corresponding to different Logic defined in AIVR App.</br> When `loop` value is being set to **start** by PUT, `nextActiveLogic` will generally be provided to indicate which logic to run in the loop.</br> If that value is not provided, then the value of `currentActiveLogic` will be used.   # noqa: E501
+        State of the processing loop: - new - session was just created and loop has not been started yet - dialing - call is being dialed (used in case of outbound calls) - answered - call has been answered (used in case of outbound calls) - unanswered - call was not answered (used in case of outbound calls) - start - request has been placed to start the loop - running - loop has been started and is running - stop - request has been placed to stop the loop - stopped - loop has been stopped - session processing has finished  Note: A single session may execute multiple loops, each corresponding to different Logic defined in AIVR App.</br> When `loop` value is being set to **start** by PUT, `nextActiveLogic` will generally be provided to indicate which logic to run in the loop.</br> If that value is not provided, then the value of `currentActiveLogic` will be used.   # noqa: E501
 
         :return: The loop of this CoreAIVRSession.  # noqa: E501
         :rtype: str
@@ -357,12 +357,12 @@ class CoreAIVRSession(object):
     def loop(self, loop):
         """Sets the loop of this CoreAIVRSession.
 
-        State of the processing loop: - new - session was just created and loop has not been started yet - start - request has been placed to start the loop - running - loop has been started and is running - stop - request has been placed to stop the loop - stopped - loop has been stopped - session processing has finished  Note: A single session may execute multiple loops, each corresponding to different Logic defined in AIVR App.</br> When `loop` value is being set to **start** by PUT, `nextActiveLogic` will generally be provided to indicate which logic to run in the loop.</br> If that value is not provided, then the value of `currentActiveLogic` will be used.   # noqa: E501
+        State of the processing loop: - new - session was just created and loop has not been started yet - dialing - call is being dialed (used in case of outbound calls) - answered - call has been answered (used in case of outbound calls) - unanswered - call was not answered (used in case of outbound calls) - start - request has been placed to start the loop - running - loop has been started and is running - stop - request has been placed to stop the loop - stopped - loop has been stopped - session processing has finished  Note: A single session may execute multiple loops, each corresponding to different Logic defined in AIVR App.</br> When `loop` value is being set to **start** by PUT, `nextActiveLogic` will generally be provided to indicate which logic to run in the loop.</br> If that value is not provided, then the value of `currentActiveLogic` will be used.   # noqa: E501
 
         :param loop: The loop of this CoreAIVRSession.  # noqa: E501
         :type: str
         """
-        allowed_values = ["new", "start", "running", "stop", "stopped"]  # noqa: E501
+        allowed_values = ["new", "dialing", "answered", "start", "running", "stop", "stopped"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and loop not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `loop` ({0}), must be one of {1}"  # noqa: E501
@@ -582,7 +582,7 @@ class CoreAIVRSession(object):
         :param terminated: The terminated of this CoreAIVRSession.  # noqa: E501
         :type: str
         """
-        allowed_values = ["hangup", "disconnect", "error"]  # noqa: E501
+        allowed_values = ["unanswered", "hangup", "disconnect", "error"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and terminated not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `terminated` ({0}), must be one of {1}"  # noqa: E501

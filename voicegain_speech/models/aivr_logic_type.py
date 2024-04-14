@@ -30,11 +30,12 @@ class AIVRLogicType(object):
     allowed enum values
     """
     INBOUND = "inbound"
+    OUTBOUND = "outbound"
     QUEUE = "queue"
     UNAVAILABLE = "unavailable"
     CALLBACK = "callback"
 
-    allowable_values = [INBOUND, QUEUE, UNAVAILABLE, CALLBACK]  # noqa: E501
+    allowable_values = [INBOUND, OUTBOUND, QUEUE, UNAVAILABLE, CALLBACK]  # noqa: E501
 
     """
     Attributes:
