@@ -34,6 +34,7 @@ class AIVRNewSession(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'aivr_app_id': 'str',
         'ani': 'str',
         'auth_token': 'str',
         'call_is_being_recorded': 'bool',
@@ -52,6 +53,7 @@ class AIVRNewSession(object):
     }
 
     attribute_map = {
+        'aivr_app_id': 'aivrAppId',
         'ani': 'ani',
         'auth_token': 'authToken',
         'call_is_being_recorded': 'callIsBeingRecorded',
@@ -69,12 +71,13 @@ class AIVRNewSession(object):
         'vars': 'vars'
     }
 
-    def __init__(self, ani=None, auth_token=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, ani=None, auth_token=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """AIVRNewSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._aivr_app_id = None
         self._ani = None
         self._auth_token = None
         self._call_is_being_recorded = None
@@ -92,6 +95,7 @@ class AIVRNewSession(object):
         self._vars = None
         self.discriminator = None
 
+        self.aivr_app_id = aivr_app_id
         if ani is not None:
             self.ani = ani
         self.auth_token = auth_token
@@ -120,6 +124,31 @@ class AIVRNewSession(object):
             self.vars = vars
 
     @property
+    def aivr_app_id(self):
+        """Gets the aivr_app_id of this AIVRNewSession.  # noqa: E501
+
+        AIVR application id on Voicegain platform  # noqa: E501
+
+        :return: The aivr_app_id of this AIVRNewSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_app_id
+
+    @aivr_app_id.setter
+    def aivr_app_id(self, aivr_app_id):
+        """Sets the aivr_app_id of this AIVRNewSession.
+
+        AIVR application id on Voicegain platform  # noqa: E501
+
+        :param aivr_app_id: The aivr_app_id of this AIVRNewSession.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and aivr_app_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `aivr_app_id`, must not be `None`")  # noqa: E501
+
+        self._aivr_app_id = aivr_app_id
+
+    @property
     def ani(self):
         """Gets the ani of this AIVRNewSession.  # noqa: E501
 
@@ -146,7 +175,7 @@ class AIVRNewSession(object):
     def auth_token(self):
         """Gets the auth_token of this AIVRNewSession.  # noqa: E501
 
-        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut)   # noqa: E501
+        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut) + [GET /aivr-app/{aivrAppId}/business](#tag/aivr-app/operation/aivrAppBusinessGet)   # noqa: E501
 
         :return: The auth_token of this AIVRNewSession.  # noqa: E501
         :rtype: str
@@ -157,7 +186,7 @@ class AIVRNewSession(object):
     def auth_token(self, auth_token):
         """Sets the auth_token of this AIVRNewSession.
 
-        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut)   # noqa: E501
+        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut) + [GET /aivr-app/{aivrAppId}/business](#tag/aivr-app/operation/aivrAppBusinessGet)   # noqa: E501
 
         :param auth_token: The auth_token of this AIVRNewSession.  # noqa: E501
         :type: str
