@@ -38,7 +38,8 @@ class AIVRCallbackCoreResponseAllOf(object):
         'prompt': 'AIVRPrompt',
         'question': 'AIVRQuestion',
         'transfer': 'AIVRTransfer',
-        'vars': 'object'
+        'vars': 'object',
+        'warm_transfer': 'AIVRWarmTransfer'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class AIVRCallbackCoreResponseAllOf(object):
         'prompt': 'prompt',
         'question': 'question',
         'transfer': 'transfer',
-        'vars': 'vars'
+        'vars': 'vars',
+        'warm_transfer': 'warmTransfer'
     }
 
-    def __init__(self, disconnect=None, prompt=None, question=None, transfer=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, disconnect=None, prompt=None, question=None, transfer=None, vars=None, warm_transfer=None, local_vars_configuration=None):  # noqa: E501
         """AIVRCallbackCoreResponseAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class AIVRCallbackCoreResponseAllOf(object):
         self._question = None
         self._transfer = None
         self._vars = None
+        self._warm_transfer = None
         self.discriminator = None
 
         if disconnect is not None:
@@ -72,6 +75,8 @@ class AIVRCallbackCoreResponseAllOf(object):
             self.transfer = transfer
         if vars is not None:
             self.vars = vars
+        if warm_transfer is not None:
+            self.warm_transfer = warm_transfer
 
     @property
     def disconnect(self):
@@ -179,6 +184,27 @@ class AIVRCallbackCoreResponseAllOf(object):
         """
 
         self._vars = vars
+
+    @property
+    def warm_transfer(self):
+        """Gets the warm_transfer of this AIVRCallbackCoreResponseAllOf.  # noqa: E501
+
+
+        :return: The warm_transfer of this AIVRCallbackCoreResponseAllOf.  # noqa: E501
+        :rtype: AIVRWarmTransfer
+        """
+        return self._warm_transfer
+
+    @warm_transfer.setter
+    def warm_transfer(self, warm_transfer):
+        """Sets the warm_transfer of this AIVRCallbackCoreResponseAllOf.
+
+
+        :param warm_transfer: The warm_transfer of this AIVRCallbackCoreResponseAllOf.  # noqa: E501
+        :type: AIVRWarmTransfer
+        """
+
+        self._warm_transfer = warm_transfer
 
     def to_dict(self):
         """Returns the model properties as a dict"""

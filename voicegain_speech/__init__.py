@@ -85,6 +85,7 @@ from voicegain_speech.models.aivr_session_user_base import AIVRSessionUserBase
 from voicegain_speech.models.aivr_session_user_fs import AIVRSessionUserFS
 from voicegain_speech.models.aivr_transfer import AIVRTransfer
 from voicegain_speech.models.aivr_vars import AIVRVars
+from voicegain_speech.models.aivr_warm_transfer import AIVRWarmTransfer
 from voicegain_speech.models.account_and_context_id import AccountAndContextId
 from voicegain_speech.models.advanced_regex import AdvancedRegex
 from voicegain_speech.models.aircall import Aircall
