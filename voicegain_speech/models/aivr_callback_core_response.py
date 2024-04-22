@@ -37,6 +37,7 @@ class AIVRCallbackCoreResponse(object):
         'disconnect': 'AIVRDisconnect',
         'prompt': 'AIVRPrompt',
         'question': 'AIVRQuestion',
+        'sub_return': 'AIVRSubReturn',
         'transfer': 'AIVRTransfer',
         'vars': 'object',
         'warm_transfer': 'AIVRWarmTransfer'
@@ -46,12 +47,13 @@ class AIVRCallbackCoreResponse(object):
         'disconnect': 'disconnect',
         'prompt': 'prompt',
         'question': 'question',
+        'sub_return': 'subReturn',
         'transfer': 'transfer',
         'vars': 'vars',
         'warm_transfer': 'warmTransfer'
     }
 
-    def __init__(self, disconnect=None, prompt=None, question=None, transfer=None, vars=None, warm_transfer=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, disconnect=None, prompt=None, question=None, sub_return=None, transfer=None, vars=None, warm_transfer=None, local_vars_configuration=None):  # noqa: E501
         """AIVRCallbackCoreResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class AIVRCallbackCoreResponse(object):
         self._disconnect = None
         self._prompt = None
         self._question = None
+        self._sub_return = None
         self._transfer = None
         self._vars = None
         self._warm_transfer = None
@@ -71,6 +74,8 @@ class AIVRCallbackCoreResponse(object):
             self.prompt = prompt
         if question is not None:
             self.question = question
+        if sub_return is not None:
+            self.sub_return = sub_return
         if transfer is not None:
             self.transfer = transfer
         if vars is not None:
@@ -140,6 +145,27 @@ class AIVRCallbackCoreResponse(object):
         """
 
         self._question = question
+
+    @property
+    def sub_return(self):
+        """Gets the sub_return of this AIVRCallbackCoreResponse.  # noqa: E501
+
+
+        :return: The sub_return of this AIVRCallbackCoreResponse.  # noqa: E501
+        :rtype: AIVRSubReturn
+        """
+        return self._sub_return
+
+    @sub_return.setter
+    def sub_return(self, sub_return):
+        """Sets the sub_return of this AIVRCallbackCoreResponse.
+
+
+        :param sub_return: The sub_return of this AIVRCallbackCoreResponse.  # noqa: E501
+        :type: AIVRSubReturn
+        """
+
+        self._sub_return = sub_return
 
     @property
     def transfer(self):

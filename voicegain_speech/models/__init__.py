@@ -57,6 +57,7 @@ from voicegain_speech.models.aivrs_question_specifics import AIVRSQuestionSpecif
 from voicegain_speech.models.aivr_session_user import AIVRSessionUser
 from voicegain_speech.models.aivr_session_user_base import AIVRSessionUserBase
 from voicegain_speech.models.aivr_session_user_fs import AIVRSessionUserFS
+from voicegain_speech.models.aivr_sub_return import AIVRSubReturn
 from voicegain_speech.models.aivr_transfer import AIVRTransfer
 from voicegain_speech.models.aivr_vars import AIVRVars
 from voicegain_speech.models.aivr_warm_transfer import AIVRWarmTransfer
