@@ -35,6 +35,7 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
     """
     openapi_types = {
         'audio_channel_selector': 'AudioChannelSelector',
+        'audio_offset': 'int',
         'diarization': 'TranscribeMeetingRequestDiarization',
         'source': 'TranscribeMeetingRequestSource',
         'speakers': 'list[float]',
@@ -43,19 +44,21 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
 
     attribute_map = {
         'audio_channel_selector': 'audioChannelSelector',
+        'audio_offset': 'audioOffset',
         'diarization': 'diarization',
         'source': 'source',
         'speakers': 'speakers',
         'vad_mode': 'vadMode'
     }
 
-    def __init__(self, audio_channel_selector=None, diarization=None, source=None, speakers=None, vad_mode=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio_channel_selector=None, audio_offset=None, diarization=None, source=None, speakers=None, vad_mode=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsAudioRequestAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._audio_channel_selector = None
+        self._audio_offset = None
         self._diarization = None
         self._source = None
         self._speakers = None
@@ -64,6 +67,8 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
 
         if audio_channel_selector is not None:
             self.audio_channel_selector = audio_channel_selector
+        if audio_offset is not None:
+            self.audio_offset = audio_offset
         if diarization is not None:
             self.diarization = diarization
         if source is not None:
@@ -93,6 +98,32 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
         """
 
         self._audio_channel_selector = audio_channel_selector
+
+    @property
+    def audio_offset(self):
+        """Gets the audio_offset of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
+
+        (optional) Offset in milliseconds that will be added to the words transcribed from this audio. This is usefull if the audio channels do not start at the same time.   # noqa: E501
+
+        :return: The audio_offset of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
+        :rtype: int
+        """
+        return self._audio_offset
+
+    @audio_offset.setter
+    def audio_offset(self, audio_offset):
+        """Sets the audio_offset of this OfflineSpeechAnalyticsAudioRequestAudio.
+
+        (optional) Offset in milliseconds that will be added to the words transcribed from this audio. This is usefull if the audio channels do not start at the same time.   # noqa: E501
+
+        :param audio_offset: The audio_offset of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                audio_offset is not None and audio_offset < 0):  # noqa: E501
+            raise ValueError("Invalid value for `audio_offset`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._audio_offset = audio_offset
 
     @property
     def diarization(self):
