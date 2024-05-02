@@ -48,6 +48,7 @@ class GregApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str hash: Hash of an object stored in SOS (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -73,6 +74,7 @@ class GregApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str hash: Hash of an object stored in SOS (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -89,7 +91,7 @@ class GregApi(object):
 
         local_var_params = locals()
 
-        all_params = ['hash']  # noqa: E501
+        all_params = ['hash', 'context_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -114,6 +116,12 @@ class GregApi(object):
         if self.api_client.client_side_validation and ('hash' in local_var_params and  # noqa: E501
                                                         len(local_var_params['hash']) < 32):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `hash` when calling `audio_bytes_get_hash`, length must be greater than or equal to `32`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `audio_bytes_get_hash`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `audio_bytes_get_hash`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -121,6 +129,8 @@ class GregApi(object):
             path_params['hash'] = local_var_params['hash']  # noqa: E501
 
         query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
 
         header_params = {}
 
@@ -162,6 +172,7 @@ class GregApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -187,6 +198,7 @@ class GregApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -203,7 +215,7 @@ class GregApi(object):
 
         local_var_params = locals()
 
-        all_params = ['uuid']  # noqa: E501
+        all_params = ['uuid', 'context_id']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -228,6 +240,12 @@ class GregApi(object):
         if self.api_client.client_side_validation and ('uuid' in local_var_params and  # noqa: E501
                                                         len(local_var_params['uuid']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `uuid` when calling `audio_bytes_get_id`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `audio_bytes_get_id`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `audio_bytes_get_id`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -235,6 +253,8 @@ class GregApi(object):
             path_params['uuid'] = local_var_params['uuid']  # noqa: E501
 
         query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
 
         header_params = {}
 
