@@ -112,8 +112,8 @@ class SaInternalApi(object):
                                                         len(local_var_params['call_id']) > 48):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `call_id` when calling `sa_call_get`, length must be less than or equal to `48`")  # noqa: E501
         if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['call_id']) < 16):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `call_id` when calling `sa_call_get`, length must be greater than or equal to `16`")  # noqa: E501
+                                                        len(local_var_params['call_id']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `call_id` when calling `sa_call_get`, length must be greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}

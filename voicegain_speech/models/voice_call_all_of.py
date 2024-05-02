@@ -177,6 +177,12 @@ class VoiceCallAllOf(object):
         :param call_id: The call_id of this VoiceCallAllOf.  # noqa: E501
         :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                call_id is not None and len(call_id) > 48):
+            raise ValueError("Invalid value for `call_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                call_id is not None and len(call_id) < 1):
+            raise ValueError("Invalid value for `call_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._call_id = call_id
 
