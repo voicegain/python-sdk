@@ -72,6 +72,7 @@ from voicegain_speech.models.aivr_new_session import AIVRNewSession
 from voicegain_speech.models.aivr_new_session_ws import AIVRNewSessionWS
 from voicegain_speech.models.aivr_new_session_ws_response import AIVRNewSessionWsResponse
 from voicegain_speech.models.aivr_phone_transfer import AIVRPhoneTransfer
+from voicegain_speech.models.aivr_phone_transfer_warm import AIVRPhoneTransferWarm
 from voicegain_speech.models.aivr_prompt import AIVRPrompt
 from voicegain_speech.models.aivr_prompt_properties_audio import AIVRPromptPropertiesAudio
 from voicegain_speech.models.aivr_prompt_properties_html import AIVRPromptPropertiesHtml
