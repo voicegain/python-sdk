@@ -170,10 +170,13 @@ from voicegain_speech.models.c_not_query_all_of import CNotQueryAllOf
 from voicegain_speech.models.c_or_query import COrQuery
 from voicegain_speech.models.c_or_query_all_of import COrQueryAllOf
 from voicegain_speech.models.c_query import CQuery
+from voicegain_speech.models.c_rel_time_term import CRelTimeTerm
+from voicegain_speech.models.c_rel_time_term_all_of import CRelTimeTermAllOf
 from voicegain_speech.models.c_txt_search_term import CTxtSearchTerm
 from voicegain_speech.models.c_txt_search_term_all_of import CTxtSearchTermAllOf
 from voicegain_speech.models.call_attributes import CallAttributes
 from voicegain_speech.models.call_field import CallField
+from voicegain_speech.models.call_field_for_time import CallFieldForTime
 from voicegain_speech.models.call_field_for_txt_search import CallFieldForTxtSearch
 from voicegain_speech.models.call_search_field import CallSearchField
 from voicegain_speech.models.callback_req import CallbackReq
@@ -318,6 +321,7 @@ from voicegain_speech.models.meeting_data import MeetingData
 from voicegain_speech.models.meeting_data_audio_channels import MeetingDataAudioChannels
 from voicegain_speech.models.meeting_data_chat import MeetingDataChat
 from voicegain_speech.models.meeting_field import MeetingField
+from voicegain_speech.models.meeting_field_for_time import MeetingFieldForTime
 from voicegain_speech.models.meeting_field_for_txt_search import MeetingFieldForTxtSearch
 from voicegain_speech.models.meeting_join_request import MeetingJoinRequest
 from voicegain_speech.models.meeting_keyword_data import MeetingKeywordData
@@ -417,6 +421,8 @@ from voicegain_speech.models.recog_nlsml_no_exp import RecogNlsmlNoExp
 from voicegain_speech.models.recog_obj import RecogObj
 from voicegain_speech.models.recog_obj_no_exp import RecogObjNoExp
 from voicegain_speech.models.recognition_result import RecognitionResult
+from voicegain_speech.models.rel_time_term import RelTimeTerm
+from voicegain_speech.models.rel_time_term_all_of import RelTimeTermAllOf
 from voicegain_speech.models.requested_content import RequestedContent
 from voicegain_speech.models.resource_uri import ResourceUri
 from voicegain_speech.models.resource_uri_local_auth_conf import ResourceUriLocalAuthConf

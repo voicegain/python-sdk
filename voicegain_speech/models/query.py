@@ -52,7 +52,8 @@ class Query(object):
         'OrQuery': 'OrQuery',
         'TxtSearchTerm': 'TxtSearchTerm',
         'AndQuery': 'AndQuery',
-        'EqTerm': 'EqTerm'
+        'EqTerm': 'EqTerm',
+        'RelTimeTerm': 'RelTimeTerm'
     }
 
     def __init__(self, type=None, local_vars_configuration=None):  # noqa: E501
@@ -70,7 +71,7 @@ class Query(object):
     def type(self):
         """Gets the type of this Query.  # noqa: E501
 
-        Type of Query: + OrQuery: Disjunction (OR) + AndQuery: Conjunction (AND) + NotQuery: Negation (NOT) + EqTerm: Equality (==) + NeTerm: Inequality (!=) + LeTerm: Less-Than Equal (<=) + GeTerm: Greater-Than Equal (>=) + LtTerm: Less-Than (<) + GtTerm: Greater-Than (>) + InTerm: Contained in + TxtSearchTerm: text search   # noqa: E501
+        Type of Query: + OrQuery: Disjunction (OR) + AndQuery: Conjunction (AND) + NotQuery: Negation (NOT) + EqTerm: Equality (==) + NeTerm: Inequality (!=) + LeTerm: Less-Than Equal (<=) + GeTerm: Greater-Than Equal (>=) + LtTerm: Less-Than (<) + GtTerm: Greater-Than (>) + InTerm: Contained in + TxtSearchTerm: text search + RelTimeTerm: Relative Time (w.r.t. **now** at the time query is executed)   # noqa: E501
 
         :return: The type of this Query.  # noqa: E501
         :rtype: str
@@ -81,14 +82,14 @@ class Query(object):
     def type(self, type):
         """Sets the type of this Query.
 
-        Type of Query: + OrQuery: Disjunction (OR) + AndQuery: Conjunction (AND) + NotQuery: Negation (NOT) + EqTerm: Equality (==) + NeTerm: Inequality (!=) + LeTerm: Less-Than Equal (<=) + GeTerm: Greater-Than Equal (>=) + LtTerm: Less-Than (<) + GtTerm: Greater-Than (>) + InTerm: Contained in + TxtSearchTerm: text search   # noqa: E501
+        Type of Query: + OrQuery: Disjunction (OR) + AndQuery: Conjunction (AND) + NotQuery: Negation (NOT) + EqTerm: Equality (==) + NeTerm: Inequality (!=) + LeTerm: Less-Than Equal (<=) + GeTerm: Greater-Than Equal (>=) + LtTerm: Less-Than (<) + GtTerm: Greater-Than (>) + InTerm: Contained in + TxtSearchTerm: text search + RelTimeTerm: Relative Time (w.r.t. **now** at the time query is executed)   # noqa: E501
 
         :param type: The type of this Query.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["OrQuery", "AndQuery", "NotQuery", "EqTerm", "NeTerm", "LeTerm", "GeTerm", "LtTerm", "GtTerm", "InTerm", "TxtSearchTerm"]  # noqa: E501
+        allowed_values = ["OrQuery", "AndQuery", "NotQuery", "EqTerm", "NeTerm", "LeTerm", "GeTerm", "LtTerm", "GtTerm", "InTerm", "TxtSearchTerm", "RelTimeTerm"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
