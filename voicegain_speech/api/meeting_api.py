@@ -1190,7 +1190,7 @@ class MeetingApi(object):
     def asr_meeting_result_search(self, **kwargs):  # noqa: E501
         """Search Meeting Results  # noqa: E501
 
-        Search all Meeting Transcribe Sessions for a given Account.</br> For pending sessions it will return progress information in the progress field.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br>   # noqa: E501
+        Search all Meeting Transcribe Sessions for a given Account.</br> For pending sessions it will return progress information in the progress field.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> Deprecated - use [POST](#tag/meeting/operation/asrMeetingResultSearchPost) method instead.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_result_search(async_req=True)
@@ -1223,7 +1223,7 @@ class MeetingApi(object):
     def asr_meeting_result_search_with_http_info(self, **kwargs):  # noqa: E501
         """Search Meeting Results  # noqa: E501
 
-        Search all Meeting Transcribe Sessions for a given Account.</br> For pending sessions it will return progress information in the progress field.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br>   # noqa: E501
+        Search all Meeting Transcribe Sessions for a given Account.</br> For pending sessions it will return progress information in the progress field.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> Deprecated - use [POST](#tag/meeting/operation/asrMeetingResultSearchPost) method instead.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_result_search_with_http_info(async_req=True)
