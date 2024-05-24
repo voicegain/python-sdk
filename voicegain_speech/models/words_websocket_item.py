@@ -43,6 +43,8 @@ class WordsWebsocketItem(object):
         '_del': 'float',
         'edit': 'list[StompWsWordBase]',
         'ping': 'str',
+        'metadata': 'list[NameValuePair]',
+        'session_id': 'str',
         'alternatives': 'list[BaseSentenceHypothesisOrRecognitionAlternatives]',
         'duration': 'float',
         'time': 'int',
@@ -59,13 +61,15 @@ class WordsWebsocketItem(object):
         '_del': 'del',
         'edit': 'edit',
         'ping': 'ping',
+        'metadata': 'metadata',
+        'session_id': 'sessionId',
         'alternatives': 'alternatives',
         'duration': 'duration',
         'time': 'time',
         'type': 'type'
     }
 
-    def __init__(self, conf=None, gap=None, start=None, utt=None, spk=None, ss_id=None, _del=None, edit=None, ping=None, alternatives=None, duration=None, time=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, conf=None, gap=None, start=None, utt=None, spk=None, ss_id=None, _del=None, edit=None, ping=None, metadata=None, session_id=None, alternatives=None, duration=None, time=None, type=None, local_vars_configuration=None):  # noqa: E501
         """WordsWebsocketItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -80,6 +84,8 @@ class WordsWebsocketItem(object):
         self.__del = None
         self._edit = None
         self._ping = None
+        self._metadata = None
+        self._session_id = None
         self._alternatives = None
         self._duration = None
         self._time = None
@@ -102,6 +108,9 @@ class WordsWebsocketItem(object):
         if edit is not None:
             self.edit = edit
         self.ping = ping
+        if metadata is not None:
+            self.metadata = metadata
+        self.session_id = session_id
         if alternatives is not None:
             self.alternatives = alternatives
         if duration is not None:
@@ -351,6 +360,52 @@ class WordsWebsocketItem(object):
             raise ValueError("Invalid value for `ping`, length must be less than or equal to `32`")  # noqa: E501
 
         self._ping = ping
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this WordsWebsocketItem.  # noqa: E501
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :return: The metadata of this WordsWebsocketItem.  # noqa: E501
+        :rtype: list[NameValuePair]
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this WordsWebsocketItem.
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :param metadata: The metadata of this WordsWebsocketItem.  # noqa: E501
+        :type: list[NameValuePair]
+        """
+
+        self._metadata = metadata
+
+    @property
+    def session_id(self):
+        """Gets the session_id of this WordsWebsocketItem.  # noqa: E501
+
+
+        :return: The session_id of this WordsWebsocketItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._session_id
+
+    @session_id.setter
+    def session_id(self, session_id):
+        """Sets the session_id of this WordsWebsocketItem.
+
+
+        :param session_id: The session_id of this WordsWebsocketItem.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and session_id is None:  # noqa: E501
+            raise ValueError("Invalid value for `session_id`, must not be `None`")  # noqa: E501
+
+        self._session_id = session_id
 
     @property
     def alternatives(self):
