@@ -29,11 +29,12 @@ class ResultsWebsocketMode(object):
     """
     allowed enum values
     """
+    EXTERNAL = "external"
     TRANSCEIVER = "transceiver"
     PREDEFINED = "predefined"
     ADHOC = "adHoc"
 
-    allowable_values = [TRANSCEIVER, PREDEFINED, ADHOC]  # noqa: E501
+    allowable_values = [EXTERNAL, TRANSCEIVER, PREDEFINED, ADHOC]  # noqa: E501
 
     """
     Attributes:

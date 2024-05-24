@@ -35,6 +35,8 @@ class WebsocketInit(object):
     """
     openapi_types = {
         'ad_hoc': 'bool',
+        'auth_conf': 'str',
+        'external_url': 'str',
         'if_exists': 'IfExists',
         'label': 'str',
         'minimum_delay': 'int',
@@ -47,6 +49,8 @@ class WebsocketInit(object):
 
     attribute_map = {
         'ad_hoc': 'adHoc',
+        'auth_conf': 'authConf',
+        'external_url': 'externalUrl',
         'if_exists': 'ifExists',
         'label': 'label',
         'minimum_delay': 'minimumDelay',
@@ -57,13 +61,15 @@ class WebsocketInit(object):
         'use_stomp': 'useSTOMP'
     }
 
-    def __init__(self, ad_hoc=False, if_exists=None, label=None, minimum_delay=4000, mode=None, name=None, protocol=None, ss_id=None, use_stomp=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ad_hoc=False, auth_conf=None, external_url=None, if_exists=None, label=None, minimum_delay=4000, mode=None, name=None, protocol=None, ss_id=None, use_stomp=True, local_vars_configuration=None):  # noqa: E501
         """WebsocketInit - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._ad_hoc = None
+        self._auth_conf = None
+        self._external_url = None
         self._if_exists = None
         self._label = None
         self._minimum_delay = None
@@ -76,6 +82,10 @@ class WebsocketInit(object):
 
         if ad_hoc is not None:
             self.ad_hoc = ad_hoc
+        if auth_conf is not None:
+            self.auth_conf = auth_conf
+        if external_url is not None:
+            self.external_url = external_url
         if if_exists is not None:
             self.if_exists = if_exists
         if label is not None:
@@ -115,6 +125,58 @@ class WebsocketInit(object):
         """
 
         self._ad_hoc = ad_hoc
+
+    @property
+    def auth_conf(self):
+        """Gets the auth_conf of this WebsocketInit.  # noqa: E501
+
+        Applicable only if `mode` is `external`. Optional.</br> Name of the authentication config for accessing the URI, if missing then no authentication will be attempted.</br> Can be defined via Voicegain Console. For details see this [Knowledge Base article](https://support.voicegain.ai/hc/en-us/articles/4408977638292-Using-authConf-for-Callbacks)  (note that it is about callbacks, but the same applies to a large degree to websocket connection authentication).             # noqa: E501
+
+        :return: The auth_conf of this WebsocketInit.  # noqa: E501
+        :rtype: str
+        """
+        return self._auth_conf
+
+    @auth_conf.setter
+    def auth_conf(self, auth_conf):
+        """Sets the auth_conf of this WebsocketInit.
+
+        Applicable only if `mode` is `external`. Optional.</br> Name of the authentication config for accessing the URI, if missing then no authentication will be attempted.</br> Can be defined via Voicegain Console. For details see this [Knowledge Base article](https://support.voicegain.ai/hc/en-us/articles/4408977638292-Using-authConf-for-Callbacks)  (note that it is about callbacks, but the same applies to a large degree to websocket connection authentication).             # noqa: E501
+
+        :param auth_conf: The auth_conf of this WebsocketInit.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                auth_conf is not None and len(auth_conf) > 128):
+            raise ValueError("Invalid value for `auth_conf`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                auth_conf is not None and len(auth_conf) < 1):
+            raise ValueError("Invalid value for `auth_conf`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._auth_conf = auth_conf
+
+    @property
+    def external_url(self):
+        """Gets the external_url of this WebsocketInit.  # noqa: E501
+
+        URL of the external websocket server to which the results should be sent.  Required if `mode` is `external`. It will be ignored in other modes.   # noqa: E501
+
+        :return: The external_url of this WebsocketInit.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_url
+
+    @external_url.setter
+    def external_url(self, external_url):
+        """Sets the external_url of this WebsocketInit.
+
+        URL of the external websocket server to which the results should be sent.  Required if `mode` is `external`. It will be ignored in other modes.   # noqa: E501
+
+        :param external_url: The external_url of this WebsocketInit.  # noqa: E501
+        :type: str
+        """
+
+        self._external_url = external_url
 
     @property
     def if_exists(self):
