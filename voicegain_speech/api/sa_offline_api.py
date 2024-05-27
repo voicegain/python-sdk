@@ -276,7 +276,7 @@ class SaOfflineApi(object):
     def sa_offline_get(self, sa_session_id, **kwargs):  # noqa: E501
         """Get SA Session  # noqa: E501
 
-        Get Offline Speech Analytics Session   # noqa: E501
+        Get Offline Speech Analytics Session. This is the method that should be used to **poll** an /sa/offline session to see its `progress.phase` </br> Note: until the session is in `progress.phase` of `DONE`, the session data will not be complete. </br> The following fields will be missing: `numIncidents`, `shortSummary`, `topExtendedSummary`, `topKeywords`, `speakers`, `objectFileName`.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get(sa_session_id, async_req=True)
@@ -301,7 +301,7 @@ class SaOfflineApi(object):
     def sa_offline_get_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Get SA Session  # noqa: E501
 
-        Get Offline Speech Analytics Session   # noqa: E501
+        Get Offline Speech Analytics Session. This is the method that should be used to **poll** an /sa/offline session to see its `progress.phase` </br> Note: until the session is in `progress.phase` of `DONE`, the session data will not be complete. </br> The following fields will be missing: `numIncidents`, `shortSummary`, `topExtendedSummary`, `topKeywords`, `speakers`, `objectFileName`.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get_with_http_info(sa_session_id, async_req=True)
@@ -390,7 +390,7 @@ class SaOfflineApi(object):
     def sa_offline_get_data(self, sa_session_id, **kwargs):  # noqa: E501
         """Speech Analytics Data  # noqa: E501
 
-        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results.</br>   # noqa: E501
+        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get_data(sa_session_id, async_req=True)
@@ -423,7 +423,7 @@ class SaOfflineApi(object):
     def sa_offline_get_data_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Speech Analytics Data  # noqa: E501
 
-        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results.</br>   # noqa: E501
+        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get_data_with_http_info(sa_session_id, async_req=True)
