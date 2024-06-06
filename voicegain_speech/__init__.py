@@ -55,6 +55,9 @@ from voicegain_speech.models.ac_start import ACStart
 from voicegain_speech.models.ac_start_stt_speech_contexts import ACStartSttSpeechContexts
 from voicegain_speech.models.ac_started import ACStarted
 from voicegain_speech.models.ac_stop import ACStop
+from voicegain_speech.models.aivr import AIVR
+from voicegain_speech.models.aivr_all_of import AIVRAllOf
+from voicegain_speech.models.aivr_all_of_aivr_apps import AIVRAllOfAivrApps
 from voicegain_speech.models.aivr_callback_core_response import AIVRCallbackCoreResponse
 from voicegain_speech.models.aivr_callback_core_response_all_of import AIVRCallbackCoreResponseAllOf
 from voicegain_speech.models.aivr_callback_response import AIVRCallbackResponse
