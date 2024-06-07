@@ -35,6 +35,7 @@ class Agent(object):
     """
     openapi_types = {
         'agent_id': 'str',
+        'channel': 'str',
         'email': 'str',
         'name': 'str',
         'user_id': 'str'
@@ -42,18 +43,20 @@ class Agent(object):
 
     attribute_map = {
         'agent_id': 'agentId',
+        'channel': 'channel',
         'email': 'email',
         'name': 'name',
         'user_id': 'userId'
     }
 
-    def __init__(self, agent_id=None, email=None, name=None, user_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent_id=None, channel=None, email=None, name=None, user_id=None, local_vars_configuration=None):  # noqa: E501
         """Agent - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._agent_id = None
+        self._channel = None
         self._email = None
         self._name = None
         self._user_id = None
@@ -61,6 +64,8 @@ class Agent(object):
 
         if agent_id is not None:
             self.agent_id = agent_id
+        if channel is not None:
+            self.channel = channel
         if email is not None:
             self.email = email
         if name is not None:
@@ -72,7 +77,7 @@ class Agent(object):
     def agent_id(self):
         """Gets the agent_id of this Agent.  # noqa: E501
 
-        Unique Id of the Agent (this may be id in an external system). If the identity agent is not from external system then this will be equal to userId   # noqa: E501
+        Unique Id of the Agent in an external system. Generally either this or email is used to uniquely identify the agent from an external system, but you can provide both If the identity of an agent is not from external system then this will set equal to userId   # noqa: E501
 
         :return: The agent_id of this Agent.  # noqa: E501
         :rtype: str
@@ -83,13 +88,42 @@ class Agent(object):
     def agent_id(self, agent_id):
         """Sets the agent_id of this Agent.
 
-        Unique Id of the Agent (this may be id in an external system). If the identity agent is not from external system then this will be equal to userId   # noqa: E501
+        Unique Id of the Agent in an external system. Generally either this or email is used to uniquely identify the agent from an external system, but you can provide both If the identity of an agent is not from external system then this will set equal to userId   # noqa: E501
 
         :param agent_id: The agent_id of this Agent.  # noqa: E501
         :type: str
         """
 
         self._agent_id = agent_id
+
+    @property
+    def channel(self):
+        """Gets the channel of this Agent.  # noqa: E501
+
+        (Optional, only to be used with stereo recordings.) Channel that the agent is associated with.    # noqa: E501
+
+        :return: The channel of this Agent.  # noqa: E501
+        :rtype: str
+        """
+        return self._channel
+
+    @channel.setter
+    def channel(self, channel):
+        """Sets the channel of this Agent.
+
+        (Optional, only to be used with stereo recordings.) Channel that the agent is associated with.    # noqa: E501
+
+        :param channel: The channel of this Agent.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["left", "right"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and channel not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `channel` ({0}), must be one of {1}"  # noqa: E501
+                .format(channel, allowed_values)
+            )
+
+        self._channel = channel
 
     @property
     def email(self):
@@ -141,7 +175,7 @@ class Agent(object):
     def user_id(self):
         """Gets the user_id of this Agent.  # noqa: E501
 
-        Id of the user in Voicegain that corresponds to this agent.  In that case externalUserId will be set to value of agentId.   # noqa: E501
+        Id of the user in Voicegain that corresponds to this agent.    # noqa: E501
 
         :return: The user_id of this Agent.  # noqa: E501
         :rtype: str
@@ -152,7 +186,7 @@ class Agent(object):
     def user_id(self, user_id):
         """Sets the user_id of this Agent.
 
-        Id of the user in Voicegain that corresponds to this agent.  In that case externalUserId will be set to value of agentId.   # noqa: E501
+        Id of the user in Voicegain that corresponds to this agent.    # noqa: E501
 
         :param user_id: The user_id of this Agent.  # noqa: E501
         :type: str
