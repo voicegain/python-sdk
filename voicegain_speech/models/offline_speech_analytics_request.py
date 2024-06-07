@@ -41,10 +41,10 @@ class OfflineSpeechAnalyticsRequest(object):
         'persist_seconds': 'float',
         'sa_config': 'str',
         'settings': 'TranscribeMeetingRequestSettings',
-        'speakers': 'list[SpeechAnalyticsInputSpeaker]',
         'tags': 'list[str]',
         'topic_discovery_config': 'str',
         'voice_signature_speakers': 'list[str]',
+        'speakers': 'list[SpeechAnalyticsInputSpeaker]',
         'audio': 'list[OfflineSpeechAnalyticsAudioRequestAudio]'
     }
 
@@ -56,14 +56,14 @@ class OfflineSpeechAnalyticsRequest(object):
         'persist_seconds': 'persistSeconds',
         'sa_config': 'saConfig',
         'settings': 'settings',
-        'speakers': 'speakers',
         'tags': 'tags',
         'topic_discovery_config': 'topicDiscoveryConfig',
         'voice_signature_speakers': 'voiceSignatureSpeakers',
+        'speakers': 'speakers',
         'audio': 'audio'
     }
 
-    def __init__(self, call_review_config=None, creator=None, label=None, metadata=None, persist_seconds=3600, sa_config=None, settings=None, speakers=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, audio=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, call_review_config=None, creator=None, label=None, metadata=None, persist_seconds=3600, sa_config=None, settings=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, speakers=None, audio=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,10 +76,10 @@ class OfflineSpeechAnalyticsRequest(object):
         self._persist_seconds = None
         self._sa_config = None
         self._settings = None
-        self._speakers = None
         self._tags = None
         self._topic_discovery_config = None
         self._voice_signature_speakers = None
+        self._speakers = None
         self._audio = None
         self.discriminator = None
 
@@ -97,14 +97,14 @@ class OfflineSpeechAnalyticsRequest(object):
             self.sa_config = sa_config
         if settings is not None:
             self.settings = settings
-        if speakers is not None:
-            self.speakers = speakers
         if tags is not None:
             self.tags = tags
         if topic_discovery_config is not None:
             self.topic_discovery_config = topic_discovery_config
         if voice_signature_speakers is not None:
             self.voice_signature_speakers = voice_signature_speakers
+        if speakers is not None:
+            self.speakers = speakers
         if audio is not None:
             self.audio = audio
 
@@ -292,29 +292,6 @@ class OfflineSpeechAnalyticsRequest(object):
         self._settings = settings
 
     @property
-    def speakers(self):
-        """Gets the speakers of this OfflineSpeechAnalyticsRequest.  # noqa: E501
-
-        (optional) Known active speakers involved in the call. If absent then will asume that each channel is a separate speaker (or speakers if diarization is used)  and will name speakers in the output with generic names like, e.g., \"Speaker 1\", \"Speaker 2\", etc.   # noqa: E501
-
-        :return: The speakers of this OfflineSpeechAnalyticsRequest.  # noqa: E501
-        :rtype: list[SpeechAnalyticsInputSpeaker]
-        """
-        return self._speakers
-
-    @speakers.setter
-    def speakers(self, speakers):
-        """Sets the speakers of this OfflineSpeechAnalyticsRequest.
-
-        (optional) Known active speakers involved in the call. If absent then will asume that each channel is a separate speaker (or speakers if diarization is used)  and will name speakers in the output with generic names like, e.g., \"Speaker 1\", \"Speaker 2\", etc.   # noqa: E501
-
-        :param speakers: The speakers of this OfflineSpeechAnalyticsRequest.  # noqa: E501
-        :type: list[SpeechAnalyticsInputSpeaker]
-        """
-
-        self._speakers = speakers
-
-    @property
     def tags(self):
         """Gets the tags of this OfflineSpeechAnalyticsRequest.  # noqa: E501
 
@@ -388,6 +365,29 @@ class OfflineSpeechAnalyticsRequest(object):
         """
 
         self._voice_signature_speakers = voice_signature_speakers
+
+    @property
+    def speakers(self):
+        """Gets the speakers of this OfflineSpeechAnalyticsRequest.  # noqa: E501
+
+        (optional) Known active speakers involved in the call. If absent then will asume that each channel is a separate speaker (or speakers if diarization is used)  and will name speakers in the output with generic names like, e.g., \"Speaker 1\", \"Speaker 2\", etc.   # noqa: E501
+
+        :return: The speakers of this OfflineSpeechAnalyticsRequest.  # noqa: E501
+        :rtype: list[SpeechAnalyticsInputSpeaker]
+        """
+        return self._speakers
+
+    @speakers.setter
+    def speakers(self, speakers):
+        """Sets the speakers of this OfflineSpeechAnalyticsRequest.
+
+        (optional) Known active speakers involved in the call. If absent then will asume that each channel is a separate speaker (or speakers if diarization is used)  and will name speakers in the output with generic names like, e.g., \"Speaker 1\", \"Speaker 2\", etc.   # noqa: E501
+
+        :param speakers: The speakers of this OfflineSpeechAnalyticsRequest.  # noqa: E501
+        :type: list[SpeechAnalyticsInputSpeaker]
+        """
+
+        self._speakers = speakers
 
     @property
     def audio(self):

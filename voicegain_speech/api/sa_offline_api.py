@@ -48,7 +48,7 @@ class SaOfflineApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str call_id: Voice Call Id. (required)
-        :param OfflineSpeechAnalyticsBaseRequest offline_speech_analytics_base_request: Body of the offline speech analytics request
+        :param OfflineSpeechAnalyticsBaseRequestWithoutSpeakers offline_speech_analytics_base_request_without_speakers: Body of the offline speech analytics request
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -74,7 +74,7 @@ class SaOfflineApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str call_id: Voice Call Id. (required)
-        :param OfflineSpeechAnalyticsBaseRequest offline_speech_analytics_base_request: Body of the offline speech analytics request
+        :param OfflineSpeechAnalyticsBaseRequestWithoutSpeakers offline_speech_analytics_base_request_without_speakers: Body of the offline speech analytics request
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -91,7 +91,7 @@ class SaOfflineApi(object):
 
         local_var_params = locals()
 
-        all_params = ['call_id', 'offline_speech_analytics_base_request']  # noqa: E501
+        all_params = ['call_id', 'offline_speech_analytics_base_request_without_speakers']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -130,8 +130,8 @@ class SaOfflineApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'offline_speech_analytics_base_request' in local_var_params:
-            body_params = local_var_params['offline_speech_analytics_base_request']
+        if 'offline_speech_analytics_base_request_without_speakers' in local_var_params:
+            body_params = local_var_params['offline_speech_analytics_base_request_without_speakers']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/json'])  # noqa: E501
