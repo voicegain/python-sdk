@@ -35,26 +35,31 @@ class AIVR(object):
     """
     openapi_types = {
         'aivr_apps': 'list[AIVRAllOfAivrApps]',
+        'display_jwt': 'str',
         'jwt': 'str'
     }
 
     attribute_map = {
         'aivr_apps': 'aivrApps',
+        'display_jwt': 'displayJwt',
         'jwt': 'jwt'
     }
 
-    def __init__(self, aivr_apps=None, jwt=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_apps=None, display_jwt=None, jwt=None, local_vars_configuration=None):  # noqa: E501
         """AIVR - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._aivr_apps = None
+        self._display_jwt = None
         self._jwt = None
         self.discriminator = None
 
         if aivr_apps is not None:
             self.aivr_apps = aivr_apps
+        if display_jwt is not None:
+            self.display_jwt = display_jwt
         if jwt is not None:
             self.jwt = jwt
 
@@ -80,6 +85,29 @@ class AIVR(object):
         """
 
         self._aivr_apps = aivr_apps
+
+    @property
+    def display_jwt(self):
+        """Gets the display_jwt of this AIVR.  # noqa: E501
+
+        Masked-out JWT that is to be used for display purposes in the Web UI.   # noqa: E501
+
+        :return: The display_jwt of this AIVR.  # noqa: E501
+        :rtype: str
+        """
+        return self._display_jwt
+
+    @display_jwt.setter
+    def display_jwt(self, display_jwt):
+        """Sets the display_jwt of this AIVR.
+
+        Masked-out JWT that is to be used for display purposes in the Web UI.   # noqa: E501
+
+        :param display_jwt: The display_jwt of this AIVR.  # noqa: E501
+        :type: str
+        """
+
+        self._display_jwt = display_jwt
 
     @property
     def jwt(self):

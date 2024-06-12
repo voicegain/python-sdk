@@ -37,6 +37,7 @@ class AsrSettingsRecognitionDefaults(object):
         'acoustic_model_non_real_time': 'str',
         'acoustic_model_real_time': 'str',
         'confidence_threshold': 'float',
+        'language_detection': 'AsrSettingsCommonLanguageDetection',
         'languages': 'list[Language]',
         'max_alternatives': 'int',
         'sensitivity': 'float',
@@ -52,6 +53,7 @@ class AsrSettingsRecognitionDefaults(object):
         'acoustic_model_non_real_time': 'acousticModelNonRealTime',
         'acoustic_model_real_time': 'acousticModelRealTime',
         'confidence_threshold': 'confidenceThreshold',
+        'language_detection': 'languageDetection',
         'languages': 'languages',
         'max_alternatives': 'maxAlternatives',
         'sensitivity': 'sensitivity',
@@ -63,7 +65,7 @@ class AsrSettingsRecognitionDefaults(object):
         'no_input_timeout': 'noInputTimeout'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, languages=None, max_alternatives=1, sensitivity=0.5, speech_context=None, speed_vs_accuracy=0.5, complete_timeout=2000, incomplete_timeout=5000, lang_model=None, no_input_timeout=10000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, language_detection=None, languages=None, max_alternatives=1, sensitivity=0.5, speech_context=None, speed_vs_accuracy=0.5, complete_timeout=2000, incomplete_timeout=5000, lang_model=None, no_input_timeout=10000, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsRecognitionDefaults - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -72,6 +74,7 @@ class AsrSettingsRecognitionDefaults(object):
         self._acoustic_model_non_real_time = None
         self._acoustic_model_real_time = None
         self._confidence_threshold = None
+        self._language_detection = None
         self._languages = None
         self._max_alternatives = None
         self._sensitivity = None
@@ -89,6 +92,8 @@ class AsrSettingsRecognitionDefaults(object):
             self.acoustic_model_real_time = acoustic_model_real_time
         if confidence_threshold is not None:
             self.confidence_threshold = confidence_threshold
+        if language_detection is not None:
+            self.language_detection = language_detection
         if languages is not None:
             self.languages = languages
         if max_alternatives is not None:
@@ -182,6 +187,27 @@ class AsrSettingsRecognitionDefaults(object):
             raise ValueError("Invalid value for `confidence_threshold`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._confidence_threshold = confidence_threshold
+
+    @property
+    def language_detection(self):
+        """Gets the language_detection of this AsrSettingsRecognitionDefaults.  # noqa: E501
+
+
+        :return: The language_detection of this AsrSettingsRecognitionDefaults.  # noqa: E501
+        :rtype: AsrSettingsCommonLanguageDetection
+        """
+        return self._language_detection
+
+    @language_detection.setter
+    def language_detection(self, language_detection):
+        """Sets the language_detection of this AsrSettingsRecognitionDefaults.
+
+
+        :param language_detection: The language_detection of this AsrSettingsRecognitionDefaults.  # noqa: E501
+        :type: AsrSettingsCommonLanguageDetection
+        """
+
+        self._language_detection = language_detection
 
     @property
     def languages(self):
