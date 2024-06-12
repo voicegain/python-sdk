@@ -91,7 +91,7 @@ class AIVRPhoneTransfer(object):
     def phone_number(self):
         """Gets the phone_number of this AIVRPhoneTransfer.  # noqa: E501
 
-        E.164 formatted phone number or a SIP URI to transfer to. </br> SIP URI may include transport type and headers, e.g., sip:edfe769d-3c83-4320-b9e4-27f7e3@fs.acme.com:5080;transport=tcp?x-mycustomheader=foo</br> If you use a non-standard `deflect:` name of the protocol, for example, deflect:affe769d-3c83-4320-b9e4-27f7e3@fs2.acme.com:5060 then a SIP REFER will be done instead of SIP INVITE.               # noqa: E501
+        E.164 formatted phone number or a SIP URI to transfer to. </br> For normal phone numbers, extensions are supported, e.g., +19721231234,w1234</br> An extension is separated from the phone number by a comma ','. 'w' is a special wait character and corresponds to about 500ms of wait time.</br> </br> SIP URI may include transport type and headers, e.g., sip:edfe769d-3c83-4320-b9e4-27f7e3@fs.acme.com:5080;transport=tcp?x-mycustomheader=foo</br> If you use a non-standard `deflect:` name of the protocol, for example, deflect:affe769d-3c83-4320-b9e4-27f7e3@fs2.acme.com:5060 then a SIP REFER will be done instead of SIP INVITE.               # noqa: E501
 
         :return: The phone_number of this AIVRPhoneTransfer.  # noqa: E501
         :rtype: str
@@ -102,7 +102,7 @@ class AIVRPhoneTransfer(object):
     def phone_number(self, phone_number):
         """Sets the phone_number of this AIVRPhoneTransfer.
 
-        E.164 formatted phone number or a SIP URI to transfer to. </br> SIP URI may include transport type and headers, e.g., sip:edfe769d-3c83-4320-b9e4-27f7e3@fs.acme.com:5080;transport=tcp?x-mycustomheader=foo</br> If you use a non-standard `deflect:` name of the protocol, for example, deflect:affe769d-3c83-4320-b9e4-27f7e3@fs2.acme.com:5060 then a SIP REFER will be done instead of SIP INVITE.               # noqa: E501
+        E.164 formatted phone number or a SIP URI to transfer to. </br> For normal phone numbers, extensions are supported, e.g., +19721231234,w1234</br> An extension is separated from the phone number by a comma ','. 'w' is a special wait character and corresponds to about 500ms of wait time.</br> </br> SIP URI may include transport type and headers, e.g., sip:edfe769d-3c83-4320-b9e4-27f7e3@fs.acme.com:5080;transport=tcp?x-mycustomheader=foo</br> If you use a non-standard `deflect:` name of the protocol, for example, deflect:affe769d-3c83-4320-b9e4-27f7e3@fs2.acme.com:5060 then a SIP REFER will be done instead of SIP INVITE.               # noqa: E501
 
         :param phone_number: The phone_number of this AIVRPhoneTransfer.  # noqa: E501
         :type: str
