@@ -35,6 +35,8 @@ class VoiceCall(object):
     """
     openapi_types = {
         'agent': 'Agent',
+        'aivr_app_id': 'str',
+        'aivr_session_id': 'str',
         'direction': 'str',
         'end_time': 'datetime',
         'external_endpoint': 'str',
@@ -65,6 +67,8 @@ class VoiceCall(object):
 
     attribute_map = {
         'agent': 'agent',
+        'aivr_app_id': 'aivrAppId',
+        'aivr_session_id': 'aivrSessionId',
         'direction': 'direction',
         'end_time': 'endTime',
         'external_endpoint': 'externalEndpoint',
@@ -93,13 +97,15 @@ class VoiceCall(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, direction=None, end_time=None, external_endpoint=None, internal_endpoint=None, num_audio_channels=2, num_spk_channels=2, queue=None, recording=None, start_time=None, tags=None, account_id=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, direction=None, end_time=None, external_endpoint=None, internal_endpoint=None, num_audio_channels=2, num_spk_channels=2, queue=None, recording=None, start_time=None, tags=None, account_id=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._agent = None
+        self._aivr_app_id = None
+        self._aivr_session_id = None
         self._direction = None
         self._end_time = None
         self._external_endpoint = None
@@ -130,6 +136,10 @@ class VoiceCall(object):
 
         if agent is not None:
             self.agent = agent
+        if aivr_app_id is not None:
+            self.aivr_app_id = aivr_app_id
+        if aivr_session_id is not None:
+            self.aivr_session_id = aivr_session_id
         if direction is not None:
             self.direction = direction
         if end_time is not None:
@@ -203,6 +213,52 @@ class VoiceCall(object):
         """
 
         self._agent = agent
+
+    @property
+    def aivr_app_id(self):
+        """Gets the aivr_app_id of this VoiceCall.  # noqa: E501
+
+        Id of the AIVR application that handled the call. Will be absent if the call did not come from an AIVR App.   # noqa: E501
+
+        :return: The aivr_app_id of this VoiceCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_app_id
+
+    @aivr_app_id.setter
+    def aivr_app_id(self, aivr_app_id):
+        """Sets the aivr_app_id of this VoiceCall.
+
+        Id of the AIVR application that handled the call. Will be absent if the call did not come from an AIVR App.   # noqa: E501
+
+        :param aivr_app_id: The aivr_app_id of this VoiceCall.  # noqa: E501
+        :type: str
+        """
+
+        self._aivr_app_id = aivr_app_id
+
+    @property
+    def aivr_session_id(self):
+        """Gets the aivr_session_id of this VoiceCall.  # noqa: E501
+
+        Id of the AIVR session that handled the call. Will be absent if the call did not come from an AIVR Session.     # noqa: E501
+
+        :return: The aivr_session_id of this VoiceCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_session_id
+
+    @aivr_session_id.setter
+    def aivr_session_id(self, aivr_session_id):
+        """Sets the aivr_session_id of this VoiceCall.
+
+        Id of the AIVR session that handled the call. Will be absent if the call did not come from an AIVR Session.     # noqa: E501
+
+        :param aivr_session_id: The aivr_session_id of this VoiceCall.  # noqa: E501
+        :type: str
+        """
+
+        self._aivr_session_id = aivr_session_id
 
     @property
     def direction(self):
