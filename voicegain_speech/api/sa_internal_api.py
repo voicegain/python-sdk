@@ -283,6 +283,7 @@ class SaInternalApi(object):
         :param str format: Format of the Calls data to be returned: + json - returns data in json + csv - returns data it CSV file 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
+        :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param list[str] agent_id: Ids of Agents to query
         :param list[str] queue_id: Ids of Queues to query
         :param list[str] start_after: Id of the object immediately after which this page of results should begin.</br> If `start_after=null` then the first page will be returned.</br> Values of `start_after` other than null are set automatically and available in links set in the response header. For more info see: [Pagination](#section/Pagination)</br> Elements must have matching `sort_by` elements 
@@ -318,6 +319,7 @@ class SaInternalApi(object):
         :param str format: Format of the Calls data to be returned: + json - returns data in json + csv - returns data it CSV file 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
+        :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param list[str] agent_id: Ids of Agents to query
         :param list[str] queue_id: Ids of Queues to query
         :param list[str] start_after: Id of the object immediately after which this page of results should begin.</br> If `start_after=null` then the first page will be returned.</br> Values of `start_after` other than null are set automatically and available in links set in the response header. For more info see: [Pagination](#section/Pagination)</br> Elements must have matching `sort_by` elements 
@@ -341,7 +343,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'format', 'from_time', 'to_time', 'agent_id', 'queue_id', 'start_after', 'end_before', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
+        all_params = ['context_id', 'format', 'from_time', 'to_time', 'aivr_app_id', 'agent_id', 'queue_id', 'start_after', 'end_before', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -385,6 +387,9 @@ class SaInternalApi(object):
             query_params.append(('fromTime', local_var_params['from_time']))  # noqa: E501
         if 'to_time' in local_var_params and local_var_params['to_time'] is not None:  # noqa: E501
             query_params.append(('toTime', local_var_params['to_time']))  # noqa: E501
+        if 'aivr_app_id' in local_var_params and local_var_params['aivr_app_id'] is not None:  # noqa: E501
+            query_params.append(('aivrAppId', local_var_params['aivr_app_id']))  # noqa: E501
+            collection_formats['aivrAppId'] = 'csv'  # noqa: E501
         if 'agent_id' in local_var_params and local_var_params['agent_id'] is not None:  # noqa: E501
             query_params.append(('agentId', local_var_params['agent_id']))  # noqa: E501
             collection_formats['agentId'] = 'csv'  # noqa: E501
