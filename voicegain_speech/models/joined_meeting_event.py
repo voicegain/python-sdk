@@ -67,7 +67,7 @@ class JoinedMeetingEvent(object):
     def event_type(self):
         """Gets the event_type of this JoinedMeetingEvent.  # noqa: E501
 
-        Event type (more event types may be added in the future): + **waitingRoom** - bot was put in the waiting room + **admitted** - bot was admitted to the meeting + **rejected** - bot was rejected from the meeting + **meetingEnded** - meeting ended + **generic** - generic event - see notes for details   # noqa: E501
+        Event type (more event types may be added in the future): + **waitingRoom** - bot was put in the waiting room + **admitted** - bot was admitted to the meeting + **rejected** - bot was rejected from the meeting + **meetingEnded** - meeting ended + **leave** - bot left the meeting which was still in progress + **generic** - generic event - see notes for details   # noqa: E501
 
         :return: The event_type of this JoinedMeetingEvent.  # noqa: E501
         :rtype: str
@@ -78,12 +78,12 @@ class JoinedMeetingEvent(object):
     def event_type(self, event_type):
         """Sets the event_type of this JoinedMeetingEvent.
 
-        Event type (more event types may be added in the future): + **waitingRoom** - bot was put in the waiting room + **admitted** - bot was admitted to the meeting + **rejected** - bot was rejected from the meeting + **meetingEnded** - meeting ended + **generic** - generic event - see notes for details   # noqa: E501
+        Event type (more event types may be added in the future): + **waitingRoom** - bot was put in the waiting room + **admitted** - bot was admitted to the meeting + **rejected** - bot was rejected from the meeting + **meetingEnded** - meeting ended + **leave** - bot left the meeting which was still in progress + **generic** - generic event - see notes for details   # noqa: E501
 
         :param event_type: The event_type of this JoinedMeetingEvent.  # noqa: E501
         :type: str
         """
-        allowed_values = ["waitingRoom", "admitted", "rejected", "meetingEnded", "generic"]  # noqa: E501
+        allowed_values = ["waitingRoom", "admitted", "rejected", "meetingEnded", "leave", "generic"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and event_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `event_type` ({0}), must be one of {1}"  # noqa: E501
