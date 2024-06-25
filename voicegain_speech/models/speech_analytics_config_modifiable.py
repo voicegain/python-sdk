@@ -44,6 +44,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'gender': 'bool',
         'keyword_groups': 'list[KeywordSpotGroup]',
         'keywords': 'list[KeywordSpotItem]',
+        'llm_summary_prompt': 'str',
         'meeting_minutes': 'SpeechAnalyticsConfigModifiableBaseMeetingMinutes',
         'moods': 'list[MoodType]',
         'overtalk_single_duration_maximum_threshold': 'float',
@@ -72,6 +73,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'gender': 'gender',
         'keyword_groups': 'keywordGroups',
         'keywords': 'keywords',
+        'llm_summary_prompt': 'llmSummaryPrompt',
         'meeting_minutes': 'meetingMinutes',
         'moods': 'moods',
         'overtalk_single_duration_maximum_threshold': 'overtalkSingleDurationMaximumThreshold',
@@ -89,7 +91,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'name': 'name'
     }
 
-    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, meeting_minutes=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -105,6 +107,7 @@ class SpeechAnalyticsConfigModifiable(object):
         self._gender = None
         self._keyword_groups = None
         self._keywords = None
+        self._llm_summary_prompt = None
         self._meeting_minutes = None
         self._moods = None
         self._overtalk_single_duration_maximum_threshold = None
@@ -142,6 +145,8 @@ class SpeechAnalyticsConfigModifiable(object):
             self.keyword_groups = keyword_groups
         if keywords is not None:
             self.keywords = keywords
+        if llm_summary_prompt is not None:
+            self.llm_summary_prompt = llm_summary_prompt
         if meeting_minutes is not None:
             self.meeting_minutes = meeting_minutes
         if moods is not None:
@@ -414,6 +419,29 @@ class SpeechAnalyticsConfigModifiable(object):
         """
 
         self._keywords = keywords
+
+    @property
+    def llm_summary_prompt(self):
+        """Gets the llm_summary_prompt of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+
+        _(internal use)_ LLM Prompt that is used to generate the summary.    # noqa: E501
+
+        :return: The llm_summary_prompt of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :rtype: str
+        """
+        return self._llm_summary_prompt
+
+    @llm_summary_prompt.setter
+    def llm_summary_prompt(self, llm_summary_prompt):
+        """Sets the llm_summary_prompt of this SpeechAnalyticsConfigModifiable.
+
+        _(internal use)_ LLM Prompt that is used to generate the summary.    # noqa: E501
+
+        :param llm_summary_prompt: The llm_summary_prompt of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :type: str
+        """
+
+        self._llm_summary_prompt = llm_summary_prompt
 
     @property
     def meeting_minutes(self):
