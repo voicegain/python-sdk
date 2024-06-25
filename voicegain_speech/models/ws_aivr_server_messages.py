@@ -36,6 +36,7 @@ class WsAivrServerMessages(object):
     openapi_types = {
         'aivr_app_id': 'str',
         'ani': 'str',
+        'asr_audio_websocket_url': 'str',
         'auth_token': 'str',
         'call_is_being_recorded': 'bool',
         'default_voice': 'str',
@@ -67,6 +68,7 @@ class WsAivrServerMessages(object):
     attribute_map = {
         'aivr_app_id': 'aivrAppId',
         'ani': 'ani',
+        'asr_audio_websocket_url': 'asrAudioWebsocketUrl',
         'auth_token': 'authToken',
         'call_is_being_recorded': 'callIsBeingRecorded',
         'default_voice': 'defaultVoice',
@@ -95,7 +97,7 @@ class WsAivrServerMessages(object):
         'ping': 'ping'
     }
 
-    def __init__(self, aivr_app_id=None, ani=None, auth_token=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, event=None, conf=None, gap=None, start=None, utt=None, _del=None, edit=None, alternatives=None, duration=None, time=None, type=None, ping=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, ani=None, asr_audio_websocket_url=None, auth_token=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, event=None, conf=None, gap=None, start=None, utt=None, _del=None, edit=None, alternatives=None, duration=None, time=None, type=None, ping=None, local_vars_configuration=None):  # noqa: E501
         """WsAivrServerMessages - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -103,6 +105,7 @@ class WsAivrServerMessages(object):
 
         self._aivr_app_id = None
         self._ani = None
+        self._asr_audio_websocket_url = None
         self._auth_token = None
         self._call_is_being_recorded = None
         self._default_voice = None
@@ -134,6 +137,8 @@ class WsAivrServerMessages(object):
         self.aivr_app_id = aivr_app_id
         if ani is not None:
             self.ani = ani
+        if asr_audio_websocket_url is not None:
+            self.asr_audio_websocket_url = asr_audio_websocket_url
         self.auth_token = auth_token
         if call_is_being_recorded is not None:
             self.call_is_being_recorded = call_is_being_recorded
@@ -227,6 +232,29 @@ class WsAivrServerMessages(object):
         """
 
         self._ani = ani
+
+    @property
+    def asr_audio_websocket_url(self):
+        """Gets the asr_audio_websocket_url of this WsAivrServerMessages.  # noqa: E501
+
+        URL of the websocket to be used for streaming audio to /asr/transcribe/async session. This URL will be obtained from the response to [POST /asr/transcribe/async](#tag/transcribe/operation/asrTranscribeAsyncPost).     # noqa: E501
+
+        :return: The asr_audio_websocket_url of this WsAivrServerMessages.  # noqa: E501
+        :rtype: str
+        """
+        return self._asr_audio_websocket_url
+
+    @asr_audio_websocket_url.setter
+    def asr_audio_websocket_url(self, asr_audio_websocket_url):
+        """Sets the asr_audio_websocket_url of this WsAivrServerMessages.
+
+        URL of the websocket to be used for streaming audio to /asr/transcribe/async session. This URL will be obtained from the response to [POST /asr/transcribe/async](#tag/transcribe/operation/asrTranscribeAsyncPost).     # noqa: E501
+
+        :param asr_audio_websocket_url: The asr_audio_websocket_url of this WsAivrServerMessages.  # noqa: E501
+        :type: str
+        """
+
+        self._asr_audio_websocket_url = asr_audio_websocket_url
 
     @property
     def auth_token(self):
