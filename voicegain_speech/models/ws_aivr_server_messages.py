@@ -36,7 +36,6 @@ class WsAivrServerMessages(object):
     openapi_types = {
         'aivr_app_id': 'str',
         'ani': 'str',
-        'asr_audio_websocket_url': 'str',
         'auth_token': 'str',
         'call_is_being_recorded': 'bool',
         'default_voice': 'str',
@@ -44,7 +43,6 @@ class WsAivrServerMessages(object):
         'estimated_queue_wait_seconds': 'EstimatedQueueWait',
         'logic_type': 'AIVRLogicType',
         'media': 'AIVRLogicMedia',
-        'real_time_asr_transcribe_session': 'str',
         'sequence': 'int',
         'sid': 'str',
         'start_time': 'datetime',
@@ -69,7 +67,6 @@ class WsAivrServerMessages(object):
     attribute_map = {
         'aivr_app_id': 'aivrAppId',
         'ani': 'ani',
-        'asr_audio_websocket_url': 'asrAudioWebsocketUrl',
         'auth_token': 'authToken',
         'call_is_being_recorded': 'callIsBeingRecorded',
         'default_voice': 'defaultVoice',
@@ -77,7 +74,6 @@ class WsAivrServerMessages(object):
         'estimated_queue_wait_seconds': 'estimatedQueueWaitSeconds',
         'logic_type': 'logicType',
         'media': 'media',
-        'real_time_asr_transcribe_session': 'realTimeAsrTranscribeSession',
         'sequence': 'sequence',
         'sid': 'sid',
         'start_time': 'startTime',
@@ -99,7 +95,7 @@ class WsAivrServerMessages(object):
         'ping': 'ping'
     }
 
-    def __init__(self, aivr_app_id=None, ani=None, asr_audio_websocket_url=None, auth_token=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, real_time_asr_transcribe_session=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, event=None, conf=None, gap=None, start=None, utt=None, _del=None, edit=None, alternatives=None, duration=None, time=None, type=None, ping=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, ani=None, auth_token=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, event=None, conf=None, gap=None, start=None, utt=None, _del=None, edit=None, alternatives=None, duration=None, time=None, type=None, ping=None, local_vars_configuration=None):  # noqa: E501
         """WsAivrServerMessages - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -107,7 +103,6 @@ class WsAivrServerMessages(object):
 
         self._aivr_app_id = None
         self._ani = None
-        self._asr_audio_websocket_url = None
         self._auth_token = None
         self._call_is_being_recorded = None
         self._default_voice = None
@@ -115,7 +110,6 @@ class WsAivrServerMessages(object):
         self._estimated_queue_wait_seconds = None
         self._logic_type = None
         self._media = None
-        self._real_time_asr_transcribe_session = None
         self._sequence = None
         self._sid = None
         self._start_time = None
@@ -140,8 +134,6 @@ class WsAivrServerMessages(object):
         self.aivr_app_id = aivr_app_id
         if ani is not None:
             self.ani = ani
-        if asr_audio_websocket_url is not None:
-            self.asr_audio_websocket_url = asr_audio_websocket_url
         self.auth_token = auth_token
         if call_is_being_recorded is not None:
             self.call_is_being_recorded = call_is_being_recorded
@@ -155,8 +147,6 @@ class WsAivrServerMessages(object):
             self.logic_type = logic_type
         if media is not None:
             self.media = media
-        if real_time_asr_transcribe_session is not None:
-            self.real_time_asr_transcribe_session = real_time_asr_transcribe_session
         self.sequence = sequence
         self.sid = sid
         self.start_time = start_time
@@ -237,29 +227,6 @@ class WsAivrServerMessages(object):
         """
 
         self._ani = ani
-
-    @property
-    def asr_audio_websocket_url(self):
-        """Gets the asr_audio_websocket_url of this WsAivrServerMessages.  # noqa: E501
-
-        URL of the websocket to be used for streaming audio to /asr/transcribe/async session. This URL will be obtained from the response to [POST /asr/transcribe/async](#tag/transcribe/operation/asrTranscribeAsyncPost).     # noqa: E501
-
-        :return: The asr_audio_websocket_url of this WsAivrServerMessages.  # noqa: E501
-        :rtype: str
-        """
-        return self._asr_audio_websocket_url
-
-    @asr_audio_websocket_url.setter
-    def asr_audio_websocket_url(self, asr_audio_websocket_url):
-        """Sets the asr_audio_websocket_url of this WsAivrServerMessages.
-
-        URL of the websocket to be used for streaming audio to /asr/transcribe/async session. This URL will be obtained from the response to [POST /asr/transcribe/async](#tag/transcribe/operation/asrTranscribeAsyncPost).     # noqa: E501
-
-        :param asr_audio_websocket_url: The asr_audio_websocket_url of this WsAivrServerMessages.  # noqa: E501
-        :type: str
-        """
-
-        self._asr_audio_websocket_url = asr_audio_websocket_url
 
     @property
     def auth_token(self):
@@ -420,29 +387,6 @@ class WsAivrServerMessages(object):
         """
 
         self._media = media
-
-    @property
-    def real_time_asr_transcribe_session(self):
-        """Gets the real_time_asr_transcribe_session of this WsAivrServerMessages.  # noqa: E501
-
-        If real-time ASR transcription is requested then this will be the session id of the real-time ASR session. This session will be created by the AIVR logic and the session id will be provided in the response to this request. We should store it on the AIVR session so that we can use it at the end of the call to get instant transcript. If this is present then `asrAudioWebsocketUrl` must be present.    # noqa: E501
-
-        :return: The real_time_asr_transcribe_session of this WsAivrServerMessages.  # noqa: E501
-        :rtype: str
-        """
-        return self._real_time_asr_transcribe_session
-
-    @real_time_asr_transcribe_session.setter
-    def real_time_asr_transcribe_session(self, real_time_asr_transcribe_session):
-        """Sets the real_time_asr_transcribe_session of this WsAivrServerMessages.
-
-        If real-time ASR transcription is requested then this will be the session id of the real-time ASR session. This session will be created by the AIVR logic and the session id will be provided in the response to this request. We should store it on the AIVR session so that we can use it at the end of the call to get instant transcript. If this is present then `asrAudioWebsocketUrl` must be present.    # noqa: E501
-
-        :param real_time_asr_transcribe_session: The real_time_asr_transcribe_session of this WsAivrServerMessages.  # noqa: E501
-        :type: str
-        """
-
-        self._real_time_asr_transcribe_session = real_time_asr_transcribe_session
 
     @property
     def sequence(self):
