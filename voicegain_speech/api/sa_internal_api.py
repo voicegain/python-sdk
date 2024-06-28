@@ -286,11 +286,10 @@ class SaInternalApi(object):
         :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param list[str] agent_id: Ids of Agents to query
         :param list[str] queue_id: Ids of Queues to query
-        :param list[str] start_after: Id of the object immediately after which this page of results should begin.</br> If `start_after=null` then the first page will be returned.</br> Values of `start_after` other than null are set automatically and available in links set in the response header. For more info see: [Pagination](#section/Pagination)</br> Elements must have matching `sort_by` elements 
-        :param list[str] end_before: Id of the object immediately before which this page of results should end.</br> If `end_before=null` then the last page will be returned.</br> Values of `end_before` other than null are set automatically and available in links set in the response header. For more info see: [Pagination](#section/Pagination)</br> Elements must have matching `sort_by` elements 
+        :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
-        :param list[str] sort_by: By what value should the results be sorted
+        :param list[str] sort_by: By what value should the results be sorted (later we will add more sortable columns)
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -322,11 +321,10 @@ class SaInternalApi(object):
         :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param list[str] agent_id: Ids of Agents to query
         :param list[str] queue_id: Ids of Queues to query
-        :param list[str] start_after: Id of the object immediately after which this page of results should begin.</br> If `start_after=null` then the first page will be returned.</br> Values of `start_after` other than null are set automatically and available in links set in the response header. For more info see: [Pagination](#section/Pagination)</br> Elements must have matching `sort_by` elements 
-        :param list[str] end_before: Id of the object immediately before which this page of results should end.</br> If `end_before=null` then the last page will be returned.</br> Values of `end_before` other than null are set automatically and available in links set in the response header. For more info see: [Pagination](#section/Pagination)</br> Elements must have matching `sort_by` elements 
+        :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
-        :param list[str] sort_by: By what value should the results be sorted
+        :param list[str] sort_by: By what value should the results be sorted (later we will add more sortable columns)
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -343,7 +341,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'format', 'from_time', 'to_time', 'aivr_app_id', 'agent_id', 'queue_id', 'start_after', 'end_before', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
+        all_params = ['context_id', 'format', 'from_time', 'to_time', 'aivr_app_id', 'agent_id', 'queue_id', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -370,6 +368,8 @@ class SaInternalApi(object):
         if self.api_client.client_side_validation and ('to_time' in local_var_params and  # noqa: E501
                                                         len(local_var_params['to_time']) > 32):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `to_time` when calling `sa_call_query`, length must be less than or equal to `32`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `sa_call_query`, must be a value greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] > 250:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `per_page` when calling `sa_call_query`, must be a value less than or equal to `250`")  # noqa: E501
         if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
@@ -396,12 +396,8 @@ class SaInternalApi(object):
         if 'queue_id' in local_var_params and local_var_params['queue_id'] is not None:  # noqa: E501
             query_params.append(('queueId', local_var_params['queue_id']))  # noqa: E501
             collection_formats['queueId'] = 'csv'  # noqa: E501
-        if 'start_after' in local_var_params and local_var_params['start_after'] is not None:  # noqa: E501
-            query_params.append(('start_after', local_var_params['start_after']))  # noqa: E501
-            collection_formats['start_after'] = 'csv'  # noqa: E501
-        if 'end_before' in local_var_params and local_var_params['end_before'] is not None:  # noqa: E501
-            query_params.append(('end_before', local_var_params['end_before']))  # noqa: E501
-            collection_formats['end_before'] = 'csv'  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
         if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
             query_params.append(('per_page', local_var_params['per_page']))  # noqa: E501
         if 'sort_dir' in local_var_params and local_var_params['sort_dir'] is not None:  # noqa: E501
