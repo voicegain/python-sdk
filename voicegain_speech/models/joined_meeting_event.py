@@ -67,7 +67,7 @@ class JoinedMeetingEvent(object):
     def event_type(self):
         """Gets the event_type of this JoinedMeetingEvent.  # noqa: E501
 
-        Event type (more event types may be added in the future): + **connecting** - bot has the URL and is trying to connect to the meeting + **waitingRoom** - bot was put in the waiting room + **admitted** - bot was admitted to the meeting + **rejected** - bot was rejected from the meeting + **failed** - bot failed to join the meeting - for another reason than covered under other events + **meetingEnded** - meeting ended + **leaving** - bot is leaving the meeting + **left** - bot left the meeting which was still in progress + **generic** - generic event - see notes for details   # noqa: E501
+        Event type (more event types may be added in the future): + **connecting** - bot has the URL and is trying to connect to the meeting + **waitingRoom** - bot was put in the waiting room + **admitted** - bot was admitted to the meeting + **rejected** - bot was rejected from the meeting + **failed** - bot failed to join the meeting - for another reason than covered under other events + **meetingEnded** - meeting ended + **leaving** - bot is leaving the meeting + **left** - bot left the meeting which was still in progress + **generic** - generic event - see notes for details + **debug** - debug event - will not be shown to normal users - see notes for details   # noqa: E501
 
         :return: The event_type of this JoinedMeetingEvent.  # noqa: E501
         :rtype: str
@@ -78,12 +78,12 @@ class JoinedMeetingEvent(object):
     def event_type(self, event_type):
         """Sets the event_type of this JoinedMeetingEvent.
 
-        Event type (more event types may be added in the future): + **connecting** - bot has the URL and is trying to connect to the meeting + **waitingRoom** - bot was put in the waiting room + **admitted** - bot was admitted to the meeting + **rejected** - bot was rejected from the meeting + **failed** - bot failed to join the meeting - for another reason than covered under other events + **meetingEnded** - meeting ended + **leaving** - bot is leaving the meeting + **left** - bot left the meeting which was still in progress + **generic** - generic event - see notes for details   # noqa: E501
+        Event type (more event types may be added in the future): + **connecting** - bot has the URL and is trying to connect to the meeting + **waitingRoom** - bot was put in the waiting room + **admitted** - bot was admitted to the meeting + **rejected** - bot was rejected from the meeting + **failed** - bot failed to join the meeting - for another reason than covered under other events + **meetingEnded** - meeting ended + **leaving** - bot is leaving the meeting + **left** - bot left the meeting which was still in progress + **generic** - generic event - see notes for details + **debug** - debug event - will not be shown to normal users - see notes for details   # noqa: E501
 
         :param event_type: The event_type of this JoinedMeetingEvent.  # noqa: E501
         :type: str
         """
-        allowed_values = ["waitingRoom", "admitted", "rejected", "meetingEnded", "leave", "generic"]  # noqa: E501
+        allowed_values = ["waitingRoom", "admitted", "rejected", "meetingEnded", "leave", "generic", "debug"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and event_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `event_type` ({0}), must be one of {1}"  # noqa: E501
