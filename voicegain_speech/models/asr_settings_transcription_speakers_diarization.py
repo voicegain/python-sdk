@@ -108,8 +108,8 @@ class AsrSettingsTranscriptionSpeakersDiarization(object):
         :type: int
         """
         if (self.local_vars_configuration.client_side_validation and
-                min_speakers is not None and min_speakers > 12):  # noqa: E501
-            raise ValueError("Invalid value for `min_speakers`, must be a value less than or equal to `12`")  # noqa: E501
+                min_speakers is not None and min_speakers > 20):  # noqa: E501
+            raise ValueError("Invalid value for `min_speakers`, must be a value less than or equal to `20`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 min_speakers is not None and min_speakers < 1):  # noqa: E501
             raise ValueError("Invalid value for `min_speakers`, must be a value greater than or equal to `1`")  # noqa: E501
