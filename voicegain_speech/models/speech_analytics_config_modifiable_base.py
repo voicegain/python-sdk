@@ -44,6 +44,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
         'gender': 'bool',
         'keyword_groups': 'list[KeywordSpotGroup]',
         'keywords': 'list[KeywordSpotItem]',
+        'llm_copilot_notes_prompt': 'str',
         'llm_summary_prompt': 'str',
         'meeting_minutes': 'SpeechAnalyticsConfigModifiableBaseMeetingMinutes',
         'moods': 'list[MoodType]',
@@ -72,6 +73,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
         'gender': 'gender',
         'keyword_groups': 'keywordGroups',
         'keywords': 'keywords',
+        'llm_copilot_notes_prompt': 'llmCopilotNotesPrompt',
         'llm_summary_prompt': 'llmSummaryPrompt',
         'meeting_minutes': 'meetingMinutes',
         'moods': 'moods',
@@ -89,7 +91,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiableBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -105,6 +107,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
         self._gender = None
         self._keyword_groups = None
         self._keywords = None
+        self._llm_copilot_notes_prompt = None
         self._llm_summary_prompt = None
         self._meeting_minutes = None
         self._moods = None
@@ -142,6 +145,8 @@ class SpeechAnalyticsConfigModifiableBase(object):
             self.keyword_groups = keyword_groups
         if keywords is not None:
             self.keywords = keywords
+        if llm_copilot_notes_prompt is not None:
+            self.llm_copilot_notes_prompt = llm_copilot_notes_prompt
         if llm_summary_prompt is not None:
             self.llm_summary_prompt = llm_summary_prompt
         if meeting_minutes is not None:
@@ -416,10 +421,33 @@ class SpeechAnalyticsConfigModifiableBase(object):
         self._keywords = keywords
 
     @property
+    def llm_copilot_notes_prompt(self):
+        """Gets the llm_copilot_notes_prompt of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
+
+        _(internal use)_ LLM Prompt that is used to generate the copilot notes.  These are the notes that the Agent would normally enter into the CRM system at the end of the call. They ignore anything that is not relevant for the future record on the caller account. The copilot notes are generated immediately after the call ends.   # noqa: E501
+
+        :return: The llm_copilot_notes_prompt of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._llm_copilot_notes_prompt
+
+    @llm_copilot_notes_prompt.setter
+    def llm_copilot_notes_prompt(self, llm_copilot_notes_prompt):
+        """Sets the llm_copilot_notes_prompt of this SpeechAnalyticsConfigModifiableBase.
+
+        _(internal use)_ LLM Prompt that is used to generate the copilot notes.  These are the notes that the Agent would normally enter into the CRM system at the end of the call. They ignore anything that is not relevant for the future record on the caller account. The copilot notes are generated immediately after the call ends.   # noqa: E501
+
+        :param llm_copilot_notes_prompt: The llm_copilot_notes_prompt of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
+        :type: str
+        """
+
+        self._llm_copilot_notes_prompt = llm_copilot_notes_prompt
+
+    @property
     def llm_summary_prompt(self):
         """Gets the llm_summary_prompt of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
 
-        _(internal use)_ LLM Prompt that is used to generate the summary.    # noqa: E501
+        _(internal use)_ LLM Prompt that is used to generate the summary. This is the offline summary of the call, to be distionguished from the copilot notes.   # noqa: E501
 
         :return: The llm_summary_prompt of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :rtype: str
@@ -430,7 +458,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def llm_summary_prompt(self, llm_summary_prompt):
         """Sets the llm_summary_prompt of this SpeechAnalyticsConfigModifiableBase.
 
-        _(internal use)_ LLM Prompt that is used to generate the summary.    # noqa: E501
+        _(internal use)_ LLM Prompt that is used to generate the summary. This is the offline summary of the call, to be distionguished from the copilot notes.   # noqa: E501
 
         :param llm_summary_prompt: The llm_summary_prompt of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :type: str
