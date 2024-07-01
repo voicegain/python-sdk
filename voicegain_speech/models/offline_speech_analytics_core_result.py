@@ -510,8 +510,8 @@ class OfflineSpeechAnalyticsCoreResult(object):
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                short_summary is not None and len(short_summary) > 256):
-            raise ValueError("Invalid value for `short_summary`, length must be less than or equal to `256`")  # noqa: E501
+                short_summary is not None and len(short_summary) > 2048):
+            raise ValueError("Invalid value for `short_summary`, length must be less than or equal to `2048`")  # noqa: E501
 
         self._short_summary = short_summary
 
