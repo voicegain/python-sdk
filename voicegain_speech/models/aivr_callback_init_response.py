@@ -45,7 +45,7 @@ class AIVRCallbackInitResponse(object):
         'vars': 'object',
         'warm_transfer': 'AIVRWarmTransfer',
         'asr_audio_websocket_url': 'str',
-        'real_time_asr_transcribe_session': 'str'
+        'real_time_asr_transcribe_session': 'AIVRCallbackInitResponseAllOfRealTimeAsrTranscribeSession'
     }
 
     attribute_map = {
@@ -357,10 +357,9 @@ class AIVRCallbackInitResponse(object):
     def real_time_asr_transcribe_session(self):
         """Gets the real_time_asr_transcribe_session of this AIVRCallbackInitResponse.  # noqa: E501
 
-        If real-time ASR transcription is requested then this will be the session id of the real-time ASR session. This session will be created by the AIVR logic and the session id will be provided in the response to this request. We should store it on the AIVR session so that we can use it at the end of the call to get instant transcript. If this is present then `asrAudioWebsocketUrl` must be present.    # noqa: E501
 
         :return: The real_time_asr_transcribe_session of this AIVRCallbackInitResponse.  # noqa: E501
-        :rtype: str
+        :rtype: AIVRCallbackInitResponseAllOfRealTimeAsrTranscribeSession
         """
         return self._real_time_asr_transcribe_session
 
@@ -368,10 +367,9 @@ class AIVRCallbackInitResponse(object):
     def real_time_asr_transcribe_session(self, real_time_asr_transcribe_session):
         """Sets the real_time_asr_transcribe_session of this AIVRCallbackInitResponse.
 
-        If real-time ASR transcription is requested then this will be the session id of the real-time ASR session. This session will be created by the AIVR logic and the session id will be provided in the response to this request. We should store it on the AIVR session so that we can use it at the end of the call to get instant transcript. If this is present then `asrAudioWebsocketUrl` must be present.    # noqa: E501
 
         :param real_time_asr_transcribe_session: The real_time_asr_transcribe_session of this AIVRCallbackInitResponse.  # noqa: E501
-        :type: str
+        :type: AIVRCallbackInitResponseAllOfRealTimeAsrTranscribeSession
         """
 
         self._real_time_asr_transcribe_session = real_time_asr_transcribe_session
