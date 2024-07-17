@@ -35,6 +35,7 @@ class AIVRCallbackResponse(object):
     """
     openapi_types = {
         'csid': 'str',
+        'redirect_url': 'str',
         'sequence': 'int',
         'sid': 'str',
         'disconnect': 'AIVRDisconnect',
@@ -48,6 +49,7 @@ class AIVRCallbackResponse(object):
 
     attribute_map = {
         'csid': 'csid',
+        'redirect_url': 'redirectUrl',
         'sequence': 'sequence',
         'sid': 'sid',
         'disconnect': 'disconnect',
@@ -59,13 +61,14 @@ class AIVRCallbackResponse(object):
         'warm_transfer': 'warmTransfer'
     }
 
-    def __init__(self, csid=None, sequence=None, sid=None, disconnect=None, prompt=None, question=None, sub_return=None, transfer=None, vars=None, warm_transfer=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, csid=None, redirect_url=None, sequence=None, sid=None, disconnect=None, prompt=None, question=None, sub_return=None, transfer=None, vars=None, warm_transfer=None, local_vars_configuration=None):  # noqa: E501
         """AIVRCallbackResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._csid = None
+        self._redirect_url = None
         self._sequence = None
         self._sid = None
         self._disconnect = None
@@ -78,6 +81,8 @@ class AIVRCallbackResponse(object):
         self.discriminator = None
 
         self.csid = csid
+        if redirect_url is not None:
+            self.redirect_url = redirect_url
         if sequence is not None:
             self.sequence = sequence
         if sid is not None:
@@ -121,6 +126,29 @@ class AIVRCallbackResponse(object):
             raise ValueError("Invalid value for `csid`, must not be `None`")  # noqa: E501
 
         self._csid = csid
+
+    @property
+    def redirect_url(self):
+        """Gets the redirect_url of this AIVRCallbackResponse.  # noqa: E501
+
+        URL that should be used to make the next logic callback. Usefull, e.g., in high availability scenarions where we want to pin the logic session to a specific server.</br> Once the callback is redirected, the AIVR session should remember it, so that there is no need to provide it in subsequent callbacks.   # noqa: E501
+
+        :return: The redirect_url of this AIVRCallbackResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._redirect_url
+
+    @redirect_url.setter
+    def redirect_url(self, redirect_url):
+        """Sets the redirect_url of this AIVRCallbackResponse.
+
+        URL that should be used to make the next logic callback. Usefull, e.g., in high availability scenarions where we want to pin the logic session to a specific server.</br> Once the callback is redirected, the AIVR session should remember it, so that there is no need to provide it in subsequent callbacks.   # noqa: E501
+
+        :param redirect_url: The redirect_url of this AIVRCallbackResponse.  # noqa: E501
+        :type: str
+        """
+
+        self._redirect_url = redirect_url
 
     @property
     def sequence(self):
