@@ -38,6 +38,7 @@ class AIVRResponsePropertiesAudio(object):
         'grammar': 'list[Grammar]',
         'hints': 'list[str]',
         'incomplete_timeout': 'int',
+        'language': 'str',
         'no_input_timeout': 'int',
         'percolator_threshold': 'int',
         'question_prompt': 'str',
@@ -49,13 +50,14 @@ class AIVRResponsePropertiesAudio(object):
         'grammar': 'grammar',
         'hints': 'hints',
         'incomplete_timeout': 'incompleteTimeout',
+        'language': 'language',
         'no_input_timeout': 'noInputTimeout',
         'percolator_threshold': 'percolatorThreshold',
         'question_prompt': 'questionPrompt',
         'streaming': 'streaming'
     }
 
-    def __init__(self, complete_timeout=2000, grammar=None, hints=None, incomplete_timeout=5000, no_input_timeout=10000, percolator_threshold=None, question_prompt=None, streaming='none', local_vars_configuration=None):  # noqa: E501
+    def __init__(self, complete_timeout=2000, grammar=None, hints=None, incomplete_timeout=5000, language=None, no_input_timeout=10000, percolator_threshold=None, question_prompt=None, streaming='none', local_vars_configuration=None):  # noqa: E501
         """AIVRResponsePropertiesAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class AIVRResponsePropertiesAudio(object):
         self._grammar = None
         self._hints = None
         self._incomplete_timeout = None
+        self._language = None
         self._no_input_timeout = None
         self._percolator_threshold = None
         self._question_prompt = None
@@ -79,6 +82,8 @@ class AIVRResponsePropertiesAudio(object):
             self.hints = hints
         if incomplete_timeout is not None:
             self.incomplete_timeout = incomplete_timeout
+        if language is not None:
+            self.language = language
         if no_input_timeout is not None:
             self.no_input_timeout = no_input_timeout
         if percolator_threshold is not None:
@@ -191,6 +196,35 @@ class AIVRResponsePropertiesAudio(object):
             raise ValueError("Invalid value for `incomplete_timeout`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._incomplete_timeout = incomplete_timeout
+
+    @property
+    def language(self):
+        """Gets the language of this AIVRResponsePropertiesAudio.  # noqa: E501
+
+        Language of the recognition. If not provided, then the default language of the Context where AIVR App is defined will be used.   # noqa: E501
+
+        :return: The language of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :rtype: str
+        """
+        return self._language
+
+    @language.setter
+    def language(self, language):
+        """Sets the language of this AIVRResponsePropertiesAudio.
+
+        Language of the recognition. If not provided, then the default language of the Context where AIVR App is defined will be used.   # noqa: E501
+
+        :param language: The language of this AIVRResponsePropertiesAudio.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["en", "es"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and language not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501
+                .format(language, allowed_values)
+            )
+
+        self._language = language
 
     @property
     def no_input_timeout(self):
