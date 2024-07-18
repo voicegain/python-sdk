@@ -34,30 +34,64 @@ class AIVRPromptPropertiesAudio(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'language': 'str',
         'voice': 'str'
     }
 
     attribute_map = {
+        'language': 'language',
         'voice': 'voice'
     }
 
-    def __init__(self, voice=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, language=None, voice=None, local_vars_configuration=None):  # noqa: E501
         """AIVRPromptPropertiesAudio - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._language = None
         self._voice = None
         self.discriminator = None
 
+        if language is not None:
+            self.language = language
         if voice is not None:
             self.voice = voice
+
+    @property
+    def language(self):
+        """Gets the language of this AIVRPromptPropertiesAudio.  # noqa: E501
+
+        (optional) Language of the prompt. If not provided then the curent language of the AIVR session will be used.   # noqa: E501
+
+        :return: The language of this AIVRPromptPropertiesAudio.  # noqa: E501
+        :rtype: str
+        """
+        return self._language
+
+    @language.setter
+    def language(self, language):
+        """Sets the language of this AIVRPromptPropertiesAudio.
+
+        (optional) Language of the prompt. If not provided then the curent language of the AIVR session will be used.   # noqa: E501
+
+        :param language: The language of this AIVRPromptPropertiesAudio.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["en", "es"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and language not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501
+                .format(language, allowed_values)
+            )
+
+        self._language = language
 
     @property
     def voice(self):
         """Gets the voice of this AIVRPromptPropertiesAudio.  # noqa: E501
 
-        (optional) voice to be used for the text prompt  # noqa: E501
+        (optional) Voice to be used for the text prompt. If provided then it will overide the language setting, because voice names are unique across languages.  # noqa: E501
 
         :return: The voice of this AIVRPromptPropertiesAudio.  # noqa: E501
         :rtype: str
@@ -68,7 +102,7 @@ class AIVRPromptPropertiesAudio(object):
     def voice(self, voice):
         """Sets the voice of this AIVRPromptPropertiesAudio.
 
-        (optional) voice to be used for the text prompt  # noqa: E501
+        (optional) Voice to be used for the text prompt. If provided then it will overide the language setting, because voice names are unique across languages.  # noqa: E501
 
         :param voice: The voice of this AIVRPromptPropertiesAudio.  # noqa: E501
         :type: str

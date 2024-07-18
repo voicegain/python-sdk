@@ -38,7 +38,7 @@ class AIVRResponsePropertiesAudio(object):
         'grammar': 'list[Grammar]',
         'hints': 'list[str]',
         'incomplete_timeout': 'int',
-        'language': 'str',
+        'language': 'list[str]',
         'no_input_timeout': 'int',
         'percolator_threshold': 'int',
         'question_prompt': 'str',
@@ -201,10 +201,10 @@ class AIVRResponsePropertiesAudio(object):
     def language(self):
         """Gets the language of this AIVRResponsePropertiesAudio.  # noqa: E501
 
-        Language of the recognition. If not provided, then the default language of the Context where AIVR App is defined will be used.   # noqa: E501
+        Language(s) of the recognition. If not provided, then the language of the AIVR App logic will be used   # noqa: E501
 
         :return: The language of this AIVRResponsePropertiesAudio.  # noqa: E501
-        :rtype: str
+        :rtype: list[str]
         """
         return self._language
 
@@ -212,16 +212,18 @@ class AIVRResponsePropertiesAudio(object):
     def language(self, language):
         """Sets the language of this AIVRResponsePropertiesAudio.
 
-        Language of the recognition. If not provided, then the default language of the Context where AIVR App is defined will be used.   # noqa: E501
+        Language(s) of the recognition. If not provided, then the language of the AIVR App logic will be used   # noqa: E501
 
         :param language: The language of this AIVRResponsePropertiesAudio.  # noqa: E501
-        :type: str
+        :type: list[str]
         """
         allowed_values = ["en", "es"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and language not in allowed_values:  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                not set(language).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(
-                "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501
-                .format(language, allowed_values)
+                "Invalid values for `language` [{0}], must be a subset of [{1}]"  # noqa: E501
+                .format(", ".join(map(str, set(language) - set(allowed_values))),  # noqa: E501
+                        ", ".join(map(str, allowed_values)))
             )
 
         self._language = language
