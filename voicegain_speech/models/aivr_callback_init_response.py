@@ -38,6 +38,7 @@ class AIVRCallbackInitResponse(object):
         'redirect_url': 'str',
         'sequence': 'int',
         'sid': 'str',
+        'switch_language': 'str',
         'disconnect': 'AIVRDisconnect',
         'prompt': 'AIVRPrompt',
         'question': 'AIVRQuestion',
@@ -54,6 +55,7 @@ class AIVRCallbackInitResponse(object):
         'redirect_url': 'redirectUrl',
         'sequence': 'sequence',
         'sid': 'sid',
+        'switch_language': 'switchLanguage',
         'disconnect': 'disconnect',
         'prompt': 'prompt',
         'question': 'question',
@@ -65,7 +67,7 @@ class AIVRCallbackInitResponse(object):
         'real_time_asr_transcribe_session': 'realTimeAsrTranscribeSession'
     }
 
-    def __init__(self, csid=None, redirect_url=None, sequence=None, sid=None, disconnect=None, prompt=None, question=None, sub_return=None, transfer=None, vars=None, warm_transfer=None, asr_audio_websocket_url=None, real_time_asr_transcribe_session=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, csid=None, redirect_url=None, sequence=None, sid=None, switch_language=None, disconnect=None, prompt=None, question=None, sub_return=None, transfer=None, vars=None, warm_transfer=None, asr_audio_websocket_url=None, real_time_asr_transcribe_session=None, local_vars_configuration=None):  # noqa: E501
         """AIVRCallbackInitResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class AIVRCallbackInitResponse(object):
         self._redirect_url = None
         self._sequence = None
         self._sid = None
+        self._switch_language = None
         self._disconnect = None
         self._prompt = None
         self._question = None
@@ -93,6 +96,8 @@ class AIVRCallbackInitResponse(object):
             self.sequence = sequence
         if sid is not None:
             self.sid = sid
+        if switch_language is not None:
+            self.switch_language = switch_language
         if disconnect is not None:
             self.disconnect = disconnect
         if prompt is not None:
@@ -208,6 +213,35 @@ class AIVRCallbackInitResponse(object):
         """
 
         self._sid = sid
+
+    @property
+    def switch_language(self):
+        """Gets the switch_language of this AIVRCallbackInitResponse.  # noqa: E501
+
+        If present then the language used for TTS and ASR will be switched to the indicated language. The language will be switched for the duration of the call or until the logic switches (logic has a language setting) or until switchLanguage is invoked again.   # noqa: E501
+
+        :return: The switch_language of this AIVRCallbackInitResponse.  # noqa: E501
+        :rtype: str
+        """
+        return self._switch_language
+
+    @switch_language.setter
+    def switch_language(self, switch_language):
+        """Sets the switch_language of this AIVRCallbackInitResponse.
+
+        If present then the language used for TTS and ASR will be switched to the indicated language. The language will be switched for the duration of the call or until the logic switches (logic has a language setting) or until switchLanguage is invoked again.   # noqa: E501
+
+        :param switch_language: The switch_language of this AIVRCallbackInitResponse.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["en", "es"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and switch_language not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `switch_language` ({0}), must be one of {1}"  # noqa: E501
+                .format(switch_language, allowed_values)
+            )
+
+        self._switch_language = switch_language
 
     @property
     def disconnect(self):

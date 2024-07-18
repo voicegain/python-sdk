@@ -37,17 +37,19 @@ class AIVRCallbackResponseAllOf(object):
         'csid': 'str',
         'redirect_url': 'str',
         'sequence': 'int',
-        'sid': 'str'
+        'sid': 'str',
+        'switch_language': 'str'
     }
 
     attribute_map = {
         'csid': 'csid',
         'redirect_url': 'redirectUrl',
         'sequence': 'sequence',
-        'sid': 'sid'
+        'sid': 'sid',
+        'switch_language': 'switchLanguage'
     }
 
-    def __init__(self, csid=None, redirect_url=None, sequence=None, sid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, csid=None, redirect_url=None, sequence=None, sid=None, switch_language=None, local_vars_configuration=None):  # noqa: E501
         """AIVRCallbackResponseAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -57,6 +59,7 @@ class AIVRCallbackResponseAllOf(object):
         self._redirect_url = None
         self._sequence = None
         self._sid = None
+        self._switch_language = None
         self.discriminator = None
 
         self.csid = csid
@@ -66,6 +69,8 @@ class AIVRCallbackResponseAllOf(object):
             self.sequence = sequence
         if sid is not None:
             self.sid = sid
+        if switch_language is not None:
+            self.switch_language = switch_language
 
     @property
     def csid(self):
@@ -163,6 +168,35 @@ class AIVRCallbackResponseAllOf(object):
         """
 
         self._sid = sid
+
+    @property
+    def switch_language(self):
+        """Gets the switch_language of this AIVRCallbackResponseAllOf.  # noqa: E501
+
+        If present then the language used for TTS and ASR will be switched to the indicated language. The language will be switched for the duration of the call or until the logic switches (logic has a language setting) or until switchLanguage is invoked again.   # noqa: E501
+
+        :return: The switch_language of this AIVRCallbackResponseAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._switch_language
+
+    @switch_language.setter
+    def switch_language(self, switch_language):
+        """Sets the switch_language of this AIVRCallbackResponseAllOf.
+
+        If present then the language used for TTS and ASR will be switched to the indicated language. The language will be switched for the duration of the call or until the logic switches (logic has a language setting) or until switchLanguage is invoked again.   # noqa: E501
+
+        :param switch_language: The switch_language of this AIVRCallbackResponseAllOf.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["en", "es"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and switch_language not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `switch_language` ({0}), must be one of {1}"  # noqa: E501
+                .format(switch_language, allowed_values)
+            )
+
+        self._switch_language = switch_language
 
     def to_dict(self):
         """Returns the model properties as a dict"""
