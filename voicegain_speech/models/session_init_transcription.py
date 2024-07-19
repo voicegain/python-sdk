@@ -39,6 +39,7 @@ class SessionInitTranscription(object):
         'callback': 'CallbackReq',
         'content': 'RequestedContent',
         'diarization': 'SessionInitTranscriptionDiarization',
+        'external_id': 'str',
         'extra_params': 'str',
         'initial_prompt': 'str',
         'metadata': 'list[NameValuePair]',
@@ -55,6 +56,7 @@ class SessionInitTranscription(object):
         'callback': 'callback',
         'content': 'content',
         'diarization': 'diarization',
+        'external_id': 'externalId',
         'extra_params': 'extraParams',
         'initial_prompt': 'initialPrompt',
         'metadata': 'metadata',
@@ -65,7 +67,7 @@ class SessionInitTranscription(object):
         'websocket': 'websocket'
     }
 
-    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, diarization=None, extra_params=None, initial_prompt=None, metadata=None, poll=None, portal=None, tags=None, vad_mode=None, websocket=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, diarization=None, external_id=None, extra_params=None, initial_prompt=None, metadata=None, poll=None, portal=None, tags=None, vad_mode=None, websocket=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,6 +78,7 @@ class SessionInitTranscription(object):
         self._callback = None
         self._content = None
         self._diarization = None
+        self._external_id = None
         self._extra_params = None
         self._initial_prompt = None
         self._metadata = None
@@ -95,6 +98,8 @@ class SessionInitTranscription(object):
             self.content = content
         if diarization is not None:
             self.diarization = diarization
+        if external_id is not None:
+            self.external_id = external_id
         if extra_params is not None:
             self.extra_params = extra_params
         if initial_prompt is not None:
@@ -218,6 +223,35 @@ class SessionInitTranscription(object):
         """
 
         self._diarization = diarization
+
+    @property
+    def external_id(self):
+        """Gets the external_id of this SessionInitTranscription.  # noqa: E501
+
+        (Optional) External UUID that can be used to identify the session. </br> It is usefull in scenarios where the calling party cannot inspect the response to get the sessionId.   # noqa: E501
+
+        :return: The external_id of this SessionInitTranscription.  # noqa: E501
+        :rtype: str
+        """
+        return self._external_id
+
+    @external_id.setter
+    def external_id(self, external_id):
+        """Sets the external_id of this SessionInitTranscription.
+
+        (Optional) External UUID that can be used to identify the session. </br> It is usefull in scenarios where the calling party cannot inspect the response to get the sessionId.   # noqa: E501
+
+        :param external_id: The external_id of this SessionInitTranscription.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                external_id is not None and len(external_id) > 128):
+            raise ValueError("Invalid value for `external_id`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                external_id is not None and len(external_id) < 1):
+            raise ValueError("Invalid value for `external_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._external_id = external_id
 
     @property
     def extra_params(self):

@@ -320,7 +320,7 @@ class WebsocketInit(object):
     def ss_id(self):
         """Gets the ss_id of this WebsocketInit.  # noqa: E501
 
-        A short string that is relevant only to scenarios where: - there is more than 1 session for transcription - the `mode` is transceiver or predefined   This string will be put in the messages with the results of transcription to distinguish between results generated from different sessions. Some example values would be: \"left\"/\"right\", \"inbound\"/\"outbound\".   # noqa: E501
+        A short string that is relevant only to scenarios where: - there is more than 1 session for transcription - the `mode` is `transceiver`, `predefined`, or `external`  This string will be put in the messages with the results of transcription to distinguish between results generated from different sessions. Some example values would be: \"left\"/\"right\", \"inbound\"/\"outbound\".  If the  `mode` is `external` then all sessions that have a valie of `ssId` specified will use the same websocket sessions to send the results.   # noqa: E501
 
         :return: The ss_id of this WebsocketInit.  # noqa: E501
         :rtype: str
@@ -331,7 +331,7 @@ class WebsocketInit(object):
     def ss_id(self, ss_id):
         """Sets the ss_id of this WebsocketInit.
 
-        A short string that is relevant only to scenarios where: - there is more than 1 session for transcription - the `mode` is transceiver or predefined   This string will be put in the messages with the results of transcription to distinguish between results generated from different sessions. Some example values would be: \"left\"/\"right\", \"inbound\"/\"outbound\".   # noqa: E501
+        A short string that is relevant only to scenarios where: - there is more than 1 session for transcription - the `mode` is `transceiver`, `predefined`, or `external`  This string will be put in the messages with the results of transcription to distinguish between results generated from different sessions. Some example values would be: \"left\"/\"right\", \"inbound\"/\"outbound\".  If the  `mode` is `external` then all sessions that have a valie of `ssId` specified will use the same websocket sessions to send the results.   # noqa: E501
 
         :param ss_id: The ss_id of this WebsocketInit.  # noqa: E501
         :type: str

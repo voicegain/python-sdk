@@ -217,7 +217,7 @@ class AIVRResponsePropertiesAudio(object):
         :param language: The language of this AIVRResponsePropertiesAudio.  # noqa: E501
         :type: list[str]
         """
-        allowed_values = ["en", "es"]  # noqa: E501
+        allowed_values = ["en", "en-us", "en-in", "es"]  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 not set(language).issubset(set(allowed_values))):  # noqa: E501
             raise ValueError(

@@ -234,7 +234,7 @@ class AIVRCallbackInitResponse(object):
         :param switch_language: The switch_language of this AIVRCallbackInitResponse.  # noqa: E501
         :type: str
         """
-        allowed_values = ["en", "es"]  # noqa: E501
+        allowed_values = ["en", "en-us", "en-in", "es"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and switch_language not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `switch_language` ({0}), must be one of {1}"  # noqa: E501
