@@ -95,6 +95,8 @@ from voicegain_speech.models.aivr_warm_transfer import AIVRWarmTransfer
 from voicegain_speech.models.account_and_context_id import AccountAndContextId
 from voicegain_speech.models.advanced_regex import AdvancedRegex
 from voicegain_speech.models.agent import Agent
+from voicegain_speech.models.agent_all_of import AgentAllOf
+from voicegain_speech.models.agent_base import AgentBase
 from voicegain_speech.models.aircall import Aircall
 from voicegain_speech.models.aircall_all_of import AircallAllOf
 from voicegain_speech.models.aivr_event_with_vars import AivrEventWithVars
