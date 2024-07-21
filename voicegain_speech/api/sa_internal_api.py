@@ -439,13 +439,14 @@ class SaInternalApi(object):
     def sa_call_search_fields_get(self, **kwargs):  # noqa: E501
         """Call Search Fields  # noqa: E501
 
-        Returns fields types and values (where they can be enumerated) that can be used in search query.</br> If request is made with HMAC signature, then only fields that are searchable by the user are returned (may be further restricted by `ctxSelect`).</br> If request is made with JWT token, then all fields within account are returned (unless restricted by `ctxSelect`).</br>   # noqa: E501
+        Returns fields types and values (where they can be enumerated) that can be used in search query.</br> If request is made with HMAC signature, then only fields that are searchable by the user are returned (may be further restricted by `contextId` list).</br> If request is made with JWT token, then all fields within account are returned (unless restricted by `contextId` list).</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_fields_get(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.
         :param list[CallField] field: Field for which to provide information. If not provided then will return all fields. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -464,13 +465,14 @@ class SaInternalApi(object):
     def sa_call_search_fields_get_with_http_info(self, **kwargs):  # noqa: E501
         """Call Search Fields  # noqa: E501
 
-        Returns fields types and values (where they can be enumerated) that can be used in search query.</br> If request is made with HMAC signature, then only fields that are searchable by the user are returned (may be further restricted by `ctxSelect`).</br> If request is made with JWT token, then all fields within account are returned (unless restricted by `ctxSelect`).</br>   # noqa: E501
+        Returns fields types and values (where they can be enumerated) that can be used in search query.</br> If request is made with HMAC signature, then only fields that are searchable by the user are returned (may be further restricted by `contextId` list).</br> If request is made with JWT token, then all fields within account are returned (unless restricted by `contextId` list).</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_fields_get_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.
         :param list[CallField] field: Field for which to provide information. If not provided then will return all fields. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -488,7 +490,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['field']  # noqa: E501
+        all_params = ['context_id', 'field']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -508,6 +510,9 @@ class SaInternalApi(object):
         path_params = {}
 
         query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+            collection_formats['contextId'] = 'csv'  # noqa: E501
         if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501
             query_params.append(('field', local_var_params['field']))  # noqa: E501
             collection_formats['field'] = 'csv'  # noqa: E501
