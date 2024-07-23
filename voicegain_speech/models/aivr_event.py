@@ -36,6 +36,7 @@ class AIVREvent(object):
     openapi_types = {
         'completion_state': 'str',
         'logic_type': 'AIVRLogicType',
+        'metadata': 'list[NameValuePair]',
         'sequence': 'str',
         'time_msec': 'int',
         'type': 'AIVREventType'
@@ -44,6 +45,7 @@ class AIVREvent(object):
     attribute_map = {
         'completion_state': 'completionState',
         'logic_type': 'logicType',
+        'metadata': 'metadata',
         'sequence': 'sequence',
         'time_msec': 'timeMsec',
         'type': 'type'
@@ -61,7 +63,7 @@ class AIVREvent(object):
         'warmTransfer': 'WarmTransfer'
     }
 
-    def __init__(self, completion_state='completed', logic_type=None, sequence=None, time_msec=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, completion_state='completed', logic_type=None, metadata=None, sequence=None, time_msec=None, type=None, local_vars_configuration=None):  # noqa: E501
         """AIVREvent - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -69,6 +71,7 @@ class AIVREvent(object):
 
         self._completion_state = None
         self._logic_type = None
+        self._metadata = None
         self._sequence = None
         self._time_msec = None
         self._type = None
@@ -78,6 +81,8 @@ class AIVREvent(object):
             self.completion_state = completion_state
         if logic_type is not None:
             self.logic_type = logic_type
+        if metadata is not None:
+            self.metadata = metadata
         self.sequence = sequence
         self.time_msec = time_msec
         self.type = type
@@ -131,6 +136,29 @@ class AIVREvent(object):
         """
 
         self._logic_type = logic_type
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this AIVREvent.  # noqa: E501
+
+        Any (meta)data attached to the event  # noqa: E501
+
+        :return: The metadata of this AIVREvent.  # noqa: E501
+        :rtype: list[NameValuePair]
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this AIVREvent.
+
+        Any (meta)data attached to the event  # noqa: E501
+
+        :param metadata: The metadata of this AIVREvent.  # noqa: E501
+        :type: list[NameValuePair]
+        """
+
+        self._metadata = metadata
 
     @property
     def sequence(self):
