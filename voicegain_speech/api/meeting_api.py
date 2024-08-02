@@ -550,6 +550,7 @@ class MeetingApi(object):
         :param str meeting_id: ID of the meeting transcribe task (required)
         :param str format: Format of the transcript to be returned: + text - plain text transcript with optional timing information + pdf - transcript in PDF format + docx - transcript in Word docx format + vtt - transcript in WebVTT caption format 
         :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> 
+        :param bool metadata: If true then metadata will be included in the transcript.</br> Right now, applies only to `\"text\"`` transcript. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -577,6 +578,7 @@ class MeetingApi(object):
         :param str meeting_id: ID of the meeting transcribe task (required)
         :param str format: Format of the transcript to be returned: + text - plain text transcript with optional timing information + pdf - transcript in PDF format + docx - transcript in Word docx format + vtt - transcript in WebVTT caption format 
         :param float interval: Applicable only to plain text transcript. Determines interval (in seconds) between time stamps.</br> If absent, no time stamps will be provided.<br> 
+        :param bool metadata: If true then metadata will be included in the transcript.</br> Right now, applies only to `\"text\"`` transcript. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -593,7 +595,7 @@ class MeetingApi(object):
 
         local_var_params = locals()
 
-        all_params = ['meeting_id', 'format', 'interval']  # noqa: E501
+        all_params = ['meeting_id', 'format', 'interval', 'metadata']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -631,6 +633,8 @@ class MeetingApi(object):
             query_params.append(('format', local_var_params['format']))  # noqa: E501
         if 'interval' in local_var_params and local_var_params['interval'] is not None:  # noqa: E501
             query_params.append(('interval', local_var_params['interval']))  # noqa: E501
+        if 'metadata' in local_var_params and local_var_params['metadata'] is not None:  # noqa: E501
+            query_params.append(('metadata', local_var_params['metadata']))  # noqa: E501
 
         header_params = {}
 
