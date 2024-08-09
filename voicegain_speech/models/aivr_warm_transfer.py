@@ -35,29 +35,34 @@ class AIVRWarmTransfer(object):
     """
     openapi_types = {
         'aivr_app': 'str',
+        'bridge_prompt': 'AIVRPrompt',
         'phone': 'AIVRPhoneTransferWarm',
         'prompt': 'AIVRPrompt'
     }
 
     attribute_map = {
         'aivr_app': 'aivrApp',
+        'bridge_prompt': 'bridgePrompt',
         'phone': 'phone',
         'prompt': 'prompt'
     }
 
-    def __init__(self, aivr_app=None, phone=None, prompt=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app=None, bridge_prompt=None, phone=None, prompt=None, local_vars_configuration=None):  # noqa: E501
         """AIVRWarmTransfer - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._aivr_app = None
+        self._bridge_prompt = None
         self._phone = None
         self._prompt = None
         self.discriminator = None
 
         if aivr_app is not None:
             self.aivr_app = aivr_app
+        if bridge_prompt is not None:
+            self.bridge_prompt = bridge_prompt
         if phone is not None:
             self.phone = phone
         if prompt is not None:
@@ -85,6 +90,27 @@ class AIVRWarmTransfer(object):
         """
 
         self._aivr_app = aivr_app
+
+    @property
+    def bridge_prompt(self):
+        """Gets the bridge_prompt of this AIVRWarmTransfer.  # noqa: E501
+
+
+        :return: The bridge_prompt of this AIVRWarmTransfer.  # noqa: E501
+        :rtype: AIVRPrompt
+        """
+        return self._bridge_prompt
+
+    @bridge_prompt.setter
+    def bridge_prompt(self, bridge_prompt):
+        """Sets the bridge_prompt of this AIVRWarmTransfer.
+
+
+        :param bridge_prompt: The bridge_prompt of this AIVRWarmTransfer.  # noqa: E501
+        :type: AIVRPrompt
+        """
+
+        self._bridge_prompt = bridge_prompt
 
     @property
     def phone(self):
