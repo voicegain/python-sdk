@@ -49,7 +49,7 @@ class MeetingData(object):
         'merged_audio_id': 'str',
         'metadata': 'list[NameValuePair]',
         'mpd_id': 'str',
-        'non_speaking_participants': 'list[NonSpeakingParticipant]',
+        'non_speaking_participants': 'list[NonSpeakingParticipantWithOptionalEmail]',
         'persist_seconds': 'float',
         'phrases': 'MeetingPhraseData',
         'size_in_storage': 'int',
@@ -529,7 +529,7 @@ class MeetingData(object):
         (optional) List of participants in the meeting who did not speak. Has no overlap with `speakers` list. This is not used for transcription at all, just stored and returned back when queried for the meeting. May be used by the Web UI.   # noqa: E501
 
         :return: The non_speaking_participants of this MeetingData.  # noqa: E501
-        :rtype: list[NonSpeakingParticipant]
+        :rtype: list[NonSpeakingParticipantWithOptionalEmail]
         """
         return self._non_speaking_participants
 
@@ -540,7 +540,7 @@ class MeetingData(object):
         (optional) List of participants in the meeting who did not speak. Has no overlap with `speakers` list. This is not used for transcription at all, just stored and returned back when queried for the meeting. May be used by the Web UI.   # noqa: E501
 
         :param non_speaking_participants: The non_speaking_participants of this MeetingData.  # noqa: E501
-        :type: list[NonSpeakingParticipant]
+        :type: list[NonSpeakingParticipantWithOptionalEmail]
         """
 
         self._non_speaking_participants = non_speaking_participants
