@@ -48,6 +48,7 @@ class VoiceCallAllOf(object):
         'sa_session_id': 'str',
         'score': 'float',
         'sentiment': 'float',
+        'spawned_calls': 'list[str]',
         'topics': 'list[str]',
         'version': 'int',
         'word_cloud': 'list[WordCloudItem]'
@@ -68,12 +69,13 @@ class VoiceCallAllOf(object):
         'sa_session_id': 'saSessionId',
         'score': 'score',
         'sentiment': 'sentiment',
+        'spawned_calls': 'spawnedCalls',
         'topics': 'topics',
         'version': 'version',
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -93,6 +95,7 @@ class VoiceCallAllOf(object):
         self._sa_session_id = None
         self._score = None
         self._sentiment = None
+        self._spawned_calls = None
         self._topics = None
         self._version = None
         self._word_cloud = None
@@ -126,6 +129,8 @@ class VoiceCallAllOf(object):
             self.score = score
         if sentiment is not None:
             self.sentiment = sentiment
+        if spawned_calls is not None:
+            self.spawned_calls = spawned_calls
         if topics is not None:
             self.topics = topics
         if version is not None:
@@ -484,6 +489,29 @@ class VoiceCallAllOf(object):
         """
 
         self._sentiment = sentiment
+
+    @property
+    def spawned_calls(self):
+        """Gets the spawned_calls of this VoiceCallAllOf.  # noqa: E501
+
+        List of callIds of calls that were spawned from this call. This is used in scenarios of Warm Call Transfer. Currently we only have 1 single warm transfer call per originating call, but in the future we may have multiple.    # noqa: E501
+
+        :return: The spawned_calls of this VoiceCallAllOf.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._spawned_calls
+
+    @spawned_calls.setter
+    def spawned_calls(self, spawned_calls):
+        """Sets the spawned_calls of this VoiceCallAllOf.
+
+        List of callIds of calls that were spawned from this call. This is used in scenarios of Warm Call Transfer. Currently we only have 1 single warm transfer call per originating call, but in the future we may have multiple.    # noqa: E501
+
+        :param spawned_calls: The spawned_calls of this VoiceCallAllOf.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._spawned_calls = spawned_calls
 
     @property
     def topics(self):

@@ -43,6 +43,7 @@ class VoiceCall(object):
         'internal_endpoint': 'str',
         'num_audio_channels': 'int',
         'num_spk_channels': 'int',
+        'originating_call_id': 'str',
         'queue': 'Queue',
         'recording': 'str',
         'start_time': 'datetime',
@@ -61,6 +62,7 @@ class VoiceCall(object):
         'sa_session_id': 'str',
         'score': 'float',
         'sentiment': 'float',
+        'spawned_calls': 'list[str]',
         'topics': 'list[str]',
         'version': 'int',
         'word_cloud': 'list[WordCloudItem]'
@@ -76,6 +78,7 @@ class VoiceCall(object):
         'internal_endpoint': 'internalEndpoint',
         'num_audio_channels': 'numAudioChannels',
         'num_spk_channels': 'numSpkChannels',
+        'originating_call_id': 'originatingCallId',
         'queue': 'queue',
         'recording': 'recording',
         'start_time': 'startTime',
@@ -94,12 +97,13 @@ class VoiceCall(object):
         'sa_session_id': 'saSessionId',
         'score': 'score',
         'sentiment': 'sentiment',
+        'spawned_calls': 'spawnedCalls',
         'topics': 'topics',
         'version': 'version',
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, direction=None, end_time=None, external_endpoint=None, internal_endpoint=None, num_audio_channels=2, num_spk_channels=2, queue=None, recording=None, start_time=None, tags=None, account_id=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, direction=None, end_time=None, external_endpoint=None, internal_endpoint=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -114,6 +118,7 @@ class VoiceCall(object):
         self._internal_endpoint = None
         self._num_audio_channels = None
         self._num_spk_channels = None
+        self._originating_call_id = None
         self._queue = None
         self._recording = None
         self._start_time = None
@@ -132,6 +137,7 @@ class VoiceCall(object):
         self._sa_session_id = None
         self._score = None
         self._sentiment = None
+        self._spawned_calls = None
         self._topics = None
         self._version = None
         self._word_cloud = None
@@ -155,6 +161,8 @@ class VoiceCall(object):
             self.num_audio_channels = num_audio_channels
         if num_spk_channels is not None:
             self.num_spk_channels = num_spk_channels
+        if originating_call_id is not None:
+            self.originating_call_id = originating_call_id
         if queue is not None:
             self.queue = queue
         if recording is not None:
@@ -191,6 +199,8 @@ class VoiceCall(object):
             self.score = score
         if sentiment is not None:
             self.sentiment = sentiment
+        if spawned_calls is not None:
+            self.spawned_calls = spawned_calls
         if topics is not None:
             self.topics = topics
         if version is not None:
@@ -420,6 +430,35 @@ class VoiceCall(object):
             raise ValueError("Invalid value for `num_spk_channels`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._num_spk_channels = num_spk_channels
+
+    @property
+    def originating_call_id(self):
+        """Gets the originating_call_id of this VoiceCall.  # noqa: E501
+
+        Id of the originating call.  For now this applies in scenario of a Warm Call Transfer. The call that launched the warm transfer will be the originating call.   # noqa: E501
+
+        :return: The originating_call_id of this VoiceCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._originating_call_id
+
+    @originating_call_id.setter
+    def originating_call_id(self, originating_call_id):
+        """Sets the originating_call_id of this VoiceCall.
+
+        Id of the originating call.  For now this applies in scenario of a Warm Call Transfer. The call that launched the warm transfer will be the originating call.   # noqa: E501
+
+        :param originating_call_id: The originating_call_id of this VoiceCall.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                originating_call_id is not None and len(originating_call_id) > 48):
+            raise ValueError("Invalid value for `originating_call_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                originating_call_id is not None and len(originating_call_id) < 1):
+            raise ValueError("Invalid value for `originating_call_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._originating_call_id = originating_call_id
 
     @property
     def queue(self):
@@ -862,6 +901,29 @@ class VoiceCall(object):
         """
 
         self._sentiment = sentiment
+
+    @property
+    def spawned_calls(self):
+        """Gets the spawned_calls of this VoiceCall.  # noqa: E501
+
+        List of callIds of calls that were spawned from this call. This is used in scenarios of Warm Call Transfer. Currently we only have 1 single warm transfer call per originating call, but in the future we may have multiple.    # noqa: E501
+
+        :return: The spawned_calls of this VoiceCall.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._spawned_calls
+
+    @spawned_calls.setter
+    def spawned_calls(self, spawned_calls):
+        """Sets the spawned_calls of this VoiceCall.
+
+        List of callIds of calls that were spawned from this call. This is used in scenarios of Warm Call Transfer. Currently we only have 1 single warm transfer call per originating call, but in the future we may have multiple.    # noqa: E501
+
+        :param spawned_calls: The spawned_calls of this VoiceCall.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._spawned_calls = spawned_calls
 
     @property
     def topics(self):
