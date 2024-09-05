@@ -173,7 +173,7 @@ class AIVRCallbackResponseAllOf(object):
     def switch_language(self):
         """Gets the switch_language of this AIVRCallbackResponseAllOf.  # noqa: E501
 
-        If present then the language used for TTS and ASR will be switched to the indicated language. The language will be switched for the duration of the call or until the logic switches (logic has a language setting) or until switchLanguage is invoked again.   # noqa: E501
+        If present then the language used for TTS and ASR will be switched to the indicated language. The language will be switched for the duration of the call or until the logic switches (logic has a language setting) or until `switchLanguage` is invoked again.   # noqa: E501
 
         :return: The switch_language of this AIVRCallbackResponseAllOf.  # noqa: E501
         :rtype: str
@@ -184,12 +184,12 @@ class AIVRCallbackResponseAllOf(object):
     def switch_language(self, switch_language):
         """Sets the switch_language of this AIVRCallbackResponseAllOf.
 
-        If present then the language used for TTS and ASR will be switched to the indicated language. The language will be switched for the duration of the call or until the logic switches (logic has a language setting) or until switchLanguage is invoked again.   # noqa: E501
+        If present then the language used for TTS and ASR will be switched to the indicated language. The language will be switched for the duration of the call or until the logic switches (logic has a language setting) or until `switchLanguage` is invoked again.   # noqa: E501
 
         :param switch_language: The switch_language of this AIVRCallbackResponseAllOf.  # noqa: E501
         :type: str
         """
-        allowed_values = ["en", "en-us", "en-in", "es"]  # noqa: E501
+        allowed_values = ["en", "en-us", "en-in", "es", "ko"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and switch_language not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `switch_language` ({0}), must be one of {1}"  # noqa: E501
