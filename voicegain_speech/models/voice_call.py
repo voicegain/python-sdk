@@ -57,6 +57,7 @@ class VoiceCall(object):
         'incidents': 'float',
         'keywords': 'list[str]',
         'notes': 'str',
+        'progress_phase': 'ProgressPhase',
         'review_notes': 'str',
         'review_status': 'str',
         'sa_session_id': 'str',
@@ -92,6 +93,7 @@ class VoiceCall(object):
         'incidents': 'incidents',
         'keywords': 'keywords',
         'notes': 'notes',
+        'progress_phase': 'progressPhase',
         'review_notes': 'reviewNotes',
         'review_status': 'reviewStatus',
         'sa_session_id': 'saSessionId',
@@ -103,7 +105,7 @@ class VoiceCall(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, direction=None, end_time=None, external_endpoint=None, internal_endpoint=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, direction=None, end_time=None, external_endpoint=None, internal_endpoint=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, progress_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -132,6 +134,7 @@ class VoiceCall(object):
         self._incidents = None
         self._keywords = None
         self._notes = None
+        self._progress_phase = None
         self._review_notes = None
         self._review_status = None
         self._sa_session_id = None
@@ -189,6 +192,8 @@ class VoiceCall(object):
             self.keywords = keywords
         if notes is not None:
             self.notes = notes
+        if progress_phase is not None:
+            self.progress_phase = progress_phase
         if review_notes is not None:
             self.review_notes = review_notes
         if review_status is not None:
@@ -780,6 +785,27 @@ class VoiceCall(object):
         """
 
         self._notes = notes
+
+    @property
+    def progress_phase(self):
+        """Gets the progress_phase of this VoiceCall.  # noqa: E501
+
+
+        :return: The progress_phase of this VoiceCall.  # noqa: E501
+        :rtype: ProgressPhase
+        """
+        return self._progress_phase
+
+    @progress_phase.setter
+    def progress_phase(self, progress_phase):
+        """Sets the progress_phase of this VoiceCall.
+
+
+        :param progress_phase: The progress_phase of this VoiceCall.  # noqa: E501
+        :type: ProgressPhase
+        """
+
+        self._progress_phase = progress_phase
 
     @property
     def review_notes(self):
