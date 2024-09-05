@@ -232,7 +232,7 @@ class WsAivrServerMessages(object):
     def auth_token(self):
         """Gets the auth_token of this WsAivrServerMessages.  # noqa: E501
 
-        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut) + [GET /aivr-app/{aivrAppId}/business](#tag/aivr-app/operation/aivrAppBusinessGet)   # noqa: E501
+        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut) + [GET /aivr-app/{aivrAppId}/business](#tag/aivr-app/operation/aivrAppBusinessGetByToken) + [GET /aivr-app/{aivrAppId}/jwt](#tag/aivr-app/operation/aivrAppJwtGetByToken)   # noqa: E501
 
         :return: The auth_token of this WsAivrServerMessages.  # noqa: E501
         :rtype: str
@@ -243,7 +243,7 @@ class WsAivrServerMessages(object):
     def auth_token(self, auth_token):
         """Sets the auth_token of this WsAivrServerMessages.
 
-        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut) + [GET /aivr-app/{aivrAppId}/business](#tag/aivr-app/operation/aivrAppBusinessGet)   # noqa: E501
+        Unique token that can be used to authenticate session related API requests outside of the callback or websocket. The token is valid while a session is in progress plus 5 minutes.</br> Example methods that can be invoked using the token: + [PUT /aivr/{ivrSid}/vars](#tag/aivr/operation/aivrVarsPut) + [GET /aivr-app/{aivrAppId}/business](#tag/aivr-app/operation/aivrAppBusinessGetByToken) + [GET /aivr-app/{aivrAppId}/jwt](#tag/aivr-app/operation/aivrAppJwtGetByToken)   # noqa: E501
 
         :param auth_token: The auth_token of this WsAivrServerMessages.  # noqa: E501
         :type: str
