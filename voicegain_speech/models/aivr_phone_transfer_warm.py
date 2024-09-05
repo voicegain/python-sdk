@@ -35,26 +35,31 @@ class AIVRPhoneTransferWarm(object):
     """
     openapi_types = {
         'caller_id': 'str',
+        'caller_id_number': 'str',
         'phone_number': 'str'
     }
 
     attribute_map = {
         'caller_id': 'callerId',
+        'caller_id_number': 'callerIdNumber',
         'phone_number': 'phoneNumber'
     }
 
-    def __init__(self, caller_id='main_dnis', phone_number=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, caller_id='main_dnis', caller_id_number=None, phone_number=None, local_vars_configuration=None):  # noqa: E501
         """AIVRPhoneTransferWarm - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._caller_id = None
+        self._caller_id_number = None
         self._phone_number = None
         self.discriminator = None
 
         if caller_id is not None:
             self.caller_id = caller_id
+        if caller_id_number is not None:
+            self.caller_id_number = caller_id_number
         if phone_number is not None:
             self.phone_number = phone_number
 
@@ -62,7 +67,7 @@ class AIVRPhoneTransferWarm(object):
     def caller_id(self):
         """Gets the caller_id of this AIVRPhoneTransferWarm.  # noqa: E501
 
-        (optional) Caller ID to be used for the outbound call.   # noqa: E501
+        (optional) Caller ID to be used for the outbound call. If: + `main_dnis` - then the main DNIS of the AIVR App will be used + `original_ani` - then the original incoming ANI will be used + `account_phone` - then the  number provided in `callerIdNumber` will be used, but a check will be done to ensure that the account has this number assigned.   # noqa: E501
 
         :return: The caller_id of this AIVRPhoneTransferWarm.  # noqa: E501
         :rtype: str
@@ -73,12 +78,12 @@ class AIVRPhoneTransferWarm(object):
     def caller_id(self, caller_id):
         """Sets the caller_id of this AIVRPhoneTransferWarm.
 
-        (optional) Caller ID to be used for the outbound call.   # noqa: E501
+        (optional) Caller ID to be used for the outbound call. If: + `main_dnis` - then the main DNIS of the AIVR App will be used + `original_ani` - then the original incoming ANI will be used + `account_phone` - then the  number provided in `callerIdNumber` will be used, but a check will be done to ensure that the account has this number assigned.   # noqa: E501
 
         :param caller_id: The caller_id of this AIVRPhoneTransferWarm.  # noqa: E501
         :type: str
         """
-        allowed_values = ["main_dnis", "original_ani"]  # noqa: E501
+        allowed_values = ["main_dnis", "original_ani", "account_phone"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and caller_id not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `caller_id` ({0}), must be one of {1}"  # noqa: E501
@@ -86,6 +91,29 @@ class AIVRPhoneTransferWarm(object):
             )
 
         self._caller_id = caller_id
+
+    @property
+    def caller_id_number(self):
+        """Gets the caller_id_number of this AIVRPhoneTransferWarm.  # noqa: E501
+
+        (optional) Caller ID number to be used for the outbound call.  Must be provided if `callerId` is set to `account_phone`. May not be provided in other cases. Account must own this phone number.   # noqa: E501
+
+        :return: The caller_id_number of this AIVRPhoneTransferWarm.  # noqa: E501
+        :rtype: str
+        """
+        return self._caller_id_number
+
+    @caller_id_number.setter
+    def caller_id_number(self, caller_id_number):
+        """Sets the caller_id_number of this AIVRPhoneTransferWarm.
+
+        (optional) Caller ID number to be used for the outbound call.  Must be provided if `callerId` is set to `account_phone`. May not be provided in other cases. Account must own this phone number.   # noqa: E501
+
+        :param caller_id_number: The caller_id_number of this AIVRPhoneTransferWarm.  # noqa: E501
+        :type: str
+        """
+
+        self._caller_id_number = caller_id_number
 
     @property
     def phone_number(self):

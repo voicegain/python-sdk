@@ -35,27 +35,37 @@ class AIVRCallbackResponseFinal(object):
     """
     openapi_types = {
         'csid': 'str',
-        'termination': 'str'
+        'sub_return': 'AIVRSubReturn',
+        'termination': 'str',
+        'vars': 'object'
     }
 
     attribute_map = {
         'csid': 'csid',
-        'termination': 'termination'
+        'sub_return': 'subReturn',
+        'termination': 'termination',
+        'vars': 'vars'
     }
 
-    def __init__(self, csid=None, termination=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, csid=None, sub_return=None, termination=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """AIVRCallbackResponseFinal - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._csid = None
+        self._sub_return = None
         self._termination = None
+        self._vars = None
         self.discriminator = None
 
         self.csid = csid
+        if sub_return is not None:
+            self.sub_return = sub_return
         if termination is not None:
             self.termination = termination
+        if vars is not None:
+            self.vars = vars
 
     @property
     def csid(self):
@@ -81,6 +91,27 @@ class AIVRCallbackResponseFinal(object):
             raise ValueError("Invalid value for `csid`, must not be `None`")  # noqa: E501
 
         self._csid = csid
+
+    @property
+    def sub_return(self):
+        """Gets the sub_return of this AIVRCallbackResponseFinal.  # noqa: E501
+
+
+        :return: The sub_return of this AIVRCallbackResponseFinal.  # noqa: E501
+        :rtype: AIVRSubReturn
+        """
+        return self._sub_return
+
+    @sub_return.setter
+    def sub_return(self, sub_return):
+        """Sets the sub_return of this AIVRCallbackResponseFinal.
+
+
+        :param sub_return: The sub_return of this AIVRCallbackResponseFinal.  # noqa: E501
+        :type: AIVRSubReturn
+        """
+
+        self._sub_return = sub_return
 
     @property
     def termination(self):
@@ -110,6 +141,29 @@ class AIVRCallbackResponseFinal(object):
             )
 
         self._termination = termination
+
+    @property
+    def vars(self):
+        """Gets the vars of this AIVRCallbackResponseFinal.  # noqa: E501
+
+        Map with variable names and values to add to the set of vars maintained for this RTC session.</br> Should not be used to encode and store large amounts of data.   # noqa: E501
+
+        :return: The vars of this AIVRCallbackResponseFinal.  # noqa: E501
+        :rtype: object
+        """
+        return self._vars
+
+    @vars.setter
+    def vars(self, vars):
+        """Sets the vars of this AIVRCallbackResponseFinal.
+
+        Map with variable names and values to add to the set of vars maintained for this RTC session.</br> Should not be used to encode and store large amounts of data.   # noqa: E501
+
+        :param vars: The vars of this AIVRCallbackResponseFinal.  # noqa: E501
+        :type: object
+        """
+
+        self._vars = vars
 
     def to_dict(self):
         """Returns the model properties as a dict"""
