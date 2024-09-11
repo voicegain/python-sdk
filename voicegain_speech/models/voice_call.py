@@ -49,6 +49,7 @@ class VoiceCall(object):
         'start_time': 'datetime',
         'tags': 'list[str]',
         'account_id': 'str',
+        'aivr_transfer_dest_type': 'str',
         'call_id': 'str',
         'call_resolved': 'bool',
         'context_id': 'str',
@@ -85,6 +86,7 @@ class VoiceCall(object):
         'start_time': 'startTime',
         'tags': 'tags',
         'account_id': 'accountId',
+        'aivr_transfer_dest_type': 'aivrTransferDestType',
         'call_id': 'callId',
         'call_resolved': 'callResolved',
         'context_id': 'contextId',
@@ -105,7 +107,7 @@ class VoiceCall(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, direction=None, end_time=None, external_endpoint=None, internal_endpoint=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, progress_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, direction=None, end_time=None, external_endpoint=None, internal_endpoint=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, progress_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -126,6 +128,7 @@ class VoiceCall(object):
         self._start_time = None
         self._tags = None
         self._account_id = None
+        self._aivr_transfer_dest_type = None
         self._call_id = None
         self._call_resolved = None
         self._context_id = None
@@ -176,6 +179,8 @@ class VoiceCall(object):
             self.tags = tags
         if account_id is not None:
             self.account_id = account_id
+        if aivr_transfer_dest_type is not None:
+            self.aivr_transfer_dest_type = aivr_transfer_dest_type
         if call_id is not None:
             self.call_id = call_id
         if call_resolved is not None:
@@ -583,6 +588,35 @@ class VoiceCall(object):
             raise ValueError("Invalid value for `account_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._account_id = account_id
+
+    @property
+    def aivr_transfer_dest_type(self):
+        """Gets the aivr_transfer_dest_type of this VoiceCall.  # noqa: E501
+
+        Short string describing the type of destination for the AIVR transfer. Will be absent if the call did not come from an AIVR App. Example values are: + Internal - if the transfer was done to internal call center + Agency - if the transfer was done to an external agency   # noqa: E501
+
+        :return: The aivr_transfer_dest_type of this VoiceCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_transfer_dest_type
+
+    @aivr_transfer_dest_type.setter
+    def aivr_transfer_dest_type(self, aivr_transfer_dest_type):
+        """Sets the aivr_transfer_dest_type of this VoiceCall.
+
+        Short string describing the type of destination for the AIVR transfer. Will be absent if the call did not come from an AIVR App. Example values are: + Internal - if the transfer was done to internal call center + Agency - if the transfer was done to an external agency   # noqa: E501
+
+        :param aivr_transfer_dest_type: The aivr_transfer_dest_type of this VoiceCall.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_transfer_dest_type is not None and len(aivr_transfer_dest_type) > 32):
+            raise ValueError("Invalid value for `aivr_transfer_dest_type`, length must be less than or equal to `32`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_transfer_dest_type is not None and len(aivr_transfer_dest_type) < 1):
+            raise ValueError("Invalid value for `aivr_transfer_dest_type`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._aivr_transfer_dest_type = aivr_transfer_dest_type
 
     @property
     def call_id(self):
