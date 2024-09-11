@@ -365,7 +365,7 @@ class OfflineSpeechAnalyticsBaseRequest(object):
     def speakers(self):
         """Gets the speakers of this OfflineSpeechAnalyticsBaseRequest.  # noqa: E501
 
-        (optional) Known active speakers involved in the call. If absent then will asume that each channel is a separate speaker (or speakers if diarization is used)  and will name speakers in the output with generic names like, e.g., \"Speaker 1\", \"Speaker 2\", etc.   # noqa: E501
+        (optional) Known active speakers involved in the call. If absent then will asume that each channel is a separate speaker (or speakers if diarization is used)  and will name speakers in the output with generic names like, e.g., \"Speaker 1\", \"Speaker 2\", etc. </br> In warm transfer scenarios we may have up to 4 speakers.  They will be identified by the speaker **metadata** value `speakerType`, which can be  + \"Caller\" - the caller on the inbound line,  + \"Agent\" - Voicebot on inbound line and later Agent (after bridge),  + \"TransferBot\" - Bot handling the outbound warm-transfer call,  + \"TransferAgent\" - Agent on the outbound line talking to the TranaferBot   # noqa: E501
 
         :return: The speakers of this OfflineSpeechAnalyticsBaseRequest.  # noqa: E501
         :rtype: list[SpeechAnalyticsInputSpeaker]
@@ -376,7 +376,7 @@ class OfflineSpeechAnalyticsBaseRequest(object):
     def speakers(self, speakers):
         """Sets the speakers of this OfflineSpeechAnalyticsBaseRequest.
 
-        (optional) Known active speakers involved in the call. If absent then will asume that each channel is a separate speaker (or speakers if diarization is used)  and will name speakers in the output with generic names like, e.g., \"Speaker 1\", \"Speaker 2\", etc.   # noqa: E501
+        (optional) Known active speakers involved in the call. If absent then will asume that each channel is a separate speaker (or speakers if diarization is used)  and will name speakers in the output with generic names like, e.g., \"Speaker 1\", \"Speaker 2\", etc. </br> In warm transfer scenarios we may have up to 4 speakers.  They will be identified by the speaker **metadata** value `speakerType`, which can be  + \"Caller\" - the caller on the inbound line,  + \"Agent\" - Voicebot on inbound line and later Agent (after bridge),  + \"TransferBot\" - Bot handling the outbound warm-transfer call,  + \"TransferAgent\" - Agent on the outbound line talking to the TranaferBot   # noqa: E501
 
         :param speakers: The speakers of this OfflineSpeechAnalyticsBaseRequest.  # noqa: E501
         :type: list[SpeechAnalyticsInputSpeaker]

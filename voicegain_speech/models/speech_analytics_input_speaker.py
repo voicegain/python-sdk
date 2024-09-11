@@ -35,29 +35,34 @@ class SpeechAnalyticsInputSpeaker(object):
     """
     openapi_types = {
         'is_agent': 'bool',
+        'metadata': 'list[NameValuePair]',
         'name': 'str',
         'spk_user_id': 'float'
     }
 
     attribute_map = {
         'is_agent': 'isAgent',
+        'metadata': 'metadata',
         'name': 'name',
         'spk_user_id': 'spkUserId'
     }
 
-    def __init__(self, is_agent=None, name=None, spk_user_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, is_agent=None, metadata=None, name=None, spk_user_id=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsInputSpeaker - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._is_agent = None
+        self._metadata = None
         self._name = None
         self._spk_user_id = None
         self.discriminator = None
 
         if is_agent is not None:
             self.is_agent = is_agent
+        if metadata is not None:
+            self.metadata = metadata
         if name is not None:
             self.name = name
         self.spk_user_id = spk_user_id
@@ -84,6 +89,29 @@ class SpeechAnalyticsInputSpeaker(object):
         """
 
         self._is_agent = is_agent
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this SpeechAnalyticsInputSpeaker.  # noqa: E501
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :return: The metadata of this SpeechAnalyticsInputSpeaker.  # noqa: E501
+        :rtype: list[NameValuePair]
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this SpeechAnalyticsInputSpeaker.
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :param metadata: The metadata of this SpeechAnalyticsInputSpeaker.  # noqa: E501
+        :type: list[NameValuePair]
+        """
+
+        self._metadata = metadata
 
     @property
     def name(self):
