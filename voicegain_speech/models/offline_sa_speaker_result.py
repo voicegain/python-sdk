@@ -37,6 +37,7 @@ class OfflineSASpeakerResult(object):
         'external_user_id': 'float',
         'from_diarization': 'bool',
         'is_agent': 'bool',
+        'metadata': 'list[NameValuePair]',
         'name': 'str',
         'speaker_id': 'str',
         'spk': 'int',
@@ -51,6 +52,7 @@ class OfflineSASpeakerResult(object):
         'external_user_id': 'externalUserId',
         'from_diarization': 'fromDiarization',
         'is_agent': 'isAgent',
+        'metadata': 'metadata',
         'name': 'name',
         'speaker_id': 'speakerId',
         'spk': 'spk',
@@ -61,7 +63,7 @@ class OfflineSASpeakerResult(object):
         'talk': 'talk'
     }
 
-    def __init__(self, external_user_id=None, from_diarization=None, is_agent=None, name=None, speaker_id=None, spk=None, emotion=None, estimated_age=None, estimated_gender=None, overtalk=None, talk=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, external_user_id=None, from_diarization=None, is_agent=None, metadata=None, name=None, speaker_id=None, spk=None, emotion=None, estimated_age=None, estimated_gender=None, overtalk=None, talk=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSASpeakerResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,6 +72,7 @@ class OfflineSASpeakerResult(object):
         self._external_user_id = None
         self._from_diarization = None
         self._is_agent = None
+        self._metadata = None
         self._name = None
         self._speaker_id = None
         self._spk = None
@@ -86,6 +89,8 @@ class OfflineSASpeakerResult(object):
             self.from_diarization = from_diarization
         if is_agent is not None:
             self.is_agent = is_agent
+        if metadata is not None:
+            self.metadata = metadata
         if name is not None:
             self.name = name
         if speaker_id is not None:
@@ -171,6 +176,29 @@ class OfflineSASpeakerResult(object):
         """
 
         self._is_agent = is_agent
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this OfflineSASpeakerResult.  # noqa: E501
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :return: The metadata of this OfflineSASpeakerResult.  # noqa: E501
+        :rtype: list[NameValuePair]
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this OfflineSASpeakerResult.
+
+        Metadata passed with the request to async transcription, recognition, or Speech Analytics. Consist of a list of named string values. Names in the list have to be unique. If duplicates are provided then only the last one will be retained. </br> Will be returned in callback. For transcription and Speech Analytics, the metadata will be saved together with the result.   # noqa: E501
+
+        :param metadata: The metadata of this OfflineSASpeakerResult.  # noqa: E501
+        :type: list[NameValuePair]
+        """
+
+        self._metadata = metadata
 
     @property
     def name(self):
