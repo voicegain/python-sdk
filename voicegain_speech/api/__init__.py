@@ -15,6 +15,7 @@ from voicegain_speech.api.sa_api import SaApi
 from voicegain_speech.api.sa_internal_api import SaInternalApi
 from voicegain_speech.api.sa_offline_api import SaOfflineApi
 from voicegain_speech.api.security_api import SecurityApi
+from voicegain_speech.api.text_api import TextApi
 from voicegain_speech.api.training_api import TrainingApi
 from voicegain_speech.api.transcribe_api import TranscribeApi
 from voicegain_speech.api.websocket_api import WebsocketApi
