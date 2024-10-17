@@ -396,6 +396,7 @@ from voicegain_speech.models.multipart_form_data_field import MultipartFormDataF
 from voicegain_speech.models.name_value_pair import NameValuePair
 from voicegain_speech.models.named_entity_concept import NamedEntityConcept
 from voicegain_speech.models.named_entity_type import NamedEntityType
+from voicegain_speech.models.named_entity_type_redactable import NamedEntityTypeRedactable
 from voicegain_speech.models.named_speaker import NamedSpeaker
 from voicegain_speech.models.ne_term import NeTerm
 from voicegain_speech.models.ne_term_all_of import NeTermAllOf

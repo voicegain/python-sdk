@@ -34,7 +34,7 @@ class PIITextRedactionConf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'named_entity': 'NamedEntityType',
+        'named_entity': 'NamedEntityTypeRedactable',
         'redact_transcript': 'str'
     }
 
@@ -63,7 +63,7 @@ class PIITextRedactionConf(object):
 
 
         :return: The named_entity of this PIITextRedactionConf.  # noqa: E501
-        :rtype: NamedEntityType
+        :rtype: NamedEntityTypeRedactable
         """
         return self._named_entity
 
@@ -73,7 +73,7 @@ class PIITextRedactionConf(object):
 
 
         :param named_entity: The named_entity of this PIITextRedactionConf.  # noqa: E501
-        :type: NamedEntityType
+        :type: NamedEntityTypeRedactable
         """
         if self.local_vars_configuration.client_side_validation and named_entity is None:  # noqa: E501
             raise ValueError("Invalid value for `named_entity`, must not be `None`")  # noqa: E501
@@ -84,7 +84,7 @@ class PIITextRedactionConf(object):
     def redact_transcript(self):
         """Gets the redact_transcript of this PIITextRedactionConf.  # noqa: E501
 
-        If not null then the value of `redactTranscript` will be used to replace the entity matched.</br> If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in <>, e.g. `<ADDRESS>`   # noqa: E501
+        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\*   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\*   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`   # noqa: E501
 
         :return: The redact_transcript of this PIITextRedactionConf.  # noqa: E501
         :rtype: str
@@ -95,7 +95,7 @@ class PIITextRedactionConf(object):
     def redact_transcript(self, redact_transcript):
         """Sets the redact_transcript of this PIITextRedactionConf.
 
-        If not null then the value of `redactTranscript` will be used to replace the entity matched.</br> If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in <>, e.g. `<ADDRESS>`   # noqa: E501
+        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\*   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\*   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`   # noqa: E501
 
         :param redact_transcript: The redact_transcript of this PIITextRedactionConf.  # noqa: E501
         :type: str
