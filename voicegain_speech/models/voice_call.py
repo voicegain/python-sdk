@@ -38,6 +38,7 @@ class VoiceCall(object):
         'aivr_app_id': 'str',
         'aivr_session_id': 'str',
         'call_center_call_id': 'str',
+        'daily_repeat_calls': 'int',
         'direction': 'str',
         'dtmf_events': 'list[DtmfEventWithChannel]',
         'end_time': 'datetime',
@@ -78,6 +79,7 @@ class VoiceCall(object):
         'aivr_app_id': 'aivrAppId',
         'aivr_session_id': 'aivrSessionId',
         'call_center_call_id': 'callCenterCallId',
+        'daily_repeat_calls': 'dailyRepeatCalls',
         'direction': 'direction',
         'dtmf_events': 'dtmfEvents',
         'end_time': 'endTime',
@@ -113,7 +115,7 @@ class VoiceCall(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, direction=None, dtmf_events=None, end_time=None, external_endpoint=None, internal_endpoint=None, language=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, progress_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, external_endpoint=None, internal_endpoint=None, language=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, progress_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -123,6 +125,7 @@ class VoiceCall(object):
         self._aivr_app_id = None
         self._aivr_session_id = None
         self._call_center_call_id = None
+        self._daily_repeat_calls = None
         self._direction = None
         self._dtmf_events = None
         self._end_time = None
@@ -166,6 +169,8 @@ class VoiceCall(object):
             self.aivr_session_id = aivr_session_id
         if call_center_call_id is not None:
             self.call_center_call_id = call_center_call_id
+        if daily_repeat_calls is not None:
+            self.daily_repeat_calls = daily_repeat_calls
         if direction is not None:
             self.direction = direction
         if dtmf_events is not None:
@@ -328,6 +333,32 @@ class VoiceCall(object):
             raise ValueError("Invalid value for `call_center_call_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._call_center_call_id = call_center_call_id
+
+    @property
+    def daily_repeat_calls(self):
+        """Gets the daily_repeat_calls of this VoiceCall.  # noqa: E501
+
+        Number of repeat calls. A repeat call is a call between the same `externalEndpoint` and the same `internalEndpoint` within a 24 hour window. We compute it while inserting the new call record - we do a count of other calls with the same endpoints in the period between `startTime` and `startTime - 24h`.  Note this is a repeat call count, so if there is only one call between the same endpoints within 24 hours then this will be 0.   # noqa: E501
+
+        :return: The daily_repeat_calls of this VoiceCall.  # noqa: E501
+        :rtype: int
+        """
+        return self._daily_repeat_calls
+
+    @daily_repeat_calls.setter
+    def daily_repeat_calls(self, daily_repeat_calls):
+        """Sets the daily_repeat_calls of this VoiceCall.
+
+        Number of repeat calls. A repeat call is a call between the same `externalEndpoint` and the same `internalEndpoint` within a 24 hour window. We compute it while inserting the new call record - we do a count of other calls with the same endpoints in the period between `startTime` and `startTime - 24h`.  Note this is a repeat call count, so if there is only one call between the same endpoints within 24 hours then this will be 0.   # noqa: E501
+
+        :param daily_repeat_calls: The daily_repeat_calls of this VoiceCall.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                daily_repeat_calls is not None and daily_repeat_calls < 0):  # noqa: E501
+            raise ValueError("Invalid value for `daily_repeat_calls`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._daily_repeat_calls = daily_repeat_calls
 
     @property
     def direction(self):
