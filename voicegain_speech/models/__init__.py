@@ -60,6 +60,8 @@ from voicegain_speech.models.aivr_response_properties_audio import AIVRResponseP
 from voicegain_speech.models.aivr_response_properties_html import AIVRResponsePropertiesHtml
 from voicegain_speech.models.aivrs_question_specifics import AIVRSQuestionSpecifics
 from voicegain_speech.models.aivr_sub_return import AIVRSubReturn
+from voicegain_speech.models.aivr_trace import AIVRTrace
+from voicegain_speech.models.aivr_trace_type import AIVRTraceType
 from voicegain_speech.models.aivr_transfer import AIVRTransfer
 from voicegain_speech.models.aivr_vars import AIVRVars
 from voicegain_speech.models.aivr_vars_changed import AIVRVarsChanged
@@ -551,6 +553,12 @@ from voicegain_speech.models.text_redaction_response import TextRedactionRespons
 from voicegain_speech.models.timed_sentence import TimedSentence
 from voicegain_speech.models.timeline_speaker import TimelineSpeaker
 from voicegain_speech.models.topic_score import TopicScore
+from voicegain_speech.models.trace_copilot_in import TraceCopilotIn
+from voicegain_speech.models.trace_copilot_in_all_of import TraceCopilotInAllOf
+from voicegain_speech.models.trace_copilot_out import TraceCopilotOut
+from voicegain_speech.models.trace_copilot_out_all_of import TraceCopilotOutAllOf
+from voicegain_speech.models.trace_transfer import TraceTransfer
+from voicegain_speech.models.trace_transfer_all_of import TraceTransferAllOf
 from voicegain_speech.models.training_set_bucket_type import TrainingSetBucketType
 from voicegain_speech.models.training_set_doc import TrainingSetDoc
 from voicegain_speech.models.training_set_doc_defaults import TrainingSetDocDefaults
