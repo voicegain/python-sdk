@@ -34,33 +34,34 @@ class PIIRedactionConf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'named_entity': 'NamedEntityTypeRedactable',
-        'redact_transcript': 'str',
-        'redact_audio': 'str'
+        'named_entity': 'NamedEntityType',
+        'redact_audio': 'str',
+        'redact_transcript': 'str'
     }
 
     attribute_map = {
         'named_entity': 'namedEntity',
-        'redact_transcript': 'redactTranscript',
-        'redact_audio': 'redactAudio'
+        'redact_audio': 'redactAudio',
+        'redact_transcript': 'redactTranscript'
     }
 
-    def __init__(self, named_entity=None, redact_transcript=None, redact_audio='silence', local_vars_configuration=None):  # noqa: E501
+    def __init__(self, named_entity=None, redact_audio='silence', redact_transcript=None, local_vars_configuration=None):  # noqa: E501
         """PIIRedactionConf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._named_entity = None
-        self._redact_transcript = None
         self._redact_audio = None
+        self._redact_transcript = None
         self.discriminator = None
 
-        self.named_entity = named_entity
-        if redact_transcript is not None:
-            self.redact_transcript = redact_transcript
+        if named_entity is not None:
+            self.named_entity = named_entity
         if redact_audio is not None:
             self.redact_audio = redact_audio
+        if redact_transcript is not None:
+            self.redact_transcript = redact_transcript
 
     @property
     def named_entity(self):
@@ -68,7 +69,7 @@ class PIIRedactionConf(object):
 
 
         :return: The named_entity of this PIIRedactionConf.  # noqa: E501
-        :rtype: NamedEntityTypeRedactable
+        :rtype: NamedEntityType
         """
         return self._named_entity
 
@@ -78,35 +79,10 @@ class PIIRedactionConf(object):
 
 
         :param named_entity: The named_entity of this PIIRedactionConf.  # noqa: E501
-        :type: NamedEntityTypeRedactable
+        :type: NamedEntityType
         """
-        if self.local_vars_configuration.client_side_validation and named_entity is None:  # noqa: E501
-            raise ValueError("Invalid value for `named_entity`, must not be `None`")  # noqa: E501
 
         self._named_entity = named_entity
-
-    @property
-    def redact_transcript(self):
-        """Gets the redact_transcript of this PIIRedactionConf.  # noqa: E501
-
-        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\*   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\*   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`   # noqa: E501
-
-        :return: The redact_transcript of this PIIRedactionConf.  # noqa: E501
-        :rtype: str
-        """
-        return self._redact_transcript
-
-    @redact_transcript.setter
-    def redact_transcript(self, redact_transcript):
-        """Sets the redact_transcript of this PIIRedactionConf.
-
-        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\*   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\*   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`   # noqa: E501
-
-        :param redact_transcript: The redact_transcript of this PIIRedactionConf.  # noqa: E501
-        :type: str
-        """
-
-        self._redact_transcript = redact_transcript
 
     @property
     def redact_audio(self):
@@ -136,6 +112,29 @@ class PIIRedactionConf(object):
             )
 
         self._redact_audio = redact_audio
+
+    @property
+    def redact_transcript(self):
+        """Gets the redact_transcript of this PIIRedactionConf.  # noqa: E501
+
+        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\* (this option will be available soon)   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\* (this option will be available soon)   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`   # noqa: E501
+
+        :return: The redact_transcript of this PIIRedactionConf.  # noqa: E501
+        :rtype: str
+        """
+        return self._redact_transcript
+
+    @redact_transcript.setter
+    def redact_transcript(self, redact_transcript):
+        """Sets the redact_transcript of this PIIRedactionConf.
+
+        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\* (this option will be available soon)   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\* (this option will be available soon)   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`   # noqa: E501
+
+        :param redact_transcript: The redact_transcript of this PIIRedactionConf.  # noqa: E501
+        :type: str
+        """
+
+        self._redact_transcript = redact_transcript
 
     def to_dict(self):
         """Returns the model properties as a dict"""
