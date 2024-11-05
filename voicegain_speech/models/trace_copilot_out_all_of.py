@@ -35,29 +35,34 @@ class TraceCopilotOutAllOf(object):
     """
     openapi_types = {
         'channel': 'str',
+        'event': 'str',
         'message': 'object',
         'rcv_ack': 'bool'
     }
 
     attribute_map = {
         'channel': 'channel',
+        'event': 'event',
         'message': 'message',
         'rcv_ack': 'rcv_ack'
     }
 
-    def __init__(self, channel=None, message=None, rcv_ack=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, channel=None, event=None, message=None, rcv_ack=None, local_vars_configuration=None):  # noqa: E501
         """TraceCopilotOutAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._channel = None
+        self._event = None
         self._message = None
         self._rcv_ack = None
         self.discriminator = None
 
         if channel is not None:
             self.channel = channel
+        if event is not None:
+            self.event = event
         if message is not None:
             self.message = message
         if rcv_ack is not None:
@@ -67,7 +72,7 @@ class TraceCopilotOutAllOf(object):
     def channel(self):
         """Gets the channel of this TraceCopilotOutAllOf.  # noqa: E501
 
-        Channel used to send the message to Copilot, e.g. via Pusher  # noqa: E501
+        Channel name used to send the message to Copilot, e.g. via Pusher we use Agent email address as channel name.  # noqa: E501
 
         :return: The channel of this TraceCopilotOutAllOf.  # noqa: E501
         :rtype: str
@@ -78,7 +83,7 @@ class TraceCopilotOutAllOf(object):
     def channel(self, channel):
         """Sets the channel of this TraceCopilotOutAllOf.
 
-        Channel used to send the message to Copilot, e.g. via Pusher  # noqa: E501
+        Channel name used to send the message to Copilot, e.g. via Pusher we use Agent email address as channel name.  # noqa: E501
 
         :param channel: The channel of this TraceCopilotOutAllOf.  # noqa: E501
         :type: str
@@ -87,10 +92,33 @@ class TraceCopilotOutAllOf(object):
         self._channel = channel
 
     @property
+    def event(self):
+        """Gets the event of this TraceCopilotOutAllOf.  # noqa: E501
+
+        Event sent to Copilot, e.g. via Pusher. Note, event can be considered as the type for the message. Knowing the Event name we can interpret the message.   # noqa: E501
+
+        :return: The event of this TraceCopilotOutAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._event
+
+    @event.setter
+    def event(self, event):
+        """Sets the event of this TraceCopilotOutAllOf.
+
+        Event sent to Copilot, e.g. via Pusher. Note, event can be considered as the type for the message. Knowing the Event name we can interpret the message.   # noqa: E501
+
+        :param event: The event of this TraceCopilotOutAllOf.  # noqa: E501
+        :type: str
+        """
+
+        self._event = event
+
+    @property
     def message(self):
         """Gets the message of this TraceCopilotOutAllOf.  # noqa: E501
 
-        Message sent to Copilot, for example, sent via Pusher.</br> Each Message will contain: + msgUuid field that will be used to uniquely identify the message, for example, for the purpose of `rcv_ack`. + aivrSid field that will be used to identify the AIVR session that the message is related to.   # noqa: E501
+        Complete message sent to Copilot, for example, via Pusher.</br> Each Message will contain at least: + msgUuid field that will be used to uniquely identify the message, for example, for the purpose of `rcv_ack`. + aivrSid field that will be used to identify the AIVR session that the message is related to.   # noqa: E501
 
         :return: The message of this TraceCopilotOutAllOf.  # noqa: E501
         :rtype: object
@@ -101,7 +129,7 @@ class TraceCopilotOutAllOf(object):
     def message(self, message):
         """Sets the message of this TraceCopilotOutAllOf.
 
-        Message sent to Copilot, for example, sent via Pusher.</br> Each Message will contain: + msgUuid field that will be used to uniquely identify the message, for example, for the purpose of `rcv_ack`. + aivrSid field that will be used to identify the AIVR session that the message is related to.   # noqa: E501
+        Complete message sent to Copilot, for example, via Pusher.</br> Each Message will contain at least: + msgUuid field that will be used to uniquely identify the message, for example, for the purpose of `rcv_ack`. + aivrSid field that will be used to identify the AIVR session that the message is related to.   # noqa: E501
 
         :param message: The message of this TraceCopilotOutAllOf.  # noqa: E501
         :type: object
