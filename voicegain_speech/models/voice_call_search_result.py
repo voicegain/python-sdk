@@ -45,6 +45,7 @@ class VoiceCallSearchResult(object):
         'external_endpoint': 'str',
         'internal_endpoint': 'str',
         'language': 'Language',
+        'markers': 'list[CallMarker]',
         'num_audio_channels': 'int',
         'num_spk_channels': 'int',
         'originating_call_id': 'str',
@@ -87,6 +88,7 @@ class VoiceCallSearchResult(object):
         'external_endpoint': 'externalEndpoint',
         'internal_endpoint': 'internalEndpoint',
         'language': 'language',
+        'markers': 'markers',
         'num_audio_channels': 'numAudioChannels',
         'num_spk_channels': 'numSpkChannels',
         'originating_call_id': 'originatingCallId',
@@ -117,7 +119,7 @@ class VoiceCallSearchResult(object):
         'headline': 'headline'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, external_endpoint=None, internal_endpoint=None, language=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, progress_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, progress_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallSearchResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -134,6 +136,7 @@ class VoiceCallSearchResult(object):
         self._external_endpoint = None
         self._internal_endpoint = None
         self._language = None
+        self._markers = None
         self._num_audio_channels = None
         self._num_spk_channels = None
         self._originating_call_id = None
@@ -186,6 +189,8 @@ class VoiceCallSearchResult(object):
             self.internal_endpoint = internal_endpoint
         if language is not None:
             self.language = language
+        if markers is not None:
+            self.markers = markers
         if num_audio_channels is not None:
             self.num_audio_channels = num_audio_channels
         if num_spk_channels is not None:
@@ -506,6 +511,29 @@ class VoiceCallSearchResult(object):
         """
 
         self._language = language
+
+    @property
+    def markers(self):
+        """Gets the markers of this VoiceCallSearchResult.  # noqa: E501
+
+        Call timeline markers attached to the call  # noqa: E501
+
+        :return: The markers of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: list[CallMarker]
+        """
+        return self._markers
+
+    @markers.setter
+    def markers(self, markers):
+        """Sets the markers of this VoiceCallSearchResult.
+
+        Call timeline markers attached to the call  # noqa: E501
+
+        :param markers: The markers of this VoiceCallSearchResult.  # noqa: E501
+        :type: list[CallMarker]
+        """
+
+        self._markers = markers
 
     @property
     def num_audio_channels(self):

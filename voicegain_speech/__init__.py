@@ -218,6 +218,7 @@ from voicegain_speech.models.call_attributes import CallAttributes
 from voicegain_speech.models.call_field import CallField
 from voicegain_speech.models.call_field_for_time import CallFieldForTime
 from voicegain_speech.models.call_field_for_txt_search import CallFieldForTxtSearch
+from voicegain_speech.models.call_marker import CallMarker
 from voicegain_speech.models.call_search_field import CallSearchField
 from voicegain_speech.models.callback_req import CallbackReq
 from voicegain_speech.models.callback_req_reco import CallbackReqReco
