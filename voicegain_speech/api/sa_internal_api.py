@@ -291,6 +291,8 @@ class SaInternalApi(object):
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param str format: Format of the Calls data to be returned: + json - returns data in json + csv - returns data it CSV file 
+        :param bool consecutive: If true then it will automatically do sorting ascending by `callId`. It will also stop export on the first call that it encounters which is not DONE or ERROR (i.e. still being processed). The next request will need to include `afterCallId` parameter that specifies highest callId not to be included in the export.</br> Using `sort_dir` or `sort_by` parameters in conjunction with `consecutive` will return **Bad Request** error. 
+        :param int after_call_id: CallId after which the export should continue.  This is used in conjunction with `consecutive=true` parameter. 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
@@ -327,6 +329,8 @@ class SaInternalApi(object):
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param str format: Format of the Calls data to be returned: + json - returns data in json + csv - returns data it CSV file 
+        :param bool consecutive: If true then it will automatically do sorting ascending by `callId`. It will also stop export on the first call that it encounters which is not DONE or ERROR (i.e. still being processed). The next request will need to include `afterCallId` parameter that specifies highest callId not to be included in the export.</br> Using `sort_dir` or `sort_by` parameters in conjunction with `consecutive` will return **Bad Request** error. 
+        :param int after_call_id: CallId after which the export should continue.  This is used in conjunction with `consecutive=true` parameter. 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
@@ -353,7 +357,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'format', 'from_time', 'to_time', 'period', 'aivr_app_id', 'agent_id', 'queue_id', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
+        all_params = ['context_id', 'format', 'consecutive', 'after_call_id', 'from_time', 'to_time', 'period', 'aivr_app_id', 'agent_id', 'queue_id', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -374,6 +378,8 @@ class SaInternalApi(object):
         if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['context_id']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_call_query`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and 'after_call_id' in local_var_params and local_var_params['after_call_id'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `after_call_id` when calling `sa_call_query`, must be a value greater than or equal to `0`")  # noqa: E501
         if self.api_client.client_side_validation and ('from_time' in local_var_params and  # noqa: E501
                                                         len(local_var_params['from_time']) > 32):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `from_time` when calling `sa_call_query`, length must be less than or equal to `32`")  # noqa: E501
@@ -395,6 +401,10 @@ class SaInternalApi(object):
             query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
         if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
             query_params.append(('format', local_var_params['format']))  # noqa: E501
+        if 'consecutive' in local_var_params and local_var_params['consecutive'] is not None:  # noqa: E501
+            query_params.append(('consecutive', local_var_params['consecutive']))  # noqa: E501
+        if 'after_call_id' in local_var_params and local_var_params['after_call_id'] is not None:  # noqa: E501
+            query_params.append(('afterCallId', local_var_params['after_call_id']))  # noqa: E501
         if 'from_time' in local_var_params and local_var_params['from_time'] is not None:  # noqa: E501
             query_params.append(('fromTime', local_var_params['from_time']))  # noqa: E501
         if 'to_time' in local_var_params and local_var_params['to_time'] is not None:  # noqa: E501
