@@ -293,6 +293,7 @@ class SaInternalApi(object):
         :param str format: Format of the Calls data to be returned: + json - returns data in json + csv - returns data it CSV file 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
+        :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param list[str] agent_id: Ids of Agents to query
         :param list[str] queue_id: Ids of Queues to query
@@ -328,6 +329,7 @@ class SaInternalApi(object):
         :param str format: Format of the Calls data to be returned: + json - returns data in json + csv - returns data it CSV file 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
+        :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param list[str] agent_id: Ids of Agents to query
         :param list[str] queue_id: Ids of Queues to query
@@ -351,7 +353,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'format', 'from_time', 'to_time', 'aivr_app_id', 'agent_id', 'queue_id', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
+        all_params = ['context_id', 'format', 'from_time', 'to_time', 'period', 'aivr_app_id', 'agent_id', 'queue_id', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -397,6 +399,8 @@ class SaInternalApi(object):
             query_params.append(('fromTime', local_var_params['from_time']))  # noqa: E501
         if 'to_time' in local_var_params and local_var_params['to_time'] is not None:  # noqa: E501
             query_params.append(('toTime', local_var_params['to_time']))  # noqa: E501
+        if 'period' in local_var_params and local_var_params['period'] is not None:  # noqa: E501
+            query_params.append(('period', local_var_params['period']))  # noqa: E501
         if 'aivr_app_id' in local_var_params and local_var_params['aivr_app_id'] is not None:  # noqa: E501
             query_params.append(('aivrAppId', local_var_params['aivr_app_id']))  # noqa: E501
             collection_formats['aivrAppId'] = 'csv'  # noqa: E501
