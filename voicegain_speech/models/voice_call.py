@@ -1188,7 +1188,7 @@ class VoiceCall(object):
     def word_cloud(self):
         """Gets the word_cloud of this VoiceCall.  # noqa: E501
 
-        Top 1000 words from the transcript with their frequencies. Complete wordcloud can be retrieved using `saSessionId`   # noqa: E501
+        Top 100 words from the transcript with their frequencies. Complete wordcloud can be retrieved using `saSessionId`   # noqa: E501
 
         :return: The word_cloud of this VoiceCall.  # noqa: E501
         :rtype: list[WordCloudItem]
@@ -1199,7 +1199,7 @@ class VoiceCall(object):
     def word_cloud(self, word_cloud):
         """Sets the word_cloud of this VoiceCall.
 
-        Top 1000 words from the transcript with their frequencies. Complete wordcloud can be retrieved using `saSessionId`   # noqa: E501
+        Top 100 words from the transcript with their frequencies. Complete wordcloud can be retrieved using `saSessionId`   # noqa: E501
 
         :param word_cloud: The word_cloud of this VoiceCall.  # noqa: E501
         :type: list[WordCloudItem]
