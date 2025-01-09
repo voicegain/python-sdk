@@ -46,7 +46,7 @@ pipeline {
         // sh("gh release create $("$(grep -Eo '[0-9.]{6,7}' setup.py | head -1)")")
         sh("gh release create ${VERSION}")
         withCredentials([usernamePassword(credentialsId: 'devops-voicegain', passwordVariable: '?????DOCK1_PASSWORD', usernameVariable: 'DOCK1_USERNAME')]){
-        sh("python -m twine upload dist/voicegain-speech-${VERSION}.tar.gz")
+        sh("python -m twine upload dist/voicegain_speech-${VERSION}.tar.gz")
       }}
       post {
         success {

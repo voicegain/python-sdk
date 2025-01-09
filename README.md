@@ -19,7 +19,7 @@ You can see pricing [here](https://www.voicegain.ai/pricing) - basically, it is 
 From [PyPI](https://pypi.org/project/voicegain-speech/) directly:
 
 ```
-pip install voicegain-speech
+pip install voicegain_speech
 ```
 
 ## Examples
