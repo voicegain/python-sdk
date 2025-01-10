@@ -30,6 +30,7 @@ class NamedEntityTypeRedactable(object):
     allowed enum values
     """
     CC = "CC"
+    CVV = "CVV"
     DMY = "DMY"
     EMAIL = "EMAIL"
     PERSON = "PERSON"
@@ -37,7 +38,7 @@ class NamedEntityTypeRedactable(object):
     SSN = "SSN"
     ZIP = "ZIP"
 
-    allowable_values = [CC, DMY, EMAIL, PERSON, PHONE, SSN, ZIP]  # noqa: E501
+    allowable_values = [CC, CVV, DMY, EMAIL, PERSON, PHONE, SSN, ZIP]  # noqa: E501
 
     """
     Attributes:

@@ -32,6 +32,7 @@ class NamedEntityType(object):
     ADDRESS = "ADDRESS"
     CARDINAL = "CARDINAL"
     CC = "CC"
+    CVV = "CVV"
     DATE = "DATE"
     DMY = "DMY"
     EMAIL = "EMAIL"
@@ -54,7 +55,7 @@ class NamedEntityType(object):
     WORK_OF_ART = "WORK_OF_ART"
     ZIP = "ZIP"
 
-    allowable_values = [ADDRESS, CARDINAL, CC, DATE, DMY, EMAIL, EVENT, FAC, GPE, LANGUAGE, LAW, NORP, MONEY, ORDINAL, ORG, PERCENT, PERSON, PHONE, PRODUCT, QUANTITY, SSN, TIME, WORK_OF_ART, ZIP]  # noqa: E501
+    allowable_values = [ADDRESS, CARDINAL, CC, CVV, DATE, DMY, EMAIL, EVENT, FAC, GPE, LANGUAGE, LAW, NORP, MONEY, ORDINAL, ORG, PERCENT, PERSON, PHONE, PRODUCT, QUANTITY, SSN, TIME, WORK_OF_ART, ZIP]  # noqa: E501
 
     """
     Attributes:
