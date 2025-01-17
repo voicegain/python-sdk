@@ -152,7 +152,7 @@ class AIVRNewSession(object):
     def ani(self):
         """Gets the ani of this AIVRNewSession.  # noqa: E501
 
-        (only if session originated over phone) Caller phone number or sip address   # noqa: E501
+        (only if session originated over phone) </br> For inbound call: the caller phone number or sip address (calling number)</br> For outbound call: the number that was dialed (called number)</br>   # noqa: E501
 
         :return: The ani of this AIVRNewSession.  # noqa: E501
         :rtype: str
@@ -163,7 +163,7 @@ class AIVRNewSession(object):
     def ani(self, ani):
         """Sets the ani of this AIVRNewSession.
 
-        (only if session originated over phone) Caller phone number or sip address   # noqa: E501
+        (only if session originated over phone) </br> For inbound call: the caller phone number or sip address (calling number)</br> For outbound call: the number that was dialed (called number)</br>   # noqa: E501
 
         :param ani: The ani of this AIVRNewSession.  # noqa: E501
         :type: str
@@ -249,7 +249,7 @@ class AIVRNewSession(object):
     def dnis(self):
         """Gets the dnis of this AIVRNewSession.  # noqa: E501
 
-        (only if session originated over phone) Called phone number or sip address  # noqa: E501
+        (only if session originated over phone) </br> For inbound call: Called phone number or sip address (the number assigned to the AIVR App)</br> For outbound call: then number from which the call was made</br>   # noqa: E501
 
         :return: The dnis of this AIVRNewSession.  # noqa: E501
         :rtype: str
@@ -260,7 +260,7 @@ class AIVRNewSession(object):
     def dnis(self, dnis):
         """Sets the dnis of this AIVRNewSession.
 
-        (only if session originated over phone) Called phone number or sip address  # noqa: E501
+        (only if session originated over phone) </br> For inbound call: Called phone number or sip address (the number assigned to the AIVR App)</br> For outbound call: then number from which the call was made</br>   # noqa: E501
 
         :param dnis: The dnis of this AIVRNewSession.  # noqa: E501
         :type: str
