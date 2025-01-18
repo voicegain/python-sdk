@@ -38,7 +38,8 @@ class TextRedactionRequest(object):
         'formatters': 'list[Redactor]',
         'pii_redaction': 'list[PIITextRedactionConf]',
         'speakers': 'list[str]',
-        'text': 'str'
+        'text': 'str',
+        'text_format': 'str'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class TextRedactionRequest(object):
         'formatters': 'formatters',
         'pii_redaction': 'piiRedaction',
         'speakers': 'speakers',
-        'text': 'text'
+        'text': 'text',
+        'text_format': 'textFormat'
     }
 
-    def __init__(self, debug=None, formatters=None, pii_redaction=None, speakers=None, text=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, debug=None, formatters=None, pii_redaction=None, speakers=None, text=None, text_format='plain', local_vars_configuration=None):  # noqa: E501
         """TextRedactionRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class TextRedactionRequest(object):
         self._pii_redaction = None
         self._speakers = None
         self._text = None
+        self._text_format = None
         self.discriminator = None
 
         if debug is not None:
@@ -72,6 +75,8 @@ class TextRedactionRequest(object):
             self.speakers = speakers
         if text is not None:
             self.text = text
+        if text_format is not None:
+            self.text_format = text_format
 
     @property
     def debug(self):
@@ -167,7 +172,7 @@ class TextRedactionRequest(object):
     def text(self):
         """Gets the text of this TextRedactionRequest.  # noqa: E501
 
-        Text to be redacted.  If text comes from multiple speakers then speakers should be identified in the text using the labels provided in the `speakers` list. The labels should be the first text on the line and ending with `: `, for example: <pre> Speaker 1: May I have your SSN?  Speaker 2: Sure, it is 123-45-6789.  Speaker 1: And your CC?  Speaker 2: 1234-5678-9012-3456 </pre>   # noqa: E501
+        Text to be redacted. See `textFormat` for supported formats.</br> If plain text comes from multiple speakers then speakers should be identified in the text using the labels provided in the `speakers` list. The labels should be the first text on the line and ending with `: `, for example: <pre> Speaker 1: May I have your SSN?  Speaker 2: Sure, it is 123-45-6789.  Speaker 1: And your CC?  Speaker 2: 1234-5678-9012-3456 </pre>   # noqa: E501
 
         :return: The text of this TextRedactionRequest.  # noqa: E501
         :rtype: str
@@ -178,13 +183,42 @@ class TextRedactionRequest(object):
     def text(self, text):
         """Sets the text of this TextRedactionRequest.
 
-        Text to be redacted.  If text comes from multiple speakers then speakers should be identified in the text using the labels provided in the `speakers` list. The labels should be the first text on the line and ending with `: `, for example: <pre> Speaker 1: May I have your SSN?  Speaker 2: Sure, it is 123-45-6789.  Speaker 1: And your CC?  Speaker 2: 1234-5678-9012-3456 </pre>   # noqa: E501
+        Text to be redacted. See `textFormat` for supported formats.</br> If plain text comes from multiple speakers then speakers should be identified in the text using the labels provided in the `speakers` list. The labels should be the first text on the line and ending with `: `, for example: <pre> Speaker 1: May I have your SSN?  Speaker 2: Sure, it is 123-45-6789.  Speaker 1: And your CC?  Speaker 2: 1234-5678-9012-3456 </pre>   # noqa: E501
 
         :param text: The text of this TextRedactionRequest.  # noqa: E501
         :type: str
         """
 
         self._text = text
+
+    @property
+    def text_format(self):
+        """Gets the text_format of this TextRedactionRequest.  # noqa: E501
+
+        (optional) Format of the imput text.  If not provided then the default is assumed to be plain text.   # noqa: E501
+
+        :return: The text_format of this TextRedactionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._text_format
+
+    @text_format.setter
+    def text_format(self, text_format):
+        """Sets the text_format of this TextRedactionRequest.
+
+        (optional) Format of the imput text.  If not provided then the default is assumed to be plain text.   # noqa: E501
+
+        :param text_format: The text_format of this TextRedactionRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["plain", "email_html", "chat_xml"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and text_format not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `text_format` ({0}), must be one of {1}"  # noqa: E501
+                .format(text_format, allowed_values)
+            )
+
+        self._text_format = text_format
 
     def to_dict(self):
         """Returns the model properties as a dict"""
