@@ -34,6 +34,7 @@ class TranscribeSessionModifyRequest(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'language': 'Language',
         'metadata': 'list[NameValuePair]',
         'mute': 'TranscribeSessionModifyRequestMute',
         'pause': 'TranscribeSessionModifyRequestPause',
@@ -41,24 +42,28 @@ class TranscribeSessionModifyRequest(object):
     }
 
     attribute_map = {
+        'language': 'language',
         'metadata': 'metadata',
         'mute': 'mute',
         'pause': 'pause',
         'persist': 'persist'
     }
 
-    def __init__(self, metadata=None, mute=None, pause=None, persist=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, language=None, metadata=None, mute=None, pause=None, persist=None, local_vars_configuration=None):  # noqa: E501
         """TranscribeSessionModifyRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._language = None
         self._metadata = None
         self._mute = None
         self._pause = None
         self._persist = None
         self.discriminator = None
 
+        if language is not None:
+            self.language = language
         if metadata is not None:
             self.metadata = metadata
         if mute is not None:
@@ -67,6 +72,27 @@ class TranscribeSessionModifyRequest(object):
             self.pause = pause
         if persist is not None:
             self.persist = persist
+
+    @property
+    def language(self):
+        """Gets the language of this TranscribeSessionModifyRequest.  # noqa: E501
+
+
+        :return: The language of this TranscribeSessionModifyRequest.  # noqa: E501
+        :rtype: Language
+        """
+        return self._language
+
+    @language.setter
+    def language(self, language):
+        """Sets the language of this TranscribeSessionModifyRequest.
+
+
+        :param language: The language of this TranscribeSessionModifyRequest.  # noqa: E501
+        :type: Language
+        """
+
+        self._language = language
 
     @property
     def metadata(self):
