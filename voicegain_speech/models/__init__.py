@@ -225,6 +225,7 @@ from voicegain_speech.models.disconnect_all_of import DisconnectAllOf
 from voicegain_speech.models.dtmf_event import DtmfEvent
 from voicegain_speech.models.dtmf_event_with_channel import DtmfEventWithChannel
 from voicegain_speech.models.dtmf_event_with_channel_all_of import DtmfEventWithChannelAllOf
+from voicegain_speech.models.dtmf_settings import DtmfSettings
 from voicegain_speech.models.eq_term import EqTerm
 from voicegain_speech.models.eq_term_all_of import EqTermAllOf
 from voicegain_speech.models.error import Error

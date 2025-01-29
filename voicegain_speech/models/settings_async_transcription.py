@@ -37,6 +37,7 @@ class SettingsAsyncTranscription(object):
         'asr': 'AsrSettingsTranscriptionAsync',
         'compliance': 'ComplianceSettings',
         'debug': 'DebugSettings',
+        'dtmf': 'DtmfSettings',
         'formatters': 'list[Formatter]',
         'preemptible': 'bool'
     }
@@ -45,11 +46,12 @@ class SettingsAsyncTranscription(object):
         'asr': 'asr',
         'compliance': 'compliance',
         'debug': 'debug',
+        'dtmf': 'dtmf',
         'formatters': 'formatters',
         'preemptible': 'preemptible'
     }
 
-    def __init__(self, asr=None, compliance=None, debug=None, formatters=None, preemptible=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, compliance=None, debug=None, dtmf=None, formatters=None, preemptible=False, local_vars_configuration=None):  # noqa: E501
         """SettingsAsyncTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,6 +60,7 @@ class SettingsAsyncTranscription(object):
         self._asr = None
         self._compliance = None
         self._debug = None
+        self._dtmf = None
         self._formatters = None
         self._preemptible = None
         self.discriminator = None
@@ -68,6 +71,8 @@ class SettingsAsyncTranscription(object):
             self.compliance = compliance
         if debug is not None:
             self.debug = debug
+        if dtmf is not None:
+            self.dtmf = dtmf
         if formatters is not None:
             self.formatters = formatters
         if preemptible is not None:
@@ -135,6 +140,27 @@ class SettingsAsyncTranscription(object):
         """
 
         self._debug = debug
+
+    @property
+    def dtmf(self):
+        """Gets the dtmf of this SettingsAsyncTranscription.  # noqa: E501
+
+
+        :return: The dtmf of this SettingsAsyncTranscription.  # noqa: E501
+        :rtype: DtmfSettings
+        """
+        return self._dtmf
+
+    @dtmf.setter
+    def dtmf(self, dtmf):
+        """Sets the dtmf of this SettingsAsyncTranscription.
+
+
+        :param dtmf: The dtmf of this SettingsAsyncTranscription.  # noqa: E501
+        :type: DtmfSettings
+        """
+
+        self._dtmf = dtmf
 
     @property
     def formatters(self):

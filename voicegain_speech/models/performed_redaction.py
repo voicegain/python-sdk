@@ -321,7 +321,7 @@ class PerformedRedaction(object):
     def type(self):
         """Gets the type of this PerformedRedaction.  # noqa: E501
 
-        type of the redaction  # noqa: E501
+        Type of the redaction. `dtmf` means that dtmf tone was redacted.   # noqa: E501
 
         :return: The type of this PerformedRedaction.  # noqa: E501
         :rtype: str
@@ -332,12 +332,12 @@ class PerformedRedaction(object):
     def type(self, type):
         """Sets the type of this PerformedRedaction.
 
-        type of the redaction  # noqa: E501
+        Type of the redaction. `dtmf` means that dtmf tone was redacted.   # noqa: E501
 
         :param type: The type of this PerformedRedaction.  # noqa: E501
         :type: str
         """
-        allowed_values = ["ner", "regex"]  # noqa: E501
+        allowed_values = ["ner", "regex", "dtmf"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

@@ -35,6 +35,7 @@ class WordItemTimed(object):
     """
     openapi_types = {
         'confidence': 'float',
+        'dtmf': 'bool',
         'spk': 'int',
         'utterance': 'str',
         'alternatives': 'list[WordsItem]',
@@ -44,6 +45,7 @@ class WordItemTimed(object):
 
     attribute_map = {
         'confidence': 'confidence',
+        'dtmf': 'dtmf',
         'spk': 'spk',
         'utterance': 'utterance',
         'alternatives': 'alternatives',
@@ -51,13 +53,14 @@ class WordItemTimed(object):
         'start': 'start'
     }
 
-    def __init__(self, confidence=None, spk=None, utterance=None, alternatives=None, duration=None, start=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, confidence=None, dtmf=None, spk=None, utterance=None, alternatives=None, duration=None, start=None, local_vars_configuration=None):  # noqa: E501
         """WordItemTimed - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._confidence = None
+        self._dtmf = None
         self._spk = None
         self._utterance = None
         self._alternatives = None
@@ -67,6 +70,8 @@ class WordItemTimed(object):
 
         if confidence is not None:
             self.confidence = confidence
+        if dtmf is not None:
+            self.dtmf = dtmf
         if spk is not None:
             self.spk = spk
         self.utterance = utterance
@@ -105,6 +110,29 @@ class WordItemTimed(object):
             raise ValueError("Invalid value for `confidence`, must be a value greater than or equal to `0.0`")  # noqa: E501
 
         self._confidence = confidence
+
+    @property
+    def dtmf(self):
+        """Gets the dtmf of this WordItemTimed.  # noqa: E501
+
+        If true then this word (digit or symbol) represents a DTMF tone value that was detected. To reduce the amount of data in the response, `dtmf` field is not present if the word is not a DTMF tone.   # noqa: E501
+
+        :return: The dtmf of this WordItemTimed.  # noqa: E501
+        :rtype: bool
+        """
+        return self._dtmf
+
+    @dtmf.setter
+    def dtmf(self, dtmf):
+        """Sets the dtmf of this WordItemTimed.
+
+        If true then this word (digit or symbol) represents a DTMF tone value that was detected. To reduce the amount of data in the response, `dtmf` field is not present if the word is not a DTMF tone.   # noqa: E501
+
+        :param dtmf: The dtmf of this WordItemTimed.  # noqa: E501
+        :type: bool
+        """
+
+        self._dtmf = dtmf
 
     @property
     def spk(self):
