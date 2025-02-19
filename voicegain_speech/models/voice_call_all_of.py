@@ -43,8 +43,10 @@ class VoiceCallAllOf(object):
         'duration': 'int',
         'incidents': 'float',
         'keywords': 'list[str]',
+        'last_recompute_time': 'datetime',
         'notes': 'str',
         'progress_phase': 'ProgressPhase',
+        'recompute_phase': 'str',
         'review_notes': 'str',
         'review_status': 'str',
         'sa_session_id': 'str',
@@ -66,8 +68,10 @@ class VoiceCallAllOf(object):
         'duration': 'duration',
         'incidents': 'incidents',
         'keywords': 'keywords',
+        'last_recompute_time': 'lastRecomputeTime',
         'notes': 'notes',
         'progress_phase': 'progressPhase',
+        'recompute_phase': 'recomputePhase',
         'review_notes': 'reviewNotes',
         'review_status': 'reviewStatus',
         'sa_session_id': 'saSessionId',
@@ -79,7 +83,7 @@ class VoiceCallAllOf(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, notes=None, progress_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -94,8 +98,10 @@ class VoiceCallAllOf(object):
         self._duration = None
         self._incidents = None
         self._keywords = None
+        self._last_recompute_time = None
         self._notes = None
         self._progress_phase = None
+        self._recompute_phase = None
         self._review_notes = None
         self._review_status = None
         self._sa_session_id = None
@@ -125,10 +131,14 @@ class VoiceCallAllOf(object):
             self.incidents = incidents
         if keywords is not None:
             self.keywords = keywords
+        if last_recompute_time is not None:
+            self.last_recompute_time = last_recompute_time
         if notes is not None:
             self.notes = notes
         if progress_phase is not None:
             self.progress_phase = progress_phase
+        if recompute_phase is not None:
+            self.recompute_phase = recompute_phase
         if review_notes is not None:
             self.review_notes = review_notes
         if review_status is not None:
@@ -386,6 +396,29 @@ class VoiceCallAllOf(object):
         self._keywords = keywords
 
     @property
+    def last_recompute_time(self):
+        """Gets the last_recompute_time of this VoiceCallAllOf.  # noqa: E501
+
+        finish time of the last recompute (UTC)  # noqa: E501
+
+        :return: The last_recompute_time of this VoiceCallAllOf.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._last_recompute_time
+
+    @last_recompute_time.setter
+    def last_recompute_time(self, last_recompute_time):
+        """Sets the last_recompute_time of this VoiceCallAllOf.
+
+        finish time of the last recompute (UTC)  # noqa: E501
+
+        :param last_recompute_time: The last_recompute_time of this VoiceCallAllOf.  # noqa: E501
+        :type: datetime
+        """
+
+        self._last_recompute_time = last_recompute_time
+
+    @property
     def notes(self):
         """Gets the notes of this VoiceCallAllOf.  # noqa: E501
 
@@ -428,6 +461,35 @@ class VoiceCallAllOf(object):
         """
 
         self._progress_phase = progress_phase
+
+    @property
+    def recompute_phase(self):
+        """Gets the recompute_phase of this VoiceCallAllOf.  # noqa: E501
+
+        Phase of the recompute process. Recompute uses existing transcript to recompute things like sentiment, keywords, etc. Also is used to reapply PII redaction to text and audio. + `requested` - recompute has been requested + `queued` - recompute is in the queue (ready to be processed) + `processing` - recompute is being processed + `completed` - recompute has been completed + `error` - recompute has failed   # noqa: E501
+
+        :return: The recompute_phase of this VoiceCallAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._recompute_phase
+
+    @recompute_phase.setter
+    def recompute_phase(self, recompute_phase):
+        """Sets the recompute_phase of this VoiceCallAllOf.
+
+        Phase of the recompute process. Recompute uses existing transcript to recompute things like sentiment, keywords, etc. Also is used to reapply PII redaction to text and audio. + `requested` - recompute has been requested + `queued` - recompute is in the queue (ready to be processed) + `processing` - recompute is being processed + `completed` - recompute has been completed + `error` - recompute has failed   # noqa: E501
+
+        :param recompute_phase: The recompute_phase of this VoiceCallAllOf.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["requested", "queued", "processing", "completed", "error"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and recompute_phase not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `recompute_phase` ({0}), must be one of {1}"  # noqa: E501
+                .format(recompute_phase, allowed_values)
+            )
+
+        self._recompute_phase = recompute_phase
 
     @property
     def review_notes(self):
