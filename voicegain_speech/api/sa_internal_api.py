@@ -299,6 +299,7 @@ class SaInternalApi(object):
         :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param list[str] agent_id: Ids of Agents to query
         :param list[str] queue_id: Ids of Queues to query
+        :param list[str] recompute_phase: Phase of the recompute process. Recompute uses existing transcript to recompute things like sentiment, keywords, etc. Also is used to reapply PII redaction to text and audio. + `requested` - recompute has been requested + `queued` - recompute is in the queue (ready to be processed) + `processing` - recompute is being processed + `completed` - recompute has been completed + `error` - recompute has failed         
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
@@ -337,6 +338,7 @@ class SaInternalApi(object):
         :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param list[str] agent_id: Ids of Agents to query
         :param list[str] queue_id: Ids of Queues to query
+        :param list[str] recompute_phase: Phase of the recompute process. Recompute uses existing transcript to recompute things like sentiment, keywords, etc. Also is used to reapply PII redaction to text and audio. + `requested` - recompute has been requested + `queued` - recompute is in the queue (ready to be processed) + `processing` - recompute is being processed + `completed` - recompute has been completed + `error` - recompute has failed         
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
@@ -357,7 +359,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'format', 'consecutive', 'after_call_id', 'from_time', 'to_time', 'period', 'aivr_app_id', 'agent_id', 'queue_id', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
+        all_params = ['context_id', 'format', 'consecutive', 'after_call_id', 'from_time', 'to_time', 'period', 'aivr_app_id', 'agent_id', 'queue_id', 'recompute_phase', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -420,6 +422,9 @@ class SaInternalApi(object):
         if 'queue_id' in local_var_params and local_var_params['queue_id'] is not None:  # noqa: E501
             query_params.append(('queueId', local_var_params['queue_id']))  # noqa: E501
             collection_formats['queueId'] = 'csv'  # noqa: E501
+        if 'recompute_phase' in local_var_params and local_var_params['recompute_phase'] is not None:  # noqa: E501
+            query_params.append(('recomputePhase', local_var_params['recompute_phase']))  # noqa: E501
+            collection_formats['recomputePhase'] = 'csv'  # noqa: E501
         if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
         if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
