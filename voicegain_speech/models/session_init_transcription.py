@@ -36,6 +36,7 @@ class SessionInitTranscription(object):
     openapi_types = {
         'async_mode': 'AsyncModeTranscription',
         'audio_channel_selector': 'AudioChannelSelectorOfflineAsync',
+        'billing_code': 'str',
         'callback': 'CallbackReq',
         'content': 'RequestedContent',
         'diarization': 'SessionInitTranscriptionDiarization',
@@ -53,6 +54,7 @@ class SessionInitTranscription(object):
     attribute_map = {
         'async_mode': 'asyncMode',
         'audio_channel_selector': 'audioChannelSelector',
+        'billing_code': 'billingCode',
         'callback': 'callback',
         'content': 'content',
         'diarization': 'diarization',
@@ -67,7 +69,7 @@ class SessionInitTranscription(object):
         'websocket': 'websocket'
     }
 
-    def __init__(self, async_mode=None, audio_channel_selector=None, callback=None, content=None, diarization=None, external_id=None, extra_params=None, initial_prompt=None, metadata=None, poll=None, portal=None, tags=None, vad_mode=None, websocket=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_mode=None, audio_channel_selector=None, billing_code=None, callback=None, content=None, diarization=None, external_id=None, extra_params=None, initial_prompt=None, metadata=None, poll=None, portal=None, tags=None, vad_mode=None, websocket=None, local_vars_configuration=None):  # noqa: E501
         """SessionInitTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class SessionInitTranscription(object):
 
         self._async_mode = None
         self._audio_channel_selector = None
+        self._billing_code = None
         self._callback = None
         self._content = None
         self._diarization = None
@@ -92,6 +95,8 @@ class SessionInitTranscription(object):
         self.async_mode = async_mode
         if audio_channel_selector is not None:
             self.audio_channel_selector = audio_channel_selector
+        if billing_code is not None:
+            self.billing_code = billing_code
         if callback is not None:
             self.callback = callback
         if content is not None:
@@ -160,6 +165,35 @@ class SessionInitTranscription(object):
         """
 
         self._audio_channel_selector = audio_channel_selector
+
+    @property
+    def billing_code(self):
+        """Gets the billing_code of this SessionInitTranscription.  # noqa: E501
+
+        (Optional) Billing code that can used for billing purposes.  For example, to identify customer, line-of-business, or project.</br> The billing code is a 3-character string, e.g. \"MR3\"   # noqa: E501
+
+        :return: The billing_code of this SessionInitTranscription.  # noqa: E501
+        :rtype: str
+        """
+        return self._billing_code
+
+    @billing_code.setter
+    def billing_code(self, billing_code):
+        """Sets the billing_code of this SessionInitTranscription.
+
+        (Optional) Billing code that can used for billing purposes.  For example, to identify customer, line-of-business, or project.</br> The billing code is a 3-character string, e.g. \"MR3\"   # noqa: E501
+
+        :param billing_code: The billing_code of this SessionInitTranscription.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                billing_code is not None and len(billing_code) > 3):
+            raise ValueError("Invalid value for `billing_code`, length must be less than or equal to `3`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                billing_code is not None and len(billing_code) < 3):
+            raise ValueError("Invalid value for `billing_code`, length must be greater than or equal to `3`")  # noqa: E501
+
+        self._billing_code = billing_code
 
     @property
     def callback(self):
