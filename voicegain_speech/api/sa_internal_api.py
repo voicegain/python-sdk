@@ -37,6 +37,130 @@ class SaInternalApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
+    def sa_call_delete(self, call_id, **kwargs):  # noqa: E501
+        """Delete Call  # noqa: E501
+
+        Delete a call   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_call_delete(call_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str call_id: Voice Call Id. (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: VoiceCall
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.sa_call_delete_with_http_info(call_id, **kwargs)  # noqa: E501
+
+    def sa_call_delete_with_http_info(self, call_id, **kwargs):  # noqa: E501
+        """Delete Call  # noqa: E501
+
+        Delete a call   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_call_delete_with_http_info(call_id, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str call_id: Voice Call Id. (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(VoiceCall, status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['call_id', 'context_id']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method sa_call_delete" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'call_id' is set
+        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['call_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `call_id` when calling `sa_call_delete`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['call_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `call_id` when calling `sa_call_delete`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['call_id']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `call_id` when calling `sa_call_delete`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_call_delete`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_call_delete`, length must be greater than or equal to `16`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'call_id' in local_var_params:
+            path_params['callId'] = local_var_params['call_id']  # noqa: E501
+
+        query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/sa/call/{callId}', 'DELETE',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='VoiceCall',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def sa_call_get(self, call_id, **kwargs):  # noqa: E501
         """Get Call  # noqa: E501
 
