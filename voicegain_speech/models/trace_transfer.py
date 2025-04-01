@@ -36,7 +36,7 @@ class TraceTransfer(object):
     openapi_types = {
         'agent': 'Agent',
         'call_id': 'int',
-        'call_uuid': 'String',
+        'call_uuid': 'str',
         'destination_number': 'str',
         'origin_number': 'str',
         'queue': 'Queue'
@@ -129,7 +129,7 @@ class TraceTransfer(object):
         Call uuid of the transferred call - used if call center supports string call uuids.  # noqa: E501
 
         :return: The call_uuid of this TraceTransfer.  # noqa: E501
-        :rtype: String
+        :rtype: str
         """
         return self._call_uuid
 
@@ -140,7 +140,7 @@ class TraceTransfer(object):
         Call uuid of the transferred call - used if call center supports string call uuids.  # noqa: E501
 
         :param call_uuid: The call_uuid of this TraceTransfer.  # noqa: E501
-        :type: String
+        :type: str
         """
 
         self._call_uuid = call_uuid

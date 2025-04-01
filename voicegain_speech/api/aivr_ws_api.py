@@ -158,7 +158,7 @@ class AivrWsApi(object):
         auth_settings = ['bearerJWTAuth']  # noqa: E501
 
         return self.api_client.call_api(
-            '/ws/aivr/{aivrId}/session/{ivrSid}', 'GET',
+            '/ws/aivr/{aivrAppId}/session/{ivrSid}', 'GET',
             path_params,
             query_params,
             header_params,
