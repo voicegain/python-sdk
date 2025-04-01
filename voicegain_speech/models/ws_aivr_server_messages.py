@@ -38,11 +38,7 @@ class WsAivrServerMessages(object):
         'ani': 'str',
         'auth_token': 'str',
         'call_is_being_recorded': 'bool',
-        'default_voice': 'str',
         'dnis': 'str',
-        'estimated_queue_wait_seconds': 'EstimatedQueueWait',
-        'logic_type': 'AIVRLogicType',
-        'media': 'AIVRLogicMedia',
         'sequence': 'int',
         'sid': 'str',
         'start_time': 'datetime',
@@ -50,6 +46,10 @@ class WsAivrServerMessages(object):
         'to_be_transcribed': 'bool',
         'user_app_data': 'str',
         'vars': 'object',
+        'default_voice': 'str',
+        'estimated_queue_wait_seconds': 'EstimatedQueueWait',
+        'logic_type': 'AIVRLogicType',
+        'media': 'AIVRLogicMedia',
         'event': 'AIVREvent',
         'conf': 'float',
         'gap': 'int',
@@ -69,11 +69,7 @@ class WsAivrServerMessages(object):
         'ani': 'ani',
         'auth_token': 'authToken',
         'call_is_being_recorded': 'callIsBeingRecorded',
-        'default_voice': 'defaultVoice',
         'dnis': 'dnis',
-        'estimated_queue_wait_seconds': 'estimatedQueueWaitSeconds',
-        'logic_type': 'logicType',
-        'media': 'media',
         'sequence': 'sequence',
         'sid': 'sid',
         'start_time': 'startTime',
@@ -81,6 +77,10 @@ class WsAivrServerMessages(object):
         'to_be_transcribed': 'toBeTranscribed',
         'user_app_data': 'userAppData',
         'vars': 'vars',
+        'default_voice': 'defaultVoice',
+        'estimated_queue_wait_seconds': 'estimatedQueueWaitSeconds',
+        'logic_type': 'logicType',
+        'media': 'media',
         'event': 'event',
         'conf': 'conf',
         'gap': 'gap',
@@ -95,7 +95,7 @@ class WsAivrServerMessages(object):
         'ping': 'ping'
     }
 
-    def __init__(self, aivr_app_id=None, ani=None, auth_token=None, call_is_being_recorded=False, default_voice=None, dnis=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, event=None, conf=None, gap=None, start=None, utt=None, _del=None, edit=None, alternatives=None, duration=None, time=None, type=None, ping=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, ani=None, auth_token=None, call_is_being_recorded=False, dnis=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, default_voice=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, event=None, conf=None, gap=None, start=None, utt=None, _del=None, edit=None, alternatives=None, duration=None, time=None, type=None, ping=None, local_vars_configuration=None):  # noqa: E501
         """WsAivrServerMessages - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -105,11 +105,7 @@ class WsAivrServerMessages(object):
         self._ani = None
         self._auth_token = None
         self._call_is_being_recorded = None
-        self._default_voice = None
         self._dnis = None
-        self._estimated_queue_wait_seconds = None
-        self._logic_type = None
-        self._media = None
         self._sequence = None
         self._sid = None
         self._start_time = None
@@ -117,6 +113,10 @@ class WsAivrServerMessages(object):
         self._to_be_transcribed = None
         self._user_app_data = None
         self._vars = None
+        self._default_voice = None
+        self._estimated_queue_wait_seconds = None
+        self._logic_type = None
+        self._media = None
         self._event = None
         self._conf = None
         self._gap = None
@@ -137,16 +137,8 @@ class WsAivrServerMessages(object):
         self.auth_token = auth_token
         if call_is_being_recorded is not None:
             self.call_is_being_recorded = call_is_being_recorded
-        if default_voice is not None:
-            self.default_voice = default_voice
         if dnis is not None:
             self.dnis = dnis
-        if estimated_queue_wait_seconds is not None:
-            self.estimated_queue_wait_seconds = estimated_queue_wait_seconds
-        if logic_type is not None:
-            self.logic_type = logic_type
-        if media is not None:
-            self.media = media
         self.sequence = sequence
         self.sid = sid
         self.start_time = start_time
@@ -158,6 +150,14 @@ class WsAivrServerMessages(object):
             self.user_app_data = user_app_data
         if vars is not None:
             self.vars = vars
+        if default_voice is not None:
+            self.default_voice = default_voice
+        if estimated_queue_wait_seconds is not None:
+            self.estimated_queue_wait_seconds = estimated_queue_wait_seconds
+        if logic_type is not None:
+            self.logic_type = logic_type
+        if media is not None:
+            self.media = media
         if event is not None:
             self.event = event
         if conf is not None:
@@ -280,29 +280,6 @@ class WsAivrServerMessages(object):
         self._call_is_being_recorded = call_is_being_recorded
 
     @property
-    def default_voice(self):
-        """Gets the default_voice of this WsAivrServerMessages.  # noqa: E501
-
-        Default TTS voice that will be used for this call unless overridden by the callback responses.  # noqa: E501
-
-        :return: The default_voice of this WsAivrServerMessages.  # noqa: E501
-        :rtype: str
-        """
-        return self._default_voice
-
-    @default_voice.setter
-    def default_voice(self, default_voice):
-        """Sets the default_voice of this WsAivrServerMessages.
-
-        Default TTS voice that will be used for this call unless overridden by the callback responses.  # noqa: E501
-
-        :param default_voice: The default_voice of this WsAivrServerMessages.  # noqa: E501
-        :type: str
-        """
-
-        self._default_voice = default_voice
-
-    @property
     def dnis(self):
         """Gets the dnis of this WsAivrServerMessages.  # noqa: E501
 
@@ -324,69 +301,6 @@ class WsAivrServerMessages(object):
         """
 
         self._dnis = dnis
-
-    @property
-    def estimated_queue_wait_seconds(self):
-        """Gets the estimated_queue_wait_seconds of this WsAivrServerMessages.  # noqa: E501
-
-
-        :return: The estimated_queue_wait_seconds of this WsAivrServerMessages.  # noqa: E501
-        :rtype: EstimatedQueueWait
-        """
-        return self._estimated_queue_wait_seconds
-
-    @estimated_queue_wait_seconds.setter
-    def estimated_queue_wait_seconds(self, estimated_queue_wait_seconds):
-        """Sets the estimated_queue_wait_seconds of this WsAivrServerMessages.
-
-
-        :param estimated_queue_wait_seconds: The estimated_queue_wait_seconds of this WsAivrServerMessages.  # noqa: E501
-        :type: EstimatedQueueWait
-        """
-
-        self._estimated_queue_wait_seconds = estimated_queue_wait_seconds
-
-    @property
-    def logic_type(self):
-        """Gets the logic_type of this WsAivrServerMessages.  # noqa: E501
-
-
-        :return: The logic_type of this WsAivrServerMessages.  # noqa: E501
-        :rtype: AIVRLogicType
-        """
-        return self._logic_type
-
-    @logic_type.setter
-    def logic_type(self, logic_type):
-        """Sets the logic_type of this WsAivrServerMessages.
-
-
-        :param logic_type: The logic_type of this WsAivrServerMessages.  # noqa: E501
-        :type: AIVRLogicType
-        """
-
-        self._logic_type = logic_type
-
-    @property
-    def media(self):
-        """Gets the media of this WsAivrServerMessages.  # noqa: E501
-
-
-        :return: The media of this WsAivrServerMessages.  # noqa: E501
-        :rtype: AIVRLogicMedia
-        """
-        return self._media
-
-    @media.setter
-    def media(self, media):
-        """Sets the media of this WsAivrServerMessages.
-
-
-        :param media: The media of this WsAivrServerMessages.  # noqa: E501
-        :type: AIVRLogicMedia
-        """
-
-        self._media = media
 
     @property
     def sequence(self):
@@ -563,6 +477,92 @@ class WsAivrServerMessages(object):
         """
 
         self._vars = vars
+
+    @property
+    def default_voice(self):
+        """Gets the default_voice of this WsAivrServerMessages.  # noqa: E501
+
+        Default TTS voice that will be used for this call unless overridden by the callback responses.  # noqa: E501
+
+        :return: The default_voice of this WsAivrServerMessages.  # noqa: E501
+        :rtype: str
+        """
+        return self._default_voice
+
+    @default_voice.setter
+    def default_voice(self, default_voice):
+        """Sets the default_voice of this WsAivrServerMessages.
+
+        Default TTS voice that will be used for this call unless overridden by the callback responses.  # noqa: E501
+
+        :param default_voice: The default_voice of this WsAivrServerMessages.  # noqa: E501
+        :type: str
+        """
+
+        self._default_voice = default_voice
+
+    @property
+    def estimated_queue_wait_seconds(self):
+        """Gets the estimated_queue_wait_seconds of this WsAivrServerMessages.  # noqa: E501
+
+
+        :return: The estimated_queue_wait_seconds of this WsAivrServerMessages.  # noqa: E501
+        :rtype: EstimatedQueueWait
+        """
+        return self._estimated_queue_wait_seconds
+
+    @estimated_queue_wait_seconds.setter
+    def estimated_queue_wait_seconds(self, estimated_queue_wait_seconds):
+        """Sets the estimated_queue_wait_seconds of this WsAivrServerMessages.
+
+
+        :param estimated_queue_wait_seconds: The estimated_queue_wait_seconds of this WsAivrServerMessages.  # noqa: E501
+        :type: EstimatedQueueWait
+        """
+
+        self._estimated_queue_wait_seconds = estimated_queue_wait_seconds
+
+    @property
+    def logic_type(self):
+        """Gets the logic_type of this WsAivrServerMessages.  # noqa: E501
+
+
+        :return: The logic_type of this WsAivrServerMessages.  # noqa: E501
+        :rtype: AIVRLogicType
+        """
+        return self._logic_type
+
+    @logic_type.setter
+    def logic_type(self, logic_type):
+        """Sets the logic_type of this WsAivrServerMessages.
+
+
+        :param logic_type: The logic_type of this WsAivrServerMessages.  # noqa: E501
+        :type: AIVRLogicType
+        """
+
+        self._logic_type = logic_type
+
+    @property
+    def media(self):
+        """Gets the media of this WsAivrServerMessages.  # noqa: E501
+
+
+        :return: The media of this WsAivrServerMessages.  # noqa: E501
+        :rtype: AIVRLogicMedia
+        """
+        return self._media
+
+    @media.setter
+    def media(self, media):
+        """Sets the media of this WsAivrServerMessages.
+
+
+        :param media: The media of this WsAivrServerMessages.  # noqa: E501
+        :type: AIVRLogicMedia
+        """
+
+        self._media = media
 
     @property
     def event(self):
