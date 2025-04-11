@@ -42,6 +42,7 @@ class VoiceCall(object):
         'direction': 'str',
         'dtmf_events': 'list[DtmfEventWithChannel]',
         'end_time': 'datetime',
+        'expiry_time': 'datetime',
         'external_endpoint': 'str',
         'internal_endpoint': 'str',
         'language': 'Language',
@@ -86,6 +87,7 @@ class VoiceCall(object):
         'direction': 'direction',
         'dtmf_events': 'dtmfEvents',
         'end_time': 'endTime',
+        'expiry_time': 'expiryTime',
         'external_endpoint': 'externalEndpoint',
         'internal_endpoint': 'internalEndpoint',
         'language': 'language',
@@ -121,7 +123,7 @@ class VoiceCall(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -135,6 +137,7 @@ class VoiceCall(object):
         self._direction = None
         self._dtmf_events = None
         self._end_time = None
+        self._expiry_time = None
         self._external_endpoint = None
         self._internal_endpoint = None
         self._language = None
@@ -186,6 +189,8 @@ class VoiceCall(object):
             self.dtmf_events = dtmf_events
         if end_time is not None:
             self.end_time = end_time
+        if expiry_time is not None:
+            self.expiry_time = expiry_time
         if external_endpoint is not None:
             self.external_endpoint = external_endpoint
         if internal_endpoint is not None:
@@ -449,6 +454,29 @@ class VoiceCall(object):
         """
 
         self._end_time = end_time
+
+    @property
+    def expiry_time(self):
+        """Gets the expiry_time of this VoiceCall.  # noqa: E501
+
+        Expiration time of the call (UTC). The call and all call associated data will be deleted within 24-48 hours after this date-time.   # noqa: E501
+
+        :return: The expiry_time of this VoiceCall.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._expiry_time
+
+    @expiry_time.setter
+    def expiry_time(self, expiry_time):
+        """Sets the expiry_time of this VoiceCall.
+
+        Expiration time of the call (UTC). The call and all call associated data will be deleted within 24-48 hours after this date-time.   # noqa: E501
+
+        :param expiry_time: The expiry_time of this VoiceCall.  # noqa: E501
+        :type: datetime
+        """
+
+        self._expiry_time = expiry_time
 
     @property
     def external_endpoint(self):

@@ -34,35 +34,63 @@ class AIVRLogicTransfer(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'name': 'str',
         'type': 'str',
         'vars': 'object'
     }
 
     attribute_map = {
+        'name': 'name',
         'type': 'type',
         'vars': 'vars'
     }
 
-    def __init__(self, type=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, name=None, type=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """AIVRLogicTransfer - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._name = None
         self._type = None
         self._vars = None
         self.discriminator = None
 
+        if name is not None:
+            self.name = name
         if type is not None:
             self.type = type
         if vars is not None:
             self.vars = vars
 
     @property
+    def name(self):
+        """Gets the name of this AIVRLogicTransfer.  # noqa: E501
+
+        Name of the logic to transfer to. If skipped then we will transfer to the default logic.   # noqa: E501
+
+        :return: The name of this AIVRLogicTransfer.  # noqa: E501
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name):
+        """Sets the name of this AIVRLogicTransfer.
+
+        Name of the logic to transfer to. If skipped then we will transfer to the default logic.   # noqa: E501
+
+        :param name: The name of this AIVRLogicTransfer.  # noqa: E501
+        :type: str
+        """
+
+        self._name = name
+
+    @property
     def type(self):
         """Gets the type of this AIVRLogicTransfer.  # noqa: E501
 
-        `queue` - when AIVR is managing the queue</br> `unavailable` (if desired destination is unavailable - schedule callback or leave voicemail)   # noqa: E501
+        Type of the logic to transfer to. May be skipped if name of the logic is provided.</br> `inbound` - transfer to normal inbound logic (there may be more than one inbound logic)</br> `queue` - when AIVR is managing the queue</br> `unavailable` (if desired destination is unavailable - e.g. schedule a callback or leave voicemail)   # noqa: E501
 
         :return: The type of this AIVRLogicTransfer.  # noqa: E501
         :rtype: str
@@ -73,12 +101,12 @@ class AIVRLogicTransfer(object):
     def type(self, type):
         """Sets the type of this AIVRLogicTransfer.
 
-        `queue` - when AIVR is managing the queue</br> `unavailable` (if desired destination is unavailable - schedule callback or leave voicemail)   # noqa: E501
+        Type of the logic to transfer to. May be skipped if name of the logic is provided.</br> `inbound` - transfer to normal inbound logic (there may be more than one inbound logic)</br> `queue` - when AIVR is managing the queue</br> `unavailable` (if desired destination is unavailable - e.g. schedule a callback or leave voicemail)   # noqa: E501
 
         :param type: The type of this AIVRLogicTransfer.  # noqa: E501
         :type: str
         """
-        allowed_values = ["queue", "unavailable"]  # noqa: E501
+        allowed_values = ["inbound", "queue", "unavailable"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
