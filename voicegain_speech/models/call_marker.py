@@ -119,7 +119,7 @@ class CallMarker(object):
     def type(self):
         """Gets the type of this CallMarker.  # noqa: E501
 
-        Type of the marker.  + `CC_ANSWER` - call-center answer - e.g. moment where a call transfered from voicebot to call-center has been answered (and typically put in a queue) + `CC_AGENT_ANSWER` - moment where call-center agent answered the call (typically picked it up from the queue) + `WARM_TRANSFER_START` - moment when a warm transfer process started + `WARM_TRANSFER_SUCCESS` - moment when a warm transfer was completed successfully + `WARM_TRANSFER_ABANDON` - moment when a warm transfer was abandoned (e.g. because the other side was unavailable and refused to pick up the call)   # noqa: E501
+        Type of the marker.  + `CC_ANSWER` - call-center answer - e.g. moment where a call transfered from voicebot to call-center has been answered (and typically put in a queue) + `CC_AGENT_ANSWER` - moment where call-center agent answered the call (typically picked it up from the queue) + `WARM_TRANSFER_START` - moment when a warm transfer process started + `WARM_TRANSFER_SUCCESS` - moment when a warm transfer was completed successfully + `WARM_TRANSFER_ABANDON` - moment when a warm transfer was abandoned (e.g. because the other side was unavailable and refused to pick up the call) + `HOLD` - moment when the call was put on hold + `UNHOLD` - moment when the call was taken off hold   # noqa: E501
 
         :return: The type of this CallMarker.  # noqa: E501
         :rtype: str
@@ -130,12 +130,12 @@ class CallMarker(object):
     def type(self, type):
         """Sets the type of this CallMarker.
 
-        Type of the marker.  + `CC_ANSWER` - call-center answer - e.g. moment where a call transfered from voicebot to call-center has been answered (and typically put in a queue) + `CC_AGENT_ANSWER` - moment where call-center agent answered the call (typically picked it up from the queue) + `WARM_TRANSFER_START` - moment when a warm transfer process started + `WARM_TRANSFER_SUCCESS` - moment when a warm transfer was completed successfully + `WARM_TRANSFER_ABANDON` - moment when a warm transfer was abandoned (e.g. because the other side was unavailable and refused to pick up the call)   # noqa: E501
+        Type of the marker.  + `CC_ANSWER` - call-center answer - e.g. moment where a call transfered from voicebot to call-center has been answered (and typically put in a queue) + `CC_AGENT_ANSWER` - moment where call-center agent answered the call (typically picked it up from the queue) + `WARM_TRANSFER_START` - moment when a warm transfer process started + `WARM_TRANSFER_SUCCESS` - moment when a warm transfer was completed successfully + `WARM_TRANSFER_ABANDON` - moment when a warm transfer was abandoned (e.g. because the other side was unavailable and refused to pick up the call) + `HOLD` - moment when the call was put on hold + `UNHOLD` - moment when the call was taken off hold   # noqa: E501
 
         :param type: The type of this CallMarker.  # noqa: E501
         :type: str
         """
-        allowed_values = ["CC_ANSWER", "CC_AGENT_ANSWER", "WARM_TRANSFER_START", "WARM_TRANSFER_SUCCESS", "WARM_TRANSFER_ABANDON"]  # noqa: E501
+        allowed_values = ["CC_ANSWER", "CC_AGENT_ANSWER", "WARM_TRANSFER_START", "WARM_TRANSFER_SUCCESS", "WARM_TRANSFER_ABANDON", "HOLD", "UNHOLD"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
