@@ -34,58 +34,58 @@ class CriterionSatisfied(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'sub_criteria': 'list[SubCriterionSatisfied]',
+        'required_sub_criteria': 'list[SubCriterionSatisfied]',
         'tag': 'str'
     }
 
     attribute_map = {
-        'sub_criteria': 'subCriteria',
+        'required_sub_criteria': 'requiredSubCriteria',
         'tag': 'tag'
     }
 
-    def __init__(self, sub_criteria=None, tag=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, required_sub_criteria=None, tag=None, local_vars_configuration=None):  # noqa: E501
         """CriterionSatisfied - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._sub_criteria = None
+        self._required_sub_criteria = None
         self._tag = None
         self.discriminator = None
 
-        if sub_criteria is not None:
-            self.sub_criteria = sub_criteria
+        if required_sub_criteria is not None:
+            self.required_sub_criteria = required_sub_criteria
         if tag is not None:
             self.tag = tag
 
     @property
-    def sub_criteria(self):
-        """Gets the sub_criteria of this CriterionSatisfied.  # noqa: E501
+    def required_sub_criteria(self):
+        """Gets the required_sub_criteria of this CriterionSatisfied.  # noqa: E501
 
-        all subcriteria that have been satisfied for this criteria to be satisfied  # noqa: E501
+        All subcriteria that **have been** satisfied so that the criterion is considered satisfied.</br> Note, the name is a bit misleading (due to backwards compatibiliy needs), it is not a list of required subcriteria but rather a list of satisfied subcriteria.  # noqa: E501
 
-        :return: The sub_criteria of this CriterionSatisfied.  # noqa: E501
+        :return: The required_sub_criteria of this CriterionSatisfied.  # noqa: E501
         :rtype: list[SubCriterionSatisfied]
         """
-        return self._sub_criteria
+        return self._required_sub_criteria
 
-    @sub_criteria.setter
-    def sub_criteria(self, sub_criteria):
-        """Sets the sub_criteria of this CriterionSatisfied.
+    @required_sub_criteria.setter
+    def required_sub_criteria(self, required_sub_criteria):
+        """Sets the required_sub_criteria of this CriterionSatisfied.
 
-        all subcriteria that have been satisfied for this criteria to be satisfied  # noqa: E501
+        All subcriteria that **have been** satisfied so that the criterion is considered satisfied.</br> Note, the name is a bit misleading (due to backwards compatibiliy needs), it is not a list of required subcriteria but rather a list of satisfied subcriteria.  # noqa: E501
 
-        :param sub_criteria: The sub_criteria of this CriterionSatisfied.  # noqa: E501
+        :param required_sub_criteria: The required_sub_criteria of this CriterionSatisfied.  # noqa: E501
         :type: list[SubCriterionSatisfied]
         """
 
-        self._sub_criteria = sub_criteria
+        self._required_sub_criteria = required_sub_criteria
 
     @property
     def tag(self):
         """Gets the tag of this CriterionSatisfied.  # noqa: E501
 
-        tag value identifying this criterion  # noqa: E501
+        Tag value identifying this satisfied criterion.  # noqa: E501
 
         :return: The tag of this CriterionSatisfied.  # noqa: E501
         :rtype: str
@@ -96,7 +96,7 @@ class CriterionSatisfied(object):
     def tag(self, tag):
         """Sets the tag of this CriterionSatisfied.
 
-        tag value identifying this criterion  # noqa: E501
+        Tag value identifying this satisfied criterion.  # noqa: E501
 
         :param tag: The tag of this CriterionSatisfied.  # noqa: E501
         :type: str
