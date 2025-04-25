@@ -34,40 +34,79 @@ class AIVRLogicTransfer(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'language': 'str',
         'name': 'str',
+        '_return': 'bool',
         'type': 'str',
         'vars': 'object'
     }
 
     attribute_map = {
+        'language': 'language',
         'name': 'name',
+        '_return': 'return',
         'type': 'type',
         'vars': 'vars'
     }
 
-    def __init__(self, name=None, type=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, language=None, name=None, _return=False, type=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """AIVRLogicTransfer - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._language = None
         self._name = None
+        self.__return = None
         self._type = None
         self._vars = None
         self.discriminator = None
 
+        if language is not None:
+            self.language = language
         if name is not None:
             self.name = name
+        if _return is not None:
+            self._return = _return
         if type is not None:
             self.type = type
         if vars is not None:
             self.vars = vars
 
     @property
+    def language(self):
+        """Gets the language of this AIVRLogicTransfer.  # noqa: E501
+
+        Language of the logic to transfer to. If skipped then we will transfer to the same language as the current running logic.   # noqa: E501
+
+        :return: The language of this AIVRLogicTransfer.  # noqa: E501
+        :rtype: str
+        """
+        return self._language
+
+    @language.setter
+    def language(self, language):
+        """Sets the language of this AIVRLogicTransfer.
+
+        Language of the logic to transfer to. If skipped then we will transfer to the same language as the current running logic.   # noqa: E501
+
+        :param language: The language of this AIVRLogicTransfer.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["en", "en-us", "en-in", "es"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and language not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501
+                .format(language, allowed_values)
+            )
+
+        self._language = language
+
+    @property
     def name(self):
         """Gets the name of this AIVRLogicTransfer.  # noqa: E501
 
-        Name of the logic to transfer to. If skipped then we will transfer to the default logic.   # noqa: E501
+        Name of the logic to transfer to. If skipped then we will transfer to the default logic of the specified type.   # noqa: E501
 
         :return: The name of this AIVRLogicTransfer.  # noqa: E501
         :rtype: str
@@ -78,7 +117,7 @@ class AIVRLogicTransfer(object):
     def name(self, name):
         """Sets the name of this AIVRLogicTransfer.
 
-        Name of the logic to transfer to. If skipped then we will transfer to the default logic.   # noqa: E501
+        Name of the logic to transfer to. If skipped then we will transfer to the default logic of the specified type.   # noqa: E501
 
         :param name: The name of this AIVRLogicTransfer.  # noqa: E501
         :type: str
@@ -87,10 +126,33 @@ class AIVRLogicTransfer(object):
         self._name = name
 
     @property
+    def _return(self):
+        """Gets the _return of this AIVRLogicTransfer.  # noqa: E501
+
+        (coming soon) If true then all the other parameters (apart from `vars`) will be ignored and the logic will be transferred back to the logic that invoked the current one.</br>   # noqa: E501
+
+        :return: The _return of this AIVRLogicTransfer.  # noqa: E501
+        :rtype: bool
+        """
+        return self.__return
+
+    @_return.setter
+    def _return(self, _return):
+        """Sets the _return of this AIVRLogicTransfer.
+
+        (coming soon) If true then all the other parameters (apart from `vars`) will be ignored and the logic will be transferred back to the logic that invoked the current one.</br>   # noqa: E501
+
+        :param _return: The _return of this AIVRLogicTransfer.  # noqa: E501
+        :type: bool
+        """
+
+        self.__return = _return
+
+    @property
     def type(self):
         """Gets the type of this AIVRLogicTransfer.  # noqa: E501
 
-        Type of the logic to transfer to. May be skipped if name of the logic is provided.</br> `inbound` - transfer to normal inbound logic (there may be more than one inbound logic)</br> `queue` - when AIVR is managing the queue</br> `unavailable` (if desired destination is unavailable - e.g. schedule a callback or leave voicemail)   # noqa: E501
+        Type of the logic to transfer to. May be skipped if name of the logic is provided.</br> `inbound` - transfer to normal inbound logic (there may be more than one inbound logic)</br>   # noqa: E501
 
         :return: The type of this AIVRLogicTransfer.  # noqa: E501
         :rtype: str
@@ -101,12 +163,12 @@ class AIVRLogicTransfer(object):
     def type(self, type):
         """Sets the type of this AIVRLogicTransfer.
 
-        Type of the logic to transfer to. May be skipped if name of the logic is provided.</br> `inbound` - transfer to normal inbound logic (there may be more than one inbound logic)</br> `queue` - when AIVR is managing the queue</br> `unavailable` (if desired destination is unavailable - e.g. schedule a callback or leave voicemail)   # noqa: E501
+        Type of the logic to transfer to. May be skipped if name of the logic is provided.</br> `inbound` - transfer to normal inbound logic (there may be more than one inbound logic)</br>   # noqa: E501
 
         :param type: The type of this AIVRLogicTransfer.  # noqa: E501
         :type: str
         """
-        allowed_values = ["inbound", "queue", "unavailable"]  # noqa: E501
+        allowed_values = ["inbound"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501
