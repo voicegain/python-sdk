@@ -42,6 +42,7 @@ class AIVRCallbackResponse(object):
         'disconnect': 'AIVRDisconnect',
         'prompt': 'AIVRPrompt',
         'question': 'AIVRQuestion',
+        'record': 'AIVRRecord',
         'sub_return': 'AIVRSubReturn',
         'transfer': 'AIVRTransfer',
         'vars': 'object',
@@ -57,13 +58,14 @@ class AIVRCallbackResponse(object):
         'disconnect': 'disconnect',
         'prompt': 'prompt',
         'question': 'question',
+        'record': 'record',
         'sub_return': 'subReturn',
         'transfer': 'transfer',
         'vars': 'vars',
         'warm_transfer': 'warmTransfer'
     }
 
-    def __init__(self, csid=None, redirect_url=None, sequence=None, sid=None, switch_language=None, disconnect=None, prompt=None, question=None, sub_return=None, transfer=None, vars=None, warm_transfer=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, csid=None, redirect_url=None, sequence=None, sid=None, switch_language=None, disconnect=None, prompt=None, question=None, record=None, sub_return=None, transfer=None, vars=None, warm_transfer=None, local_vars_configuration=None):  # noqa: E501
         """AIVRCallbackResponse - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,6 +79,7 @@ class AIVRCallbackResponse(object):
         self._disconnect = None
         self._prompt = None
         self._question = None
+        self._record = None
         self._sub_return = None
         self._transfer = None
         self._vars = None
@@ -98,6 +101,8 @@ class AIVRCallbackResponse(object):
             self.prompt = prompt
         if question is not None:
             self.question = question
+        if record is not None:
+            self.record = record
         if sub_return is not None:
             self.sub_return = sub_return
         if transfer is not None:
@@ -295,6 +300,27 @@ class AIVRCallbackResponse(object):
         """
 
         self._question = question
+
+    @property
+    def record(self):
+        """Gets the record of this AIVRCallbackResponse.  # noqa: E501
+
+
+        :return: The record of this AIVRCallbackResponse.  # noqa: E501
+        :rtype: AIVRRecord
+        """
+        return self._record
+
+    @record.setter
+    def record(self, record):
+        """Sets the record of this AIVRCallbackResponse.
+
+
+        :param record: The record of this AIVRCallbackResponse.  # noqa: E501
+        :type: AIVRRecord
+        """
+
+        self._record = record
 
     @property
     def sub_return(self):

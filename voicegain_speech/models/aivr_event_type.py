@@ -32,12 +32,13 @@ class AIVREventType(object):
     LOGIC = "logic"
     OUTPUT = "output"
     INPUT = "input"
+    RECORD = "record"
     HANGUP = "hangup"
     DISCONNECT = "disconnect"
     TRANSFER = "transfer"
     ERROR = "error"
 
-    allowable_values = [LOGIC, OUTPUT, INPUT, HANGUP, DISCONNECT, TRANSFER, ERROR]  # noqa: E501
+    allowable_values = [LOGIC, OUTPUT, INPUT, RECORD, HANGUP, DISCONNECT, TRANSFER, ERROR]  # noqa: E501
 
     """
     Attributes:
