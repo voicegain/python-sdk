@@ -46,6 +46,7 @@ class AIVRNewSession(object):
         'to_be_transcribed': 'bool',
         'user_app_data': 'str',
         'vars': 'object',
+        'async_aivr_cmd_url': 'str',
         'default_voice': 'str',
         'estimated_queue_wait_seconds': 'EstimatedQueueWait',
         'logic_type': 'AIVRLogicType',
@@ -65,13 +66,14 @@ class AIVRNewSession(object):
         'to_be_transcribed': 'toBeTranscribed',
         'user_app_data': 'userAppData',
         'vars': 'vars',
+        'async_aivr_cmd_url': 'asyncAivrCmdUrl',
         'default_voice': 'defaultVoice',
         'estimated_queue_wait_seconds': 'estimatedQueueWaitSeconds',
         'logic_type': 'logicType',
         'media': 'media'
     }
 
-    def __init__(self, aivr_app_id=None, ani=None, auth_token=None, call_is_being_recorded=False, dnis=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, default_voice=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, ani=None, auth_token=None, call_is_being_recorded=False, dnis=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, async_aivr_cmd_url=None, default_voice=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, local_vars_configuration=None):  # noqa: E501
         """AIVRNewSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,6 +91,7 @@ class AIVRNewSession(object):
         self._to_be_transcribed = None
         self._user_app_data = None
         self._vars = None
+        self._async_aivr_cmd_url = None
         self._default_voice = None
         self._estimated_queue_wait_seconds = None
         self._logic_type = None
@@ -114,6 +117,8 @@ class AIVRNewSession(object):
             self.user_app_data = user_app_data
         if vars is not None:
             self.vars = vars
+        if async_aivr_cmd_url is not None:
+            self.async_aivr_cmd_url = async_aivr_cmd_url
         if default_voice is not None:
             self.default_voice = default_voice
         if estimated_queue_wait_seconds is not None:
@@ -420,6 +425,29 @@ class AIVRNewSession(object):
         """
 
         self._vars = vars
+
+    @property
+    def async_aivr_cmd_url(self):
+        """Gets the async_aivr_cmd_url of this AIVRNewSession.  # noqa: E501
+
+        URL to which the application logic may send asynchronous commands.</br> The URL is unique for each session.</br>   # noqa: E501
+
+        :return: The async_aivr_cmd_url of this AIVRNewSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._async_aivr_cmd_url
+
+    @async_aivr_cmd_url.setter
+    def async_aivr_cmd_url(self, async_aivr_cmd_url):
+        """Sets the async_aivr_cmd_url of this AIVRNewSession.
+
+        URL to which the application logic may send asynchronous commands.</br> The URL is unique for each session.</br>   # noqa: E501
+
+        :param async_aivr_cmd_url: The async_aivr_cmd_url of this AIVRNewSession.  # noqa: E501
+        :type: str
+        """
+
+        self._async_aivr_cmd_url = async_aivr_cmd_url
 
     @property
     def default_voice(self):

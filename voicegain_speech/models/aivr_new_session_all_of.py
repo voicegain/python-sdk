@@ -34,6 +34,7 @@ class AIVRNewSessionAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'async_aivr_cmd_url': 'str',
         'default_voice': 'str',
         'estimated_queue_wait_seconds': 'EstimatedQueueWait',
         'logic_type': 'AIVRLogicType',
@@ -41,24 +42,28 @@ class AIVRNewSessionAllOf(object):
     }
 
     attribute_map = {
+        'async_aivr_cmd_url': 'asyncAivrCmdUrl',
         'default_voice': 'defaultVoice',
         'estimated_queue_wait_seconds': 'estimatedQueueWaitSeconds',
         'logic_type': 'logicType',
         'media': 'media'
     }
 
-    def __init__(self, default_voice=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_aivr_cmd_url=None, default_voice=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, local_vars_configuration=None):  # noqa: E501
         """AIVRNewSessionAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._async_aivr_cmd_url = None
         self._default_voice = None
         self._estimated_queue_wait_seconds = None
         self._logic_type = None
         self._media = None
         self.discriminator = None
 
+        if async_aivr_cmd_url is not None:
+            self.async_aivr_cmd_url = async_aivr_cmd_url
         if default_voice is not None:
             self.default_voice = default_voice
         if estimated_queue_wait_seconds is not None:
@@ -67,6 +72,29 @@ class AIVRNewSessionAllOf(object):
             self.logic_type = logic_type
         if media is not None:
             self.media = media
+
+    @property
+    def async_aivr_cmd_url(self):
+        """Gets the async_aivr_cmd_url of this AIVRNewSessionAllOf.  # noqa: E501
+
+        URL to which the application logic may send asynchronous commands.</br> The URL is unique for each session.</br>   # noqa: E501
+
+        :return: The async_aivr_cmd_url of this AIVRNewSessionAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._async_aivr_cmd_url
+
+    @async_aivr_cmd_url.setter
+    def async_aivr_cmd_url(self, async_aivr_cmd_url):
+        """Sets the async_aivr_cmd_url of this AIVRNewSessionAllOf.
+
+        URL to which the application logic may send asynchronous commands.</br> The URL is unique for each session.</br>   # noqa: E501
+
+        :param async_aivr_cmd_url: The async_aivr_cmd_url of this AIVRNewSessionAllOf.  # noqa: E501
+        :type: str
+        """
+
+        self._async_aivr_cmd_url = async_aivr_cmd_url
 
     @property
     def default_voice(self):
