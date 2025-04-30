@@ -35,6 +35,7 @@ class MeetingJoinRequest(object):
     """
     openapi_types = {
         'creator': 'str',
+        'immediate_transcribe': 'bool',
         'meeting_code': 'str',
         'meeting_password': 'str',
         'meeting_platform': 'str',
@@ -50,6 +51,7 @@ class MeetingJoinRequest(object):
 
     attribute_map = {
         'creator': 'creator',
+        'immediate_transcribe': 'immediateTranscribe',
         'meeting_code': 'meetingCode',
         'meeting_password': 'meetingPassword',
         'meeting_platform': 'meetingPlatform',
@@ -63,13 +65,14 @@ class MeetingJoinRequest(object):
         'voice_signature_speakers': 'voiceSignatureSpeakers'
     }
 
-    def __init__(self, creator=None, meeting_code=None, meeting_password=None, meeting_platform='zoom', meeting_url=None, metadata=None, participant_name=None, persist_seconds=3600, sa_config=None, settings=None, tags=None, voice_signature_speakers=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, creator=None, immediate_transcribe=True, meeting_code=None, meeting_password=None, meeting_platform='zoom', meeting_url=None, metadata=None, participant_name=None, persist_seconds=3600, sa_config=None, settings=None, tags=None, voice_signature_speakers=None, local_vars_configuration=None):  # noqa: E501
         """MeetingJoinRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._creator = None
+        self._immediate_transcribe = None
         self._meeting_code = None
         self._meeting_password = None
         self._meeting_platform = None
@@ -85,6 +88,8 @@ class MeetingJoinRequest(object):
 
         if creator is not None:
             self.creator = creator
+        if immediate_transcribe is not None:
+            self.immediate_transcribe = immediate_transcribe
         if meeting_code is not None:
             self.meeting_code = meeting_code
         if meeting_password is not None:
@@ -136,6 +141,29 @@ class MeetingJoinRequest(object):
             raise ValueError("Invalid value for `creator`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._creator = creator
+
+    @property
+    def immediate_transcribe(self):
+        """Gets the immediate_transcribe of this MeetingJoinRequest.  # noqa: E501
+
+        (optional) If true then the meeting audio will be transcribed immediately after the meeting ends. If false then the meeting will be recorded and meeting data will be collected to be transcribed later. Default is true. </br> If it is false, then the meeting status will be `INPUT_READY` and the meeting can be transcribed later using the re-run method.   # noqa: E501
+
+        :return: The immediate_transcribe of this MeetingJoinRequest.  # noqa: E501
+        :rtype: bool
+        """
+        return self._immediate_transcribe
+
+    @immediate_transcribe.setter
+    def immediate_transcribe(self, immediate_transcribe):
+        """Sets the immediate_transcribe of this MeetingJoinRequest.
+
+        (optional) If true then the meeting audio will be transcribed immediately after the meeting ends. If false then the meeting will be recorded and meeting data will be collected to be transcribed later. Default is true. </br> If it is false, then the meeting status will be `INPUT_READY` and the meeting can be transcribed later using the re-run method.   # noqa: E501
+
+        :param immediate_transcribe: The immediate_transcribe of this MeetingJoinRequest.  # noqa: E501
+        :type: bool
+        """
+
+        self._immediate_transcribe = immediate_transcribe
 
     @property
     def meeting_code(self):

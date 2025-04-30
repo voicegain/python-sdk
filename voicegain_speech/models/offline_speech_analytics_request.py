@@ -45,7 +45,8 @@ class OfflineSpeechAnalyticsRequest(object):
         'topic_discovery_config': 'str',
         'voice_signature_speakers': 'list[str]',
         'speakers': 'list[SpeechAnalyticsInputSpeaker]',
-        'audio': 'list[OfflineSpeechAnalyticsAudioRequestAudio]'
+        'audio': 'list[OfflineSpeechAnalyticsAudioRequestAudio]',
+        'optimmize_for_web_ui': 'str'
     }
 
     attribute_map = {
@@ -60,10 +61,11 @@ class OfflineSpeechAnalyticsRequest(object):
         'topic_discovery_config': 'topicDiscoveryConfig',
         'voice_signature_speakers': 'voiceSignatureSpeakers',
         'speakers': 'speakers',
-        'audio': 'audio'
+        'audio': 'audio',
+        'optimmize_for_web_ui': 'optimmizeForWebUi'
     }
 
-    def __init__(self, call_review_config=None, creator=None, label=None, metadata=None, persist_seconds=3600, sa_config=None, settings=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, speakers=None, audio=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, call_review_config=None, creator=None, label=None, metadata=None, persist_seconds=3600, sa_config=None, settings=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, speakers=None, audio=None, optimmize_for_web_ui='level2', local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -81,6 +83,7 @@ class OfflineSpeechAnalyticsRequest(object):
         self._voice_signature_speakers = None
         self._speakers = None
         self._audio = None
+        self._optimmize_for_web_ui = None
         self.discriminator = None
 
         if call_review_config is not None:
@@ -107,6 +110,8 @@ class OfflineSpeechAnalyticsRequest(object):
             self.speakers = speakers
         if audio is not None:
             self.audio = audio
+        if optimmize_for_web_ui is not None:
+            self.optimmize_for_web_ui = optimmize_for_web_ui
 
     @property
     def call_review_config(self):
@@ -411,6 +416,35 @@ class OfflineSpeechAnalyticsRequest(object):
         """
 
         self._audio = audio
+
+    @property
+    def optimmize_for_web_ui(self):
+        """Gets the optimmize_for_web_ui of this OfflineSpeechAnalyticsRequest.  # noqa: E501
+
+        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId - **level2**: mergedAudioId, mpdId  Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
+
+        :return: The optimmize_for_web_ui of this OfflineSpeechAnalyticsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._optimmize_for_web_ui
+
+    @optimmize_for_web_ui.setter
+    def optimmize_for_web_ui(self, optimmize_for_web_ui):
+        """Sets the optimmize_for_web_ui of this OfflineSpeechAnalyticsRequest.
+
+        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId - **level2**: mergedAudioId, mpdId  Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
+
+        :param optimmize_for_web_ui: The optimmize_for_web_ui of this OfflineSpeechAnalyticsRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["none", "level1", "level2"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and optimmize_for_web_ui not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `optimmize_for_web_ui` ({0}), must be one of {1}"  # noqa: E501
+                .format(optimmize_for_web_ui, allowed_values)
+            )
+
+        self._optimmize_for_web_ui = optimmize_for_web_ui
 
     def to_dict(self):
         """Returns the model properties as a dict"""
