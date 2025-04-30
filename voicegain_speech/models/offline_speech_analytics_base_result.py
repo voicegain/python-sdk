@@ -42,6 +42,7 @@ class OfflineSpeechAnalyticsBaseResult(object):
         'lang': 'Language',
         'metadata': 'list[NameValuePair]',
         'model_name': 'str',
+        'optimize_for_web_ui': 'str',
         'persist': 'float',
         'progress': 'OfflineProgress',
         'sa_session_id': 'str',
@@ -58,6 +59,7 @@ class OfflineSpeechAnalyticsBaseResult(object):
         'lang': 'lang',
         'metadata': 'metadata',
         'model_name': 'modelName',
+        'optimize_for_web_ui': 'optimizeForWebUi',
         'persist': 'persist',
         'progress': 'progress',
         'sa_session_id': 'saSessionId',
@@ -65,7 +67,7 @@ class OfflineSpeechAnalyticsBaseResult(object):
         'tags': 'tags'
     }
 
-    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, optimize_for_web_ui=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsBaseResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -79,6 +81,7 @@ class OfflineSpeechAnalyticsBaseResult(object):
         self._lang = None
         self._metadata = None
         self._model_name = None
+        self._optimize_for_web_ui = None
         self._persist = None
         self._progress = None
         self._sa_session_id = None
@@ -102,6 +105,8 @@ class OfflineSpeechAnalyticsBaseResult(object):
             self.metadata = metadata
         if model_name is not None:
             self.model_name = model_name
+        if optimize_for_web_ui is not None:
+            self.optimize_for_web_ui = optimize_for_web_ui
         if persist is not None:
             self.persist = persist
         if progress is not None:
@@ -315,6 +320,35 @@ class OfflineSpeechAnalyticsBaseResult(object):
         """
 
         self._model_name = model_name
+
+    @property
+    def optimize_for_web_ui(self):
+        """Gets the optimize_for_web_ui of this OfflineSpeechAnalyticsBaseResult.  # noqa: E501
+
+        Indicates which fields, meant for Web UI, are included in the result: - **none**: no additional fields - **level1**: mergedAudioId, isVirtualDualChannel - **level2**: mergedAudioId, isVirtualDualChannel, mpdId   # noqa: E501
+
+        :return: The optimize_for_web_ui of this OfflineSpeechAnalyticsBaseResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._optimize_for_web_ui
+
+    @optimize_for_web_ui.setter
+    def optimize_for_web_ui(self, optimize_for_web_ui):
+        """Sets the optimize_for_web_ui of this OfflineSpeechAnalyticsBaseResult.
+
+        Indicates which fields, meant for Web UI, are included in the result: - **none**: no additional fields - **level1**: mergedAudioId, isVirtualDualChannel - **level2**: mergedAudioId, isVirtualDualChannel, mpdId   # noqa: E501
+
+        :param optimize_for_web_ui: The optimize_for_web_ui of this OfflineSpeechAnalyticsBaseResult.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["none", "level1", "level2"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and optimize_for_web_ui not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `optimize_for_web_ui` ({0}), must be one of {1}"  # noqa: E501
+                .format(optimize_for_web_ui, allowed_values)
+            )
+
+        self._optimize_for_web_ui = optimize_for_web_ui
 
     @property
     def persist(self):

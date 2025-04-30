@@ -421,7 +421,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def optimize_for_web_ui(self):
         """Gets the optimize_for_web_ui of this OfflineSpeechAnalyticsRequest.  # noqa: E501
 
-        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId - **level2**: mergedAudioId, mpdId  Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
+        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId, isVirtualDualChannel - **level2**: mergedAudioId, isVirtualDualChannel, mpdId              Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
 
         :return: The optimize_for_web_ui of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :rtype: str
@@ -432,7 +432,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def optimize_for_web_ui(self, optimize_for_web_ui):
         """Sets the optimize_for_web_ui of this OfflineSpeechAnalyticsRequest.
 
-        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId - **level2**: mergedAudioId, mpdId  Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
+        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId, isVirtualDualChannel - **level2**: mergedAudioId, isVirtualDualChannel, mpdId              Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
 
         :param optimize_for_web_ui: The optimize_for_web_ui of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :type: str
