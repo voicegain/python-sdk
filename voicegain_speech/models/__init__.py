@@ -606,6 +606,7 @@ from voicegain_speech.models.vad_mode import VadMode
 from voicegain_speech.models.version import Version
 from voicegain_speech.models.voice_call import VoiceCall
 from voicegain_speech.models.voice_call_all_of import VoiceCallAllOf
+from voicegain_speech.models.voice_call_all_of_voicebot_vars import VoiceCallAllOfVoicebotVars
 from voicegain_speech.models.voice_call_modifiable_base import VoiceCallModifiableBase
 from voicegain_speech.models.voice_call_search_result import VoiceCallSearchResult
 from voicegain_speech.models.voice_call_search_result_all_of import VoiceCallSearchResultAllOf

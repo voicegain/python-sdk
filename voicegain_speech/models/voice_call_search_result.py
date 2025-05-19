@@ -56,6 +56,7 @@ class VoiceCallSearchResult(object):
         'tags': 'list[str]',
         'account_id': 'str',
         'aivr_transfer_dest_type': 'str',
+        'business_open_state': 'str',
         'call_id': 'str',
         'call_resolved': 'bool',
         'context_id': 'str',
@@ -75,6 +76,8 @@ class VoiceCallSearchResult(object):
         'spawned_calls': 'list[str]',
         'topics': 'list[str]',
         'version': 'int',
+        'voicebot_duration': 'float',
+        'voicebot_vars': 'VoiceCallAllOfVoicebotVars',
         'word_cloud': 'list[WordCloudItem]',
         'headline': 'str'
     }
@@ -102,6 +105,7 @@ class VoiceCallSearchResult(object):
         'tags': 'tags',
         'account_id': 'accountId',
         'aivr_transfer_dest_type': 'aivrTransferDestType',
+        'business_open_state': 'businessOpenState',
         'call_id': 'callId',
         'call_resolved': 'callResolved',
         'context_id': 'contextId',
@@ -121,11 +125,13 @@ class VoiceCallSearchResult(object):
         'spawned_calls': 'spawnedCalls',
         'topics': 'topics',
         'version': 'version',
+        'voicebot_duration': 'voicebotDuration',
+        'voicebot_vars': 'voicebotVars',
         'word_cloud': 'wordCloud',
         'headline': 'headline'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallSearchResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -153,6 +159,7 @@ class VoiceCallSearchResult(object):
         self._tags = None
         self._account_id = None
         self._aivr_transfer_dest_type = None
+        self._business_open_state = None
         self._call_id = None
         self._call_resolved = None
         self._context_id = None
@@ -172,6 +179,8 @@ class VoiceCallSearchResult(object):
         self._spawned_calls = None
         self._topics = None
         self._version = None
+        self._voicebot_duration = None
+        self._voicebot_vars = None
         self._word_cloud = None
         self._headline = None
         self.discriminator = None
@@ -220,6 +229,8 @@ class VoiceCallSearchResult(object):
             self.account_id = account_id
         if aivr_transfer_dest_type is not None:
             self.aivr_transfer_dest_type = aivr_transfer_dest_type
+        if business_open_state is not None:
+            self.business_open_state = business_open_state
         if call_id is not None:
             self.call_id = call_id
         if call_resolved is not None:
@@ -258,6 +269,10 @@ class VoiceCallSearchResult(object):
             self.topics = topics
         if version is not None:
             self.version = version
+        if voicebot_duration is not None:
+            self.voicebot_duration = voicebot_duration
+        if voicebot_vars is not None:
+            self.voicebot_vars = voicebot_vars
         if word_cloud is not None:
             self.word_cloud = word_cloud
         if headline is not None:
@@ -809,6 +824,35 @@ class VoiceCallSearchResult(object):
         self._aivr_transfer_dest_type = aivr_transfer_dest_type
 
     @property
+    def business_open_state(self):
+        """Gets the business_open_state of this VoiceCallSearchResult.  # noqa: E501
+
+        State of the business open/close status.  This is determined using the business hours defined in the AIVR App (Business Config). If missing (or null) then the business hours were not defined in the AIVR App. + open - business is open + off_hours - business was closed when the call was placed but was open at other times that day + closed - business is closed the whole day   # noqa: E501
+
+        :return: The business_open_state of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_open_state
+
+    @business_open_state.setter
+    def business_open_state(self, business_open_state):
+        """Sets the business_open_state of this VoiceCallSearchResult.
+
+        State of the business open/close status.  This is determined using the business hours defined in the AIVR App (Business Config). If missing (or null) then the business hours were not defined in the AIVR App. + open - business is open + off_hours - business was closed when the call was placed but was open at other times that day + closed - business is closed the whole day   # noqa: E501
+
+        :param business_open_state: The business_open_state of this VoiceCallSearchResult.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["open", "off-hours", "closed"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and business_open_state not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `business_open_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(business_open_state, allowed_values)
+            )
+
+        self._business_open_state = business_open_state
+
+    @property
     def call_id(self):
         """Gets the call_id of this VoiceCallSearchResult.  # noqa: E501
 
@@ -1278,6 +1322,50 @@ class VoiceCallSearchResult(object):
             raise ValueError("Invalid value for `version`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._version = version
+
+    @property
+    def voicebot_duration(self):
+        """Gets the voicebot_duration of this VoiceCallSearchResult.  # noqa: E501
+
+        Duration of the voicebot part of the call in seconds. It is equal to `duration` unless there are markers of type: CC_ANSWER, CC_AGENT_ANSWER, WARM_TRANSFER_START, WARM_TRANSFER_SUCCESS, WARM_TRANSFER_ABANDON. If there are such markers, then the voicebot duration is the time between the start of the call and the first of those markers.</br> Note, this duration is a float value, so it may be a fraction of a second.   # noqa: E501
+
+        :return: The voicebot_duration of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._voicebot_duration
+
+    @voicebot_duration.setter
+    def voicebot_duration(self, voicebot_duration):
+        """Sets the voicebot_duration of this VoiceCallSearchResult.
+
+        Duration of the voicebot part of the call in seconds. It is equal to `duration` unless there are markers of type: CC_ANSWER, CC_AGENT_ANSWER, WARM_TRANSFER_START, WARM_TRANSFER_SUCCESS, WARM_TRANSFER_ABANDON. If there are such markers, then the voicebot duration is the time between the start of the call and the first of those markers.</br> Note, this duration is a float value, so it may be a fraction of a second.   # noqa: E501
+
+        :param voicebot_duration: The voicebot_duration of this VoiceCallSearchResult.  # noqa: E501
+        :type: float
+        """
+
+        self._voicebot_duration = voicebot_duration
+
+    @property
+    def voicebot_vars(self):
+        """Gets the voicebot_vars of this VoiceCallSearchResult.  # noqa: E501
+
+
+        :return: The voicebot_vars of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: VoiceCallAllOfVoicebotVars
+        """
+        return self._voicebot_vars
+
+    @voicebot_vars.setter
+    def voicebot_vars(self, voicebot_vars):
+        """Sets the voicebot_vars of this VoiceCallSearchResult.
+
+
+        :param voicebot_vars: The voicebot_vars of this VoiceCallSearchResult.  # noqa: E501
+        :type: VoiceCallAllOfVoicebotVars
+        """
+
+        self._voicebot_vars = voicebot_vars
 
     @property
     def word_cloud(self):
