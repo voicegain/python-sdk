@@ -40,6 +40,7 @@ class AsrSettingsTranscriptionDefaults(object):
         'language_detection': 'AsrSettingsCommonLanguageDetection',
         'languages': 'list[Language]',
         'max_alternatives': 'int',
+        'optimized_for': 'str',
         'sensitivity': 'float',
         'speech_context': 'str',
         'speed_vs_accuracy': 'float',
@@ -58,6 +59,7 @@ class AsrSettingsTranscriptionDefaults(object):
         'language_detection': 'languageDetection',
         'languages': 'languages',
         'max_alternatives': 'maxAlternatives',
+        'optimized_for': 'optimizedFor',
         'sensitivity': 'sensitivity',
         'speech_context': 'speechContext',
         'speed_vs_accuracy': 'speedVsAccuracy',
@@ -69,7 +71,7 @@ class AsrSettingsTranscriptionDefaults(object):
         'no_input_timeout': 'noInputTimeout'
     }
 
-    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, language_detection=None, languages=None, max_alternatives=1, sensitivity=0.5, speech_context=None, speed_vs_accuracy=0.5, decoder_factor=None, hints=None, lang_model=None, lang_model_factor=None, complete_timeout=-1, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model_non_real_time=None, acoustic_model_real_time=None, confidence_threshold=0.01, language_detection=None, languages=None, max_alternatives=1, optimized_for=None, sensitivity=0.5, speech_context=None, speed_vs_accuracy=0.5, decoder_factor=None, hints=None, lang_model=None, lang_model_factor=None, complete_timeout=-1, no_input_timeout=15000, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsTranscriptionDefaults - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -81,6 +83,7 @@ class AsrSettingsTranscriptionDefaults(object):
         self._language_detection = None
         self._languages = None
         self._max_alternatives = None
+        self._optimized_for = None
         self._sensitivity = None
         self._speech_context = None
         self._speed_vs_accuracy = None
@@ -104,6 +107,8 @@ class AsrSettingsTranscriptionDefaults(object):
             self.languages = languages
         if max_alternatives is not None:
             self.max_alternatives = max_alternatives
+        if optimized_for is not None:
+            self.optimized_for = optimized_for
         if sensitivity is not None:
             self.sensitivity = sensitivity
         if speech_context is not None:
@@ -270,6 +275,35 @@ class AsrSettingsTranscriptionDefaults(object):
             raise ValueError("Invalid value for `max_alternatives`, must be a value greater than or equal to `1`")  # noqa: E501
 
         self._max_alternatives = max_alternatives
+
+    @property
+    def optimized_for(self):
+        """Gets the optimized_for of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+
+        (Optional) Optimize various back-end settings for a specific use case. </br> If not provided then no specific optimization will be done.   # noqa: E501
+
+        :return: The optimized_for of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :rtype: str
+        """
+        return self._optimized_for
+
+    @optimized_for.setter
+    def optimized_for(self, optimized_for):
+        """Sets the optimized_for of this AsrSettingsTranscriptionDefaults.
+
+        (Optional) Optimize various back-end settings for a specific use case. </br> If not provided then no specific optimization will be done.   # noqa: E501
+
+        :param optimized_for: The optimized_for of this AsrSettingsTranscriptionDefaults.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["meeting", "phone_call"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and optimized_for not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `optimized_for` ({0}), must be one of {1}"  # noqa: E501
+                .format(optimized_for, allowed_values)
+            )
+
+        self._optimized_for = optimized_for
 
     @property
     def sensitivity(self):

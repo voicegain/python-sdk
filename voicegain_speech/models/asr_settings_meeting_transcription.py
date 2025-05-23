@@ -37,6 +37,7 @@ class AsrSettingsMeetingTranscription(object):
         'acoustic_model': 'str',
         'language_detection': 'AsrSettingsMeetingTranscriptionLanguageDetection',
         'languages': 'list[Language]',
+        'optimized_for': 'str',
         'sensitivity': 'float',
         'speed_vs_accuracy': 'float'
     }
@@ -45,11 +46,12 @@ class AsrSettingsMeetingTranscription(object):
         'acoustic_model': 'acousticModel',
         'language_detection': 'languageDetection',
         'languages': 'languages',
+        'optimized_for': 'optimizedFor',
         'sensitivity': 'sensitivity',
         'speed_vs_accuracy': 'speedVsAccuracy'
     }
 
-    def __init__(self, acoustic_model=None, language_detection=None, languages=None, sensitivity=0.5, speed_vs_accuracy=0.5, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, acoustic_model=None, language_detection=None, languages=None, optimized_for=None, sensitivity=0.5, speed_vs_accuracy=0.5, local_vars_configuration=None):  # noqa: E501
         """AsrSettingsMeetingTranscription - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -58,6 +60,7 @@ class AsrSettingsMeetingTranscription(object):
         self._acoustic_model = None
         self._language_detection = None
         self._languages = None
+        self._optimized_for = None
         self._sensitivity = None
         self._speed_vs_accuracy = None
         self.discriminator = None
@@ -68,6 +71,8 @@ class AsrSettingsMeetingTranscription(object):
             self.language_detection = language_detection
         if languages is not None:
             self.languages = languages
+        if optimized_for is not None:
+            self.optimized_for = optimized_for
         if sensitivity is not None:
             self.sensitivity = sensitivity
         if speed_vs_accuracy is not None:
@@ -139,6 +144,35 @@ class AsrSettingsMeetingTranscription(object):
         """
 
         self._languages = languages
+
+    @property
+    def optimized_for(self):
+        """Gets the optimized_for of this AsrSettingsMeetingTranscription.  # noqa: E501
+
+        (Optional) Optimize various back-end settings for a specific use case. </br> If not provided then no specific optimization will be done.   # noqa: E501
+
+        :return: The optimized_for of this AsrSettingsMeetingTranscription.  # noqa: E501
+        :rtype: str
+        """
+        return self._optimized_for
+
+    @optimized_for.setter
+    def optimized_for(self, optimized_for):
+        """Sets the optimized_for of this AsrSettingsMeetingTranscription.
+
+        (Optional) Optimize various back-end settings for a specific use case. </br> If not provided then no specific optimization will be done.   # noqa: E501
+
+        :param optimized_for: The optimized_for of this AsrSettingsMeetingTranscription.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["meeting", "phone_call"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and optimized_for not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `optimized_for` ({0}), must be one of {1}"  # noqa: E501
+                .format(optimized_for, allowed_values)
+            )
+
+        self._optimized_for = optimized_for
 
     @property
     def sensitivity(self):
