@@ -233,7 +233,7 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
     def speakers(self):
         """Gets the speakers of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
 
-        (optional) IDs of the speakers in this audio channel. They reference `speakers[].spkUserId` If absent then assume that there is just one speaker (unless diarization is turned on).</br> In the current version of this API, `speakers` should not be provided together with `diarization`. You can specify either one or the other but not both for a single audio.   # noqa: E501
+        (optional) IDs of the speakers in this audio channel. They reference `speakers[].spkUserId` If absent then assume that there is just one speaker (unless diarization is turned on).</br> In the current version of this API, `speakers` should not be provided together with `diarization`. You can specify either one or the other but not both for a single audio.</br> Note: currently multiple speakers values are poorly supported - this value is an array to support future functionality.   # noqa: E501
 
         :return: The speakers of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
         :rtype: list[float]
@@ -244,7 +244,7 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
     def speakers(self, speakers):
         """Sets the speakers of this OfflineSpeechAnalyticsAudioRequestAudio.
 
-        (optional) IDs of the speakers in this audio channel. They reference `speakers[].spkUserId` If absent then assume that there is just one speaker (unless diarization is turned on).</br> In the current version of this API, `speakers` should not be provided together with `diarization`. You can specify either one or the other but not both for a single audio.   # noqa: E501
+        (optional) IDs of the speakers in this audio channel. They reference `speakers[].spkUserId` If absent then assume that there is just one speaker (unless diarization is turned on).</br> In the current version of this API, `speakers` should not be provided together with `diarization`. You can specify either one or the other but not both for a single audio.</br> Note: currently multiple speakers values are poorly supported - this value is an array to support future functionality.   # noqa: E501
 
         :param speakers: The speakers of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
         :type: list[float]
