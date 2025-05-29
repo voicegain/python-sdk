@@ -40,7 +40,7 @@ class OfflineSpeechAnalyticsBaseRequest(object):
         'metadata': 'list[NameValuePair]',
         'persist_seconds': 'float',
         'sa_config': 'str',
-        'settings': 'TranscribeMeetingRequestSettings',
+        'settings': 'OfflineSpeechAnalyticsBaseRequestWithoutSpeakersSettings',
         'tags': 'list[str]',
         'topic_discovery_config': 'str',
         'voice_signature_speakers': 'list[str]',
@@ -271,7 +271,7 @@ class OfflineSpeechAnalyticsBaseRequest(object):
 
 
         :return: The settings of this OfflineSpeechAnalyticsBaseRequest.  # noqa: E501
-        :rtype: TranscribeMeetingRequestSettings
+        :rtype: OfflineSpeechAnalyticsBaseRequestWithoutSpeakersSettings
         """
         return self._settings
 
@@ -281,7 +281,7 @@ class OfflineSpeechAnalyticsBaseRequest(object):
 
 
         :param settings: The settings of this OfflineSpeechAnalyticsBaseRequest.  # noqa: E501
-        :type: TranscribeMeetingRequestSettings
+        :type: OfflineSpeechAnalyticsBaseRequestWithoutSpeakersSettings
         """
 
         self._settings = settings
