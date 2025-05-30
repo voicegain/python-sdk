@@ -638,7 +638,7 @@ class DataApi(object):
     def data_file_post(self, **kwargs):  # noqa: E501
         """Create from file  # noqa: E501
 
-        Upload data as **multipart/form-data** to simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: 'file' and 'objectdata'. objectdata is optional.    # noqa: E501
+        Upload data as **multipart/form-data** to a simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.   The max size of file is: + 256MB if using macSignature authentication + 512MB if using bearerJWTAuth authentication   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_file_post(async_req=True)
@@ -667,7 +667,7 @@ class DataApi(object):
     def data_file_post_with_http_info(self, **kwargs):  # noqa: E501
         """Create from file  # noqa: E501
 
-        Upload data as **multipart/form-data** to simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: 'file' and 'objectdata'. objectdata is optional.    # noqa: E501
+        Upload data as **multipart/form-data** to a simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.   The max size of file is: + 256MB if using macSignature authentication + 512MB if using bearerJWTAuth authentication   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_file_post_with_http_info(async_req=True)
@@ -1816,7 +1816,7 @@ class DataApi(object):
     def data_s3_post(self, **kwargs):  # noqa: E501
         """Create data object (S3)  # noqa: E501
 
-        Creates a new DataObject and returns its ID plus the presigned S3 URL for uploading the data.   # noqa: E501
+        Creates a new DataObject and returns its ID plus the presigned S3 URL for uploading the data.  Data uploaded this way may be up to 1GB in size.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_s3_post(async_req=True)
@@ -1842,7 +1842,7 @@ class DataApi(object):
     def data_s3_post_with_http_info(self, **kwargs):  # noqa: E501
         """Create data object (S3)  # noqa: E501
 
-        Creates a new DataObject and returns its ID plus the presigned S3 URL for uploading the data.   # noqa: E501
+        Creates a new DataObject and returns its ID plus the presigned S3 URL for uploading the data.  Data uploaded this way may be up to 1GB in size.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_s3_post_with_http_info(async_req=True)

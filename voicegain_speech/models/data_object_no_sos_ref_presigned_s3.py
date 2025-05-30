@@ -411,7 +411,7 @@ class DataObjectNoSosRefPresignedS3(object):
     def presigned_url(self):
         """Gets the presigned_url of this DataObjectNoSosRefPresignedS3.  # noqa: E501
 
-        S3 compatible URL for direct upload. Available only in this response (not storeed).   # noqa: E501
+        S3 compatible URL for direct upload. Available only in this response (not stored).   # noqa: E501
 
         :return: The presigned_url of this DataObjectNoSosRefPresignedS3.  # noqa: E501
         :rtype: str
@@ -422,7 +422,7 @@ class DataObjectNoSosRefPresignedS3(object):
     def presigned_url(self, presigned_url):
         """Sets the presigned_url of this DataObjectNoSosRefPresignedS3.
 
-        S3 compatible URL for direct upload. Available only in this response (not storeed).   # noqa: E501
+        S3 compatible URL for direct upload. Available only in this response (not stored).   # noqa: E501
 
         :param presigned_url: The presigned_url of this DataObjectNoSosRefPresignedS3.  # noqa: E501
         :type: str
