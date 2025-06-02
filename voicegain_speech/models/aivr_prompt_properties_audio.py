@@ -78,7 +78,7 @@ class AIVRPromptPropertiesAudio(object):
         :param language: The language of this AIVRPromptPropertiesAudio.  # noqa: E501
         :type: str
         """
-        allowed_values = ["en", "en-us", "en-in", "es"]  # noqa: E501
+        allowed_values = ["en", "en-au", "en-gb", "en-in", "en-us", "es", "es-es", "es-us"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and language not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `language` ({0}), must be one of {1}"  # noqa: E501
