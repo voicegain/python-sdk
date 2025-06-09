@@ -36,16 +36,18 @@ class AIVRRecord(object):
     openapi_types = {
         'max_duration_seconds': 'int',
         'play_tone': 'bool',
+        'prompt': 'AIVRPrompt',
         'recording_terminators': 'str'
     }
 
     attribute_map = {
         'max_duration_seconds': 'maxDurationSeconds',
         'play_tone': 'playTone',
+        'prompt': 'prompt',
         'recording_terminators': 'recordingTerminators'
     }
 
-    def __init__(self, max_duration_seconds=60, play_tone=False, recording_terminators='*#', local_vars_configuration=None):  # noqa: E501
+    def __init__(self, max_duration_seconds=60, play_tone=False, prompt=None, recording_terminators='*#', local_vars_configuration=None):  # noqa: E501
         """AIVRRecord - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -53,6 +55,7 @@ class AIVRRecord(object):
 
         self._max_duration_seconds = None
         self._play_tone = None
+        self._prompt = None
         self._recording_terminators = None
         self.discriminator = None
 
@@ -60,6 +63,8 @@ class AIVRRecord(object):
             self.max_duration_seconds = max_duration_seconds
         if play_tone is not None:
             self.play_tone = play_tone
+        if prompt is not None:
+            self.prompt = prompt
         if recording_terminators is not None:
             self.recording_terminators = recording_terminators
 
@@ -108,6 +113,27 @@ class AIVRRecord(object):
         """
 
         self._play_tone = play_tone
+
+    @property
+    def prompt(self):
+        """Gets the prompt of this AIVRRecord.  # noqa: E501
+
+
+        :return: The prompt of this AIVRRecord.  # noqa: E501
+        :rtype: AIVRPrompt
+        """
+        return self._prompt
+
+    @prompt.setter
+    def prompt(self, prompt):
+        """Sets the prompt of this AIVRRecord.
+
+
+        :param prompt: The prompt of this AIVRRecord.  # noqa: E501
+        :type: AIVRPrompt
+        """
+
+        self._prompt = prompt
 
     @property
     def recording_terminators(self):
