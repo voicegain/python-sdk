@@ -30,6 +30,7 @@ from voicegain_speech.models.ac_stop import ACStop
 from voicegain_speech.models.aivr import AIVR
 from voicegain_speech.models.aivr_all_of import AIVRAllOf
 from voicegain_speech.models.aivr_all_of_aivr_apps import AIVRAllOfAivrApps
+from voicegain_speech.models.aivr_app_data_item import AIVRAppDataItem
 from voicegain_speech.models.aivr_callback_core_response import AIVRCallbackCoreResponse
 from voicegain_speech.models.aivr_callback_core_response_all_of import AIVRCallbackCoreResponseAllOf
 from voicegain_speech.models.aivr_callback_init_response import AIVRCallbackInitResponse

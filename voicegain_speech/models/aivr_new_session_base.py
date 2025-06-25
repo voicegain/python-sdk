@@ -36,6 +36,7 @@ class AIVRNewSessionBase(object):
     openapi_types = {
         'aivr_app_id': 'str',
         'ani': 'str',
+        'app_data': 'list[AIVRAppDataItem]',
         'auth_token': 'str',
         'call_is_being_recorded': 'bool',
         'dnis': 'str',
@@ -51,6 +52,7 @@ class AIVRNewSessionBase(object):
     attribute_map = {
         'aivr_app_id': 'aivrAppId',
         'ani': 'ani',
+        'app_data': 'appData',
         'auth_token': 'authToken',
         'call_is_being_recorded': 'callIsBeingRecorded',
         'dnis': 'dnis',
@@ -63,7 +65,7 @@ class AIVRNewSessionBase(object):
         'vars': 'vars'
     }
 
-    def __init__(self, aivr_app_id=None, ani=None, auth_token=None, call_is_being_recorded=False, dnis=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, ani=None, app_data=None, auth_token=None, call_is_being_recorded=False, dnis=None, sequence=None, sid=None, start_time=None, temp_code=None, to_be_transcribed=False, user_app_data=None, vars=None, local_vars_configuration=None):  # noqa: E501
         """AIVRNewSessionBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -71,6 +73,7 @@ class AIVRNewSessionBase(object):
 
         self._aivr_app_id = None
         self._ani = None
+        self._app_data = None
         self._auth_token = None
         self._call_is_being_recorded = None
         self._dnis = None
@@ -86,6 +89,8 @@ class AIVRNewSessionBase(object):
         self.aivr_app_id = aivr_app_id
         if ani is not None:
             self.ani = ani
+        if app_data is not None:
+            self.app_data = app_data
         self.auth_token = auth_token
         if call_is_being_recorded is not None:
             self.call_is_being_recorded = call_is_being_recorded
@@ -150,6 +155,29 @@ class AIVRNewSessionBase(object):
         """
 
         self._ani = ani
+
+    @property
+    def app_data(self):
+        """Gets the app_data of this AIVRNewSessionBase.  # noqa: E501
+
+        List of data items that have been configured on the AIVR App and are made available to the AIVR App logic. </br>   # noqa: E501
+
+        :return: The app_data of this AIVRNewSessionBase.  # noqa: E501
+        :rtype: list[AIVRAppDataItem]
+        """
+        return self._app_data
+
+    @app_data.setter
+    def app_data(self, app_data):
+        """Sets the app_data of this AIVRNewSessionBase.
+
+        List of data items that have been configured on the AIVR App and are made available to the AIVR App logic. </br>   # noqa: E501
+
+        :param app_data: The app_data of this AIVRNewSessionBase.  # noqa: E501
+        :type: list[AIVRAppDataItem]
+        """
+
+        self._app_data = app_data
 
     @property
     def auth_token(self):
@@ -359,7 +387,7 @@ class AIVRNewSessionBase(object):
     def user_app_data(self):
         """Gets the user_app_data of this AIVRNewSessionBase.  # noqa: E501
 
-        (optional) App specific data that was associated in the AIVR portal with this AIVR number/application.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.   # noqa: E501
+        Data that was associated in the AIVR portal with AIVR CallBack URL.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.</br> The name is a bit misleading due to historical reasons.  The difference between `userAppData` and `appData` is that the former is asssociated with the Logic callback URL, while the latter is associated with the AIVR App and can be accesses by any logic associated with the AIVR App.</br>   # noqa: E501
 
         :return: The user_app_data of this AIVRNewSessionBase.  # noqa: E501
         :rtype: str
@@ -370,11 +398,14 @@ class AIVRNewSessionBase(object):
     def user_app_data(self, user_app_data):
         """Sets the user_app_data of this AIVRNewSessionBase.
 
-        (optional) App specific data that was associated in the AIVR portal with this AIVR number/application.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.   # noqa: E501
+        Data that was associated in the AIVR portal with AIVR CallBack URL.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.</br> The name is a bit misleading due to historical reasons.  The difference between `userAppData` and `appData` is that the former is asssociated with the Logic callback URL, while the latter is associated with the AIVR App and can be accesses by any logic associated with the AIVR App.</br>   # noqa: E501
 
         :param user_app_data: The user_app_data of this AIVRNewSessionBase.  # noqa: E501
         :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                user_app_data is not None and len(user_app_data) > 1024):
+            raise ValueError("Invalid value for `user_app_data`, length must be less than or equal to `1024`")  # noqa: E501
 
         self._user_app_data = user_app_data
 
