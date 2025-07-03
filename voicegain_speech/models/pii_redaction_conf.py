@@ -117,7 +117,7 @@ class PIIRedactionConf(object):
     def redact_transcript(self):
         """Gets the redact_transcript of this PIIRedactionConf.  # noqa: E501
 
-        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\* (this option will be available soon)   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\* (this option will be available soon)   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`   # noqa: E501
+        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\* (this option will be available soon)   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\* (this option will be available soon)   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`</br> </br> An optional numerical parameter can be provided after the replacement type, e.g., **[WORD]:3**, or **full:4**, which will indicate the minimum the number of consecutive digits that need be present to be redacted. The default value is 2.   # noqa: E501
 
         :return: The redact_transcript of this PIIRedactionConf.  # noqa: E501
         :rtype: str
@@ -128,7 +128,7 @@ class PIIRedactionConf(object):
     def redact_transcript(self, redact_transcript):
         """Sets the redact_transcript of this PIIRedactionConf.
 
-        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\* (this option will be available soon)   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\* (this option will be available soon)   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`   # noqa: E501
+        What should the redacted text be replaced with in the transcript. Possible values are:   + `full` to fully mask the entity with \\*\\*\\*\\* (this option will be available soon)   + `partial`, e.g., \\*\\*\\*\\*-\\*\\*\\*\\*-\\*\\*\\*\\*-1234, or a\\*\\*\\*@g\\*\\*\\* (this option will be available soon)   + `[WORD]` - if a word in square brackets is provided, then this word with brackets will be used to replace the entity    (obviously, you can put any word in place of WORD)  If `redactTranscript` is not provided or null then the redacted text is replaced with the name of the NER in [], e.g. `[SSN]`</br> </br> An optional numerical parameter can be provided after the replacement type, e.g., **[WORD]:3**, or **full:4**, which will indicate the minimum the number of consecutive digits that need be present to be redacted. The default value is 2.   # noqa: E501
 
         :param redact_transcript: The redact_transcript of this PIIRedactionConf.  # noqa: E501
         :type: str
