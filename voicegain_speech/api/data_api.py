@@ -638,7 +638,7 @@ class DataApi(object):
     def data_file_post(self, **kwargs):  # noqa: E501
         """Create from file  # noqa: E501
 
-        Upload data as **multipart/form-data** to a simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.   The max size of file is: + 256MB if using macSignature authentication + 512MB if using bearerJWTAuth authentication   # noqa: E501
+        Upload data as **multipart/form-data** to a simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.   The max size of file is 512MB.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_file_post(async_req=True)
@@ -667,7 +667,7 @@ class DataApi(object):
     def data_file_post_with_http_info(self, **kwargs):  # noqa: E501
         """Create from file  # noqa: E501
 
-        Upload data as **multipart/form-data** to a simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.   The max size of file is: + 256MB if using macSignature authentication + 512MB if using bearerJWTAuth authentication   # noqa: E501
+        Upload data as **multipart/form-data** to a simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.   The max size of file is 512MB.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_file_post_with_http_info(async_req=True)
@@ -747,7 +747,7 @@ class DataApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+        auth_settings = ['bearerJWTAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/data/file', 'POST',
@@ -881,7 +881,7 @@ class DataApi(object):
             ['multipart/form-data'])  # noqa: E501
 
         # Authentication setting
-        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+        auth_settings = ['bearerJWTAuth']  # noqa: E501
 
         return self.api_client.call_api(
             '/data/{uuid}/file', 'PUT',
