@@ -35,29 +35,34 @@ class AIVRAppDataItem(object):
     """
     openapi_types = {
         'data_uuid': 'str',
+        'description': 'str',
         'key': 'str',
         'value': 'str'
     }
 
     attribute_map = {
         'data_uuid': 'dataUUID',
+        'description': 'description',
         'key': 'key',
         'value': 'value'
     }
 
-    def __init__(self, data_uuid=None, key=None, value=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, data_uuid=None, description=None, key=None, value=None, local_vars_configuration=None):  # noqa: E501
         """AIVRAppDataItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._data_uuid = None
+        self._description = None
         self._key = None
         self._value = None
         self.discriminator = None
 
         if data_uuid is not None:
             self.data_uuid = data_uuid
+        if description is not None:
+            self.description = description
         self.key = key
         if value is not None:
             self.value = value
@@ -84,6 +89,32 @@ class AIVRAppDataItem(object):
         """
 
         self._data_uuid = data_uuid
+
+    @property
+    def description(self):
+        """Gets the description of this AIVRAppDataItem.  # noqa: E501
+
+        (optional) Description of the data item. This is mainly so that someone e.g. uploading a data file knows e.g. the expected format and structure.   # noqa: E501
+
+        :return: The description of this AIVRAppDataItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description):
+        """Sets the description of this AIVRAppDataItem.
+
+        (optional) Description of the data item. This is mainly so that someone e.g. uploading a data file knows e.g. the expected format and structure.   # noqa: E501
+
+        :param description: The description of this AIVRAppDataItem.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                description is not None and len(description) > 1024):
+            raise ValueError("Invalid value for `description`, length must be less than or equal to `1024`")  # noqa: E501
+
+        self._description = description
 
     @property
     def key(self):
