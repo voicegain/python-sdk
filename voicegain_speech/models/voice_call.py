@@ -79,6 +79,7 @@ class VoiceCall(object):
         'voicebot_duration': 'float',
         'voicebot_vars': 'VoiceCallAllOfVoicebotVars',
         'voicemail_duration': 'float',
+        'voicemail_transcript': 'str',
         'voicemail_uuid': 'str',
         'word_cloud': 'list[WordCloudItem]'
     }
@@ -129,11 +130,12 @@ class VoiceCall(object):
         'voicebot_duration': 'voicebotDuration',
         'voicebot_vars': 'voicebotVars',
         'voicemail_duration': 'voicemailDuration',
+        'voicemail_transcript': 'voicemailTranscript',
         'voicemail_uuid': 'voicemailUuid',
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -184,6 +186,7 @@ class VoiceCall(object):
         self._voicebot_duration = None
         self._voicebot_vars = None
         self._voicemail_duration = None
+        self._voicemail_transcript = None
         self._voicemail_uuid = None
         self._word_cloud = None
         self.discriminator = None
@@ -278,6 +281,8 @@ class VoiceCall(object):
             self.voicebot_vars = voicebot_vars
         if voicemail_duration is not None:
             self.voicemail_duration = voicemail_duration
+        if voicemail_transcript is not None:
+            self.voicemail_transcript = voicemail_transcript
         if voicemail_uuid is not None:
             self.voicemail_uuid = voicemail_uuid
         if word_cloud is not None:
@@ -1394,6 +1399,29 @@ class VoiceCall(object):
         """
 
         self._voicemail_duration = voicemail_duration
+
+    @property
+    def voicemail_transcript(self):
+        """Gets the voicemail_transcript of this VoiceCall.  # noqa: E501
+
+        Present only if a voicemail was left during the call.</br> Transcription of the voicemail.   # noqa: E501
+
+        :return: The voicemail_transcript of this VoiceCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._voicemail_transcript
+
+    @voicemail_transcript.setter
+    def voicemail_transcript(self, voicemail_transcript):
+        """Sets the voicemail_transcript of this VoiceCall.
+
+        Present only if a voicemail was left during the call.</br> Transcription of the voicemail.   # noqa: E501
+
+        :param voicemail_transcript: The voicemail_transcript of this VoiceCall.  # noqa: E501
+        :type: str
+        """
+
+        self._voicemail_transcript = voicemail_transcript
 
     @property
     def voicemail_uuid(self):
