@@ -47,6 +47,7 @@ class VoiceCallSearchResult(object):
         'internal_endpoint': 'str',
         'language': 'Language',
         'markers': 'list[CallMarker]',
+        'modifiable_note': 'str',
         'num_audio_channels': 'int',
         'num_spk_channels': 'int',
         'originating_call_id': 'str',
@@ -99,6 +100,7 @@ class VoiceCallSearchResult(object):
         'internal_endpoint': 'internalEndpoint',
         'language': 'language',
         'markers': 'markers',
+        'modifiable_note': 'modifiableNote',
         'num_audio_channels': 'numAudioChannels',
         'num_spk_channels': 'numSpkChannels',
         'originating_call_id': 'originatingCallId',
@@ -137,7 +139,7 @@ class VoiceCallSearchResult(object):
         'headline': 'headline'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallSearchResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -156,6 +158,7 @@ class VoiceCallSearchResult(object):
         self._internal_endpoint = None
         self._language = None
         self._markers = None
+        self._modifiable_note = None
         self._num_audio_channels = None
         self._num_spk_channels = None
         self._originating_call_id = None
@@ -220,6 +223,8 @@ class VoiceCallSearchResult(object):
             self.language = language
         if markers is not None:
             self.markers = markers
+        if modifiable_note is not None:
+            self.modifiable_note = modifiable_note
         if num_audio_channels is not None:
             self.num_audio_channels = num_audio_channels
         if num_spk_channels is not None:
@@ -602,6 +607,32 @@ class VoiceCallSearchResult(object):
         """
 
         self._markers = markers
+
+    @property
+    def modifiable_note(self):
+        """Gets the modifiable_note of this VoiceCallSearchResult.  # noqa: E501
+
+        Note attached to the call that can be modified by the user  # noqa: E501
+
+        :return: The modifiable_note of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._modifiable_note
+
+    @modifiable_note.setter
+    def modifiable_note(self, modifiable_note):
+        """Sets the modifiable_note of this VoiceCallSearchResult.
+
+        Note attached to the call that can be modified by the user  # noqa: E501
+
+        :param modifiable_note: The modifiable_note of this VoiceCallSearchResult.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                modifiable_note is not None and len(modifiable_note) > 2048):
+            raise ValueError("Invalid value for `modifiable_note`, length must be less than or equal to `2048`")  # noqa: E501
+
+        self._modifiable_note = modifiable_note
 
     @property
     def num_audio_channels(self):
@@ -1073,7 +1104,7 @@ class VoiceCallSearchResult(object):
     def notes(self):
         """Gets the notes of this VoiceCallSearchResult.  # noqa: E501
 
-        Brief notes about the call. Will often be also submitted to the CRM.</br> Can be generated by copilot logic using LLM. May also be entered and/or modified by an Agent.   # noqa: E501
+        Brief notes about the call. May be submitted to the CRM.</br> Typically, generated using LLM prompt taken from `llmCopilotNotesPrompt` in saConfig   # noqa: E501
 
         :return: The notes of this VoiceCallSearchResult.  # noqa: E501
         :rtype: str
@@ -1084,7 +1115,7 @@ class VoiceCallSearchResult(object):
     def notes(self, notes):
         """Sets the notes of this VoiceCallSearchResult.
 
-        Brief notes about the call. Will often be also submitted to the CRM.</br> Can be generated by copilot logic using LLM. May also be entered and/or modified by an Agent.   # noqa: E501
+        Brief notes about the call. May be submitted to the CRM.</br> Typically, generated using LLM prompt taken from `llmCopilotNotesPrompt` in saConfig   # noqa: E501
 
         :param notes: The notes of this VoiceCallSearchResult.  # noqa: E501
         :type: str
