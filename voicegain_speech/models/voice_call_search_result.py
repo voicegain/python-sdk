@@ -82,6 +82,7 @@ class VoiceCallSearchResult(object):
         'voicemail_duration': 'float',
         'voicemail_transcript': 'str',
         'voicemail_uuid': 'str',
+        'who_hung_up': 'str',
         'word_cloud': 'list[WordCloudItem]',
         'headline': 'str'
     }
@@ -135,11 +136,12 @@ class VoiceCallSearchResult(object):
         'voicemail_duration': 'voicemailDuration',
         'voicemail_transcript': 'voicemailTranscript',
         'voicemail_uuid': 'voicemailUuid',
+        'who_hung_up': 'whoHungUp',
         'word_cloud': 'wordCloud',
         'headline': 'headline'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, who_hung_up=None, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallSearchResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -193,6 +195,7 @@ class VoiceCallSearchResult(object):
         self._voicemail_duration = None
         self._voicemail_transcript = None
         self._voicemail_uuid = None
+        self._who_hung_up = None
         self._word_cloud = None
         self._headline = None
         self.discriminator = None
@@ -293,6 +296,8 @@ class VoiceCallSearchResult(object):
             self.voicemail_transcript = voicemail_transcript
         if voicemail_uuid is not None:
             self.voicemail_uuid = voicemail_uuid
+        if who_hung_up is not None:
+            self.who_hung_up = who_hung_up
         if word_cloud is not None:
             self.word_cloud = word_cloud
         if headline is not None:
@@ -1487,6 +1492,35 @@ class VoiceCallSearchResult(object):
             raise ValueError("Invalid value for `voicemail_uuid`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._voicemail_uuid = voicemail_uuid
+
+    @property
+    def who_hung_up(self):
+        """Gets the who_hung_up of this VoiceCallSearchResult.  # noqa: E501
+
+        Who hung up the call  # noqa: E501
+
+        :return: The who_hung_up of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._who_hung_up
+
+    @who_hung_up.setter
+    def who_hung_up(self, who_hung_up):
+        """Sets the who_hung_up of this VoiceCallSearchResult.
+
+        Who hung up the call  # noqa: E501
+
+        :param who_hung_up: The who_hung_up of this VoiceCallSearchResult.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["us", "other_party"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and who_hung_up not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `who_hung_up` ({0}), must be one of {1}"  # noqa: E501
+                .format(who_hung_up, allowed_values)
+            )
+
+        self._who_hung_up = who_hung_up
 
     @property
     def word_cloud(self):
