@@ -50,6 +50,7 @@ class OfflineSpeechAnalyticsResult(object):
         'tags': 'list[str]',
         'cr_answers_id': 'str',
         'criteria': 'SpeechAnalyticsCriteriaData',
+        'csat_answer': 'OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer',
         'incidents': 'list[Incident]',
         'is_virtual_dual_channel': 'bool',
         'keywords': 'MeetingKeywordData',
@@ -81,6 +82,7 @@ class OfflineSpeechAnalyticsResult(object):
         'tags': 'tags',
         'cr_answers_id': 'crAnswersId',
         'criteria': 'criteria',
+        'csat_answer': 'csatAnswer',
         'incidents': 'incidents',
         'is_virtual_dual_channel': 'isVirtualDualChannel',
         'keywords': 'keywords',
@@ -95,7 +97,7 @@ class OfflineSpeechAnalyticsResult(object):
         'words': 'words'
     }
 
-    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, optimize_for_web_ui=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, cr_answers_id=None, criteria=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, optimize_for_web_ui=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, words=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -117,6 +119,7 @@ class OfflineSpeechAnalyticsResult(object):
         self._tags = None
         self._cr_answers_id = None
         self._criteria = None
+        self._csat_answer = None
         self._incidents = None
         self._is_virtual_dual_channel = None
         self._keywords = None
@@ -163,6 +166,8 @@ class OfflineSpeechAnalyticsResult(object):
             self.cr_answers_id = cr_answers_id
         if criteria is not None:
             self.criteria = criteria
+        if csat_answer is not None:
+            self.csat_answer = csat_answer
         if incidents is not None:
             self.incidents = incidents
         if is_virtual_dual_channel is not None:
@@ -546,7 +551,7 @@ class OfflineSpeechAnalyticsResult(object):
     def cr_answers_id(self):
         """Gets the cr_answers_id of this OfflineSpeechAnalyticsResult.  # noqa: E501
 
-        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.                         # noqa: E501
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.         # noqa: E501
 
         :return: The cr_answers_id of this OfflineSpeechAnalyticsResult.  # noqa: E501
         :rtype: str
@@ -557,7 +562,7 @@ class OfflineSpeechAnalyticsResult(object):
     def cr_answers_id(self, cr_answers_id):
         """Sets the cr_answers_id of this OfflineSpeechAnalyticsResult.
 
-        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.                         # noqa: E501
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.         # noqa: E501
 
         :param cr_answers_id: The cr_answers_id of this OfflineSpeechAnalyticsResult.  # noqa: E501
         :type: str
@@ -591,6 +596,27 @@ class OfflineSpeechAnalyticsResult(object):
         """
 
         self._criteria = criteria
+
+    @property
+    def csat_answer(self):
+        """Gets the csat_answer of this OfflineSpeechAnalyticsResult.  # noqa: E501
+
+
+        :return: The csat_answer of this OfflineSpeechAnalyticsResult.  # noqa: E501
+        :rtype: OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer
+        """
+        return self._csat_answer
+
+    @csat_answer.setter
+    def csat_answer(self, csat_answer):
+        """Sets the csat_answer of this OfflineSpeechAnalyticsResult.
+
+
+        :param csat_answer: The csat_answer of this OfflineSpeechAnalyticsResult.  # noqa: E501
+        :type: OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer
+        """
+
+        self._csat_answer = csat_answer
 
     @property
     def incidents(self):

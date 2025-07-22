@@ -43,6 +43,7 @@ class SpeechAnalyticsConfig(object):
         'call_resolution_question_id': 'str',
         'competitor_keyword_groups': 'list[str]',
         'criteria': 'list[CriterionConfig]',
+        'csat_question': 'SpeechAnalyticsConfigModifiableBaseCsatQuestion',
         'entities': 'list[NamedEntityType]',
         'gender': 'bool',
         'keyword_groups': 'list[KeywordSpotGroup]',
@@ -76,6 +77,7 @@ class SpeechAnalyticsConfig(object):
         'call_resolution_question_id': 'callResolutionQuestionId',
         'competitor_keyword_groups': 'competitorKeywordGroups',
         'criteria': 'criteria',
+        'csat_question': 'csatQuestion',
         'entities': 'entities',
         'gender': 'gender',
         'keyword_groups': 'keywordGroups',
@@ -99,7 +101,7 @@ class SpeechAnalyticsConfig(object):
         'name': 'name'
     }
 
-    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfig - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -114,6 +116,7 @@ class SpeechAnalyticsConfig(object):
         self._call_resolution_question_id = None
         self._competitor_keyword_groups = None
         self._criteria = None
+        self._csat_question = None
         self._entities = None
         self._gender = None
         self._keyword_groups = None
@@ -154,6 +157,8 @@ class SpeechAnalyticsConfig(object):
             self.competitor_keyword_groups = competitor_keyword_groups
         if criteria is not None:
             self.criteria = criteria
+        if csat_question is not None:
+            self.csat_question = csat_question
         if entities is not None:
             self.entities = entities
         if gender is not None:
@@ -424,6 +429,27 @@ class SpeechAnalyticsConfig(object):
         """
 
         self._criteria = criteria
+
+    @property
+    def csat_question(self):
+        """Gets the csat_question of this SpeechAnalyticsConfig.  # noqa: E501
+
+
+        :return: The csat_question of this SpeechAnalyticsConfig.  # noqa: E501
+        :rtype: SpeechAnalyticsConfigModifiableBaseCsatQuestion
+        """
+        return self._csat_question
+
+    @csat_question.setter
+    def csat_question(self, csat_question):
+        """Sets the csat_question of this SpeechAnalyticsConfig.
+
+
+        :param csat_question: The csat_question of this SpeechAnalyticsConfig.  # noqa: E501
+        :type: SpeechAnalyticsConfigModifiableBaseCsatQuestion
+        """
+
+        self._csat_question = csat_question
 
     @property
     def entities(self):
