@@ -34,24 +34,52 @@ class OfflineSpeechAnalyticsResultDetailAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'annotated_transcript': 'str',
         'words': 'list[MeetingWordsSectionWithAnnot]'
     }
 
     attribute_map = {
+        'annotated_transcript': 'annotatedTranscript',
         'words': 'words'
     }
 
-    def __init__(self, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResultDetailAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._annotated_transcript = None
         self._words = None
         self.discriminator = None
 
+        if annotated_transcript is not None:
+            self.annotated_transcript = annotated_transcript
         if words is not None:
             self.words = words
+
+    @property
+    def annotated_transcript(self):
+        """Gets the annotated_transcript of this OfflineSpeechAnalyticsResultDetailAllOf.  # noqa: E501
+
+        Annotated transcript in format suitable for submission to LLM.               # noqa: E501
+
+        :return: The annotated_transcript of this OfflineSpeechAnalyticsResultDetailAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._annotated_transcript
+
+    @annotated_transcript.setter
+    def annotated_transcript(self, annotated_transcript):
+        """Sets the annotated_transcript of this OfflineSpeechAnalyticsResultDetailAllOf.
+
+        Annotated transcript in format suitable for submission to LLM.               # noqa: E501
+
+        :param annotated_transcript: The annotated_transcript of this OfflineSpeechAnalyticsResultDetailAllOf.  # noqa: E501
+        :type: str
+        """
+
+        self._annotated_transcript = annotated_transcript
 
     @property
     def words(self):

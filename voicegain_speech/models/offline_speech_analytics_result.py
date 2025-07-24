@@ -62,6 +62,7 @@ class OfflineSpeechAnalyticsResult(object):
         'summary': 'list[str]',
         'topics': 'list[TopicScore]',
         'word_cloud': 'list[WordCloudItem]',
+        'annotated_transcript': 'str',
         'words': 'list[MeetingWordsSectionWithAnnot]'
     }
 
@@ -94,10 +95,11 @@ class OfflineSpeechAnalyticsResult(object):
         'summary': 'summary',
         'topics': 'topics',
         'word_cloud': 'wordCloud',
+        'annotated_transcript': 'annotatedTranscript',
         'words': 'words'
     }
 
-    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, optimize_for_web_ui=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, optimize_for_web_ui=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -131,6 +133,7 @@ class OfflineSpeechAnalyticsResult(object):
         self._summary = None
         self._topics = None
         self._word_cloud = None
+        self._annotated_transcript = None
         self._words = None
         self.discriminator = None
 
@@ -190,6 +193,8 @@ class OfflineSpeechAnalyticsResult(object):
             self.topics = topics
         if word_cloud is not None:
             self.word_cloud = word_cloud
+        if annotated_transcript is not None:
+            self.annotated_transcript = annotated_transcript
         if words is not None:
             self.words = words
 
@@ -864,6 +869,29 @@ class OfflineSpeechAnalyticsResult(object):
         """
 
         self._word_cloud = word_cloud
+
+    @property
+    def annotated_transcript(self):
+        """Gets the annotated_transcript of this OfflineSpeechAnalyticsResult.  # noqa: E501
+
+        Annotated transcript in format suitable for submission to LLM.               # noqa: E501
+
+        :return: The annotated_transcript of this OfflineSpeechAnalyticsResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._annotated_transcript
+
+    @annotated_transcript.setter
+    def annotated_transcript(self, annotated_transcript):
+        """Sets the annotated_transcript of this OfflineSpeechAnalyticsResult.
+
+        Annotated transcript in format suitable for submission to LLM.               # noqa: E501
+
+        :param annotated_transcript: The annotated_transcript of this OfflineSpeechAnalyticsResult.  # noqa: E501
+        :type: str
+        """
+
+        self._annotated_transcript = annotated_transcript
 
     @property
     def words(self):
