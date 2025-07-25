@@ -83,7 +83,7 @@ class JoinedMeetingEvent(object):
         :param event_type: The event_type of this JoinedMeetingEvent.  # noqa: E501
         :type: str
         """
-        allowed_values = ["waitingRoom", "admitted", "rejected", "meetingEnded", "leave", "generic", "debug"]  # noqa: E501
+        allowed_values = ["connecting", "waitingRoom", "admitted", "rejected", "meetingEnded", "leaving", "left", "generic", "debug"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and event_type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `event_type` ({0}), must be one of {1}"  # noqa: E501
