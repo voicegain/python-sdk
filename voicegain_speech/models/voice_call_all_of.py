@@ -36,6 +36,7 @@ class VoiceCallAllOf(object):
     openapi_types = {
         'account_id': 'str',
         'aivr_transfer_dest_type': 'str',
+        'aivr_vars': 'object',
         'business_open_state': 'str',
         'call_id': 'str',
         'call_resolved': 'bool',
@@ -68,6 +69,7 @@ class VoiceCallAllOf(object):
     attribute_map = {
         'account_id': 'accountId',
         'aivr_transfer_dest_type': 'aivrTransferDestType',
+        'aivr_vars': 'aivrVars',
         'business_open_state': 'businessOpenState',
         'call_id': 'callId',
         'call_resolved': 'callResolved',
@@ -97,7 +99,7 @@ class VoiceCallAllOf(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, who_hung_up=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, aivr_vars=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, who_hung_up=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -105,6 +107,7 @@ class VoiceCallAllOf(object):
 
         self._account_id = None
         self._aivr_transfer_dest_type = None
+        self._aivr_vars = None
         self._business_open_state = None
         self._call_id = None
         self._call_resolved = None
@@ -138,6 +141,8 @@ class VoiceCallAllOf(object):
             self.account_id = account_id
         if aivr_transfer_dest_type is not None:
             self.aivr_transfer_dest_type = aivr_transfer_dest_type
+        if aivr_vars is not None:
+            self.aivr_vars = aivr_vars
         if business_open_state is not None:
             self.business_open_state = business_open_state
         if call_id is not None:
@@ -250,6 +255,29 @@ class VoiceCallAllOf(object):
             raise ValueError("Invalid value for `aivr_transfer_dest_type`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._aivr_transfer_dest_type = aivr_transfer_dest_type
+
+    @property
+    def aivr_vars(self):
+        """Gets the aivr_vars of this VoiceCallAllOf.  # noqa: E501
+
+        (optional) Map with variables collected during AIVR session. </br> This is a copy from AIVR Session (the `vars` field) and we store it in the Call as JSON object (so this is not just a flat map).   # noqa: E501
+
+        :return: The aivr_vars of this VoiceCallAllOf.  # noqa: E501
+        :rtype: object
+        """
+        return self._aivr_vars
+
+    @aivr_vars.setter
+    def aivr_vars(self, aivr_vars):
+        """Sets the aivr_vars of this VoiceCallAllOf.
+
+        (optional) Map with variables collected during AIVR session. </br> This is a copy from AIVR Session (the `vars` field) and we store it in the Call as JSON object (so this is not just a flat map).   # noqa: E501
+
+        :param aivr_vars: The aivr_vars of this VoiceCallAllOf.  # noqa: E501
+        :type: object
+        """
+
+        self._aivr_vars = aivr_vars
 
     @property
     def business_open_state(self):
