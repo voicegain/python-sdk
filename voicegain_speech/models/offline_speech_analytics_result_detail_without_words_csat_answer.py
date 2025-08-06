@@ -37,6 +37,7 @@ class OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer(object):
         'answer_choice': 'str',
         'answer_value': 'float',
         'llm_justification': 'str',
+        'not_applicable': 'bool',
         'notes': 'str'
     }
 
@@ -44,10 +45,11 @@ class OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer(object):
         'answer_choice': 'answerChoice',
         'answer_value': 'answerValue',
         'llm_justification': 'llmJustification',
+        'not_applicable': 'notApplicable',
         'notes': 'notes'
     }
 
-    def __init__(self, answer_choice=None, answer_value=None, llm_justification=None, notes=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, answer_choice=None, answer_value=None, llm_justification=None, not_applicable=False, notes=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,6 +58,7 @@ class OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer(object):
         self._answer_choice = None
         self._answer_value = None
         self._llm_justification = None
+        self._not_applicable = None
         self._notes = None
         self.discriminator = None
 
@@ -65,6 +68,8 @@ class OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer(object):
             self.answer_value = answer_value
         if llm_justification is not None:
             self.llm_justification = llm_justification
+        if not_applicable is not None:
+            self.not_applicable = not_applicable
         if notes is not None:
             self.notes = notes
 
@@ -142,6 +147,29 @@ class OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer(object):
             raise ValueError("Invalid value for `llm_justification`, length must be less than or equal to `1024`")  # noqa: E501
 
         self._llm_justification = llm_justification
+
+    @property
+    def not_applicable(self):
+        """Gets the not_applicable of this OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer.  # noqa: E501
+
+        Set this to true if the question about CSAT as not applicable to a given call, e.g. if the call was abandoned in the early stage.  # noqa: E501
+
+        :return: The not_applicable of this OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer.  # noqa: E501
+        :rtype: bool
+        """
+        return self._not_applicable
+
+    @not_applicable.setter
+    def not_applicable(self, not_applicable):
+        """Sets the not_applicable of this OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer.
+
+        Set this to true if the question about CSAT as not applicable to a given call, e.g. if the call was abandoned in the early stage.  # noqa: E501
+
+        :param not_applicable: The not_applicable of this OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer.  # noqa: E501
+        :type: bool
+        """
+
+        self._not_applicable = not_applicable
 
     @property
     def notes(self):
