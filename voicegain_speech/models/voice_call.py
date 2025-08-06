@@ -63,6 +63,7 @@ class VoiceCall(object):
         'call_resolved': 'bool',
         'context_id': 'str',
         'cr_answers_id': 'str',
+        'csat': 'float',
         'duration': 'int',
         'incidents': 'float',
         'keywords': 'list[str]',
@@ -117,6 +118,7 @@ class VoiceCall(object):
         'call_resolved': 'callResolved',
         'context_id': 'contextId',
         'cr_answers_id': 'crAnswersId',
+        'csat': 'csat',
         'duration': 'duration',
         'incidents': 'incidents',
         'keywords': 'keywords',
@@ -141,7 +143,7 @@ class VoiceCall(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, aivr_vars=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, who_hung_up=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, aivr_vars=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, who_hung_up=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -176,6 +178,7 @@ class VoiceCall(object):
         self._call_resolved = None
         self._context_id = None
         self._cr_answers_id = None
+        self._csat = None
         self._duration = None
         self._incidents = None
         self._keywords = None
@@ -258,6 +261,8 @@ class VoiceCall(object):
             self.context_id = context_id
         if cr_answers_id is not None:
             self.cr_answers_id = cr_answers_id
+        if csat is not None:
+            self.csat = csat
         if duration is not None:
             self.duration = duration
         if incidents is not None:
@@ -1035,6 +1040,32 @@ class VoiceCall(object):
             raise ValueError("Invalid value for `cr_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._cr_answers_id = cr_answers_id
+
+    @property
+    def csat(self):
+        """Gets the csat of this VoiceCall.  # noqa: E501
+
+        Customer Satisfaction score for the call. This value is copied from `csatAnswer` in /sa/offline.   # noqa: E501
+
+        :return: The csat of this VoiceCall.  # noqa: E501
+        :rtype: float
+        """
+        return self._csat
+
+    @csat.setter
+    def csat(self, csat):
+        """Sets the csat of this VoiceCall.
+
+        Customer Satisfaction score for the call. This value is copied from `csatAnswer` in /sa/offline.   # noqa: E501
+
+        :param csat: The csat of this VoiceCall.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                csat is not None and csat < 0):  # noqa: E501
+            raise ValueError("Invalid value for `csat`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._csat = csat
 
     @property
     def duration(self):

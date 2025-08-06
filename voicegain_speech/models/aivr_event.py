@@ -189,7 +189,7 @@ class AIVREvent(object):
     def time_msec(self):
         """Gets the time_msec of this AIVREvent.  # noqa: E501
 
-        Time when the event occurred (in milliseconds since start of the call)  # noqa: E501
+        Time when the event occurred (in milliseconds since start of the call).</br> Currently, the time of the event is reported somewhat inconsistently. For output events we report the start of prompt playback, but for input events we report the end of recognition.   # noqa: E501
 
         :return: The time_msec of this AIVREvent.  # noqa: E501
         :rtype: int
@@ -200,7 +200,7 @@ class AIVREvent(object):
     def time_msec(self, time_msec):
         """Sets the time_msec of this AIVREvent.
 
-        Time when the event occurred (in milliseconds since start of the call)  # noqa: E501
+        Time when the event occurred (in milliseconds since start of the call).</br> Currently, the time of the event is reported somewhat inconsistently. For output events we report the start of prompt playback, but for input events we report the end of recognition.   # noqa: E501
 
         :param time_msec: The time_msec of this AIVREvent.  # noqa: E501
         :type: int
