@@ -362,7 +362,7 @@ from voicegain_speech.models.keyword_spot_item import KeywordSpotItem
 from voicegain_speech.models.language import Language
 from voicegain_speech.models.le_term import LeTerm
 from voicegain_speech.models.le_term_all_of import LeTermAllOf
-from voicegain_speech.models.llm_response_formnat import LlmResponseFormnat
+from voicegain_speech.models.llm_response_format import LlmResponseFormat
 from voicegain_speech.models.logic import Logic
 from voicegain_speech.models.logic_all_of import LogicAllOf
 from voicegain_speech.models.lt_term import LtTerm

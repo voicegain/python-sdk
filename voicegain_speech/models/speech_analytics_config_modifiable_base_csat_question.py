@@ -37,7 +37,7 @@ class SpeechAnalyticsConfigModifiableBaseCsatQuestion(object):
         'answer_mapping': 'list[AnswerMapEntry]',
         'custom_response_format_json': 'str',
         'prompt': 'str',
-        'response_format': 'LlmResponseFormnat'
+        'response_format': 'LlmResponseFormat'
     }
 
     attribute_map = {
@@ -156,7 +156,7 @@ class SpeechAnalyticsConfigModifiableBaseCsatQuestion(object):
 
 
         :return: The response_format of this SpeechAnalyticsConfigModifiableBaseCsatQuestion.  # noqa: E501
-        :rtype: LlmResponseFormnat
+        :rtype: LlmResponseFormat
         """
         return self._response_format
 
@@ -166,7 +166,7 @@ class SpeechAnalyticsConfigModifiableBaseCsatQuestion(object):
 
 
         :param response_format: The response_format of this SpeechAnalyticsConfigModifiableBaseCsatQuestion.  # noqa: E501
-        :type: LlmResponseFormnat
+        :type: LlmResponseFormat
         """
 
         self._response_format = response_format

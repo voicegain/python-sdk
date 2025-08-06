@@ -310,7 +310,7 @@ class AIVRResponsePropertiesAudio(object):
     def streaming(self):
         """Gets the streaming of this AIVRResponsePropertiesAudio.  # noqa: E501
 
-        (optional, only applicable to Websocket AIVR API, and only if large-vocabulary recognition is used - i.e. grammar is not provided)</br> If this is used, and value is other than `none`, then AIVR will start sending the transcribed words or segments over the websocket. Whatever process is listening on the websocket will need to parse the results and determine when the transcription of this question is to end.<br> Streaming will continue until a command other that `question` is received or until the end of the session.   # noqa: E501
+        (optional, only applicable to Websocket AIVR API, and only if large-vocabulary recognition is used - i.e. grammar is not provided)</br> If this is used, and value is other than `none`, then AIVR will start sending the transcribed words or segments over the websocket. Whatever process is listening on the websocket will need to parse the results and determine when the transcription of this question is to end.<br> Streaming will continue until a command other that `question` is received, or `question` is submitted with non-bargineable `text`, or until the end of the session.   # noqa: E501
 
         :return: The streaming of this AIVRResponsePropertiesAudio.  # noqa: E501
         :rtype: str
@@ -321,7 +321,7 @@ class AIVRResponsePropertiesAudio(object):
     def streaming(self, streaming):
         """Sets the streaming of this AIVRResponsePropertiesAudio.
 
-        (optional, only applicable to Websocket AIVR API, and only if large-vocabulary recognition is used - i.e. grammar is not provided)</br> If this is used, and value is other than `none`, then AIVR will start sending the transcribed words or segments over the websocket. Whatever process is listening on the websocket will need to parse the results and determine when the transcription of this question is to end.<br> Streaming will continue until a command other that `question` is received or until the end of the session.   # noqa: E501
+        (optional, only applicable to Websocket AIVR API, and only if large-vocabulary recognition is used - i.e. grammar is not provided)</br> If this is used, and value is other than `none`, then AIVR will start sending the transcribed words or segments over the websocket. Whatever process is listening on the websocket will need to parse the results and determine when the transcription of this question is to end.<br> Streaming will continue until a command other that `question` is received, or `question` is submitted with non-bargineable `text`, or until the end of the session.   # noqa: E501
 
         :param streaming: The streaming of this AIVRResponsePropertiesAudio.  # noqa: E501
         :type: str
