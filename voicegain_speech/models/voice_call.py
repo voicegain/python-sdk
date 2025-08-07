@@ -37,6 +37,8 @@ class VoiceCall(object):
         'agent': 'Agent',
         'aivr_app_id': 'str',
         'aivr_session_id': 'str',
+        'aivr_vars': 'dict(str, str)',
+        'business_open_state': 'str',
         'call_center_call_id': 'str',
         'daily_repeat_calls': 'int',
         'direction': 'str',
@@ -55,10 +57,10 @@ class VoiceCall(object):
         'recording': 'str',
         'start_time': 'datetime',
         'tags': 'list[str]',
+        'voicebot_vars': 'VoiceCallModifiableBaseVoicebotVars',
+        'who_hung_up': 'str',
         'account_id': 'str',
         'aivr_transfer_dest_type': 'str',
-        'aivr_vars': 'object',
-        'business_open_state': 'str',
         'call_id': 'str',
         'call_resolved': 'bool',
         'context_id': 'str',
@@ -80,11 +82,9 @@ class VoiceCall(object):
         'topics': 'list[str]',
         'version': 'int',
         'voicebot_duration': 'float',
-        'voicebot_vars': 'VoiceCallAllOfVoicebotVars',
         'voicemail_duration': 'float',
         'voicemail_transcript': 'str',
         'voicemail_uuid': 'str',
-        'who_hung_up': 'str',
         'word_cloud': 'list[WordCloudItem]'
     }
 
@@ -92,6 +92,8 @@ class VoiceCall(object):
         'agent': 'agent',
         'aivr_app_id': 'aivrAppId',
         'aivr_session_id': 'aivrSessionId',
+        'aivr_vars': 'aivrVars',
+        'business_open_state': 'businessOpenState',
         'call_center_call_id': 'callCenterCallId',
         'daily_repeat_calls': 'dailyRepeatCalls',
         'direction': 'direction',
@@ -110,10 +112,10 @@ class VoiceCall(object):
         'recording': 'recording',
         'start_time': 'startTime',
         'tags': 'tags',
+        'voicebot_vars': 'voicebotVars',
+        'who_hung_up': 'whoHungUp',
         'account_id': 'accountId',
         'aivr_transfer_dest_type': 'aivrTransferDestType',
-        'aivr_vars': 'aivrVars',
-        'business_open_state': 'businessOpenState',
         'call_id': 'callId',
         'call_resolved': 'callResolved',
         'context_id': 'contextId',
@@ -135,15 +137,13 @@ class VoiceCall(object):
         'topics': 'topics',
         'version': 'version',
         'voicebot_duration': 'voicebotDuration',
-        'voicebot_vars': 'voicebotVars',
         'voicemail_duration': 'voicemailDuration',
         'voicemail_transcript': 'voicemailTranscript',
         'voicemail_uuid': 'voicemailUuid',
-        'who_hung_up': 'whoHungUp',
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, account_id=None, aivr_transfer_dest_type=None, aivr_vars=None, business_open_state=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicebot_vars=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, who_hung_up=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, voicebot_vars=None, who_hung_up=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -152,6 +152,8 @@ class VoiceCall(object):
         self._agent = None
         self._aivr_app_id = None
         self._aivr_session_id = None
+        self._aivr_vars = None
+        self._business_open_state = None
         self._call_center_call_id = None
         self._daily_repeat_calls = None
         self._direction = None
@@ -170,10 +172,10 @@ class VoiceCall(object):
         self._recording = None
         self._start_time = None
         self._tags = None
+        self._voicebot_vars = None
+        self._who_hung_up = None
         self._account_id = None
         self._aivr_transfer_dest_type = None
-        self._aivr_vars = None
-        self._business_open_state = None
         self._call_id = None
         self._call_resolved = None
         self._context_id = None
@@ -195,11 +197,9 @@ class VoiceCall(object):
         self._topics = None
         self._version = None
         self._voicebot_duration = None
-        self._voicebot_vars = None
         self._voicemail_duration = None
         self._voicemail_transcript = None
         self._voicemail_uuid = None
-        self._who_hung_up = None
         self._word_cloud = None
         self.discriminator = None
 
@@ -209,6 +209,10 @@ class VoiceCall(object):
             self.aivr_app_id = aivr_app_id
         if aivr_session_id is not None:
             self.aivr_session_id = aivr_session_id
+        if aivr_vars is not None:
+            self.aivr_vars = aivr_vars
+        if business_open_state is not None:
+            self.business_open_state = business_open_state
         if call_center_call_id is not None:
             self.call_center_call_id = call_center_call_id
         if daily_repeat_calls is not None:
@@ -245,14 +249,14 @@ class VoiceCall(object):
             self.start_time = start_time
         if tags is not None:
             self.tags = tags
+        if voicebot_vars is not None:
+            self.voicebot_vars = voicebot_vars
+        if who_hung_up is not None:
+            self.who_hung_up = who_hung_up
         if account_id is not None:
             self.account_id = account_id
         if aivr_transfer_dest_type is not None:
             self.aivr_transfer_dest_type = aivr_transfer_dest_type
-        if aivr_vars is not None:
-            self.aivr_vars = aivr_vars
-        if business_open_state is not None:
-            self.business_open_state = business_open_state
         if call_id is not None:
             self.call_id = call_id
         if call_resolved is not None:
@@ -295,16 +299,12 @@ class VoiceCall(object):
             self.version = version
         if voicebot_duration is not None:
             self.voicebot_duration = voicebot_duration
-        if voicebot_vars is not None:
-            self.voicebot_vars = voicebot_vars
         if voicemail_duration is not None:
             self.voicemail_duration = voicemail_duration
         if voicemail_transcript is not None:
             self.voicemail_transcript = voicemail_transcript
         if voicemail_uuid is not None:
             self.voicemail_uuid = voicemail_uuid
-        if who_hung_up is not None:
-            self.who_hung_up = who_hung_up
         if word_cloud is not None:
             self.word_cloud = word_cloud
 
@@ -374,6 +374,58 @@ class VoiceCall(object):
         """
 
         self._aivr_session_id = aivr_session_id
+
+    @property
+    def aivr_vars(self):
+        """Gets the aivr_vars of this VoiceCall.  # noqa: E501
+
+        (optional) Map with variables collected during AIVR session. </br> This is a copy from AIVR Session (the `vars` field) and we store it in the Call as JSON object (so this is not just a flat map).   # noqa: E501
+
+        :return: The aivr_vars of this VoiceCall.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._aivr_vars
+
+    @aivr_vars.setter
+    def aivr_vars(self, aivr_vars):
+        """Sets the aivr_vars of this VoiceCall.
+
+        (optional) Map with variables collected during AIVR session. </br> This is a copy from AIVR Session (the `vars` field) and we store it in the Call as JSON object (so this is not just a flat map).   # noqa: E501
+
+        :param aivr_vars: The aivr_vars of this VoiceCall.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._aivr_vars = aivr_vars
+
+    @property
+    def business_open_state(self):
+        """Gets the business_open_state of this VoiceCall.  # noqa: E501
+
+        State of the business open/close status.  This is determined using the business hours defined in the AIVR App (Business Config). If missing (or null) then the business hours were not defined in the AIVR App. + open - business is open + off_hours - business was closed when the call was placed but was open at other times that day + closed - business is closed the whole day   # noqa: E501
+
+        :return: The business_open_state of this VoiceCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._business_open_state
+
+    @business_open_state.setter
+    def business_open_state(self, business_open_state):
+        """Sets the business_open_state of this VoiceCall.
+
+        State of the business open/close status.  This is determined using the business hours defined in the AIVR App (Business Config). If missing (or null) then the business hours were not defined in the AIVR App. + open - business is open + off_hours - business was closed when the call was placed but was open at other times that day + closed - business is closed the whole day   # noqa: E501
+
+        :param business_open_state: The business_open_state of this VoiceCall.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["open", "off-hours", "closed"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and business_open_state not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `business_open_state` ({0}), must be one of {1}"  # noqa: E501
+                .format(business_open_state, allowed_values)
+            )
+
+        self._business_open_state = business_open_state
 
     @property
     def call_center_call_id(self):
@@ -822,6 +874,56 @@ class VoiceCall(object):
         self._tags = tags
 
     @property
+    def voicebot_vars(self):
+        """Gets the voicebot_vars of this VoiceCall.  # noqa: E501
+
+
+        :return: The voicebot_vars of this VoiceCall.  # noqa: E501
+        :rtype: VoiceCallModifiableBaseVoicebotVars
+        """
+        return self._voicebot_vars
+
+    @voicebot_vars.setter
+    def voicebot_vars(self, voicebot_vars):
+        """Sets the voicebot_vars of this VoiceCall.
+
+
+        :param voicebot_vars: The voicebot_vars of this VoiceCall.  # noqa: E501
+        :type: VoiceCallModifiableBaseVoicebotVars
+        """
+
+        self._voicebot_vars = voicebot_vars
+
+    @property
+    def who_hung_up(self):
+        """Gets the who_hung_up of this VoiceCall.  # noqa: E501
+
+        Who hung up the call  # noqa: E501
+
+        :return: The who_hung_up of this VoiceCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._who_hung_up
+
+    @who_hung_up.setter
+    def who_hung_up(self, who_hung_up):
+        """Sets the who_hung_up of this VoiceCall.
+
+        Who hung up the call  # noqa: E501
+
+        :param who_hung_up: The who_hung_up of this VoiceCall.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["us", "other_party"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and who_hung_up not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `who_hung_up` ({0}), must be one of {1}"  # noqa: E501
+                .format(who_hung_up, allowed_values)
+            )
+
+        self._who_hung_up = who_hung_up
+
+    @property
     def account_id(self):
         """Gets the account_id of this VoiceCall.  # noqa: E501
 
@@ -878,58 +980,6 @@ class VoiceCall(object):
             raise ValueError("Invalid value for `aivr_transfer_dest_type`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._aivr_transfer_dest_type = aivr_transfer_dest_type
-
-    @property
-    def aivr_vars(self):
-        """Gets the aivr_vars of this VoiceCall.  # noqa: E501
-
-        (optional) Map with variables collected during AIVR session. </br> This is a copy from AIVR Session (the `vars` field) and we store it in the Call as JSON object (so this is not just a flat map).   # noqa: E501
-
-        :return: The aivr_vars of this VoiceCall.  # noqa: E501
-        :rtype: object
-        """
-        return self._aivr_vars
-
-    @aivr_vars.setter
-    def aivr_vars(self, aivr_vars):
-        """Sets the aivr_vars of this VoiceCall.
-
-        (optional) Map with variables collected during AIVR session. </br> This is a copy from AIVR Session (the `vars` field) and we store it in the Call as JSON object (so this is not just a flat map).   # noqa: E501
-
-        :param aivr_vars: The aivr_vars of this VoiceCall.  # noqa: E501
-        :type: object
-        """
-
-        self._aivr_vars = aivr_vars
-
-    @property
-    def business_open_state(self):
-        """Gets the business_open_state of this VoiceCall.  # noqa: E501
-
-        State of the business open/close status.  This is determined using the business hours defined in the AIVR App (Business Config). If missing (or null) then the business hours were not defined in the AIVR App. + open - business is open + off_hours - business was closed when the call was placed but was open at other times that day + closed - business is closed the whole day   # noqa: E501
-
-        :return: The business_open_state of this VoiceCall.  # noqa: E501
-        :rtype: str
-        """
-        return self._business_open_state
-
-    @business_open_state.setter
-    def business_open_state(self, business_open_state):
-        """Sets the business_open_state of this VoiceCall.
-
-        State of the business open/close status.  This is determined using the business hours defined in the AIVR App (Business Config). If missing (or null) then the business hours were not defined in the AIVR App. + open - business is open + off_hours - business was closed when the call was placed but was open at other times that day + closed - business is closed the whole day   # noqa: E501
-
-        :param business_open_state: The business_open_state of this VoiceCall.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["open", "off-hours", "closed"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and business_open_state not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `business_open_state` ({0}), must be one of {1}"  # noqa: E501
-                .format(business_open_state, allowed_values)
-            )
-
-        self._business_open_state = business_open_state
 
     @property
     def call_id(self):
@@ -1452,27 +1502,6 @@ class VoiceCall(object):
         self._voicebot_duration = voicebot_duration
 
     @property
-    def voicebot_vars(self):
-        """Gets the voicebot_vars of this VoiceCall.  # noqa: E501
-
-
-        :return: The voicebot_vars of this VoiceCall.  # noqa: E501
-        :rtype: VoiceCallAllOfVoicebotVars
-        """
-        return self._voicebot_vars
-
-    @voicebot_vars.setter
-    def voicebot_vars(self, voicebot_vars):
-        """Sets the voicebot_vars of this VoiceCall.
-
-
-        :param voicebot_vars: The voicebot_vars of this VoiceCall.  # noqa: E501
-        :type: VoiceCallAllOfVoicebotVars
-        """
-
-        self._voicebot_vars = voicebot_vars
-
-    @property
     def voicemail_duration(self):
         """Gets the voicemail_duration of this VoiceCall.  # noqa: E501
 
@@ -1546,35 +1575,6 @@ class VoiceCall(object):
             raise ValueError("Invalid value for `voicemail_uuid`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._voicemail_uuid = voicemail_uuid
-
-    @property
-    def who_hung_up(self):
-        """Gets the who_hung_up of this VoiceCall.  # noqa: E501
-
-        Who hung up the call  # noqa: E501
-
-        :return: The who_hung_up of this VoiceCall.  # noqa: E501
-        :rtype: str
-        """
-        return self._who_hung_up
-
-    @who_hung_up.setter
-    def who_hung_up(self, who_hung_up):
-        """Sets the who_hung_up of this VoiceCall.
-
-        Who hung up the call  # noqa: E501
-
-        :param who_hung_up: The who_hung_up of this VoiceCall.  # noqa: E501
-        :type: str
-        """
-        allowed_values = ["us", "other_party"]  # noqa: E501
-        if self.local_vars_configuration.client_side_validation and who_hung_up not in allowed_values:  # noqa: E501
-            raise ValueError(
-                "Invalid value for `who_hung_up` ({0}), must be one of {1}"  # noqa: E501
-                .format(who_hung_up, allowed_values)
-            )
-
-        self._who_hung_up = who_hung_up
 
     @property
     def word_cloud(self):
