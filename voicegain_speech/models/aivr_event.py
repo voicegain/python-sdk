@@ -34,6 +34,7 @@ class AIVREvent(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'action_start_msec': 'int',
         'completion_state': 'str',
         'logic_type': 'AIVRLogicType',
         'metadata': 'list[NameValuePair]',
@@ -43,6 +44,7 @@ class AIVREvent(object):
     }
 
     attribute_map = {
+        'action_start_msec': 'actionStartMsec',
         'completion_state': 'completionState',
         'logic_type': 'logicType',
         'metadata': 'metadata',
@@ -63,12 +65,13 @@ class AIVREvent(object):
         'warmTransfer': 'WarmTransfer'
     }
 
-    def __init__(self, completion_state='completed', logic_type=None, metadata=None, sequence=None, time_msec=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, action_start_msec=None, completion_state='completed', logic_type=None, metadata=None, sequence=None, time_msec=None, type=None, local_vars_configuration=None):  # noqa: E501
         """AIVREvent - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._action_start_msec = None
         self._completion_state = None
         self._logic_type = None
         self._metadata = None
@@ -77,6 +80,7 @@ class AIVREvent(object):
         self._type = None
         self.discriminator = 'type'
 
+        self.action_start_msec = action_start_msec
         if completion_state is not None:
             self.completion_state = completion_state
         if logic_type is not None:
@@ -86,6 +90,31 @@ class AIVREvent(object):
         self.sequence = sequence
         self.time_msec = time_msec
         self.type = type
+
+    @property
+    def action_start_msec(self):
+        """Gets the action_start_msec of this AIVREvent.  # noqa: E501
+
+        Time when the action corresponding to the event started (in milliseconds since start of the call).</br> See `timeMsec` for the time when the action corresponding to the event ended.   # noqa: E501
+
+        :return: The action_start_msec of this AIVREvent.  # noqa: E501
+        :rtype: int
+        """
+        return self._action_start_msec
+
+    @action_start_msec.setter
+    def action_start_msec(self, action_start_msec):
+        """Sets the action_start_msec of this AIVREvent.
+
+        Time when the action corresponding to the event started (in milliseconds since start of the call).</br> See `timeMsec` for the time when the action corresponding to the event ended.   # noqa: E501
+
+        :param action_start_msec: The action_start_msec of this AIVREvent.  # noqa: E501
+        :type: int
+        """
+        if self.local_vars_configuration.client_side_validation and action_start_msec is None:  # noqa: E501
+            raise ValueError("Invalid value for `action_start_msec`, must not be `None`")  # noqa: E501
+
+        self._action_start_msec = action_start_msec
 
     @property
     def completion_state(self):
@@ -189,7 +218,7 @@ class AIVREvent(object):
     def time_msec(self):
         """Gets the time_msec of this AIVREvent.  # noqa: E501
 
-        Time when the event occurred (in milliseconds since start of the call).</br> Currently, the time of the event is reported somewhat inconsistently. For output events we report the start of prompt playback, but for input events we report the end of recognition.   # noqa: E501
+        Time when the event occurred (in milliseconds since start of the call).</br> This time is recorded when the action corresponding to the event ends and thus just before a callback is made to the logic.</br> See `actionStartMsec` for the time when the action corresponding to the event started.   # noqa: E501
 
         :return: The time_msec of this AIVREvent.  # noqa: E501
         :rtype: int
@@ -200,7 +229,7 @@ class AIVREvent(object):
     def time_msec(self, time_msec):
         """Sets the time_msec of this AIVREvent.
 
-        Time when the event occurred (in milliseconds since start of the call).</br> Currently, the time of the event is reported somewhat inconsistently. For output events we report the start of prompt playback, but for input events we report the end of recognition.   # noqa: E501
+        Time when the event occurred (in milliseconds since start of the call).</br> This time is recorded when the action corresponding to the event ends and thus just before a callback is made to the logic.</br> See `actionStartMsec` for the time when the action corresponding to the event started.   # noqa: E501
 
         :param time_msec: The time_msec of this AIVREvent.  # noqa: E501
         :type: int

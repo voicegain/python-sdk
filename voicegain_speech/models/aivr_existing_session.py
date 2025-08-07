@@ -37,7 +37,7 @@ class AIVRExistingSession(object):
         'estimated_queue_wait_seconds': 'EstimatedQueueWait',
         'events': 'list[AIVREvent]',
         'sid': 'str',
-        'vars': 'object'
+        'vars': 'dict(str, str)'
     }
 
     attribute_map = {
@@ -143,7 +143,7 @@ class AIVRExistingSession(object):
         Map with user reponses collected during this AIVR session.</br> Keys are the `name` values provided in questions.   # noqa: E501
 
         :return: The vars of this AIVRExistingSession.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._vars
 
@@ -154,7 +154,7 @@ class AIVRExistingSession(object):
         Map with user reponses collected during this AIVR session.</br> Keys are the `name` values provided in questions.   # noqa: E501
 
         :param vars: The vars of this AIVRExistingSession.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._vars = vars

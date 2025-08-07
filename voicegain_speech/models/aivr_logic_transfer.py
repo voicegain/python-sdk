@@ -38,7 +38,7 @@ class AIVRLogicTransfer(object):
         'name': 'str',
         '_return': 'bool',
         'type': 'str',
-        'vars': 'object'
+        'vars': 'dict(str, str)'
     }
 
     attribute_map = {
@@ -184,7 +184,7 @@ class AIVRLogicTransfer(object):
         vars to be passed to the new logic - this could be queue name for example  # noqa: E501
 
         :return: The vars of this AIVRLogicTransfer.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._vars
 
@@ -195,7 +195,7 @@ class AIVRLogicTransfer(object):
         vars to be passed to the new logic - this could be queue name for example  # noqa: E501
 
         :param vars: The vars of this AIVRLogicTransfer.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._vars = vars

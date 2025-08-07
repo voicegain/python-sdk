@@ -34,7 +34,7 @@ class AIVRVars(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'vars': 'object'
+        'vars': 'dict(str, str)'
     }
 
     attribute_map = {
@@ -60,7 +60,7 @@ class AIVRVars(object):
         Map with variable names and values to add to the set of vars maintained for this RTC session.</br> Should not be used to encode and store large amounts of data.   # noqa: E501
 
         :return: The vars of this AIVRVars.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._vars
 
@@ -71,7 +71,7 @@ class AIVRVars(object):
         Map with variable names and values to add to the set of vars maintained for this RTC session.</br> Should not be used to encode and store large amounts of data.   # noqa: E501
 
         :param vars: The vars of this AIVRVars.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._vars = vars

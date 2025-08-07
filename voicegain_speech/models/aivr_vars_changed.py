@@ -34,7 +34,7 @@ class AIVRVarsChanged(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'vars': 'object'
+        'vars': 'dict(str, str)'
     }
 
     attribute_map = {
@@ -60,7 +60,7 @@ class AIVRVarsChanged(object):
         Map with variable names and values that have been added or modified since last time vars were sent.   # noqa: E501
 
         :return: The vars of this AIVRVarsChanged.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._vars
 
@@ -71,7 +71,7 @@ class AIVRVarsChanged(object):
         Map with variable names and values that have been added or modified since last time vars were sent.   # noqa: E501
 
         :param vars: The vars of this AIVRVarsChanged.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._vars = vars

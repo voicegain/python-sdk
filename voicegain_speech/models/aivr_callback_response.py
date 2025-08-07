@@ -45,7 +45,7 @@ class AIVRCallbackResponse(object):
         'record': 'AIVRRecord',
         'sub_return': 'AIVRSubReturn',
         'transfer': 'AIVRTransfer',
-        'vars': 'object',
+        'vars': 'dict(str, str)',
         'warm_transfer': 'AIVRWarmTransfer'
     }
 
@@ -371,7 +371,7 @@ class AIVRCallbackResponse(object):
         Map with variable names and values to add to the set of vars maintained for this RTC session.</br> Should not be used to encode and store large amounts of data.   # noqa: E501
 
         :return: The vars of this AIVRCallbackResponse.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._vars
 
@@ -382,7 +382,7 @@ class AIVRCallbackResponse(object):
         Map with variable names and values to add to the set of vars maintained for this RTC session.</br> Should not be used to encode and store large amounts of data.   # noqa: E501
 
         :param vars: The vars of this AIVRCallbackResponse.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._vars = vars

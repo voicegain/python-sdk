@@ -46,7 +46,7 @@ class WsAivrServerMessages(object):
         'temp_code': 'str',
         'to_be_transcribed': 'bool',
         'user_app_data': 'str',
-        'vars': 'object',
+        'vars': 'dict(str, str)',
         'async_aivr_cmd_url': 'str',
         'default_voice': 'str',
         'estimated_queue_wait_seconds': 'EstimatedQueueWait',
@@ -498,7 +498,7 @@ class WsAivrServerMessages(object):
         Map with variable names and values that have been added or modified since last time vars were sent.   # noqa: E501
 
         :return: The vars of this WsAivrServerMessages.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._vars
 
@@ -509,7 +509,7 @@ class WsAivrServerMessages(object):
         Map with variable names and values that have been added or modified since last time vars were sent.   # noqa: E501
 
         :param vars: The vars of this WsAivrServerMessages.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._vars = vars

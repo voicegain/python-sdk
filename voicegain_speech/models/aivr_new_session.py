@@ -46,7 +46,7 @@ class AIVRNewSession(object):
         'temp_code': 'str',
         'to_be_transcribed': 'bool',
         'user_app_data': 'str',
-        'vars': 'object',
+        'vars': 'dict(str, str)',
         'async_aivr_cmd_url': 'str',
         'default_voice': 'str',
         'estimated_queue_wait_seconds': 'EstimatedQueueWait',
@@ -441,7 +441,7 @@ class AIVRNewSession(object):
         (optional) Map with variables to initiate the new session.   # noqa: E501
 
         :return: The vars of this AIVRNewSession.  # noqa: E501
-        :rtype: object
+        :rtype: dict(str, str)
         """
         return self._vars
 
@@ -452,7 +452,7 @@ class AIVRNewSession(object):
         (optional) Map with variables to initiate the new session.   # noqa: E501
 
         :param vars: The vars of this AIVRNewSession.  # noqa: E501
-        :type: object
+        :type: dict(str, str)
         """
 
         self._vars = vars
