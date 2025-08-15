@@ -450,7 +450,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
     def annotated_transcript(self):
         """Gets the annotated_transcript of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
 
-        Annotated transcript in format suitable for submission to LLM.               # noqa: E501
+        Annotated transcript in a format suitable for submission to LLM.  Annotations include speaker types, sections of the call, hold start/stop, who hung up, etc.</br> This field is always returned.   # noqa: E501
 
         :return: The annotated_transcript of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
         :rtype: str
@@ -461,7 +461,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
     def annotated_transcript(self, annotated_transcript):
         """Sets the annotated_transcript of this OfflineSpeechAnalyticsResultDetail.
 
-        Annotated transcript in format suitable for submission to LLM.               # noqa: E501
+        Annotated transcript in a format suitable for submission to LLM.  Annotations include speaker types, sections of the call, hold start/stop, who hung up, etc.</br> This field is always returned.   # noqa: E501
 
         :param annotated_transcript: The annotated_transcript of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
         :type: str
