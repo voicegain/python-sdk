@@ -48,6 +48,7 @@ class OfflineSpeechAnalyticsResult(object):
         'sa_session_id': 'str',
         'start_time': 'datetime',
         'tags': 'list[str]',
+        'transcription_expire_at': 'datetime',
         'cr_answers_id': 'str',
         'criteria': 'SpeechAnalyticsCriteriaData',
         'csat_answer': 'OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer',
@@ -81,6 +82,7 @@ class OfflineSpeechAnalyticsResult(object):
         'sa_session_id': 'saSessionId',
         'start_time': 'startTime',
         'tags': 'tags',
+        'transcription_expire_at': 'transcriptionExpireAt',
         'cr_answers_id': 'crAnswersId',
         'criteria': 'criteria',
         'csat_answer': 'csatAnswer',
@@ -99,7 +101,7 @@ class OfflineSpeechAnalyticsResult(object):
         'words': 'words'
     }
 
-    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, optimize_for_web_ui=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, optimize_for_web_ui=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, transcription_expire_at=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -119,6 +121,7 @@ class OfflineSpeechAnalyticsResult(object):
         self._sa_session_id = None
         self._start_time = None
         self._tags = None
+        self._transcription_expire_at = None
         self._cr_answers_id = None
         self._criteria = None
         self._csat_answer = None
@@ -165,6 +168,8 @@ class OfflineSpeechAnalyticsResult(object):
             self.start_time = start_time
         if tags is not None:
             self.tags = tags
+        if transcription_expire_at is not None:
+            self.transcription_expire_at = transcription_expire_at
         if cr_answers_id is not None:
             self.cr_answers_id = cr_answers_id
         if criteria is not None:
@@ -551,6 +556,29 @@ class OfflineSpeechAnalyticsResult(object):
         """
 
         self._tags = tags
+
+    @property
+    def transcription_expire_at(self):
+        """Gets the transcription_expire_at of this OfflineSpeechAnalyticsResult.  # noqa: E501
+
+        Expiration time of Speech Analytics session, after this time the session will be subject to deletion by the system.  # noqa: E501
+
+        :return: The transcription_expire_at of this OfflineSpeechAnalyticsResult.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._transcription_expire_at
+
+    @transcription_expire_at.setter
+    def transcription_expire_at(self, transcription_expire_at):
+        """Sets the transcription_expire_at of this OfflineSpeechAnalyticsResult.
+
+        Expiration time of Speech Analytics session, after this time the session will be subject to deletion by the system.  # noqa: E501
+
+        :param transcription_expire_at: The transcription_expire_at of this OfflineSpeechAnalyticsResult.  # noqa: E501
+        :type: datetime
+        """
+
+        self._transcription_expire_at = transcription_expire_at
 
     @property
     def cr_answers_id(self):
