@@ -206,7 +206,7 @@ class CallSearchField(object):
     def possible_values(self):
         """Gets the possible_values of this CallSearchField.  # noqa: E501
 
-        List of all possible values for the field. Present only if the number of values is limited. The values are expressed as strings. Returned for: CONTEXT_ID, AGENT_USER_ID, QUEUE_ID, DIRECTION, INTERNAL_ENDPOINT,  SPEAKER (returns Agent, Caller, Calee), TAG (returns individual tag values),  KEYWORD (returns individual keyword values),   # noqa: E501
+        List of all possible values for the field. Present only if the number of values is limited. The values are expressed as strings. Returned for: CONTEXT_ID, AGENT_USER_ID, QUEUE_ID, DIRECTION, INTERNAL_ENDPOINT (but not EXTERNAL_ENDPOINT, or FROM, or TO),  SPEAKER (returns Agent, Caller, Calee), TAG (returns individual tag values),  KEYWORD (returns individual keyword values), CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, NOTES_STATUS   # noqa: E501
 
         :return: The possible_values of this CallSearchField.  # noqa: E501
         :rtype: list[str]
@@ -217,7 +217,7 @@ class CallSearchField(object):
     def possible_values(self, possible_values):
         """Sets the possible_values of this CallSearchField.
 
-        List of all possible values for the field. Present only if the number of values is limited. The values are expressed as strings. Returned for: CONTEXT_ID, AGENT_USER_ID, QUEUE_ID, DIRECTION, INTERNAL_ENDPOINT,  SPEAKER (returns Agent, Caller, Calee), TAG (returns individual tag values),  KEYWORD (returns individual keyword values),   # noqa: E501
+        List of all possible values for the field. Present only if the number of values is limited. The values are expressed as strings. Returned for: CONTEXT_ID, AGENT_USER_ID, QUEUE_ID, DIRECTION, INTERNAL_ENDPOINT (but not EXTERNAL_ENDPOINT, or FROM, or TO),  SPEAKER (returns Agent, Caller, Calee), TAG (returns individual tag values),  KEYWORD (returns individual keyword values), CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, NOTES_STATUS   # noqa: E501
 
         :param possible_values: The possible_values of this CallSearchField.  # noqa: E501
         :type: list[str]
