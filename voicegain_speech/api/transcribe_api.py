@@ -1390,7 +1390,7 @@ class TranscribeApi(object):
     def ws_transcribe_words(self, ws_name, **kwargs):  # noqa: E501
         """Words via websocket  # noqa: E501
 
-        Access the word stream via a websocket.  This will provide access to websocket stream containing words (with optional corrections).      NOTE, the websocket messages will be encoded in application/json        # noqa: E501
+        Access the word stream via a websocket.  This will provide access to websocket stream containing words (and edits).      NOTE 1: The websocket messages will be encoded in application/json  NOTE 2: The format of messages described here will apply also to messages sent over websocket from /asr/transcribe/api in real-time mode.  NOTE 3: In **words** mode this sends individual words and edits.  For assembling sentences from the word and edit payloads we suggest using a stack.  For each **WS Word** message (see Responses 101) the `utt` should be pushed onto the stack. For each **Word Correction** message, use the value of `del` to remove words from the stack,  and then loop over the words in the `edit` array and push the `utt` values onto the stack. Ignore **Ping** and **Metadata**.  NOTE 4: In **segments** mode this sends **Segment Hypothesis or Recognition**.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.ws_transcribe_words(ws_name, async_req=True)
@@ -1415,7 +1415,7 @@ class TranscribeApi(object):
     def ws_transcribe_words_with_http_info(self, ws_name, **kwargs):  # noqa: E501
         """Words via websocket  # noqa: E501
 
-        Access the word stream via a websocket.  This will provide access to websocket stream containing words (with optional corrections).      NOTE, the websocket messages will be encoded in application/json        # noqa: E501
+        Access the word stream via a websocket.  This will provide access to websocket stream containing words (and edits).      NOTE 1: The websocket messages will be encoded in application/json  NOTE 2: The format of messages described here will apply also to messages sent over websocket from /asr/transcribe/api in real-time mode.  NOTE 3: In **words** mode this sends individual words and edits.  For assembling sentences from the word and edit payloads we suggest using a stack.  For each **WS Word** message (see Responses 101) the `utt` should be pushed onto the stack. For each **Word Correction** message, use the value of `del` to remove words from the stack,  and then loop over the words in the `edit` array and push the `utt` values onto the stack. Ignore **Ping** and **Metadata**.  NOTE 4: In **segments** mode this sends **Segment Hypothesis or Recognition**.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.ws_transcribe_words_with_http_info(ws_name, async_req=True)
