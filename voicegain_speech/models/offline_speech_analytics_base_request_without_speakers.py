@@ -209,7 +209,7 @@ class OfflineSpeechAnalyticsBaseRequestWithoutSpeakers(object):
     def persist_seconds(self):
         """Gets the persist_seconds of this OfflineSpeechAnalyticsBaseRequestWithoutSpeakers.  # noqa: E501
 
-        Time (in seconds) to retain the result/outcome data after processing has completed. For Cloud, maximum persistence is 365 days. For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available in the portal.         # noqa: E501
+        Time (in seconds) to retain the result/outcome data after processing has completed. For Cloud, maximum persistence is 315,619,200 seconds (about 10 years). For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available in the portal.         # noqa: E501
 
         :return: The persist_seconds of this OfflineSpeechAnalyticsBaseRequestWithoutSpeakers.  # noqa: E501
         :rtype: float
@@ -220,7 +220,7 @@ class OfflineSpeechAnalyticsBaseRequestWithoutSpeakers(object):
     def persist_seconds(self, persist_seconds):
         """Sets the persist_seconds of this OfflineSpeechAnalyticsBaseRequestWithoutSpeakers.
 
-        Time (in seconds) to retain the result/outcome data after processing has completed. For Cloud, maximum persistence is 365 days. For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available in the portal.         # noqa: E501
+        Time (in seconds) to retain the result/outcome data after processing has completed. For Cloud, maximum persistence is 315,619,200 seconds (about 10 years). For On-Prem deployments data can be retained indefinitely if value is -1.  As long as the persist has not expired the data will be available in the portal.         # noqa: E501
 
         :param persist_seconds: The persist_seconds of this OfflineSpeechAnalyticsBaseRequestWithoutSpeakers.  # noqa: E501
         :type: float
