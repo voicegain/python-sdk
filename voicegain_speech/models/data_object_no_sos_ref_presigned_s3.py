@@ -46,6 +46,8 @@ class DataObjectNoSosRefPresignedS3(object):
         'name': 'str',
         'tags': 'list[str]',
         'transcoded': 'bool',
+        'user': 'list[str]',
+        'user_group': 'list[str]',
         'presigned_url': 'str',
         'sos_ref': 'SosRef'
     }
@@ -63,11 +65,13 @@ class DataObjectNoSosRefPresignedS3(object):
         'name': 'name',
         'tags': 'tags',
         'transcoded': 'transcoded',
+        'user': 'user',
+        'user_group': 'userGroup',
         'presigned_url': 'presignedUrl',
         'sos_ref': 'sosRef'
     }
 
-    def __init__(self, account_id=None, context_id=None, date_created=None, date_modified=None, object_id=None, content_type=None, description=None, encryption=None, long_persist=False, name=None, tags=None, transcoded=False, presigned_url=None, sos_ref=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, context_id=None, date_created=None, date_modified=None, object_id=None, content_type=None, description=None, encryption=None, long_persist=False, name=None, tags=None, transcoded=False, user=None, user_group=None, presigned_url=None, sos_ref=None, local_vars_configuration=None):  # noqa: E501
         """DataObjectNoSosRefPresignedS3 - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -85,6 +89,8 @@ class DataObjectNoSosRefPresignedS3(object):
         self._name = None
         self._tags = None
         self._transcoded = None
+        self._user = None
+        self._user_group = None
         self._presigned_url = None
         self._sos_ref = None
         self.discriminator = None
@@ -109,6 +115,10 @@ class DataObjectNoSosRefPresignedS3(object):
             self.tags = tags
         if transcoded is not None:
             self.transcoded = transcoded
+        if user is not None:
+            self.user = user
+        if user_group is not None:
+            self.user_group = user_group
         if presigned_url is not None:
             self.presigned_url = presigned_url
         if sos_ref is not None:
@@ -406,6 +416,52 @@ class DataObjectNoSosRefPresignedS3(object):
         """
 
         self._transcoded = transcoded
+
+    @property
+    def user(self):
+        """Gets the user of this DataObjectNoSosRefPresignedS3.  # noqa: E501
+
+        Users associated with the data object (optional).  # noqa: E501
+
+        :return: The user of this DataObjectNoSosRefPresignedS3.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        """Sets the user of this DataObjectNoSosRefPresignedS3.
+
+        Users associated with the data object (optional).  # noqa: E501
+
+        :param user: The user of this DataObjectNoSosRefPresignedS3.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user = user
+
+    @property
+    def user_group(self):
+        """Gets the user_group of this DataObjectNoSosRefPresignedS3.  # noqa: E501
+
+        User groups associated with the data object (optional).  # noqa: E501
+
+        :return: The user_group of this DataObjectNoSosRefPresignedS3.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user_group
+
+    @user_group.setter
+    def user_group(self, user_group):
+        """Sets the user_group of this DataObjectNoSosRefPresignedS3.
+
+        User groups associated with the data object (optional).  # noqa: E501
+
+        :param user_group: The user_group of this DataObjectNoSosRefPresignedS3.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user_group = user_group
 
     @property
     def presigned_url(self):

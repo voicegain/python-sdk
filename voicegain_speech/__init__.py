@@ -244,6 +244,8 @@ from voicegain_speech.models.data_obj_ref import DataObjRef
 from voicegain_speech.models.data_object import DataObject
 from voicegain_speech.models.data_object_all_of import DataObjectAllOf
 from voicegain_speech.models.data_object_base import DataObjectBase
+from voicegain_speech.models.data_object_file_base64 import DataObjectFileBase64
+from voicegain_speech.models.data_object_file_base64_all_of import DataObjectFileBase64AllOf
 from voicegain_speech.models.data_object_ids import DataObjectIds
 from voicegain_speech.models.data_object_no_sos_ref import DataObjectNoSosRef
 from voicegain_speech.models.data_object_no_sos_ref_presigned_s3 import DataObjectNoSosRefPresignedS3

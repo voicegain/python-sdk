@@ -1438,7 +1438,7 @@ class DataApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param DataObjectBase data_object_base:
+        :param DataObjectFileBase64 data_object_file_base64:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1464,7 +1464,7 @@ class DataApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param DataObjectBase data_object_base:
+        :param DataObjectFileBase64 data_object_file_base64:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1481,7 +1481,7 @@ class DataApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'data_object_base']  # noqa: E501
+        all_params = ['context_id', 'data_object_file_base64']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1516,8 +1516,8 @@ class DataApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data_object_base' in local_var_params:
-            body_params = local_var_params['data_object_base']
+        if 'data_object_file_base64' in local_var_params:
+            body_params = local_var_params['data_object_file_base64']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/JSON'])  # noqa: E501
@@ -1672,9 +1672,9 @@ class DataApi(object):
             collection_formats=collection_formats)
 
     def data_query(self, **kwargs):  # noqa: E501
-        """Query data objects.  # noqa: E501
+        """Query data objects  # noqa: E501
 
-        Query data objects that satisfy given criteria.    # noqa: E501
+        Query data objects that satisfy given criteria.  Return a list of Data Object metadata.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_query(async_req=True)
@@ -1682,6 +1682,8 @@ class DataApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param list[str] user_ids: User Ids to query.
+        :param list[str] user_group_id: Ids of User Groups to query
         :param str tags_incl: Tag or tags to match in results, multiple tags should be separated by comma `,`  Assumes an OR if multiple tags provided. 
         :param str tags_excl: Tag or tags to not include in results, multiple tags should be separated by comma `,` Assumes an OR if multiple tags provided. 
         :param str name: Name to match. If the provided name ends with a star `*` then a prefix match will be performed.</br> Note - the star is allowed only in the last position (arbitrary wildcard matching is not supported). 
@@ -1702,9 +1704,9 @@ class DataApi(object):
         return self.data_query_with_http_info(**kwargs)  # noqa: E501
 
     def data_query_with_http_info(self, **kwargs):  # noqa: E501
-        """Query data objects.  # noqa: E501
+        """Query data objects  # noqa: E501
 
-        Query data objects that satisfy given criteria.    # noqa: E501
+        Query data objects that satisfy given criteria.  Return a list of Data Object metadata.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_query_with_http_info(async_req=True)
@@ -1712,6 +1714,8 @@ class DataApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param list[str] user_ids: User Ids to query.
+        :param list[str] user_group_id: Ids of User Groups to query
         :param str tags_incl: Tag or tags to match in results, multiple tags should be separated by comma `,`  Assumes an OR if multiple tags provided. 
         :param str tags_excl: Tag or tags to not include in results, multiple tags should be separated by comma `,` Assumes an OR if multiple tags provided. 
         :param str name: Name to match. If the provided name ends with a star `*` then a prefix match will be performed.</br> Note - the star is allowed only in the last position (arbitrary wildcard matching is not supported). 
@@ -1733,7 +1737,7 @@ class DataApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'tags_incl', 'tags_excl', 'name', 'from_time', 'to_time']  # noqa: E501
+        all_params = ['context_id', 'user_ids', 'user_group_id', 'tags_incl', 'tags_excl', 'name', 'from_time', 'to_time']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1773,6 +1777,12 @@ class DataApi(object):
         query_params = []
         if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
             query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+        if 'user_ids' in local_var_params and local_var_params['user_ids'] is not None:  # noqa: E501
+            query_params.append(('userIds', local_var_params['user_ids']))  # noqa: E501
+            collection_formats['userIds'] = 'csv'  # noqa: E501
+        if 'user_group_id' in local_var_params and local_var_params['user_group_id'] is not None:  # noqa: E501
+            query_params.append(('userGroupId', local_var_params['user_group_id']))  # noqa: E501
+            collection_formats['userGroupId'] = 'csv'  # noqa: E501
         if 'tags_incl' in local_var_params and local_var_params['tags_incl'] is not None:  # noqa: E501
             query_params.append(('tagsIncl', local_var_params['tags_incl']))  # noqa: E501
         if 'tags_excl' in local_var_params and local_var_params['tags_excl'] is not None:  # noqa: E501

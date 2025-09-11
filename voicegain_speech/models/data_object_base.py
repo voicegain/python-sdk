@@ -40,7 +40,9 @@ class DataObjectBase(object):
         'long_persist': 'bool',
         'name': 'str',
         'tags': 'list[str]',
-        'transcoded': 'bool'
+        'transcoded': 'bool',
+        'user': 'list[str]',
+        'user_group': 'list[str]'
     }
 
     attribute_map = {
@@ -50,10 +52,12 @@ class DataObjectBase(object):
         'long_persist': 'longPersist',
         'name': 'name',
         'tags': 'tags',
-        'transcoded': 'transcoded'
+        'transcoded': 'transcoded',
+        'user': 'user',
+        'user_group': 'userGroup'
     }
 
-    def __init__(self, content_type=None, description=None, encryption=None, long_persist=False, name=None, tags=None, transcoded=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, content_type=None, description=None, encryption=None, long_persist=False, name=None, tags=None, transcoded=False, user=None, user_group=None, local_vars_configuration=None):  # noqa: E501
         """DataObjectBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -66,6 +70,8 @@ class DataObjectBase(object):
         self._name = None
         self._tags = None
         self._transcoded = None
+        self._user = None
+        self._user_group = None
         self.discriminator = None
 
         if content_type is not None:
@@ -82,6 +88,10 @@ class DataObjectBase(object):
             self.tags = tags
         if transcoded is not None:
             self.transcoded = transcoded
+        if user is not None:
+            self.user = user
+        if user_group is not None:
+            self.user_group = user_group
 
     @property
     def content_type(self):
@@ -252,6 +262,52 @@ class DataObjectBase(object):
         """
 
         self._transcoded = transcoded
+
+    @property
+    def user(self):
+        """Gets the user of this DataObjectBase.  # noqa: E501
+
+        Users associated with the data object (optional).  # noqa: E501
+
+        :return: The user of this DataObjectBase.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user
+
+    @user.setter
+    def user(self, user):
+        """Sets the user of this DataObjectBase.
+
+        Users associated with the data object (optional).  # noqa: E501
+
+        :param user: The user of this DataObjectBase.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user = user
+
+    @property
+    def user_group(self):
+        """Gets the user_group of this DataObjectBase.  # noqa: E501
+
+        User groups associated with the data object (optional).  # noqa: E501
+
+        :return: The user_group of this DataObjectBase.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._user_group
+
+    @user_group.setter
+    def user_group(self, user_group):
+        """Sets the user_group of this DataObjectBase.
+
+        User groups associated with the data object (optional).  # noqa: E501
+
+        :param user_group: The user_group of this DataObjectBase.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._user_group = user_group
 
     def to_dict(self):
         """Returns the model properties as a dict"""
