@@ -93,7 +93,7 @@ class CLeTerm(object):
     def key(self):
         """Gets the key of this CLeTerm.  # noqa: E501
 
-        (optional) Applicable only if the field is of type **map**. If present, specifies value of which key should be matched in the query. If the field is of type **map** and the key is missing then the field will be treated ss if it was a sett of values of the map.   # noqa: E501
+        (optional) Applicable only if the field is of type **map**. If present, specifies value of which key should be matched in the query. If the field is of type **map** and the key is missing then the field will be treated ss if it was a set of values of the map.   # noqa: E501
 
         :return: The key of this CLeTerm.  # noqa: E501
         :rtype: str
@@ -104,7 +104,7 @@ class CLeTerm(object):
     def key(self, key):
         """Sets the key of this CLeTerm.
 
-        (optional) Applicable only if the field is of type **map**. If present, specifies value of which key should be matched in the query. If the field is of type **map** and the key is missing then the field will be treated ss if it was a sett of values of the map.   # noqa: E501
+        (optional) Applicable only if the field is of type **map**. If present, specifies value of which key should be matched in the query. If the field is of type **map** and the key is missing then the field will be treated ss if it was a set of values of the map.   # noqa: E501
 
         :param key: The key of this CLeTerm.  # noqa: E501
         :type: str
