@@ -1683,7 +1683,7 @@ class DataApi(object):
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param list[str] user_ids: User Ids to query.
-        :param list[str] user_group_id: Ids of User Groups to query
+        :param list[str] user_group_ids: Ids of User Groups to query
         :param str tags_incl: Tag or tags to match in results, multiple tags should be separated by comma `,`  Assumes an OR if multiple tags provided. 
         :param str tags_excl: Tag or tags to not include in results, multiple tags should be separated by comma `,` Assumes an OR if multiple tags provided. 
         :param str name: Name to match. If the provided name ends with a star `*` then a prefix match will be performed.</br> Note - the star is allowed only in the last position (arbitrary wildcard matching is not supported). 
@@ -1715,7 +1715,7 @@ class DataApi(object):
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param list[str] user_ids: User Ids to query.
-        :param list[str] user_group_id: Ids of User Groups to query
+        :param list[str] user_group_ids: Ids of User Groups to query
         :param str tags_incl: Tag or tags to match in results, multiple tags should be separated by comma `,`  Assumes an OR if multiple tags provided. 
         :param str tags_excl: Tag or tags to not include in results, multiple tags should be separated by comma `,` Assumes an OR if multiple tags provided. 
         :param str name: Name to match. If the provided name ends with a star `*` then a prefix match will be performed.</br> Note - the star is allowed only in the last position (arbitrary wildcard matching is not supported). 
@@ -1737,7 +1737,7 @@ class DataApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'user_ids', 'user_group_id', 'tags_incl', 'tags_excl', 'name', 'from_time', 'to_time']  # noqa: E501
+        all_params = ['context_id', 'user_ids', 'user_group_ids', 'tags_incl', 'tags_excl', 'name', 'from_time', 'to_time']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1780,9 +1780,9 @@ class DataApi(object):
         if 'user_ids' in local_var_params and local_var_params['user_ids'] is not None:  # noqa: E501
             query_params.append(('userIds', local_var_params['user_ids']))  # noqa: E501
             collection_formats['userIds'] = 'csv'  # noqa: E501
-        if 'user_group_id' in local_var_params and local_var_params['user_group_id'] is not None:  # noqa: E501
-            query_params.append(('userGroupId', local_var_params['user_group_id']))  # noqa: E501
-            collection_formats['userGroupId'] = 'csv'  # noqa: E501
+        if 'user_group_ids' in local_var_params and local_var_params['user_group_ids'] is not None:  # noqa: E501
+            query_params.append(('userGroupIds', local_var_params['user_group_ids']))  # noqa: E501
+            collection_formats['userGroupIds'] = 'csv'  # noqa: E501
         if 'tags_incl' in local_var_params and local_var_params['tags_incl'] is not None:  # noqa: E501
             query_params.append(('tagsIncl', local_var_params['tags_incl']))  # noqa: E501
         if 'tags_excl' in local_var_params and local_var_params['tags_excl'] is not None:  # noqa: E501

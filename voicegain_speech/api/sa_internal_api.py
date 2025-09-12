@@ -424,7 +424,7 @@ class SaInternalApi(object):
         :param str direction: Direction of the call. Can be either \"inbound\" or \"outbound\". 
         :param list[str] internal_endpoint: Identifiers of the internal endpoints that received inbound calls or originated outbound calls. 
         :param list[str] agent_id: Ids of Agents to query
-        :param list[str] user_group_id: Ids of User Groups to query
+        :param list[str] user_group_ids: Ids of User Groups to query
         :param list[str] queue_id: Ids of Queues to query
         :param bool voicemail: If `true` then only calls with voicemail will be returned. If `false` then only calls without voicemail will be returned. If not specified then all calls will be returned regardless of whether they have voicemail or not. 
         :param list[str] recompute_phase: Phase of the recompute process. Recompute uses existing transcript to recompute things like sentiment, keywords, etc. Also is used to reapply PII redaction to text and audio. + `requested` - recompute has been requested + `queued` - recompute is in the queue (ready to be processed) + `processing` - recompute is being processed + `completed` - recompute has been completed + `error` - recompute has failed         
@@ -467,7 +467,7 @@ class SaInternalApi(object):
         :param str direction: Direction of the call. Can be either \"inbound\" or \"outbound\". 
         :param list[str] internal_endpoint: Identifiers of the internal endpoints that received inbound calls or originated outbound calls. 
         :param list[str] agent_id: Ids of Agents to query
-        :param list[str] user_group_id: Ids of User Groups to query
+        :param list[str] user_group_ids: Ids of User Groups to query
         :param list[str] queue_id: Ids of Queues to query
         :param bool voicemail: If `true` then only calls with voicemail will be returned. If `false` then only calls without voicemail will be returned. If not specified then all calls will be returned regardless of whether they have voicemail or not. 
         :param list[str] recompute_phase: Phase of the recompute process. Recompute uses existing transcript to recompute things like sentiment, keywords, etc. Also is used to reapply PII redaction to text and audio. + `requested` - recompute has been requested + `queued` - recompute is in the queue (ready to be processed) + `processing` - recompute is being processed + `completed` - recompute has been completed + `error` - recompute has failed         
@@ -491,7 +491,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'format', 'consecutive', 'after_call_id', 'from_time', 'to_time', 'period', 'aivr_app_id', 'direction', 'internal_endpoint', 'agent_id', 'user_group_id', 'queue_id', 'voicemail', 'recompute_phase', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
+        all_params = ['context_id', 'format', 'consecutive', 'after_call_id', 'from_time', 'to_time', 'period', 'aivr_app_id', 'direction', 'internal_endpoint', 'agent_id', 'user_group_ids', 'queue_id', 'voicemail', 'recompute_phase', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -556,9 +556,9 @@ class SaInternalApi(object):
         if 'agent_id' in local_var_params and local_var_params['agent_id'] is not None:  # noqa: E501
             query_params.append(('agentId', local_var_params['agent_id']))  # noqa: E501
             collection_formats['agentId'] = 'csv'  # noqa: E501
-        if 'user_group_id' in local_var_params and local_var_params['user_group_id'] is not None:  # noqa: E501
-            query_params.append(('userGroupId', local_var_params['user_group_id']))  # noqa: E501
-            collection_formats['userGroupId'] = 'csv'  # noqa: E501
+        if 'user_group_ids' in local_var_params and local_var_params['user_group_ids'] is not None:  # noqa: E501
+            query_params.append(('userGroupIds', local_var_params['user_group_ids']))  # noqa: E501
+            collection_formats['userGroupIds'] = 'csv'  # noqa: E501
         if 'queue_id' in local_var_params and local_var_params['queue_id'] is not None:  # noqa: E501
             query_params.append(('queueId', local_var_params['queue_id']))  # noqa: E501
             collection_formats['queueId'] = 'csv'  # noqa: E501
