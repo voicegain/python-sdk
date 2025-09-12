@@ -619,6 +619,7 @@ class SaInternalApi(object):
         :param async_req bool: execute request asynchronously
         :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.
         :param list[CallField] field: Field for which to provide information. If not provided then will return all fields. 
+        :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -645,6 +646,7 @@ class SaInternalApi(object):
         :param async_req bool: execute request asynchronously
         :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.
         :param list[CallField] field: Field for which to provide information. If not provided then will return all fields. 
+        :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -661,7 +663,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'field']  # noqa: E501
+        all_params = ['context_id', 'field', 'period']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -687,6 +689,8 @@ class SaInternalApi(object):
         if 'field' in local_var_params and local_var_params['field'] is not None:  # noqa: E501
             query_params.append(('field', local_var_params['field']))  # noqa: E501
             collection_formats['field'] = 'csv'  # noqa: E501
+        if 'period' in local_var_params and local_var_params['period'] is not None:  # noqa: E501
+            query_params.append(('period', local_var_params['period']))  # noqa: E501
 
         header_params = {}
 
