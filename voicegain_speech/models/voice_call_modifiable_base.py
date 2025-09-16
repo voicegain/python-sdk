@@ -673,7 +673,7 @@ class VoiceCallModifiableBase(object):
     def recording(self):
         """Gets the recording of this VoiceCallModifiableBase.  # noqa: E501
 
-        Data UUID - reference to original call recording in Voicegain Data Store.  # noqa: E501
+        Data UUID - reference to original (unredacted) call recording in Voicegain Data Store. Note: this audio will be replaced by `mergedCallAudio` if call has been processed using /sa/offline API.   # noqa: E501
 
         :return: The recording of this VoiceCallModifiableBase.  # noqa: E501
         :rtype: str
@@ -684,7 +684,7 @@ class VoiceCallModifiableBase(object):
     def recording(self, recording):
         """Sets the recording of this VoiceCallModifiableBase.
 
-        Data UUID - reference to original call recording in Voicegain Data Store.  # noqa: E501
+        Data UUID - reference to original (unredacted) call recording in Voicegain Data Store. Note: this audio will be replaced by `mergedCallAudio` if call has been processed using /sa/offline API.   # noqa: E501
 
         :param recording: The recording of this VoiceCallModifiableBase.  # noqa: E501
         :type: str

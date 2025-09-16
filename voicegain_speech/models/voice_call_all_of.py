@@ -45,6 +45,7 @@ class VoiceCallAllOf(object):
         'incidents': 'float',
         'keywords': 'list[str]',
         'last_recompute_time': 'datetime',
+        'merged_call_audio': 'str',
         'notes': 'str',
         'progress_phase': 'ProgressPhase',
         'recompute_phase': 'str',
@@ -75,6 +76,7 @@ class VoiceCallAllOf(object):
         'incidents': 'incidents',
         'keywords': 'keywords',
         'last_recompute_time': 'lastRecomputeTime',
+        'merged_call_audio': 'mergedCallAudio',
         'notes': 'notes',
         'progress_phase': 'progressPhase',
         'recompute_phase': 'recomputePhase',
@@ -93,7 +95,7 @@ class VoiceCallAllOf(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_call_audio=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -110,6 +112,7 @@ class VoiceCallAllOf(object):
         self._incidents = None
         self._keywords = None
         self._last_recompute_time = None
+        self._merged_call_audio = None
         self._notes = None
         self._progress_phase = None
         self._recompute_phase = None
@@ -150,6 +153,8 @@ class VoiceCallAllOf(object):
             self.keywords = keywords
         if last_recompute_time is not None:
             self.last_recompute_time = last_recompute_time
+        if merged_call_audio is not None:
+            self.merged_call_audio = merged_call_audio
         if notes is not None:
             self.notes = notes
         if progress_phase is not None:
@@ -468,6 +473,29 @@ class VoiceCallAllOf(object):
         """
 
         self._last_recompute_time = last_recompute_time
+
+    @property
+    def merged_call_audio(self):
+        """Gets the merged_call_audio of this VoiceCallAllOf.  # noqa: E501
+
+        Data UUID - reference to the merged call audio in Voicegain Data Store. This comes from the mergedAudio field in Speech Analytics session. If PII redaction was enbabled on the SA session then this audio will be redacted. This field will be absent if Speech Analytics has not been run on the call.   # noqa: E501
+
+        :return: The merged_call_audio of this VoiceCallAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._merged_call_audio
+
+    @merged_call_audio.setter
+    def merged_call_audio(self, merged_call_audio):
+        """Sets the merged_call_audio of this VoiceCallAllOf.
+
+        Data UUID - reference to the merged call audio in Voicegain Data Store. This comes from the mergedAudio field in Speech Analytics session. If PII redaction was enbabled on the SA session then this audio will be redacted. This field will be absent if Speech Analytics has not been run on the call.   # noqa: E501
+
+        :param merged_call_audio: The merged_call_audio of this VoiceCallAllOf.  # noqa: E501
+        :type: str
+        """
+
+        self._merged_call_audio = merged_call_audio
 
     @property
     def notes(self):
