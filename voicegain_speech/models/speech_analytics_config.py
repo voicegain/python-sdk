@@ -52,6 +52,7 @@ class SpeechAnalyticsConfig(object):
         'llm_summary_prompt': 'str',
         'meeting_minutes': 'SpeechAnalyticsConfigModifiableBaseMeetingMinutes',
         'moods': 'list[MoodType]',
+        'nps_question': 'SpeechAnalyticsConfigModifiableBaseNpsQuestion',
         'overtalk_single_duration_maximum_threshold': 'float',
         'overtalk_total_percentage_threshold': 'float',
         'phrase_groups': 'list[PhraseSpotGroup]',
@@ -86,6 +87,7 @@ class SpeechAnalyticsConfig(object):
         'llm_summary_prompt': 'llmSummaryPrompt',
         'meeting_minutes': 'meetingMinutes',
         'moods': 'moods',
+        'nps_question': 'npsQuestion',
         'overtalk_single_duration_maximum_threshold': 'overtalkSingleDurationMaximumThreshold',
         'overtalk_total_percentage_threshold': 'overtalkTotalPercentageThreshold',
         'phrase_groups': 'phraseGroups',
@@ -101,7 +103,7 @@ class SpeechAnalyticsConfig(object):
         'name': 'name'
     }
 
-    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, nps_question=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfig - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -125,6 +127,7 @@ class SpeechAnalyticsConfig(object):
         self._llm_summary_prompt = None
         self._meeting_minutes = None
         self._moods = None
+        self._nps_question = None
         self._overtalk_single_duration_maximum_threshold = None
         self._overtalk_total_percentage_threshold = None
         self._phrase_groups = None
@@ -175,6 +178,8 @@ class SpeechAnalyticsConfig(object):
             self.meeting_minutes = meeting_minutes
         if moods is not None:
             self.moods = moods
+        if nps_question is not None:
+            self.nps_question = nps_question
         if overtalk_single_duration_maximum_threshold is not None:
             self.overtalk_single_duration_maximum_threshold = overtalk_single_duration_maximum_threshold
         if overtalk_total_percentage_threshold is not None:
@@ -632,6 +637,27 @@ class SpeechAnalyticsConfig(object):
         """
 
         self._moods = moods
+
+    @property
+    def nps_question(self):
+        """Gets the nps_question of this SpeechAnalyticsConfig.  # noqa: E501
+
+
+        :return: The nps_question of this SpeechAnalyticsConfig.  # noqa: E501
+        :rtype: SpeechAnalyticsConfigModifiableBaseNpsQuestion
+        """
+        return self._nps_question
+
+    @nps_question.setter
+    def nps_question(self, nps_question):
+        """Sets the nps_question of this SpeechAnalyticsConfig.
+
+
+        :param nps_question: The nps_question of this SpeechAnalyticsConfig.  # noqa: E501
+        :type: SpeechAnalyticsConfigModifiableBaseNpsQuestion
+        """
+
+        self._nps_question = nps_question
 
     @property
     def overtalk_single_duration_maximum_threshold(self):
