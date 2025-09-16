@@ -40,7 +40,7 @@ class TranscribeApi(object):
     def asr_transcribe_async_delete(self, session_id, **kwargs):  # noqa: E501
         """Delete Transcript  # noqa: E501
 
-        [**PCI-DSS Compliant**](#section/PCI-DSS-Compliance)  Delete transcript and any captured audio (if applicable). Currently it can only be used to delete transcription that has been completed. Calling this method when transcription is in progress will return a 409 (Conflict) error.   # noqa: E501
+        [**PCI-DSS Compliant**](#section/PCI-DSS-Compliance)  Delete transcript and any captured audio (if applicable). Currently it can only be used to delete transcription session that either: + is waiting in the queue to be processed, or + has been completed.  Calling this method when transcription is actually in progress (i.e. the audio is actively being processed into transcript) will return a 409 (Conflict) error.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_async_delete(session_id, async_req=True)
@@ -66,7 +66,7 @@ class TranscribeApi(object):
     def asr_transcribe_async_delete_with_http_info(self, session_id, **kwargs):  # noqa: E501
         """Delete Transcript  # noqa: E501
 
-        [**PCI-DSS Compliant**](#section/PCI-DSS-Compliance)  Delete transcript and any captured audio (if applicable). Currently it can only be used to delete transcription that has been completed. Calling this method when transcription is in progress will return a 409 (Conflict) error.   # noqa: E501
+        [**PCI-DSS Compliant**](#section/PCI-DSS-Compliance)  Delete transcript and any captured audio (if applicable). Currently it can only be used to delete transcription session that either: + is waiting in the queue to be processed, or + has been completed.  Calling this method when transcription is actually in progress (i.e. the audio is actively being processed into transcript) will return a 409 (Conflict) error.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_async_delete_with_http_info(session_id, async_req=True)
