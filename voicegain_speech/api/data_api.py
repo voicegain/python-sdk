@@ -1557,7 +1557,7 @@ class DataApi(object):
         :param async_req bool: execute request asynchronously
         :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
         :param bool append: How should lists be modified. If true then new data will be appended to old, if false then old data will be replaced by new.
-        :param DataObjectBase data_object_base:
+        :param DataObjectFileBase64 data_object_file_base64:
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1584,7 +1584,7 @@ class DataApi(object):
         :param async_req bool: execute request asynchronously
         :param str uuid: UUID of an object. **Note** - attempt to access objects outside of the Account will return an Error. (required)
         :param bool append: How should lists be modified. If true then new data will be appended to old, if false then old data will be replaced by new.
-        :param DataObjectBase data_object_base:
+        :param DataObjectFileBase64 data_object_file_base64:
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1601,7 +1601,7 @@ class DataApi(object):
 
         local_var_params = locals()
 
-        all_params = ['uuid', 'append', 'data_object_base']  # noqa: E501
+        all_params = ['uuid', 'append', 'data_object_file_base64']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1642,8 +1642,8 @@ class DataApi(object):
         local_var_files = {}
 
         body_params = None
-        if 'data_object_base' in local_var_params:
-            body_params = local_var_params['data_object_base']
+        if 'data_object_file_base64' in local_var_params:
+            body_params = local_var_params['data_object_file_base64']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
             ['application/JSON'])  # noqa: E501
