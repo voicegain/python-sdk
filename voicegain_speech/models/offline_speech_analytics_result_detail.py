@@ -42,6 +42,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
         'keywords': 'MeetingKeywordData',
         'merged_audio_id': 'str',
         'mpd_id': 'str',
+        'nps_answer': 'OfflineSpeechAnalyticsResultDetailWithoutWordsNpsAnswer',
         'phrases': 'MeetingPhraseData',
         'silence': 'Silence',
         'speakers': 'list[OfflineSASpeakerResult]',
@@ -61,6 +62,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
         'keywords': 'keywords',
         'merged_audio_id': 'mergedAudioId',
         'mpd_id': 'mpdId',
+        'nps_answer': 'npsAnswer',
         'phrases': 'phrases',
         'silence': 'silence',
         'speakers': 'speakers',
@@ -71,7 +73,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
         'words': 'words'
     }
 
-    def __init__(self, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResultDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -85,6 +87,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
         self._keywords = None
         self._merged_audio_id = None
         self._mpd_id = None
+        self._nps_answer = None
         self._phrases = None
         self._silence = None
         self._speakers = None
@@ -111,6 +114,8 @@ class OfflineSpeechAnalyticsResultDetail(object):
             self.merged_audio_id = merged_audio_id
         if mpd_id is not None:
             self.mpd_id = mpd_id
+        if nps_answer is not None:
+            self.nps_answer = nps_answer
         if phrases is not None:
             self.phrases = phrases
         if silence is not None:
@@ -311,6 +316,27 @@ class OfflineSpeechAnalyticsResultDetail(object):
         """
 
         self._mpd_id = mpd_id
+
+    @property
+    def nps_answer(self):
+        """Gets the nps_answer of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+
+
+        :return: The nps_answer of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+        :rtype: OfflineSpeechAnalyticsResultDetailWithoutWordsNpsAnswer
+        """
+        return self._nps_answer
+
+    @nps_answer.setter
+    def nps_answer(self, nps_answer):
+        """Sets the nps_answer of this OfflineSpeechAnalyticsResultDetail.
+
+
+        :param nps_answer: The nps_answer of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+        :type: OfflineSpeechAnalyticsResultDetailWithoutWordsNpsAnswer
+        """
+
+        self._nps_answer = nps_answer
 
     @property
     def phrases(self):
