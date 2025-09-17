@@ -47,6 +47,7 @@ class VoiceCallAllOf(object):
         'last_recompute_time': 'datetime',
         'merged_call_audio': 'str',
         'notes': 'str',
+        'nps': 'float',
         'progress_phase': 'ProgressPhase',
         'recompute_phase': 'str',
         'review_notes': 'str',
@@ -78,6 +79,7 @@ class VoiceCallAllOf(object):
         'last_recompute_time': 'lastRecomputeTime',
         'merged_call_audio': 'mergedCallAudio',
         'notes': 'notes',
+        'nps': 'nps',
         'progress_phase': 'progressPhase',
         'recompute_phase': 'recomputePhase',
         'review_notes': 'reviewNotes',
@@ -95,7 +97,7 @@ class VoiceCallAllOf(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_call_audio=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_call_audio=None, notes=None, nps=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -114,6 +116,7 @@ class VoiceCallAllOf(object):
         self._last_recompute_time = None
         self._merged_call_audio = None
         self._notes = None
+        self._nps = None
         self._progress_phase = None
         self._recompute_phase = None
         self._review_notes = None
@@ -157,6 +160,8 @@ class VoiceCallAllOf(object):
             self.merged_call_audio = merged_call_audio
         if notes is not None:
             self.notes = notes
+        if nps is not None:
+            self.nps = nps
         if progress_phase is not None:
             self.progress_phase = progress_phase
         if recompute_phase is not None:
@@ -519,6 +524,32 @@ class VoiceCallAllOf(object):
         """
 
         self._notes = notes
+
+    @property
+    def nps(self):
+        """Gets the nps of this VoiceCallAllOf.  # noqa: E501
+
+        Net Promoter Score for the call. This value is copied from `npsAnswer` in /sa/offline.   # noqa: E501
+
+        :return: The nps of this VoiceCallAllOf.  # noqa: E501
+        :rtype: float
+        """
+        return self._nps
+
+    @nps.setter
+    def nps(self, nps):
+        """Sets the nps of this VoiceCallAllOf.
+
+        Net Promoter Score for the call. This value is copied from `npsAnswer` in /sa/offline.   # noqa: E501
+
+        :param nps: The nps of this VoiceCallAllOf.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                nps is not None and nps < 0):  # noqa: E501
+            raise ValueError("Invalid value for `nps`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._nps = nps
 
     @property
     def progress_phase(self):

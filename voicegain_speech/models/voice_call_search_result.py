@@ -72,6 +72,7 @@ class VoiceCallSearchResult(object):
         'last_recompute_time': 'datetime',
         'merged_call_audio': 'str',
         'notes': 'str',
+        'nps': 'float',
         'progress_phase': 'ProgressPhase',
         'recompute_phase': 'str',
         'review_notes': 'str',
@@ -129,6 +130,7 @@ class VoiceCallSearchResult(object):
         'last_recompute_time': 'lastRecomputeTime',
         'merged_call_audio': 'mergedCallAudio',
         'notes': 'notes',
+        'nps': 'nps',
         'progress_phase': 'progressPhase',
         'recompute_phase': 'recomputePhase',
         'review_notes': 'reviewNotes',
@@ -147,7 +149,7 @@ class VoiceCallSearchResult(object):
         'headline': 'headline'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, voicebot_vars=None, who_hung_up=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_call_audio=None, notes=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, voicebot_vars=None, who_hung_up=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_call_audio=None, notes=None, nps=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallSearchResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -191,6 +193,7 @@ class VoiceCallSearchResult(object):
         self._last_recompute_time = None
         self._merged_call_audio = None
         self._notes = None
+        self._nps = None
         self._progress_phase = None
         self._recompute_phase = None
         self._review_notes = None
@@ -285,6 +288,8 @@ class VoiceCallSearchResult(object):
             self.merged_call_audio = merged_call_audio
         if notes is not None:
             self.notes = notes
+        if nps is not None:
+            self.nps = nps
         if progress_phase is not None:
             self.progress_phase = progress_phase
         if recompute_phase is not None:
@@ -1264,6 +1269,32 @@ class VoiceCallSearchResult(object):
         """
 
         self._notes = notes
+
+    @property
+    def nps(self):
+        """Gets the nps of this VoiceCallSearchResult.  # noqa: E501
+
+        Net Promoter Score for the call. This value is copied from `npsAnswer` in /sa/offline.   # noqa: E501
+
+        :return: The nps of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._nps
+
+    @nps.setter
+    def nps(self, nps):
+        """Sets the nps of this VoiceCallSearchResult.
+
+        Net Promoter Score for the call. This value is copied from `npsAnswer` in /sa/offline.   # noqa: E501
+
+        :param nps: The nps of this VoiceCallSearchResult.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                nps is not None and nps < 0):  # noqa: E501
+            raise ValueError("Invalid value for `nps`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._nps = nps
 
     @property
     def progress_phase(self):
