@@ -419,7 +419,7 @@ class SaInternalApi(object):
         :param int after_call_id: CallId after which the export should continue.  This is used in conjunction with `consecutive=true` parameter. 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
-        :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
+        :param RecentPeriodOptional period: (optional) Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param str direction: Direction of the call. Can be either \"inbound\" or \"outbound\". 
         :param list[str] internal_endpoint: Identifiers of the internal endpoints that received inbound calls or originated outbound calls. 
@@ -462,7 +462,7 @@ class SaInternalApi(object):
         :param int after_call_id: CallId after which the export should continue.  This is used in conjunction with `consecutive=true` parameter. 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](https://tools.ietf.org/html/rfc3339#section-5.6) 
-        :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
+        :param RecentPeriodOptional period: (optional) Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param list[str] aivr_app_id: Ids of AIVR Apps to query
         :param str direction: Direction of the call. Can be either \"inbound\" or \"outbound\". 
         :param list[str] internal_endpoint: Identifiers of the internal endpoints that received inbound calls or originated outbound calls. 
@@ -619,7 +619,7 @@ class SaInternalApi(object):
         :param async_req bool: execute request asynchronously
         :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.
         :param list[CallField] field: Field for which to provide information. If not provided then will return all fields. 
-        :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
+        :param RecentPeriodOptional period: (optional) Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -646,7 +646,7 @@ class SaInternalApi(object):
         :param async_req bool: execute request asynchronously
         :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.
         :param list[CallField] field: Field for which to provide information. If not provided then will return all fields. 
-        :param RecentPeriod period: Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
+        :param RecentPeriodOptional period: (optional) Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

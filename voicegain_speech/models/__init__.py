@@ -459,7 +459,7 @@ from voicegain_speech.models.quartiles_energy import QuartilesEnergy
 from voicegain_speech.models.quartiles_pitch import QuartilesPitch
 from voicegain_speech.models.query import Query
 from voicegain_speech.models.queue import Queue
-from voicegain_speech.models.recent_period import RecentPeriod
+from voicegain_speech.models.recent_period_optional import RecentPeriodOptional
 from voicegain_speech.models.reco_alt import RecoAlt
 from voicegain_speech.models.recog_nlsml import RecogNlsml
 from voicegain_speech.models.recog_nlsml_no_exp import RecogNlsmlNoExp
