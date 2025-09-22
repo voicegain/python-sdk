@@ -724,18 +724,19 @@ class SaInternalApi(object):
     def sa_call_search_post(self, **kwargs):  # noqa: E501
         """SA Call Search  # noqa: E501
 
-        Search all SA Calls for a given Account.</br> The actual search query needs to be included in the body of the request (that is why this is a POST not a GET method).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead od relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     }   ] } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination)   # noqa: E501
+        Search all SA Calls for a given Account.</br> The actual search query needs to be included in the body of the request (that is why this is a POST not a GET method).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead od relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     }   ] } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination)  You can also use the optional `limit` query parameter to limit the number of results returned.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_post(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param int limit: set the maximum number of returned results
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
         :param list[str] sort_by: By what value should the results be sorted. </br> If not provided then the results will be returned in predictable but undefined order, unless Text Search Query is provided, then the results will be sorted by relevance/rank. 
-        :param CQuery c_query: body with the query
+        :param CQuery c_query: Body with the query
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -753,18 +754,19 @@ class SaInternalApi(object):
     def sa_call_search_post_with_http_info(self, **kwargs):  # noqa: E501
         """SA Call Search  # noqa: E501
 
-        Search all SA Calls for a given Account.</br> The actual search query needs to be included in the body of the request (that is why this is a POST not a GET method).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead od relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     }   ] } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination)   # noqa: E501
+        Search all SA Calls for a given Account.</br> The actual search query needs to be included in the body of the request (that is why this is a POST not a GET method).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead od relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     }   ] } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination)  You can also use the optional `limit` query parameter to limit the number of results returned.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_post_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param int limit: set the maximum number of returned results
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
         :param list[str] sort_by: By what value should the results be sorted. </br> If not provided then the results will be returned in predictable but undefined order, unless Text Search Query is provided, then the results will be sorted by relevance/rank. 
-        :param CQuery c_query: body with the query
+        :param CQuery c_query: Body with the query
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -781,7 +783,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['page', 'per_page', 'sort_dir', 'sort_by', 'c_query']  # noqa: E501
+        all_params = ['limit', 'page', 'per_page', 'sort_dir', 'sort_by', 'c_query']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -796,6 +798,8 @@ class SaInternalApi(object):
             local_var_params[key] = val
         del local_var_params['kwargs']
 
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `sa_call_search_post`, must be a value greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `sa_call_search_post`, must be a value greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] > 1000:  # noqa: E501
@@ -807,6 +811,8 @@ class SaInternalApi(object):
         path_params = {}
 
         query_params = []
+        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
+            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
         if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
         if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
