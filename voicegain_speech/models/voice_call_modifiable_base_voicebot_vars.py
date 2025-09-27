@@ -45,13 +45,13 @@ class VoiceCallModifiableBaseVoicebotVars(object):
     }
 
     attribute_map = {
-        'caller_intent': 'caller_intent',
-        'caller_type': 'caller_type',
-        'current_step': 'current_step',
-        'fully_automated': 'fully_automated',
+        'caller_intent': 'callerIntent',
+        'caller_type': 'callerType',
+        'current_step': 'currentStep',
+        'fully_automated': 'fullyAutomated',
         'lob': 'lob',
         'obh': 'obh',
-        'verification_status': 'verification_status',
+        'verification_status': 'verificationStatus',
         'voicemail': 'voicemail'
     }
 
