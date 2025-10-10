@@ -617,7 +617,7 @@ class SaInternalApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.
+        :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.</br> Note, if the request is authenticated by a user session then the search will be limited to only these Contexts from this list that the user has access to.</br> 
         :param list[CallField] field: Field for which to provide information. If not provided then will return all fields. 
         :param RecentPeriodOptional period: (optional) Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -644,7 +644,7 @@ class SaInternalApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.
+        :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.</br> Note, if the request is authenticated by a user session then the search will be limited to only these Contexts from this list that the user has access to.</br> 
         :param list[CallField] field: Field for which to provide information. If not provided then will return all fields. 
         :param RecentPeriodOptional period: (optional) Recent period over which to return the calls.  If used together with other time constraints, then an intersection of the results will be returned. 
         :param _return_http_data_only: response data without head status code
@@ -731,6 +731,7 @@ class SaInternalApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.</br> Note, if the request is authenticated by a user session then the search will be limited to only these Contexts from this list that the user has access to.</br> 
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
@@ -760,6 +761,7 @@ class SaInternalApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
+        :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.</br> Note, if the request is authenticated by a user session then the search will be limited to only these Contexts from this list that the user has access to.</br> 
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
@@ -781,7 +783,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['page', 'per_page', 'sort_dir', 'sort_by', 'c_query']  # noqa: E501
+        all_params = ['context_id', 'page', 'per_page', 'sort_dir', 'sort_by', 'c_query']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -807,6 +809,9 @@ class SaInternalApi(object):
         path_params = {}
 
         query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+            collection_formats['contextId'] = 'csv'  # noqa: E501
         if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
         if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501

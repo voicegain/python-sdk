@@ -36,6 +36,7 @@ class CallSearchField(object):
     openapi_types = {
         'collection_type': 'str',
         'field': 'CallField',
+        'has_null_value': 'bool',
         'intermediate_values': 'list[str]',
         'max_value': 'str',
         'min_value': 'str',
@@ -46,6 +47,7 @@ class CallSearchField(object):
     attribute_map = {
         'collection_type': 'collectionType',
         'field': 'field',
+        'has_null_value': 'hasNullValue',
         'intermediate_values': 'intermediateValues',
         'max_value': 'maxValue',
         'min_value': 'minValue',
@@ -53,7 +55,7 @@ class CallSearchField(object):
         'type': 'type'
     }
 
-    def __init__(self, collection_type=None, field=None, intermediate_values=None, max_value=None, min_value=None, possible_values=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, collection_type=None, field=None, has_null_value=None, intermediate_values=None, max_value=None, min_value=None, possible_values=None, type=None, local_vars_configuration=None):  # noqa: E501
         """CallSearchField - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class CallSearchField(object):
 
         self._collection_type = None
         self._field = None
+        self._has_null_value = None
         self._intermediate_values = None
         self._max_value = None
         self._min_value = None
@@ -71,6 +74,8 @@ class CallSearchField(object):
         if collection_type is not None:
             self.collection_type = collection_type
         self.field = field
+        if has_null_value is not None:
+            self.has_null_value = has_null_value
         if intermediate_values is not None:
             self.intermediate_values = intermediate_values
         if max_value is not None:
@@ -134,6 +139,29 @@ class CallSearchField(object):
         self._field = field
 
     @property
+    def has_null_value(self):
+        """Gets the has_null_value of this CallSearchField.  # noqa: E501
+
+        Indicates if the field has null values. Returned for fields that can have null values. </br> Returned for: CC_CALL_ID, QUEUE_ID, AGENT_USER_ID, CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, TAG, KEYWORD, NOTES, NOTES_STATUS, SCORE, CSAT, NPS   # noqa: E501
+
+        :return: The has_null_value of this CallSearchField.  # noqa: E501
+        :rtype: bool
+        """
+        return self._has_null_value
+
+    @has_null_value.setter
+    def has_null_value(self, has_null_value):
+        """Sets the has_null_value of this CallSearchField.
+
+        Indicates if the field has null values. Returned for fields that can have null values. </br> Returned for: CC_CALL_ID, QUEUE_ID, AGENT_USER_ID, CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, TAG, KEYWORD, NOTES, NOTES_STATUS, SCORE, CSAT, NPS   # noqa: E501
+
+        :param has_null_value: The has_null_value of this CallSearchField.  # noqa: E501
+        :type: bool
+        """
+
+        self._has_null_value = has_null_value
+
+    @property
     def intermediate_values(self):
         """Gets the intermediate_values of this CallSearchField.  # noqa: E501
 
@@ -160,7 +188,7 @@ class CallSearchField(object):
     def max_value(self):
         """Gets the max_value of this CallSearchField.  # noqa: E501
 
-        Maximum value for the field. Present only if the field has a meaningful ordering and a maximum value. The value is expressed as string. The field `type` determines the type and conversion from string. Dates should be in ISO format, e.g.: \"2019-09-18T17:57:43.110Z\".</br> Returned for: START_TIME, DURATION, SCORE   # noqa: E501
+        Maximum value for the field. Present only if the field has a meaningful ordering and a maximum value. The value is expressed as string. The field `type` determines the type and conversion from string. Dates should be in ISO format, e.g.: \"2019-09-18T17:57:43.110Z\".</br> Returned for: START_TIME, DURATION, SCORE, CSAT, NPS   # noqa: E501
 
         :return: The max_value of this CallSearchField.  # noqa: E501
         :rtype: str
@@ -171,7 +199,7 @@ class CallSearchField(object):
     def max_value(self, max_value):
         """Sets the max_value of this CallSearchField.
 
-        Maximum value for the field. Present only if the field has a meaningful ordering and a maximum value. The value is expressed as string. The field `type` determines the type and conversion from string. Dates should be in ISO format, e.g.: \"2019-09-18T17:57:43.110Z\".</br> Returned for: START_TIME, DURATION, SCORE   # noqa: E501
+        Maximum value for the field. Present only if the field has a meaningful ordering and a maximum value. The value is expressed as string. The field `type` determines the type and conversion from string. Dates should be in ISO format, e.g.: \"2019-09-18T17:57:43.110Z\".</br> Returned for: START_TIME, DURATION, SCORE, CSAT, NPS   # noqa: E501
 
         :param max_value: The max_value of this CallSearchField.  # noqa: E501
         :type: str
@@ -183,7 +211,7 @@ class CallSearchField(object):
     def min_value(self):
         """Gets the min_value of this CallSearchField.  # noqa: E501
 
-        Minimum value for the field. Present only if the field has a meaningful ordering and a minimum value. The value is expressed as string. The field `type` determines the type and conversion from string. Dates should be in ISO format, e.g.: \"2019-09-18T17:57:43.110Z\".</br> Returned for: START_TIME, DURATION, SCORE   # noqa: E501
+        Minimum value for the field. Present only if the field has a meaningful ordering and a minimum value. The value is expressed as string. The field `type` determines the type and conversion from string. Dates should be in ISO format, e.g.: \"2019-09-18T17:57:43.110Z\".</br> Returned for: START_TIME, DURATION, SCORE, CSAT, NPS   # noqa: E501
 
         :return: The min_value of this CallSearchField.  # noqa: E501
         :rtype: str
@@ -194,7 +222,7 @@ class CallSearchField(object):
     def min_value(self, min_value):
         """Sets the min_value of this CallSearchField.
 
-        Minimum value for the field. Present only if the field has a meaningful ordering and a minimum value. The value is expressed as string. The field `type` determines the type and conversion from string. Dates should be in ISO format, e.g.: \"2019-09-18T17:57:43.110Z\".</br> Returned for: START_TIME, DURATION, SCORE   # noqa: E501
+        Minimum value for the field. Present only if the field has a meaningful ordering and a minimum value. The value is expressed as string. The field `type` determines the type and conversion from string. Dates should be in ISO format, e.g.: \"2019-09-18T17:57:43.110Z\".</br> Returned for: START_TIME, DURATION, SCORE, CSAT, NPS   # noqa: E501
 
         :param min_value: The min_value of this CallSearchField.  # noqa: E501
         :type: str
