@@ -57,6 +57,7 @@ class VoiceCallModifiableBase(object):
         'recording': 'str',
         'start_time': 'datetime',
         'tags': 'list[str]',
+        'team': 'str',
         'voicebot_vars': 'VoiceCallModifiableBaseVoicebotVars',
         'who_hung_up': 'str'
     }
@@ -85,11 +86,12 @@ class VoiceCallModifiableBase(object):
         'recording': 'recording',
         'start_time': 'startTime',
         'tags': 'tags',
+        'team': 'team',
         'voicebot_vars': 'voicebotVars',
         'who_hung_up': 'whoHungUp'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, voicebot_vars=None, who_hung_up=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallModifiableBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -118,6 +120,7 @@ class VoiceCallModifiableBase(object):
         self._recording = None
         self._start_time = None
         self._tags = None
+        self._team = None
         self._voicebot_vars = None
         self._who_hung_up = None
         self.discriminator = None
@@ -168,6 +171,8 @@ class VoiceCallModifiableBase(object):
             self.start_time = start_time
         if tags is not None:
             self.tags = tags
+        if team is not None:
+            self.team = team
         if voicebot_vars is not None:
             self.voicebot_vars = voicebot_vars
         if who_hung_up is not None:
@@ -737,6 +742,29 @@ class VoiceCallModifiableBase(object):
         """
 
         self._tags = tags
+
+    @property
+    def team(self):
+        """Gets the team of this VoiceCallModifiableBase.  # noqa: E501
+
+        Data UUID - it will be set based on the membership of the Agent user (from the agent field) in a UserGroup of the type Team (userGroupType).  If user is member of more than one UserGroup of that type then we will chooseUser Group that was most recently created.   # noqa: E501
+
+        :return: The team of this VoiceCallModifiableBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._team
+
+    @team.setter
+    def team(self, team):
+        """Sets the team of this VoiceCallModifiableBase.
+
+        Data UUID - it will be set based on the membership of the Agent user (from the agent field) in a UserGroup of the type Team (userGroupType).  If user is member of more than one UserGroup of that type then we will chooseUser Group that was most recently created.   # noqa: E501
+
+        :param team: The team of this VoiceCallModifiableBase.  # noqa: E501
+        :type: str
+        """
+
+        self._team = team
 
     @property
     def voicebot_vars(self):

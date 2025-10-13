@@ -57,6 +57,7 @@ class VoiceCall(object):
         'recording': 'str',
         'start_time': 'datetime',
         'tags': 'list[str]',
+        'team': 'str',
         'voicebot_vars': 'VoiceCallModifiableBaseVoicebotVars',
         'who_hung_up': 'str',
         'account_id': 'str',
@@ -114,6 +115,7 @@ class VoiceCall(object):
         'recording': 'recording',
         'start_time': 'startTime',
         'tags': 'tags',
+        'team': 'team',
         'voicebot_vars': 'voicebotVars',
         'who_hung_up': 'whoHungUp',
         'account_id': 'accountId',
@@ -147,7 +149,7 @@ class VoiceCall(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, voicebot_vars=None, who_hung_up=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -176,6 +178,7 @@ class VoiceCall(object):
         self._recording = None
         self._start_time = None
         self._tags = None
+        self._team = None
         self._voicebot_vars = None
         self._who_hung_up = None
         self._account_id = None
@@ -255,6 +258,8 @@ class VoiceCall(object):
             self.start_time = start_time
         if tags is not None:
             self.tags = tags
+        if team is not None:
+            self.team = team
         if voicebot_vars is not None:
             self.voicebot_vars = voicebot_vars
         if who_hung_up is not None:
@@ -882,6 +887,29 @@ class VoiceCall(object):
         """
 
         self._tags = tags
+
+    @property
+    def team(self):
+        """Gets the team of this VoiceCall.  # noqa: E501
+
+        Data UUID - it will be set based on the membership of the Agent user (from the agent field) in a UserGroup of the type Team (userGroupType).  If user is member of more than one UserGroup of that type then we will chooseUser Group that was most recently created.   # noqa: E501
+
+        :return: The team of this VoiceCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._team
+
+    @team.setter
+    def team(self, team):
+        """Sets the team of this VoiceCall.
+
+        Data UUID - it will be set based on the membership of the Agent user (from the agent field) in a UserGroup of the type Team (userGroupType).  If user is member of more than one UserGroup of that type then we will chooseUser Group that was most recently created.   # noqa: E501
+
+        :param team: The team of this VoiceCall.  # noqa: E501
+        :type: str
+        """
+
+        self._team = team
 
     @property
     def voicebot_vars(self):
