@@ -39,6 +39,8 @@ class VoiceCallAllOf(object):
         'call_id': 'str',
         'call_resolved': 'bool',
         'context_id': 'str',
+        'copilot_sent': 'float',
+        'copilot_un_ack': 'float',
         'cr_answers_id': 'str',
         'csat': 'float',
         'duration': 'int',
@@ -71,6 +73,8 @@ class VoiceCallAllOf(object):
         'call_id': 'callId',
         'call_resolved': 'callResolved',
         'context_id': 'contextId',
+        'copilot_sent': 'copilotSent',
+        'copilot_un_ack': 'copilotUnAck',
         'cr_answers_id': 'crAnswersId',
         'csat': 'csat',
         'duration': 'duration',
@@ -97,7 +101,7 @@ class VoiceCallAllOf(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, copilot_sent=None, copilot_un_ack=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -108,6 +112,8 @@ class VoiceCallAllOf(object):
         self._call_id = None
         self._call_resolved = None
         self._context_id = None
+        self._copilot_sent = None
+        self._copilot_un_ack = None
         self._cr_answers_id = None
         self._csat = None
         self._duration = None
@@ -144,6 +150,10 @@ class VoiceCallAllOf(object):
             self.call_resolved = call_resolved
         if context_id is not None:
             self.context_id = context_id
+        if copilot_sent is not None:
+            self.copilot_sent = copilot_sent
+        if copilot_un_ack is not None:
+            self.copilot_un_ack = copilot_un_ack
         if cr_answers_id is not None:
             self.cr_answers_id = cr_answers_id
         if csat is not None:
@@ -331,6 +341,58 @@ class VoiceCallAllOf(object):
             raise ValueError("Invalid value for `context_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._context_id = context_id
+
+    @property
+    def copilot_sent(self):
+        """Gets the copilot_sent of this VoiceCallAllOf.  # noqa: E501
+
+        Number of messages sent to Copilot during the call.   # noqa: E501
+
+        :return: The copilot_sent of this VoiceCallAllOf.  # noqa: E501
+        :rtype: float
+        """
+        return self._copilot_sent
+
+    @copilot_sent.setter
+    def copilot_sent(self, copilot_sent):
+        """Sets the copilot_sent of this VoiceCallAllOf.
+
+        Number of messages sent to Copilot during the call.   # noqa: E501
+
+        :param copilot_sent: The copilot_sent of this VoiceCallAllOf.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                copilot_sent is not None and copilot_sent < 0):  # noqa: E501
+            raise ValueError("Invalid value for `copilot_sent`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._copilot_sent = copilot_sent
+
+    @property
+    def copilot_un_ack(self):
+        """Gets the copilot_un_ack of this VoiceCallAllOf.  # noqa: E501
+
+        Number of missing acknowledgements from Copilot for the messages sent to Copilot.   # noqa: E501
+
+        :return: The copilot_un_ack of this VoiceCallAllOf.  # noqa: E501
+        :rtype: float
+        """
+        return self._copilot_un_ack
+
+    @copilot_un_ack.setter
+    def copilot_un_ack(self, copilot_un_ack):
+        """Sets the copilot_un_ack of this VoiceCallAllOf.
+
+        Number of missing acknowledgements from Copilot for the messages sent to Copilot.   # noqa: E501
+
+        :param copilot_un_ack: The copilot_un_ack of this VoiceCallAllOf.  # noqa: E501
+        :type: float
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                copilot_un_ack is not None and copilot_un_ack < 0):  # noqa: E501
+            raise ValueError("Invalid value for `copilot_un_ack`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._copilot_un_ack = copilot_un_ack
 
     @property
     def cr_answers_id(self):
