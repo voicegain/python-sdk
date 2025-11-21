@@ -96,6 +96,7 @@ from voicegain_speech.models.aivr_sub_return import AIVRSubReturn
 from voicegain_speech.models.aivr_trace import AIVRTrace
 from voicegain_speech.models.aivr_trace_type import AIVRTraceType
 from voicegain_speech.models.aivr_transfer import AIVRTransfer
+from voicegain_speech.models.aivr_transfer_leg_b import AIVRTransferLegB
 from voicegain_speech.models.aivr_vars import AIVRVars
 from voicegain_speech.models.aivr_vars_changed import AIVRVarsChanged
 from voicegain_speech.models.aivr_warm_transfer import AIVRWarmTransfer
