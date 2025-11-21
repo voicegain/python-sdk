@@ -36,6 +36,7 @@ class TextRedactionRequest(object):
     openapi_types = {
         'debug': 'DebugSettings',
         'formatters': 'list[Redactor]',
+        'lang': 'str',
         'pii_redaction': 'list[PIITextRedactionConf]',
         'speakers': 'list[str]',
         'text': 'str',
@@ -45,13 +46,14 @@ class TextRedactionRequest(object):
     attribute_map = {
         'debug': 'debug',
         'formatters': 'formatters',
+        'lang': 'lang',
         'pii_redaction': 'piiRedaction',
         'speakers': 'speakers',
         'text': 'text',
         'text_format': 'textFormat'
     }
 
-    def __init__(self, debug=None, formatters=None, pii_redaction=None, speakers=None, text=None, text_format='plain', local_vars_configuration=None):  # noqa: E501
+    def __init__(self, debug=None, formatters=None, lang='en', pii_redaction=None, speakers=None, text=None, text_format='plain', local_vars_configuration=None):  # noqa: E501
         """TextRedactionRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -59,6 +61,7 @@ class TextRedactionRequest(object):
 
         self._debug = None
         self._formatters = None
+        self._lang = None
         self._pii_redaction = None
         self._speakers = None
         self._text = None
@@ -69,6 +72,8 @@ class TextRedactionRequest(object):
             self.debug = debug
         if formatters is not None:
             self.formatters = formatters
+        if lang is not None:
+            self.lang = lang
         if pii_redaction is not None:
             self.pii_redaction = pii_redaction
         if speakers is not None:
@@ -121,6 +126,35 @@ class TextRedactionRequest(object):
         """
 
         self._formatters = formatters
+
+    @property
+    def lang(self):
+        """Gets the lang of this TextRedactionRequest.  # noqa: E501
+
+        Language of the input text.   # noqa: E501
+
+        :return: The lang of this TextRedactionRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._lang
+
+    @lang.setter
+    def lang(self, lang):
+        """Sets the lang of this TextRedactionRequest.
+
+        Language of the input text.   # noqa: E501
+
+        :param lang: The lang of this TextRedactionRequest.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["en", "es"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and lang not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `lang` ({0}), must be one of {1}"  # noqa: E501
+                .format(lang, allowed_values)
+            )
+
+        self._lang = lang
 
     @property
     def pii_redaction(self):
