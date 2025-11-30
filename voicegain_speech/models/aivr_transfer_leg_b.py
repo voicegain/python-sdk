@@ -34,29 +34,109 @@ class AIVRTransferLegB(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'agent_code_bad_prompt': 'AIVRPrompt',
+        'agent_code_good_prompt': 'AIVRPrompt',
+        'agent_code_handshake': 'bool',
         'loop': 'bool',
         'whisper_prompt': 'AIVRPrompt'
     }
 
     attribute_map = {
+        'agent_code_bad_prompt': 'agentCodeBadPrompt',
+        'agent_code_good_prompt': 'agentCodeGoodPrompt',
+        'agent_code_handshake': 'agentCodeHandshake',
         'loop': 'loop',
         'whisper_prompt': 'whisperPrompt'
     }
 
-    def __init__(self, loop=True, whisper_prompt=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent_code_bad_prompt=None, agent_code_good_prompt=None, agent_code_handshake=False, loop=True, whisper_prompt=None, local_vars_configuration=None):  # noqa: E501
         """AIVRTransferLegB - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._agent_code_bad_prompt = None
+        self._agent_code_good_prompt = None
+        self._agent_code_handshake = None
         self._loop = None
         self._whisper_prompt = None
         self.discriminator = None
 
+        if agent_code_bad_prompt is not None:
+            self.agent_code_bad_prompt = agent_code_bad_prompt
+        if agent_code_good_prompt is not None:
+            self.agent_code_good_prompt = agent_code_good_prompt
+        if agent_code_handshake is not None:
+            self.agent_code_handshake = agent_code_handshake
         if loop is not None:
             self.loop = loop
         if whisper_prompt is not None:
             self.whisper_prompt = whisper_prompt
+
+    @property
+    def agent_code_bad_prompt(self):
+        """Gets the agent_code_bad_prompt of this AIVRTransferLegB.  # noqa: E501
+
+
+        :return: The agent_code_bad_prompt of this AIVRTransferLegB.  # noqa: E501
+        :rtype: AIVRPrompt
+        """
+        return self._agent_code_bad_prompt
+
+    @agent_code_bad_prompt.setter
+    def agent_code_bad_prompt(self, agent_code_bad_prompt):
+        """Sets the agent_code_bad_prompt of this AIVRTransferLegB.
+
+
+        :param agent_code_bad_prompt: The agent_code_bad_prompt of this AIVRTransferLegB.  # noqa: E501
+        :type: AIVRPrompt
+        """
+
+        self._agent_code_bad_prompt = agent_code_bad_prompt
+
+    @property
+    def agent_code_good_prompt(self):
+        """Gets the agent_code_good_prompt of this AIVRTransferLegB.  # noqa: E501
+
+
+        :return: The agent_code_good_prompt of this AIVRTransferLegB.  # noqa: E501
+        :rtype: AIVRPrompt
+        """
+        return self._agent_code_good_prompt
+
+    @agent_code_good_prompt.setter
+    def agent_code_good_prompt(self, agent_code_good_prompt):
+        """Sets the agent_code_good_prompt of this AIVRTransferLegB.
+
+
+        :param agent_code_good_prompt: The agent_code_good_prompt of this AIVRTransferLegB.  # noqa: E501
+        :type: AIVRPrompt
+        """
+
+        self._agent_code_good_prompt = agent_code_good_prompt
+
+    @property
+    def agent_code_handshake(self):
+        """Gets the agent_code_handshake of this AIVRTransferLegB.  # noqa: E501
+
+        If true then the called party (Agent) must enter the correct DTMF code (3-digit sequence, no # needed) to accept the transfer.   # noqa: E501
+
+        :return: The agent_code_handshake of this AIVRTransferLegB.  # noqa: E501
+        :rtype: bool
+        """
+        return self._agent_code_handshake
+
+    @agent_code_handshake.setter
+    def agent_code_handshake(self, agent_code_handshake):
+        """Sets the agent_code_handshake of this AIVRTransferLegB.
+
+        If true then the called party (Agent) must enter the correct DTMF code (3-digit sequence, no # needed) to accept the transfer.   # noqa: E501
+
+        :param agent_code_handshake: The agent_code_handshake of this AIVRTransferLegB.  # noqa: E501
+        :type: bool
+        """
+
+        self._agent_code_handshake = agent_code_handshake
 
     @property
     def loop(self):
