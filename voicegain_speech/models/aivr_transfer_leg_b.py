@@ -34,11 +34,11 @@ class AIVRTransferLegB(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'agent_code_bad_prompt': 'AIVRPrompt',
-        'agent_code_good_prompt': 'AIVRPrompt',
+        'agent_code_bad_prompt': 'str',
+        'agent_code_good_prompt': 'str',
         'agent_code_handshake': 'bool',
         'loop': 'bool',
-        'whisper_prompt': 'AIVRPrompt'
+        'whisper_prompt': 'str'
     }
 
     attribute_map = {
@@ -77,9 +77,10 @@ class AIVRTransferLegB(object):
     def agent_code_bad_prompt(self):
         """Gets the agent_code_bad_prompt of this AIVRTransferLegB.  # noqa: E501
 
+        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
 
         :return: The agent_code_bad_prompt of this AIVRTransferLegB.  # noqa: E501
-        :rtype: AIVRPrompt
+        :rtype: str
         """
         return self._agent_code_bad_prompt
 
@@ -87,10 +88,17 @@ class AIVRTransferLegB(object):
     def agent_code_bad_prompt(self, agent_code_bad_prompt):
         """Sets the agent_code_bad_prompt of this AIVRTransferLegB.
 
+        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
 
         :param agent_code_bad_prompt: The agent_code_bad_prompt of this AIVRTransferLegB.  # noqa: E501
-        :type: AIVRPrompt
+        :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                agent_code_bad_prompt is not None and len(agent_code_bad_prompt) > 32):
+            raise ValueError("Invalid value for `agent_code_bad_prompt`, length must be less than or equal to `32`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                agent_code_bad_prompt is not None and len(agent_code_bad_prompt) < 1):
+            raise ValueError("Invalid value for `agent_code_bad_prompt`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._agent_code_bad_prompt = agent_code_bad_prompt
 
@@ -98,9 +106,10 @@ class AIVRTransferLegB(object):
     def agent_code_good_prompt(self):
         """Gets the agent_code_good_prompt of this AIVRTransferLegB.  # noqa: E501
 
+        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
 
         :return: The agent_code_good_prompt of this AIVRTransferLegB.  # noqa: E501
-        :rtype: AIVRPrompt
+        :rtype: str
         """
         return self._agent_code_good_prompt
 
@@ -108,10 +117,17 @@ class AIVRTransferLegB(object):
     def agent_code_good_prompt(self, agent_code_good_prompt):
         """Sets the agent_code_good_prompt of this AIVRTransferLegB.
 
+        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
 
         :param agent_code_good_prompt: The agent_code_good_prompt of this AIVRTransferLegB.  # noqa: E501
-        :type: AIVRPrompt
+        :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                agent_code_good_prompt is not None and len(agent_code_good_prompt) > 32):
+            raise ValueError("Invalid value for `agent_code_good_prompt`, length must be less than or equal to `32`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                agent_code_good_prompt is not None and len(agent_code_good_prompt) < 1):
+            raise ValueError("Invalid value for `agent_code_good_prompt`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._agent_code_good_prompt = agent_code_good_prompt
 
@@ -165,9 +181,10 @@ class AIVRTransferLegB(object):
     def whisper_prompt(self):
         """Gets the whisper_prompt of this AIVRTransferLegB.  # noqa: E501
 
+        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
 
         :return: The whisper_prompt of this AIVRTransferLegB.  # noqa: E501
-        :rtype: AIVRPrompt
+        :rtype: str
         """
         return self._whisper_prompt
 
@@ -175,10 +192,17 @@ class AIVRTransferLegB(object):
     def whisper_prompt(self, whisper_prompt):
         """Sets the whisper_prompt of this AIVRTransferLegB.
 
+        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
 
         :param whisper_prompt: The whisper_prompt of this AIVRTransferLegB.  # noqa: E501
-        :type: AIVRPrompt
+        :type: str
         """
+        if (self.local_vars_configuration.client_side_validation and
+                whisper_prompt is not None and len(whisper_prompt) > 32):
+            raise ValueError("Invalid value for `whisper_prompt`, length must be less than or equal to `32`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                whisper_prompt is not None and len(whisper_prompt) < 1):
+            raise ValueError("Invalid value for `whisper_prompt`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._whisper_prompt = whisper_prompt
 
