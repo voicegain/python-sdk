@@ -44,12 +44,14 @@ class VoiceCallAllOf(object):
         'cr_answers_id': 'str',
         'csat': 'float',
         'duration': 'int',
+        'inbound_rtp_quality': 'dict(str, str)',
         'incidents': 'float',
         'keywords': 'list[str]',
         'last_recompute_time': 'datetime',
         'merged_audio_id': 'str',
         'notes': 'str',
         'nps': 'float',
+        'outbound_rtp_quality': 'dict(str, str)',
         'progress_phase': 'ProgressPhase',
         'recompute_phase': 'str',
         'review_notes': 'str',
@@ -78,12 +80,14 @@ class VoiceCallAllOf(object):
         'cr_answers_id': 'crAnswersId',
         'csat': 'csat',
         'duration': 'duration',
+        'inbound_rtp_quality': 'inboundRtpQuality',
         'incidents': 'incidents',
         'keywords': 'keywords',
         'last_recompute_time': 'lastRecomputeTime',
         'merged_audio_id': 'mergedAudioId',
         'notes': 'notes',
         'nps': 'nps',
+        'outbound_rtp_quality': 'outboundRtpQuality',
         'progress_phase': 'progressPhase',
         'recompute_phase': 'recomputePhase',
         'review_notes': 'reviewNotes',
@@ -101,7 +105,7 @@ class VoiceCallAllOf(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, copilot_sent=None, copilot_un_ack=None, cr_answers_id=None, csat=None, duration=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, copilot_sent=None, copilot_un_ack=None, cr_answers_id=None, csat=None, duration=None, inbound_rtp_quality=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -117,12 +121,14 @@ class VoiceCallAllOf(object):
         self._cr_answers_id = None
         self._csat = None
         self._duration = None
+        self._inbound_rtp_quality = None
         self._incidents = None
         self._keywords = None
         self._last_recompute_time = None
         self._merged_audio_id = None
         self._notes = None
         self._nps = None
+        self._outbound_rtp_quality = None
         self._progress_phase = None
         self._recompute_phase = None
         self._review_notes = None
@@ -160,6 +166,8 @@ class VoiceCallAllOf(object):
             self.csat = csat
         if duration is not None:
             self.duration = duration
+        if inbound_rtp_quality is not None:
+            self.inbound_rtp_quality = inbound_rtp_quality
         if incidents is not None:
             self.incidents = incidents
         if keywords is not None:
@@ -172,6 +180,8 @@ class VoiceCallAllOf(object):
             self.notes = notes
         if nps is not None:
             self.nps = nps
+        if outbound_rtp_quality is not None:
+            self.outbound_rtp_quality = outbound_rtp_quality
         if progress_phase is not None:
             self.progress_phase = progress_phase
         if recompute_phase is not None:
@@ -473,6 +483,29 @@ class VoiceCallAllOf(object):
         self._duration = duration
 
     @property
+    def inbound_rtp_quality(self):
+        """Gets the inbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
+
+        RTP quality metrics for inbound audio stream obtained from CDR records.</br> Available when the call has an associated AIVR session with CDR data.</br> The object contains the following keys: + `in_jitter_loss` - inbound jitter loss rate + `out_jitter_loss` - outbound jitter loss rate + `in_quality_pct` - inbound audio quality percentage + `out_quality_pct` - outbound audio quality percentage + `in_mos` - inbound Mean Opinion Score + `out_mos` - outbound Mean Opinion Score + `in_skip_count` - inbound skipped packet count + `out_skip_count` - outbound skipped packet count + `in_packet_count` - inbound total packet count + `out_packet_count` - outbound total packet count   # noqa: E501
+
+        :return: The inbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._inbound_rtp_quality
+
+    @inbound_rtp_quality.setter
+    def inbound_rtp_quality(self, inbound_rtp_quality):
+        """Sets the inbound_rtp_quality of this VoiceCallAllOf.
+
+        RTP quality metrics for inbound audio stream obtained from CDR records.</br> Available when the call has an associated AIVR session with CDR data.</br> The object contains the following keys: + `in_jitter_loss` - inbound jitter loss rate + `out_jitter_loss` - outbound jitter loss rate + `in_quality_pct` - inbound audio quality percentage + `out_quality_pct` - outbound audio quality percentage + `in_mos` - inbound Mean Opinion Score + `out_mos` - outbound Mean Opinion Score + `in_skip_count` - inbound skipped packet count + `out_skip_count` - outbound skipped packet count + `in_packet_count` - inbound total packet count + `out_packet_count` - outbound total packet count   # noqa: E501
+
+        :param inbound_rtp_quality: The inbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._inbound_rtp_quality = inbound_rtp_quality
+
+    @property
     def incidents(self):
         """Gets the incidents of this VoiceCallAllOf.  # noqa: E501
 
@@ -612,6 +645,29 @@ class VoiceCallAllOf(object):
             raise ValueError("Invalid value for `nps`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._nps = nps
+
+    @property
+    def outbound_rtp_quality(self):
+        """Gets the outbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
+
+        RTP quality metrics for outbound audio stream obtained from CDR records.</br> Available when the call has an associated AIVR session with CDR data.</br> The object contains the following keys: + `in_jitter_loss` - inbound jitter loss rate + `out_jitter_loss` - outbound jitter loss rate + `in_quality_pct` - inbound audio quality percentage + `out_quality_pct` - outbound audio quality percentage + `in_mos` - inbound Mean Opinion Score + `out_mos` - outbound Mean Opinion Score + `in_skip_count` - inbound skipped packet count + `out_skip_count` - outbound skipped packet count + `in_packet_count` - inbound total packet count + `out_packet_count` - outbound total packet count   # noqa: E501
+
+        :return: The outbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
+        :rtype: dict(str, str)
+        """
+        return self._outbound_rtp_quality
+
+    @outbound_rtp_quality.setter
+    def outbound_rtp_quality(self, outbound_rtp_quality):
+        """Sets the outbound_rtp_quality of this VoiceCallAllOf.
+
+        RTP quality metrics for outbound audio stream obtained from CDR records.</br> Available when the call has an associated AIVR session with CDR data.</br> The object contains the following keys: + `in_jitter_loss` - inbound jitter loss rate + `out_jitter_loss` - outbound jitter loss rate + `in_quality_pct` - inbound audio quality percentage + `out_quality_pct` - outbound audio quality percentage + `in_mos` - inbound Mean Opinion Score + `out_mos` - outbound Mean Opinion Score + `in_skip_count` - inbound skipped packet count + `out_skip_count` - outbound skipped packet count + `in_packet_count` - inbound total packet count + `out_packet_count` - outbound total packet count   # noqa: E501
+
+        :param outbound_rtp_quality: The outbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
+        :type: dict(str, str)
+        """
+
+        self._outbound_rtp_quality = outbound_rtp_quality
 
     @property
     def progress_phase(self):
