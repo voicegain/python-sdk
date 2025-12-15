@@ -44,14 +44,14 @@ class VoiceCallAllOf(object):
         'cr_answers_id': 'str',
         'csat': 'float',
         'duration': 'int',
-        'inbound_rtp_quality': 'dict(str, str)',
+        'inbound_rtp_quality': 'RtpQuality',
         'incidents': 'float',
         'keywords': 'list[str]',
         'last_recompute_time': 'datetime',
         'merged_audio_id': 'str',
         'notes': 'str',
         'nps': 'float',
-        'outbound_rtp_quality': 'dict(str, str)',
+        'outbound_rtp_quality': 'RtpQuality',
         'progress_phase': 'ProgressPhase',
         'recompute_phase': 'str',
         'review_notes': 'str',
@@ -486,10 +486,9 @@ class VoiceCallAllOf(object):
     def inbound_rtp_quality(self):
         """Gets the inbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
 
-        RTP quality metrics for inbound audio stream obtained from CDR records.</br> Available when the call has an associated AIVR session with CDR data.</br> The object contains the following keys: + `in_jitter_loss` - inbound jitter loss rate + `out_jitter_loss` - outbound jitter loss rate + `in_quality_pct` - inbound audio quality percentage + `out_quality_pct` - outbound audio quality percentage + `in_mos` - inbound Mean Opinion Score + `out_mos` - outbound Mean Opinion Score + `in_skip_count` - inbound skipped packet count + `out_skip_count` - outbound skipped packet count + `in_packet_count` - inbound total packet count + `out_packet_count` - outbound total packet count   # noqa: E501
 
         :return: The inbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: RtpQuality
         """
         return self._inbound_rtp_quality
 
@@ -497,10 +496,9 @@ class VoiceCallAllOf(object):
     def inbound_rtp_quality(self, inbound_rtp_quality):
         """Sets the inbound_rtp_quality of this VoiceCallAllOf.
 
-        RTP quality metrics for inbound audio stream obtained from CDR records.</br> Available when the call has an associated AIVR session with CDR data.</br> The object contains the following keys: + `in_jitter_loss` - inbound jitter loss rate + `out_jitter_loss` - outbound jitter loss rate + `in_quality_pct` - inbound audio quality percentage + `out_quality_pct` - outbound audio quality percentage + `in_mos` - inbound Mean Opinion Score + `out_mos` - outbound Mean Opinion Score + `in_skip_count` - inbound skipped packet count + `out_skip_count` - outbound skipped packet count + `in_packet_count` - inbound total packet count + `out_packet_count` - outbound total packet count   # noqa: E501
 
         :param inbound_rtp_quality: The inbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
-        :type: dict(str, str)
+        :type: RtpQuality
         """
 
         self._inbound_rtp_quality = inbound_rtp_quality
@@ -650,10 +648,9 @@ class VoiceCallAllOf(object):
     def outbound_rtp_quality(self):
         """Gets the outbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
 
-        RTP quality metrics for outbound audio stream obtained from CDR records.</br> Available when the call has an associated AIVR session with CDR data.</br> The object contains the following keys: + `in_jitter_loss` - inbound jitter loss rate + `out_jitter_loss` - outbound jitter loss rate + `in_quality_pct` - inbound audio quality percentage + `out_quality_pct` - outbound audio quality percentage + `in_mos` - inbound Mean Opinion Score + `out_mos` - outbound Mean Opinion Score + `in_skip_count` - inbound skipped packet count + `out_skip_count` - outbound skipped packet count + `in_packet_count` - inbound total packet count + `out_packet_count` - outbound total packet count   # noqa: E501
 
         :return: The outbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
-        :rtype: dict(str, str)
+        :rtype: RtpQuality
         """
         return self._outbound_rtp_quality
 
@@ -661,10 +658,9 @@ class VoiceCallAllOf(object):
     def outbound_rtp_quality(self, outbound_rtp_quality):
         """Sets the outbound_rtp_quality of this VoiceCallAllOf.
 
-        RTP quality metrics for outbound audio stream obtained from CDR records.</br> Available when the call has an associated AIVR session with CDR data.</br> The object contains the following keys: + `in_jitter_loss` - inbound jitter loss rate + `out_jitter_loss` - outbound jitter loss rate + `in_quality_pct` - inbound audio quality percentage + `out_quality_pct` - outbound audio quality percentage + `in_mos` - inbound Mean Opinion Score + `out_mos` - outbound Mean Opinion Score + `in_skip_count` - inbound skipped packet count + `out_skip_count` - outbound skipped packet count + `in_packet_count` - inbound total packet count + `out_packet_count` - outbound total packet count   # noqa: E501
 
         :param outbound_rtp_quality: The outbound_rtp_quality of this VoiceCallAllOf.  # noqa: E501
-        :type: dict(str, str)
+        :type: RtpQuality
         """
 
         self._outbound_rtp_quality = outbound_rtp_quality

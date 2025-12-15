@@ -474,6 +474,7 @@ from voicegain_speech.models.requested_content import RequestedContent
 from voicegain_speech.models.resource_uri import ResourceUri
 from voicegain_speech.models.resource_uri_local_auth_conf import ResourceUriLocalAuthConf
 from voicegain_speech.models.results_websocket_mode import ResultsWebsocketMode
+from voicegain_speech.models.rtp_quality import RtpQuality
 from voicegain_speech.models.s3 import S3
 from voicegain_speech.models.s3_all_of import S3AllOf
 from voicegain_speech.models.s3_audio_input import S3AudioInput
