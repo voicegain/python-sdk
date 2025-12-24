@@ -262,7 +262,7 @@ class SessionInitTranscription(object):
     def external_id(self):
         """Gets the external_id of this SessionInitTranscription.  # noqa: E501
 
-        (Optional) External UUID that can be used to identify the session. </br> It is usefull in scenarios where the calling party cannot inspect the response to get the sessionId.   # noqa: E501
+        (Optional) External UUID that can be used to identify the session. </br> It is useful in scenarios where the calling party cannot inspect the response to get the sessionId.   # noqa: E501
 
         :return: The external_id of this SessionInitTranscription.  # noqa: E501
         :rtype: str
@@ -273,7 +273,7 @@ class SessionInitTranscription(object):
     def external_id(self, external_id):
         """Sets the external_id of this SessionInitTranscription.
 
-        (Optional) External UUID that can be used to identify the session. </br> It is usefull in scenarios where the calling party cannot inspect the response to get the sessionId.   # noqa: E501
+        (Optional) External UUID that can be used to identify the session. </br> It is useful in scenarios where the calling party cannot inspect the response to get the sessionId.   # noqa: E501
 
         :param external_id: The external_id of this SessionInitTranscription.  # noqa: E501
         :type: str

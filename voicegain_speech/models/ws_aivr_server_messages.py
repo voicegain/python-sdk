@@ -417,7 +417,7 @@ class WsAivrServerMessages(object):
     def temp_code(self):
         """Gets the temp_code of this WsAivrServerMessages.  # noqa: E501
 
-        Temporary random code that can be used to lookup this session. This code is generated when the session is created and is valid during the life of the session and then for 30 minutes after the AIVR session ends. Within that time period it can be used to query the session.</br> The code, while valid, is guaranteed to be unique within an Account. The code is a random conbination of 4 digits or letters (upper case).</br> Note: The time the code is valid and the code length may change in future version of this API.   # noqa: E501
+        Temporary random code that can be used to lookup this session. This code is generated when the session is created and is valid during the life of the session and then for 30 minutes after the AIVR session ends. Within that time period it can be used to query the session.</br> The code, while valid, is guaranteed to be unique within an Account. The code is a random combination of 4 digits or letters (upper case).</br> Note: The time the code is valid and the code length may change in future version of this API.   # noqa: E501
 
         :return: The temp_code of this WsAivrServerMessages.  # noqa: E501
         :rtype: str
@@ -428,7 +428,7 @@ class WsAivrServerMessages(object):
     def temp_code(self, temp_code):
         """Sets the temp_code of this WsAivrServerMessages.
 
-        Temporary random code that can be used to lookup this session. This code is generated when the session is created and is valid during the life of the session and then for 30 minutes after the AIVR session ends. Within that time period it can be used to query the session.</br> The code, while valid, is guaranteed to be unique within an Account. The code is a random conbination of 4 digits or letters (upper case).</br> Note: The time the code is valid and the code length may change in future version of this API.   # noqa: E501
+        Temporary random code that can be used to lookup this session. This code is generated when the session is created and is valid during the life of the session and then for 30 minutes after the AIVR session ends. Within that time period it can be used to query the session.</br> The code, while valid, is guaranteed to be unique within an Account. The code is a random combination of 4 digits or letters (upper case).</br> Note: The time the code is valid and the code length may change in future version of this API.   # noqa: E501
 
         :param temp_code: The temp_code of this WsAivrServerMessages.  # noqa: E501
         :type: str
@@ -469,7 +469,7 @@ class WsAivrServerMessages(object):
     def user_app_data(self):
         """Gets the user_app_data of this WsAivrServerMessages.  # noqa: E501
 
-        Data that was associated in the AIVR portal with AIVR CallBack URL.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.</br> The name is a bit misleading due to historical reasons.  The difference between `userAppData` and `appData` is that the former is asssociated with the Logic callback URL, while the latter is associated with the AIVR App and can be accesses by any logic associated with the AIVR App.</br>   # noqa: E501
+        Data that was associated in the AIVR portal with AIVR CallBack URL.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.</br> The name is a bit misleading due to historical reasons.  The difference between `userAppData` and `appData` is that the former is associated with the Logic callback URL, while the latter is associated with the AIVR App and can be accesses by any logic associated with the AIVR App.</br>   # noqa: E501
 
         :return: The user_app_data of this WsAivrServerMessages.  # noqa: E501
         :rtype: str
@@ -480,7 +480,7 @@ class WsAivrServerMessages(object):
     def user_app_data(self, user_app_data):
         """Sets the user_app_data of this WsAivrServerMessages.
 
-        Data that was associated in the AIVR portal with AIVR CallBack URL.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.</br> The name is a bit misleading due to historical reasons.  The difference between `userAppData` and `appData` is that the former is asssociated with the Logic callback URL, while the latter is associated with the AIVR App and can be accesses by any logic associated with the AIVR App.</br>   # noqa: E501
+        Data that was associated in the AIVR portal with AIVR CallBack URL.</br> It is a string that is not interpreted by the AIVR and only passed to Customer dialog engine.</br> The name is a bit misleading due to historical reasons.  The difference between `userAppData` and `appData` is that the former is associated with the Logic callback URL, while the latter is associated with the AIVR App and can be accesses by any logic associated with the AIVR App.</br>   # noqa: E501
 
         :param user_app_data: The user_app_data of this WsAivrServerMessages.  # noqa: E501
         :type: str

@@ -113,7 +113,7 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
     def audio_offset(self):
         """Gets the audio_offset of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
 
-        (optional) Offset in milliseconds that will be added to the words transcribed from this audio. This is usefull if the audio channels do not start at the same time.   # noqa: E501
+        (optional) Offset in milliseconds that will be added to the words transcribed from this audio. This is useful if the audio channels do not start at the same time.   # noqa: E501
 
         :return: The audio_offset of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
         :rtype: int
@@ -124,7 +124,7 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
     def audio_offset(self, audio_offset):
         """Sets the audio_offset of this OfflineSpeechAnalyticsAudioRequestAudio.
 
-        (optional) Offset in milliseconds that will be added to the words transcribed from this audio. This is usefull if the audio channels do not start at the same time.   # noqa: E501
+        (optional) Offset in milliseconds that will be added to the words transcribed from this audio. This is useful if the audio channels do not start at the same time.   # noqa: E501
 
         :param audio_offset: The audio_offset of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
         :type: int
@@ -160,7 +160,7 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
     def mask(self):
         """Gets the mask of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
 
-        (optional) Array of time intervals that will be masked in the audio. The masked audio will not be transcribed.</br> This is usefull for e.g. cases where 4 channels from a warm transfer are provided and there is duplication in the audio.   # noqa: E501
+        (optional) Array of time intervals that will be masked in the audio. The masked audio will not be transcribed.</br> This is useful for e.g. cases where 4 channels from a warm transfer are provided and there is duplication in the audio.   # noqa: E501
 
         :return: The mask of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
         :rtype: list[OfflineSpeechAnalyticsAudioRequestMask]
@@ -171,7 +171,7 @@ class OfflineSpeechAnalyticsAudioRequestAudio(object):
     def mask(self, mask):
         """Sets the mask of this OfflineSpeechAnalyticsAudioRequestAudio.
 
-        (optional) Array of time intervals that will be masked in the audio. The masked audio will not be transcribed.</br> This is usefull for e.g. cases where 4 channels from a warm transfer are provided and there is duplication in the audio.   # noqa: E501
+        (optional) Array of time intervals that will be masked in the audio. The masked audio will not be transcribed.</br> This is useful for e.g. cases where 4 channels from a warm transfer are provided and there is duplication in the audio.   # noqa: E501
 
         :param mask: The mask of this OfflineSpeechAnalyticsAudioRequestAudio.  # noqa: E501
         :type: list[OfflineSpeechAnalyticsAudioRequestMask]

@@ -149,7 +149,7 @@ class AIVRResponsePropertiesAudio(object):
     def hints(self):
         """Gets the hints of this AIVRResponsePropertiesAudio.  # noqa: E501
 
-        (for large-vocabulary transcription only)</br> Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_' which indicates word separator.</br> Example hint: \"HIPAA_policies[h_i_p_a_a_policies|hippa_policies|hi_pa_policies]:10\" </br> The first element is the actual word/phrase to match and boost. The second element in [] are one or more misspellings. The third element after : is a boost value. Allowed values are 1 through 10 with the default being 5.</br> The mispellings and boost are optional.</br>   # noqa: E501
+        (for large-vocabulary transcription only)</br> Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_' which indicates word separator.</br> Example hint: \"HIPAA_policies[h_i_p_a_a_policies|hippa_policies|hi_pa_policies]:10\" </br> The first element is the actual word/phrase to match and boost. The second element in [] are one or more misspellings. The third element after : is a boost value. Allowed values are 1 through 10 with the default being 5.</br> The misspellings and boost are optional.</br>   # noqa: E501
 
         :return: The hints of this AIVRResponsePropertiesAudio.  # noqa: E501
         :rtype: list[str]
@@ -160,7 +160,7 @@ class AIVRResponsePropertiesAudio(object):
     def hints(self, hints):
         """Sets the hints of this AIVRResponsePropertiesAudio.
 
-        (for large-vocabulary transcription only)</br> Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_' which indicates word separator.</br> Example hint: \"HIPAA_policies[h_i_p_a_a_policies|hippa_policies|hi_pa_policies]:10\" </br> The first element is the actual word/phrase to match and boost. The second element in [] are one or more misspellings. The third element after : is a boost value. Allowed values are 1 through 10 with the default being 5.</br> The mispellings and boost are optional.</br>   # noqa: E501
+        (for large-vocabulary transcription only)</br> Can be provided to indicate that given words/phrases are more likely to appear in the audio input. No special characters allowed except for '_' which indicates word separator.</br> Example hint: \"HIPAA_policies[h_i_p_a_a_policies|hippa_policies|hi_pa_policies]:10\" </br> The first element is the actual word/phrase to match and boost. The second element in [] are one or more misspellings. The third element after : is a boost value. Allowed values are 1 through 10 with the default being 5.</br> The misspellings and boost are optional.</br>   # noqa: E501
 
         :param hints: The hints of this AIVRResponsePropertiesAudio.  # noqa: E501
         :type: list[str]
@@ -287,7 +287,7 @@ class AIVRResponsePropertiesAudio(object):
     def question_prompt(self):
         """Gets the question_prompt of this AIVRResponsePropertiesAudio.  # noqa: E501
 
-        The bargin-able question prompt to be presented to the caller.</br> If the intent is to present a non-bargin-able question, then the prompt should be set in the `text`. Combining `text` with `questionPrompt` makes it possible to ask a question that constists from non-bargin-able and bargin-able parts.</br> For audio prompt, the questionPrompt text will be processed by Voicegain Prompt Manager with fallback to TTS in specified voice. If questionPrompt starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
+        The bargin-able question prompt to be presented to the caller.</br> If the intent is to present a non-bargin-able question, then the prompt should be set in the `text`. Combining `text` with `questionPrompt` makes it possible to ask a question that consists from non-bargin-able and bargin-able parts.</br> For audio prompt, the questionPrompt text will be processed by Voicegain Prompt Manager with fallback to TTS in specified voice. If questionPrompt starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
 
         :return: The question_prompt of this AIVRResponsePropertiesAudio.  # noqa: E501
         :rtype: str
@@ -298,7 +298,7 @@ class AIVRResponsePropertiesAudio(object):
     def question_prompt(self, question_prompt):
         """Sets the question_prompt of this AIVRResponsePropertiesAudio.
 
-        The bargin-able question prompt to be presented to the caller.</br> If the intent is to present a non-bargin-able question, then the prompt should be set in the `text`. Combining `text` with `questionPrompt` makes it possible to ask a question that constists from non-bargin-able and bargin-able parts.</br> For audio prompt, the questionPrompt text will be processed by Voicegain Prompt Manager with fallback to TTS in specified voice. If questionPrompt starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
+        The bargin-able question prompt to be presented to the caller.</br> If the intent is to present a non-bargin-able question, then the prompt should be set in the `text`. Combining `text` with `questionPrompt` makes it possible to ask a question that consists from non-bargin-able and bargin-able parts.</br> For audio prompt, the questionPrompt text will be processed by Voicegain Prompt Manager with fallback to TTS in specified voice. If questionPrompt starts with http(s):// then it will be interpreted as URL to a service that provides audio.   # noqa: E501
 
         :param question_prompt: The question_prompt of this AIVRResponsePropertiesAudio.  # noqa: E501
         :type: str

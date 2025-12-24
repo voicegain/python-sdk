@@ -101,7 +101,7 @@ class AIVRCallbackResponseAllOf(object):
     def redirect_url(self):
         """Gets the redirect_url of this AIVRCallbackResponseAllOf.  # noqa: E501
 
-        URL that should be used to make the next logic callback. Usefull, e.g., in high availability scenarions where we want to pin the logic session to a specific server.</br> Once the callback is redirected, the AIVR session should remember it, so that there is no need to provide it in subsequent callbacks.   # noqa: E501
+        URL that should be used to make the next logic callback. Useful, e.g., in high availability scenarios where we want to pin the logic session to a specific server.</br> Once the callback is redirected, the AIVR session should remember it, so that there is no need to provide it in subsequent callbacks.   # noqa: E501
 
         :return: The redirect_url of this AIVRCallbackResponseAllOf.  # noqa: E501
         :rtype: str
@@ -112,7 +112,7 @@ class AIVRCallbackResponseAllOf(object):
     def redirect_url(self, redirect_url):
         """Sets the redirect_url of this AIVRCallbackResponseAllOf.
 
-        URL that should be used to make the next logic callback. Usefull, e.g., in high availability scenarions where we want to pin the logic session to a specific server.</br> Once the callback is redirected, the AIVR session should remember it, so that there is no need to provide it in subsequent callbacks.   # noqa: E501
+        URL that should be used to make the next logic callback. Useful, e.g., in high availability scenarios where we want to pin the logic session to a specific server.</br> Once the callback is redirected, the AIVR session should remember it, so that there is no need to provide it in subsequent callbacks.   # noqa: E501
 
         :param redirect_url: The redirect_url of this AIVRCallbackResponseAllOf.  # noqa: E501
         :type: str

@@ -566,7 +566,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def overtalk_single_duration_maximum_threshold(self):
         """Gets the overtalk_single_duration_maximum_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
 
-        Duration-based threshold (in milliseconds) used to determine if an overtalk incident has occured.  Applies to maximun duration of single/individual cases of overtalk.   # noqa: E501
+        Duration-based threshold (in milliseconds) used to determine if an overtalk incident has occurred.  Applies to maximun duration of single/individual cases of overtalk.   # noqa: E501
 
         :return: The overtalk_single_duration_maximum_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :rtype: float
@@ -577,7 +577,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def overtalk_single_duration_maximum_threshold(self, overtalk_single_duration_maximum_threshold):
         """Sets the overtalk_single_duration_maximum_threshold of this SpeechAnalyticsConfigModifiableBase.
 
-        Duration-based threshold (in milliseconds) used to determine if an overtalk incident has occured.  Applies to maximun duration of single/individual cases of overtalk.   # noqa: E501
+        Duration-based threshold (in milliseconds) used to determine if an overtalk incident has occurred.  Applies to maximun duration of single/individual cases of overtalk.   # noqa: E501
 
         :param overtalk_single_duration_maximum_threshold: The overtalk_single_duration_maximum_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :type: float
@@ -595,7 +595,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def overtalk_total_percentage_threshold(self):
         """Gets the overtalk_total_percentage_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
 
-        Percentage-based threshold used to determine if an overtalk incident has occured.  Applies to total overtalk expressed as percentage of the call duration.   # noqa: E501
+        Percentage-based threshold used to determine if an overtalk incident has occurred.  Applies to total overtalk expressed as percentage of the call duration.   # noqa: E501
 
         :return: The overtalk_total_percentage_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :rtype: float
@@ -606,7 +606,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def overtalk_total_percentage_threshold(self, overtalk_total_percentage_threshold):
         """Sets the overtalk_total_percentage_threshold of this SpeechAnalyticsConfigModifiableBase.
 
-        Percentage-based threshold used to determine if an overtalk incident has occured.  Applies to total overtalk expressed as percentage of the call duration.   # noqa: E501
+        Percentage-based threshold used to determine if an overtalk incident has occurred.  Applies to total overtalk expressed as percentage of the call duration.   # noqa: E501
 
         :param overtalk_total_percentage_threshold: The overtalk_total_percentage_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :type: float
@@ -762,7 +762,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def silence_single_duration_maximum_threshold(self):
         """Gets the silence_single_duration_maximum_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
 
-        Duration-based threshold (in milliseconds) used to determine if a silence incident has occured.  Applies to maximun duration of single/individual cases of silence.   # noqa: E501
+        Duration-based threshold (in milliseconds) used to determine if a silence incident has occurred.  Applies to maximun duration of single/individual cases of silence.   # noqa: E501
 
         :return: The silence_single_duration_maximum_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :rtype: float
@@ -773,7 +773,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def silence_single_duration_maximum_threshold(self, silence_single_duration_maximum_threshold):
         """Sets the silence_single_duration_maximum_threshold of this SpeechAnalyticsConfigModifiableBase.
 
-        Duration-based threshold (in milliseconds) used to determine if a silence incident has occured.  Applies to maximun duration of single/individual cases of silence.   # noqa: E501
+        Duration-based threshold (in milliseconds) used to determine if a silence incident has occurred.  Applies to maximun duration of single/individual cases of silence.   # noqa: E501
 
         :param silence_single_duration_maximum_threshold: The silence_single_duration_maximum_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :type: float
@@ -791,7 +791,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def silence_total_percentage_threshold(self):
         """Gets the silence_total_percentage_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
 
-        Percentage-based threshold used to determine if a silence incident has occured.  Applies to total silence expressed as percentage of the call duration.   # noqa: E501
+        Percentage-based threshold used to determine if a silence incident has occurred.  Applies to total silence expressed as percentage of the call duration.   # noqa: E501
 
         :return: The silence_total_percentage_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :rtype: float
@@ -802,7 +802,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def silence_total_percentage_threshold(self, silence_total_percentage_threshold):
         """Sets the silence_total_percentage_threshold of this SpeechAnalyticsConfigModifiableBase.
 
-        Percentage-based threshold used to determine if a silence incident has occured.  Applies to total silence expressed as percentage of the call duration.   # noqa: E501
+        Percentage-based threshold used to determine if a silence incident has occurred.  Applies to total silence expressed as percentage of the call duration.   # noqa: E501
 
         :param silence_total_percentage_threshold: The silence_total_percentage_threshold of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :type: float

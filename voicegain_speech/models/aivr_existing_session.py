@@ -140,7 +140,7 @@ class AIVRExistingSession(object):
     def vars(self):
         """Gets the vars of this AIVRExistingSession.  # noqa: E501
 
-        Map with user reponses collected during this AIVR session.</br> Keys are the `name` values provided in questions.   # noqa: E501
+        Map with user responses collected during this AIVR session.</br> Keys are the `name` values provided in questions.   # noqa: E501
 
         :return: The vars of this AIVRExistingSession.  # noqa: E501
         :rtype: dict(str, str)
@@ -151,7 +151,7 @@ class AIVRExistingSession(object):
     def vars(self, vars):
         """Sets the vars of this AIVRExistingSession.
 
-        Map with user reponses collected during this AIVR session.</br> Keys are the `name` values provided in questions.   # noqa: E501
+        Map with user responses collected during this AIVR session.</br> Keys are the `name` values provided in questions.   # noqa: E501
 
         :param vars: The vars of this AIVRExistingSession.  # noqa: E501
         :type: dict(str, str)
