@@ -500,6 +500,7 @@ from voicegain_speech.models.slot_keyword import SlotKeyword
 from voicegain_speech.models.sos_ref import SosRef
 from voicegain_speech.models.speaker_activity import SpeakerActivity
 from voicegain_speech.models.speaker_result import SpeakerResult
+from voicegain_speech.models.speaker_sentiment_item import SpeakerSentimentItem
 from voicegain_speech.models.speaker_with_percent_spoken import SpeakerWithPercentSpoken
 from voicegain_speech.models.speech_analytics_base_result import SpeechAnalyticsBaseResult
 from voicegain_speech.models.speech_analytics_channel import SpeechAnalyticsChannel

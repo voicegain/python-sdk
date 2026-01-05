@@ -59,6 +59,7 @@ class VoiceCallAllOf(object):
         'sa_session_id': 'str',
         'score': 'float',
         'sentiment': 'float',
+        'sentiments': 'list[SpeakerSentimentItem]',
         'spawned_calls': 'list[str]',
         'topics': 'list[str]',
         'version': 'int',
@@ -95,6 +96,7 @@ class VoiceCallAllOf(object):
         'sa_session_id': 'saSessionId',
         'score': 'score',
         'sentiment': 'sentiment',
+        'sentiments': 'sentiments',
         'spawned_calls': 'spawnedCalls',
         'topics': 'topics',
         'version': 'version',
@@ -105,7 +107,7 @@ class VoiceCallAllOf(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, copilot_sent=None, copilot_un_ack=None, cr_answers_id=None, csat=None, duration=None, inbound_rtp_quality=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, copilot_sent=None, copilot_un_ack=None, cr_answers_id=None, csat=None, duration=None, inbound_rtp_quality=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, sentiments=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -136,6 +138,7 @@ class VoiceCallAllOf(object):
         self._sa_session_id = None
         self._score = None
         self._sentiment = None
+        self._sentiments = None
         self._spawned_calls = None
         self._topics = None
         self._version = None
@@ -196,6 +199,8 @@ class VoiceCallAllOf(object):
             self.score = score
         if sentiment is not None:
             self.sentiment = sentiment
+        if sentiments is not None:
+            self.sentiments = sentiments
         if spawned_calls is not None:
             self.spawned_calls = spawned_calls
         if topics is not None:
@@ -835,6 +840,29 @@ class VoiceCallAllOf(object):
         """
 
         self._sentiment = sentiment
+
+    @property
+    def sentiments(self):
+        """Gets the sentiments of this VoiceCallAllOf.  # noqa: E501
+
+        Sentiment values for speakers on the call. Only one value for each speaker type is present.  # noqa: E501
+
+        :return: The sentiments of this VoiceCallAllOf.  # noqa: E501
+        :rtype: list[SpeakerSentimentItem]
+        """
+        return self._sentiments
+
+    @sentiments.setter
+    def sentiments(self, sentiments):
+        """Sets the sentiments of this VoiceCallAllOf.
+
+        Sentiment values for speakers on the call. Only one value for each speaker type is present.  # noqa: E501
+
+        :param sentiments: The sentiments of this VoiceCallAllOf.  # noqa: E501
+        :type: list[SpeakerSentimentItem]
+        """
+
+        self._sentiments = sentiments
 
     @property
     def spawned_calls(self):
