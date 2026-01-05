@@ -51,8 +51,8 @@ class SpeechAnalyticsEmotionItem(object):
         'start_time': 'startTime',
         'mood': 'mood',
         'sentiment': 'sentiment',
-        'sentiment_final': 'sentiment_final',
-        'sentiment_trend': 'sentiment_trend'
+        'sentiment_final': 'sentimentFinal',
+        'sentiment_trend': 'sentimentTrend'
     }
 
     def __init__(self, end_idx=None, end_time=None, start_idx=None, start_time=None, mood=None, sentiment=None, sentiment_final=None, sentiment_trend=None, local_vars_configuration=None):  # noqa: E501
@@ -265,7 +265,7 @@ class SpeechAnalyticsEmotionItem(object):
     def sentiment_trend(self):
         """Gets the sentiment_trend of this SpeechAnalyticsEmotionItem.  # noqa: E501
 
-        Difference between `sentiment_final` and `sentiment` (average).</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
+        Difference between `sentimentFinal` and  sentiment computed over the first 1 minute (or 20%) whichever is shorter)</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
 
         :return: The sentiment_trend of this SpeechAnalyticsEmotionItem.  # noqa: E501
         :rtype: float
@@ -276,7 +276,7 @@ class SpeechAnalyticsEmotionItem(object):
     def sentiment_trend(self, sentiment_trend):
         """Sets the sentiment_trend of this SpeechAnalyticsEmotionItem.
 
-        Difference between `sentiment_final` and `sentiment` (average).</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
+        Difference between `sentimentFinal` and  sentiment computed over the first 1 minute (or 20%) whichever is shorter)</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
 
         :param sentiment_trend: The sentiment_trend of this SpeechAnalyticsEmotionItem.  # noqa: E501
         :type: float
