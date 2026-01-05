@@ -1585,7 +1585,7 @@ class VoiceCall(object):
     def sentiment(self):
         """Gets the sentiment of this VoiceCall.  # noqa: E501
 
-        Computed call sentiment value  # noqa: E501
+        Computed call sentiment value - this is call average sentiment for the Caller channel.  # noqa: E501
 
         :return: The sentiment of this VoiceCall.  # noqa: E501
         :rtype: float
@@ -1596,7 +1596,7 @@ class VoiceCall(object):
     def sentiment(self, sentiment):
         """Sets the sentiment of this VoiceCall.
 
-        Computed call sentiment value  # noqa: E501
+        Computed call sentiment value - this is call average sentiment for the Caller channel.  # noqa: E501
 
         :param sentiment: The sentiment of this VoiceCall.  # noqa: E501
         :type: float
