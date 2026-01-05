@@ -159,7 +159,7 @@ class SpeakerSentimentItem(object):
     def trend(self):
         """Gets the trend of this SpeakerSentimentItem.  # noqa: E501
 
-        Difference between `final` and sentiment computed over the first 1 minute (or 20%) whichever is shorter).</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
+        Difference between `final` and sentiment computed over the first 1 minute (or 20%, whichever is shorter).</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
 
         :return: The trend of this SpeakerSentimentItem.  # noqa: E501
         :rtype: float
@@ -170,7 +170,7 @@ class SpeakerSentimentItem(object):
     def trend(self, trend):
         """Sets the trend of this SpeakerSentimentItem.
 
-        Difference between `final` and sentiment computed over the first 1 minute (or 20%) whichever is shorter).</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
+        Difference between `final` and sentiment computed over the first 1 minute (or 20%, whichever is shorter).</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
 
         :param trend: The trend of this SpeakerSentimentItem.  # noqa: E501
         :type: float
