@@ -35,19 +35,15 @@ class SpeechAnalyticsEmotion(object):
     """
     openapi_types = {
         'mood': 'dict(str, MoodType)',
-        'sentiment': 'float',
-        'sentiment_final': 'float',
-        'sentiment_trend': 'float'
+        'sentiment': 'float'
     }
 
     attribute_map = {
         'mood': 'mood',
-        'sentiment': 'sentiment',
-        'sentiment_final': 'sentimentFinal',
-        'sentiment_trend': 'sentimentTrend'
+        'sentiment': 'sentiment'
     }
 
-    def __init__(self, mood=None, sentiment=None, sentiment_final=None, sentiment_trend=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, mood=None, sentiment=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsEmotion - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,18 +51,12 @@ class SpeechAnalyticsEmotion(object):
 
         self._mood = None
         self._sentiment = None
-        self._sentiment_final = None
-        self._sentiment_trend = None
         self.discriminator = None
 
         if mood is not None:
             self.mood = mood
         if sentiment is not None:
             self.sentiment = sentiment
-        if sentiment_final is not None:
-            self.sentiment_final = sentiment_final
-        if sentiment_trend is not None:
-            self.sentiment_trend = sentiment_trend
 
     @property
     def mood(self):
@@ -95,7 +85,7 @@ class SpeechAnalyticsEmotion(object):
     def sentiment(self):
         """Gets the sentiment of this SpeechAnalyticsEmotion.  # noqa: E501
 
-        Weighted average of the sentiment values from the list, ranging from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> The weighted average is computed over the entire duration of the audio.   # noqa: E501
+        Sentiment value, ranging from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> If appears in a list then this is the value of the sentiment for transcript within the specified time range.</br> If appears in the totals then this is the weighted average of the sentiment values from the list. The weighted average is computed over the entire duration of the audio.   # noqa: E501
 
         :return: The sentiment of this SpeechAnalyticsEmotion.  # noqa: E501
         :rtype: float
@@ -106,7 +96,7 @@ class SpeechAnalyticsEmotion(object):
     def sentiment(self, sentiment):
         """Sets the sentiment of this SpeechAnalyticsEmotion.
 
-        Weighted average of the sentiment values from the list, ranging from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> The weighted average is computed over the entire duration of the audio.   # noqa: E501
+        Sentiment value, ranging from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> If appears in a list then this is the value of the sentiment for transcript within the specified time range.</br> If appears in the totals then this is the weighted average of the sentiment values from the list. The weighted average is computed over the entire duration of the audio.   # noqa: E501
 
         :param sentiment: The sentiment of this SpeechAnalyticsEmotion.  # noqa: E501
         :type: float
@@ -119,64 +109,6 @@ class SpeechAnalyticsEmotion(object):
             raise ValueError("Invalid value for `sentiment`, must be a value greater than or equal to `-1.0`")  # noqa: E501
 
         self._sentiment = sentiment
-
-    @property
-    def sentiment_final(self):
-        """Gets the sentiment_final of this SpeechAnalyticsEmotion.  # noqa: E501
-
-        Weighted average of the sentiment values computed over the last 20% or 1 minute of the audio (whichever is shorter).</br> Ranges from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> This represents the sentiment at the end of the interaction.   # noqa: E501
-
-        :return: The sentiment_final of this SpeechAnalyticsEmotion.  # noqa: E501
-        :rtype: float
-        """
-        return self._sentiment_final
-
-    @sentiment_final.setter
-    def sentiment_final(self, sentiment_final):
-        """Sets the sentiment_final of this SpeechAnalyticsEmotion.
-
-        Weighted average of the sentiment values computed over the last 20% or 1 minute of the audio (whichever is shorter).</br> Ranges from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> This represents the sentiment at the end of the interaction.   # noqa: E501
-
-        :param sentiment_final: The sentiment_final of this SpeechAnalyticsEmotion.  # noqa: E501
-        :type: float
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                sentiment_final is not None and sentiment_final > 1.0):  # noqa: E501
-            raise ValueError("Invalid value for `sentiment_final`, must be a value less than or equal to `1.0`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                sentiment_final is not None and sentiment_final < -1.0):  # noqa: E501
-            raise ValueError("Invalid value for `sentiment_final`, must be a value greater than or equal to `-1.0`")  # noqa: E501
-
-        self._sentiment_final = sentiment_final
-
-    @property
-    def sentiment_trend(self):
-        """Gets the sentiment_trend of this SpeechAnalyticsEmotion.  # noqa: E501
-
-        Difference between `sentimentFinal` and  sentiment computed over the first 1 minute (or 20%) whichever is shorter)</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
-
-        :return: The sentiment_trend of this SpeechAnalyticsEmotion.  # noqa: E501
-        :rtype: float
-        """
-        return self._sentiment_trend
-
-    @sentiment_trend.setter
-    def sentiment_trend(self, sentiment_trend):
-        """Sets the sentiment_trend of this SpeechAnalyticsEmotion.
-
-        Difference between `sentimentFinal` and  sentiment computed over the first 1 minute (or 20%) whichever is shorter)</br> Positive values indicate sentiment improved towards the end, negative values indicate it worsened.</br> Ranges from -2.0 to +2.0.   # noqa: E501
-
-        :param sentiment_trend: The sentiment_trend of this SpeechAnalyticsEmotion.  # noqa: E501
-        :type: float
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                sentiment_trend is not None and sentiment_trend > 2.0):  # noqa: E501
-            raise ValueError("Invalid value for `sentiment_trend`, must be a value less than or equal to `2.0`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                sentiment_trend is not None and sentiment_trend < -2.0):  # noqa: E501
-            raise ValueError("Invalid value for `sentiment_trend`, must be a value greater than or equal to `-2.0`")  # noqa: E501
-
-        self._sentiment_trend = sentiment_trend
 
     def to_dict(self):
         """Returns the model properties as a dict"""

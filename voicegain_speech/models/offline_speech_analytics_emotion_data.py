@@ -35,7 +35,7 @@ class OfflineSpeechAnalyticsEmotionData(object):
     """
     openapi_types = {
         'list': 'list[OfflineSpeechAnalyticsEmotionItem]',
-        'totals': 'SpeechAnalyticsEmotion'
+        'totals': 'SpeechAnalyticsEmotionTotals'
     }
 
     attribute_map = {
@@ -85,7 +85,7 @@ class OfflineSpeechAnalyticsEmotionData(object):
 
 
         :return: The totals of this OfflineSpeechAnalyticsEmotionData.  # noqa: E501
-        :rtype: SpeechAnalyticsEmotion
+        :rtype: SpeechAnalyticsEmotionTotals
         """
         return self._totals
 
@@ -95,7 +95,7 @@ class OfflineSpeechAnalyticsEmotionData(object):
 
 
         :param totals: The totals of this OfflineSpeechAnalyticsEmotionData.  # noqa: E501
-        :type: SpeechAnalyticsEmotion
+        :type: SpeechAnalyticsEmotionTotals
         """
 
         self._totals = totals
