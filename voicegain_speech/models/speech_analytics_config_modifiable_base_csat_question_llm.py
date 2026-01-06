@@ -34,69 +34,35 @@ class SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'custom_response_format_json': 'str',
         'prompt': 'str',
         'response_format': 'LlmResponseFormat'
     }
 
     attribute_map = {
-        'custom_response_format_json': 'customResponseFormatJson',
         'prompt': 'prompt',
         'response_format': 'responseFormat'
     }
 
-    def __init__(self, custom_response_format_json=None, prompt=None, response_format=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, prompt=None, response_format=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._custom_response_format_json = None
         self._prompt = None
         self._response_format = None
         self.discriminator = None
 
-        if custom_response_format_json is not None:
-            self.custom_response_format_json = custom_response_format_json
         if prompt is not None:
             self.prompt = prompt
         if response_format is not None:
             self.response_format = response_format
 
     @property
-    def custom_response_format_json(self):
-        """Gets the custom_response_format_json of this SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm.  # noqa: E501
-
-        (future) Must only be provided when `responseFormat` is set to `custom`.   # noqa: E501
-
-        :return: The custom_response_format_json of this SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm.  # noqa: E501
-        :rtype: str
-        """
-        return self._custom_response_format_json
-
-    @custom_response_format_json.setter
-    def custom_response_format_json(self, custom_response_format_json):
-        """Sets the custom_response_format_json of this SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm.
-
-        (future) Must only be provided when `responseFormat` is set to `custom`.   # noqa: E501
-
-        :param custom_response_format_json: The custom_response_format_json of this SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                custom_response_format_json is not None and len(custom_response_format_json) > 2048):
-            raise ValueError("Invalid value for `custom_response_format_json`, length must be less than or equal to `2048`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                custom_response_format_json is not None and len(custom_response_format_json) < 1):
-            raise ValueError("Invalid value for `custom_response_format_json`, length must be greater than or equal to `1`")  # noqa: E501
-
-        self._custom_response_format_json = custom_response_format_json
-
-    @property
     def prompt(self):
         """Gets the prompt of this SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm.  # noqa: E501
 
-        LLM prompt to be used to answer the question.   # noqa: E501
+        LLM prompt to be used to answer the question.</br> If prompt starts with `$`, e.g. `$CSAT`, then it is considered a reference to a prompt defined in the back-end.   # noqa: E501
 
         :return: The prompt of this SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm.  # noqa: E501
         :rtype: str
@@ -107,7 +73,7 @@ class SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm(object):
     def prompt(self, prompt):
         """Sets the prompt of this SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm.
 
-        LLM prompt to be used to answer the question.   # noqa: E501
+        LLM prompt to be used to answer the question.</br> If prompt starts with `$`, e.g. `$CSAT`, then it is considered a reference to a prompt defined in the back-end.   # noqa: E501
 
         :param prompt: The prompt of this SpeechAnalyticsConfigModifiableBaseCsatQuestionLlm.  # noqa: E501
         :type: str

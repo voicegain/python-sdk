@@ -31,9 +31,8 @@ class LlmResponseFormat(object):
     """
     YESNO = "yesNo"
     SCORE1TO10 = "score1to10"
-    CUSTOM = "custom"
 
-    allowable_values = [YESNO, SCORE1TO10, CUSTOM]  # noqa: E501
+    allowable_values = [YESNO, SCORE1TO10]  # noqa: E501
 
     """
     Attributes:
