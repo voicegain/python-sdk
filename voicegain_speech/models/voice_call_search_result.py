@@ -1249,7 +1249,7 @@ class VoiceCallSearchResult(object):
     def csat(self):
         """Gets the csat of this VoiceCallSearchResult.  # noqa: E501
 
-        Customer Satisfaction score for the call. This value is copied from `csatAnswer` in /sa/offline.   # noqa: E501
+        Customer Satisfaction score for the call.</br> This value is copied from the deprecated `csatAnswer` field in /sa/offline, or from Call Insights answers for question with name `CSAT_SCORE`.   # noqa: E501
 
         :return: The csat of this VoiceCallSearchResult.  # noqa: E501
         :rtype: float
@@ -1260,7 +1260,7 @@ class VoiceCallSearchResult(object):
     def csat(self, csat):
         """Sets the csat of this VoiceCallSearchResult.
 
-        Customer Satisfaction score for the call. This value is copied from `csatAnswer` in /sa/offline.   # noqa: E501
+        Customer Satisfaction score for the call.</br> This value is copied from the deprecated `csatAnswer` field in /sa/offline, or from Call Insights answers for question with name `CSAT_SCORE`.   # noqa: E501
 
         :param csat: The csat of this VoiceCallSearchResult.  # noqa: E501
         :type: float
@@ -1434,7 +1434,7 @@ class VoiceCallSearchResult(object):
     def nps(self):
         """Gets the nps of this VoiceCallSearchResult.  # noqa: E501
 
-        Net Promoter Score for the call. This value is copied from `npsAnswer` in /sa/offline.   # noqa: E501
+        Net Promoter Score for the call.</br> This value is copied from the deprecated `npsAnswer` field in /sa/offline, or from Call Insights answers for question with name `NPS_SCORE`.   # noqa: E501
 
         :return: The nps of this VoiceCallSearchResult.  # noqa: E501
         :rtype: float
@@ -1445,7 +1445,7 @@ class VoiceCallSearchResult(object):
     def nps(self, nps):
         """Sets the nps of this VoiceCallSearchResult.
 
-        Net Promoter Score for the call. This value is copied from `npsAnswer` in /sa/offline.   # noqa: E501
+        Net Promoter Score for the call.</br> This value is copied from the deprecated `npsAnswer` field in /sa/offline, or from Call Insights answers for question with name `NPS_SCORE`.   # noqa: E501
 
         :param nps: The nps of this VoiceCallSearchResult.  # noqa: E501
         :type: float
