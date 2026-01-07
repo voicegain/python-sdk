@@ -36,6 +36,7 @@ class OfflineSpeechAnalyticsRequest(object):
     openapi_types = {
         'call_review_config': 'str',
         'creator': 'str',
+        'insights_config': 'str',
         'label': 'str',
         'metadata': 'list[NameValuePair]',
         'persist_seconds': 'float',
@@ -52,6 +53,7 @@ class OfflineSpeechAnalyticsRequest(object):
     attribute_map = {
         'call_review_config': 'callReviewConfig',
         'creator': 'creator',
+        'insights_config': 'insightsConfig',
         'label': 'label',
         'metadata': 'metadata',
         'persist_seconds': 'persistSeconds',
@@ -65,7 +67,7 @@ class OfflineSpeechAnalyticsRequest(object):
         'optimize_for_web_ui': 'optimizeForWebUi'
     }
 
-    def __init__(self, call_review_config=None, creator=None, label=None, metadata=None, persist_seconds=3600, sa_config=None, settings=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, speakers=None, audio=None, optimize_for_web_ui='level2', local_vars_configuration=None):  # noqa: E501
+    def __init__(self, call_review_config=None, creator=None, insights_config=None, label=None, metadata=None, persist_seconds=3600, sa_config=None, settings=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, speakers=None, audio=None, optimize_for_web_ui='level2', local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -73,6 +75,7 @@ class OfflineSpeechAnalyticsRequest(object):
 
         self._call_review_config = None
         self._creator = None
+        self._insights_config = None
         self._label = None
         self._metadata = None
         self._persist_seconds = None
@@ -90,6 +93,8 @@ class OfflineSpeechAnalyticsRequest(object):
             self.call_review_config = call_review_config
         if creator is not None:
             self.creator = creator
+        if insights_config is not None:
+            self.insights_config = insights_config
         if label is not None:
             self.label = label
         if metadata is not None:
@@ -117,7 +122,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def call_review_config(self):
         """Gets the call_review_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
 
-        (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
+        (optional) id of the Call Review (Score Card) configuration to use. The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
 
         :return: The call_review_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :rtype: str
@@ -128,7 +133,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def call_review_config(self, call_review_config):
         """Sets the call_review_config of this OfflineSpeechAnalyticsRequest.
 
-        (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
+        (optional) id of the Call Review (Score Card) configuration to use. The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
 
         :param call_review_config: The call_review_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :type: str
@@ -146,7 +151,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def creator(self):
         """Gets the creator of this OfflineSpeechAnalyticsRequest.  # noqa: E501
 
-        (optional) Id of the user who starts this speech analytics. If invoked from Web UI then we will use identity of the logged-in user.             # noqa: E501
+        (optional) Id of the user who starts this speech analytics. If invoked from Web UI then we will use identity of the logged-in user.   # noqa: E501
 
         :return: The creator of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :rtype: str
@@ -157,7 +162,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def creator(self, creator):
         """Sets the creator of this OfflineSpeechAnalyticsRequest.
 
-        (optional) Id of the user who starts this speech analytics. If invoked from Web UI then we will use identity of the logged-in user.             # noqa: E501
+        (optional) Id of the user who starts this speech analytics. If invoked from Web UI then we will use identity of the logged-in user.   # noqa: E501
 
         :param creator: The creator of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :type: str
@@ -170,6 +175,35 @@ class OfflineSpeechAnalyticsRequest(object):
             raise ValueError("Invalid value for `creator`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._creator = creator
+
+    @property
+    def insights_config(self):
+        """Gets the insights_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
+
+        (optional) id of the Call Insights configuration to use (reference to `ciConfigId`).</br> The Call Insights Config will be used to guide the generation of Call Insights Answers.   # noqa: E501
+
+        :return: The insights_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
+        :rtype: str
+        """
+        return self._insights_config
+
+    @insights_config.setter
+    def insights_config(self, insights_config):
+        """Sets the insights_config of this OfflineSpeechAnalyticsRequest.
+
+        (optional) id of the Call Insights configuration to use (reference to `ciConfigId`).</br> The Call Insights Config will be used to guide the generation of Call Insights Answers.   # noqa: E501
+
+        :param insights_config: The insights_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                insights_config is not None and len(insights_config) > 48):
+            raise ValueError("Invalid value for `insights_config`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                insights_config is not None and len(insights_config) < 16):
+            raise ValueError("Invalid value for `insights_config`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._insights_config = insights_config
 
     @property
     def label(self):
@@ -250,7 +284,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def sa_config(self):
         """Gets the sa_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
 
-        id of the Speech Analytics configuration to use. If not provided then default SA Config for the context will be used.           # noqa: E501
+        id of the Speech Analytics configuration to use. If not provided then default SA Config for the context will be used.   # noqa: E501
 
         :return: The sa_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :rtype: str
@@ -261,7 +295,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def sa_config(self, sa_config):
         """Sets the sa_config of this OfflineSpeechAnalyticsRequest.
 
-        id of the Speech Analytics configuration to use. If not provided then default SA Config for the context will be used.           # noqa: E501
+        id of the Speech Analytics configuration to use. If not provided then default SA Config for the context will be used.   # noqa: E501
 
         :param sa_config: The sa_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :type: str
@@ -323,7 +357,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def topic_discovery_config(self):
         """Gets the topic_discovery_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
 
-        (optional) id of the Topic Discovery configuration to use.  If not provided then default Topic Discovery Config for the context will be used.                 # noqa: E501
+        (optional) id of the Topic Discovery configuration to use. If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
 
         :return: The topic_discovery_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :rtype: str
@@ -334,7 +368,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def topic_discovery_config(self, topic_discovery_config):
         """Sets the topic_discovery_config of this OfflineSpeechAnalyticsRequest.
 
-        (optional) id of the Topic Discovery configuration to use.  If not provided then default Topic Discovery Config for the context will be used.                 # noqa: E501
+        (optional) id of the Topic Discovery configuration to use. If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
 
         :param topic_discovery_config: The topic_discovery_config of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :type: str

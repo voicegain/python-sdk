@@ -38,6 +38,7 @@ class VoiceCallAllOf(object):
         'aivr_transfer_dest_type': 'str',
         'call_id': 'str',
         'call_resolved': 'bool',
+        'ci_answers_id': 'str',
         'context_id': 'str',
         'copilot_sent': 'float',
         'copilot_un_ack': 'float',
@@ -75,6 +76,7 @@ class VoiceCallAllOf(object):
         'aivr_transfer_dest_type': 'aivrTransferDestType',
         'call_id': 'callId',
         'call_resolved': 'callResolved',
+        'ci_answers_id': 'ciAnswersId',
         'context_id': 'contextId',
         'copilot_sent': 'copilotSent',
         'copilot_un_ack': 'copilotUnAck',
@@ -107,7 +109,7 @@ class VoiceCallAllOf(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, context_id=None, copilot_sent=None, copilot_un_ack=None, cr_answers_id=None, csat=None, duration=None, inbound_rtp_quality=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, sentiments=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, ci_answers_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, cr_answers_id=None, csat=None, duration=None, inbound_rtp_quality=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, sentiments=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -117,6 +119,7 @@ class VoiceCallAllOf(object):
         self._aivr_transfer_dest_type = None
         self._call_id = None
         self._call_resolved = None
+        self._ci_answers_id = None
         self._context_id = None
         self._copilot_sent = None
         self._copilot_un_ack = None
@@ -157,6 +160,8 @@ class VoiceCallAllOf(object):
             self.call_id = call_id
         if call_resolved is not None:
             self.call_resolved = call_resolved
+        if ci_answers_id is not None:
+            self.ci_answers_id = ci_answers_id
         if context_id is not None:
             self.context_id = context_id
         if copilot_sent is not None:
@@ -327,6 +332,35 @@ class VoiceCallAllOf(object):
         """
 
         self._call_resolved = call_resolved
+
+    @property
+    def ci_answers_id(self):
+        """Gets the ci_answers_id of this VoiceCallAllOf.  # noqa: E501
+
+        unique id referencing the call insights answers - these are initially populated by speech analytics  # noqa: E501
+
+        :return: The ci_answers_id of this VoiceCallAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._ci_answers_id
+
+    @ci_answers_id.setter
+    def ci_answers_id(self, ci_answers_id):
+        """Sets the ci_answers_id of this VoiceCallAllOf.
+
+        unique id referencing the call insights answers - these are initially populated by speech analytics  # noqa: E501
+
+        :param ci_answers_id: The ci_answers_id of this VoiceCallAllOf.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                ci_answers_id is not None and len(ci_answers_id) > 48):
+            raise ValueError("Invalid value for `ci_answers_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                ci_answers_id is not None and len(ci_answers_id) < 16):
+            raise ValueError("Invalid value for `ci_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._ci_answers_id = ci_answers_id
 
     @property
     def context_id(self):

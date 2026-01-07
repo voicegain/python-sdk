@@ -48,6 +48,7 @@ class SpeechAnalyticsResult(object):
         'tags': 'list[str]',
         'topics': 'list[TopicScore]',
         'channels': 'list[SpeechAnalyticsChannelResult]',
+        'ci_answers_id': 'str',
         'cr_answers_id': 'str',
         'criteria': 'SpeechAnalyticsCriteriaData',
         'incidents': 'list[Incident]',
@@ -76,6 +77,7 @@ class SpeechAnalyticsResult(object):
         'tags': 'tags',
         'topics': 'topics',
         'channels': 'channels',
+        'ci_answers_id': 'ciAnswersId',
         'cr_answers_id': 'crAnswersId',
         'criteria': 'criteria',
         'incidents': 'incidents',
@@ -89,7 +91,7 @@ class SpeechAnalyticsResult(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, account_id=None, async_mode=None, context_id=None, creator=None, duration_sec=None, label=None, metadata=None, persist=None, sa_session_id=None, start_time=None, status=None, tags=None, topics=None, channels=None, cr_answers_id=None, criteria=None, incidents=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, phrase_groups=None, silence=None, single_channel_audio=None, summary=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, async_mode=None, context_id=None, creator=None, duration_sec=None, label=None, metadata=None, persist=None, sa_session_id=None, start_time=None, status=None, tags=None, topics=None, channels=None, ci_answers_id=None, cr_answers_id=None, criteria=None, incidents=None, multi_channel_audio=None, multi_channel_diarization=None, multi_channel_words=None, phrase_groups=None, silence=None, single_channel_audio=None, summary=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -109,6 +111,7 @@ class SpeechAnalyticsResult(object):
         self._tags = None
         self._topics = None
         self._channels = None
+        self._ci_answers_id = None
         self._cr_answers_id = None
         self._criteria = None
         self._incidents = None
@@ -150,6 +153,8 @@ class SpeechAnalyticsResult(object):
             self.topics = topics
         if channels is not None:
             self.channels = channels
+        if ci_answers_id is not None:
+            self.ci_answers_id = ci_answers_id
         if cr_answers_id is not None:
             self.cr_answers_id = cr_answers_id
         if criteria is not None:
@@ -530,10 +535,39 @@ class SpeechAnalyticsResult(object):
         self._channels = channels
 
     @property
+    def ci_answers_id(self):
+        """Gets the ci_answers_id of this SpeechAnalyticsResult.  # noqa: E501
+
+        id of the call insights answers. Set only if `insightsConfig` was provided in the SA session request.</br> Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.   # noqa: E501
+
+        :return: The ci_answers_id of this SpeechAnalyticsResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._ci_answers_id
+
+    @ci_answers_id.setter
+    def ci_answers_id(self, ci_answers_id):
+        """Sets the ci_answers_id of this SpeechAnalyticsResult.
+
+        id of the call insights answers. Set only if `insightsConfig` was provided in the SA session request.</br> Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.   # noqa: E501
+
+        :param ci_answers_id: The ci_answers_id of this SpeechAnalyticsResult.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                ci_answers_id is not None and len(ci_answers_id) > 48):
+            raise ValueError("Invalid value for `ci_answers_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                ci_answers_id is not None and len(ci_answers_id) < 16):
+            raise ValueError("Invalid value for `ci_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._ci_answers_id = ci_answers_id
+
+    @property
     def cr_answers_id(self):
         """Gets the cr_answers_id of this SpeechAnalyticsResult.  # noqa: E501
 
-        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.                         # noqa: E501
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request. Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.   # noqa: E501
 
         :return: The cr_answers_id of this SpeechAnalyticsResult.  # noqa: E501
         :rtype: str
@@ -544,7 +578,7 @@ class SpeechAnalyticsResult(object):
     def cr_answers_id(self, cr_answers_id):
         """Sets the cr_answers_id of this SpeechAnalyticsResult.
 
-        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.                         # noqa: E501
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request. Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.   # noqa: E501
 
         :param cr_answers_id: The cr_answers_id of this SpeechAnalyticsResult.  # noqa: E501
         :type: str

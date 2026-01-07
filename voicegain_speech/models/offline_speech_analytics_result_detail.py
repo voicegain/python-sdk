@@ -34,6 +34,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'ci_answers_id': 'str',
         'cr_answers_id': 'str',
         'criteria': 'SpeechAnalyticsCriteriaData',
         'csat_answer': 'OfflineSpeechAnalyticsResultDetailWithoutWordsCsatAnswer',
@@ -54,6 +55,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
     }
 
     attribute_map = {
+        'ci_answers_id': 'ciAnswersId',
         'cr_answers_id': 'crAnswersId',
         'criteria': 'criteria',
         'csat_answer': 'csatAnswer',
@@ -73,12 +75,13 @@ class OfflineSpeechAnalyticsResultDetail(object):
         'words': 'words'
     }
 
-    def __init__(self, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ci_answers_id=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResultDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._ci_answers_id = None
         self._cr_answers_id = None
         self._criteria = None
         self._csat_answer = None
@@ -98,6 +101,8 @@ class OfflineSpeechAnalyticsResultDetail(object):
         self._words = None
         self.discriminator = None
 
+        if ci_answers_id is not None:
+            self.ci_answers_id = ci_answers_id
         if cr_answers_id is not None:
             self.cr_answers_id = cr_answers_id
         if criteria is not None:
@@ -134,10 +139,39 @@ class OfflineSpeechAnalyticsResultDetail(object):
             self.words = words
 
     @property
+    def ci_answers_id(self):
+        """Gets the ci_answers_id of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+
+        id of the call insights answers. Set only if `insightsConfig` was provided in the SA session request.</br> Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.   # noqa: E501
+
+        :return: The ci_answers_id of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+        :rtype: str
+        """
+        return self._ci_answers_id
+
+    @ci_answers_id.setter
+    def ci_answers_id(self, ci_answers_id):
+        """Sets the ci_answers_id of this OfflineSpeechAnalyticsResultDetail.
+
+        id of the call insights answers. Set only if `insightsConfig` was provided in the SA session request.</br> Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.   # noqa: E501
+
+        :param ci_answers_id: The ci_answers_id of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                ci_answers_id is not None and len(ci_answers_id) > 48):
+            raise ValueError("Invalid value for `ci_answers_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                ci_answers_id is not None and len(ci_answers_id) < 16):
+            raise ValueError("Invalid value for `ci_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._ci_answers_id = ci_answers_id
+
+    @property
     def cr_answers_id(self):
         """Gets the cr_answers_id of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
 
-        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.         # noqa: E501
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request. Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.   # noqa: E501
 
         :return: The cr_answers_id of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
         :rtype: str
@@ -148,7 +182,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
     def cr_answers_id(self, cr_answers_id):
         """Sets the cr_answers_id of this OfflineSpeechAnalyticsResultDetail.
 
-        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request.     Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.         # noqa: E501
+        id of the call review answers. Set only if `callReviewConfig` was provided in the SA session request. Initially the answers will not be populated. The autopopulated answers will be filled in at the end of SA session.   # noqa: E501
 
         :param cr_answers_id: The cr_answers_id of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
         :type: str

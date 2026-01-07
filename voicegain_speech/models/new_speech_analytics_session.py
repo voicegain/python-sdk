@@ -39,6 +39,7 @@ class NewSpeechAnalyticsSession(object):
         'audio': 'AudioInputAsync',
         'call_review_config': 'str',
         'creator': 'str',
+        'insights_config': 'str',
         'label': 'str',
         'metadata': 'list[NameValuePair]',
         'notify_stomp_topic': 'str',
@@ -56,6 +57,7 @@ class NewSpeechAnalyticsSession(object):
         'audio': 'audio',
         'call_review_config': 'callReviewConfig',
         'creator': 'creator',
+        'insights_config': 'insightsConfig',
         'label': 'label',
         'metadata': 'metadata',
         'notify_stomp_topic': 'notifyStompTopic',
@@ -67,7 +69,7 @@ class NewSpeechAnalyticsSession(object):
         'virtual_dual_channel_enabled': 'virtualDualChannelEnabled'
     }
 
-    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, creator=None, label=None, metadata=None, notify_stomp_topic=None, persist=3600000, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, virtual_dual_channel_enabled=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, creator=None, insights_config=None, label=None, metadata=None, notify_stomp_topic=None, persist=3600000, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, virtual_dual_channel_enabled=True, local_vars_configuration=None):  # noqa: E501
         """NewSpeechAnalyticsSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -78,6 +80,7 @@ class NewSpeechAnalyticsSession(object):
         self._audio = None
         self._call_review_config = None
         self._creator = None
+        self._insights_config = None
         self._label = None
         self._metadata = None
         self._notify_stomp_topic = None
@@ -99,6 +102,8 @@ class NewSpeechAnalyticsSession(object):
             self.call_review_config = call_review_config
         if creator is not None:
             self.creator = creator
+        if insights_config is not None:
+            self.insights_config = insights_config
         if label is not None:
             self.label = label
         if metadata is not None:
@@ -184,7 +189,7 @@ class NewSpeechAnalyticsSession(object):
     def call_review_config(self):
         """Gets the call_review_config of this NewSpeechAnalyticsSession.  # noqa: E501
 
-        (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
+        (optional) id of the Call Review (Score Card) configuration to use. The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
 
         :return: The call_review_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :rtype: str
@@ -195,7 +200,7 @@ class NewSpeechAnalyticsSession(object):
     def call_review_config(self, call_review_config):
         """Sets the call_review_config of this NewSpeechAnalyticsSession.
 
-        (optional) id of the Call Review (Score Card) configuration to use.  The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
+        (optional) id of the Call Review (Score Card) configuration to use. The Call Review Config will be used to guide the generation of autopopulated Call Review Answers.   # noqa: E501
 
         :param call_review_config: The call_review_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :type: str
@@ -237,6 +242,35 @@ class NewSpeechAnalyticsSession(object):
             raise ValueError("Invalid value for `creator`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._creator = creator
+
+    @property
+    def insights_config(self):
+        """Gets the insights_config of this NewSpeechAnalyticsSession.  # noqa: E501
+
+        (optional) id of the Call Insights configuration to use (reference to `ciConfigId`).</br> The Call Insights Config will be used to guide the generation of Call Insights Answers.   # noqa: E501
+
+        :return: The insights_config of this NewSpeechAnalyticsSession.  # noqa: E501
+        :rtype: str
+        """
+        return self._insights_config
+
+    @insights_config.setter
+    def insights_config(self, insights_config):
+        """Sets the insights_config of this NewSpeechAnalyticsSession.
+
+        (optional) id of the Call Insights configuration to use (reference to `ciConfigId`).</br> The Call Insights Config will be used to guide the generation of Call Insights Answers.   # noqa: E501
+
+        :param insights_config: The insights_config of this NewSpeechAnalyticsSession.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                insights_config is not None and len(insights_config) > 48):
+            raise ValueError("Invalid value for `insights_config`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                insights_config is not None and len(insights_config) < 16):
+            raise ValueError("Invalid value for `insights_config`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._insights_config = insights_config
 
     @property
     def label(self):
@@ -423,7 +457,7 @@ class NewSpeechAnalyticsSession(object):
     def topic_discovery_config(self):
         """Gets the topic_discovery_config of this NewSpeechAnalyticsSession.  # noqa: E501
 
-        (optional) id of the Topic Discovery configuration to use.  If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
+        (optional) id of the Topic Discovery configuration to use. If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
 
         :return: The topic_discovery_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :rtype: str
@@ -434,7 +468,7 @@ class NewSpeechAnalyticsSession(object):
     def topic_discovery_config(self, topic_discovery_config):
         """Sets the topic_discovery_config of this NewSpeechAnalyticsSession.
 
-        (optional) id of the Topic Discovery configuration to use.  If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
+        (optional) id of the Topic Discovery configuration to use. If not provided then default Topic Discovery Config for the context will be used.   # noqa: E501
 
         :param topic_discovery_config: The topic_discovery_config of this NewSpeechAnalyticsSession.  # noqa: E501
         :type: str
