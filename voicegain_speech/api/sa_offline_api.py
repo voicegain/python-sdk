@@ -40,7 +40,7 @@ class SaOfflineApi(object):
     def sa_offline_call_post(self, call_id, **kwargs):  # noqa: E501
         """Speech Analytics of a Call  # noqa: E501
 
-        Start offline transcription and speech analytics of provided call.</br> (See [POST /sa/call](#tag/sa-internal/operation/saCallPost) for how a call is created.)  At the end of processing some of the SA session results will be stored in the call for fast access.  Input audio can be mono or stereo.</br> If input is stereo then Left channel is assumed to be the external participant and Right the internal.</br> If input audio is mono then automatic diarization will be performed.  Virtual-stereo audio file will be created.   # noqa: E501
+        Start offline transcription and speech analytics of provided call.</br> (See [POST /sa/call](#tag/sa-internal/operation/saCallPost) for how a call is created.)  At the end of processing some of the SA session results will be stored in the call for fast access.  Input audio can be mono or stereo.</br> If input is stereo then Left channel is assumed to be the external participant and Right the internal.</br> If input audio is mono then automatic diarization will be performed. Virtual-stereo audio file will be created.  **Segment Analytics**: Optionally, you can configure detailed analytics for specific segment types (bot/agent) using the `segmentAnalyticsConfig` field.</br> Each segment type can have its own analytics configuration (saConfig, insightsConfig, callReviewConfig) or fall back to the main request configurations.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_call_post(call_id, async_req=True)
@@ -66,7 +66,7 @@ class SaOfflineApi(object):
     def sa_offline_call_post_with_http_info(self, call_id, **kwargs):  # noqa: E501
         """Speech Analytics of a Call  # noqa: E501
 
-        Start offline transcription and speech analytics of provided call.</br> (See [POST /sa/call](#tag/sa-internal/operation/saCallPost) for how a call is created.)  At the end of processing some of the SA session results will be stored in the call for fast access.  Input audio can be mono or stereo.</br> If input is stereo then Left channel is assumed to be the external participant and Right the internal.</br> If input audio is mono then automatic diarization will be performed.  Virtual-stereo audio file will be created.   # noqa: E501
+        Start offline transcription and speech analytics of provided call.</br> (See [POST /sa/call](#tag/sa-internal/operation/saCallPost) for how a call is created.)  At the end of processing some of the SA session results will be stored in the call for fast access.  Input audio can be mono or stereo.</br> If input is stereo then Left channel is assumed to be the external participant and Right the internal.</br> If input audio is mono then automatic diarization will be performed. Virtual-stereo audio file will be created.  **Segment Analytics**: Optionally, you can configure detailed analytics for specific segment types (bot/agent) using the `segmentAnalyticsConfig` field.</br> Each segment type can have its own analytics configuration (saConfig, insightsConfig, callReviewConfig) or fall back to the main request configurations.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_call_post_with_http_info(call_id, async_req=True)
@@ -390,7 +390,7 @@ class SaOfflineApi(object):
     def sa_offline_get_data(self, sa_session_id, **kwargs):  # noqa: E501
         """Speech Analytics Data  # noqa: E501
 
-        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.   # noqa: E501
+        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get_data(sa_session_id, async_req=True)
@@ -423,7 +423,7 @@ class SaOfflineApi(object):
     def sa_offline_get_data_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Speech Analytics Data  # noqa: E501
 
-        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.   # noqa: E501
+        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get_data_with_http_info(sa_session_id, async_req=True)

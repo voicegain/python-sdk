@@ -45,6 +45,7 @@ class OfflineSpeechAnalyticsResultDetailWithoutWords(object):
         'mpd_id': 'str',
         'nps_answer': 'OfflineSpeechAnalyticsResultDetailWithoutWordsNpsAnswer',
         'phrases': 'MeetingPhraseData',
+        'segment_analytics_results': 'list[SegmentAnalyticsResult]',
         'silence': 'Silence',
         'speakers': 'list[OfflineSASpeakerResult]',
         'summary': 'list[str]',
@@ -64,6 +65,7 @@ class OfflineSpeechAnalyticsResultDetailWithoutWords(object):
         'mpd_id': 'mpdId',
         'nps_answer': 'npsAnswer',
         'phrases': 'phrases',
+        'segment_analytics_results': 'segmentAnalyticsResults',
         'silence': 'silence',
         'speakers': 'speakers',
         'summary': 'summary',
@@ -71,7 +73,7 @@ class OfflineSpeechAnalyticsResultDetailWithoutWords(object):
         'word_cloud': 'wordCloud'
     }
 
-    def __init__(self, ci_answers_id=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ci_answers_id=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, segment_analytics_results=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResultDetailWithoutWords - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -88,6 +90,7 @@ class OfflineSpeechAnalyticsResultDetailWithoutWords(object):
         self._mpd_id = None
         self._nps_answer = None
         self._phrases = None
+        self._segment_analytics_results = None
         self._silence = None
         self._speakers = None
         self._summary = None
@@ -117,6 +120,8 @@ class OfflineSpeechAnalyticsResultDetailWithoutWords(object):
             self.nps_answer = nps_answer
         if phrases is not None:
             self.phrases = phrases
+        if segment_analytics_results is not None:
+            self.segment_analytics_results = segment_analytics_results
         if silence is not None:
             self.silence = silence
         if speakers is not None:
@@ -382,6 +387,29 @@ class OfflineSpeechAnalyticsResultDetailWithoutWords(object):
         """
 
         self._phrases = phrases
+
+    @property
+    def segment_analytics_results(self):
+        """Gets the segment_analytics_results of this OfflineSpeechAnalyticsResultDetailWithoutWords.  # noqa: E501
+
+        Results of detailed analytics performed on specific segment types (bot/agent) within the call.</br> Present only if `segmentAnalyticsConfig` was provided in the request.   # noqa: E501
+
+        :return: The segment_analytics_results of this OfflineSpeechAnalyticsResultDetailWithoutWords.  # noqa: E501
+        :rtype: list[SegmentAnalyticsResult]
+        """
+        return self._segment_analytics_results
+
+    @segment_analytics_results.setter
+    def segment_analytics_results(self, segment_analytics_results):
+        """Sets the segment_analytics_results of this OfflineSpeechAnalyticsResultDetailWithoutWords.
+
+        Results of detailed analytics performed on specific segment types (bot/agent) within the call.</br> Present only if `segmentAnalyticsConfig` was provided in the request.   # noqa: E501
+
+        :param segment_analytics_results: The segment_analytics_results of this OfflineSpeechAnalyticsResultDetailWithoutWords.  # noqa: E501
+        :type: list[SegmentAnalyticsResult]
+        """
+
+        self._segment_analytics_results = segment_analytics_results
 
     @property
     def silence(self):

@@ -41,6 +41,7 @@ class OfflineSpeechAnalyticsBaseRequest(object):
         'metadata': 'list[NameValuePair]',
         'persist_seconds': 'float',
         'sa_config': 'str',
+        'segment_analytics_config': 'list[SegmentAnalyticsConfig]',
         'settings': 'OfflineSpeechAnalyticsBaseRequestWithoutSpeakersSettings',
         'tags': 'list[str]',
         'topic_discovery_config': 'str',
@@ -56,6 +57,7 @@ class OfflineSpeechAnalyticsBaseRequest(object):
         'metadata': 'metadata',
         'persist_seconds': 'persistSeconds',
         'sa_config': 'saConfig',
+        'segment_analytics_config': 'segmentAnalyticsConfig',
         'settings': 'settings',
         'tags': 'tags',
         'topic_discovery_config': 'topicDiscoveryConfig',
@@ -63,7 +65,7 @@ class OfflineSpeechAnalyticsBaseRequest(object):
         'speakers': 'speakers'
     }
 
-    def __init__(self, call_review_config=None, creator=None, insights_config=None, label=None, metadata=None, persist_seconds=3600, sa_config=None, settings=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, speakers=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, call_review_config=None, creator=None, insights_config=None, label=None, metadata=None, persist_seconds=3600, sa_config=None, segment_analytics_config=None, settings=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, speakers=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsBaseRequest - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -76,6 +78,7 @@ class OfflineSpeechAnalyticsBaseRequest(object):
         self._metadata = None
         self._persist_seconds = None
         self._sa_config = None
+        self._segment_analytics_config = None
         self._settings = None
         self._tags = None
         self._topic_discovery_config = None
@@ -97,6 +100,8 @@ class OfflineSpeechAnalyticsBaseRequest(object):
             self.persist_seconds = persist_seconds
         if sa_config is not None:
             self.sa_config = sa_config
+        if segment_analytics_config is not None:
+            self.segment_analytics_config = segment_analytics_config
         if settings is not None:
             self.settings = settings
         if tags is not None:
@@ -298,6 +303,29 @@ class OfflineSpeechAnalyticsBaseRequest(object):
             raise ValueError("Invalid value for `sa_config`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._sa_config = sa_config
+
+    @property
+    def segment_analytics_config(self):
+        """Gets the segment_analytics_config of this OfflineSpeechAnalyticsBaseRequest.  # noqa: E501
+
+        (optional) Configuration for detailed analytics of specific segment types in the call.</br> If not provided, no segment-specific analytics will be performed.</br> For each segment type (bot/agent), you can specify different analytics configurations.</br> If any of the config fields (saConfig, insightsConfig, callReviewConfig) are missing in a segment config object, the corresponding config from the main request body will be used as fallback.   # noqa: E501
+
+        :return: The segment_analytics_config of this OfflineSpeechAnalyticsBaseRequest.  # noqa: E501
+        :rtype: list[SegmentAnalyticsConfig]
+        """
+        return self._segment_analytics_config
+
+    @segment_analytics_config.setter
+    def segment_analytics_config(self, segment_analytics_config):
+        """Sets the segment_analytics_config of this OfflineSpeechAnalyticsBaseRequest.
+
+        (optional) Configuration for detailed analytics of specific segment types in the call.</br> If not provided, no segment-specific analytics will be performed.</br> For each segment type (bot/agent), you can specify different analytics configurations.</br> If any of the config fields (saConfig, insightsConfig, callReviewConfig) are missing in a segment config object, the corresponding config from the main request body will be used as fallback.   # noqa: E501
+
+        :param segment_analytics_config: The segment_analytics_config of this OfflineSpeechAnalyticsBaseRequest.  # noqa: E501
+        :type: list[SegmentAnalyticsConfig]
+        """
+
+        self._segment_analytics_config = segment_analytics_config
 
     @property
     def settings(self):
