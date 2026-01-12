@@ -223,6 +223,7 @@ from voicegain_speech.models.c_rel_time_term import CRelTimeTerm
 from voicegain_speech.models.c_rel_time_term_all_of import CRelTimeTermAllOf
 from voicegain_speech.models.c_txt_search_term import CTxtSearchTerm
 from voicegain_speech.models.c_txt_search_term_all_of import CTxtSearchTermAllOf
+from voicegain_speech.models.call_analytics_base import CallAnalyticsBase
 from voicegain_speech.models.call_attributes import CallAttributes
 from voicegain_speech.models.call_field import CallField
 from voicegain_speech.models.call_field_for_time import CallFieldForTime
@@ -230,6 +231,8 @@ from voicegain_speech.models.call_field_for_txt_search import CallFieldForTxtSea
 from voicegain_speech.models.call_marker import CallMarker
 from voicegain_speech.models.call_review_answer_type import CallReviewAnswerType
 from voicegain_speech.models.call_search_field import CallSearchField
+from voicegain_speech.models.call_segment import CallSegment
+from voicegain_speech.models.call_segment_all_of import CallSegmentAllOf
 from voicegain_speech.models.callback_req import CallbackReq
 from voicegain_speech.models.callback_req_reco import CallbackReqReco
 from voicegain_speech.models.callback_resp import CallbackResp

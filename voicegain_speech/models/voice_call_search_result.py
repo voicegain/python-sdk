@@ -60,41 +60,43 @@ class VoiceCallSearchResult(object):
         'team': 'str',
         'voicebot_vars': 'VoiceCallModifiableBaseVoicebotVars',
         'who_hung_up': 'str',
-        'account_id': 'str',
-        'aivr_transfer_dest_type': 'str',
-        'call_id': 'str',
         'call_resolved': 'bool',
         'ci_answers_id': 'str',
-        'context_id': 'str',
-        'copilot_sent': 'float',
-        'copilot_un_ack': 'float',
         'cr_answers_id': 'str',
-        'csat': 'float',
-        'duration': 'int',
-        'inbound_rtp_quality': 'RtpQuality',
-        'incidents': 'float',
+        'incidents': 'int',
         'keywords': 'list[str]',
-        'last_recompute_time': 'datetime',
-        'merged_audio_id': 'str',
         'notes': 'str',
-        'nps': 'float',
-        'outbound_rtp_quality': 'RtpQuality',
-        'progress_phase': 'ProgressPhase',
-        'recompute_phase': 'str',
         'review_notes': 'str',
-        'review_status': 'str',
-        'sa_session_id': 'str',
         'score': 'float',
-        'sentiment': 'float',
         'sentiments': 'list[SpeakerSentimentItem]',
-        'spawned_calls': 'list[str]',
         'topics': 'list[str]',
-        'version': 'int',
-        'voicebot_duration': 'float',
         'voicemail_duration': 'float',
         'voicemail_transcript': 'str',
         'voicemail_uuid': 'str',
         'word_cloud': 'list[WordCloudItem]',
+        'account_id': 'str',
+        'aivr_transfer_dest_type': 'str',
+        'call_id': 'str',
+        'context_id': 'str',
+        'copilot_sent': 'float',
+        'copilot_un_ack': 'float',
+        'csat': 'float',
+        'duration': 'int',
+        'inbound_rtp_quality': 'RtpQuality',
+        'last_recompute_time': 'datetime',
+        'merged_audio_id': 'str',
+        'nps': 'float',
+        'outbound_rtp_quality': 'RtpQuality',
+        'progress_phase': 'ProgressPhase',
+        'recompute_phase': 'str',
+        'review_status': 'str',
+        'sa_session_id': 'str',
+        'segment_count': 'int',
+        'segments': 'list[CallSegment]',
+        'sentiment': 'float',
+        'spawned_calls': 'list[str]',
+        'version': 'int',
+        'voicebot_duration': 'float',
         'headline': 'str'
     }
 
@@ -125,45 +127,47 @@ class VoiceCallSearchResult(object):
         'team': 'team',
         'voicebot_vars': 'voicebotVars',
         'who_hung_up': 'whoHungUp',
-        'account_id': 'accountId',
-        'aivr_transfer_dest_type': 'aivrTransferDestType',
-        'call_id': 'callId',
         'call_resolved': 'callResolved',
         'ci_answers_id': 'ciAnswersId',
-        'context_id': 'contextId',
-        'copilot_sent': 'copilotSent',
-        'copilot_un_ack': 'copilotUnAck',
         'cr_answers_id': 'crAnswersId',
-        'csat': 'csat',
-        'duration': 'duration',
-        'inbound_rtp_quality': 'inboundRtpQuality',
         'incidents': 'incidents',
         'keywords': 'keywords',
-        'last_recompute_time': 'lastRecomputeTime',
-        'merged_audio_id': 'mergedAudioId',
         'notes': 'notes',
-        'nps': 'nps',
-        'outbound_rtp_quality': 'outboundRtpQuality',
-        'progress_phase': 'progressPhase',
-        'recompute_phase': 'recomputePhase',
         'review_notes': 'reviewNotes',
-        'review_status': 'reviewStatus',
-        'sa_session_id': 'saSessionId',
         'score': 'score',
-        'sentiment': 'sentiment',
         'sentiments': 'sentiments',
-        'spawned_calls': 'spawnedCalls',
         'topics': 'topics',
-        'version': 'version',
-        'voicebot_duration': 'voicebotDuration',
         'voicemail_duration': 'voicemailDuration',
         'voicemail_transcript': 'voicemailTranscript',
         'voicemail_uuid': 'voicemailUuid',
         'word_cloud': 'wordCloud',
+        'account_id': 'accountId',
+        'aivr_transfer_dest_type': 'aivrTransferDestType',
+        'call_id': 'callId',
+        'context_id': 'contextId',
+        'copilot_sent': 'copilotSent',
+        'copilot_un_ack': 'copilotUnAck',
+        'csat': 'csat',
+        'duration': 'duration',
+        'inbound_rtp_quality': 'inboundRtpQuality',
+        'last_recompute_time': 'lastRecomputeTime',
+        'merged_audio_id': 'mergedAudioId',
+        'nps': 'nps',
+        'outbound_rtp_quality': 'outboundRtpQuality',
+        'progress_phase': 'progressPhase',
+        'recompute_phase': 'recomputePhase',
+        'review_status': 'reviewStatus',
+        'sa_session_id': 'saSessionId',
+        'segment_count': 'segmentCount',
+        'segments': 'segments',
+        'sentiment': 'sentiment',
+        'spawned_calls': 'spawnedCalls',
+        'version': 'version',
+        'voicebot_duration': 'voicebotDuration',
         'headline': 'headline'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, call_resolved=None, ci_answers_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, cr_answers_id=None, csat=None, duration=None, inbound_rtp_quality=None, incidents=None, keywords=None, last_recompute_time=None, merged_audio_id=None, notes=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_notes=None, review_status=None, sa_session_id=None, score=None, sentiment=None, sentiments=None, spawned_calls=None, topics=None, version=1, voicebot_duration=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, headline=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_status=None, sa_session_id=None, segment_count=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, headline=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallSearchResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -195,41 +199,43 @@ class VoiceCallSearchResult(object):
         self._team = None
         self._voicebot_vars = None
         self._who_hung_up = None
-        self._account_id = None
-        self._aivr_transfer_dest_type = None
-        self._call_id = None
         self._call_resolved = None
         self._ci_answers_id = None
-        self._context_id = None
-        self._copilot_sent = None
-        self._copilot_un_ack = None
         self._cr_answers_id = None
-        self._csat = None
-        self._duration = None
-        self._inbound_rtp_quality = None
         self._incidents = None
         self._keywords = None
-        self._last_recompute_time = None
-        self._merged_audio_id = None
         self._notes = None
-        self._nps = None
-        self._outbound_rtp_quality = None
-        self._progress_phase = None
-        self._recompute_phase = None
         self._review_notes = None
-        self._review_status = None
-        self._sa_session_id = None
         self._score = None
-        self._sentiment = None
         self._sentiments = None
-        self._spawned_calls = None
         self._topics = None
-        self._version = None
-        self._voicebot_duration = None
         self._voicemail_duration = None
         self._voicemail_transcript = None
         self._voicemail_uuid = None
         self._word_cloud = None
+        self._account_id = None
+        self._aivr_transfer_dest_type = None
+        self._call_id = None
+        self._context_id = None
+        self._copilot_sent = None
+        self._copilot_un_ack = None
+        self._csat = None
+        self._duration = None
+        self._inbound_rtp_quality = None
+        self._last_recompute_time = None
+        self._merged_audio_id = None
+        self._nps = None
+        self._outbound_rtp_quality = None
+        self._progress_phase = None
+        self._recompute_phase = None
+        self._review_status = None
+        self._sa_session_id = None
+        self._segment_count = None
+        self._segments = None
+        self._sentiment = None
+        self._spawned_calls = None
+        self._version = None
+        self._voicebot_duration = None
         self._headline = None
         self.discriminator = None
 
@@ -285,68 +291,26 @@ class VoiceCallSearchResult(object):
             self.voicebot_vars = voicebot_vars
         if who_hung_up is not None:
             self.who_hung_up = who_hung_up
-        if account_id is not None:
-            self.account_id = account_id
-        if aivr_transfer_dest_type is not None:
-            self.aivr_transfer_dest_type = aivr_transfer_dest_type
-        if call_id is not None:
-            self.call_id = call_id
         if call_resolved is not None:
             self.call_resolved = call_resolved
         if ci_answers_id is not None:
             self.ci_answers_id = ci_answers_id
-        if context_id is not None:
-            self.context_id = context_id
-        if copilot_sent is not None:
-            self.copilot_sent = copilot_sent
-        if copilot_un_ack is not None:
-            self.copilot_un_ack = copilot_un_ack
         if cr_answers_id is not None:
             self.cr_answers_id = cr_answers_id
-        if csat is not None:
-            self.csat = csat
-        if duration is not None:
-            self.duration = duration
-        if inbound_rtp_quality is not None:
-            self.inbound_rtp_quality = inbound_rtp_quality
         if incidents is not None:
             self.incidents = incidents
         if keywords is not None:
             self.keywords = keywords
-        if last_recompute_time is not None:
-            self.last_recompute_time = last_recompute_time
-        if merged_audio_id is not None:
-            self.merged_audio_id = merged_audio_id
         if notes is not None:
             self.notes = notes
-        if nps is not None:
-            self.nps = nps
-        if outbound_rtp_quality is not None:
-            self.outbound_rtp_quality = outbound_rtp_quality
-        if progress_phase is not None:
-            self.progress_phase = progress_phase
-        if recompute_phase is not None:
-            self.recompute_phase = recompute_phase
         if review_notes is not None:
             self.review_notes = review_notes
-        if review_status is not None:
-            self.review_status = review_status
-        if sa_session_id is not None:
-            self.sa_session_id = sa_session_id
         if score is not None:
             self.score = score
-        if sentiment is not None:
-            self.sentiment = sentiment
         if sentiments is not None:
             self.sentiments = sentiments
-        if spawned_calls is not None:
-            self.spawned_calls = spawned_calls
         if topics is not None:
             self.topics = topics
-        if version is not None:
-            self.version = version
-        if voicebot_duration is not None:
-            self.voicebot_duration = voicebot_duration
         if voicemail_duration is not None:
             self.voicemail_duration = voicemail_duration
         if voicemail_transcript is not None:
@@ -355,6 +319,52 @@ class VoiceCallSearchResult(object):
             self.voicemail_uuid = voicemail_uuid
         if word_cloud is not None:
             self.word_cloud = word_cloud
+        if account_id is not None:
+            self.account_id = account_id
+        if aivr_transfer_dest_type is not None:
+            self.aivr_transfer_dest_type = aivr_transfer_dest_type
+        if call_id is not None:
+            self.call_id = call_id
+        if context_id is not None:
+            self.context_id = context_id
+        if copilot_sent is not None:
+            self.copilot_sent = copilot_sent
+        if copilot_un_ack is not None:
+            self.copilot_un_ack = copilot_un_ack
+        if csat is not None:
+            self.csat = csat
+        if duration is not None:
+            self.duration = duration
+        if inbound_rtp_quality is not None:
+            self.inbound_rtp_quality = inbound_rtp_quality
+        if last_recompute_time is not None:
+            self.last_recompute_time = last_recompute_time
+        if merged_audio_id is not None:
+            self.merged_audio_id = merged_audio_id
+        if nps is not None:
+            self.nps = nps
+        if outbound_rtp_quality is not None:
+            self.outbound_rtp_quality = outbound_rtp_quality
+        if progress_phase is not None:
+            self.progress_phase = progress_phase
+        if recompute_phase is not None:
+            self.recompute_phase = recompute_phase
+        if review_status is not None:
+            self.review_status = review_status
+        if sa_session_id is not None:
+            self.sa_session_id = sa_session_id
+        if segment_count is not None:
+            self.segment_count = segment_count
+        if segments is not None:
+            self.segments = segments
+        if sentiment is not None:
+            self.sentiment = sentiment
+        if spawned_calls is not None:
+            self.spawned_calls = spawned_calls
+        if version is not None:
+            self.version = version
+        if voicebot_duration is not None:
+            self.voicebot_duration = voicebot_duration
         if headline is not None:
             self.headline = headline
 
@@ -997,6 +1007,346 @@ class VoiceCallSearchResult(object):
         self._who_hung_up = who_hung_up
 
     @property
+    def call_resolved(self):
+        """Gets the call_resolved of this VoiceCallSearchResult.  # noqa: E501
+
+        Set to true if Call Review determined that the call/segment successfully resolved/handled the problem/issues  # noqa: E501
+
+        :return: The call_resolved of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: bool
+        """
+        return self._call_resolved
+
+    @call_resolved.setter
+    def call_resolved(self, call_resolved):
+        """Sets the call_resolved of this VoiceCallSearchResult.
+
+        Set to true if Call Review determined that the call/segment successfully resolved/handled the problem/issues  # noqa: E501
+
+        :param call_resolved: The call_resolved of this VoiceCallSearchResult.  # noqa: E501
+        :type: bool
+        """
+
+        self._call_resolved = call_resolved
+
+    @property
+    def ci_answers_id(self):
+        """Gets the ci_answers_id of this VoiceCallSearchResult.  # noqa: E501
+
+        Unique id referencing the call insights answers - these are initially populated by speech analytics  # noqa: E501
+
+        :return: The ci_answers_id of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._ci_answers_id
+
+    @ci_answers_id.setter
+    def ci_answers_id(self, ci_answers_id):
+        """Sets the ci_answers_id of this VoiceCallSearchResult.
+
+        Unique id referencing the call insights answers - these are initially populated by speech analytics  # noqa: E501
+
+        :param ci_answers_id: The ci_answers_id of this VoiceCallSearchResult.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                ci_answers_id is not None and len(ci_answers_id) > 48):
+            raise ValueError("Invalid value for `ci_answers_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                ci_answers_id is not None and len(ci_answers_id) < 16):
+            raise ValueError("Invalid value for `ci_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._ci_answers_id = ci_answers_id
+
+    @property
+    def cr_answers_id(self):
+        """Gets the cr_answers_id of this VoiceCallSearchResult.  # noqa: E501
+
+        Unique id referencing the call review answers - these are initially populated by speech analytics  # noqa: E501
+
+        :return: The cr_answers_id of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._cr_answers_id
+
+    @cr_answers_id.setter
+    def cr_answers_id(self, cr_answers_id):
+        """Sets the cr_answers_id of this VoiceCallSearchResult.
+
+        Unique id referencing the call review answers - these are initially populated by speech analytics  # noqa: E501
+
+        :param cr_answers_id: The cr_answers_id of this VoiceCallSearchResult.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                cr_answers_id is not None and len(cr_answers_id) > 48):
+            raise ValueError("Invalid value for `cr_answers_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                cr_answers_id is not None and len(cr_answers_id) < 16):
+            raise ValueError("Invalid value for `cr_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._cr_answers_id = cr_answers_id
+
+    @property
+    def incidents(self):
+        """Gets the incidents of this VoiceCallSearchResult.  # noqa: E501
+
+        Number of silence and overtalk incidents  # noqa: E501
+
+        :return: The incidents of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: int
+        """
+        return self._incidents
+
+    @incidents.setter
+    def incidents(self, incidents):
+        """Sets the incidents of this VoiceCallSearchResult.
+
+        Number of silence and overtalk incidents  # noqa: E501
+
+        :param incidents: The incidents of this VoiceCallSearchResult.  # noqa: E501
+        :type: int
+        """
+
+        self._incidents = incidents
+
+    @property
+    def keywords(self):
+        """Gets the keywords of this VoiceCallSearchResult.  # noqa: E501
+
+        All keywords detected  # noqa: E501
+
+        :return: The keywords of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._keywords
+
+    @keywords.setter
+    def keywords(self, keywords):
+        """Sets the keywords of this VoiceCallSearchResult.
+
+        All keywords detected  # noqa: E501
+
+        :param keywords: The keywords of this VoiceCallSearchResult.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._keywords = keywords
+
+    @property
+    def notes(self):
+        """Gets the notes of this VoiceCallSearchResult.  # noqa: E501
+
+        Brief notes. May be submitted to the CRM.</br> Typically, generated using LLM prompt taken from `llmCopilotNotesPrompt` in saConfig   # noqa: E501
+
+        :return: The notes of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._notes
+
+    @notes.setter
+    def notes(self, notes):
+        """Sets the notes of this VoiceCallSearchResult.
+
+        Brief notes. May be submitted to the CRM.</br> Typically, generated using LLM prompt taken from `llmCopilotNotesPrompt` in saConfig   # noqa: E501
+
+        :param notes: The notes of this VoiceCallSearchResult.  # noqa: E501
+        :type: str
+        """
+
+        self._notes = notes
+
+    @property
+    def review_notes(self):
+        """Gets the review_notes of this VoiceCallSearchResult.  # noqa: E501
+
+        Notes taken during review  # noqa: E501
+
+        :return: The review_notes of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._review_notes
+
+    @review_notes.setter
+    def review_notes(self, review_notes):
+        """Sets the review_notes of this VoiceCallSearchResult.
+
+        Notes taken during review  # noqa: E501
+
+        :param review_notes: The review_notes of this VoiceCallSearchResult.  # noqa: E501
+        :type: str
+        """
+
+        self._review_notes = review_notes
+
+    @property
+    def score(self):
+        """Gets the score of this VoiceCallSearchResult.  # noqa: E501
+
+        Score computed from Call Review  # noqa: E501
+
+        :return: The score of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._score
+
+    @score.setter
+    def score(self, score):
+        """Sets the score of this VoiceCallSearchResult.
+
+        Score computed from Call Review  # noqa: E501
+
+        :param score: The score of this VoiceCallSearchResult.  # noqa: E501
+        :type: float
+        """
+
+        self._score = score
+
+    @property
+    def sentiments(self):
+        """Gets the sentiments of this VoiceCallSearchResult.  # noqa: E501
+
+        Sentiment values for speakers. Only one value for each speaker type is present.  # noqa: E501
+
+        :return: The sentiments of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: list[SpeakerSentimentItem]
+        """
+        return self._sentiments
+
+    @sentiments.setter
+    def sentiments(self, sentiments):
+        """Sets the sentiments of this VoiceCallSearchResult.
+
+        Sentiment values for speakers. Only one value for each speaker type is present.  # noqa: E501
+
+        :param sentiments: The sentiments of this VoiceCallSearchResult.  # noqa: E501
+        :type: list[SpeakerSentimentItem]
+        """
+
+        self._sentiments = sentiments
+
+    @property
+    def topics(self):
+        """Gets the topics of this VoiceCallSearchResult.  # noqa: E501
+
+        All topics discovered  # noqa: E501
+
+        :return: The topics of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._topics
+
+    @topics.setter
+    def topics(self, topics):
+        """Sets the topics of this VoiceCallSearchResult.
+
+        All topics discovered  # noqa: E501
+
+        :param topics: The topics of this VoiceCallSearchResult.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._topics = topics
+
+    @property
+    def voicemail_duration(self):
+        """Gets the voicemail_duration of this VoiceCallSearchResult.  # noqa: E501
+
+        Present only if a voicemail was left.</br> Duration of the voicemail in seconds.   # noqa: E501
+
+        :return: The voicemail_duration of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: float
+        """
+        return self._voicemail_duration
+
+    @voicemail_duration.setter
+    def voicemail_duration(self, voicemail_duration):
+        """Sets the voicemail_duration of this VoiceCallSearchResult.
+
+        Present only if a voicemail was left.</br> Duration of the voicemail in seconds.   # noqa: E501
+
+        :param voicemail_duration: The voicemail_duration of this VoiceCallSearchResult.  # noqa: E501
+        :type: float
+        """
+
+        self._voicemail_duration = voicemail_duration
+
+    @property
+    def voicemail_transcript(self):
+        """Gets the voicemail_transcript of this VoiceCallSearchResult.  # noqa: E501
+
+        Present only if a voicemail was left.</br> Transcription of the voicemail.   # noqa: E501
+
+        :return: The voicemail_transcript of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._voicemail_transcript
+
+    @voicemail_transcript.setter
+    def voicemail_transcript(self, voicemail_transcript):
+        """Sets the voicemail_transcript of this VoiceCallSearchResult.
+
+        Present only if a voicemail was left.</br> Transcription of the voicemail.   # noqa: E501
+
+        :param voicemail_transcript: The voicemail_transcript of this VoiceCallSearchResult.  # noqa: E501
+        :type: str
+        """
+
+        self._voicemail_transcript = voicemail_transcript
+
+    @property
+    def voicemail_uuid(self):
+        """Gets the voicemail_uuid of this VoiceCallSearchResult.  # noqa: E501
+
+        Present only if a voicemail was left.</br> Reference to the data object with the voicemail recording. Use /data API to retrieve the voicemail recording.   # noqa: E501
+
+        :return: The voicemail_uuid of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: str
+        """
+        return self._voicemail_uuid
+
+    @voicemail_uuid.setter
+    def voicemail_uuid(self, voicemail_uuid):
+        """Sets the voicemail_uuid of this VoiceCallSearchResult.
+
+        Present only if a voicemail was left.</br> Reference to the data object with the voicemail recording. Use /data API to retrieve the voicemail recording.   # noqa: E501
+
+        :param voicemail_uuid: The voicemail_uuid of this VoiceCallSearchResult.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                voicemail_uuid is not None and len(voicemail_uuid) > 48):
+            raise ValueError("Invalid value for `voicemail_uuid`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                voicemail_uuid is not None and len(voicemail_uuid) < 16):
+            raise ValueError("Invalid value for `voicemail_uuid`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._voicemail_uuid = voicemail_uuid
+
+    @property
+    def word_cloud(self):
+        """Gets the word_cloud of this VoiceCallSearchResult.  # noqa: E501
+
+        Top words from the transcript with their frequencies  # noqa: E501
+
+        :return: The word_cloud of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: list[WordCloudItem]
+        """
+        return self._word_cloud
+
+    @word_cloud.setter
+    def word_cloud(self, word_cloud):
+        """Sets the word_cloud of this VoiceCallSearchResult.
+
+        Top words from the transcript with their frequencies  # noqa: E501
+
+        :param word_cloud: The word_cloud of this VoiceCallSearchResult.  # noqa: E501
+        :type: list[WordCloudItem]
+        """
+
+        self._word_cloud = word_cloud
+
+    @property
     def account_id(self):
         """Gets the account_id of this VoiceCallSearchResult.  # noqa: E501
 
@@ -1084,58 +1434,6 @@ class VoiceCallSearchResult(object):
         self._call_id = call_id
 
     @property
-    def call_resolved(self):
-        """Gets the call_resolved of this VoiceCallSearchResult.  # noqa: E501
-
-        Set to true if Call Review determined that the call successfully resolved/handled the problem/issues of the call.  # noqa: E501
-
-        :return: The call_resolved of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: bool
-        """
-        return self._call_resolved
-
-    @call_resolved.setter
-    def call_resolved(self, call_resolved):
-        """Sets the call_resolved of this VoiceCallSearchResult.
-
-        Set to true if Call Review determined that the call successfully resolved/handled the problem/issues of the call.  # noqa: E501
-
-        :param call_resolved: The call_resolved of this VoiceCallSearchResult.  # noqa: E501
-        :type: bool
-        """
-
-        self._call_resolved = call_resolved
-
-    @property
-    def ci_answers_id(self):
-        """Gets the ci_answers_id of this VoiceCallSearchResult.  # noqa: E501
-
-        unique id referencing the call insights answers - these are initially populated by speech analytics  # noqa: E501
-
-        :return: The ci_answers_id of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._ci_answers_id
-
-    @ci_answers_id.setter
-    def ci_answers_id(self, ci_answers_id):
-        """Sets the ci_answers_id of this VoiceCallSearchResult.
-
-        unique id referencing the call insights answers - these are initially populated by speech analytics  # noqa: E501
-
-        :param ci_answers_id: The ci_answers_id of this VoiceCallSearchResult.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                ci_answers_id is not None and len(ci_answers_id) > 48):
-            raise ValueError("Invalid value for `ci_answers_id`, length must be less than or equal to `48`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                ci_answers_id is not None and len(ci_answers_id) < 16):
-            raise ValueError("Invalid value for `ci_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
-
-        self._ci_answers_id = ci_answers_id
-
-    @property
     def context_id(self):
         """Gets the context_id of this VoiceCallSearchResult.  # noqa: E501
 
@@ -1217,35 +1515,6 @@ class VoiceCallSearchResult(object):
         self._copilot_un_ack = copilot_un_ack
 
     @property
-    def cr_answers_id(self):
-        """Gets the cr_answers_id of this VoiceCallSearchResult.  # noqa: E501
-
-        unique id referencing the call review answers - these are initially populated by speech analytics  # noqa: E501
-
-        :return: The cr_answers_id of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._cr_answers_id
-
-    @cr_answers_id.setter
-    def cr_answers_id(self, cr_answers_id):
-        """Sets the cr_answers_id of this VoiceCallSearchResult.
-
-        unique id referencing the call review answers - these are initially populated by speech analytics  # noqa: E501
-
-        :param cr_answers_id: The cr_answers_id of this VoiceCallSearchResult.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                cr_answers_id is not None and len(cr_answers_id) > 48):
-            raise ValueError("Invalid value for `cr_answers_id`, length must be less than or equal to `48`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                cr_answers_id is not None and len(cr_answers_id) < 16):
-            raise ValueError("Invalid value for `cr_answers_id`, length must be greater than or equal to `16`")  # noqa: E501
-
-        self._cr_answers_id = cr_answers_id
-
-    @property
     def csat(self):
         """Gets the csat of this VoiceCallSearchResult.  # noqa: E501
 
@@ -1316,52 +1585,6 @@ class VoiceCallSearchResult(object):
         self._inbound_rtp_quality = inbound_rtp_quality
 
     @property
-    def incidents(self):
-        """Gets the incidents of this VoiceCallSearchResult.  # noqa: E501
-
-        Number of silence and overtalk incidents on a call  # noqa: E501
-
-        :return: The incidents of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: float
-        """
-        return self._incidents
-
-    @incidents.setter
-    def incidents(self, incidents):
-        """Sets the incidents of this VoiceCallSearchResult.
-
-        Number of silence and overtalk incidents on a call  # noqa: E501
-
-        :param incidents: The incidents of this VoiceCallSearchResult.  # noqa: E501
-        :type: float
-        """
-
-        self._incidents = incidents
-
-    @property
-    def keywords(self):
-        """Gets the keywords of this VoiceCallSearchResult.  # noqa: E501
-
-        All keywords detected in the call. Complete set of keywords and all details can be retrieved using `saSessionId`   # noqa: E501
-
-        :return: The keywords of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._keywords
-
-    @keywords.setter
-    def keywords(self, keywords):
-        """Sets the keywords of this VoiceCallSearchResult.
-
-        All keywords detected in the call. Complete set of keywords and all details can be retrieved using `saSessionId`   # noqa: E501
-
-        :param keywords: The keywords of this VoiceCallSearchResult.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._keywords = keywords
-
-    @property
     def last_recompute_time(self):
         """Gets the last_recompute_time of this VoiceCallSearchResult.  # noqa: E501
 
@@ -1406,29 +1629,6 @@ class VoiceCallSearchResult(object):
         """
 
         self._merged_audio_id = merged_audio_id
-
-    @property
-    def notes(self):
-        """Gets the notes of this VoiceCallSearchResult.  # noqa: E501
-
-        Brief notes about the call. May be submitted to the CRM.</br> Typically, generated using LLM prompt taken from `llmCopilotNotesPrompt` in saConfig   # noqa: E501
-
-        :return: The notes of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._notes
-
-    @notes.setter
-    def notes(self, notes):
-        """Sets the notes of this VoiceCallSearchResult.
-
-        Brief notes about the call. May be submitted to the CRM.</br> Typically, generated using LLM prompt taken from `llmCopilotNotesPrompt` in saConfig   # noqa: E501
-
-        :param notes: The notes of this VoiceCallSearchResult.  # noqa: E501
-        :type: str
-        """
-
-        self._notes = notes
 
     @property
     def nps(self):
@@ -1528,29 +1728,6 @@ class VoiceCallSearchResult(object):
         self._recompute_phase = recompute_phase
 
     @property
-    def review_notes(self):
-        """Gets the review_notes of this VoiceCallSearchResult.  # noqa: E501
-
-        Notes about the call taken during a review.</br> TODO: make them structured   # noqa: E501
-
-        :return: The review_notes of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._review_notes
-
-    @review_notes.setter
-    def review_notes(self, review_notes):
-        """Sets the review_notes of this VoiceCallSearchResult.
-
-        Notes about the call taken during a review.</br> TODO: make them structured   # noqa: E501
-
-        :param review_notes: The review_notes of this VoiceCallSearchResult.  # noqa: E501
-        :type: str
-        """
-
-        self._review_notes = review_notes
-
-    @property
     def review_status(self):
         """Gets the review_status of this VoiceCallSearchResult.  # noqa: E501
 
@@ -1603,27 +1780,53 @@ class VoiceCallSearchResult(object):
         self._sa_session_id = sa_session_id
 
     @property
-    def score(self):
-        """Gets the score of this VoiceCallSearchResult.  # noqa: E501
+    def segment_count(self):
+        """Gets the segment_count of this VoiceCallSearchResult.  # noqa: E501
 
-        Call score - computed from Call Review  # noqa: E501
+        Number of segments in this call (bot, agent, or system segments).</br> May be null for legacy calls that were created before segment support was added.   # noqa: E501
 
-        :return: The score of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: float
+        :return: The segment_count of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: int
         """
-        return self._score
+        return self._segment_count
 
-    @score.setter
-    def score(self, score):
-        """Sets the score of this VoiceCallSearchResult.
+    @segment_count.setter
+    def segment_count(self, segment_count):
+        """Sets the segment_count of this VoiceCallSearchResult.
 
-        Call score - computed from Call Review  # noqa: E501
+        Number of segments in this call (bot, agent, or system segments).</br> May be null for legacy calls that were created before segment support was added.   # noqa: E501
 
-        :param score: The score of this VoiceCallSearchResult.  # noqa: E501
-        :type: float
+        :param segment_count: The segment_count of this VoiceCallSearchResult.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                segment_count is not None and segment_count < 0):  # noqa: E501
+            raise ValueError("Invalid value for `segment_count`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._segment_count = segment_count
+
+    @property
+    def segments(self):
+        """Gets the segments of this VoiceCallSearchResult.  # noqa: E501
+
+        List of segments in this call with full segment data.</br> May be missing or null for legacy calls that were created before segment support was added.</br> Segments are ordered by their start time.   # noqa: E501
+
+        :return: The segments of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: list[CallSegment]
+        """
+        return self._segments
+
+    @segments.setter
+    def segments(self, segments):
+        """Sets the segments of this VoiceCallSearchResult.
+
+        List of segments in this call with full segment data.</br> May be missing or null for legacy calls that were created before segment support was added.</br> Segments are ordered by their start time.   # noqa: E501
+
+        :param segments: The segments of this VoiceCallSearchResult.  # noqa: E501
+        :type: list[CallSegment]
         """
 
-        self._score = score
+        self._segments = segments
 
     @property
     def sentiment(self):
@@ -1649,29 +1852,6 @@ class VoiceCallSearchResult(object):
         self._sentiment = sentiment
 
     @property
-    def sentiments(self):
-        """Gets the sentiments of this VoiceCallSearchResult.  # noqa: E501
-
-        Sentiment values for speakers on the call. Only one value for each speaker type is present.  # noqa: E501
-
-        :return: The sentiments of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: list[SpeakerSentimentItem]
-        """
-        return self._sentiments
-
-    @sentiments.setter
-    def sentiments(self, sentiments):
-        """Sets the sentiments of this VoiceCallSearchResult.
-
-        Sentiment values for speakers on the call. Only one value for each speaker type is present.  # noqa: E501
-
-        :param sentiments: The sentiments of this VoiceCallSearchResult.  # noqa: E501
-        :type: list[SpeakerSentimentItem]
-        """
-
-        self._sentiments = sentiments
-
-    @property
     def spawned_calls(self):
         """Gets the spawned_calls of this VoiceCallSearchResult.  # noqa: E501
 
@@ -1693,29 +1873,6 @@ class VoiceCallSearchResult(object):
         """
 
         self._spawned_calls = spawned_calls
-
-    @property
-    def topics(self):
-        """Gets the topics of this VoiceCallSearchResult.  # noqa: E501
-
-        All topics discovered from the call. Complete set of topics and all details can be retrieved using `saSessionId`   # noqa: E501
-
-        :return: The topics of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: list[str]
-        """
-        return self._topics
-
-    @topics.setter
-    def topics(self, topics):
-        """Sets the topics of this VoiceCallSearchResult.
-
-        All topics discovered from the call. Complete set of topics and all details can be retrieved using `saSessionId`   # noqa: E501
-
-        :param topics: The topics of this VoiceCallSearchResult.  # noqa: E501
-        :type: list[str]
-        """
-
-        self._topics = topics
 
     @property
     def version(self):
@@ -1768,104 +1925,6 @@ class VoiceCallSearchResult(object):
         """
 
         self._voicebot_duration = voicebot_duration
-
-    @property
-    def voicemail_duration(self):
-        """Gets the voicemail_duration of this VoiceCallSearchResult.  # noqa: E501
-
-        Present only if a voicemail was left during the call.</br> Duration of the voicemail in seconds.   # noqa: E501
-
-        :return: The voicemail_duration of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: float
-        """
-        return self._voicemail_duration
-
-    @voicemail_duration.setter
-    def voicemail_duration(self, voicemail_duration):
-        """Sets the voicemail_duration of this VoiceCallSearchResult.
-
-        Present only if a voicemail was left during the call.</br> Duration of the voicemail in seconds.   # noqa: E501
-
-        :param voicemail_duration: The voicemail_duration of this VoiceCallSearchResult.  # noqa: E501
-        :type: float
-        """
-
-        self._voicemail_duration = voicemail_duration
-
-    @property
-    def voicemail_transcript(self):
-        """Gets the voicemail_transcript of this VoiceCallSearchResult.  # noqa: E501
-
-        Present only if a voicemail was left during the call.</br> Transcription of the voicemail.   # noqa: E501
-
-        :return: The voicemail_transcript of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._voicemail_transcript
-
-    @voicemail_transcript.setter
-    def voicemail_transcript(self, voicemail_transcript):
-        """Sets the voicemail_transcript of this VoiceCallSearchResult.
-
-        Present only if a voicemail was left during the call.</br> Transcription of the voicemail.   # noqa: E501
-
-        :param voicemail_transcript: The voicemail_transcript of this VoiceCallSearchResult.  # noqa: E501
-        :type: str
-        """
-
-        self._voicemail_transcript = voicemail_transcript
-
-    @property
-    def voicemail_uuid(self):
-        """Gets the voicemail_uuid of this VoiceCallSearchResult.  # noqa: E501
-
-        Present only if a voicemail was left during the call.</br> Reference to the data object with the voicemail recording.  Use /data API to retrieve the voicemail recording.   # noqa: E501
-
-        :return: The voicemail_uuid of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: str
-        """
-        return self._voicemail_uuid
-
-    @voicemail_uuid.setter
-    def voicemail_uuid(self, voicemail_uuid):
-        """Sets the voicemail_uuid of this VoiceCallSearchResult.
-
-        Present only if a voicemail was left during the call.</br> Reference to the data object with the voicemail recording.  Use /data API to retrieve the voicemail recording.   # noqa: E501
-
-        :param voicemail_uuid: The voicemail_uuid of this VoiceCallSearchResult.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                voicemail_uuid is not None and len(voicemail_uuid) > 48):
-            raise ValueError("Invalid value for `voicemail_uuid`, length must be less than or equal to `48`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                voicemail_uuid is not None and len(voicemail_uuid) < 16):
-            raise ValueError("Invalid value for `voicemail_uuid`, length must be greater than or equal to `16`")  # noqa: E501
-
-        self._voicemail_uuid = voicemail_uuid
-
-    @property
-    def word_cloud(self):
-        """Gets the word_cloud of this VoiceCallSearchResult.  # noqa: E501
-
-        Top 100 words from the transcript with their frequencies. Complete wordcloud can be retrieved using `saSessionId`   # noqa: E501
-
-        :return: The word_cloud of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: list[WordCloudItem]
-        """
-        return self._word_cloud
-
-    @word_cloud.setter
-    def word_cloud(self, word_cloud):
-        """Sets the word_cloud of this VoiceCallSearchResult.
-
-        Top 100 words from the transcript with their frequencies. Complete wordcloud can be retrieved using `saSessionId`   # noqa: E501
-
-        :param word_cloud: The word_cloud of this VoiceCallSearchResult.  # noqa: E501
-        :type: list[WordCloudItem]
-        """
-
-        self._word_cloud = word_cloud
 
     @property
     def headline(self):
