@@ -51,7 +51,6 @@ class VoiceCallAllOf(object):
         'recompute_phase': 'str',
         'review_status': 'str',
         'sa_session_id': 'str',
-        'segment_count': 'int',
         'segments': 'list[CallSegment]',
         'sentiment': 'float',
         'spawned_calls': 'list[str]',
@@ -77,7 +76,6 @@ class VoiceCallAllOf(object):
         'recompute_phase': 'recomputePhase',
         'review_status': 'reviewStatus',
         'sa_session_id': 'saSessionId',
-        'segment_count': 'segmentCount',
         'segments': 'segments',
         'sentiment': 'sentiment',
         'spawned_calls': 'spawnedCalls',
@@ -85,7 +83,7 @@ class VoiceCallAllOf(object):
         'voicebot_duration': 'voicebotDuration'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_status=None, sa_session_id=None, segment_count=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -108,7 +106,6 @@ class VoiceCallAllOf(object):
         self._recompute_phase = None
         self._review_status = None
         self._sa_session_id = None
-        self._segment_count = None
         self._segments = None
         self._sentiment = None
         self._spawned_calls = None
@@ -150,8 +147,6 @@ class VoiceCallAllOf(object):
             self.review_status = review_status
         if sa_session_id is not None:
             self.sa_session_id = sa_session_id
-        if segment_count is not None:
-            self.segment_count = segment_count
         if segments is not None:
             self.segments = segments
         if sentiment is not None:
@@ -595,32 +590,6 @@ class VoiceCallAllOf(object):
         """
 
         self._sa_session_id = sa_session_id
-
-    @property
-    def segment_count(self):
-        """Gets the segment_count of this VoiceCallAllOf.  # noqa: E501
-
-        Number of segments in this call (bot, agent, or system segments).</br> May be null for legacy calls that were created before segment support was added.   # noqa: E501
-
-        :return: The segment_count of this VoiceCallAllOf.  # noqa: E501
-        :rtype: int
-        """
-        return self._segment_count
-
-    @segment_count.setter
-    def segment_count(self, segment_count):
-        """Sets the segment_count of this VoiceCallAllOf.
-
-        Number of segments in this call (bot, agent, or system segments).</br> May be null for legacy calls that were created before segment support was added.   # noqa: E501
-
-        :param segment_count: The segment_count of this VoiceCallAllOf.  # noqa: E501
-        :type: int
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                segment_count is not None and segment_count < 0):  # noqa: E501
-            raise ValueError("Invalid value for `segment_count`, must be a value greater than or equal to `0`")  # noqa: E501
-
-        self._segment_count = segment_count
 
     @property
     def segments(self):
