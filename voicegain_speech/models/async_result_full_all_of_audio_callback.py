@@ -38,6 +38,7 @@ class AsyncResultFullAllOfAudioCallback(object):
         'code': 'int',
         'method': 'str',
         'multipart_form_data': 'list[MultipartFormDataField]',
+        'number_attempts': 'int',
         'response': 'str',
         'time': 'int',
         'uri': 'str'
@@ -48,12 +49,13 @@ class AsyncResultFullAllOfAudioCallback(object):
         'code': 'code',
         'method': 'method',
         'multipart_form_data': 'multipartFormData',
+        'number_attempts': 'numberAttempts',
         'response': 'response',
         'time': 'time',
         'uri': 'uri'
     }
 
-    def __init__(self, auth_conf=None, code=None, method=None, multipart_form_data=None, response=None, time=None, uri=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, auth_conf=None, code=None, method=None, multipart_form_data=None, number_attempts=1, response=None, time=None, uri=None, local_vars_configuration=None):  # noqa: E501
         """AsyncResultFullAllOfAudioCallback - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -63,6 +65,7 @@ class AsyncResultFullAllOfAudioCallback(object):
         self._code = None
         self._method = None
         self._multipart_form_data = None
+        self._number_attempts = None
         self._response = None
         self._time = None
         self._uri = None
@@ -76,6 +79,8 @@ class AsyncResultFullAllOfAudioCallback(object):
             self.method = method
         if multipart_form_data is not None:
             self.multipart_form_data = multipart_form_data
+        if number_attempts is not None:
+            self.number_attempts = number_attempts
         if response is not None:
             self.response = response
         if time is not None:
@@ -189,6 +194,35 @@ class AsyncResultFullAllOfAudioCallback(object):
         """
 
         self._multipart_form_data = multipart_form_data
+
+    @property
+    def number_attempts(self):
+        """Gets the number_attempts of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+
+        number of attempts made to submit the audio to the callback URL  # noqa: E501
+
+        :return: The number_attempts of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+        :rtype: int
+        """
+        return self._number_attempts
+
+    @number_attempts.setter
+    def number_attempts(self, number_attempts):
+        """Sets the number_attempts of this AsyncResultFullAllOfAudioCallback.
+
+        number of attempts made to submit the audio to the callback URL  # noqa: E501
+
+        :param number_attempts: The number_attempts of this AsyncResultFullAllOfAudioCallback.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                number_attempts is not None and number_attempts > 2):  # noqa: E501
+            raise ValueError("Invalid value for `number_attempts`, must be a value less than or equal to `2`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                number_attempts is not None and number_attempts < 0):  # noqa: E501
+            raise ValueError("Invalid value for `number_attempts`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._number_attempts = number_attempts
 
     @property
     def response(self):
