@@ -92,7 +92,7 @@ class VoiceCallModifiableBaseVoicebotVars(object):
     def caller_intent(self):
         """Gets the caller_intent of this VoiceCallModifiableBaseVoicebotVars.  # noqa: E501
 
-        The intent of the caller determined by the app logic, e.g. Claims, Benefits, etc. Multiple intents are separated by commas.  # noqa: E501
+        The intent(s) of the caller determined by the app logic, e.g. Claims, Benefits, etc.  **Multiple intents are separated by commas.** The first intent in the list is the main (first stated) intent.</br> These are coming from `caller_memberIntents` variable in the voicebot, and if that one is not present then from `caller_intent` variable.</br> Note that, some intents may appear multiple times in the list -  this will be the case if e.g. the call was over multiple insurance members (the same intent may have been stated for different members)   # noqa: E501
 
         :return: The caller_intent of this VoiceCallModifiableBaseVoicebotVars.  # noqa: E501
         :rtype: str
@@ -103,7 +103,7 @@ class VoiceCallModifiableBaseVoicebotVars(object):
     def caller_intent(self, caller_intent):
         """Sets the caller_intent of this VoiceCallModifiableBaseVoicebotVars.
 
-        The intent of the caller determined by the app logic, e.g. Claims, Benefits, etc. Multiple intents are separated by commas.  # noqa: E501
+        The intent(s) of the caller determined by the app logic, e.g. Claims, Benefits, etc.  **Multiple intents are separated by commas.** The first intent in the list is the main (first stated) intent.</br> These are coming from `caller_memberIntents` variable in the voicebot, and if that one is not present then from `caller_intent` variable.</br> Note that, some intents may appear multiple times in the list -  this will be the case if e.g. the call was over multiple insurance members (the same intent may have been stated for different members)   # noqa: E501
 
         :param caller_intent: The caller_intent of this VoiceCallModifiableBaseVoicebotVars.  # noqa: E501
         :type: str
@@ -179,7 +179,7 @@ class VoiceCallModifiableBaseVoicebotVars(object):
     def fully_automated(self):
         """Gets the fully_automated of this VoiceCallModifiableBaseVoicebotVars.  # noqa: E501
 
-        Set this value if voicebot managed to fully automate a task and as a result caller will not have to be transferred (unless they have other questions), e.g. “eligibility”. Multiple automated tasks are separated by commas.   # noqa: E501
+        Set this value if voicebot managed to fully automate a task and as a result caller will not have to be transferred (unless they have other questions), e.g. “eligibility”. **Multiple automated tasks are separated by commas.**<br> This derived from `voicebotVars.callerIntent` and `fullyAutomated` AIVR variable.    # noqa: E501
 
         :return: The fully_automated of this VoiceCallModifiableBaseVoicebotVars.  # noqa: E501
         :rtype: str
@@ -190,7 +190,7 @@ class VoiceCallModifiableBaseVoicebotVars(object):
     def fully_automated(self, fully_automated):
         """Sets the fully_automated of this VoiceCallModifiableBaseVoicebotVars.
 
-        Set this value if voicebot managed to fully automate a task and as a result caller will not have to be transferred (unless they have other questions), e.g. “eligibility”. Multiple automated tasks are separated by commas.   # noqa: E501
+        Set this value if voicebot managed to fully automate a task and as a result caller will not have to be transferred (unless they have other questions), e.g. “eligibility”. **Multiple automated tasks are separated by commas.**<br> This derived from `voicebotVars.callerIntent` and `fullyAutomated` AIVR variable.    # noqa: E501
 
         :param fully_automated: The fully_automated of this VoiceCallModifiableBaseVoicebotVars.  # noqa: E501
         :type: str
