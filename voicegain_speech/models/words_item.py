@@ -36,18 +36,18 @@ class WordsItem(object):
     openapi_types = {
         'confidence': 'float',
         'dtmf': 'bool',
-        'spk': 'int',
-        'utterance': 'str'
+        'utterance': 'str',
+        'spk': 'int'
     }
 
     attribute_map = {
         'confidence': 'confidence',
         'dtmf': 'dtmf',
-        'spk': 'spk',
-        'utterance': 'utterance'
+        'utterance': 'utterance',
+        'spk': 'spk'
     }
 
-    def __init__(self, confidence=None, dtmf=None, spk=None, utterance=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, confidence=None, dtmf=None, utterance=None, spk=None, local_vars_configuration=None):  # noqa: E501
         """WordsItem - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,17 +55,17 @@ class WordsItem(object):
 
         self._confidence = None
         self._dtmf = None
-        self._spk = None
         self._utterance = None
+        self._spk = None
         self.discriminator = None
 
         if confidence is not None:
             self.confidence = confidence
         if dtmf is not None:
             self.dtmf = dtmf
+        self.utterance = utterance
         if spk is not None:
             self.spk = spk
-        self.utterance = utterance
 
     @property
     def confidence(self):
@@ -120,6 +120,31 @@ class WordsItem(object):
         self._dtmf = dtmf
 
     @property
+    def utterance(self):
+        """Gets the utterance of this WordsItem.  # noqa: E501
+
+        word (or words) that were recognized  # noqa: E501
+
+        :return: The utterance of this WordsItem.  # noqa: E501
+        :rtype: str
+        """
+        return self._utterance
+
+    @utterance.setter
+    def utterance(self, utterance):
+        """Sets the utterance of this WordsItem.
+
+        word (or words) that were recognized  # noqa: E501
+
+        :param utterance: The utterance of this WordsItem.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and utterance is None:  # noqa: E501
+            raise ValueError("Invalid value for `utterance`, must not be `None`")  # noqa: E501
+
+        self._utterance = utterance
+
+    @property
     def spk(self):
         """Gets the spk of this WordsItem.  # noqa: E501
 
@@ -147,31 +172,6 @@ class WordsItem(object):
             raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._spk = spk
-
-    @property
-    def utterance(self):
-        """Gets the utterance of this WordsItem.  # noqa: E501
-
-        word (or words) that were recognized  # noqa: E501
-
-        :return: The utterance of this WordsItem.  # noqa: E501
-        :rtype: str
-        """
-        return self._utterance
-
-    @utterance.setter
-    def utterance(self, utterance):
-        """Sets the utterance of this WordsItem.
-
-        word (or words) that were recognized  # noqa: E501
-
-        :param utterance: The utterance of this WordsItem.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and utterance is None:  # noqa: E501
-            raise ValueError("Invalid value for `utterance`, must not be `None`")  # noqa: E501
-
-        self._utterance = utterance
 
     def to_dict(self):
         """Returns the model properties as a dict"""

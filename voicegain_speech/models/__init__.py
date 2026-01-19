@@ -659,6 +659,8 @@ from voicegain_speech.models.word_item_timing import WordItemTiming
 from voicegain_speech.models.word_tree_ids import WordTreeIds
 from voicegain_speech.models.word_tree_item import WordTreeItem
 from voicegain_speech.models.words_item import WordsItem
+from voicegain_speech.models.words_item_all_of import WordsItemAllOf
+from voicegain_speech.models.words_item_base import WordsItemBase
 from voicegain_speech.models.words_section import WordsSection
 from voicegain_speech.models.words_section_meta import WordsSectionMeta
 from voicegain_speech.models.words_section_meta_mc import WordsSectionMetaMC

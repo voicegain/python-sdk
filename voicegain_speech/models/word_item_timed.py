@@ -36,8 +36,8 @@ class WordItemTimed(object):
     openapi_types = {
         'confidence': 'float',
         'dtmf': 'bool',
-        'spk': 'int',
         'utterance': 'str',
+        'spk': 'int',
         'alternatives': 'list[WordsItem]',
         'duration': 'float',
         'start': 'int'
@@ -46,14 +46,14 @@ class WordItemTimed(object):
     attribute_map = {
         'confidence': 'confidence',
         'dtmf': 'dtmf',
-        'spk': 'spk',
         'utterance': 'utterance',
+        'spk': 'spk',
         'alternatives': 'alternatives',
         'duration': 'duration',
         'start': 'start'
     }
 
-    def __init__(self, confidence=None, dtmf=None, spk=None, utterance=None, alternatives=None, duration=None, start=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, confidence=None, dtmf=None, utterance=None, spk=None, alternatives=None, duration=None, start=None, local_vars_configuration=None):  # noqa: E501
         """WordItemTimed - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,8 +61,8 @@ class WordItemTimed(object):
 
         self._confidence = None
         self._dtmf = None
-        self._spk = None
         self._utterance = None
+        self._spk = None
         self._alternatives = None
         self._duration = None
         self._start = None
@@ -72,9 +72,9 @@ class WordItemTimed(object):
             self.confidence = confidence
         if dtmf is not None:
             self.dtmf = dtmf
+        self.utterance = utterance
         if spk is not None:
             self.spk = spk
-        self.utterance = utterance
         if alternatives is not None:
             self.alternatives = alternatives
         if duration is not None:
@@ -135,6 +135,31 @@ class WordItemTimed(object):
         self._dtmf = dtmf
 
     @property
+    def utterance(self):
+        """Gets the utterance of this WordItemTimed.  # noqa: E501
+
+        word (or words) that were recognized  # noqa: E501
+
+        :return: The utterance of this WordItemTimed.  # noqa: E501
+        :rtype: str
+        """
+        return self._utterance
+
+    @utterance.setter
+    def utterance(self, utterance):
+        """Sets the utterance of this WordItemTimed.
+
+        word (or words) that were recognized  # noqa: E501
+
+        :param utterance: The utterance of this WordItemTimed.  # noqa: E501
+        :type: str
+        """
+        if self.local_vars_configuration.client_side_validation and utterance is None:  # noqa: E501
+            raise ValueError("Invalid value for `utterance`, must not be `None`")  # noqa: E501
+
+        self._utterance = utterance
+
+    @property
     def spk(self):
         """Gets the spk of this WordItemTimed.  # noqa: E501
 
@@ -162,31 +187,6 @@ class WordItemTimed(object):
             raise ValueError("Invalid value for `spk`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._spk = spk
-
-    @property
-    def utterance(self):
-        """Gets the utterance of this WordItemTimed.  # noqa: E501
-
-        word (or words) that were recognized  # noqa: E501
-
-        :return: The utterance of this WordItemTimed.  # noqa: E501
-        :rtype: str
-        """
-        return self._utterance
-
-    @utterance.setter
-    def utterance(self, utterance):
-        """Sets the utterance of this WordItemTimed.
-
-        word (or words) that were recognized  # noqa: E501
-
-        :param utterance: The utterance of this WordItemTimed.  # noqa: E501
-        :type: str
-        """
-        if self.local_vars_configuration.client_side_validation and utterance is None:  # noqa: E501
-            raise ValueError("Invalid value for `utterance`, must not be `None`")  # noqa: E501
-
-        self._utterance = utterance
 
     @property
     def alternatives(self):
