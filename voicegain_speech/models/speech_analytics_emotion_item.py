@@ -197,7 +197,7 @@ class SpeechAnalyticsEmotionItem(object):
     def sentiment(self):
         """Gets the sentiment of this SpeechAnalyticsEmotionItem.  # noqa: E501
 
-        Sentiment value, ranging from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> If appears in a list then this is the value of the sentiment for transcript within the specified time range.</br> If appears in the totals then this is the weighted average of the sentiment values from the list. The weighted average is computed over the entire duration of the audio.   # noqa: E501
+        Sentiment value, ranging from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> This is the local value of the sentiment for transcript within the specified time range.</br>   # noqa: E501
 
         :return: The sentiment of this SpeechAnalyticsEmotionItem.  # noqa: E501
         :rtype: float
@@ -208,7 +208,7 @@ class SpeechAnalyticsEmotionItem(object):
     def sentiment(self, sentiment):
         """Sets the sentiment of this SpeechAnalyticsEmotionItem.
 
-        Sentiment value, ranging from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> If appears in a list then this is the value of the sentiment for transcript within the specified time range.</br> If appears in the totals then this is the weighted average of the sentiment values from the list. The weighted average is computed over the entire duration of the audio.   # noqa: E501
+        Sentiment value, ranging from -1.0 (mad/angry) to +1.0 (happy/satisfied).</br> This is the local value of the sentiment for transcript within the specified time range.</br>   # noqa: E501
 
         :param sentiment: The sentiment of this SpeechAnalyticsEmotionItem.  # noqa: E501
         :type: float
