@@ -46,6 +46,7 @@ class VoiceCallAllOf(object):
         'last_recompute_time': 'datetime',
         'merged_audio_id': 'str',
         'nps': 'float',
+        'num_segments': 'int',
         'outbound_rtp_quality': 'RtpQuality',
         'progress_phase': 'ProgressPhase',
         'recompute_phase': 'str',
@@ -71,6 +72,7 @@ class VoiceCallAllOf(object):
         'last_recompute_time': 'lastRecomputeTime',
         'merged_audio_id': 'mergedAudioId',
         'nps': 'nps',
+        'num_segments': 'numSegments',
         'outbound_rtp_quality': 'outboundRtpQuality',
         'progress_phase': 'progressPhase',
         'recompute_phase': 'recomputePhase',
@@ -83,7 +85,7 @@ class VoiceCallAllOf(object):
         'voicebot_duration': 'voicebotDuration'
     }
 
-    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -101,6 +103,7 @@ class VoiceCallAllOf(object):
         self._last_recompute_time = None
         self._merged_audio_id = None
         self._nps = None
+        self._num_segments = None
         self._outbound_rtp_quality = None
         self._progress_phase = None
         self._recompute_phase = None
@@ -137,6 +140,8 @@ class VoiceCallAllOf(object):
             self.merged_audio_id = merged_audio_id
         if nps is not None:
             self.nps = nps
+        if num_segments is not None:
+            self.num_segments = num_segments
         if outbound_rtp_quality is not None:
             self.outbound_rtp_quality = outbound_rtp_quality
         if progress_phase is not None:
@@ -467,6 +472,32 @@ class VoiceCallAllOf(object):
             raise ValueError("Invalid value for `nps`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._nps = nps
+
+    @property
+    def num_segments(self):
+        """Gets the num_segments of this VoiceCallAllOf.  # noqa: E501
+
+        Number of segments in this call (bot, agent, or system segments).   # noqa: E501
+
+        :return: The num_segments of this VoiceCallAllOf.  # noqa: E501
+        :rtype: int
+        """
+        return self._num_segments
+
+    @num_segments.setter
+    def num_segments(self, num_segments):
+        """Sets the num_segments of this VoiceCallAllOf.
+
+        Number of segments in this call (bot, agent, or system segments).   # noqa: E501
+
+        :param num_segments: The num_segments of this VoiceCallAllOf.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                num_segments is not None and num_segments < 1):  # noqa: E501
+            raise ValueError("Invalid value for `num_segments`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._num_segments = num_segments
 
     @property
     def outbound_rtp_quality(self):

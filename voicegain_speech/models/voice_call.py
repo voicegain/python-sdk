@@ -86,6 +86,7 @@ class VoiceCall(object):
         'last_recompute_time': 'datetime',
         'merged_audio_id': 'str',
         'nps': 'float',
+        'num_segments': 'int',
         'outbound_rtp_quality': 'RtpQuality',
         'progress_phase': 'ProgressPhase',
         'recompute_phase': 'str',
@@ -151,6 +152,7 @@ class VoiceCall(object):
         'last_recompute_time': 'lastRecomputeTime',
         'merged_audio_id': 'mergedAudioId',
         'nps': 'nps',
+        'num_segments': 'numSegments',
         'outbound_rtp_quality': 'outboundRtpQuality',
         'progress_phase': 'progressPhase',
         'recompute_phase': 'recomputePhase',
@@ -163,7 +165,7 @@ class VoiceCall(object):
         'voicebot_duration': 'voicebotDuration'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -221,6 +223,7 @@ class VoiceCall(object):
         self._last_recompute_time = None
         self._merged_audio_id = None
         self._nps = None
+        self._num_segments = None
         self._outbound_rtp_quality = None
         self._progress_phase = None
         self._recompute_phase = None
@@ -337,6 +340,8 @@ class VoiceCall(object):
             self.merged_audio_id = merged_audio_id
         if nps is not None:
             self.nps = nps
+        if num_segments is not None:
+            self.num_segments = num_segments
         if outbound_rtp_quality is not None:
             self.outbound_rtp_quality = outbound_rtp_quality
         if progress_phase is not None:
@@ -1645,6 +1650,32 @@ class VoiceCall(object):
             raise ValueError("Invalid value for `nps`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._nps = nps
+
+    @property
+    def num_segments(self):
+        """Gets the num_segments of this VoiceCall.  # noqa: E501
+
+        Number of segments in this call (bot, agent, or system segments).   # noqa: E501
+
+        :return: The num_segments of this VoiceCall.  # noqa: E501
+        :rtype: int
+        """
+        return self._num_segments
+
+    @num_segments.setter
+    def num_segments(self, num_segments):
+        """Sets the num_segments of this VoiceCall.
+
+        Number of segments in this call (bot, agent, or system segments).   # noqa: E501
+
+        :param num_segments: The num_segments of this VoiceCall.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                num_segments is not None and num_segments < 1):  # noqa: E501
+            raise ValueError("Invalid value for `num_segments`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._num_segments = num_segments
 
     @property
     def outbound_rtp_quality(self):
