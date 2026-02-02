@@ -626,7 +626,7 @@ class VoiceCallAllOf(object):
     def segments(self):
         """Gets the segments of this VoiceCallAllOf.  # noqa: E501
 
-        List of segments in this call with full segment data.</br> May be missing or null for legacy calls that were created before segment support was added.</br> Segments are ordered by their start time.   # noqa: E501
+        List of segments in this call with full segment data.</br> **Note:** This field is only returned when the query parameter `inclSegments=true` is specified.</br> Segments are ordered by their start time.   # noqa: E501
 
         :return: The segments of this VoiceCallAllOf.  # noqa: E501
         :rtype: list[CallSegment]
@@ -637,7 +637,7 @@ class VoiceCallAllOf(object):
     def segments(self, segments):
         """Sets the segments of this VoiceCallAllOf.
 
-        List of segments in this call with full segment data.</br> May be missing or null for legacy calls that were created before segment support was added.</br> Segments are ordered by their start time.   # noqa: E501
+        List of segments in this call with full segment data.</br> **Note:** This field is only returned when the query parameter `inclSegments=true` is specified.</br> Segments are ordered by their start time.   # noqa: E501
 
         :param segments: The segments of this VoiceCallAllOf.  # noqa: E501
         :type: list[CallSegment]

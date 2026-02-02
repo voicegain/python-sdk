@@ -173,6 +173,7 @@ class SaInternalApi(object):
         :param async_req bool: execute request asynchronously
         :param str call_id: Voice Call Id. (required)
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param bool incl_segments: If set to true, the response will include the `segments` field containing detailed data for each segment (bot, agent, or system portion) of the call.</br> Default is false to reduce response size for queries that don't need segment details. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -199,6 +200,7 @@ class SaInternalApi(object):
         :param async_req bool: execute request asynchronously
         :param str call_id: Voice Call Id. (required)
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param bool incl_segments: If set to true, the response will include the `segments` field containing detailed data for each segment (bot, agent, or system portion) of the call.</br> Default is false to reduce response size for queries that don't need segment details. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -215,7 +217,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['call_id', 'context_id']  # noqa: E501
+        all_params = ['call_id', 'context_id', 'incl_segments']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -255,6 +257,8 @@ class SaInternalApi(object):
         query_params = []
         if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
             query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+        if 'incl_segments' in local_var_params and local_var_params['incl_segments'] is not None:  # noqa: E501
+            query_params.append(('inclSegments', local_var_params['incl_segments']))  # noqa: E501
 
         header_params = {}
 
@@ -414,6 +418,7 @@ class SaInternalApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param bool incl_segments: If set to true, the response will include the `segments` field containing detailed data for each segment (bot, agent, or system portion) of the call.</br> Default is false to reduce response size for queries that don't need segment details. 
         :param str format: Format of the Calls data to be returned: + json - returns data in json + csv - returns data it CSV file 
         :param bool consecutive: If true then it will automatically do sorting ascending by `callId`. It will also stop export on the first call that it encounters which is not DONE or ERROR (i.e. still being processed). The next request will need to include `afterCallId` parameter that specifies highest callId not to be included in the export.</br> Using `sort_dir` or `sort_by` parameters in conjunction with `consecutive` will return **Bad Request** error. 
         :param int after_call_id: CallId after which the export should continue.  This is used in conjunction with `consecutive=true` parameter. 
@@ -457,6 +462,7 @@ class SaInternalApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param bool incl_segments: If set to true, the response will include the `segments` field containing detailed data for each segment (bot, agent, or system portion) of the call.</br> Default is false to reduce response size for queries that don't need segment details. 
         :param str format: Format of the Calls data to be returned: + json - returns data in json + csv - returns data it CSV file 
         :param bool consecutive: If true then it will automatically do sorting ascending by `callId`. It will also stop export on the first call that it encounters which is not DONE or ERROR (i.e. still being processed). The next request will need to include `afterCallId` parameter that specifies highest callId not to be included in the export.</br> Using `sort_dir` or `sort_by` parameters in conjunction with `consecutive` will return **Bad Request** error. 
         :param int after_call_id: CallId after which the export should continue.  This is used in conjunction with `consecutive=true` parameter. 
@@ -491,7 +497,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'format', 'consecutive', 'after_call_id', 'from_time', 'to_time', 'period', 'aivr_app_id', 'direction', 'internal_endpoint', 'agent_id', 'user_group_ids', 'queue_id', 'voicemail', 'recompute_phase', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
+        all_params = ['context_id', 'incl_segments', 'format', 'consecutive', 'after_call_id', 'from_time', 'to_time', 'period', 'aivr_app_id', 'direction', 'internal_endpoint', 'agent_id', 'user_group_ids', 'queue_id', 'voicemail', 'recompute_phase', 'page', 'per_page', 'sort_dir', 'sort_by']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -533,6 +539,8 @@ class SaInternalApi(object):
         query_params = []
         if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
             query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+        if 'incl_segments' in local_var_params and local_var_params['incl_segments'] is not None:  # noqa: E501
+            query_params.append(('inclSegments', local_var_params['incl_segments']))  # noqa: E501
         if 'format' in local_var_params and local_var_params['format'] is not None:  # noqa: E501
             query_params.append(('format', local_var_params['format']))  # noqa: E501
         if 'consecutive' in local_var_params and local_var_params['consecutive'] is not None:  # noqa: E501
@@ -732,6 +740,7 @@ class SaInternalApi(object):
 
         :param async_req bool: execute request asynchronously
         :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.</br> Note, if the request is authenticated by a user session then the search will be limited to only these Contexts from this list that the user has access to.</br> 
+        :param bool incl_segments: If set to true, the response will include the `segments` field containing detailed data for each segment (bot, agent, or system portion) of the call.</br> Default is false to reduce response size for queries that don't need segment details. 
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
@@ -762,6 +771,7 @@ class SaInternalApi(object):
 
         :param async_req bool: execute request asynchronously
         :param list[str] context_id: List of Context Ids. If not provided then all Contexts under the Account will be searched.</br> Note, if the request is authenticated by a user session then the search will be limited to only these Contexts from this list that the user has access to.</br> 
+        :param bool incl_segments: If set to true, the response will include the `segments` field containing detailed data for each segment (bot, agent, or system portion) of the call.</br> Default is false to reduce response size for queries that don't need segment details. 
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
@@ -783,7 +793,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'page', 'per_page', 'sort_dir', 'sort_by', 'c_query']  # noqa: E501
+        all_params = ['context_id', 'incl_segments', 'page', 'per_page', 'sort_dir', 'sort_by', 'c_query']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -812,6 +822,8 @@ class SaInternalApi(object):
         if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
             query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
             collection_formats['contextId'] = 'csv'  # noqa: E501
+        if 'incl_segments' in local_var_params and local_var_params['incl_segments'] is not None:  # noqa: E501
+            query_params.append(('inclSegments', local_var_params['incl_segments']))  # noqa: E501
         if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
             query_params.append(('page', local_var_params['page']))  # noqa: E501
         if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
