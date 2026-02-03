@@ -50,7 +50,7 @@ class CallSegmentAllOf(object):
         'review_status': 'str',
         'sa_session_id': 'str',
         'sa_session_segment_seq': 'int',
-        'segment_call_id': 'str',
+        'segment_seq': 'int',
         'start_ms': 'int',
         'start_time': 'datetime',
         'tags': 'list[str]',
@@ -79,7 +79,7 @@ class CallSegmentAllOf(object):
         'review_status': 'reviewStatus',
         'sa_session_id': 'saSessionId',
         'sa_session_segment_seq': 'saSessionSegmentSeq',
-        'segment_call_id': 'segmentCallId',
+        'segment_seq': 'segmentSeq',
         'start_ms': 'startMs',
         'start_time': 'startTime',
         'tags': 'tags',
@@ -91,7 +91,7 @@ class CallSegmentAllOf(object):
         'voicemail_transcript': 'voicemailTranscript'
     }
 
-    def __init__(self, agent=None, aivr_vars=None, answering_endpoint=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, notes=None, queue=None, review_notes=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_call_id=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, voicemail_transcript=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_vars=None, answering_endpoint=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, notes=None, queue=None, review_notes=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, voicemail_transcript=None, local_vars_configuration=None):  # noqa: E501
         """CallSegmentAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -113,7 +113,7 @@ class CallSegmentAllOf(object):
         self._review_status = None
         self._sa_session_id = None
         self._sa_session_segment_seq = None
-        self._segment_call_id = None
+        self._segment_seq = None
         self._start_ms = None
         self._start_time = None
         self._tags = None
@@ -154,8 +154,8 @@ class CallSegmentAllOf(object):
             self.sa_session_id = sa_session_id
         if sa_session_segment_seq is not None:
             self.sa_session_segment_seq = sa_session_segment_seq
-        if segment_call_id is not None:
-            self.segment_call_id = segment_call_id
+        if segment_seq is not None:
+            self.segment_seq = segment_seq
         self.start_ms = start_ms
         self.start_time = start_time
         if tags is not None:
@@ -583,33 +583,30 @@ class CallSegmentAllOf(object):
         self._sa_session_segment_seq = sa_session_segment_seq
 
     @property
-    def segment_call_id(self):
-        """Gets the segment_call_id of this CallSegmentAllOf.  # noqa: E501
+    def segment_seq(self):
+        """Gets the segment_seq of this CallSegmentAllOf.  # noqa: E501
 
-        Unique identifier for this segment.</br> This corresponds to the primary key (segment_call_id) in the sa_call_segment database table.   # noqa: E501
+        Segment sequence number for the specified call.   # noqa: E501
 
-        :return: The segment_call_id of this CallSegmentAllOf.  # noqa: E501
-        :rtype: str
+        :return: The segment_seq of this CallSegmentAllOf.  # noqa: E501
+        :rtype: int
         """
-        return self._segment_call_id
+        return self._segment_seq
 
-    @segment_call_id.setter
-    def segment_call_id(self, segment_call_id):
-        """Sets the segment_call_id of this CallSegmentAllOf.
+    @segment_seq.setter
+    def segment_seq(self, segment_seq):
+        """Sets the segment_seq of this CallSegmentAllOf.
 
-        Unique identifier for this segment.</br> This corresponds to the primary key (segment_call_id) in the sa_call_segment database table.   # noqa: E501
+        Segment sequence number for the specified call.   # noqa: E501
 
-        :param segment_call_id: The segment_call_id of this CallSegmentAllOf.  # noqa: E501
-        :type: str
+        :param segment_seq: The segment_seq of this CallSegmentAllOf.  # noqa: E501
+        :type: int
         """
         if (self.local_vars_configuration.client_side_validation and
-                segment_call_id is not None and len(segment_call_id) > 48):
-            raise ValueError("Invalid value for `segment_call_id`, length must be less than or equal to `48`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                segment_call_id is not None and len(segment_call_id) < 1):
-            raise ValueError("Invalid value for `segment_call_id`, length must be greater than or equal to `1`")  # noqa: E501
+                segment_seq is not None and segment_seq < 1):  # noqa: E501
+            raise ValueError("Invalid value for `segment_seq`, must be a value greater than or equal to `1`")  # noqa: E501
 
-        self._segment_call_id = segment_call_id
+        self._segment_seq = segment_seq
 
     @property
     def start_ms(self):
