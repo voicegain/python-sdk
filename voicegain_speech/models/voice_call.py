@@ -1672,8 +1672,8 @@ class VoiceCall(object):
         :type: int
         """
         if (self.local_vars_configuration.client_side_validation and
-                num_segments is not None and num_segments < 1):  # noqa: E501
-            raise ValueError("Invalid value for `num_segments`, must be a value greater than or equal to `1`")  # noqa: E501
+                num_segments is not None and num_segments < 0):  # noqa: E501
+            raise ValueError("Invalid value for `num_segments`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._num_segments = num_segments
 
