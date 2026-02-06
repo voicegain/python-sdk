@@ -36,6 +36,7 @@ class VoiceCallModifiableBase(object):
     openapi_types = {
         'agent': 'Agent',
         'aivr_app_id': 'str',
+        'aivr_platform': 'str',
         'aivr_session_id': 'str',
         'aivr_vars': 'dict(str, str)',
         'business_open_state': 'str',
@@ -65,6 +66,7 @@ class VoiceCallModifiableBase(object):
     attribute_map = {
         'agent': 'agent',
         'aivr_app_id': 'aivrAppId',
+        'aivr_platform': 'aivrPlatform',
         'aivr_session_id': 'aivrSessionId',
         'aivr_vars': 'aivrVars',
         'business_open_state': 'businessOpenState',
@@ -91,7 +93,7 @@ class VoiceCallModifiableBase(object):
         'who_hung_up': 'whoHungUp'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallModifiableBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -99,6 +101,7 @@ class VoiceCallModifiableBase(object):
 
         self._agent = None
         self._aivr_app_id = None
+        self._aivr_platform = None
         self._aivr_session_id = None
         self._aivr_vars = None
         self._business_open_state = None
@@ -129,6 +132,8 @@ class VoiceCallModifiableBase(object):
             self.agent = agent
         if aivr_app_id is not None:
             self.aivr_app_id = aivr_app_id
+        if aivr_platform is not None:
+            self.aivr_platform = aivr_platform
         if aivr_session_id is not None:
             self.aivr_session_id = aivr_session_id
         if aivr_vars is not None:
@@ -221,6 +226,35 @@ class VoiceCallModifiableBase(object):
         """
 
         self._aivr_app_id = aivr_app_id
+
+    @property
+    def aivr_platform(self):
+        """Gets the aivr_platform of this VoiceCallModifiableBase.  # noqa: E501
+
+        Platform on which the AIVR App runs.</br> Will be absent if the call did not come from an AIVR App.   # noqa: E501
+
+        :return: The aivr_platform of this VoiceCallModifiableBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_platform
+
+    @aivr_platform.setter
+    def aivr_platform(self, aivr_platform):
+        """Sets the aivr_platform of this VoiceCallModifiableBase.
+
+        Platform on which the AIVR App runs.</br> Will be absent if the call did not come from an AIVR App.   # noqa: E501
+
+        :param aivr_platform: The aivr_platform of this VoiceCallModifiableBase.  # noqa: E501
+        :type: str
+        """
+        allowed_values = ["freeSwitch", "vonageVcca"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and aivr_platform not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `aivr_platform` ({0}), must be one of {1}"  # noqa: E501
+                .format(aivr_platform, allowed_values)
+            )
+
+        self._aivr_platform = aivr_platform
 
     @property
     def aivr_session_id(self):
