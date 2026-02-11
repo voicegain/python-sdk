@@ -64,6 +64,7 @@ class SpeechAnalyticsConfig(object):
         'silence_single_duration_maximum_threshold': 'float',
         'silence_total_percentage_threshold': 'float',
         'summary': 'bool',
+        'topics': 'SpeechAnalyticsConfigModifiableBaseTopics',
         'word_cloud': 'bool',
         'name': 'str'
     }
@@ -99,11 +100,12 @@ class SpeechAnalyticsConfig(object):
         'silence_single_duration_maximum_threshold': 'silenceSingleDurationMaximumThreshold',
         'silence_total_percentage_threshold': 'silenceTotalPercentageThreshold',
         'summary': 'summary',
+        'topics': 'topics',
         'word_cloud': 'wordCloud',
         'name': 'name'
     }
 
-    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, nps_question=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, built_in=False, context_id=None, sa_conf_id=None, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, nps_question=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, topics=None, word_cloud=False, name=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfig - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -139,6 +141,7 @@ class SpeechAnalyticsConfig(object):
         self._silence_single_duration_maximum_threshold = None
         self._silence_total_percentage_threshold = None
         self._summary = None
+        self._topics = None
         self._word_cloud = None
         self._name = None
         self.discriminator = None
@@ -202,6 +205,8 @@ class SpeechAnalyticsConfig(object):
             self.silence_total_percentage_threshold = silence_total_percentage_threshold
         if summary is not None:
             self.summary = summary
+        if topics is not None:
+            self.topics = topics
         if word_cloud is not None:
             self.word_cloud = word_cloud
         self.name = name
@@ -935,6 +940,27 @@ class SpeechAnalyticsConfig(object):
         """
 
         self._summary = summary
+
+    @property
+    def topics(self):
+        """Gets the topics of this SpeechAnalyticsConfig.  # noqa: E501
+
+
+        :return: The topics of this SpeechAnalyticsConfig.  # noqa: E501
+        :rtype: SpeechAnalyticsConfigModifiableBaseTopics
+        """
+        return self._topics
+
+    @topics.setter
+    def topics(self, topics):
+        """Sets the topics of this SpeechAnalyticsConfig.
+
+
+        :param topics: The topics of this SpeechAnalyticsConfig.  # noqa: E501
+        :type: SpeechAnalyticsConfigModifiableBaseTopics
+        """
+
+        self._topics = topics
 
     @property
     def word_cloud(self):
