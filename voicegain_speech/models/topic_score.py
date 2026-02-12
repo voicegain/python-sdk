@@ -34,29 +34,62 @@ class TopicScore(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'justification': 'str',
         'label': 'str',
+        'new_topic': 'bool',
         'score': 'float'
     }
 
     attribute_map = {
+        'justification': 'justification',
         'label': 'label',
+        'new_topic': 'newTopic',
         'score': 'score'
     }
 
-    def __init__(self, label=None, score=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, justification=None, label=None, new_topic=None, score=None, local_vars_configuration=None):  # noqa: E501
         """TopicScore - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._justification = None
         self._label = None
+        self._new_topic = None
         self._score = None
         self.discriminator = None
 
+        if justification is not None:
+            self.justification = justification
         if label is not None:
             self.label = label
+        if new_topic is not None:
+            self.new_topic = new_topic
         if score is not None:
             self.score = score
+
+    @property
+    def justification(self):
+        """Gets the justification of this TopicScore.  # noqa: E501
+
+        Explanation provided by the AI regarding why this topic was identified in the transcript  # noqa: E501
+
+        :return: The justification of this TopicScore.  # noqa: E501
+        :rtype: str
+        """
+        return self._justification
+
+    @justification.setter
+    def justification(self, justification):
+        """Sets the justification of this TopicScore.
+
+        Explanation provided by the AI regarding why this topic was identified in the transcript  # noqa: E501
+
+        :param justification: The justification of this TopicScore.  # noqa: E501
+        :type: str
+        """
+
+        self._justification = justification
 
     @property
     def label(self):
@@ -83,6 +116,29 @@ class TopicScore(object):
             raise ValueError("Invalid value for `label`, length must be less than or equal to `64`")  # noqa: E501
 
         self._label = label
+
+    @property
+    def new_topic(self):
+        """Gets the new_topic of this TopicScore.  # noqa: E501
+
+        Indicates whether this is a newly discovered topic (true) or an existing/predefined topic (false)  # noqa: E501
+
+        :return: The new_topic of this TopicScore.  # noqa: E501
+        :rtype: bool
+        """
+        return self._new_topic
+
+    @new_topic.setter
+    def new_topic(self, new_topic):
+        """Sets the new_topic of this TopicScore.
+
+        Indicates whether this is a newly discovered topic (true) or an existing/predefined topic (false)  # noqa: E501
+
+        :param new_topic: The new_topic of this TopicScore.  # noqa: E501
+        :type: bool
+        """
+
+        self._new_topic = new_topic
 
     @property
     def score(self):
