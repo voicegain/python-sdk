@@ -43,16 +43,16 @@ class SpeechAnalyticsConfig(object):
         'call_resolution_question_id': 'str',
         'competitor_keyword_groups': 'list[str]',
         'criteria': 'list[CriterionConfig]',
-        'csat_question': 'SpeechAnalyticsConfigModifiableBaseCsatQuestion',
+        'csat_question': 'SpeechAnalyticsConfigModifiableCoreCsatQuestion',
         'entities': 'list[NamedEntityType]',
         'gender': 'bool',
         'keyword_groups': 'list[KeywordSpotGroup]',
         'keywords': 'list[KeywordSpotItem]',
         'llm_copilot_notes_prompt': 'str',
         'llm_summary_prompt': 'str',
-        'meeting_minutes': 'SpeechAnalyticsConfigModifiableBaseMeetingMinutes',
+        'meeting_minutes': 'SpeechAnalyticsConfigModifiableCoreMeetingMinutes',
         'moods': 'list[MoodType]',
-        'nps_question': 'SpeechAnalyticsConfigModifiableBaseNpsQuestion',
+        'nps_question': 'SpeechAnalyticsConfigModifiableCoreNpsQuestion',
         'overtalk_single_duration_maximum_threshold': 'float',
         'overtalk_total_percentage_threshold': 'float',
         'phrase_groups': 'list[PhraseSpotGroup]',
@@ -64,7 +64,7 @@ class SpeechAnalyticsConfig(object):
         'silence_single_duration_maximum_threshold': 'float',
         'silence_total_percentage_threshold': 'float',
         'summary': 'bool',
-        'topics': 'SpeechAnalyticsConfigModifiableBaseTopics',
+        'topics': 'SpeechAnalyticsConfigModifiableCoreTopics',
         'word_cloud': 'bool',
         'name': 'str'
     }
@@ -446,7 +446,7 @@ class SpeechAnalyticsConfig(object):
 
 
         :return: The csat_question of this SpeechAnalyticsConfig.  # noqa: E501
-        :rtype: SpeechAnalyticsConfigModifiableBaseCsatQuestion
+        :rtype: SpeechAnalyticsConfigModifiableCoreCsatQuestion
         """
         return self._csat_question
 
@@ -456,7 +456,7 @@ class SpeechAnalyticsConfig(object):
 
 
         :param csat_question: The csat_question of this SpeechAnalyticsConfig.  # noqa: E501
-        :type: SpeechAnalyticsConfigModifiableBaseCsatQuestion
+        :type: SpeechAnalyticsConfigModifiableCoreCsatQuestion
         """
 
         self._csat_question = csat_question
@@ -605,7 +605,7 @@ class SpeechAnalyticsConfig(object):
 
 
         :return: The meeting_minutes of this SpeechAnalyticsConfig.  # noqa: E501
-        :rtype: SpeechAnalyticsConfigModifiableBaseMeetingMinutes
+        :rtype: SpeechAnalyticsConfigModifiableCoreMeetingMinutes
         """
         return self._meeting_minutes
 
@@ -615,7 +615,7 @@ class SpeechAnalyticsConfig(object):
 
 
         :param meeting_minutes: The meeting_minutes of this SpeechAnalyticsConfig.  # noqa: E501
-        :type: SpeechAnalyticsConfigModifiableBaseMeetingMinutes
+        :type: SpeechAnalyticsConfigModifiableCoreMeetingMinutes
         """
 
         self._meeting_minutes = meeting_minutes
@@ -649,7 +649,7 @@ class SpeechAnalyticsConfig(object):
 
 
         :return: The nps_question of this SpeechAnalyticsConfig.  # noqa: E501
-        :rtype: SpeechAnalyticsConfigModifiableBaseNpsQuestion
+        :rtype: SpeechAnalyticsConfigModifiableCoreNpsQuestion
         """
         return self._nps_question
 
@@ -659,7 +659,7 @@ class SpeechAnalyticsConfig(object):
 
 
         :param nps_question: The nps_question of this SpeechAnalyticsConfig.  # noqa: E501
-        :type: SpeechAnalyticsConfigModifiableBaseNpsQuestion
+        :type: SpeechAnalyticsConfigModifiableCoreNpsQuestion
         """
 
         self._nps_question = nps_question
@@ -947,7 +947,7 @@ class SpeechAnalyticsConfig(object):
 
 
         :return: The topics of this SpeechAnalyticsConfig.  # noqa: E501
-        :rtype: SpeechAnalyticsConfigModifiableBaseTopics
+        :rtype: SpeechAnalyticsConfigModifiableCoreTopics
         """
         return self._topics
 
@@ -957,7 +957,7 @@ class SpeechAnalyticsConfig(object):
 
 
         :param topics: The topics of this SpeechAnalyticsConfig.  # noqa: E501
-        :type: SpeechAnalyticsConfigModifiableBaseTopics
+        :type: SpeechAnalyticsConfigModifiableCoreTopics
         """
 
         self._topics = topics

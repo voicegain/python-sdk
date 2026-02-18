@@ -38,18 +38,17 @@ class SpeechAnalyticsConfigModifiableBase(object):
         'call_resolution_criteria': 'list[str]',
         'call_resolution_question_id': 'str',
         'competitor_keyword_groups': 'list[str]',
-        'context_id': 'str',
         'criteria': 'list[CriterionConfig]',
-        'csat_question': 'SpeechAnalyticsConfigModifiableBaseCsatQuestion',
+        'csat_question': 'SpeechAnalyticsConfigModifiableCoreCsatQuestion',
         'entities': 'list[NamedEntityType]',
         'gender': 'bool',
         'keyword_groups': 'list[KeywordSpotGroup]',
         'keywords': 'list[KeywordSpotItem]',
         'llm_copilot_notes_prompt': 'str',
         'llm_summary_prompt': 'str',
-        'meeting_minutes': 'SpeechAnalyticsConfigModifiableBaseMeetingMinutes',
+        'meeting_minutes': 'SpeechAnalyticsConfigModifiableCoreMeetingMinutes',
         'moods': 'list[MoodType]',
-        'nps_question': 'SpeechAnalyticsConfigModifiableBaseNpsQuestion',
+        'nps_question': 'SpeechAnalyticsConfigModifiableCoreNpsQuestion',
         'overtalk_single_duration_maximum_threshold': 'float',
         'overtalk_total_percentage_threshold': 'float',
         'phrase_groups': 'list[PhraseSpotGroup]',
@@ -61,8 +60,9 @@ class SpeechAnalyticsConfigModifiableBase(object):
         'silence_single_duration_maximum_threshold': 'float',
         'silence_total_percentage_threshold': 'float',
         'summary': 'bool',
-        'topics': 'SpeechAnalyticsConfigModifiableBaseTopics',
-        'word_cloud': 'bool'
+        'topics': 'SpeechAnalyticsConfigModifiableCoreTopics',
+        'word_cloud': 'bool',
+        'context_id': 'str'
     }
 
     attribute_map = {
@@ -70,7 +70,6 @@ class SpeechAnalyticsConfigModifiableBase(object):
         'call_resolution_criteria': 'callResolutionCriteria',
         'call_resolution_question_id': 'callResolutionQuestionId',
         'competitor_keyword_groups': 'competitorKeywordGroups',
-        'context_id': 'contextId',
         'criteria': 'criteria',
         'csat_question': 'csatQuestion',
         'entities': 'entities',
@@ -94,10 +93,11 @@ class SpeechAnalyticsConfigModifiableBase(object):
         'silence_total_percentage_threshold': 'silenceTotalPercentageThreshold',
         'summary': 'summary',
         'topics': 'topics',
-        'word_cloud': 'wordCloud'
+        'word_cloud': 'wordCloud',
+        'context_id': 'contextId'
     }
 
-    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, context_id=None, criteria=None, csat_question=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, nps_question=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, topics=None, word_cloud=False, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, nps_question=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, topics=None, word_cloud=False, context_id=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiableBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -107,7 +107,6 @@ class SpeechAnalyticsConfigModifiableBase(object):
         self._call_resolution_criteria = None
         self._call_resolution_question_id = None
         self._competitor_keyword_groups = None
-        self._context_id = None
         self._criteria = None
         self._csat_question = None
         self._entities = None
@@ -132,6 +131,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
         self._summary = None
         self._topics = None
         self._word_cloud = None
+        self._context_id = None
         self.discriminator = None
 
         if age is not None:
@@ -142,8 +142,6 @@ class SpeechAnalyticsConfigModifiableBase(object):
             self.call_resolution_question_id = call_resolution_question_id
         if competitor_keyword_groups is not None:
             self.competitor_keyword_groups = competitor_keyword_groups
-        if context_id is not None:
-            self.context_id = context_id
         if criteria is not None:
             self.criteria = criteria
         if csat_question is not None:
@@ -192,6 +190,8 @@ class SpeechAnalyticsConfigModifiableBase(object):
             self.topics = topics
         if word_cloud is not None:
             self.word_cloud = word_cloud
+        if context_id is not None:
+            self.context_id = context_id
 
     @property
     def age(self):
@@ -292,35 +292,6 @@ class SpeechAnalyticsConfigModifiableBase(object):
         self._competitor_keyword_groups = competitor_keyword_groups
 
     @property
-    def context_id(self):
-        """Gets the context_id of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-
-        (Needed only if making a request using MAC Authentication. Otherwise will be taken from JWT.)  # noqa: E501
-
-        :return: The context_id of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :rtype: str
-        """
-        return self._context_id
-
-    @context_id.setter
-    def context_id(self, context_id):
-        """Sets the context_id of this SpeechAnalyticsConfigModifiableBase.
-
-        (Needed only if making a request using MAC Authentication. Otherwise will be taken from JWT.)  # noqa: E501
-
-        :param context_id: The context_id of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :type: str
-        """
-        if (self.local_vars_configuration.client_side_validation and
-                context_id is not None and len(context_id) > 48):
-            raise ValueError("Invalid value for `context_id`, length must be less than or equal to `48`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                context_id is not None and len(context_id) < 16):
-            raise ValueError("Invalid value for `context_id`, length must be greater than or equal to `16`")  # noqa: E501
-
-        self._context_id = context_id
-
-    @property
     def criteria(self):
         """Gets the criteria of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
 
@@ -349,7 +320,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
 
 
         :return: The csat_question of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :rtype: SpeechAnalyticsConfigModifiableBaseCsatQuestion
+        :rtype: SpeechAnalyticsConfigModifiableCoreCsatQuestion
         """
         return self._csat_question
 
@@ -359,7 +330,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
 
 
         :param csat_question: The csat_question of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :type: SpeechAnalyticsConfigModifiableBaseCsatQuestion
+        :type: SpeechAnalyticsConfigModifiableCoreCsatQuestion
         """
 
         self._csat_question = csat_question
@@ -508,7 +479,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
 
 
         :return: The meeting_minutes of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :rtype: SpeechAnalyticsConfigModifiableBaseMeetingMinutes
+        :rtype: SpeechAnalyticsConfigModifiableCoreMeetingMinutes
         """
         return self._meeting_minutes
 
@@ -518,7 +489,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
 
 
         :param meeting_minutes: The meeting_minutes of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :type: SpeechAnalyticsConfigModifiableBaseMeetingMinutes
+        :type: SpeechAnalyticsConfigModifiableCoreMeetingMinutes
         """
 
         self._meeting_minutes = meeting_minutes
@@ -552,7 +523,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
 
 
         :return: The nps_question of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :rtype: SpeechAnalyticsConfigModifiableBaseNpsQuestion
+        :rtype: SpeechAnalyticsConfigModifiableCoreNpsQuestion
         """
         return self._nps_question
 
@@ -562,7 +533,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
 
 
         :param nps_question: The nps_question of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :type: SpeechAnalyticsConfigModifiableBaseNpsQuestion
+        :type: SpeechAnalyticsConfigModifiableCoreNpsQuestion
         """
 
         self._nps_question = nps_question
@@ -850,7 +821,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
 
 
         :return: The topics of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :rtype: SpeechAnalyticsConfigModifiableBaseTopics
+        :rtype: SpeechAnalyticsConfigModifiableCoreTopics
         """
         return self._topics
 
@@ -860,7 +831,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
 
 
         :param topics: The topics of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
-        :type: SpeechAnalyticsConfigModifiableBaseTopics
+        :type: SpeechAnalyticsConfigModifiableCoreTopics
         """
 
         self._topics = topics
@@ -887,6 +858,35 @@ class SpeechAnalyticsConfigModifiableBase(object):
         """
 
         self._word_cloud = word_cloud
+
+    @property
+    def context_id(self):
+        """Gets the context_id of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
+
+        (Needed only if making a request using MAC Authentication. Otherwise will be taken from JWT.)  # noqa: E501
+
+        :return: The context_id of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
+        :rtype: str
+        """
+        return self._context_id
+
+    @context_id.setter
+    def context_id(self, context_id):
+        """Sets the context_id of this SpeechAnalyticsConfigModifiableBase.
+
+        (Needed only if making a request using MAC Authentication. Otherwise will be taken from JWT.)  # noqa: E501
+
+        :param context_id: The context_id of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                context_id is not None and len(context_id) > 48):
+            raise ValueError("Invalid value for `context_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                context_id is not None and len(context_id) < 16):
+            raise ValueError("Invalid value for `context_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._context_id = context_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
