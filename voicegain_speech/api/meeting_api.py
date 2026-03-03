@@ -40,7 +40,7 @@ class MeetingApi(object):
     def asr_meeting_audio_put(self, meeting_id, **kwargs):  # noqa: E501
         """Add Meeting Audio  # noqa: E501
 
-        Provide audio from the meeting to be transcribed.</br> Currently, this method works only if preceeded by [POST /asr/meeting/join](#operation/asrMeetingJoinPost). Attempt to use it on meeting sessions started in any other way will fail.   # noqa: E501
+        Provide audio from the meeting to be transcribed.  This method is only applicable to meetings started via [POST /asr/meeting/join](#operation/asrMeetingJoinPost). Attempting to use it on meeting sessions started via other methods will fail.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_audio_put(meeting_id, async_req=True)
@@ -66,7 +66,7 @@ class MeetingApi(object):
     def asr_meeting_audio_put_with_http_info(self, meeting_id, **kwargs):  # noqa: E501
         """Add Meeting Audio  # noqa: E501
 
-        Provide audio from the meeting to be transcribed.</br> Currently, this method works only if preceeded by [POST /asr/meeting/join](#operation/asrMeetingJoinPost). Attempt to use it on meeting sessions started in any other way will fail.   # noqa: E501
+        Provide audio from the meeting to be transcribed.  This method is only applicable to meetings started via [POST /asr/meeting/join](#operation/asrMeetingJoinPost). Attempting to use it on meeting sessions started via other methods will fail.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_audio_put_with_http_info(meeting_id, async_req=True)
@@ -162,7 +162,7 @@ class MeetingApi(object):
     def asr_meeting_delete(self, meeting_id, **kwargs):  # noqa: E501
         """Delete Meeting  # noqa: E501
 
-        Delete all meeting data   # noqa: E501
+        Delete all data associated with a meeting, including transcripts, audio recordings, and metadata. This action is irreversible.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_delete(meeting_id, async_req=True)
@@ -187,7 +187,7 @@ class MeetingApi(object):
     def asr_meeting_delete_with_http_info(self, meeting_id, **kwargs):  # noqa: E501
         """Delete Meeting  # noqa: E501
 
-        Delete all meeting data   # noqa: E501
+        Delete all data associated with a meeting, including transcripts, audio recordings, and metadata. This action is irreversible.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_delete_with_http_info(meeting_id, async_req=True)
@@ -276,7 +276,7 @@ class MeetingApi(object):
     def asr_meeting_get(self, meeting_id, **kwargs):  # noqa: E501
         """Get Meeting  # noqa: E501
 
-        Get Meeting   # noqa: E501
+        Retrieve meeting session data including transcription status, speaker information, and metadata. Not all fields may be present if the meeting transcript is still being generated.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_get(meeting_id, async_req=True)
@@ -301,7 +301,7 @@ class MeetingApi(object):
     def asr_meeting_get_with_http_info(self, meeting_id, **kwargs):  # noqa: E501
         """Get Meeting  # noqa: E501
 
-        Get Meeting   # noqa: E501
+        Retrieve meeting session data including transcription status, speaker information, and metadata. Not all fields may be present if the meeting transcript is still being generated.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_get_with_http_info(meeting_id, async_req=True)
@@ -388,9 +388,9 @@ class MeetingApi(object):
             collection_formats=collection_formats)
 
     def asr_meeting_get_data(self, meeting_id, **kwargs):  # noqa: E501
-        """Meeting Data  # noqa: E501
+        """Get Meeting Data  # noqa: E501
 
-        Retrieve meeting data (**after** transcription is **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br>   # noqa: E501
+        Retrieve detailed meeting data **after** transcription is **complete**.  Use query parameters to select which data fields are included in the response: - **words** -- word-by-word transcript with timestamps - **audio** -- audio file references - **metadata** -- session metadata - **wordCloud** -- word frequency data - **summary** -- AI-generated meeting summary - **keywords** -- extracted keywords - **namedEntities** -- extracted entities (names, dates, organizations) - **phrases** -- key phrases - **meetingMinutes** -- auto-generated meeting minutes   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_get_data(meeting_id, async_req=True)
@@ -422,9 +422,9 @@ class MeetingApi(object):
         return self.asr_meeting_get_data_with_http_info(meeting_id, **kwargs)  # noqa: E501
 
     def asr_meeting_get_data_with_http_info(self, meeting_id, **kwargs):  # noqa: E501
-        """Meeting Data  # noqa: E501
+        """Get Meeting Data  # noqa: E501
 
-        Retrieve meeting data (**after** transcription is **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br>   # noqa: E501
+        Retrieve detailed meeting data **after** transcription is **complete**.  Use query parameters to select which data fields are included in the response: - **words** -- word-by-word transcript with timestamps - **audio** -- audio file references - **metadata** -- session metadata - **wordCloud** -- word frequency data - **summary** -- AI-generated meeting summary - **keywords** -- extracted keywords - **namedEntities** -- extracted entities (names, dates, organizations) - **phrases** -- key phrases - **meetingMinutes** -- auto-generated meeting minutes   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_get_data_with_http_info(meeting_id, async_req=True)
@@ -538,9 +538,9 @@ class MeetingApi(object):
             collection_formats=collection_formats)
 
     def asr_meeting_get_transcript(self, meeting_id, **kwargs):  # noqa: E501
-        """Meeting Transcript  # noqa: E501
+        """Get Meeting Transcript  # noqa: E501
 
-        Retrieve meeting transcript  (after transcription is complete) in one of several possible formats.</br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br> Transcript data is available for the `persistSeconds` period as specified in the initial POST request.</br>   # noqa: E501
+        Retrieve the completed meeting transcript in one of several output formats: **VTT**, **text**, **PDF**, or **DOCX**.  The response contains the final transcription with speaker labels and timestamps. If the transcription is still in progress, a 400 error will be returned.  Transcript data is available for the `persistSeconds` duration as specified in the initial POST request.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_get_transcript(meeting_id, async_req=True)
@@ -566,9 +566,9 @@ class MeetingApi(object):
         return self.asr_meeting_get_transcript_with_http_info(meeting_id, **kwargs)  # noqa: E501
 
     def asr_meeting_get_transcript_with_http_info(self, meeting_id, **kwargs):  # noqa: E501
-        """Meeting Transcript  # noqa: E501
+        """Get Meeting Transcript  # noqa: E501
 
-        Retrieve meeting transcript  (after transcription is complete) in one of several possible formats.</br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br> Transcript data is available for the `persistSeconds` period as specified in the initial POST request.</br>   # noqa: E501
+        Retrieve the completed meeting transcript in one of several output formats: **VTT**, **text**, **PDF**, or **DOCX**.  The response contains the final transcription with speaker labels and timestamps. If the transcription is still in progress, a 400 error will be returned.  Transcript data is available for the `persistSeconds` duration as specified in the initial POST request.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_get_transcript_with_http_info(meeting_id, async_req=True)
@@ -676,7 +676,7 @@ class MeetingApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param MeetingJoinRequest meeting_join_request: Body of meeting join request. Name of the resulting meeting transcription will be same as the name of the meeting.
+        :param MeetingJoinRequest meeting_join_request: Body of meeting join request. Specify either a meeting URL or meeting code/password. The resulting meeting transcription label will default to the name of the meeting. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -702,7 +702,7 @@ class MeetingApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param MeetingJoinRequest meeting_join_request: Body of meeting join request. Name of the resulting meeting transcription will be same as the name of the meeting.
+        :param MeetingJoinRequest meeting_join_request: Body of meeting join request. Specify either a meeting URL or meeting code/password. The resulting meeting transcription label will default to the name of the meeting. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -784,9 +784,9 @@ class MeetingApi(object):
             collection_formats=collection_formats)
 
     def asr_meeting_post(self, **kwargs):  # noqa: E501
-        """Meeting Transcribe  # noqa: E501
+        """Start Meeting Transcription  # noqa: E501
 
-        Start offline transcription of a meeting from multi-channel audio.   # noqa: E501
+        Start offline transcription of a meeting from multi-channel audio.  Submit one or more audio files from a meeting recording to be transcribed with speaker diarization. The transcription is processed asynchronously -- use [GET /asr/meeting/{meetingId}](#operation/asrMeetingGet) to poll for results.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_post(async_req=True)
@@ -794,7 +794,7 @@ class MeetingApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param TranscribeMeetingRequest transcribe_meeting_request: body of meeting transcription request
+        :param TranscribeMeetingRequest transcribe_meeting_request: Meeting transcription request containing audio source(s), ASR settings, and optional speaker configuration.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -810,9 +810,9 @@ class MeetingApi(object):
         return self.asr_meeting_post_with_http_info(**kwargs)  # noqa: E501
 
     def asr_meeting_post_with_http_info(self, **kwargs):  # noqa: E501
-        """Meeting Transcribe  # noqa: E501
+        """Start Meeting Transcription  # noqa: E501
 
-        Start offline transcription of a meeting from multi-channel audio.   # noqa: E501
+        Start offline transcription of a meeting from multi-channel audio.  Submit one or more audio files from a meeting recording to be transcribed with speaker diarization. The transcription is processed asynchronously -- use [GET /asr/meeting/{meetingId}](#operation/asrMeetingGet) to poll for results.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_post_with_http_info(async_req=True)
@@ -820,7 +820,7 @@ class MeetingApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param TranscribeMeetingRequest transcribe_meeting_request: body of meeting transcription request
+        :param TranscribeMeetingRequest transcribe_meeting_request: Meeting transcription request containing audio source(s), ASR settings, and optional speaker configuration.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -912,7 +912,7 @@ class MeetingApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str meeting_id: ID of the meeting transcribe task (required)
-        :param ModifiableMeetingData modifiable_meeting_data: Body with meeting data to be modified
+        :param ModifiableMeetingData modifiable_meeting_data: Fields to modify on the meeting. Only provided fields will be updated.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -938,7 +938,7 @@ class MeetingApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str meeting_id: ID of the meeting transcribe task (required)
-        :param ModifiableMeetingData modifiable_meeting_data: Body with meeting data to be modified
+        :param ModifiableMeetingData modifiable_meeting_data: Fields to modify on the meeting. Only provided fields will be updated.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1192,9 +1192,9 @@ class MeetingApi(object):
             collection_formats=collection_formats)
 
     def asr_meeting_result_search(self, **kwargs):  # noqa: E501
-        """Search Meeting Results  # noqa: E501
+        """Search Meeting Results (Deprecated)  # noqa: E501
 
-        Search all Meeting Transcribe Sessions for a given Account.</br> For pending sessions it will return progress information in the progress field.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> Deprecated - use [POST](#tag/meeting/operation/asrMeetingResultSearchPost) method instead.</br>   # noqa: E501
+        Search meeting transcription sessions for a given account using query parameters.  **Deprecated** -- use the [POST /asr/meeting/search](#operation/asrMeetingResultSearchPost) method instead, which provides a more powerful tree-based query syntax.  For pending sessions, progress information is returned in the `progress` field. By default only results from the specified context are returned.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_result_search(async_req=True)
@@ -1225,9 +1225,9 @@ class MeetingApi(object):
         return self.asr_meeting_result_search_with_http_info(**kwargs)  # noqa: E501
 
     def asr_meeting_result_search_with_http_info(self, **kwargs):  # noqa: E501
-        """Search Meeting Results  # noqa: E501
+        """Search Meeting Results (Deprecated)  # noqa: E501
 
-        Search all Meeting Transcribe Sessions for a given Account.</br> For pending sessions it will return progress information in the progress field.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> Deprecated - use [POST](#tag/meeting/operation/asrMeetingResultSearchPost) method instead.</br>   # noqa: E501
+        Search meeting transcription sessions for a given account using query parameters.  **Deprecated** -- use the [POST /asr/meeting/search](#operation/asrMeetingResultSearchPost) method instead, which provides a more powerful tree-based query syntax.  For pending sessions, progress information is returned in the `progress` field. By default only results from the specified context are returned.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_result_search_with_http_info(async_req=True)
@@ -1359,7 +1359,7 @@ class MeetingApi(object):
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
         :param list[str] sort_by: By what value should the results be sorted. </br> If not provided then the results will be returned in predictable but undefined order, unless Text Search Query is provided, then the results will be sorted by relevance/rank. 
-        :param Query query: body with the query
+        :param Query query: Tree-structured search query. Supports boolean operators (OrQuery, AndQuery), equality checks (EqTerm), set membership (InTerm), and full-text search (TxtSearchTerm). 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1392,7 +1392,7 @@ class MeetingApi(object):
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
         :param list[str] sort_by: By what value should the results be sorted. </br> If not provided then the results will be returned in predictable but undefined order, unless Text Search Query is provided, then the results will be sorted by relevance/rank. 
-        :param Query query: body with the query
+        :param Query query: Tree-structured search query. Supports boolean operators (OrQuery, AndQuery), equality checks (EqTerm), set membership (InTerm), and full-text search (TxtSearchTerm). 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1496,9 +1496,9 @@ class MeetingApi(object):
             collection_formats=collection_formats)
 
     def asr_meeting_search_fields_get(self, **kwargs):  # noqa: E501
-        """Meeting Search Fields  # noqa: E501
+        """Get Meeting Search Fields  # noqa: E501
 
-        Returns fields types and values (where they can be enumerated) that can be used in search query.</br> If request is made with HMAC signature, then only fields that are searchable by the user are returned (may be further restricted by `ctxSelect`).</br> If request is made with JWT token, then all fields within account are returned (unless restricted by `ctxSelect`).</br>   # noqa: E501
+        Returns the field types and their enumerable values that can be used to build meeting search queries.  Use this endpoint to discover which fields are available for filtering and what values they accept, enabling dynamic construction of search query UIs.  - With **HMAC signature**: only fields searchable by the current user are returned - With **JWT token**: all fields within the account are returned (unless restricted by `ctxSelect`)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_search_fields_get(async_req=True)
@@ -1522,9 +1522,9 @@ class MeetingApi(object):
         return self.asr_meeting_search_fields_get_with_http_info(**kwargs)  # noqa: E501
 
     def asr_meeting_search_fields_get_with_http_info(self, **kwargs):  # noqa: E501
-        """Meeting Search Fields  # noqa: E501
+        """Get Meeting Search Fields  # noqa: E501
 
-        Returns fields types and values (where they can be enumerated) that can be used in search query.</br> If request is made with HMAC signature, then only fields that are searchable by the user are returned (may be further restricted by `ctxSelect`).</br> If request is made with JWT token, then all fields within account are returned (unless restricted by `ctxSelect`).</br>   # noqa: E501
+        Returns the field types and their enumerable values that can be used to build meeting search queries.  Use this endpoint to discover which fields are available for filtering and what values they accept, enabling dynamic construction of search query UIs.  - With **HMAC signature**: only fields searchable by the current user are returned - With **JWT token**: all fields within the account are returned (unless restricted by `ctxSelect`)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_meeting_search_fields_get_with_http_info(async_req=True)
@@ -1605,9 +1605,9 @@ class MeetingApi(object):
             collection_formats=collection_formats)
 
     def meeting_spk_put(self, meeting_id, **kwargs):  # noqa: E501
-        """Mod. Meeting Spk.  # noqa: E501
+        """Modify Meeting Speakers  # noqa: E501
 
-        Modify speaker names for a Meeting. Note, this cannot be used to modify names of non-speaking participants in the meeting.   # noqa: E501
+        Modify speaker names for a meeting transcript. Use this to assign meaningful names to diarized speakers (e.g., replace \"Speaker 1\" with \"Sarah Chen\").  Note: this cannot be used to modify names of non-speaking participants in the meeting.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.meeting_spk_put(meeting_id, async_req=True)
@@ -1631,9 +1631,9 @@ class MeetingApi(object):
         return self.meeting_spk_put_with_http_info(meeting_id, **kwargs)  # noqa: E501
 
     def meeting_spk_put_with_http_info(self, meeting_id, **kwargs):  # noqa: E501
-        """Mod. Meeting Spk.  # noqa: E501
+        """Modify Meeting Speakers  # noqa: E501
 
-        Modify speaker names for a Meeting. Note, this cannot be used to modify names of non-speaking participants in the meeting.   # noqa: E501
+        Modify speaker names for a meeting transcript. Use this to assign meaningful names to diarized speakers (e.g., replace \"Speaker 1\" with \"Sarah Chen\").  Note: this cannot be used to modify names of non-speaking participants in the meeting.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.meeting_spk_put_with_http_info(meeting_id, async_req=True)

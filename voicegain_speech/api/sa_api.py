@@ -40,7 +40,7 @@ class SaApi(object):
     def sa_config_defaults_put(self, sa_config_id, **kwargs):  # noqa: E501
         """Sp. Analytics Cfg. Defaults  # noqa: E501
 
-        Apply specified defaults to an existing Speech Analytics Configuration.    # noqa: E501
+        Apply specified defaults to an existing Speech Analytics Configuration.  \"Defaults\" are pre-defined standard values for various SA configuration sections. When you apply defaults, the system populates the specified sections of the configuration with built-in baseline settings. This is useful when: + Creating a new configuration and wanting to start from a known good baseline rather than configuring everything from scratch + Resetting specific sections of a configuration back to standard values + Ensuring consistent baseline settings across multiple configurations  The request body specifies which default sections to apply (e.g., keywords, sentiment, NER). Only the specified sections are overwritten; other sections of the configuration remain unchanged.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_defaults_put(sa_config_id, async_req=True)
@@ -48,7 +48,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_config_id: Configuration ID for Speech Analytics (required)
-        :param SpeechAnalyticsConfigWhatDefaults speech_analytics_config_what_defaults: Defaults to apply to Speech Analytics Configuration
+        :param SpeechAnalyticsConfigWhatDefaults speech_analytics_config_what_defaults: Specifies which default sections to apply to the SA configuration. Each field indicates a configuration section that should be reset to its built-in default values. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -66,7 +66,7 @@ class SaApi(object):
     def sa_config_defaults_put_with_http_info(self, sa_config_id, **kwargs):  # noqa: E501
         """Sp. Analytics Cfg. Defaults  # noqa: E501
 
-        Apply specified defaults to an existing Speech Analytics Configuration.    # noqa: E501
+        Apply specified defaults to an existing Speech Analytics Configuration.  \"Defaults\" are pre-defined standard values for various SA configuration sections. When you apply defaults, the system populates the specified sections of the configuration with built-in baseline settings. This is useful when: + Creating a new configuration and wanting to start from a known good baseline rather than configuring everything from scratch + Resetting specific sections of a configuration back to standard values + Ensuring consistent baseline settings across multiple configurations  The request body specifies which default sections to apply (e.g., keywords, sentiment, NER). Only the specified sections are overwritten; other sections of the configuration remain unchanged.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_defaults_put_with_http_info(sa_config_id, async_req=True)
@@ -74,7 +74,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_config_id: Configuration ID for Speech Analytics (required)
-        :param SpeechAnalyticsConfigWhatDefaults speech_analytics_config_what_defaults: Defaults to apply to Speech Analytics Configuration
+        :param SpeechAnalyticsConfigWhatDefaults speech_analytics_config_what_defaults: Specifies which default sections to apply to the SA configuration. Each field indicates a configuration section that should be reset to its built-in default values. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -276,7 +276,7 @@ class SaApi(object):
     def sa_config_get(self, sa_config_id, **kwargs):  # noqa: E501
         """Get Sp. Analytics Cfg.  # noqa: E501
 
-        Get Speech Analytics configuration for given id.   # noqa: E501
+        Retrieve a single Speech Analytics configuration by its ID. Returns the full configuration including all keyword groups, sentiment settings, NER rules, scorecards, and PII redaction settings.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_get(sa_config_id, async_req=True)
@@ -301,7 +301,7 @@ class SaApi(object):
     def sa_config_get_with_http_info(self, sa_config_id, **kwargs):  # noqa: E501
         """Get Sp. Analytics Cfg.  # noqa: E501
 
-        Get Speech Analytics configuration for given id.   # noqa: E501
+        Retrieve a single Speech Analytics configuration by its ID. Returns the full configuration including all keyword groups, sentiment settings, NER rules, scorecards, and PII redaction settings.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_get_with_http_info(sa_config_id, async_req=True)
@@ -390,7 +390,7 @@ class SaApi(object):
     def sa_config_post(self, **kwargs):  # noqa: E501
         """New Sp. Analytics Cfg.  # noqa: E501
 
-        Create new Speech Analytics Configuration    # noqa: E501
+        Create a new Speech Analytics Configuration that controls how call recordings and real-time audio streams are analyzed.  An SA Configuration defines the full set of analytics processing rules, including: + **Keywords and Phrases Detection** — specify words and phrases to detect in agent and customer speech (e.g., compliance phrases, competitor mentions, upsell opportunities) + **Sentiment Analysis** — configure how caller and agent sentiment is scored and tracked across the conversation + **Named Entity Recognition (NER)** — extract entities such as names, dates, account numbers, and addresses from transcripts + **Scorecards** — define quality evaluation criteria and scoring rubrics for agent performance assessment + **PII Redaction** — configure which personally identifiable information (SSN, credit card numbers, etc.) should be automatically redacted + **Summary and Topic Settings** — control automatic call summarization and topic categorization  The created configuration can then be referenced by SA sessions to apply these analytics rules during processing.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_post(async_req=True)
@@ -398,7 +398,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param bool built_in: Set to true to indicate that a built-in Built-In Speech Analytics config is to be created. Only users with \"cmp\" permission are allowed to create built-in configs. 
-        :param SpeechAnalyticsConfig speech_analytics_config: Configuration for Speech Analytics
+        :param SpeechAnalyticsConfig speech_analytics_config: Speech Analytics Configuration defining the analytics rules to apply during call processing. At minimum, provide a name for the configuration. Additional sections control keyword detection, sentiment analysis, NER, scorecards, and PII redaction settings. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -416,7 +416,7 @@ class SaApi(object):
     def sa_config_post_with_http_info(self, **kwargs):  # noqa: E501
         """New Sp. Analytics Cfg.  # noqa: E501
 
-        Create new Speech Analytics Configuration    # noqa: E501
+        Create a new Speech Analytics Configuration that controls how call recordings and real-time audio streams are analyzed.  An SA Configuration defines the full set of analytics processing rules, including: + **Keywords and Phrases Detection** — specify words and phrases to detect in agent and customer speech (e.g., compliance phrases, competitor mentions, upsell opportunities) + **Sentiment Analysis** — configure how caller and agent sentiment is scored and tracked across the conversation + **Named Entity Recognition (NER)** — extract entities such as names, dates, account numbers, and addresses from transcripts + **Scorecards** — define quality evaluation criteria and scoring rubrics for agent performance assessment + **PII Redaction** — configure which personally identifiable information (SSN, credit card numbers, etc.) should be automatically redacted + **Summary and Topic Settings** — control automatic call summarization and topic categorization  The created configuration can then be referenced by SA sessions to apply these analytics rules during processing.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_post_with_http_info(async_req=True)
@@ -424,7 +424,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param bool built_in: Set to true to indicate that a built-in Built-In Speech Analytics config is to be created. Only users with \"cmp\" permission are allowed to create built-in configs. 
-        :param SpeechAnalyticsConfig speech_analytics_config: Configuration for Speech Analytics
+        :param SpeechAnalyticsConfig speech_analytics_config: Speech Analytics Configuration defining the analytics rules to apply during call processing. At minimum, provide a name for the configuration. Additional sections control keyword detection, sentiment analysis, NER, scorecards, and PII redaction settings. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -510,7 +510,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_config_id: Configuration ID for Speech Analytics (required)
-        :param SpeechAnalyticsConfigModifiable speech_analytics_config_modifiable: Modifications to Speech Analytics Configuration
+        :param SpeechAnalyticsConfigModifiable speech_analytics_config_modifiable: Complete replacement content for the Speech Analytics Configuration. Because of the complexity of SA Config, this is a full replacement (not a partial update). Include all fields you want to retain in the updated configuration. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -536,7 +536,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_config_id: Configuration ID for Speech Analytics (required)
-        :param SpeechAnalyticsConfigModifiable speech_analytics_config_modifiable: Modifications to Speech Analytics Configuration
+        :param SpeechAnalyticsConfigModifiable speech_analytics_config_modifiable: Complete replacement content for the Speech Analytics Configuration. Because of the complexity of SA Config, this is a full replacement (not a partial update). Include all fields you want to retain in the updated configuration. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -624,7 +624,7 @@ class SaApi(object):
     def sa_config_query(self, **kwargs):  # noqa: E501
         """Query Sp. Analytics Cfg.  # noqa: E501
 
-        Get Speech Analytics configurations that match filters.   # noqa: E501
+        Query Speech Analytics configurations that match the specified filters. Returns a list of SA configurations for the given context, optionally filtered by name pattern and config type. Use this to discover available configurations before starting an SA session.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_query(async_req=True)
@@ -652,7 +652,7 @@ class SaApi(object):
     def sa_config_query_with_http_info(self, **kwargs):  # noqa: E501
         """Query Sp. Analytics Cfg.  # noqa: E501
 
-        Get Speech Analytics configurations that match filters.   # noqa: E501
+        Query Speech Analytics configurations that match the specified filters. Returns a list of SA configurations for the given context, optionally filtered by name pattern and config type. Use this to discover available configurations before starting an SA session.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_config_query_with_http_info(async_req=True)
@@ -752,7 +752,7 @@ class SaApi(object):
     def sa_data_get(self, sa_session_id, **kwargs):  # noqa: E501
         """Get Sp. Analytics Data  # noqa: E501
 
-        Retrieve Speech Analytics result data. Note: original audio was mono and diarization had to be used to return the speaker channels,  then the returned decibel and audio zone data will be approximate - it will de extracted from mono channel using diarization zones. If requested we will also return simulated stereo audio in such cases.   # noqa: E501
+        Retrieve Speech Analytics result data for a completed SA session.  Returns the full analytics output including detected keywords, sentiment scores, named entities, phrase matches, scorecard criteria results, and incident flags. Use query parameters to control which data sections are included in the response.  Note: If the original audio was mono and diarization had to be used to return the speaker channels, then the returned decibel and audio zone data will be approximate -- it will be extracted from the mono channel using diarization zones. If requested, simulated stereo audio will also be returned in such cases.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_data_get(sa_session_id, async_req=True)
@@ -788,7 +788,7 @@ class SaApi(object):
     def sa_data_get_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Get Sp. Analytics Data  # noqa: E501
 
-        Retrieve Speech Analytics result data. Note: original audio was mono and diarization had to be used to return the speaker channels,  then the returned decibel and audio zone data will be approximate - it will de extracted from mono channel using diarization zones. If requested we will also return simulated stereo audio in such cases.   # noqa: E501
+        Retrieve Speech Analytics result data for a completed SA session.  Returns the full analytics output including detected keywords, sentiment scores, named entities, phrase matches, scorecard criteria results, and incident flags. Use query parameters to control which data sections are included in the response.  Note: If the original audio was mono and diarization had to be used to return the speaker channels, then the returned decibel and audio zone data will be approximate -- it will be extracted from the mono channel using diarization zones. If requested, simulated stereo audio will also be returned in such cases.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_data_get_with_http_info(sa_session_id, async_req=True)
@@ -912,7 +912,7 @@ class SaApi(object):
     def sa_delete(self, sa_session_id, **kwargs):  # noqa: E501
         """Delete Sp. Analytics  # noqa: E501
 
-        Delete all data related to specified Speech Analytics session.   # noqa: E501
+        Delete all data related to the specified Speech Analytics session, including transcripts, analytics results, and associated audio references. This action is irreversible.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_delete(sa_session_id, async_req=True)
@@ -937,7 +937,7 @@ class SaApi(object):
     def sa_delete_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Delete Sp. Analytics  # noqa: E501
 
-        Delete all data related to specified Speech Analytics session.   # noqa: E501
+        Delete all data related to the specified Speech Analytics session, including transcripts, analytics results, and associated audio references. This action is irreversible.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_delete_with_http_info(sa_session_id, async_req=True)
@@ -1026,7 +1026,7 @@ class SaApi(object):
     def sa_get_transcript(self, sa_session_id, **kwargs):  # noqa: E501
         """SA Transcript Content  # noqa: E501
 
-        Retrieve transcript from Speech Analytics session (after transcription is complete) in one of several possible formats.</br>  The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br>   # noqa: E501
+        Retrieve the transcript from a Speech Analytics session (after transcription is complete) in one of several possible formats.  The response contains the final transcription content of the provided audio with speaker labels indicating which participant (agent or customer) spoke each segment. This is useful for reviewing call conversations, generating call summaries, and compliance auditing.  Note: If the transcription is still in progress, a 400 error will be returned. Use the [status endpoint](#operation/saSessionStatusGet) to check if transcription is complete before calling this.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_get_transcript(sa_session_id, async_req=True)
@@ -1054,7 +1054,7 @@ class SaApi(object):
     def sa_get_transcript_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """SA Transcript Content  # noqa: E501
 
-        Retrieve transcript from Speech Analytics session (after transcription is complete) in one of several possible formats.</br>  The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br>   # noqa: E501
+        Retrieve the transcript from a Speech Analytics session (after transcription is complete) in one of several possible formats.  The response contains the final transcription content of the provided audio with speaker labels indicating which participant (agent or customer) spoke each segment. This is useful for reviewing call conversations, generating call summaries, and compliance auditing.  Note: If the transcription is still in progress, a 400 error will be returned. Use the [status endpoint](#operation/saSessionStatusGet) to check if transcription is complete before calling this.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_get_transcript_with_http_info(sa_session_id, async_req=True)
@@ -1276,7 +1276,7 @@ class SaApi(object):
     def sa_put(self, sa_session_id, **kwargs):  # noqa: E501
         """Mod Sp. Analytics  # noqa: E501
 
-        Modify data associated with Speech Analytics session    # noqa: E501
+        Modify data associated with a Speech Analytics session, such as updating metadata, tags, or review status.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_put(sa_session_id, async_req=True)
@@ -1302,7 +1302,7 @@ class SaApi(object):
     def sa_put_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Mod Sp. Analytics  # noqa: E501
 
-        Modify data associated with Speech Analytics session    # noqa: E501
+        Modify data associated with a Speech Analytics session, such as updating metadata, tags, or review status.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_put_with_http_info(sa_session_id, async_req=True)
@@ -1522,7 +1522,7 @@ class SaApi(object):
     def sa_session_status_get(self, sa_session_id, **kwargs):  # noqa: E501
         """Poll Sp. Analytics Ses.  # noqa: E501
 
-        Get status of given speech-analytics session   # noqa: E501
+        Poll the status of a Speech Analytics session.  Use this endpoint to monitor the progress of an SA session through its lifecycle stages: transcription, analytics processing, and completion. This is particularly useful for offline/batch processing where you need to wait for results before retrieving data.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_session_status_get(sa_session_id, async_req=True)
@@ -1547,7 +1547,7 @@ class SaApi(object):
     def sa_session_status_get_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Poll Sp. Analytics Ses.  # noqa: E501
 
-        Get status of given speech-analytics session   # noqa: E501
+        Poll the status of a Speech Analytics session.  Use this endpoint to monitor the progress of an SA session through its lifecycle stages: transcription, analytics processing, and completion. This is particularly useful for offline/batch processing where you need to wait for results before retrieving data.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_session_status_get_with_http_info(sa_session_id, async_req=True)
@@ -1636,7 +1636,7 @@ class SaApi(object):
     def sa_spk_put(self, sa_session_id, **kwargs):  # noqa: E501
         """Mod. SA Session Spk.  # noqa: E501
 
-        Modify speaker names for a Speech Analytics Session   # noqa: E501
+        Modify speaker names for a Speech Analytics Session.  Use this endpoint to assign meaningful names to speakers identified by diarization (e.g., replacing generic labels like \"Speaker 1\" and \"Speaker 2\" with \"Agent - Sarah\" and \"Customer - John Smith\"). Speaker names appear in transcripts, analytics reports, and exported data.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_spk_put(sa_session_id, async_req=True)
@@ -1644,7 +1644,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_session_id: Session ID for Speech Analytics (required)
-        :param list[NamedSpeaker] named_speaker: Modifications to Speaker names
+        :param list[NamedSpeaker] named_speaker: List of speaker name assignments mapping speaker identifiers to human-readable names.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -1662,7 +1662,7 @@ class SaApi(object):
     def sa_spk_put_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Mod. SA Session Spk.  # noqa: E501
 
-        Modify speaker names for a Speech Analytics Session   # noqa: E501
+        Modify speaker names for a Speech Analytics Session.  Use this endpoint to assign meaningful names to speakers identified by diarization (e.g., replacing generic labels like \"Speaker 1\" and \"Speaker 2\" with \"Agent - Sarah\" and \"Customer - John Smith\"). Speaker names appear in transcripts, analytics reports, and exported data.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_spk_put_with_http_info(sa_session_id, async_req=True)
@@ -1670,7 +1670,7 @@ class SaApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_session_id: Session ID for Speech Analytics (required)
-        :param list[NamedSpeaker] named_speaker: Modifications to Speaker names
+        :param list[NamedSpeaker] named_speaker: List of speaker name assignments mapping speaker identifiers to human-readable names.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

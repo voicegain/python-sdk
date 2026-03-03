@@ -49,7 +49,7 @@ class AivrCallbackApi(object):
         :param async_req bool: execute request asynchronously
         :param str csid: ID of the AIVR session on customer's system.   (required)
         :param int seq: Interaction sequences of the AIVR session on Voicegain system.   (required)
-        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request.
+        :param AIVRExistingSession aivr_existing_session: Body of the final Telephony Bot Callback request indicating the session has ended (e.g., caller hung up, transfer completed, or session timeout). 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -76,7 +76,7 @@ class AivrCallbackApi(object):
         :param async_req bool: execute request asynchronously
         :param str csid: ID of the AIVR session on customer's system.   (required)
         :param int seq: Interaction sequences of the AIVR session on Voicegain system.   (required)
-        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request.
+        :param AIVRExistingSession aivr_existing_session: Body of the final Telephony Bot Callback request indicating the session has ended (e.g., caller hung up, transfer completed, or session timeout). 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -181,7 +181,7 @@ class AivrCallbackApi(object):
         :param async_req bool: execute request asynchronously
         :param str csid: ID of the AIVR session on customer's system.   (required)
         :param int seq: Interaction sequences of the AIVR session on Voicegain system.   (required)
-        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request.
+        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request for an ongoing session, containing the event data (e.g., recognized speech result, DTMF input, or timeout notification). 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -208,7 +208,7 @@ class AivrCallbackApi(object):
         :param async_req bool: execute request asynchronously
         :param str csid: ID of the AIVR session on customer's system.   (required)
         :param int seq: Interaction sequences of the AIVR session on Voicegain system.   (required)
-        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request.
+        :param AIVRExistingSession aivr_existing_session: Body of Telephony Bot Callback request for an ongoing session, containing the event data (e.g., recognized speech result, DTMF input, or timeout notification). 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -311,7 +311,7 @@ class AivrCallbackApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AIVRNewSession aivr_new_session: Body of Telephony Bot Callback request.
+        :param AIVRNewSession aivr_new_session: Body of the initial Telephony Bot Callback request sent from Voicegain to the customer's dialog logic when a new AIVR session starts (e.g., an inbound call arrives). 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -336,7 +336,7 @@ class AivrCallbackApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AIVRNewSession aivr_new_session: Body of Telephony Bot Callback request.
+        :param AIVRNewSession aivr_new_session: Body of the initial Telephony Bot Callback request sent from Voicegain to the customer's dialog logic when a new AIVR session starts (e.g., an inbound call arrives). 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -419,7 +419,7 @@ class AivrCallbackApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AIVRNewSessionWS aivr_new_session_ws: Body of Telephony Bot Callback request.
+        :param AIVRNewSessionWS aivr_new_session_ws: Body of the WebSocket-based Telephony Bot Callback request for a new session. All subsequent communications will be handled over the WebSocket connection. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -444,7 +444,7 @@ class AivrCallbackApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param AIVRNewSessionWS aivr_new_session_ws: Body of Telephony Bot Callback request.
+        :param AIVRNewSessionWS aivr_new_session_ws: Body of the WebSocket-based Telephony Bot Callback request for a new session. All subsequent communications will be handled over the WebSocket connection. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

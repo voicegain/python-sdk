@@ -420,7 +420,7 @@ class TranscribeApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param AsyncTranscriptionRequest async_transcription_request: Request transcription in Async Mode.  
+        :param AsyncTranscriptionRequest async_transcription_request: Request body for starting an asynchronous transcription session. Specify the audio source, session configuration (polling/callback preferences, content options), and ASR settings. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -446,7 +446,7 @@ class TranscribeApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param AsyncTranscriptionRequest async_transcription_request: Request transcription in Async Mode.  
+        :param AsyncTranscriptionRequest async_transcription_request: Request body for starting an asynchronous transcription session. Specify the audio source, session configuration (polling/callback preferences, content options), and ASR settings. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -539,7 +539,7 @@ class TranscribeApi(object):
         :param async_req bool: execute request asynchronously
         :param str session_id: ID of the session (required)
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param TranscribeSessionModifyRequest transcribe_session_modify_request: Parameters to modify
+        :param TranscribeSessionModifyRequest transcribe_session_modify_request: Parameters to modify on the active transcription session. All fields are optional; only provided fields will be updated. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -566,7 +566,7 @@ class TranscribeApi(object):
         :param async_req bool: execute request asynchronously
         :param str session_id: ID of the session (required)
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
-        :param TranscribeSessionModifyRequest transcribe_session_modify_request: Parameters to modify
+        :param TranscribeSessionModifyRequest transcribe_session_modify_request: Parameters to modify on the active transcription session. All fields are optional; only provided fields will be updated. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -660,9 +660,9 @@ class TranscribeApi(object):
             collection_formats=collection_formats)
 
     def asr_transcribe_get_data(self, session_id, **kwargs):  # noqa: E501
-        """Transcript Data  # noqa: E501
+        """Get Transcript Data  # noqa: E501
 
-        Retrieve transcript data (**after** transcription is **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - audio signal power data - in the `decibels` field.</br>   # noqa: E501
+        Retrieve detailed transcript data **after** transcription is **complete**.  Use the query parameters to control which data fields are included in the response: - **words** -- the transcript word-by-word with timestamps - **decibels** -- audio signal power (RMS) data - **audioZones** -- VAD (Voice Activity Detection) zones - **speakers** -- speaker diarization labels - **wordCloud** -- word frequency data - **metadata** -- session metadata   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_get_data(session_id, async_req=True)
@@ -692,9 +692,9 @@ class TranscribeApi(object):
         return self.asr_transcribe_get_data_with_http_info(session_id, **kwargs)  # noqa: E501
 
     def asr_transcribe_get_data_with_http_info(self, session_id, **kwargs):  # noqa: E501
-        """Transcript Data  # noqa: E501
+        """Get Transcript Data  # noqa: E501
 
-        Retrieve transcript data (**after** transcription is **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - audio signal power data - in the `decibels` field.</br>   # noqa: E501
+        Retrieve detailed transcript data **after** transcription is **complete**.  Use the query parameters to control which data fields are included in the response: - **words** -- the transcript word-by-word with timestamps - **decibels** -- audio signal power (RMS) data - **audioZones** -- VAD (Voice Activity Detection) zones - **speakers** -- speaker diarization labels - **wordCloud** -- word frequency data - **metadata** -- session metadata   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_get_data_with_http_info(session_id, async_req=True)
@@ -804,9 +804,9 @@ class TranscribeApi(object):
             collection_formats=collection_formats)
 
     def asr_transcribe_get_transcript(self, session_id, **kwargs):  # noqa: E501
-        """Transcript Content  # noqa: E501
+        """Get Transcript Content  # noqa: E501
 
-        Retrieve transcript  (after transcription is complete) in one of several possible formats.</br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br> Transcript data is available for the `session.poll.persist` period as specified in the initial POST request.</br>  NOTE: for this method to work the transcription needs to be started with content.full[\"words\"] option, e.g.: <pre>   \"content\": {     \"incremental\": [\"progress\"],     \"full\" : [\"transcript\", \"words\"]     } </pre>   # noqa: E501
+        Retrieve the completed transcript in one of several output formats: **VTT**, **SRT**, **text**, **TTML**, or **JSON**.  The response contains the final transcription of the provided audio in the requested format. If the transcription is still in progress, a 400 error will be returned.  Transcript data is available for the `session.poll.persist` duration as specified in the initial POST request.  NOTE: for this method to work the transcription needs to be started with content.full[\"words\"] option, e.g.: <pre>   \"content\": {     \"incremental\": [\"progress\"],     \"full\" : [\"transcript\", \"words\"]     } </pre>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_get_transcript(session_id, async_req=True)
@@ -832,9 +832,9 @@ class TranscribeApi(object):
         return self.asr_transcribe_get_transcript_with_http_info(session_id, **kwargs)  # noqa: E501
 
     def asr_transcribe_get_transcript_with_http_info(self, session_id, **kwargs):  # noqa: E501
-        """Transcript Content  # noqa: E501
+        """Get Transcript Content  # noqa: E501
 
-        Retrieve transcript  (after transcription is complete) in one of several possible formats.</br> The response will contain the final content of the transcription of the provided audio.</br> Note, if the transcription is still in progress then 400 error will be returned.</br> Transcript data is available for the `session.poll.persist` period as specified in the initial POST request.</br>  NOTE: for this method to work the transcription needs to be started with content.full[\"words\"] option, e.g.: <pre>   \"content\": {     \"incremental\": [\"progress\"],     \"full\" : [\"transcript\", \"words\"]     } </pre>   # noqa: E501
+        Retrieve the completed transcript in one of several output formats: **VTT**, **SRT**, **text**, **TTML**, or **JSON**.  The response contains the final transcription of the provided audio in the requested format. If the transcription is still in progress, a 400 error will be returned.  Transcript data is available for the `session.poll.persist` duration as specified in the initial POST request.  NOTE: for this method to work the transcription needs to be started with content.full[\"words\"] option, e.g.: <pre>   \"content\": {     \"incremental\": [\"progress\"],     \"full\" : [\"transcript\", \"words\"]     } </pre>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_get_transcript_with_http_info(session_id, async_req=True)
@@ -945,7 +945,7 @@ class TranscribeApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param SyncTranscriptionRequest sync_transcription_request: body of transcription request
+        :param SyncTranscriptionRequest sync_transcription_request: Body of synchronous transcription request containing audio source and optional ASR settings.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -970,7 +970,7 @@ class TranscribeApi(object):
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
-        :param SyncTranscriptionRequest sync_transcription_request: body of transcription request
+        :param SyncTranscriptionRequest sync_transcription_request: Body of synchronous transcription request containing audio source and optional ASR settings.
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -1046,7 +1046,7 @@ class TranscribeApi(object):
     def asr_transcribe_post_data(self, session_id, **kwargs):  # noqa: E501
         """Store Transcript Data  # noqa: E501
 
-        Store transcript data .</br> Data may include:</br> - RMS data - VAD zones - emotion - named entities - keywords   # noqa: E501
+        Store additional transcript data for a completed session. This allows enriching the transcript with supplementary analysis results computed externally.  Supported data types include: - **RMS data** -- audio signal power levels - **VAD zones** -- Voice Activity Detection segments - **emotion** -- detected emotions per segment - **named entities** -- extracted entities (names, dates, amounts) - **keywords** -- key terms identified in the transcript   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_post_data(session_id, async_req=True)
@@ -1072,7 +1072,7 @@ class TranscribeApi(object):
     def asr_transcribe_post_data_with_http_info(self, session_id, **kwargs):  # noqa: E501
         """Store Transcript Data  # noqa: E501
 
-        Store transcript data .</br> Data may include:</br> - RMS data - VAD zones - emotion - named entities - keywords   # noqa: E501
+        Store additional transcript data for a completed session. This allows enriching the transcript with supplementary analysis results computed externally.  Supported data types include: - **RMS data** -- audio signal power levels - **VAD zones** -- Voice Activity Detection segments - **emotion** -- detected emotions per segment - **named entities** -- extracted entities (names, dates, amounts) - **keywords** -- key terms identified in the transcript   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_post_data_with_http_info(session_id, async_req=True)
@@ -1166,9 +1166,9 @@ class TranscribeApi(object):
             collection_formats=collection_formats)
 
     def asr_transcribe_put_data(self, session_id, **kwargs):  # noqa: E501
-        """Mod Transcript Data  # noqa: E501
+        """Modify Transcript Data  # noqa: E501
 
-        Modify transcript data .</br> Data may include:</br> - RMS data - VAD zones - emotion - named entities - keywords   # noqa: E501
+        Modify previously stored transcript data for a completed session. Use this to update or correct supplementary analysis results.  Modifiable data types include: - **RMS data** -- audio signal power levels - **VAD zones** -- Voice Activity Detection segments - **emotion** -- detected emotions per segment - **named entities** -- extracted entities (names, dates, amounts) - **keywords** -- key terms identified in the transcript   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_put_data(session_id, async_req=True)
@@ -1192,9 +1192,9 @@ class TranscribeApi(object):
         return self.asr_transcribe_put_data_with_http_info(session_id, **kwargs)  # noqa: E501
 
     def asr_transcribe_put_data_with_http_info(self, session_id, **kwargs):  # noqa: E501
-        """Mod Transcript Data  # noqa: E501
+        """Modify Transcript Data  # noqa: E501
 
-        Modify transcript data .</br> Data may include:</br> - RMS data - VAD zones - emotion - named entities - keywords   # noqa: E501
+        Modify previously stored transcript data for a completed session. Use this to update or correct supplementary analysis results.  Modifiable data types include: - **RMS data** -- audio signal power levels - **VAD zones** -- Voice Activity Detection segments - **emotion** -- detected emotions per segment - **named entities** -- extracted entities (names, dates, amounts) - **keywords** -- key terms identified in the transcript   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_put_data_with_http_info(session_id, async_req=True)
@@ -1290,7 +1290,7 @@ class TranscribeApi(object):
     def asr_transcribe_status_queue_get(self, **kwargs):  # noqa: E501
         """Transcribe Queue Status  # noqa: E501
 
-        Return status of the transcription queue for this account (the account is identified by the JWT token or HMAC).   # noqa: E501
+        Return the current status of the transcription processing queue for this account.  The account is identified by the JWT token or HMAC signature. Use this endpoint to monitor queue capacity and determine whether new transcription jobs can be submitted.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_status_queue_get(async_req=True)
@@ -1314,7 +1314,7 @@ class TranscribeApi(object):
     def asr_transcribe_status_queue_get_with_http_info(self, **kwargs):  # noqa: E501
         """Transcribe Queue Status  # noqa: E501
 
-        Return status of the transcription queue for this account (the account is identified by the JWT token or HMAC).   # noqa: E501
+        Return the current status of the transcription processing queue for this account.  The account is identified by the JWT token or HMAC signature. Use this endpoint to monitor queue capacity and determine whether new transcription jobs can be submitted.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.asr_transcribe_status_queue_get_with_http_info(async_req=True)

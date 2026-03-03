@@ -38,9 +38,9 @@ class SaInternalApi(object):
         self.api_client = api_client
 
     def sa_call_delete(self, call_id, **kwargs):  # noqa: E501
-        """Delete Call  # noqa: E501
+        """Delete Call Record  # noqa: E501
 
-        Delete a call   # noqa: E501
+        Delete a specific call record by its ID.  This permanently removes the call record and all associated data including transcripts, analytics results, and audio references. This action cannot be undone.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_delete(call_id, async_req=True)
@@ -64,9 +64,9 @@ class SaInternalApi(object):
         return self.sa_call_delete_with_http_info(call_id, **kwargs)  # noqa: E501
 
     def sa_call_delete_with_http_info(self, call_id, **kwargs):  # noqa: E501
-        """Delete Call  # noqa: E501
+        """Delete Call Record  # noqa: E501
 
-        Delete a call   # noqa: E501
+        Delete a specific call record by its ID.  This permanently removes the call record and all associated data including transcripts, analytics results, and audio references. This action cannot be undone.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_delete_with_http_info(call_id, async_req=True)
@@ -162,9 +162,9 @@ class SaInternalApi(object):
             collection_formats=collection_formats)
 
     def sa_call_get(self, call_id, **kwargs):  # noqa: E501
-        """Get Call  # noqa: E501
+        """Get Call Details  # noqa: E501
 
-        Get calls details   # noqa: E501
+        Retrieve detailed information for a specific call record by its ID.  Returns the full call record including metadata, analytics results, and optionally transcript segments. Use the `inclSegments` parameter to control whether segments are included.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_get(call_id, async_req=True)
@@ -189,9 +189,9 @@ class SaInternalApi(object):
         return self.sa_call_get_with_http_info(call_id, **kwargs)  # noqa: E501
 
     def sa_call_get_with_http_info(self, call_id, **kwargs):  # noqa: E501
-        """Get Call  # noqa: E501
+        """Get Call Details  # noqa: E501
 
-        Get calls details   # noqa: E501
+        Retrieve detailed information for a specific call record by its ID.  Returns the full call record including metadata, analytics results, and optionally transcript segments. Use the `inclSegments` parameter to control whether segments are included.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_get_with_http_info(call_id, async_req=True)
@@ -290,9 +290,9 @@ class SaInternalApi(object):
             collection_formats=collection_formats)
 
     def sa_call_post(self, **kwargs):  # noqa: E501
-        """New Call  # noqa: E501
+        """Create Call Record  # noqa: E501
 
-        Create a call record   # noqa: E501
+        Create a new call record in Speech Analytics.  A call record represents a single phone call or interaction to be analyzed. After creating the record, submit audio via [POST /sa/offline](#operation/saOfflinePost) to trigger transcription and analytics processing.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_post(async_req=True)
@@ -316,9 +316,9 @@ class SaInternalApi(object):
         return self.sa_call_post_with_http_info(**kwargs)  # noqa: E501
 
     def sa_call_post_with_http_info(self, **kwargs):  # noqa: E501
-        """New Call  # noqa: E501
+        """Create Call Record  # noqa: E501
 
-        Create a call record   # noqa: E501
+        Create a new call record in Speech Analytics.  A call record represents a single phone call or interaction to be analyzed. After creating the record, submit audio via [POST /sa/offline](#operation/saOfflinePost) to trigger transcription and analytics processing.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_post_with_http_info(async_req=True)
@@ -408,9 +408,9 @@ class SaInternalApi(object):
             collection_formats=collection_formats)
 
     def sa_call_query(self, **kwargs):  # noqa: E501
-        """Query Calls  # noqa: E501
+        """Query Call Records  # noqa: E501
 
-        Get calls matching the query. Returns only calls from given account and context.  For additional info about paginated response and the returned response Headers see  [Pagination section](#section/Pagination) at the top of document.   # noqa: E501
+        Query call records matching the specified filters. Returns only calls belonging to the given account and context.  Results can be paginated and sorted. For additional info about paginated response and the returned response Headers see [Pagination section](#section/Pagination) at the top of document.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_query(async_req=True)
@@ -452,9 +452,9 @@ class SaInternalApi(object):
         return self.sa_call_query_with_http_info(**kwargs)  # noqa: E501
 
     def sa_call_query_with_http_info(self, **kwargs):  # noqa: E501
-        """Query Calls  # noqa: E501
+        """Query Call Records  # noqa: E501
 
-        Get calls matching the query. Returns only calls from given account and context.  For additional info about paginated response and the returned response Headers see  [Pagination section](#section/Pagination) at the top of document.   # noqa: E501
+        Query call records matching the specified filters. Returns only calls belonging to the given account and context.  Results can be paginated and sorted. For additional info about paginated response and the returned response Headers see [Pagination section](#section/Pagination) at the top of document.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_query_with_http_info(async_req=True)
@@ -616,9 +616,9 @@ class SaInternalApi(object):
             collection_formats=collection_formats)
 
     def sa_call_search_fields_get(self, **kwargs):  # noqa: E501
-        """Call Search Fields  # noqa: E501
+        """Get Search Field Metadata  # noqa: E501
 
-        Returns fields types and values (where they can be enumerated) that can be used in search query.</br> If request is made with HMAC signature, then only fields that are searchable by the user are returned (may be further restricted by `contextId` list).</br> If request is made with JWT token, then all fields within account are returned (unless restricted by `contextId` list).</br>   # noqa: E501
+        Retrieve field types and enumerable values that can be used in call search queries.</br> If the request is made with an HMAC signature, only fields searchable by the user are returned (may be further restricted by the `contextId` list).</br> If the request is made with a JWT token, all fields within the account are returned (unless restricted by the `contextId` list).</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_fields_get(async_req=True)
@@ -643,9 +643,9 @@ class SaInternalApi(object):
         return self.sa_call_search_fields_get_with_http_info(**kwargs)  # noqa: E501
 
     def sa_call_search_fields_get_with_http_info(self, **kwargs):  # noqa: E501
-        """Call Search Fields  # noqa: E501
+        """Get Search Field Metadata  # noqa: E501
 
-        Returns fields types and values (where they can be enumerated) that can be used in search query.</br> If request is made with HMAC signature, then only fields that are searchable by the user are returned (may be further restricted by `contextId` list).</br> If request is made with JWT token, then all fields within account are returned (unless restricted by `contextId` list).</br>   # noqa: E501
+        Retrieve field types and enumerable values that can be used in call search queries.</br> If the request is made with an HMAC signature, only fields searchable by the user are returned (may be further restricted by the `contextId` list).</br> If the request is made with a JWT token, all fields within the account are returned (unless restricted by the `contextId` list).</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_fields_get_with_http_info(async_req=True)
@@ -730,9 +730,9 @@ class SaInternalApi(object):
             collection_formats=collection_formats)
 
     def sa_call_search_post(self, **kwargs):  # noqa: E501
-        """SA Call Search  # noqa: E501
+        """Search Call Records  # noqa: E501
 
-        Search all SA Calls for a given Account.</br> The actual search query needs to be included in the body of the request (that is why this is a POST not a GET method).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead od relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     }   ] } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination)  If you want to retrieve a specific number of results, you can use `page=1` and `per_page=<number>`, this gets translated into sql query with `LIMIT <number>` and `OFFSET 0`.   # noqa: E501
+        Search all Speech Analytics call records for the given account using a structured query.</br> The search query is included in the request body (hence POST instead of GET).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead of relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"python\"     }   ] } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination).  If you want to retrieve a specific number of results, you can use `page=1` and `per_page=<number>`, this gets translated into sql query with `LIMIT <number>` and `OFFSET 0`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_post(async_req=True)
@@ -745,7 +745,7 @@ class SaInternalApi(object):
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
         :param list[str] sort_by: By what value should the results be sorted. </br> If not provided then the results will be returned in predictable but undefined order, unless Text Search Query is provided, then the results will be sorted by relevance/rank. 
-        :param CQuery c_query: Body with the query
+        :param CQuery c_query: Structured search query tree
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -761,9 +761,9 @@ class SaInternalApi(object):
         return self.sa_call_search_post_with_http_info(**kwargs)  # noqa: E501
 
     def sa_call_search_post_with_http_info(self, **kwargs):  # noqa: E501
-        """SA Call Search  # noqa: E501
+        """Search Call Records  # noqa: E501
 
-        Search all SA Calls for a given Account.</br> The actual search query needs to be included in the body of the request (that is why this is a POST not a GET method).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead od relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     }   ] } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination)  If you want to retrieve a specific number of results, you can use `page=1` and `per_page=<number>`, this gets translated into sql query with `LIMIT <number>` and `OFFSET 0`.   # noqa: E501
+        Search all Speech Analytics call records for the given account using a structured query.</br> The search query is included in the request body (hence POST instead of GET).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead of relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"python\"     }   ] } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination).  If you want to retrieve a specific number of results, you can use `page=1` and `per_page=<number>`, this gets translated into sql query with `LIMIT <number>` and `OFFSET 0`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_post_with_http_info(async_req=True)
@@ -776,7 +776,7 @@ class SaInternalApi(object):
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
         :param list[str] sort_by: By what value should the results be sorted. </br> If not provided then the results will be returned in predictable but undefined order, unless Text Search Query is provided, then the results will be sorted by relevance/rank. 
-        :param CQuery c_query: Body with the query
+        :param CQuery c_query: Structured search query tree
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -871,9 +871,9 @@ class SaInternalApi(object):
             collection_formats=collection_formats)
 
     def sa_call_tags_get(self, **kwargs):  # noqa: E501
-        """Get Tags  # noqa: E501
+        """List All Call Tags  # noqa: E501
 
-        Get tags from selected calls   # noqa: E501
+        Retrieve all tags used across call records within the specified context.  Returns a list of unique tags along with their usage counts, useful for building tag filter UIs and understanding tag distribution across calls.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_tags_get(async_req=True)
@@ -896,9 +896,9 @@ class SaInternalApi(object):
         return self.sa_call_tags_get_with_http_info(**kwargs)  # noqa: E501
 
     def sa_call_tags_get_with_http_info(self, **kwargs):  # noqa: E501
-        """Get Tags  # noqa: E501
+        """List All Call Tags  # noqa: E501
 
-        Get tags from selected calls   # noqa: E501
+        Retrieve all tags used across call records within the specified context.  Returns a list of unique tags along with their usage counts, useful for building tag filter UIs and understanding tag distribution across calls.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_tags_get_with_http_info(async_req=True)
@@ -981,9 +981,9 @@ class SaInternalApi(object):
             collection_formats=collection_formats)
 
     def sa_call_tags_put(self, call_id, **kwargs):  # noqa: E501
-        """Modify Call Tags  # noqa: E501
+        """Update Call Tags  # noqa: E501
 
-        Modify tags attached to the call   # noqa: E501
+        Update the tags attached to a specific call record.  Tags are used to categorize and label calls for filtering and reporting purposes. Use the `merge` parameter to control whether the provided tags replace or merge with existing tags on the call.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_tags_put(call_id, async_req=True)
@@ -1009,9 +1009,9 @@ class SaInternalApi(object):
         return self.sa_call_tags_put_with_http_info(call_id, **kwargs)  # noqa: E501
 
     def sa_call_tags_put_with_http_info(self, call_id, **kwargs):  # noqa: E501
-        """Modify Call Tags  # noqa: E501
+        """Update Call Tags  # noqa: E501
 
-        Modify tags attached to the call   # noqa: E501
+        Update the tags attached to a specific call record.  Tags are used to categorize and label calls for filtering and reporting purposes. Use the `merge` parameter to control whether the provided tags replace or merge with existing tags on the call.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_tags_put_with_http_info(call_id, async_req=True)

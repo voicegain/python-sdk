@@ -459,7 +459,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def llm_summary_prompt(self):
         """Gets the llm_summary_prompt of this SpeechAnalyticsConfigModifiable.  # noqa: E501
 
-        _(internal use)_ LLM Prompt that is used to generate the summary. This is the offline summary of the call, to be distionguished from the copilot notes.   # noqa: E501
+        _(internal use)_ LLM Prompt that is used to generate the summary. This is the offline summary of the call, to be distinguished from the copilot notes.   # noqa: E501
 
         :return: The llm_summary_prompt of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :rtype: str
@@ -470,7 +470,7 @@ class SpeechAnalyticsConfigModifiable(object):
     def llm_summary_prompt(self, llm_summary_prompt):
         """Sets the llm_summary_prompt of this SpeechAnalyticsConfigModifiable.
 
-        _(internal use)_ LLM Prompt that is used to generate the summary. This is the offline summary of the call, to be distionguished from the copilot notes.   # noqa: E501
+        _(internal use)_ LLM Prompt that is used to generate the summary. This is the offline summary of the call, to be distinguished from the copilot notes.   # noqa: E501
 
         :param llm_summary_prompt: The llm_summary_prompt of this SpeechAnalyticsConfigModifiable.  # noqa: E501
         :type: str

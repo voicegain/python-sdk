@@ -390,7 +390,7 @@ class SaOfflineApi(object):
     def sa_offline_get_data(self, sa_session_id, **kwargs):  # noqa: E501
         """Speech Analytics Data  # noqa: E501
 
-        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.   # noqa: E501
+        Retrieve speech analytics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.  **Query Parameters:**</br> - `words` — If `true`, includes the full word-level transcript with timestamps and speaker IDs for each word.</br> - `audio` — If `true`, includes audio metadata such as merged audio data object IDs and duration.</br> - `metadata` — If `true`, includes session metadata such as call tags, labels, and custom fields.</br> - `wordCloud` — If `true`, includes word frequency data suitable for generating word cloud visualizations.</br> - `summary` — If `true`, includes AI-generated call summary and topic information.</br> - `keywords` — If `true`, includes extracted keywords and key phrases from the conversation.</br> - `namedEntities` — If `true`, includes detected named entities (names, organizations, dates, etc.).</br> - `phrases` — If `true`, includes detected key phrases and their locations in the transcript.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get_data(sa_session_id, async_req=True)
@@ -423,7 +423,7 @@ class SaOfflineApi(object):
     def sa_offline_get_data_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Speech Analytics Data  # noqa: E501
 
-        Retrieve speech analitics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.   # noqa: E501
+        Retrieve speech analytics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.  **Query Parameters:**</br> - `words` — If `true`, includes the full word-level transcript with timestamps and speaker IDs for each word.</br> - `audio` — If `true`, includes audio metadata such as merged audio data object IDs and duration.</br> - `metadata` — If `true`, includes session metadata such as call tags, labels, and custom fields.</br> - `wordCloud` — If `true`, includes word frequency data suitable for generating word cloud visualizations.</br> - `summary` — If `true`, includes AI-generated call summary and topic information.</br> - `keywords` — If `true`, includes extracted keywords and key phrases from the conversation.</br> - `namedEntities` — If `true`, includes detected named entities (names, organizations, dates, etc.).</br> - `phrases` — If `true`, includes detected key phrases and their locations in the transcript.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get_data_with_http_info(sa_session_id, async_req=True)
@@ -898,7 +898,7 @@ class SaOfflineApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_session_id: Session ID for Speech Analytics (required)
-        :param list[NamedSpeaker] named_speaker: Modifications to Speech Analytics speaker - either set name or associate with [Speaker](#tag/speaker)
+        :param list[NamedSpeaker] named_speaker: Modifications to Speech Analytics speaker names. You can either set a display name directly or associate the speaker with a known [Speaker](#tag/speaker) profile for voice signature matching. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -924,7 +924,7 @@ class SaOfflineApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str sa_session_id: Session ID for Speech Analytics (required)
-        :param list[NamedSpeaker] named_speaker: Modifications to Speech Analytics speaker - either set name or associate with [Speaker](#tag/speaker)
+        :param list[NamedSpeaker] named_speaker: Modifications to Speech Analytics speaker names. You can either set a display name directly or associate the speaker with a known [Speaker](#tag/speaker) profile for voice signature matching. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will

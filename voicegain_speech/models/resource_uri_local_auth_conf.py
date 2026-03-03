@@ -72,7 +72,7 @@ class ResourceUriLocalAuthConf(object):
     def credential(self):
         """Gets the credential of this ResourceUriLocalAuthConf.  # noqa: E501
 
-        The credential or token needed for authenication:       For _basic_ it will be base46 encoded username:password,</br> for _bearer_ is will e.g. be a JWT token,</br> for _twilio-rec-encrypted_ it will be the [PKCS #8](https://en.wikipedia.org/wiki/PKCS_8) private key in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format,</br> for _aws_ it will be the SecretAccessKey   # noqa: E501
+        The credential or token needed for authentication:       For _basic_ it will be base64-encoded username:password,</br> for _bearer_ it will e.g. be a JWT token,</br> for _twilio-rec-encrypted_ it will be the [PKCS #8](https://en.wikipedia.org/wiki/PKCS_8) private key in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format,</br> for _aws_ it will be the SecretAccessKey   # noqa: E501
 
         :return: The credential of this ResourceUriLocalAuthConf.  # noqa: E501
         :rtype: str
@@ -83,7 +83,7 @@ class ResourceUriLocalAuthConf(object):
     def credential(self, credential):
         """Sets the credential of this ResourceUriLocalAuthConf.
 
-        The credential or token needed for authenication:       For _basic_ it will be base46 encoded username:password,</br> for _bearer_ is will e.g. be a JWT token,</br> for _twilio-rec-encrypted_ it will be the [PKCS #8](https://en.wikipedia.org/wiki/PKCS_8) private key in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format,</br> for _aws_ it will be the SecretAccessKey   # noqa: E501
+        The credential or token needed for authentication:       For _basic_ it will be base64-encoded username:password,</br> for _bearer_ it will e.g. be a JWT token,</br> for _twilio-rec-encrypted_ it will be the [PKCS #8](https://en.wikipedia.org/wiki/PKCS_8) private key in [PEM](https://en.wikipedia.org/wiki/Privacy-Enhanced_Mail) format,</br> for _aws_ it will be the SecretAccessKey   # noqa: E501
 
         :param credential: The credential of this ResourceUriLocalAuthConf.  # noqa: E501
         :type: str

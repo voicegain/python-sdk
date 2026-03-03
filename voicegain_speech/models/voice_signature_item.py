@@ -295,7 +295,7 @@ class VoiceSignatureItem(object):
     def signature(self):
         """Gets the signature of this VoiceSignatureItem.  # noqa: E501
 
-        Base64 encoded byte array which is the signature.</br> If it is nul or absent then it means that the Voice SIgnature has not yet been computed from the audioClip.   # noqa: E501
+        Base64 encoded byte array which is the signature.</br> If it is null or absent then it means that the Voice Signature has not yet been computed from the audioClip.   # noqa: E501
 
         :return: The signature of this VoiceSignatureItem.  # noqa: E501
         :rtype: str
@@ -306,7 +306,7 @@ class VoiceSignatureItem(object):
     def signature(self, signature):
         """Sets the signature of this VoiceSignatureItem.
 
-        Base64 encoded byte array which is the signature.</br> If it is nul or absent then it means that the Voice SIgnature has not yet been computed from the audioClip.   # noqa: E501
+        Base64 encoded byte array which is the signature.</br> If it is null or absent then it means that the Voice Signature has not yet been computed from the audioClip.   # noqa: E501
 
         :param signature: The signature of this VoiceSignatureItem.  # noqa: E501
         :type: str

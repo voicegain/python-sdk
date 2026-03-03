@@ -57,7 +57,7 @@ class TranscribeMeetingRequestSource(object):
     def data_object_uuid(self):
         """Gets the data_object_uuid of this TranscribeMeetingRequestSource.  # noqa: E501
 
-        Use this if the audio comes from previously uploaded Data Object. Note: The audio data must be in the **same context** as the the current request is for.   # noqa: E501
+        Use this if the audio comes from previously uploaded Data Object. Note: The audio data must be in the **same context** as the current request is for.   # noqa: E501
 
         :return: The data_object_uuid of this TranscribeMeetingRequestSource.  # noqa: E501
         :rtype: str
@@ -68,7 +68,7 @@ class TranscribeMeetingRequestSource(object):
     def data_object_uuid(self, data_object_uuid):
         """Sets the data_object_uuid of this TranscribeMeetingRequestSource.
 
-        Use this if the audio comes from previously uploaded Data Object. Note: The audio data must be in the **same context** as the the current request is for.   # noqa: E501
+        Use this if the audio comes from previously uploaded Data Object. Note: The audio data must be in the **same context** as the current request is for.   # noqa: E501
 
         :param data_object_uuid: The data_object_uuid of this TranscribeMeetingRequestSource.  # noqa: E501
         :type: str
