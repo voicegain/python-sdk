@@ -44,7 +44,7 @@ class SegmentAnalyticsResult(object):
         'segment_starts': 'float',
         'sequence': 'float',
         'silence': 'Silence',
-        'speaker': 'list[OfflineSASpeakerResult]',
+        'speakers': 'list[OfflineSASpeakerResult]',
         'summary': 'list[str]',
         'topics': 'list[TopicScore]',
         'type': 'SegmentType',
@@ -64,7 +64,7 @@ class SegmentAnalyticsResult(object):
         'segment_starts': 'segmentStarts',
         'sequence': 'sequence',
         'silence': 'silence',
-        'speaker': 'speaker',
+        'speakers': 'speakers',
         'summary': 'summary',
         'topics': 'topics',
         'type': 'type',
@@ -73,7 +73,7 @@ class SegmentAnalyticsResult(object):
         'word_starts': 'wordStarts'
     }
 
-    def __init__(self, ci_answers_id=None, cr_answers_id=None, criteria=None, incidents=None, keywords=None, phrases=None, segment_ends=None, segment_starts=None, sequence=None, silence=None, speaker=None, summary=None, topics=None, type=None, word_cloud=None, word_ends=None, word_starts=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ci_answers_id=None, cr_answers_id=None, criteria=None, incidents=None, keywords=None, phrases=None, segment_ends=None, segment_starts=None, sequence=None, silence=None, speakers=None, summary=None, topics=None, type=None, word_cloud=None, word_ends=None, word_starts=None, local_vars_configuration=None):  # noqa: E501
         """SegmentAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -89,7 +89,7 @@ class SegmentAnalyticsResult(object):
         self._segment_starts = None
         self._sequence = None
         self._silence = None
-        self._speaker = None
+        self._speakers = None
         self._summary = None
         self._topics = None
         self._type = None
@@ -115,8 +115,8 @@ class SegmentAnalyticsResult(object):
         self.sequence = sequence
         if silence is not None:
             self.silence = silence
-        if speaker is not None:
-            self.speaker = speaker
+        if speakers is not None:
+            self.speakers = speakers
         if summary is not None:
             self.summary = summary
         if topics is not None:
@@ -373,27 +373,27 @@ class SegmentAnalyticsResult(object):
         self._silence = silence
 
     @property
-    def speaker(self):
-        """Gets the speaker of this SegmentAnalyticsResult.  # noqa: E501
+    def speakers(self):
+        """Gets the speakers of this SegmentAnalyticsResult.  # noqa: E501
 
         Speaker data for this segment  # noqa: E501
 
-        :return: The speaker of this SegmentAnalyticsResult.  # noqa: E501
+        :return: The speakers of this SegmentAnalyticsResult.  # noqa: E501
         :rtype: list[OfflineSASpeakerResult]
         """
-        return self._speaker
+        return self._speakers
 
-    @speaker.setter
-    def speaker(self, speaker):
-        """Sets the speaker of this SegmentAnalyticsResult.
+    @speakers.setter
+    def speakers(self, speakers):
+        """Sets the speakers of this SegmentAnalyticsResult.
 
         Speaker data for this segment  # noqa: E501
 
-        :param speaker: The speaker of this SegmentAnalyticsResult.  # noqa: E501
+        :param speakers: The speakers of this SegmentAnalyticsResult.  # noqa: E501
         :type: list[OfflineSASpeakerResult]
         """
 
-        self._speaker = speaker
+        self._speakers = speakers
 
     @property
     def summary(self):
