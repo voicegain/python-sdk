@@ -35,7 +35,7 @@ class SpeechAnalyticsConfigModifiableCoreCsatQuestionLlm(object):
     """
     openapi_types = {
         'prompt': 'str',
-        'response_format': 'LlmResponseFormat'
+        'response_format': 'LlmResponseFormatBasic'
     }
 
     attribute_map = {
@@ -93,7 +93,7 @@ class SpeechAnalyticsConfigModifiableCoreCsatQuestionLlm(object):
 
 
         :return: The response_format of this SpeechAnalyticsConfigModifiableCoreCsatQuestionLlm.  # noqa: E501
-        :rtype: LlmResponseFormat
+        :rtype: LlmResponseFormatBasic
         """
         return self._response_format
 
@@ -103,7 +103,7 @@ class SpeechAnalyticsConfigModifiableCoreCsatQuestionLlm(object):
 
 
         :param response_format: The response_format of this SpeechAnalyticsConfigModifiableCoreCsatQuestionLlm.  # noqa: E501
-        :type: LlmResponseFormat
+        :type: LlmResponseFormatBasic
         """
 
         self._response_format = response_format
