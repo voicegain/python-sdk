@@ -40,6 +40,7 @@ class SegmentAnalyticsResult(object):
         'incidents': 'list[Incident]',
         'keywords': 'MeetingKeywordData',
         'phrases': 'MeetingPhraseData',
+        'progress': 'OfflineProgress',
         'segment_ends': 'float',
         'segment_starts': 'float',
         'sequence': 'float',
@@ -60,6 +61,7 @@ class SegmentAnalyticsResult(object):
         'incidents': 'incidents',
         'keywords': 'keywords',
         'phrases': 'phrases',
+        'progress': 'progress',
         'segment_ends': 'segmentEnds',
         'segment_starts': 'segmentStarts',
         'sequence': 'sequence',
@@ -73,7 +75,7 @@ class SegmentAnalyticsResult(object):
         'word_starts': 'wordStarts'
     }
 
-    def __init__(self, ci_answers_id=None, cr_answers_id=None, criteria=None, incidents=None, keywords=None, phrases=None, segment_ends=None, segment_starts=None, sequence=None, silence=None, speakers=None, summary=None, topics=None, type=None, word_cloud=None, word_ends=None, word_starts=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ci_answers_id=None, cr_answers_id=None, criteria=None, incidents=None, keywords=None, phrases=None, progress=None, segment_ends=None, segment_starts=None, sequence=None, silence=None, speakers=None, summary=None, topics=None, type=None, word_cloud=None, word_ends=None, word_starts=None, local_vars_configuration=None):  # noqa: E501
         """SegmentAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -85,6 +87,7 @@ class SegmentAnalyticsResult(object):
         self._incidents = None
         self._keywords = None
         self._phrases = None
+        self._progress = None
         self._segment_ends = None
         self._segment_starts = None
         self._sequence = None
@@ -110,6 +113,8 @@ class SegmentAnalyticsResult(object):
             self.keywords = keywords
         if phrases is not None:
             self.phrases = phrases
+        if progress is not None:
+            self.progress = progress
         self.segment_ends = segment_ends
         self.segment_starts = segment_starts
         self.sequence = sequence
@@ -272,6 +277,27 @@ class SegmentAnalyticsResult(object):
         """
 
         self._phrases = phrases
+
+    @property
+    def progress(self):
+        """Gets the progress of this SegmentAnalyticsResult.  # noqa: E501
+
+
+        :return: The progress of this SegmentAnalyticsResult.  # noqa: E501
+        :rtype: OfflineProgress
+        """
+        return self._progress
+
+    @progress.setter
+    def progress(self, progress):
+        """Sets the progress of this SegmentAnalyticsResult.
+
+
+        :param progress: The progress of this SegmentAnalyticsResult.  # noqa: E501
+        :type: OfflineProgress
+        """
+
+        self._progress = progress
 
     @property
     def segment_ends(self):
