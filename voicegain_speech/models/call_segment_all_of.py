@@ -46,6 +46,7 @@ class CallSegmentAllOf(object):
         'markers': 'list[CallMarker]',
         'modifiable_note': 'str',
         'notes': 'str',
+        'progress_phase': 'ProgressPhase',
         'queue': 'str',
         'review_notes': 'str',
         'review_status': 'str',
@@ -76,6 +77,7 @@ class CallSegmentAllOf(object):
         'markers': 'markers',
         'modifiable_note': 'modifiableNote',
         'notes': 'notes',
+        'progress_phase': 'progressPhase',
         'queue': 'queue',
         'review_notes': 'reviewNotes',
         'review_status': 'reviewStatus',
@@ -93,7 +95,7 @@ class CallSegmentAllOf(object):
         'voicemail_transcript': 'voicemailTranscript'
     }
 
-    def __init__(self, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, notes=None, queue=None, review_notes=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, voicemail_transcript=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, notes=None, progress_phase=None, queue=None, review_notes=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, voicemail_transcript=None, local_vars_configuration=None):  # noqa: E501
         """CallSegmentAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -111,6 +113,7 @@ class CallSegmentAllOf(object):
         self._markers = None
         self._modifiable_note = None
         self._notes = None
+        self._progress_phase = None
         self._queue = None
         self._review_notes = None
         self._review_status = None
@@ -149,6 +152,8 @@ class CallSegmentAllOf(object):
             self.modifiable_note = modifiable_note
         if notes is not None:
             self.notes = notes
+        if progress_phase is not None:
+            self.progress_phase = progress_phase
         if queue is not None:
             self.queue = queue
         if review_notes is not None:
@@ -474,6 +479,27 @@ class CallSegmentAllOf(object):
             raise ValueError("Invalid value for `notes`, length must be less than or equal to `2048`")  # noqa: E501
 
         self._notes = notes
+
+    @property
+    def progress_phase(self):
+        """Gets the progress_phase of this CallSegmentAllOf.  # noqa: E501
+
+
+        :return: The progress_phase of this CallSegmentAllOf.  # noqa: E501
+        :rtype: ProgressPhase
+        """
+        return self._progress_phase
+
+    @progress_phase.setter
+    def progress_phase(self, progress_phase):
+        """Sets the progress_phase of this CallSegmentAllOf.
+
+
+        :param progress_phase: The progress_phase of this CallSegmentAllOf.  # noqa: E501
+        :type: ProgressPhase
+        """
+
+        self._progress_phase = progress_phase
 
     @property
     def queue(self):

@@ -59,6 +59,7 @@ class CallSegment(object):
         'end_time': 'datetime',
         'markers': 'list[CallMarker]',
         'modifiable_note': 'str',
+        'progress_phase': 'ProgressPhase',
         'queue': 'str',
         'review_status': 'str',
         'sa_session_id': 'str',
@@ -100,6 +101,7 @@ class CallSegment(object):
         'end_time': 'endTime',
         'markers': 'markers',
         'modifiable_note': 'modifiableNote',
+        'progress_phase': 'progressPhase',
         'queue': 'queue',
         'review_status': 'reviewStatus',
         'sa_session_id': 'saSessionId',
@@ -115,7 +117,7 @@ class CallSegment(object):
         'voicebot_vars': 'voicebotVars'
     }
 
-    def __init__(self, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, queue=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, progress_phase=None, queue=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, local_vars_configuration=None):  # noqa: E501
         """CallSegment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -146,6 +148,7 @@ class CallSegment(object):
         self._end_time = None
         self._markers = None
         self._modifiable_note = None
+        self._progress_phase = None
         self._queue = None
         self._review_status = None
         self._sa_session_id = None
@@ -208,6 +211,8 @@ class CallSegment(object):
             self.markers = markers
         if modifiable_note is not None:
             self.modifiable_note = modifiable_note
+        if progress_phase is not None:
+            self.progress_phase = progress_phase
         if queue is not None:
             self.queue = queue
         if review_status is not None:
@@ -852,6 +857,27 @@ class CallSegment(object):
             raise ValueError("Invalid value for `modifiable_note`, length must be less than or equal to `2048`")  # noqa: E501
 
         self._modifiable_note = modifiable_note
+
+    @property
+    def progress_phase(self):
+        """Gets the progress_phase of this CallSegment.  # noqa: E501
+
+
+        :return: The progress_phase of this CallSegment.  # noqa: E501
+        :rtype: ProgressPhase
+        """
+        return self._progress_phase
+
+    @progress_phase.setter
+    def progress_phase(self, progress_phase):
+        """Sets the progress_phase of this CallSegment.
+
+
+        :param progress_phase: The progress_phase of this CallSegment.  # noqa: E501
+        :type: ProgressPhase
+        """
+
+        self._progress_phase = progress_phase
 
     @property
     def queue(self):
