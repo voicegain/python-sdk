@@ -449,7 +449,7 @@ class SpeechAnalyticsConfigModifiableCore(object):
     def llm_summary_prompt(self):
         """Gets the llm_summary_prompt of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
 
-        _(internal use)_ LLM Prompt that is used to generate the summary. This is the offline summary of the call, to be distinguished from the copilot notes.   # noqa: E501
+        LLM Prompt used to generate the summary of the transcript - stored in the `summary` field. (In SA Call use cases, used to populate the notes field on the call and call segment.)   # noqa: E501
 
         :return: The llm_summary_prompt of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
         :rtype: str
@@ -460,7 +460,7 @@ class SpeechAnalyticsConfigModifiableCore(object):
     def llm_summary_prompt(self, llm_summary_prompt):
         """Sets the llm_summary_prompt of this SpeechAnalyticsConfigModifiableCore.
 
-        _(internal use)_ LLM Prompt that is used to generate the summary. This is the offline summary of the call, to be distinguished from the copilot notes.   # noqa: E501
+        LLM Prompt used to generate the summary of the transcript - stored in the `summary` field. (In SA Call use cases, used to populate the notes field on the call and call segment.)   # noqa: E501
 
         :param llm_summary_prompt: The llm_summary_prompt of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
         :type: str
