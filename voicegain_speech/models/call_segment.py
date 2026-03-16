@@ -1079,7 +1079,7 @@ class CallSegment(object):
     def team(self):
         """Gets the team of this CallSegment.  # noqa: E501
 
-        Team name (if applicable for this segment)  # noqa: E501
+        Data UUID - it will be set based on the membership of the Agent user (from the agent field) in a UserGroup of the type Team (userGroupType). If user is member of more than one UserGroup of that type then we will chooseUser Group that was most recently created.   # noqa: E501
 
         :return: The team of this CallSegment.  # noqa: E501
         :rtype: str
@@ -1090,14 +1090,11 @@ class CallSegment(object):
     def team(self, team):
         """Sets the team of this CallSegment.
 
-        Team name (if applicable for this segment)  # noqa: E501
+        Data UUID - it will be set based on the membership of the Agent user (from the agent field) in a UserGroup of the type Team (userGroupType). If user is member of more than one UserGroup of that type then we will chooseUser Group that was most recently created.   # noqa: E501
 
         :param team: The team of this CallSegment.  # noqa: E501
         :type: str
         """
-        if (self.local_vars_configuration.client_side_validation and
-                team is not None and len(team) > 128):
-            raise ValueError("Invalid value for `team`, length must be less than or equal to `128`")  # noqa: E501
 
         self._team = team
 
