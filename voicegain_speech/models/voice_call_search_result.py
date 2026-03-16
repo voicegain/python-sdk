@@ -1171,7 +1171,7 @@ class VoiceCallSearchResult(object):
     def notes(self):
         """Gets the notes of this VoiceCallSearchResult.  # noqa: E501
 
-        Brief notes. May be submitted to the CRM.</br> Typically, generated using LLM prompt taken from `llmCopilotNotesPrompt` in saConfig   # noqa: E501
+        LLM-generated summary of the call (or call segment) transcript.</br> Generated using `llmSummaryPrompt` which is stored in the SA Config.   # noqa: E501
 
         :return: The notes of this VoiceCallSearchResult.  # noqa: E501
         :rtype: str
@@ -1182,7 +1182,7 @@ class VoiceCallSearchResult(object):
     def notes(self, notes):
         """Sets the notes of this VoiceCallSearchResult.
 
-        Brief notes. May be submitted to the CRM.</br> Typically, generated using LLM prompt taken from `llmCopilotNotesPrompt` in saConfig   # noqa: E501
+        LLM-generated summary of the call (or call segment) transcript.</br> Generated using `llmSummaryPrompt` which is stored in the SA Config.   # noqa: E501
 
         :param notes: The notes of this VoiceCallSearchResult.  # noqa: E501
         :type: str
