@@ -48,7 +48,7 @@ class CallSegment(object):
         'voicemail_transcript': 'str',
         'voicemail_uuid': 'str',
         'word_cloud': 'list[WordCloudItem]',
-        'agent': 'str',
+        'agent': 'Agent',
         'agent_feedback': 'CallSegmentAllOfAgentFeedback',
         'aivr_vars': 'dict(str, object)',
         'answering_endpoint': 'str',
@@ -60,7 +60,7 @@ class CallSegment(object):
         'markers': 'list[CallMarker]',
         'modifiable_note': 'str',
         'progress_phase': 'ProgressPhase',
-        'queue': 'str',
+        'queue': 'Queue',
         'review_status': 'str',
         'sa_session_id': 'str',
         'sa_session_segment_seq': 'int',
@@ -590,10 +590,9 @@ class CallSegment(object):
     def agent(self):
         """Gets the agent of this CallSegment.  # noqa: E501
 
-        Agent identifier (if applicable for this segment)  # noqa: E501
 
         :return: The agent of this CallSegment.  # noqa: E501
-        :rtype: str
+        :rtype: Agent
         """
         return self._agent
 
@@ -601,14 +600,10 @@ class CallSegment(object):
     def agent(self, agent):
         """Sets the agent of this CallSegment.
 
-        Agent identifier (if applicable for this segment)  # noqa: E501
 
         :param agent: The agent of this CallSegment.  # noqa: E501
-        :type: str
+        :type: Agent
         """
-        if (self.local_vars_configuration.client_side_validation and
-                agent is not None and len(agent) > 128):
-            raise ValueError("Invalid value for `agent`, length must be less than or equal to `128`")  # noqa: E501
 
         self._agent = agent
 
@@ -883,10 +878,9 @@ class CallSegment(object):
     def queue(self):
         """Gets the queue of this CallSegment.  # noqa: E501
 
-        Queue name (if applicable for this segment)  # noqa: E501
 
         :return: The queue of this CallSegment.  # noqa: E501
-        :rtype: str
+        :rtype: Queue
         """
         return self._queue
 
@@ -894,14 +888,10 @@ class CallSegment(object):
     def queue(self, queue):
         """Sets the queue of this CallSegment.
 
-        Queue name (if applicable for this segment)  # noqa: E501
 
         :param queue: The queue of this CallSegment.  # noqa: E501
-        :type: str
+        :type: Queue
         """
-        if (self.local_vars_configuration.client_side_validation and
-                queue is not None and len(queue) > 128):
-            raise ValueError("Invalid value for `queue`, length must be less than or equal to `128`")  # noqa: E501
 
         self._queue = queue
 

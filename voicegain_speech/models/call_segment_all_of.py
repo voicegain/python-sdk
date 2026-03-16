@@ -34,7 +34,7 @@ class CallSegmentAllOf(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'agent': 'str',
+        'agent': 'Agent',
         'agent_feedback': 'CallSegmentAllOfAgentFeedback',
         'aivr_vars': 'dict(str, object)',
         'answering_endpoint': 'str',
@@ -47,7 +47,7 @@ class CallSegmentAllOf(object):
         'modifiable_note': 'str',
         'notes': 'str',
         'progress_phase': 'ProgressPhase',
-        'queue': 'str',
+        'queue': 'Queue',
         'review_notes': 'str',
         'review_status': 'str',
         'sa_session_id': 'str',
@@ -186,10 +186,9 @@ class CallSegmentAllOf(object):
     def agent(self):
         """Gets the agent of this CallSegmentAllOf.  # noqa: E501
 
-        Agent identifier (if applicable for this segment)  # noqa: E501
 
         :return: The agent of this CallSegmentAllOf.  # noqa: E501
-        :rtype: str
+        :rtype: Agent
         """
         return self._agent
 
@@ -197,14 +196,10 @@ class CallSegmentAllOf(object):
     def agent(self, agent):
         """Sets the agent of this CallSegmentAllOf.
 
-        Agent identifier (if applicable for this segment)  # noqa: E501
 
         :param agent: The agent of this CallSegmentAllOf.  # noqa: E501
-        :type: str
+        :type: Agent
         """
-        if (self.local_vars_configuration.client_side_validation and
-                agent is not None and len(agent) > 128):
-            raise ValueError("Invalid value for `agent`, length must be less than or equal to `128`")  # noqa: E501
 
         self._agent = agent
 
@@ -505,10 +500,9 @@ class CallSegmentAllOf(object):
     def queue(self):
         """Gets the queue of this CallSegmentAllOf.  # noqa: E501
 
-        Queue name (if applicable for this segment)  # noqa: E501
 
         :return: The queue of this CallSegmentAllOf.  # noqa: E501
-        :rtype: str
+        :rtype: Queue
         """
         return self._queue
 
@@ -516,14 +510,10 @@ class CallSegmentAllOf(object):
     def queue(self, queue):
         """Sets the queue of this CallSegmentAllOf.
 
-        Queue name (if applicable for this segment)  # noqa: E501
 
         :param queue: The queue of this CallSegmentAllOf.  # noqa: E501
-        :type: str
+        :type: Queue
         """
-        if (self.local_vars_configuration.client_side_validation and
-                queue is not None and len(queue) > 128):
-            raise ValueError("Invalid value for `queue`, length must be less than or equal to `128`")  # noqa: E501
 
         self._queue = queue
 
