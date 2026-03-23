@@ -39,6 +39,7 @@ class OfflineSpeechAnalyticsBaseRequestWithoutSpeakers(object):
         'insights_config': 'str',
         'label': 'str',
         'metadata': 'list[NameValuePair]',
+        'obfuscate': 'bool',
         'persist_seconds': 'float',
         'sa_config': 'str',
         'segment_analytics_config': 'list[SegmentAnalyticsConfig]',
@@ -54,6 +55,7 @@ class OfflineSpeechAnalyticsBaseRequestWithoutSpeakers(object):
         'insights_config': 'insightsConfig',
         'label': 'label',
         'metadata': 'metadata',
+        'obfuscate': 'obfuscate',
         'persist_seconds': 'persistSeconds',
         'sa_config': 'saConfig',
         'segment_analytics_config': 'segmentAnalyticsConfig',
@@ -63,7 +65,7 @@ class OfflineSpeechAnalyticsBaseRequestWithoutSpeakers(object):
         'voice_signature_speakers': 'voiceSignatureSpeakers'
     }
 
-    def __init__(self, call_review_config=None, creator=None, insights_config=None, label=None, metadata=None, persist_seconds=3600, sa_config=None, segment_analytics_config=None, settings=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, call_review_config=None, creator=None, insights_config=None, label=None, metadata=None, obfuscate=False, persist_seconds=3600, sa_config=None, segment_analytics_config=None, settings=None, tags=None, topic_discovery_config=None, voice_signature_speakers=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsBaseRequestWithoutSpeakers - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -74,6 +76,7 @@ class OfflineSpeechAnalyticsBaseRequestWithoutSpeakers(object):
         self._insights_config = None
         self._label = None
         self._metadata = None
+        self._obfuscate = None
         self._persist_seconds = None
         self._sa_config = None
         self._segment_analytics_config = None
@@ -93,6 +96,8 @@ class OfflineSpeechAnalyticsBaseRequestWithoutSpeakers(object):
             self.label = label
         if metadata is not None:
             self.metadata = metadata
+        if obfuscate is not None:
+            self.obfuscate = obfuscate
         if persist_seconds is not None:
             self.persist_seconds = persist_seconds
         if sa_config is not None:
@@ -243,6 +248,29 @@ class OfflineSpeechAnalyticsBaseRequestWithoutSpeakers(object):
         """
 
         self._metadata = metadata
+
+    @property
+    def obfuscate(self):
+        """Gets the obfuscate of this OfflineSpeechAnalyticsBaseRequestWithoutSpeakers.  # noqa: E501
+
+        If `true`, after all processing is complete, the stored transcript will be obfuscated.</br> The same applies to all `llmJustification` values generated during processing.   # noqa: E501
+
+        :return: The obfuscate of this OfflineSpeechAnalyticsBaseRequestWithoutSpeakers.  # noqa: E501
+        :rtype: bool
+        """
+        return self._obfuscate
+
+    @obfuscate.setter
+    def obfuscate(self, obfuscate):
+        """Sets the obfuscate of this OfflineSpeechAnalyticsBaseRequestWithoutSpeakers.
+
+        If `true`, after all processing is complete, the stored transcript will be obfuscated.</br> The same applies to all `llmJustification` values generated during processing.   # noqa: E501
+
+        :param obfuscate: The obfuscate of this OfflineSpeechAnalyticsBaseRequestWithoutSpeakers.  # noqa: E501
+        :type: bool
+        """
+
+        self._obfuscate = obfuscate
 
     @property
     def persist_seconds(self):
