@@ -48,7 +48,7 @@ class OfflineSpeechAnalyticsRequest(object):
         'topic_discovery_config': 'str',
         'voice_signature_speakers': 'list[str]',
         'speakers': 'list[SpeechAnalyticsInputSpeaker]',
-        'audio': 'list[OfflineSpeechAnalyticsAudioRequestAudio]',
+        'audio': 'list[SpeechAnalyticsAudioInput]',
         'optimize_for_web_ui': 'str'
     }
 
@@ -488,10 +488,10 @@ class OfflineSpeechAnalyticsRequest(object):
     def audio(self):
         """Gets the audio of this OfflineSpeechAnalyticsRequest.  # noqa: E501
 
-        Multiple channels of audio input.  It is assumed that each audio file provided contains only 1 channel. If the file happens to be a stereo file then the two stereo channels will be merged into one before transcription.   # noqa: E501
+        Multiple channels of audio input. It is assumed that each audio file provided contains only 1 channel. If the file happens to be a stereo file then the two stereo channels will be merged into one before transcription.   # noqa: E501
 
         :return: The audio of this OfflineSpeechAnalyticsRequest.  # noqa: E501
-        :rtype: list[OfflineSpeechAnalyticsAudioRequestAudio]
+        :rtype: list[SpeechAnalyticsAudioInput]
         """
         return self._audio
 
@@ -499,10 +499,10 @@ class OfflineSpeechAnalyticsRequest(object):
     def audio(self, audio):
         """Sets the audio of this OfflineSpeechAnalyticsRequest.
 
-        Multiple channels of audio input.  It is assumed that each audio file provided contains only 1 channel. If the file happens to be a stereo file then the two stereo channels will be merged into one before transcription.   # noqa: E501
+        Multiple channels of audio input. It is assumed that each audio file provided contains only 1 channel. If the file happens to be a stereo file then the two stereo channels will be merged into one before transcription.   # noqa: E501
 
         :param audio: The audio of this OfflineSpeechAnalyticsRequest.  # noqa: E501
-        :type: list[OfflineSpeechAnalyticsAudioRequestAudio]
+        :type: list[SpeechAnalyticsAudioInput]
         """
 
         self._audio = audio
@@ -511,7 +511,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def optimize_for_web_ui(self):
         """Gets the optimize_for_web_ui of this OfflineSpeechAnalyticsRequest.  # noqa: E501
 
-        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId, isVirtualDualChannel - **level2**: mergedAudioId, isVirtualDualChannel, mpdId              Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
+        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId, isVirtualDualChannel - **level2**: mergedAudioId, isVirtualDualChannel, mpdId  Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
 
         :return: The optimize_for_web_ui of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :rtype: str
@@ -522,7 +522,7 @@ class OfflineSpeechAnalyticsRequest(object):
     def optimize_for_web_ui(self, optimize_for_web_ui):
         """Sets the optimize_for_web_ui of this OfflineSpeechAnalyticsRequest.
 
-        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId, isVirtualDualChannel - **level2**: mergedAudioId, isVirtualDualChannel, mpdId              Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
+        The following fields will be added to the output: - **none**: no additional fields - **level1**: mergedAudioId, isVirtualDualChannel - **level2**: mergedAudioId, isVirtualDualChannel, mpdId  Set to **level2** to support Voicegain Speech Analytics App. If you do not need the additional fields then set to **none** to save resources and speed up processing. Default is **level2** (because of backwards compatibility). </br>   # noqa: E501
 
         :param optimize_for_web_ui: The optimize_for_web_ui of this OfflineSpeechAnalyticsRequest.  # noqa: E501
         :type: str

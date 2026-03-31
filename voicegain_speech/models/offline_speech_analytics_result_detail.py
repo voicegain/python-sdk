@@ -34,6 +34,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'audio_input': 'list[SpeechAnalyticsAudioInput]',
         'ci_answers_id': 'str',
         'cr_answers_id': 'str',
         'criteria': 'SpeechAnalyticsCriteriaData',
@@ -56,6 +57,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
     }
 
     attribute_map = {
+        'audio_input': 'audioInput',
         'ci_answers_id': 'ciAnswersId',
         'cr_answers_id': 'crAnswersId',
         'criteria': 'criteria',
@@ -77,12 +79,13 @@ class OfflineSpeechAnalyticsResultDetail(object):
         'words': 'words'
     }
 
-    def __init__(self, ci_answers_id=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, segment_analytics_results=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio_input=None, ci_answers_id=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, segment_analytics_results=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResultDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._audio_input = None
         self._ci_answers_id = None
         self._cr_answers_id = None
         self._criteria = None
@@ -104,6 +107,8 @@ class OfflineSpeechAnalyticsResultDetail(object):
         self._words = None
         self.discriminator = None
 
+        if audio_input is not None:
+            self.audio_input = audio_input
         if ci_answers_id is not None:
             self.ci_answers_id = ci_answers_id
         if cr_answers_id is not None:
@@ -142,6 +147,29 @@ class OfflineSpeechAnalyticsResultDetail(object):
             self.annotated_transcript = annotated_transcript
         if words is not None:
             self.words = words
+
+    @property
+    def audio_input(self):
+        """Gets the audio_input of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+
+        Audio configuration that was used when the SA session was created.</br> Returned only when the `audio` query parameter is `true`.</br> For sessions created via <a href=\"#tag/sa-offline/operation/saOfflinePost\">POST /sa/offline</a>, this is the `audio` array from the request.</br> For sessions created via <a href=\"#tag/sa-offline/operation/saOfflineCallPost\">POST /sa/offline/call/{callId}</a>, this is the equivalent audio configuration constructed internally by the backend.   # noqa: E501
+
+        :return: The audio_input of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+        :rtype: list[SpeechAnalyticsAudioInput]
+        """
+        return self._audio_input
+
+    @audio_input.setter
+    def audio_input(self, audio_input):
+        """Sets the audio_input of this OfflineSpeechAnalyticsResultDetail.
+
+        Audio configuration that was used when the SA session was created.</br> Returned only when the `audio` query parameter is `true`.</br> For sessions created via <a href=\"#tag/sa-offline/operation/saOfflinePost\">POST /sa/offline</a>, this is the `audio` array from the request.</br> For sessions created via <a href=\"#tag/sa-offline/operation/saOfflineCallPost\">POST /sa/offline/call/{callId}</a>, this is the equivalent audio configuration constructed internally by the backend.   # noqa: E501
+
+        :param audio_input: The audio_input of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+        :type: list[SpeechAnalyticsAudioInput]
+        """
+
+        self._audio_input = audio_input
 
     @property
     def ci_answers_id(self):

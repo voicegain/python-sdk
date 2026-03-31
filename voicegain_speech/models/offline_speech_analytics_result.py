@@ -49,6 +49,7 @@ class OfflineSpeechAnalyticsResult(object):
         'start_time': 'datetime',
         'tags': 'list[str]',
         'transcription_expire_at': 'datetime',
+        'audio_input': 'list[SpeechAnalyticsAudioInput]',
         'ci_answers_id': 'str',
         'cr_answers_id': 'str',
         'criteria': 'SpeechAnalyticsCriteriaData',
@@ -86,6 +87,7 @@ class OfflineSpeechAnalyticsResult(object):
         'start_time': 'startTime',
         'tags': 'tags',
         'transcription_expire_at': 'transcriptionExpireAt',
+        'audio_input': 'audioInput',
         'ci_answers_id': 'ciAnswersId',
         'cr_answers_id': 'crAnswersId',
         'criteria': 'criteria',
@@ -107,7 +109,7 @@ class OfflineSpeechAnalyticsResult(object):
         'words': 'words'
     }
 
-    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, optimize_for_web_ui=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, transcription_expire_at=None, ci_answers_id=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, segment_analytics_results=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, context_id=None, creator=None, duration_sec=None, label=None, lang=None, metadata=None, model_name=None, optimize_for_web_ui=None, persist=None, progress=None, sa_session_id=None, start_time=None, tags=None, transcription_expire_at=None, audio_input=None, ci_answers_id=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, segment_analytics_results=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -128,6 +130,7 @@ class OfflineSpeechAnalyticsResult(object):
         self._start_time = None
         self._tags = None
         self._transcription_expire_at = None
+        self._audio_input = None
         self._ci_answers_id = None
         self._cr_answers_id = None
         self._criteria = None
@@ -179,6 +182,8 @@ class OfflineSpeechAnalyticsResult(object):
             self.tags = tags
         if transcription_expire_at is not None:
             self.transcription_expire_at = transcription_expire_at
+        if audio_input is not None:
+            self.audio_input = audio_input
         if ci_answers_id is not None:
             self.ci_answers_id = ci_answers_id
         if cr_answers_id is not None:
@@ -594,6 +599,29 @@ class OfflineSpeechAnalyticsResult(object):
         """
 
         self._transcription_expire_at = transcription_expire_at
+
+    @property
+    def audio_input(self):
+        """Gets the audio_input of this OfflineSpeechAnalyticsResult.  # noqa: E501
+
+        Audio configuration that was used when the SA session was created.</br> Returned only when the `audio` query parameter is `true`.</br> For sessions created via <a href=\"#tag/sa-offline/operation/saOfflinePost\">POST /sa/offline</a>, this is the `audio` array from the request.</br> For sessions created via <a href=\"#tag/sa-offline/operation/saOfflineCallPost\">POST /sa/offline/call/{callId}</a>, this is the equivalent audio configuration constructed internally by the backend.   # noqa: E501
+
+        :return: The audio_input of this OfflineSpeechAnalyticsResult.  # noqa: E501
+        :rtype: list[SpeechAnalyticsAudioInput]
+        """
+        return self._audio_input
+
+    @audio_input.setter
+    def audio_input(self, audio_input):
+        """Sets the audio_input of this OfflineSpeechAnalyticsResult.
+
+        Audio configuration that was used when the SA session was created.</br> Returned only when the `audio` query parameter is `true`.</br> For sessions created via <a href=\"#tag/sa-offline/operation/saOfflinePost\">POST /sa/offline</a>, this is the `audio` array from the request.</br> For sessions created via <a href=\"#tag/sa-offline/operation/saOfflineCallPost\">POST /sa/offline/call/{callId}</a>, this is the equivalent audio configuration constructed internally by the backend.   # noqa: E501
+
+        :param audio_input: The audio_input of this OfflineSpeechAnalyticsResult.  # noqa: E501
+        :type: list[SpeechAnalyticsAudioInput]
+        """
+
+        self._audio_input = audio_input
 
     @property
     def ci_answers_id(self):
