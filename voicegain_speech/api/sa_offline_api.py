@@ -390,7 +390,7 @@ class SaOfflineApi(object):
     def sa_offline_get_data(self, sa_session_id, **kwargs):  # noqa: E501
         """Speech Analytics Data  # noqa: E501
 
-        Retrieve speech analytics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.  **Query Parameters:**</br> - `words` — If `true`, includes the full word-level transcript with timestamps and speaker IDs for each word.</br> - `audio` — If `true`, includes audio metadata such as merged audio data object IDs and duration,   as well as `audioInput` — the audio configuration that was used when the SA session was created.</br> - `metadata` — If `true`, includes session metadata such as call tags, labels, and custom fields.</br> - `wordCloud` — If `true`, includes word frequency data suitable for generating word cloud visualizations.</br> - `summary` — If `true`, includes AI-generated call summary and topic information.</br> - `keywords` — If `true`, includes extracted keywords and key phrases from the conversation.</br> - `namedEntities` — If `true`, includes detected named entities (names, organizations, dates, etc.).</br> - `phrases` — If `true`, includes detected key phrases and their locations in the transcript.</br>   # noqa: E501
+        Retrieve speech analytics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.  **Query Parameters:**</br> - `words` — If `true`, includes the full word-level transcript with timestamps and speaker IDs for each word.</br> - `audio` — If `true`, includes audio metadata such as merged audio data object IDs and duration,   as well as `audioInput` — the audio configuration that was used when the SA session was created.</br> - `metadata` — If `true`, includes session metadata such as call tags, labels, and custom fields.</br> - `wordCloud` — If `true`, includes word frequency data suitable for generating word cloud visualizations.</br> - `summary` — If `true`, includes AI-generated call summary and topic information.</br> - `keywords` — If `true`, includes extracted keywords and key phrases from the conversation.</br> - `namedEntities` — If `true`, includes detected named entities (names, organizations, dates, etc.).</br> - `phrases` — If `true`, includes detected key phrases and their locations in the transcript.</br> - `wordsStartAtMs` — If provided, offsets all word timestamps so that the first word starts at the given millisecond value.   Useful when the audio has had leading silence trimmed off. For example, set to `0` to make timestamps start from zero.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get_data(sa_session_id, async_req=True)
@@ -406,6 +406,7 @@ class SaOfflineApi(object):
         :param bool keywords: If `true` then keywords spotted in the text will be returned
         :param bool entities: If `true` then named entities spotted in the text will be returned
         :param bool phrases: If `true` then phrases spotted in the text will be returned
+        :param int words_start_at_ms: If provided, offsets all word timestamps so that the first word in the transcript starts at the given millisecond value. All remaining words are offset respectively.</br> May be set to `0` to accommodate audio where leading silence has been trimmed off.</br> If not provided, original word timestamps are returned unchanged. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -423,7 +424,7 @@ class SaOfflineApi(object):
     def sa_offline_get_data_with_http_info(self, sa_session_id, **kwargs):  # noqa: E501
         """Speech Analytics Data  # noqa: E501
 
-        Retrieve speech analytics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.  **Query Parameters:**</br> - `words` — If `true`, includes the full word-level transcript with timestamps and speaker IDs for each word.</br> - `audio` — If `true`, includes audio metadata such as merged audio data object IDs and duration,   as well as `audioInput` — the audio configuration that was used when the SA session was created.</br> - `metadata` — If `true`, includes session metadata such as call tags, labels, and custom fields.</br> - `wordCloud` — If `true`, includes word frequency data suitable for generating word cloud visualizations.</br> - `summary` — If `true`, includes AI-generated call summary and topic information.</br> - `keywords` — If `true`, includes extracted keywords and key phrases from the conversation.</br> - `namedEntities` — If `true`, includes detected named entities (names, organizations, dates, etc.).</br> - `phrases` — If `true`, includes detected key phrases and their locations in the transcript.</br>   # noqa: E501
+        Retrieve speech analytics data (**after** transcription and ML steps are **complete**).</br> Data may include:</br> - transcript itself - in the `words` field,</br> - speech analytics results,</br> - segment analytics results - detailed analytics for specific segment types (bot/agent) if `segmentAnalyticsConfig` was provided in the request.</br>  Note: Do not use this method to merely poll an /sa/offline session for its status (`progress.phase`), use the [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) instead for polling.  **Query Parameters:**</br> - `words` — If `true`, includes the full word-level transcript with timestamps and speaker IDs for each word.</br> - `audio` — If `true`, includes audio metadata such as merged audio data object IDs and duration,   as well as `audioInput` — the audio configuration that was used when the SA session was created.</br> - `metadata` — If `true`, includes session metadata such as call tags, labels, and custom fields.</br> - `wordCloud` — If `true`, includes word frequency data suitable for generating word cloud visualizations.</br> - `summary` — If `true`, includes AI-generated call summary and topic information.</br> - `keywords` — If `true`, includes extracted keywords and key phrases from the conversation.</br> - `namedEntities` — If `true`, includes detected named entities (names, organizations, dates, etc.).</br> - `phrases` — If `true`, includes detected key phrases and their locations in the transcript.</br> - `wordsStartAtMs` — If provided, offsets all word timestamps so that the first word starts at the given millisecond value.   Useful when the audio has had leading silence trimmed off. For example, set to `0` to make timestamps start from zero.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_get_data_with_http_info(sa_session_id, async_req=True)
@@ -439,6 +440,7 @@ class SaOfflineApi(object):
         :param bool keywords: If `true` then keywords spotted in the text will be returned
         :param bool entities: If `true` then named entities spotted in the text will be returned
         :param bool phrases: If `true` then phrases spotted in the text will be returned
+        :param int words_start_at_ms: If provided, offsets all word timestamps so that the first word in the transcript starts at the given millisecond value. All remaining words are offset respectively.</br> May be set to `0` to accommodate audio where leading silence has been trimmed off.</br> If not provided, original word timestamps are returned unchanged. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -455,7 +457,7 @@ class SaOfflineApi(object):
 
         local_var_params = locals()
 
-        all_params = ['sa_session_id', 'words', 'audio', 'meta', 'word_cloud', 'summary', 'keywords', 'entities', 'phrases']  # noqa: E501
+        all_params = ['sa_session_id', 'words', 'audio', 'meta', 'word_cloud', 'summary', 'keywords', 'entities', 'phrases', 'words_start_at_ms']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -480,6 +482,8 @@ class SaOfflineApi(object):
         if self.api_client.client_side_validation and ('sa_session_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['sa_session_id']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `sa_session_id` when calling `sa_offline_get_data`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and 'words_start_at_ms' in local_var_params and local_var_params['words_start_at_ms'] < 0:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `words_start_at_ms` when calling `sa_offline_get_data`, must be a value greater than or equal to `0`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -503,6 +507,8 @@ class SaOfflineApi(object):
             query_params.append(('entities', local_var_params['entities']))  # noqa: E501
         if 'phrases' in local_var_params and local_var_params['phrases'] is not None:  # noqa: E501
             query_params.append(('phrases', local_var_params['phrases']))  # noqa: E501
+        if 'words_start_at_ms' in local_var_params and local_var_params['words_start_at_ms'] is not None:  # noqa: E501
+            query_params.append(('wordsStartAtMs', local_var_params['words_start_at_ms']))  # noqa: E501
 
         header_params = {}
 
