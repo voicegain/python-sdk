@@ -215,7 +215,7 @@ class SpeechAnalyticsConfigModifiableCore(object):
     def call_resolution_criteria(self):
         """Gets the call_resolution_criteria of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
 
-        _(beta)_  list of tags of the Criteria used to determine if the call was resolved. If *any* of these criteria are satisfied then the call will be considered as resolved.   # noqa: E501
+        **Deprecated** — this functionality has been replaced by Call Insight with name `RESOLVED`. Use a Call Insights question with name `RESOLVED` to determine call resolution instead.</br> Any currently set value of this field is ignored.   # noqa: E501
 
         :return: The call_resolution_criteria of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
         :rtype: list[str]
@@ -226,7 +226,7 @@ class SpeechAnalyticsConfigModifiableCore(object):
     def call_resolution_criteria(self, call_resolution_criteria):
         """Sets the call_resolution_criteria of this SpeechAnalyticsConfigModifiableCore.
 
-        _(beta)_  list of tags of the Criteria used to determine if the call was resolved. If *any* of these criteria are satisfied then the call will be considered as resolved.   # noqa: E501
+        **Deprecated** — this functionality has been replaced by Call Insight with name `RESOLVED`. Use a Call Insights question with name `RESOLVED` to determine call resolution instead.</br> Any currently set value of this field is ignored.   # noqa: E501
 
         :param call_resolution_criteria: The call_resolution_criteria of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
         :type: list[str]
@@ -238,7 +238,7 @@ class SpeechAnalyticsConfigModifiableCore(object):
     def call_resolution_question_id(self):
         """Gets the call_resolution_question_id of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
 
-        _(beta)_ id of the `crQuestionId` in Call Review that identifies question and answer regarding Call Resolution  # noqa: E501
+        **Deprecated** — this functionality has been replaced by Call Insight with name `RESOLVED`. Use a Call Insights question with name `RESOLVED` to determine call resolution instead.</br> Any currently set value of this field is ignored.   # noqa: E501
 
         :return: The call_resolution_question_id of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
         :rtype: str
@@ -249,7 +249,7 @@ class SpeechAnalyticsConfigModifiableCore(object):
     def call_resolution_question_id(self, call_resolution_question_id):
         """Sets the call_resolution_question_id of this SpeechAnalyticsConfigModifiableCore.
 
-        _(beta)_ id of the `crQuestionId` in Call Review that identifies question and answer regarding Call Resolution  # noqa: E501
+        **Deprecated** — this functionality has been replaced by Call Insight with name `RESOLVED`. Use a Call Insights question with name `RESOLVED` to determine call resolution instead.</br> Any currently set value of this field is ignored.   # noqa: E501
 
         :param call_resolution_question_id: The call_resolution_question_id of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
         :type: str

@@ -237,6 +237,8 @@ from voicegain_speech.models.call_search_field import CallSearchField
 from voicegain_speech.models.call_segment import CallSegment
 from voicegain_speech.models.call_segment_all_of import CallSegmentAllOf
 from voicegain_speech.models.call_segment_all_of_agent_feedback import CallSegmentAllOfAgentFeedback
+from voicegain_speech.models.call_time_breakdown import CallTimeBreakdown
+from voicegain_speech.models.call_time_breakdown_agent_segments import CallTimeBreakdownAgentSegments
 from voicegain_speech.models.callback_req import CallbackReq
 from voicegain_speech.models.callback_req_reco import CallbackReqReco
 from voicegain_speech.models.callback_resp import CallbackResp

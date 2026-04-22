@@ -50,6 +50,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
         'silence': 'Silence',
         'speakers': 'list[OfflineSASpeakerResult]',
         'summary': 'list[str]',
+        'time_breakdown': 'CallTimeBreakdown',
         'topics': 'list[TopicScore]',
         'word_cloud': 'list[WordCloudItem]',
         'annotated_transcript': 'str',
@@ -73,13 +74,14 @@ class OfflineSpeechAnalyticsResultDetail(object):
         'silence': 'silence',
         'speakers': 'speakers',
         'summary': 'summary',
+        'time_breakdown': 'timeBreakdown',
         'topics': 'topics',
         'word_cloud': 'wordCloud',
         'annotated_transcript': 'annotatedTranscript',
         'words': 'words'
     }
 
-    def __init__(self, audio_input=None, ci_answers_id=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, segment_analytics_results=None, silence=None, speakers=None, summary=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, audio_input=None, ci_answers_id=None, cr_answers_id=None, criteria=None, csat_answer=None, incidents=None, is_virtual_dual_channel=None, keywords=None, merged_audio_id=None, mpd_id=None, nps_answer=None, phrases=None, segment_analytics_results=None, silence=None, speakers=None, summary=None, time_breakdown=None, topics=None, word_cloud=None, annotated_transcript=None, words=None, local_vars_configuration=None):  # noqa: E501
         """OfflineSpeechAnalyticsResultDetail - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -101,6 +103,7 @@ class OfflineSpeechAnalyticsResultDetail(object):
         self._silence = None
         self._speakers = None
         self._summary = None
+        self._time_breakdown = None
         self._topics = None
         self._word_cloud = None
         self._annotated_transcript = None
@@ -139,6 +142,8 @@ class OfflineSpeechAnalyticsResultDetail(object):
             self.speakers = speakers
         if summary is not None:
             self.summary = summary
+        if time_breakdown is not None:
+            self.time_breakdown = time_breakdown
         if topics is not None:
             self.topics = topics
         if word_cloud is not None:
@@ -515,6 +520,27 @@ class OfflineSpeechAnalyticsResultDetail(object):
         """
 
         self._summary = summary
+
+    @property
+    def time_breakdown(self):
+        """Gets the time_breakdown of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+
+
+        :return: The time_breakdown of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+        :rtype: CallTimeBreakdown
+        """
+        return self._time_breakdown
+
+    @time_breakdown.setter
+    def time_breakdown(self, time_breakdown):
+        """Sets the time_breakdown of this OfflineSpeechAnalyticsResultDetail.
+
+
+        :param time_breakdown: The time_breakdown of this OfflineSpeechAnalyticsResultDetail.  # noqa: E501
+        :type: CallTimeBreakdown
+        """
+
+        self._time_breakdown = time_breakdown
 
     @property
     def topics(self):
