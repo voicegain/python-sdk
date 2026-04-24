@@ -40,7 +40,7 @@ class DataApi(object):
     def data_audio_post(self, **kwargs):  # noqa: E501
         """Create from audio  # noqa: E501
 
-        Upload audio data to simple object store. Creates a new DataObject and returns its ID   # noqa: E501
+        Upload audio data to simple object store. Creates a new DataObject and returns its ID.  ### Encrypted uploads (optional)  If the `keyPairId` query parameter is provided, the **resolved audio bytes** are treated as **encrypted** and are decrypted server-side using the private key of the referenced Key Pair before being stored / processed. This applies regardless of how the audio is supplied in the request body — e.g. with `audio.source.fromUrl` the server fetches the URL and then decrypts the fetched bytes. Other request-body fields (metadata, URLs, flags) are never encrypted.  **Wire format** — the encrypted audio bytes must be a **CMS EnvelopedData** structure (RFC 5652 / PKCS#7), **DER-encoded** (binary). This is the output format produced by OpenSSL's `openssl cms -encrypt` command and by standard CMS libraries (BouncyCastle, Python `cryptography`, etc.).  Required CMS parameters: + **Recipient**: single recipient, identified by the public key of the referenced `keyPairId` (Voicegain's RSA 2048 key pair for this Context). Use `KeyTransRecipientInfo`. + **Key transport algorithm**: `RSAES-OAEP` with `SHA-256` mask-generation function (OID `1.2.840.113549.1.1.7`). Legacy `RSA PKCS#1 v1.5` (OID `1.2.840.113549.1.1.1`) is **not** accepted. + **Content encryption algorithm**: `AES-256-CBC` (OID `2.16.840.1.101.3.4.1.42`) with a random IV. + **Content**: the plaintext audio file bytes (the same bytes you would upload / host if `keyPairId` were not used).  **Example — encrypt an audio file with OpenSSL 3.x before upload or hosting:**  ``` # Fetch the public key for the Key Pair (PEM) via # GET /confgroup/{uuid}/keyPair/{keyPairId} and save as pubkey.pem  openssl cms -encrypt \\   -in plaintext.wav \\   -out encrypted.p7m \\   -outform DER \\   -recip pubkey.pem \\   -keyopt rsa_padding_mode:oaep \\   -keyopt rsa_oaep_md:sha256 \\   -aes-256-cbc ```  Then either upload `encrypted.p7m` (e.g. via `audio.source` inline data) or host it at the URL given in `audio.source.fromUrl`, and pass `keyPairId=<the-key-pair-id>` in the query string.  **Notes:** + The returned `DataObject` always describes the **plaintext** content. The server hashes the decrypted audio for dedup, so `reuseIfIdenticalExists` deduplicates against any existing plaintext copy regardless of which key pair (if any) was used for this upload. + `audioTranscode` is applied **after** decryption. + Decryption / key-lookup failures return `400` — see the `error.reason` values in the 400 response below.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_audio_post(async_req=True)
@@ -50,6 +50,7 @@ class DataApi(object):
         :param str context_id: Context Id. Normally JWT contains a contextId so this parameter is only relevant if making a request using MAC Access Authentication.</br> If contextId is provided (either via JWT or this query parmeter) then the DataObject will be associated with a Context.</br> If it is not provided then the DataObject will be associated with the Account. 
         :param bool reuse: This parameter is now ignored. A new object is always created. 
         :param str transcode: Controls transcode of audio data to lossless FLAC format upon upload. By default, audio transcode is disabled. Transcode should be used only when the original format is L16, PCMU, or PCMA to reduce the storage requirements.</br> NOTE: Offline transcription supports all formats supported by ffmpeg irrespective if transcode is enabled or disabled. 
+        :param str key_pair_id: Optional reference to a Key Pair (created via [POST /confgroup/{uuid}/keyPair](#tag/context/operation/contextKeyPairPost)) indicating that the uploaded primary data payload is **encrypted** and must be decrypted server-side with that key pair's private key before being stored / processed.</br> The key pair must belong to the same Context as the upload, must be active (not deleted), and must not be expired.</br> If omitted, the payload is treated as plaintext (default behavior). 
         :param DataObjectWithAudio data_object_with_audio: Request body with info about the audio data source.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -68,7 +69,7 @@ class DataApi(object):
     def data_audio_post_with_http_info(self, **kwargs):  # noqa: E501
         """Create from audio  # noqa: E501
 
-        Upload audio data to simple object store. Creates a new DataObject and returns its ID   # noqa: E501
+        Upload audio data to simple object store. Creates a new DataObject and returns its ID.  ### Encrypted uploads (optional)  If the `keyPairId` query parameter is provided, the **resolved audio bytes** are treated as **encrypted** and are decrypted server-side using the private key of the referenced Key Pair before being stored / processed. This applies regardless of how the audio is supplied in the request body — e.g. with `audio.source.fromUrl` the server fetches the URL and then decrypts the fetched bytes. Other request-body fields (metadata, URLs, flags) are never encrypted.  **Wire format** — the encrypted audio bytes must be a **CMS EnvelopedData** structure (RFC 5652 / PKCS#7), **DER-encoded** (binary). This is the output format produced by OpenSSL's `openssl cms -encrypt` command and by standard CMS libraries (BouncyCastle, Python `cryptography`, etc.).  Required CMS parameters: + **Recipient**: single recipient, identified by the public key of the referenced `keyPairId` (Voicegain's RSA 2048 key pair for this Context). Use `KeyTransRecipientInfo`. + **Key transport algorithm**: `RSAES-OAEP` with `SHA-256` mask-generation function (OID `1.2.840.113549.1.1.7`). Legacy `RSA PKCS#1 v1.5` (OID `1.2.840.113549.1.1.1`) is **not** accepted. + **Content encryption algorithm**: `AES-256-CBC` (OID `2.16.840.1.101.3.4.1.42`) with a random IV. + **Content**: the plaintext audio file bytes (the same bytes you would upload / host if `keyPairId` were not used).  **Example — encrypt an audio file with OpenSSL 3.x before upload or hosting:**  ``` # Fetch the public key for the Key Pair (PEM) via # GET /confgroup/{uuid}/keyPair/{keyPairId} and save as pubkey.pem  openssl cms -encrypt \\   -in plaintext.wav \\   -out encrypted.p7m \\   -outform DER \\   -recip pubkey.pem \\   -keyopt rsa_padding_mode:oaep \\   -keyopt rsa_oaep_md:sha256 \\   -aes-256-cbc ```  Then either upload `encrypted.p7m` (e.g. via `audio.source` inline data) or host it at the URL given in `audio.source.fromUrl`, and pass `keyPairId=<the-key-pair-id>` in the query string.  **Notes:** + The returned `DataObject` always describes the **plaintext** content. The server hashes the decrypted audio for dedup, so `reuseIfIdenticalExists` deduplicates against any existing plaintext copy regardless of which key pair (if any) was used for this upload. + `audioTranscode` is applied **after** decryption. + Decryption / key-lookup failures return `400` — see the `error.reason` values in the 400 response below.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_audio_post_with_http_info(async_req=True)
@@ -78,6 +79,7 @@ class DataApi(object):
         :param str context_id: Context Id. Normally JWT contains a contextId so this parameter is only relevant if making a request using MAC Access Authentication.</br> If contextId is provided (either via JWT or this query parmeter) then the DataObject will be associated with a Context.</br> If it is not provided then the DataObject will be associated with the Account. 
         :param bool reuse: This parameter is now ignored. A new object is always created. 
         :param str transcode: Controls transcode of audio data to lossless FLAC format upon upload. By default, audio transcode is disabled. Transcode should be used only when the original format is L16, PCMU, or PCMA to reduce the storage requirements.</br> NOTE: Offline transcription supports all formats supported by ffmpeg irrespective if transcode is enabled or disabled. 
+        :param str key_pair_id: Optional reference to a Key Pair (created via [POST /confgroup/{uuid}/keyPair](#tag/context/operation/contextKeyPairPost)) indicating that the uploaded primary data payload is **encrypted** and must be decrypted server-side with that key pair's private key before being stored / processed.</br> The key pair must belong to the same Context as the upload, must be active (not deleted), and must not be expired.</br> If omitted, the payload is treated as plaintext (default behavior). 
         :param DataObjectWithAudio data_object_with_audio: Request body with info about the audio data source.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -95,7 +97,7 @@ class DataApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'reuse', 'transcode', 'data_object_with_audio']  # noqa: E501
+        all_params = ['context_id', 'reuse', 'transcode', 'key_pair_id', 'data_object_with_audio']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -116,6 +118,12 @@ class DataApi(object):
         if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['context_id']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `context_id` when calling `data_audio_post`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and ('key_pair_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['key_pair_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `key_pair_id` when calling `data_audio_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('key_pair_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['key_pair_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `key_pair_id` when calling `data_audio_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -127,6 +135,8 @@ class DataApi(object):
             query_params.append(('reuse', local_var_params['reuse']))  # noqa: E501
         if 'transcode' in local_var_params and local_var_params['transcode'] is not None:  # noqa: E501
             query_params.append(('transcode', local_var_params['transcode']))  # noqa: E501
+        if 'key_pair_id' in local_var_params and local_var_params['key_pair_id'] is not None:  # noqa: E501
+            query_params.append(('keyPairId', local_var_params['key_pair_id']))  # noqa: E501
 
         header_params = {}
 
@@ -138,7 +148,7 @@ class DataApi(object):
             body_params = local_var_params['data_object_with_audio']
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/JSON'])  # noqa: E501
+            ['application/JSON', 'application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
@@ -638,7 +648,7 @@ class DataApi(object):
     def data_file_post(self, **kwargs):  # noqa: E501
         """Create from file  # noqa: E501
 
-        Upload data as **multipart/form-data** to a simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.   The max size of file is 512MB.   # noqa: E501
+        Upload data as **multipart/form-data** to a simple object store. Creates a new DataObject and returns its ID. Suitable for uploads of files.  There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.  The max size of file is 512MB.  ### Encrypted uploads (optional)  If the `keyPairId` query parameter is provided, the `file` form part is treated as **encrypted** and is decrypted server-side using the private key of the referenced Key Pair before being stored. The `objectdata` form part is never encrypted and is always sent as plaintext JSON.  **Wire format** — the encrypted `file` part must be a **CMS EnvelopedData** structure (RFC 5652 / PKCS#7), **DER-encoded** (binary). This is the output format produced by OpenSSL's `openssl cms -encrypt` command and by standard CMS libraries (BouncyCastle, Python `cryptography`, etc.).  Required CMS parameters: + **Recipient**: single recipient, identified by the public key of the referenced `keyPairId` (Voicegain's RSA 2048 key pair for this Context). Use `KeyTransRecipientInfo`. + **Key transport algorithm**: `RSAES-OAEP` with `SHA-256` mask-generation function (OID `1.2.840.113549.1.1.7`). Legacy `RSA PKCS#1 v1.5` (OID `1.2.840.113549.1.1.1`) is **not** accepted. + **Content encryption algorithm**: `AES-256-CBC` (OID `2.16.840.1.101.3.4.1.42`) with a random IV. + **Content**: the plaintext file bytes (the same bytes you would upload if `keyPairId` were not used).  **Content-Type of the form part**: either `application/pkcs7-mime` or `application/octet-stream` — the server detects the CMS structure from the DER bytes regardless of part Content-Type.  **Example — encrypt a file with OpenSSL 3.x before upload:**  ``` # Fetch the public key for the Key Pair (PEM) via # GET /confgroup/{uuid}/keyPair/{keyPairId} and save as pubkey.pem  openssl cms -encrypt \\   -in plaintext.wav \\   -out encrypted.p7m \\   -outform DER \\   -recip pubkey.pem \\   -keyopt rsa_padding_mode:oaep \\   -keyopt rsa_oaep_md:sha256 \\   -aes-256-cbc ```  Then upload `encrypted.p7m` as the `file` form part with `keyPairId=<the-key-pair-id>` in the query string.  **Notes:** + The returned `DataObject` always describes the **plaintext** content (e.g. `contentType`, `hash`). The server hashes the decrypted payload for dedup, so `reuseIfIdenticalExists` deduplicates against any existing plaintext copy regardless of which key pair (if any) was used for this upload. + `audioTranscode` is applied **after** decryption. + Decryption / key-lookup failures return `400` — see the `error.reason` values in the 400 response below.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_file_post(async_req=True)
@@ -648,6 +658,7 @@ class DataApi(object):
         :param str context_id: Context Id. Normally JWT contains a contextId so this parameter is only relevant if making a request using MAC Access Authentication.</br> If contextId is provided (either via JWT or this query parmeter) then the DataObject will be associated with a Context.</br> If it is not provided then the DataObject will be associated with the Account. 
         :param bool reuse: This parameter is now ignored. A new object is always created. 
         :param str transcode: Controls transcode of audio data to lossless FLAC format upon upload. By default, audio transcode is disabled. Transcode should be used only when the original format is L16, PCMU, or PCMA to reduce the storage requirements.</br> NOTE: Offline transcription supports all formats supported by ffmpeg irrespective if transcode is enabled or disabled. 
+        :param str key_pair_id: Optional reference to a Key Pair (created via [POST /confgroup/{uuid}/keyPair](#tag/context/operation/contextKeyPairPost)) indicating that the uploaded primary data payload is **encrypted** and must be decrypted server-side with that key pair's private key before being stored / processed.</br> The key pair must belong to the same Context as the upload, must be active (not deleted), and must not be expired.</br> If omitted, the payload is treated as plaintext (default behavior). 
         :param file file: Part of the form labeled 'file' contains file to be uploaded
         :param file objectdata: Second, optional, part of the form containing accompanying metadata.  Labeled 'objectdata'.  Payload contained in this part of the form has to be valid JSON following the Data object schema 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -667,7 +678,7 @@ class DataApi(object):
     def data_file_post_with_http_info(self, **kwargs):  # noqa: E501
         """Create from file  # noqa: E501
 
-        Upload data as **multipart/form-data** to a simple object store.  Creates a new DataObject and returns its ID. Suitable for uploads of files.   There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.   The max size of file is 512MB.   # noqa: E501
+        Upload data as **multipart/form-data** to a simple object store. Creates a new DataObject and returns its ID. Suitable for uploads of files.  There are two form keys: `file` and `objectdata`.</br> `objectdata` is optional.  The max size of file is 512MB.  ### Encrypted uploads (optional)  If the `keyPairId` query parameter is provided, the `file` form part is treated as **encrypted** and is decrypted server-side using the private key of the referenced Key Pair before being stored. The `objectdata` form part is never encrypted and is always sent as plaintext JSON.  **Wire format** — the encrypted `file` part must be a **CMS EnvelopedData** structure (RFC 5652 / PKCS#7), **DER-encoded** (binary). This is the output format produced by OpenSSL's `openssl cms -encrypt` command and by standard CMS libraries (BouncyCastle, Python `cryptography`, etc.).  Required CMS parameters: + **Recipient**: single recipient, identified by the public key of the referenced `keyPairId` (Voicegain's RSA 2048 key pair for this Context). Use `KeyTransRecipientInfo`. + **Key transport algorithm**: `RSAES-OAEP` with `SHA-256` mask-generation function (OID `1.2.840.113549.1.1.7`). Legacy `RSA PKCS#1 v1.5` (OID `1.2.840.113549.1.1.1`) is **not** accepted. + **Content encryption algorithm**: `AES-256-CBC` (OID `2.16.840.1.101.3.4.1.42`) with a random IV. + **Content**: the plaintext file bytes (the same bytes you would upload if `keyPairId` were not used).  **Content-Type of the form part**: either `application/pkcs7-mime` or `application/octet-stream` — the server detects the CMS structure from the DER bytes regardless of part Content-Type.  **Example — encrypt a file with OpenSSL 3.x before upload:**  ``` # Fetch the public key for the Key Pair (PEM) via # GET /confgroup/{uuid}/keyPair/{keyPairId} and save as pubkey.pem  openssl cms -encrypt \\   -in plaintext.wav \\   -out encrypted.p7m \\   -outform DER \\   -recip pubkey.pem \\   -keyopt rsa_padding_mode:oaep \\   -keyopt rsa_oaep_md:sha256 \\   -aes-256-cbc ```  Then upload `encrypted.p7m` as the `file` form part with `keyPairId=<the-key-pair-id>` in the query string.  **Notes:** + The returned `DataObject` always describes the **plaintext** content (e.g. `contentType`, `hash`). The server hashes the decrypted payload for dedup, so `reuseIfIdenticalExists` deduplicates against any existing plaintext copy regardless of which key pair (if any) was used for this upload. + `audioTranscode` is applied **after** decryption. + Decryption / key-lookup failures return `400` — see the `error.reason` values in the 400 response below.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.data_file_post_with_http_info(async_req=True)
@@ -677,6 +688,7 @@ class DataApi(object):
         :param str context_id: Context Id. Normally JWT contains a contextId so this parameter is only relevant if making a request using MAC Access Authentication.</br> If contextId is provided (either via JWT or this query parmeter) then the DataObject will be associated with a Context.</br> If it is not provided then the DataObject will be associated with the Account. 
         :param bool reuse: This parameter is now ignored. A new object is always created. 
         :param str transcode: Controls transcode of audio data to lossless FLAC format upon upload. By default, audio transcode is disabled. Transcode should be used only when the original format is L16, PCMU, or PCMA to reduce the storage requirements.</br> NOTE: Offline transcription supports all formats supported by ffmpeg irrespective if transcode is enabled or disabled. 
+        :param str key_pair_id: Optional reference to a Key Pair (created via [POST /confgroup/{uuid}/keyPair](#tag/context/operation/contextKeyPairPost)) indicating that the uploaded primary data payload is **encrypted** and must be decrypted server-side with that key pair's private key before being stored / processed.</br> The key pair must belong to the same Context as the upload, must be active (not deleted), and must not be expired.</br> If omitted, the payload is treated as plaintext (default behavior). 
         :param file file: Part of the form labeled 'file' contains file to be uploaded
         :param file objectdata: Second, optional, part of the form containing accompanying metadata.  Labeled 'objectdata'.  Payload contained in this part of the form has to be valid JSON following the Data object schema 
         :param _return_http_data_only: response data without head status code
@@ -695,7 +707,7 @@ class DataApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'reuse', 'transcode', 'file', 'objectdata']  # noqa: E501
+        all_params = ['context_id', 'reuse', 'transcode', 'key_pair_id', 'file', 'objectdata']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -716,6 +728,12 @@ class DataApi(object):
         if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['context_id']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `context_id` when calling `data_file_post`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and ('key_pair_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['key_pair_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `key_pair_id` when calling `data_file_post`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('key_pair_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['key_pair_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `key_pair_id` when calling `data_file_post`, length must be greater than or equal to `16`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -727,6 +745,8 @@ class DataApi(object):
             query_params.append(('reuse', local_var_params['reuse']))  # noqa: E501
         if 'transcode' in local_var_params and local_var_params['transcode'] is not None:  # noqa: E501
             query_params.append(('transcode', local_var_params['transcode']))  # noqa: E501
+        if 'key_pair_id' in local_var_params and local_var_params['key_pair_id'] is not None:  # noqa: E501
+            query_params.append(('keyPairId', local_var_params['key_pair_id']))  # noqa: E501
 
         header_params = {}
 
@@ -740,7 +760,7 @@ class DataApi(object):
         body_params = None
         # HTTP header `Accept`
         header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/JSON'])  # noqa: E501
+            ['application/JSON', 'application/json'])  # noqa: E501
 
         # HTTP header `Content-Type`
         header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
