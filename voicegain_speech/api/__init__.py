@@ -3,6 +3,7 @@ from __future__ import absolute_import
 # flake8: noqa
 
 # import apis into api package
+from voicegain_speech.api.ai_output_api import AiOutputApi
 from voicegain_speech.api.aivr_callback_api import AivrCallbackApi
 from voicegain_speech.api.aivr_ws_api import AivrWsApi
 from voicegain_speech.api.asr_callback_api import AsrCallbackApi
