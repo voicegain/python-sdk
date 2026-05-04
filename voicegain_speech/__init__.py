@@ -113,7 +113,6 @@ from voicegain_speech.models.ai_output_create import AiOutputCreate
 from voicegain_speech.models.ai_output_feedback import AiOutputFeedback
 from voicegain_speech.models.ai_output_feedback_create import AiOutputFeedbackCreate
 from voicegain_speech.models.ai_output_generation import AiOutputGeneration
-from voicegain_speech.models.ai_output_modifiable import AiOutputModifiable
 from voicegain_speech.models.ai_output_source_ref import AiOutputSourceRef
 from voicegain_speech.models.ai_output_type import AiOutputType
 from voicegain_speech.models.aircall import Aircall

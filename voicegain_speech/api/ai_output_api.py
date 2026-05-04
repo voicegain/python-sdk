@@ -40,7 +40,7 @@ class AiOutputApi(object):
     def ai_output_feedback_post(self, ai_output_id, **kwargs):  # noqa: E501
         """Add AI Output Feedback  # noqa: E501
 
-        Add a feedback entry from a Voicegain User to an existing AI Output.</br> At most one feedback entry per `(aiOutputId, userId)` is allowed: + A second POST by the same user fails with **409** (`reason: \"Feedback exists\"`) by default. + Pass `replace=true` to overwrite the existing entry instead. The replaced entry's `feedbackId` is preserved; `lastModifiedEpoch` is updated.   # noqa: E501
+        Add a new feedback entry from a Voicegain User to an existing AI Output.</br> Each POST creates a new entry. Multiple entries per `(aiOutputId, userId)` are allowed — consumers typically pick the latest by `createdEpoch` or filter by `source`.</br> Feedback entries are append-only; there is no update or delete API.</br> Adding feedback updates the parent AI Output record's `lastModifiedEpoch`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.ai_output_feedback_post(ai_output_id, async_req=True)
@@ -48,7 +48,6 @@ class AiOutputApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str ai_output_id: UUID of the AI Output record. (required)
-        :param bool replace: If `true`, an existing feedback entry by the same `userId` on this AI Output will be **replaced** by the new one. If `false` (default), a second POST by the same user fails with 409. 
         :param AiOutputFeedbackCreate ai_output_feedback_create: Feedback entry to attach to this AI Output.
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -67,7 +66,7 @@ class AiOutputApi(object):
     def ai_output_feedback_post_with_http_info(self, ai_output_id, **kwargs):  # noqa: E501
         """Add AI Output Feedback  # noqa: E501
 
-        Add a feedback entry from a Voicegain User to an existing AI Output.</br> At most one feedback entry per `(aiOutputId, userId)` is allowed: + A second POST by the same user fails with **409** (`reason: \"Feedback exists\"`) by default. + Pass `replace=true` to overwrite the existing entry instead. The replaced entry's `feedbackId` is preserved; `lastModifiedEpoch` is updated.   # noqa: E501
+        Add a new feedback entry from a Voicegain User to an existing AI Output.</br> Each POST creates a new entry. Multiple entries per `(aiOutputId, userId)` are allowed — consumers typically pick the latest by `createdEpoch` or filter by `source`.</br> Feedback entries are append-only; there is no update or delete API.</br> Adding feedback updates the parent AI Output record's `lastModifiedEpoch`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.ai_output_feedback_post_with_http_info(ai_output_id, async_req=True)
@@ -75,7 +74,6 @@ class AiOutputApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str ai_output_id: UUID of the AI Output record. (required)
-        :param bool replace: If `true`, an existing feedback entry by the same `userId` on this AI Output will be **replaced** by the new one. If `false` (default), a second POST by the same user fails with 409. 
         :param AiOutputFeedbackCreate ai_output_feedback_create: Feedback entry to attach to this AI Output.
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -93,7 +91,7 @@ class AiOutputApi(object):
 
         local_var_params = locals()
 
-        all_params = ['ai_output_id', 'replace', 'ai_output_feedback_create']  # noqa: E501
+        all_params = ['ai_output_id', 'ai_output_feedback_create']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -125,8 +123,6 @@ class AiOutputApi(object):
             path_params['aiOutputId'] = local_var_params['ai_output_id']  # noqa: E501
 
         query_params = []
-        if 'replace' in local_var_params and local_var_params['replace'] is not None:  # noqa: E501
-            query_params.append(('replace', local_var_params['replace']))  # noqa: E501
 
         header_params = {}
 
@@ -277,128 +273,6 @@ class AiOutputApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def ai_output_patch(self, ai_output_id, **kwargs):  # noqa: E501
-        """Modify AI Output  # noqa: E501
-
-        Update mutable fields on an AI Output record (`sourceRef`, `saSessionId`, `callId`, `generation`, `tags`).</br> `accountId`, `contextId`, `type`, and `content` are immutable — the captured AI output cannot be retroactively edited.</br> Send any nullable field as `null` to clear it.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.ai_output_patch(ai_output_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str ai_output_id: UUID of the AI Output record. (required)
-        :param AiOutputModifiable ai_output_modifiable: Fields to update on the AI Output.
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: AiOutput
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-        kwargs['_return_http_data_only'] = True
-        return self.ai_output_patch_with_http_info(ai_output_id, **kwargs)  # noqa: E501
-
-    def ai_output_patch_with_http_info(self, ai_output_id, **kwargs):  # noqa: E501
-        """Modify AI Output  # noqa: E501
-
-        Update mutable fields on an AI Output record (`sourceRef`, `saSessionId`, `callId`, `generation`, `tags`).</br> `accountId`, `contextId`, `type`, and `content` are immutable — the captured AI output cannot be retroactively edited.</br> Send any nullable field as `null` to clear it.   # noqa: E501
-        This method makes a synchronous HTTP request by default. To make an
-        asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.ai_output_patch_with_http_info(ai_output_id, async_req=True)
-        >>> result = thread.get()
-
-        :param async_req bool: execute request asynchronously
-        :param str ai_output_id: UUID of the AI Output record. (required)
-        :param AiOutputModifiable ai_output_modifiable: Fields to update on the AI Output.
-        :param _return_http_data_only: response data without head status code
-                                       and headers
-        :param _preload_content: if False, the urllib3.HTTPResponse object will
-                                 be returned without reading/decoding response
-                                 data. Default is True.
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :return: tuple(AiOutput, status_code(int), headers(HTTPHeaderDict))
-                 If the method is called asynchronously,
-                 returns the request thread.
-        """
-
-        local_var_params = locals()
-
-        all_params = ['ai_output_id', 'ai_output_modifiable']  # noqa: E501
-        all_params.append('async_req')
-        all_params.append('_return_http_data_only')
-        all_params.append('_preload_content')
-        all_params.append('_request_timeout')
-
-        for key, val in six.iteritems(local_var_params['kwargs']):
-            if key not in all_params:
-                raise ApiTypeError(
-                    "Got an unexpected keyword argument '%s'"
-                    " to method ai_output_patch" % key
-                )
-            local_var_params[key] = val
-        del local_var_params['kwargs']
-        # verify the required parameter 'ai_output_id' is set
-        if self.api_client.client_side_validation and ('ai_output_id' not in local_var_params or  # noqa: E501
-                                                        local_var_params['ai_output_id'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `ai_output_id` when calling `ai_output_patch`")  # noqa: E501
-
-        if self.api_client.client_side_validation and ('ai_output_id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['ai_output_id']) > 48):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `ai_output_id` when calling `ai_output_patch`, length must be less than or equal to `48`")  # noqa: E501
-        if self.api_client.client_side_validation and ('ai_output_id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['ai_output_id']) < 16):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `ai_output_id` when calling `ai_output_patch`, length must be greater than or equal to `16`")  # noqa: E501
-        collection_formats = {}
-
-        path_params = {}
-        if 'ai_output_id' in local_var_params:
-            path_params['aiOutputId'] = local_var_params['ai_output_id']  # noqa: E501
-
-        query_params = []
-
-        header_params = {}
-
-        form_params = []
-        local_var_files = {}
-
-        body_params = None
-        if 'ai_output_modifiable' in local_var_params:
-            body_params = local_var_params['ai_output_modifiable']
-        # HTTP header `Accept`
-        header_params['Accept'] = self.api_client.select_header_accept(
-            ['application/json'])  # noqa: E501
-
-        # HTTP header `Content-Type`
-        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
-            ['application/json'])  # noqa: E501
-
-        # Authentication setting
-        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
-
-        return self.api_client.call_api(
-            '/aiOutput/{aiOutputId}', 'PATCH',
-            path_params,
-            query_params,
-            header_params,
-            body=body_params,
-            post_params=form_params,
-            files=local_var_files,
-            response_type='AiOutput',  # noqa: E501
-            auth_settings=auth_settings,
-            async_req=local_var_params.get('async_req'),
-            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
-            _preload_content=local_var_params.get('_preload_content', True),
-            _request_timeout=local_var_params.get('_request_timeout'),
-            collection_formats=collection_formats)
-
     def ai_output_post(self, **kwargs):  # noqa: E501
         """New AI Output  # noqa: E501
 
@@ -521,8 +395,9 @@ class AiOutputApi(object):
         :param str sa_session_id: Filter AI Output records by SA session UUID.
         :param str meeting_session_id: Filter AI Output records by meeting session UUID (see [/asr/meeting](#tag/meeting)).
         :param str aivr_session_id: Filter AI Output records by AIVR session UUID (see [/aivr](#tag/aivr)).
+        :param str aivr_app_id: Filter AI Output records by AIVR Application UUID (see [/aivr-app](#tag/aivr-app)).
         :param str call_id: Filter AI Output records by Call / Call Segment id.
-        :param AiOutputType type: Filter AI Output records by `type`.
+        :param list[AiOutputType] type: Filter AI Output records by `type`. May be repeated to match any of multiple types (logical OR), e.g. `?type=summary&type=callInsightAnswer`. 
         :param str feedback_user_id: Filter AI Output records to only those that have feedback from this Voicegain User UUID. 
         :param int from_epoch: Lower bound (inclusive) on `createdEpoch` of returned AI Output records, in epoch milliseconds. 
         :param int to_epoch: Upper bound (exclusive) on `createdEpoch` of returned AI Output records, in epoch milliseconds. 
@@ -560,8 +435,9 @@ class AiOutputApi(object):
         :param str sa_session_id: Filter AI Output records by SA session UUID.
         :param str meeting_session_id: Filter AI Output records by meeting session UUID (see [/asr/meeting](#tag/meeting)).
         :param str aivr_session_id: Filter AI Output records by AIVR session UUID (see [/aivr](#tag/aivr)).
+        :param str aivr_app_id: Filter AI Output records by AIVR Application UUID (see [/aivr-app](#tag/aivr-app)).
         :param str call_id: Filter AI Output records by Call / Call Segment id.
-        :param AiOutputType type: Filter AI Output records by `type`.
+        :param list[AiOutputType] type: Filter AI Output records by `type`. May be repeated to match any of multiple types (logical OR), e.g. `?type=summary&type=callInsightAnswer`. 
         :param str feedback_user_id: Filter AI Output records to only those that have feedback from this Voicegain User UUID. 
         :param int from_epoch: Lower bound (inclusive) on `createdEpoch` of returned AI Output records, in epoch milliseconds. 
         :param int to_epoch: Upper bound (exclusive) on `createdEpoch` of returned AI Output records, in epoch milliseconds. 
@@ -587,7 +463,7 @@ class AiOutputApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'sa_session_id', 'meeting_session_id', 'aivr_session_id', 'call_id', 'type', 'feedback_user_id', 'from_epoch', 'to_epoch', 'has_feedback', 'thumbs', 'tag', 'with_feedbacks', 'limit', 'offset']  # noqa: E501
+        all_params = ['context_id', 'sa_session_id', 'meeting_session_id', 'aivr_session_id', 'aivr_app_id', 'call_id', 'type', 'feedback_user_id', 'from_epoch', 'to_epoch', 'has_feedback', 'thumbs', 'tag', 'with_feedbacks', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -626,12 +502,24 @@ class AiOutputApi(object):
         if self.api_client.client_side_validation and ('aivr_session_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['aivr_session_id']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `aivr_session_id` when calling `ai_output_query`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and ('aivr_app_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['aivr_app_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `aivr_app_id` when calling `ai_output_query`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('aivr_app_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['aivr_app_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `aivr_app_id` when calling `ai_output_query`, length must be greater than or equal to `16`")  # noqa: E501
         if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['call_id']) > 48):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `call_id` when calling `ai_output_query`, length must be less than or equal to `48`")  # noqa: E501
         if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['call_id']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `call_id` when calling `ai_output_query`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and ('type' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['type']) > 6):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `type` when calling `ai_output_query`, number of items must be less than or equal to `6`")  # noqa: E501
+        if self.api_client.client_side_validation and ('type' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['type']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `type` when calling `ai_output_query`, number of items must be greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and ('feedback_user_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['feedback_user_id']) > 48):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `feedback_user_id` when calling `ai_output_query`, length must be less than or equal to `48`")  # noqa: E501
@@ -665,10 +553,13 @@ class AiOutputApi(object):
             query_params.append(('meetingSessionId', local_var_params['meeting_session_id']))  # noqa: E501
         if 'aivr_session_id' in local_var_params and local_var_params['aivr_session_id'] is not None:  # noqa: E501
             query_params.append(('aivrSessionId', local_var_params['aivr_session_id']))  # noqa: E501
+        if 'aivr_app_id' in local_var_params and local_var_params['aivr_app_id'] is not None:  # noqa: E501
+            query_params.append(('aivrAppId', local_var_params['aivr_app_id']))  # noqa: E501
         if 'call_id' in local_var_params and local_var_params['call_id'] is not None:  # noqa: E501
             query_params.append(('callId', local_var_params['call_id']))  # noqa: E501
         if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
             query_params.append(('type', local_var_params['type']))  # noqa: E501
+            collection_formats['type'] = 'multi'  # noqa: E501
         if 'feedback_user_id' in local_var_params and local_var_params['feedback_user_id'] is not None:  # noqa: E501
             query_params.append(('feedbackUserId', local_var_params['feedback_user_id']))  # noqa: E501
         if 'from_epoch' in local_var_params and local_var_params['from_epoch'] is not None:  # noqa: E501

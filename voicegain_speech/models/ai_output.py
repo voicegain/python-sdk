@@ -36,6 +36,7 @@ class AiOutput(object):
     openapi_types = {
         'account_id': 'str',
         'ai_output_id': 'str',
+        'aivr_app_id': 'str',
         'aivr_session_id': 'str',
         'call_id': 'str',
         'content': 'OneOfstringobject',
@@ -54,6 +55,7 @@ class AiOutput(object):
     attribute_map = {
         'account_id': 'accountId',
         'ai_output_id': 'aiOutputId',
+        'aivr_app_id': 'aivrAppId',
         'aivr_session_id': 'aivrSessionId',
         'call_id': 'callId',
         'content': 'content',
@@ -69,7 +71,7 @@ class AiOutput(object):
         'type': 'type'
     }
 
-    def __init__(self, account_id=None, ai_output_id=None, aivr_session_id=None, call_id=None, content=None, context_id=None, created_epoch=None, feedbacks=None, generation=None, last_modified_epoch=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, ai_output_id=None, aivr_app_id=None, aivr_session_id=None, call_id=None, content=None, context_id=None, created_epoch=None, feedbacks=None, generation=None, last_modified_epoch=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
         """AiOutput - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -77,6 +79,7 @@ class AiOutput(object):
 
         self._account_id = None
         self._ai_output_id = None
+        self._aivr_app_id = None
         self._aivr_session_id = None
         self._call_id = None
         self._content = None
@@ -94,6 +97,8 @@ class AiOutput(object):
 
         self.account_id = account_id
         self.ai_output_id = ai_output_id
+        if aivr_app_id is not None:
+            self.aivr_app_id = aivr_app_id
         if aivr_session_id is not None:
             self.aivr_session_id = aivr_session_id
         if call_id is not None:
@@ -178,6 +183,35 @@ class AiOutput(object):
             raise ValueError("Invalid value for `ai_output_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._ai_output_id = ai_output_id
+
+    @property
+    def aivr_app_id(self):
+        """Gets the aivr_app_id of this AiOutput.  # noqa: E501
+
+        (optional) UUID of the AIVR Application this AI output was generated under. See [/aivr-app](#tag/aivr-app).   # noqa: E501
+
+        :return: The aivr_app_id of this AiOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_app_id
+
+    @aivr_app_id.setter
+    def aivr_app_id(self, aivr_app_id):
+        """Sets the aivr_app_id of this AiOutput.
+
+        (optional) UUID of the AIVR Application this AI output was generated under. See [/aivr-app](#tag/aivr-app).   # noqa: E501
+
+        :param aivr_app_id: The aivr_app_id of this AiOutput.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_app_id is not None and len(aivr_app_id) > 48):
+            raise ValueError("Invalid value for `aivr_app_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_app_id is not None and len(aivr_app_id) < 16):
+            raise ValueError("Invalid value for `aivr_app_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._aivr_app_id = aivr_app_id
 
     @property
     def aivr_session_id(self):
@@ -322,7 +356,7 @@ class AiOutput(object):
     def feedbacks(self):
         """Gets the feedbacks of this AiOutput.  # noqa: E501
 
-        All feedback entries attached to this AI Output. At most one entry per Voicegain User.</br> Always returned by [GET /aiOutput/{aiOutputId}](#tag/aiOutput/operation/aiOutputGet).</br> Returned by [GET /aiOutput](#tag/aiOutput/operation/aiOutputQuery) only when `withFeedbacks=true`.   # noqa: E501
+        All feedback entries attached to this AI Output, ordered by `createdEpoch` **descending** (newest first). Multiple entries per `(aiOutputId, userId)` are allowed; consumers typically pick the first entry (latest) or filter by `source`.</br> Always returned by [GET /aiOutput/{aiOutputId}](#tag/aiOutput/operation/aiOutputGet).</br> Returned by [GET /aiOutput](#tag/aiOutput/operation/aiOutputQuery) only when `withFeedbacks=true`.   # noqa: E501
 
         :return: The feedbacks of this AiOutput.  # noqa: E501
         :rtype: list[AiOutputFeedback]
@@ -333,7 +367,7 @@ class AiOutput(object):
     def feedbacks(self, feedbacks):
         """Sets the feedbacks of this AiOutput.
 
-        All feedback entries attached to this AI Output. At most one entry per Voicegain User.</br> Always returned by [GET /aiOutput/{aiOutputId}](#tag/aiOutput/operation/aiOutputGet).</br> Returned by [GET /aiOutput](#tag/aiOutput/operation/aiOutputQuery) only when `withFeedbacks=true`.   # noqa: E501
+        All feedback entries attached to this AI Output, ordered by `createdEpoch` **descending** (newest first). Multiple entries per `(aiOutputId, userId)` are allowed; consumers typically pick the first entry (latest) or filter by `source`.</br> Always returned by [GET /aiOutput/{aiOutputId}](#tag/aiOutput/operation/aiOutputGet).</br> Returned by [GET /aiOutput](#tag/aiOutput/operation/aiOutputQuery) only when `withFeedbacks=true`.   # noqa: E501
 
         :param feedbacks: The feedbacks of this AiOutput.  # noqa: E501
         :type: list[AiOutputFeedback]
@@ -366,7 +400,7 @@ class AiOutput(object):
     def last_modified_epoch(self):
         """Gets the last_modified_epoch of this AiOutput.  # noqa: E501
 
-        Epoch ms when this record was last modified.  # noqa: E501
+        Epoch ms when this record was last modified. Since AI Output records are immutable, this is updated only when a feedback entry is added via [POST /aiOutput/{aiOutputId}/feedback](#tag/aiOutput/operation/aiOutputFeedbackPost).   # noqa: E501
 
         :return: The last_modified_epoch of this AiOutput.  # noqa: E501
         :rtype: int
@@ -377,7 +411,7 @@ class AiOutput(object):
     def last_modified_epoch(self, last_modified_epoch):
         """Sets the last_modified_epoch of this AiOutput.
 
-        Epoch ms when this record was last modified.  # noqa: E501
+        Epoch ms when this record was last modified. Since AI Output records are immutable, this is updated only when a feedback entry is added via [POST /aiOutput/{aiOutputId}/feedback](#tag/aiOutput/operation/aiOutputFeedbackPost).   # noqa: E501
 
         :param last_modified_epoch: The last_modified_epoch of this AiOutput.  # noqa: E501
         :type: int

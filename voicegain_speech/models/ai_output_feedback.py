@@ -39,7 +39,6 @@ class AiOutputFeedback(object):
         'correct_value': 'OneOfstringobject',
         'created_epoch': 'int',
         'feedback_id': 'str',
-        'last_modified_epoch': 'int',
         'score': 'int',
         'source': 'str',
         'thumbs': 'str',
@@ -52,14 +51,13 @@ class AiOutputFeedback(object):
         'correct_value': 'correctValue',
         'created_epoch': 'createdEpoch',
         'feedback_id': 'feedbackId',
-        'last_modified_epoch': 'lastModifiedEpoch',
         'score': 'score',
         'source': 'source',
         'thumbs': 'thumbs',
         'user_id': 'userId'
     }
 
-    def __init__(self, ai_output_id=None, comment=None, correct_value=None, created_epoch=None, feedback_id=None, last_modified_epoch=None, score=None, source=None, thumbs=None, user_id=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, ai_output_id=None, comment=None, correct_value=None, created_epoch=None, feedback_id=None, score=None, source=None, thumbs=None, user_id=None, local_vars_configuration=None):  # noqa: E501
         """AiOutputFeedback - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -70,7 +68,6 @@ class AiOutputFeedback(object):
         self._correct_value = None
         self._created_epoch = None
         self._feedback_id = None
-        self._last_modified_epoch = None
         self._score = None
         self._source = None
         self._thumbs = None
@@ -84,8 +81,6 @@ class AiOutputFeedback(object):
             self.correct_value = correct_value
         self.created_epoch = created_epoch
         self.feedback_id = feedback_id
-        if last_modified_epoch is not None:
-            self.last_modified_epoch = last_modified_epoch
         if score is not None:
             self.score = score
         if source is not None:
@@ -178,7 +173,7 @@ class AiOutputFeedback(object):
     def created_epoch(self):
         """Gets the created_epoch of this AiOutputFeedback.  # noqa: E501
 
-        Epoch ms when this feedback entry was created.  # noqa: E501
+        Epoch ms when this feedback entry was created. Feedback entries are append-only, so this is also the only timestamp on the entry.  # noqa: E501
 
         :return: The created_epoch of this AiOutputFeedback.  # noqa: E501
         :rtype: int
@@ -189,7 +184,7 @@ class AiOutputFeedback(object):
     def created_epoch(self, created_epoch):
         """Sets the created_epoch of this AiOutputFeedback.
 
-        Epoch ms when this feedback entry was created.  # noqa: E501
+        Epoch ms when this feedback entry was created. Feedback entries are append-only, so this is also the only timestamp on the entry.  # noqa: E501
 
         :param created_epoch: The created_epoch of this AiOutputFeedback.  # noqa: E501
         :type: int
@@ -229,29 +224,6 @@ class AiOutputFeedback(object):
             raise ValueError("Invalid value for `feedback_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._feedback_id = feedback_id
-
-    @property
-    def last_modified_epoch(self):
-        """Gets the last_modified_epoch of this AiOutputFeedback.  # noqa: E501
-
-        Epoch ms when this feedback entry was last modified (e.g. via POST with `replace=true`).  # noqa: E501
-
-        :return: The last_modified_epoch of this AiOutputFeedback.  # noqa: E501
-        :rtype: int
-        """
-        return self._last_modified_epoch
-
-    @last_modified_epoch.setter
-    def last_modified_epoch(self, last_modified_epoch):
-        """Sets the last_modified_epoch of this AiOutputFeedback.
-
-        Epoch ms when this feedback entry was last modified (e.g. via POST with `replace=true`).  # noqa: E501
-
-        :param last_modified_epoch: The last_modified_epoch of this AiOutputFeedback.  # noqa: E501
-        :type: int
-        """
-
-        self._last_modified_epoch = last_modified_epoch
 
     @property
     def score(self):
@@ -341,7 +313,7 @@ class AiOutputFeedback(object):
     def user_id(self):
         """Gets the user_id of this AiOutputFeedback.  # noqa: E501
 
-        UUID of the Voicegain User providing the feedback (see [GET /user/{uuid}](#tag/user/operation/userGet)).</br> **Validation:** the back end verifies that the user exists and belongs to the same Account as the parent AI Output. The request is rejected with 400 (`reason: \"Invalid userId\"`) otherwise.   # noqa: E501
+        UUID of the Voicegain User who provided the feedback (see [GET /user/{uuid}](#tag/user/operation/userGet)).   # noqa: E501
 
         :return: The user_id of this AiOutputFeedback.  # noqa: E501
         :rtype: str
@@ -352,7 +324,7 @@ class AiOutputFeedback(object):
     def user_id(self, user_id):
         """Sets the user_id of this AiOutputFeedback.
 
-        UUID of the Voicegain User providing the feedback (see [GET /user/{uuid}](#tag/user/operation/userGet)).</br> **Validation:** the back end verifies that the user exists and belongs to the same Account as the parent AI Output. The request is rejected with 400 (`reason: \"Invalid userId\"`) otherwise.   # noqa: E501
+        UUID of the Voicegain User who provided the feedback (see [GET /user/{uuid}](#tag/user/operation/userGet)).   # noqa: E501
 
         :param user_id: The user_id of this AiOutputFeedback.  # noqa: E501
         :type: str

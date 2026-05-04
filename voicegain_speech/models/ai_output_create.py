@@ -34,6 +34,7 @@ class AiOutputCreate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'aivr_app_id': 'str',
         'aivr_session_id': 'str',
         'call_id': 'str',
         'content': 'OneOfstringobject',
@@ -47,6 +48,7 @@ class AiOutputCreate(object):
     }
 
     attribute_map = {
+        'aivr_app_id': 'aivrAppId',
         'aivr_session_id': 'aivrSessionId',
         'call_id': 'callId',
         'content': 'content',
@@ -59,12 +61,13 @@ class AiOutputCreate(object):
         'type': 'type'
     }
 
-    def __init__(self, aivr_session_id=None, call_id=None, content=None, context_id=None, generation=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_app_id=None, aivr_session_id=None, call_id=None, content=None, context_id=None, generation=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
         """AiOutputCreate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._aivr_app_id = None
         self._aivr_session_id = None
         self._call_id = None
         self._content = None
@@ -77,6 +80,8 @@ class AiOutputCreate(object):
         self._type = None
         self.discriminator = None
 
+        if aivr_app_id is not None:
+            self.aivr_app_id = aivr_app_id
         if aivr_session_id is not None:
             self.aivr_session_id = aivr_session_id
         if call_id is not None:
@@ -96,10 +101,39 @@ class AiOutputCreate(object):
         self.type = type
 
     @property
+    def aivr_app_id(self):
+        """Gets the aivr_app_id of this AiOutputCreate.  # noqa: E501
+
+        (optional) UUID of the AIVR Application this AI output was generated under. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid aivrAppId\"`) otherwise. See `AiOutput.aivrAppId`.   # noqa: E501
+
+        :return: The aivr_app_id of this AiOutputCreate.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_app_id
+
+    @aivr_app_id.setter
+    def aivr_app_id(self, aivr_app_id):
+        """Sets the aivr_app_id of this AiOutputCreate.
+
+        (optional) UUID of the AIVR Application this AI output was generated under. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid aivrAppId\"`) otherwise. See `AiOutput.aivrAppId`.   # noqa: E501
+
+        :param aivr_app_id: The aivr_app_id of this AiOutputCreate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_app_id is not None and len(aivr_app_id) > 48):
+            raise ValueError("Invalid value for `aivr_app_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_app_id is not None and len(aivr_app_id) < 16):
+            raise ValueError("Invalid value for `aivr_app_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._aivr_app_id = aivr_app_id
+
+    @property
     def aivr_session_id(self):
         """Gets the aivr_session_id of this AiOutputCreate.  # noqa: E501
 
-        (optional) UUID of the AIVR session this AI output was generated from. See `AiOutput.aivrSessionId`.  # noqa: E501
+        (optional) UUID of the AIVR session this AI output was generated from. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid aivrSessionId\"`) otherwise. See `AiOutput.aivrSessionId`.   # noqa: E501
 
         :return: The aivr_session_id of this AiOutputCreate.  # noqa: E501
         :rtype: str
@@ -110,7 +144,7 @@ class AiOutputCreate(object):
     def aivr_session_id(self, aivr_session_id):
         """Sets the aivr_session_id of this AiOutputCreate.
 
-        (optional) UUID of the AIVR session this AI output was generated from. See `AiOutput.aivrSessionId`.  # noqa: E501
+        (optional) UUID of the AIVR session this AI output was generated from. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid aivrSessionId\"`) otherwise. See `AiOutput.aivrSessionId`.   # noqa: E501
 
         :param aivr_session_id: The aivr_session_id of this AiOutputCreate.  # noqa: E501
         :type: str
@@ -128,7 +162,7 @@ class AiOutputCreate(object):
     def call_id(self):
         """Gets the call_id of this AiOutputCreate.  # noqa: E501
 
-        (optional) ID of the Call or Call Segment this AI output relates to. See `AiOutput.callId`.  # noqa: E501
+        (optional) ID of the Call or Call Segment this AI output relates to. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid callId\"`) otherwise. See `AiOutput.callId`.   # noqa: E501
 
         :return: The call_id of this AiOutputCreate.  # noqa: E501
         :rtype: str
@@ -139,7 +173,7 @@ class AiOutputCreate(object):
     def call_id(self, call_id):
         """Sets the call_id of this AiOutputCreate.
 
-        (optional) ID of the Call or Call Segment this AI output relates to. See `AiOutput.callId`.  # noqa: E501
+        (optional) ID of the Call or Call Segment this AI output relates to. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid callId\"`) otherwise. See `AiOutput.callId`.   # noqa: E501
 
         :param call_id: The call_id of this AiOutputCreate.  # noqa: E501
         :type: str
@@ -234,7 +268,7 @@ class AiOutputCreate(object):
     def meeting_session_id(self):
         """Gets the meeting_session_id of this AiOutputCreate.  # noqa: E501
 
-        (optional) UUID of the meeting transcribe session this AI output was generated from. See `AiOutput.meetingSessionId`.  # noqa: E501
+        (optional) UUID of the meeting transcribe session this AI output was generated from. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid meetingSessionId\"`) otherwise. See `AiOutput.meetingSessionId`.   # noqa: E501
 
         :return: The meeting_session_id of this AiOutputCreate.  # noqa: E501
         :rtype: str
@@ -245,7 +279,7 @@ class AiOutputCreate(object):
     def meeting_session_id(self, meeting_session_id):
         """Sets the meeting_session_id of this AiOutputCreate.
 
-        (optional) UUID of the meeting transcribe session this AI output was generated from. See `AiOutput.meetingSessionId`.  # noqa: E501
+        (optional) UUID of the meeting transcribe session this AI output was generated from. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid meetingSessionId\"`) otherwise. See `AiOutput.meetingSessionId`.   # noqa: E501
 
         :param meeting_session_id: The meeting_session_id of this AiOutputCreate.  # noqa: E501
         :type: str
@@ -263,7 +297,7 @@ class AiOutputCreate(object):
     def sa_session_id(self):
         """Gets the sa_session_id of this AiOutputCreate.  # noqa: E501
 
-        (optional) UUID of the SA session this AI output was generated from. See `AiOutput.saSessionId`.  # noqa: E501
+        (optional) UUID of the SA session this AI output was generated from. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid saSessionId\"`) otherwise. See `AiOutput.saSessionId`.   # noqa: E501
 
         :return: The sa_session_id of this AiOutputCreate.  # noqa: E501
         :rtype: str
@@ -274,7 +308,7 @@ class AiOutputCreate(object):
     def sa_session_id(self, sa_session_id):
         """Sets the sa_session_id of this AiOutputCreate.
 
-        (optional) UUID of the SA session this AI output was generated from. See `AiOutput.saSessionId`.  # noqa: E501
+        (optional) UUID of the SA session this AI output was generated from. Validated to exist on the caller's Account; rejected with 400 (`reason: \"Invalid saSessionId\"`) otherwise. See `AiOutput.saSessionId`.   # noqa: E501
 
         :param sa_session_id: The sa_session_id of this AiOutputCreate.  # noqa: E501
         :type: str
