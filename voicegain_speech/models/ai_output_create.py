@@ -34,6 +34,7 @@ class AiOutputCreate(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'aivr_session_id': 'str',
         'call_id': 'str',
         'content': 'OneOfstringobject',
         'context_id': 'str',
@@ -46,6 +47,7 @@ class AiOutputCreate(object):
     }
 
     attribute_map = {
+        'aivr_session_id': 'aivrSessionId',
         'call_id': 'callId',
         'content': 'content',
         'context_id': 'contextId',
@@ -57,12 +59,13 @@ class AiOutputCreate(object):
         'type': 'type'
     }
 
-    def __init__(self, call_id=None, content=None, context_id=None, generation=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_session_id=None, call_id=None, content=None, context_id=None, generation=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
         """AiOutputCreate - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._aivr_session_id = None
         self._call_id = None
         self._content = None
         self._context_id = None
@@ -74,6 +77,8 @@ class AiOutputCreate(object):
         self._type = None
         self.discriminator = None
 
+        if aivr_session_id is not None:
+            self.aivr_session_id = aivr_session_id
         if call_id is not None:
             self.call_id = call_id
         self.content = content
@@ -89,6 +94,35 @@ class AiOutputCreate(object):
         if tags is not None:
             self.tags = tags
         self.type = type
+
+    @property
+    def aivr_session_id(self):
+        """Gets the aivr_session_id of this AiOutputCreate.  # noqa: E501
+
+        (optional) UUID of the AIVR session this AI output was generated from. See `AiOutput.aivrSessionId`.  # noqa: E501
+
+        :return: The aivr_session_id of this AiOutputCreate.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_session_id
+
+    @aivr_session_id.setter
+    def aivr_session_id(self, aivr_session_id):
+        """Sets the aivr_session_id of this AiOutputCreate.
+
+        (optional) UUID of the AIVR session this AI output was generated from. See `AiOutput.aivrSessionId`.  # noqa: E501
+
+        :param aivr_session_id: The aivr_session_id of this AiOutputCreate.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_session_id is not None and len(aivr_session_id) > 48):
+            raise ValueError("Invalid value for `aivr_session_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_session_id is not None and len(aivr_session_id) < 16):
+            raise ValueError("Invalid value for `aivr_session_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._aivr_session_id = aivr_session_id
 
     @property
     def call_id(self):

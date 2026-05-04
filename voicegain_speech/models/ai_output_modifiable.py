@@ -34,6 +34,7 @@ class AiOutputModifiable(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'aivr_session_id': 'str',
         'call_id': 'str',
         'generation': 'AiOutputGeneration',
         'meeting_session_id': 'str',
@@ -43,6 +44,7 @@ class AiOutputModifiable(object):
     }
 
     attribute_map = {
+        'aivr_session_id': 'aivrSessionId',
         'call_id': 'callId',
         'generation': 'generation',
         'meeting_session_id': 'meetingSessionId',
@@ -51,12 +53,13 @@ class AiOutputModifiable(object):
         'tags': 'tags'
     }
 
-    def __init__(self, call_id=None, generation=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, aivr_session_id=None, call_id=None, generation=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, local_vars_configuration=None):  # noqa: E501
         """AiOutputModifiable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._aivr_session_id = None
         self._call_id = None
         self._generation = None
         self._meeting_session_id = None
@@ -65,6 +68,7 @@ class AiOutputModifiable(object):
         self._tags = None
         self.discriminator = None
 
+        self.aivr_session_id = aivr_session_id
         self.call_id = call_id
         if generation is not None:
             self.generation = generation
@@ -74,6 +78,35 @@ class AiOutputModifiable(object):
             self.source_ref = source_ref
         if tags is not None:
             self.tags = tags
+
+    @property
+    def aivr_session_id(self):
+        """Gets the aivr_session_id of this AiOutputModifiable.  # noqa: E501
+
+        UUID of the AIVR session this AI output was generated from. Send `null` to clear a previously set value. See `AiOutput.aivrSessionId`.   # noqa: E501
+
+        :return: The aivr_session_id of this AiOutputModifiable.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_session_id
+
+    @aivr_session_id.setter
+    def aivr_session_id(self, aivr_session_id):
+        """Sets the aivr_session_id of this AiOutputModifiable.
+
+        UUID of the AIVR session this AI output was generated from. Send `null` to clear a previously set value. See `AiOutput.aivrSessionId`.   # noqa: E501
+
+        :param aivr_session_id: The aivr_session_id of this AiOutputModifiable.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_session_id is not None and len(aivr_session_id) > 48):
+            raise ValueError("Invalid value for `aivr_session_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_session_id is not None and len(aivr_session_id) < 16):
+            raise ValueError("Invalid value for `aivr_session_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._aivr_session_id = aivr_session_id
 
     @property
     def call_id(self):

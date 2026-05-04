@@ -520,6 +520,7 @@ class AiOutputApi(object):
         :param str context_id: Filter AI Output records by Context UUID.
         :param str sa_session_id: Filter AI Output records by SA session UUID.
         :param str meeting_session_id: Filter AI Output records by meeting session UUID (see [/asr/meeting](#tag/meeting)).
+        :param str aivr_session_id: Filter AI Output records by AIVR session UUID (see [/aivr](#tag/aivr)).
         :param str call_id: Filter AI Output records by Call / Call Segment id.
         :param AiOutputType type: Filter AI Output records by `type`.
         :param str feedback_user_id: Filter AI Output records to only those that have feedback from this Voicegain User UUID. 
@@ -558,6 +559,7 @@ class AiOutputApi(object):
         :param str context_id: Filter AI Output records by Context UUID.
         :param str sa_session_id: Filter AI Output records by SA session UUID.
         :param str meeting_session_id: Filter AI Output records by meeting session UUID (see [/asr/meeting](#tag/meeting)).
+        :param str aivr_session_id: Filter AI Output records by AIVR session UUID (see [/aivr](#tag/aivr)).
         :param str call_id: Filter AI Output records by Call / Call Segment id.
         :param AiOutputType type: Filter AI Output records by `type`.
         :param str feedback_user_id: Filter AI Output records to only those that have feedback from this Voicegain User UUID. 
@@ -585,7 +587,7 @@ class AiOutputApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'sa_session_id', 'meeting_session_id', 'call_id', 'type', 'feedback_user_id', 'from_epoch', 'to_epoch', 'has_feedback', 'thumbs', 'tag', 'with_feedbacks', 'limit', 'offset']  # noqa: E501
+        all_params = ['context_id', 'sa_session_id', 'meeting_session_id', 'aivr_session_id', 'call_id', 'type', 'feedback_user_id', 'from_epoch', 'to_epoch', 'has_feedback', 'thumbs', 'tag', 'with_feedbacks', 'limit', 'offset']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -618,6 +620,12 @@ class AiOutputApi(object):
         if self.api_client.client_side_validation and ('meeting_session_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['meeting_session_id']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `meeting_session_id` when calling `ai_output_query`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and ('aivr_session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['aivr_session_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `aivr_session_id` when calling `ai_output_query`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('aivr_session_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['aivr_session_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `aivr_session_id` when calling `ai_output_query`, length must be greater than or equal to `16`")  # noqa: E501
         if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['call_id']) > 48):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `call_id` when calling `ai_output_query`, length must be less than or equal to `48`")  # noqa: E501
@@ -655,6 +663,8 @@ class AiOutputApi(object):
             query_params.append(('saSessionId', local_var_params['sa_session_id']))  # noqa: E501
         if 'meeting_session_id' in local_var_params and local_var_params['meeting_session_id'] is not None:  # noqa: E501
             query_params.append(('meetingSessionId', local_var_params['meeting_session_id']))  # noqa: E501
+        if 'aivr_session_id' in local_var_params and local_var_params['aivr_session_id'] is not None:  # noqa: E501
+            query_params.append(('aivrSessionId', local_var_params['aivr_session_id']))  # noqa: E501
         if 'call_id' in local_var_params and local_var_params['call_id'] is not None:  # noqa: E501
             query_params.append(('callId', local_var_params['call_id']))  # noqa: E501
         if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501

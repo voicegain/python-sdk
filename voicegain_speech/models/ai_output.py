@@ -36,6 +36,7 @@ class AiOutput(object):
     openapi_types = {
         'account_id': 'str',
         'ai_output_id': 'str',
+        'aivr_session_id': 'str',
         'call_id': 'str',
         'content': 'OneOfstringobject',
         'context_id': 'str',
@@ -53,6 +54,7 @@ class AiOutput(object):
     attribute_map = {
         'account_id': 'accountId',
         'ai_output_id': 'aiOutputId',
+        'aivr_session_id': 'aivrSessionId',
         'call_id': 'callId',
         'content': 'content',
         'context_id': 'contextId',
@@ -67,7 +69,7 @@ class AiOutput(object):
         'type': 'type'
     }
 
-    def __init__(self, account_id=None, ai_output_id=None, call_id=None, content=None, context_id=None, created_epoch=None, feedbacks=None, generation=None, last_modified_epoch=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, ai_output_id=None, aivr_session_id=None, call_id=None, content=None, context_id=None, created_epoch=None, feedbacks=None, generation=None, last_modified_epoch=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
         """AiOutput - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -75,6 +77,7 @@ class AiOutput(object):
 
         self._account_id = None
         self._ai_output_id = None
+        self._aivr_session_id = None
         self._call_id = None
         self._content = None
         self._context_id = None
@@ -91,6 +94,8 @@ class AiOutput(object):
 
         self.account_id = account_id
         self.ai_output_id = ai_output_id
+        if aivr_session_id is not None:
+            self.aivr_session_id = aivr_session_id
         if call_id is not None:
             self.call_id = call_id
         self.content = content
@@ -173,6 +178,35 @@ class AiOutput(object):
             raise ValueError("Invalid value for `ai_output_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._ai_output_id = ai_output_id
+
+    @property
+    def aivr_session_id(self):
+        """Gets the aivr_session_id of this AiOutput.  # noqa: E501
+
+        (optional) UUID of the AIVR (Telephony Bot) session this AI output was generated from. See [/aivr](#tag/aivr).   # noqa: E501
+
+        :return: The aivr_session_id of this AiOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._aivr_session_id
+
+    @aivr_session_id.setter
+    def aivr_session_id(self, aivr_session_id):
+        """Sets the aivr_session_id of this AiOutput.
+
+        (optional) UUID of the AIVR (Telephony Bot) session this AI output was generated from. See [/aivr](#tag/aivr).   # noqa: E501
+
+        :param aivr_session_id: The aivr_session_id of this AiOutput.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_session_id is not None and len(aivr_session_id) > 48):
+            raise ValueError("Invalid value for `aivr_session_id`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                aivr_session_id is not None and len(aivr_session_id) < 16):
+            raise ValueError("Invalid value for `aivr_session_id`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._aivr_session_id = aivr_session_id
 
     @property
     def call_id(self):
