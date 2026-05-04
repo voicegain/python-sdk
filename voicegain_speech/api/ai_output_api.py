@@ -384,7 +384,7 @@ class AiOutputApi(object):
     def ai_output_query(self, **kwargs):  # noqa: E501
         """Query AI Outputs  # noqa: E501
 
-        Query AI Output records on the caller's Account, with optional filters.</br> Records are returned in `createdEpoch` descending order by default.</br> Each entry omits its `feedbacks[]` array unless `withFeedbacks=true` is passed.   # noqa: E501
+        Query AI Output records on the caller's Account, with optional filters.</br> Records are returned in `createdEpoch` descending order.</br> Each entry omits its `feedbacks[]` array unless `withFeedbacks=true` is passed.</br> **No pagination in this phase** — the back end caps the result set; if more matches exist, narrow your filters or wait for paging support in a follow-up release.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.ai_output_query(async_req=True)
@@ -405,8 +405,6 @@ class AiOutputApi(object):
         :param str thumbs: Filter records to those that have at least one feedback entry with `thumbs` set to this value. 
         :param str tag: Filter AI Output records by tag (exact match against any element of `tags[]`).
         :param bool with_feedbacks: If `true`, each returned record includes its inline `feedbacks[]` array. Default is `false` (omit feedbacks for smaller payloads). 
-        :param int limit: set the maximum number of returned results
-        :param int offset: Number of records to skip (for paging).
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -424,7 +422,7 @@ class AiOutputApi(object):
     def ai_output_query_with_http_info(self, **kwargs):  # noqa: E501
         """Query AI Outputs  # noqa: E501
 
-        Query AI Output records on the caller's Account, with optional filters.</br> Records are returned in `createdEpoch` descending order by default.</br> Each entry omits its `feedbacks[]` array unless `withFeedbacks=true` is passed.   # noqa: E501
+        Query AI Output records on the caller's Account, with optional filters.</br> Records are returned in `createdEpoch` descending order.</br> Each entry omits its `feedbacks[]` array unless `withFeedbacks=true` is passed.</br> **No pagination in this phase** — the back end caps the result set; if more matches exist, narrow your filters or wait for paging support in a follow-up release.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.ai_output_query_with_http_info(async_req=True)
@@ -445,8 +443,6 @@ class AiOutputApi(object):
         :param str thumbs: Filter records to those that have at least one feedback entry with `thumbs` set to this value. 
         :param str tag: Filter AI Output records by tag (exact match against any element of `tags[]`).
         :param bool with_feedbacks: If `true`, each returned record includes its inline `feedbacks[]` array. Default is `false` (omit feedbacks for smaller payloads). 
-        :param int limit: set the maximum number of returned results
-        :param int offset: Number of records to skip (for paging).
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -463,7 +459,7 @@ class AiOutputApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'sa_session_id', 'meeting_session_id', 'aivr_session_id', 'aivr_app_id', 'call_id', 'type', 'feedback_user_id', 'from_epoch', 'to_epoch', 'has_feedback', 'thumbs', 'tag', 'with_feedbacks', 'limit', 'offset']  # noqa: E501
+        all_params = ['context_id', 'sa_session_id', 'meeting_session_id', 'aivr_session_id', 'aivr_app_id', 'call_id', 'type', 'feedback_user_id', 'from_epoch', 'to_epoch', 'has_feedback', 'thumbs', 'tag', 'with_feedbacks']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -536,10 +532,6 @@ class AiOutputApi(object):
         if self.api_client.client_side_validation and ('tag' in local_var_params and  # noqa: E501
                                                         len(local_var_params['tag']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `tag` when calling `ai_output_query`, length must be greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `limit` when calling `ai_output_query`, must be a value greater than or equal to `1`")  # noqa: E501
-        if self.api_client.client_side_validation and 'offset' in local_var_params and local_var_params['offset'] < 0:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `offset` when calling `ai_output_query`, must be a value greater than or equal to `0`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -574,10 +566,6 @@ class AiOutputApi(object):
             query_params.append(('tag', local_var_params['tag']))  # noqa: E501
         if 'with_feedbacks' in local_var_params and local_var_params['with_feedbacks'] is not None:  # noqa: E501
             query_params.append(('withFeedbacks', local_var_params['with_feedbacks']))  # noqa: E501
-        if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
-            query_params.append(('limit', local_var_params['limit']))  # noqa: E501
-        if 'offset' in local_var_params and local_var_params['offset'] is not None:  # noqa: E501
-            query_params.append(('offset', local_var_params['offset']))  # noqa: E501
 
         header_params = {}
 
