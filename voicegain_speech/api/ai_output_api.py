@@ -284,8 +284,8 @@ class AiOutputApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Filter AI Output records by Context UUID.
-        :param str sa_session_id: Filter AI Output records by SA session UUID.
-        :param str meeting_session_id: Filter AI Output records by meeting session UUID (see [/asr/meeting](#tag/meeting)).
+        :param str sa_session_id: Filter AI Output records by SA session id (free-form string, not constrained to UUID format).
+        :param str meeting_session_id: Filter AI Output records by meeting session id (free-form string, not constrained to UUID format; see [/asr/meeting](#tag/meeting)).
         :param str aivr_session_id: Filter AI Output records by AIVR session UUID (see [/aivr](#tag/aivr)).
         :param str aivr_app_id: Filter AI Output records by AIVR Application UUID (see [/aivr-app](#tag/aivr-app)).
         :param str call_id: Filter AI Output records by Call / Call Segment id.
@@ -322,8 +322,8 @@ class AiOutputApi(object):
 
         :param async_req bool: execute request asynchronously
         :param str context_id: Filter AI Output records by Context UUID.
-        :param str sa_session_id: Filter AI Output records by SA session UUID.
-        :param str meeting_session_id: Filter AI Output records by meeting session UUID (see [/asr/meeting](#tag/meeting)).
+        :param str sa_session_id: Filter AI Output records by SA session id (free-form string, not constrained to UUID format).
+        :param str meeting_session_id: Filter AI Output records by meeting session id (free-form string, not constrained to UUID format; see [/asr/meeting](#tag/meeting)).
         :param str aivr_session_id: Filter AI Output records by AIVR session UUID (see [/aivr](#tag/aivr)).
         :param str aivr_app_id: Filter AI Output records by AIVR Application UUID (see [/aivr-app](#tag/aivr-app)).
         :param str call_id: Filter AI Output records by Call / Call Segment id.
@@ -373,17 +373,17 @@ class AiOutputApi(object):
                                                         len(local_var_params['context_id']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `context_id` when calling `ai_output_query`, length must be greater than or equal to `16`")  # noqa: E501
         if self.api_client.client_side_validation and ('sa_session_id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['sa_session_id']) > 48):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `sa_session_id` when calling `ai_output_query`, length must be less than or equal to `48`")  # noqa: E501
+                                                        len(local_var_params['sa_session_id']) > 128):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `sa_session_id` when calling `ai_output_query`, length must be less than or equal to `128`")  # noqa: E501
         if self.api_client.client_side_validation and ('sa_session_id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['sa_session_id']) < 16):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `sa_session_id` when calling `ai_output_query`, length must be greater than or equal to `16`")  # noqa: E501
+                                                        len(local_var_params['sa_session_id']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `sa_session_id` when calling `ai_output_query`, length must be greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and ('meeting_session_id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['meeting_session_id']) > 48):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `meeting_session_id` when calling `ai_output_query`, length must be less than or equal to `48`")  # noqa: E501
+                                                        len(local_var_params['meeting_session_id']) > 128):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `meeting_session_id` when calling `ai_output_query`, length must be less than or equal to `128`")  # noqa: E501
         if self.api_client.client_side_validation and ('meeting_session_id' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['meeting_session_id']) < 16):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `meeting_session_id` when calling `ai_output_query`, length must be greater than or equal to `16`")  # noqa: E501
+                                                        len(local_var_params['meeting_session_id']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `meeting_session_id` when calling `ai_output_query`, length must be greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and ('aivr_session_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['aivr_session_id']) > 48):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `aivr_session_id` when calling `ai_output_query`, length must be less than or equal to `48`")  # noqa: E501

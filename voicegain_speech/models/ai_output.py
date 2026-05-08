@@ -423,7 +423,7 @@ class AiOutput(object):
     def meeting_session_id(self):
         """Gets the meeting_session_id of this AiOutput.  # noqa: E501
 
-        (optional) UUID of the meeting transcribe session (see [/asr/meeting](#tag/meeting)) this AI output was generated from.   # noqa: E501
+        (optional) ID of the meeting transcribe session (see [/asr/meeting](#tag/meeting)) this AI output was generated from. Free-form string (not constrained to UUID format) — stored opaquely, not validated by the back end.   # noqa: E501
 
         :return: The meeting_session_id of this AiOutput.  # noqa: E501
         :rtype: str
@@ -434,17 +434,17 @@ class AiOutput(object):
     def meeting_session_id(self, meeting_session_id):
         """Sets the meeting_session_id of this AiOutput.
 
-        (optional) UUID of the meeting transcribe session (see [/asr/meeting](#tag/meeting)) this AI output was generated from.   # noqa: E501
+        (optional) ID of the meeting transcribe session (see [/asr/meeting](#tag/meeting)) this AI output was generated from. Free-form string (not constrained to UUID format) — stored opaquely, not validated by the back end.   # noqa: E501
 
         :param meeting_session_id: The meeting_session_id of this AiOutput.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                meeting_session_id is not None and len(meeting_session_id) > 48):
-            raise ValueError("Invalid value for `meeting_session_id`, length must be less than or equal to `48`")  # noqa: E501
+                meeting_session_id is not None and len(meeting_session_id) > 128):
+            raise ValueError("Invalid value for `meeting_session_id`, length must be less than or equal to `128`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                meeting_session_id is not None and len(meeting_session_id) < 16):
-            raise ValueError("Invalid value for `meeting_session_id`, length must be greater than or equal to `16`")  # noqa: E501
+                meeting_session_id is not None and len(meeting_session_id) < 1):
+            raise ValueError("Invalid value for `meeting_session_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._meeting_session_id = meeting_session_id
 
@@ -452,7 +452,7 @@ class AiOutput(object):
     def sa_session_id(self):
         """Gets the sa_session_id of this AiOutput.  # noqa: E501
 
-        (optional) UUID of the SA session this AI output was generated from. Independent of `sourceRef` — both may be set.   # noqa: E501
+        (optional) ID of the SA session this AI output was generated from. Free-form string (not constrained to UUID format) — stored opaquely, not validated by the back end. Independent of `sourceRef` — both may be set.   # noqa: E501
 
         :return: The sa_session_id of this AiOutput.  # noqa: E501
         :rtype: str
@@ -463,17 +463,17 @@ class AiOutput(object):
     def sa_session_id(self, sa_session_id):
         """Sets the sa_session_id of this AiOutput.
 
-        (optional) UUID of the SA session this AI output was generated from. Independent of `sourceRef` — both may be set.   # noqa: E501
+        (optional) ID of the SA session this AI output was generated from. Free-form string (not constrained to UUID format) — stored opaquely, not validated by the back end. Independent of `sourceRef` — both may be set.   # noqa: E501
 
         :param sa_session_id: The sa_session_id of this AiOutput.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                sa_session_id is not None and len(sa_session_id) > 48):
-            raise ValueError("Invalid value for `sa_session_id`, length must be less than or equal to `48`")  # noqa: E501
+                sa_session_id is not None and len(sa_session_id) > 128):
+            raise ValueError("Invalid value for `sa_session_id`, length must be less than or equal to `128`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                sa_session_id is not None and len(sa_session_id) < 16):
-            raise ValueError("Invalid value for `sa_session_id`, length must be greater than or equal to `16`")  # noqa: E501
+                sa_session_id is not None and len(sa_session_id) < 1):
+            raise ValueError("Invalid value for `sa_session_id`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._sa_session_id = sa_session_id
 

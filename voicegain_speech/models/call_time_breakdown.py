@@ -35,38 +35,46 @@ class CallTimeBreakdown(object):
     """
     openapi_types = {
         'agent_segments': 'list[CallTimeBreakdownAgentSegments]',
+        'caller_in_agent_seg_sec': 'float',
         'caller_sec': 'float',
         'excessive_silence_sec': 'float',
         'silence_sec': 'float',
         'system_sec': 'float',
-        'voicebot_sec': 'float'
+        'voicebot_sec': 'float',
+        'voicebot_seg_sec': 'float'
     }
 
     attribute_map = {
         'agent_segments': 'agentSegments',
+        'caller_in_agent_seg_sec': 'callerInAgentSegSec',
         'caller_sec': 'callerSec',
         'excessive_silence_sec': 'excessiveSilenceSec',
         'silence_sec': 'silenceSec',
         'system_sec': 'systemSec',
-        'voicebot_sec': 'voicebotSec'
+        'voicebot_sec': 'voicebotSec',
+        'voicebot_seg_sec': 'voicebotSegSec'
     }
 
-    def __init__(self, agent_segments=None, caller_sec=None, excessive_silence_sec=None, silence_sec=None, system_sec=None, voicebot_sec=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent_segments=None, caller_in_agent_seg_sec=None, caller_sec=None, excessive_silence_sec=None, silence_sec=None, system_sec=None, voicebot_sec=None, voicebot_seg_sec=None, local_vars_configuration=None):  # noqa: E501
         """CallTimeBreakdown - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._agent_segments = None
+        self._caller_in_agent_seg_sec = None
         self._caller_sec = None
         self._excessive_silence_sec = None
         self._silence_sec = None
         self._system_sec = None
         self._voicebot_sec = None
+        self._voicebot_seg_sec = None
         self.discriminator = None
 
         if agent_segments is not None:
             self.agent_segments = agent_segments
+        if caller_in_agent_seg_sec is not None:
+            self.caller_in_agent_seg_sec = caller_in_agent_seg_sec
         if caller_sec is not None:
             self.caller_sec = caller_sec
         if excessive_silence_sec is not None:
@@ -77,6 +85,8 @@ class CallTimeBreakdown(object):
             self.system_sec = system_sec
         if voicebot_sec is not None:
             self.voicebot_sec = voicebot_sec
+        if voicebot_seg_sec is not None:
+            self.voicebot_seg_sec = voicebot_seg_sec
 
     @property
     def agent_segments(self):
@@ -102,10 +112,33 @@ class CallTimeBreakdown(object):
         self._agent_segments = agent_segments
 
     @property
+    def caller_in_agent_seg_sec(self):
+        """Gets the caller_in_agent_seg_sec of this CallTimeBreakdown.  # noqa: E501
+
+        Combined caller talk time across **agent segments only** (voicebot-segment caller talk time is not included here).</br> `0` if the call had no agent segments.   # noqa: E501
+
+        :return: The caller_in_agent_seg_sec of this CallTimeBreakdown.  # noqa: E501
+        :rtype: float
+        """
+        return self._caller_in_agent_seg_sec
+
+    @caller_in_agent_seg_sec.setter
+    def caller_in_agent_seg_sec(self, caller_in_agent_seg_sec):
+        """Sets the caller_in_agent_seg_sec of this CallTimeBreakdown.
+
+        Combined caller talk time across **agent segments only** (voicebot-segment caller talk time is not included here).</br> `0` if the call had no agent segments.   # noqa: E501
+
+        :param caller_in_agent_seg_sec: The caller_in_agent_seg_sec of this CallTimeBreakdown.  # noqa: E501
+        :type: float
+        """
+
+        self._caller_in_agent_seg_sec = caller_in_agent_seg_sec
+
+    @property
     def caller_sec(self):
         """Gets the caller_sec of this CallTimeBreakdown.  # noqa: E501
 
-        Combined caller talk time across **agent segments only** (voicebot-segment caller talk time is not included here — it is captured as part of `voicebotSec`).</br> `0` if the call had no agent segments.   # noqa: E501
+        Combined caller talk time across voicebot and agent segments.   # noqa: E501
 
         :return: The caller_sec of this CallTimeBreakdown.  # noqa: E501
         :rtype: float
@@ -116,7 +149,7 @@ class CallTimeBreakdown(object):
     def caller_sec(self, caller_sec):
         """Sets the caller_sec of this CallTimeBreakdown.
 
-        Combined caller talk time across **agent segments only** (voicebot-segment caller talk time is not included here — it is captured as part of `voicebotSec`).</br> `0` if the call had no agent segments.   # noqa: E501
+        Combined caller talk time across voicebot and agent segments.   # noqa: E501
 
         :param caller_sec: The caller_sec of this CallTimeBreakdown.  # noqa: E501
         :type: float
@@ -151,7 +184,7 @@ class CallTimeBreakdown(object):
     def silence_sec(self):
         """Gets the silence_sec of this CallTimeBreakdown.  # noqa: E501
 
-        Combined normal silence across all agent segments, in seconds (silence that is **not** classified as excessive).</br> Computed as: `sum over agent segments of (segmentDuration - agentSec - callerSec - excessiveSilenceSec + agentOvertalkSec + callerOvertalkSec)`.</br> The overtalk terms are added back because overtalk time was double-counted in both `agentSec` and `callerSec`.</br> `0` if the call had no agent segments.   # noqa: E501
+        Combined normal silence across all agent segments, in seconds (silence that is **not** classified as excessive).</br> Computed as: `sum over agent segments of (segmentDuration - agentSec - callerInAgentSegSec - excessiveSilenceSec + agentOvertalkSec + callerOvertalkSec)`.</br> The overtalk terms are added back because overtalk time was double-counted in both `agentSec` and `callerInAgentSegSec`.</br> `0` if the call had no agent segments.   # noqa: E501
 
         :return: The silence_sec of this CallTimeBreakdown.  # noqa: E501
         :rtype: float
@@ -162,7 +195,7 @@ class CallTimeBreakdown(object):
     def silence_sec(self, silence_sec):
         """Sets the silence_sec of this CallTimeBreakdown.
 
-        Combined normal silence across all agent segments, in seconds (silence that is **not** classified as excessive).</br> Computed as: `sum over agent segments of (segmentDuration - agentSec - callerSec - excessiveSilenceSec + agentOvertalkSec + callerOvertalkSec)`.</br> The overtalk terms are added back because overtalk time was double-counted in both `agentSec` and `callerSec`.</br> `0` if the call had no agent segments.   # noqa: E501
+        Combined normal silence across all agent segments, in seconds (silence that is **not** classified as excessive).</br> Computed as: `sum over agent segments of (segmentDuration - agentSec - callerInAgentSegSec - excessiveSilenceSec + agentOvertalkSec + callerOvertalkSec)`.</br> The overtalk terms are added back because overtalk time was double-counted in both `agentSec` and `callerInAgentSegSec`.</br> `0` if the call had no agent segments.   # noqa: E501
 
         :param silence_sec: The silence_sec of this CallTimeBreakdown.  # noqa: E501
         :type: float
@@ -197,7 +230,7 @@ class CallTimeBreakdown(object):
     def voicebot_sec(self):
         """Gets the voicebot_sec of this CallTimeBreakdown.  # noqa: E501
 
-        Duration of the voicebot segment, in seconds.</br> Note: this is the wall-clock duration of the segment and therefore includes both the voicebot's talk time and the caller's talk time within that segment.   # noqa: E501
+        Duration of the voicebot speaking in the voicebot segment, in seconds.   # noqa: E501
 
         :return: The voicebot_sec of this CallTimeBreakdown.  # noqa: E501
         :rtype: float
@@ -208,13 +241,36 @@ class CallTimeBreakdown(object):
     def voicebot_sec(self, voicebot_sec):
         """Sets the voicebot_sec of this CallTimeBreakdown.
 
-        Duration of the voicebot segment, in seconds.</br> Note: this is the wall-clock duration of the segment and therefore includes both the voicebot's talk time and the caller's talk time within that segment.   # noqa: E501
+        Duration of the voicebot speaking in the voicebot segment, in seconds.   # noqa: E501
 
         :param voicebot_sec: The voicebot_sec of this CallTimeBreakdown.  # noqa: E501
         :type: float
         """
 
         self._voicebot_sec = voicebot_sec
+
+    @property
+    def voicebot_seg_sec(self):
+        """Gets the voicebot_seg_sec of this CallTimeBreakdown.  # noqa: E501
+
+        Duration of the voicebot segment, in seconds.</br> Note: this is the wall-clock duration of the segment and therefore includes both the voicebot's talk time and the caller's talk time within that segment.   # noqa: E501
+
+        :return: The voicebot_seg_sec of this CallTimeBreakdown.  # noqa: E501
+        :rtype: float
+        """
+        return self._voicebot_seg_sec
+
+    @voicebot_seg_sec.setter
+    def voicebot_seg_sec(self, voicebot_seg_sec):
+        """Sets the voicebot_seg_sec of this CallTimeBreakdown.
+
+        Duration of the voicebot segment, in seconds.</br> Note: this is the wall-clock duration of the segment and therefore includes both the voicebot's talk time and the caller's talk time within that segment.   # noqa: E501
+
+        :param voicebot_seg_sec: The voicebot_seg_sec of this CallTimeBreakdown.  # noqa: E501
+        :type: float
+        """
+
+        self._voicebot_seg_sec = voicebot_seg_sec
 
     def to_dict(self):
         """Returns the model properties as a dict"""
