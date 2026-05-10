@@ -289,6 +289,7 @@ class AiOutputApi(object):
         :param str aivr_session_id: Filter AI Output records by AIVR session UUID (see [/aivr](#tag/aivr)).
         :param str aivr_app_id: Filter AI Output records by AIVR Application UUID (see [/aivr-app](#tag/aivr-app)).
         :param str call_id: Filter AI Output records by Call / Call Segment id.
+        :param str custom_unique_id: Filter AI Output records by caller-defined `customUniqueId` (exact match). Because the value is unique per `(contextId, customUniqueId)`, scoping the query to a single Context will return at most one record. 
         :param list[AiOutputType] type: Filter AI Output records by `type`. May be repeated to match any of multiple types (logical OR), e.g. `?type=summary&type=callInsightAnswer`. 
         :param str feedback_user_id: Filter AI Output records to only those that have feedback from this Voicegain User UUID. 
         :param int from_epoch: Lower bound (inclusive) on `createdEpoch` of returned AI Output records, in epoch milliseconds. 
@@ -327,6 +328,7 @@ class AiOutputApi(object):
         :param str aivr_session_id: Filter AI Output records by AIVR session UUID (see [/aivr](#tag/aivr)).
         :param str aivr_app_id: Filter AI Output records by AIVR Application UUID (see [/aivr-app](#tag/aivr-app)).
         :param str call_id: Filter AI Output records by Call / Call Segment id.
+        :param str custom_unique_id: Filter AI Output records by caller-defined `customUniqueId` (exact match). Because the value is unique per `(contextId, customUniqueId)`, scoping the query to a single Context will return at most one record. 
         :param list[AiOutputType] type: Filter AI Output records by `type`. May be repeated to match any of multiple types (logical OR), e.g. `?type=summary&type=callInsightAnswer`. 
         :param str feedback_user_id: Filter AI Output records to only those that have feedback from this Voicegain User UUID. 
         :param int from_epoch: Lower bound (inclusive) on `createdEpoch` of returned AI Output records, in epoch milliseconds. 
@@ -351,7 +353,7 @@ class AiOutputApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'sa_session_id', 'meeting_session_id', 'aivr_session_id', 'aivr_app_id', 'call_id', 'type', 'feedback_user_id', 'from_epoch', 'to_epoch', 'has_feedback', 'thumbs', 'tag', 'with_feedbacks']  # noqa: E501
+        all_params = ['context_id', 'sa_session_id', 'meeting_session_id', 'aivr_session_id', 'aivr_app_id', 'call_id', 'custom_unique_id', 'type', 'feedback_user_id', 'from_epoch', 'to_epoch', 'has_feedback', 'thumbs', 'tag', 'with_feedbacks']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -402,6 +404,12 @@ class AiOutputApi(object):
         if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['call_id']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `call_id` when calling `ai_output_query`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and ('custom_unique_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['custom_unique_id']) > 128):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `custom_unique_id` when calling `ai_output_query`, length must be less than or equal to `128`")  # noqa: E501
+        if self.api_client.client_side_validation and ('custom_unique_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['custom_unique_id']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `custom_unique_id` when calling `ai_output_query`, length must be greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and ('type' in local_var_params and  # noqa: E501
                                                         len(local_var_params['type']) > 6):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `type` when calling `ai_output_query`, number of items must be less than or equal to `6`")  # noqa: E501
@@ -441,6 +449,8 @@ class AiOutputApi(object):
             query_params.append(('aivrAppId', local_var_params['aivr_app_id']))  # noqa: E501
         if 'call_id' in local_var_params and local_var_params['call_id'] is not None:  # noqa: E501
             query_params.append(('callId', local_var_params['call_id']))  # noqa: E501
+        if 'custom_unique_id' in local_var_params and local_var_params['custom_unique_id'] is not None:  # noqa: E501
+            query_params.append(('customUniqueId', local_var_params['custom_unique_id']))  # noqa: E501
         if 'type' in local_var_params and local_var_params['type'] is not None:  # noqa: E501
             query_params.append(('type', local_var_params['type']))  # noqa: E501
             collection_formats['type'] = 'multi'  # noqa: E501

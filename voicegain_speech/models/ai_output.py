@@ -42,6 +42,7 @@ class AiOutput(object):
         'content': 'OneOfstringobject',
         'context_id': 'str',
         'created_epoch': 'int',
+        'custom_unique_id': 'str',
         'feedbacks': 'list[AiOutputFeedback]',
         'generation': 'AiOutputGeneration',
         'last_modified_epoch': 'int',
@@ -61,6 +62,7 @@ class AiOutput(object):
         'content': 'content',
         'context_id': 'contextId',
         'created_epoch': 'createdEpoch',
+        'custom_unique_id': 'customUniqueId',
         'feedbacks': 'feedbacks',
         'generation': 'generation',
         'last_modified_epoch': 'lastModifiedEpoch',
@@ -71,7 +73,7 @@ class AiOutput(object):
         'type': 'type'
     }
 
-    def __init__(self, account_id=None, ai_output_id=None, aivr_app_id=None, aivr_session_id=None, call_id=None, content=None, context_id=None, created_epoch=None, feedbacks=None, generation=None, last_modified_epoch=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, account_id=None, ai_output_id=None, aivr_app_id=None, aivr_session_id=None, call_id=None, content=None, context_id=None, created_epoch=None, custom_unique_id=None, feedbacks=None, generation=None, last_modified_epoch=None, meeting_session_id=None, sa_session_id=None, source_ref=None, tags=None, type=None, local_vars_configuration=None):  # noqa: E501
         """AiOutput - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -85,6 +87,7 @@ class AiOutput(object):
         self._content = None
         self._context_id = None
         self._created_epoch = None
+        self._custom_unique_id = None
         self._feedbacks = None
         self._generation = None
         self._last_modified_epoch = None
@@ -106,6 +109,8 @@ class AiOutput(object):
         self.content = content
         self.context_id = context_id
         self.created_epoch = created_epoch
+        if custom_unique_id is not None:
+            self.custom_unique_id = custom_unique_id
         if feedbacks is not None:
             self.feedbacks = feedbacks
         if generation is not None:
@@ -351,6 +356,35 @@ class AiOutput(object):
             raise ValueError("Invalid value for `created_epoch`, must not be `None`")  # noqa: E501
 
         self._created_epoch = created_epoch
+
+    @property
+    def custom_unique_id(self):
+        """Gets the custom_unique_id of this AiOutput.  # noqa: E501
+
+        (optional) Caller-defined unique identifier for this AI Output. Its meaning is up to the caller and typically depends on the `type` / `sourceRef` / `content` (e.g., an external deduplication key, an upstream system's record id).</br> **Uniqueness**: unique per `(contextId, customUniqueId)`. The back end rejects a POST whose `customUniqueId` is already used by another record in the same Context with 400 (`reason: \"Duplicate customUniqueId\"`).   # noqa: E501
+
+        :return: The custom_unique_id of this AiOutput.  # noqa: E501
+        :rtype: str
+        """
+        return self._custom_unique_id
+
+    @custom_unique_id.setter
+    def custom_unique_id(self, custom_unique_id):
+        """Sets the custom_unique_id of this AiOutput.
+
+        (optional) Caller-defined unique identifier for this AI Output. Its meaning is up to the caller and typically depends on the `type` / `sourceRef` / `content` (e.g., an external deduplication key, an upstream system's record id).</br> **Uniqueness**: unique per `(contextId, customUniqueId)`. The back end rejects a POST whose `customUniqueId` is already used by another record in the same Context with 400 (`reason: \"Duplicate customUniqueId\"`).   # noqa: E501
+
+        :param custom_unique_id: The custom_unique_id of this AiOutput.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                custom_unique_id is not None and len(custom_unique_id) > 128):
+            raise ValueError("Invalid value for `custom_unique_id`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                custom_unique_id is not None and len(custom_unique_id) < 1):
+            raise ValueError("Invalid value for `custom_unique_id`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._custom_unique_id = custom_unique_id
 
     @property
     def feedbacks(self):
