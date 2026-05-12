@@ -118,7 +118,7 @@ class OfflineSpeechAnalyticsEmotionItem(object):
     def mood(self):
         """Gets the mood of this OfflineSpeechAnalyticsEmotionItem.  # noqa: E501
 
-        **Deprecated** — mood detection is no longer maintained. Use `sentiment` instead.</br> Map from mood enum values to number in (0.0, 1.0) range.   # noqa: E501
+        **Deprecated** — mood detection is no longer maintained. Use `sentiment` or [Call Insights](#tag/call-insights) instead.</br> Map from mood enum values to number in (0.0, 1.0) range.   # noqa: E501
 
         :return: The mood of this OfflineSpeechAnalyticsEmotionItem.  # noqa: E501
         :rtype: dict(str, MoodType)
@@ -129,7 +129,7 @@ class OfflineSpeechAnalyticsEmotionItem(object):
     def mood(self, mood):
         """Sets the mood of this OfflineSpeechAnalyticsEmotionItem.
 
-        **Deprecated** — mood detection is no longer maintained. Use `sentiment` instead.</br> Map from mood enum values to number in (0.0, 1.0) range.   # noqa: E501
+        **Deprecated** — mood detection is no longer maintained. Use `sentiment` or [Call Insights](#tag/call-insights) instead.</br> Map from mood enum values to number in (0.0, 1.0) range.   # noqa: E501
 
         :param mood: The mood of this OfflineSpeechAnalyticsEmotionItem.  # noqa: E501
         :type: dict(str, MoodType)

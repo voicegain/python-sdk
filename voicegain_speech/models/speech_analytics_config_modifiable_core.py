@@ -493,7 +493,7 @@ class SpeechAnalyticsConfigModifiableCore(object):
     def moods(self):
         """Gets the moods of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
 
-        **Deprecated** — mood detection is no longer maintained. Use `sentiment` (and `sentimentFinal` / `sentimentTrend` / `smoothSentiment`) instead.</br> Choose the moods to report.</br> Default no moods are reported.   # noqa: E501
+        **Deprecated** — mood detection is no longer maintained. Use `sentiment` (and `sentimentFinal` / `sentimentTrend` / `smoothSentiment`) or [Call Insights](#tag/call-insights) instead.</br> Choose the moods to report.</br> Default no moods are reported.   # noqa: E501
 
         :return: The moods of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
         :rtype: list[MoodType]
@@ -504,7 +504,7 @@ class SpeechAnalyticsConfigModifiableCore(object):
     def moods(self, moods):
         """Sets the moods of this SpeechAnalyticsConfigModifiableCore.
 
-        **Deprecated** — mood detection is no longer maintained. Use `sentiment` (and `sentimentFinal` / `sentimentTrend` / `smoothSentiment`) instead.</br> Choose the moods to report.</br> Default no moods are reported.   # noqa: E501
+        **Deprecated** — mood detection is no longer maintained. Use `sentiment` (and `sentimentFinal` / `sentimentTrend` / `smoothSentiment`) or [Call Insights](#tag/call-insights) instead.</br> Choose the moods to report.</br> Default no moods are reported.   # noqa: E501
 
         :param moods: The moods of this SpeechAnalyticsConfigModifiableCore.  # noqa: E501
         :type: list[MoodType]
