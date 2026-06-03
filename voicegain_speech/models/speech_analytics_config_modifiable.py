@@ -42,6 +42,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'csat_question': 'SpeechAnalyticsConfigModifiableCoreCsatQuestion',
         'entities': 'list[NamedEntityType]',
         'gender': 'bool',
+        'kb_recommendation': 'SpeechAnalyticsConfigModifiableCoreKbRecommendation',
         'keyword_groups': 'list[KeywordSpotGroup]',
         'keywords': 'list[KeywordSpotItem]',
         'llm_copilot_notes_prompt': 'str',
@@ -75,6 +76,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'csat_question': 'csatQuestion',
         'entities': 'entities',
         'gender': 'gender',
+        'kb_recommendation': 'kbRecommendation',
         'keyword_groups': 'keywordGroups',
         'keywords': 'keywords',
         'llm_copilot_notes_prompt': 'llmCopilotNotesPrompt',
@@ -99,7 +101,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'name': 'name'
     }
 
-    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, nps_question=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, topics=None, word_cloud=False, context_id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, kb_recommendation=None, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, nps_question=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, topics=None, word_cloud=False, context_id=None, name=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -113,6 +115,7 @@ class SpeechAnalyticsConfigModifiable(object):
         self._csat_question = None
         self._entities = None
         self._gender = None
+        self._kb_recommendation = None
         self._keyword_groups = None
         self._keywords = None
         self._llm_copilot_notes_prompt = None
@@ -153,6 +156,8 @@ class SpeechAnalyticsConfigModifiable(object):
             self.entities = entities
         if gender is not None:
             self.gender = gender
+        if kb_recommendation is not None:
+            self.kb_recommendation = kb_recommendation
         if keyword_groups is not None:
             self.keyword_groups = keyword_groups
         if keywords is not None:
@@ -385,6 +390,27 @@ class SpeechAnalyticsConfigModifiable(object):
         """
 
         self._gender = gender
+
+    @property
+    def kb_recommendation(self):
+        """Gets the kb_recommendation of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+
+
+        :return: The kb_recommendation of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :rtype: SpeechAnalyticsConfigModifiableCoreKbRecommendation
+        """
+        return self._kb_recommendation
+
+    @kb_recommendation.setter
+    def kb_recommendation(self, kb_recommendation):
+        """Sets the kb_recommendation of this SpeechAnalyticsConfigModifiable.
+
+
+        :param kb_recommendation: The kb_recommendation of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :type: SpeechAnalyticsConfigModifiableCoreKbRecommendation
+        """
+
+        self._kb_recommendation = kb_recommendation
 
     @property
     def keyword_groups(self):
