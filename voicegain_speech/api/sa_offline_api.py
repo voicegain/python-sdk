@@ -776,7 +776,7 @@ class SaOfflineApi(object):
     def sa_offline_query(self, **kwargs):  # noqa: E501
         """Query SA Data (offline)  # noqa: E501
 
-        Get Speech Analytics data from /sa/offline that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/offline/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned. When `limit` is not specified it defaults to `1000`.</br> You can restrict results to a time range using the `fromTime` and `toTime` parameters (RFC 3339 date-time). Either or both may be supplied; both are optional.   # noqa: E501
+        Get Speech Analytics data from /sa/offline that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/offline/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned. When `limit` is not specified it defaults to `1000`; the maximum allowed value is `10000`.</br> You can restrict results to a time range using the `fromTime` and `toTime` parameters (RFC 3339 date-time). Either or both may be supplied; both are optional.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_query(async_req=True)
@@ -806,7 +806,7 @@ class SaOfflineApi(object):
     def sa_offline_query_with_http_info(self, **kwargs):  # noqa: E501
         """Query SA Data (offline)  # noqa: E501
 
-        Get Speech Analytics data from /sa/offline that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/offline/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned. When `limit` is not specified it defaults to `1000`.</br> You can restrict results to a time range using the `fromTime` and `toTime` parameters (RFC 3339 date-time). Either or both may be supplied; both are optional.   # noqa: E501
+        Get Speech Analytics data from /sa/offline that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/offline/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned. When `limit` is not specified it defaults to `1000`; the maximum allowed value is `10000`.</br> You can restrict results to a time range using the `fromTime` and `toTime` parameters (RFC 3339 date-time). Either or both may be supplied; both are optional.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_query_with_http_info(async_req=True)
@@ -856,6 +856,8 @@ class SaOfflineApi(object):
         if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
                                                         len(local_var_params['context_id']) < 16):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_offline_query`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] > 10000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `limit` when calling `sa_offline_query`, must be a value less than or equal to `10000`")  # noqa: E501
         if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `sa_offline_query`, must be a value greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and ('from_time' in local_var_params and  # noqa: E501
