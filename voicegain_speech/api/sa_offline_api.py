@@ -776,7 +776,7 @@ class SaOfflineApi(object):
     def sa_offline_query(self, **kwargs):  # noqa: E501
         """Query SA Data (offline)  # noqa: E501
 
-        Get Speech Analytics data from /sa/offline that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/offline/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned.   # noqa: E501
+        Get Speech Analytics data from /sa/offline that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/offline/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned. When `limit` is not specified it defaults to `1000`.</br> You can restrict results to a time range using the `fromTime` and `toTime` parameters (RFC 3339 date-time). Either or both may be supplied; both are optional.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_query(async_req=True)
@@ -786,6 +786,8 @@ class SaOfflineApi(object):
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param bool from_all_contexts: If `true` then results from all contexts will be retrieved
         :param int limit: set the maximum number of returned results
+        :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](#section/Date-and-Time-Formats/string-lessdate-timegreater) 
+        :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](#section/Date-and-Time-Formats/string-lessdate-timegreater) 
         :param bool detailed: If `true` then detailed results will be returned including per channel data. Set to `false` if you need the results for just the table of available results w/o detail. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -804,7 +806,7 @@ class SaOfflineApi(object):
     def sa_offline_query_with_http_info(self, **kwargs):  # noqa: E501
         """Query SA Data (offline)  # noqa: E501
 
-        Get Speech Analytics data from /sa/offline that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/offline/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned.   # noqa: E501
+        Get Speech Analytics data from /sa/offline that matches filters.</br> This method returns the bare-bones Speech Analytics data, to get the detail for each one of those  use [GET /sa/offline/{saSessionId}](#operation/saDataGet) with the parameters that it offers.</br> By default only results from specified context are returned. This can be overridden by using `fromAllContexts` parameter.</br> You can limit number of results returned by using the `limit` parameter. If `limit` is used then the most recent results will be returned. When `limit` is not specified it defaults to `1000`.</br> You can restrict results to a time range using the `fromTime` and `toTime` parameters (RFC 3339 date-time). Either or both may be supplied; both are optional.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_offline_query_with_http_info(async_req=True)
@@ -814,6 +816,8 @@ class SaOfflineApi(object):
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param bool from_all_contexts: If `true` then results from all contexts will be retrieved
         :param int limit: set the maximum number of returned results
+        :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](#section/Date-and-Time-Formats/string-lessdate-timegreater) 
+        :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](#section/Date-and-Time-Formats/string-lessdate-timegreater) 
         :param bool detailed: If `true` then detailed results will be returned including per channel data. Set to `false` if you need the results for just the table of available results w/o detail. 
         :param _return_http_data_only: response data without head status code
                                        and headers
@@ -831,7 +835,7 @@ class SaOfflineApi(object):
 
         local_var_params = locals()
 
-        all_params = ['context_id', 'from_all_contexts', 'limit', 'detailed']  # noqa: E501
+        all_params = ['context_id', 'from_all_contexts', 'limit', 'from_time', 'to_time', 'detailed']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -854,6 +858,12 @@ class SaOfflineApi(object):
             raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_offline_query`, length must be greater than or equal to `16`")  # noqa: E501
         if self.api_client.client_side_validation and 'limit' in local_var_params and local_var_params['limit'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `limit` when calling `sa_offline_query`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and ('from_time' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['from_time']) > 32):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `from_time` when calling `sa_offline_query`, length must be less than or equal to `32`")  # noqa: E501
+        if self.api_client.client_side_validation and ('to_time' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['to_time']) > 32):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `to_time` when calling `sa_offline_query`, length must be less than or equal to `32`")  # noqa: E501
         collection_formats = {}
 
         path_params = {}
@@ -865,6 +875,10 @@ class SaOfflineApi(object):
             query_params.append(('fromAllContexts', local_var_params['from_all_contexts']))  # noqa: E501
         if 'limit' in local_var_params and local_var_params['limit'] is not None:  # noqa: E501
             query_params.append(('limit', local_var_params['limit']))  # noqa: E501
+        if 'from_time' in local_var_params and local_var_params['from_time'] is not None:  # noqa: E501
+            query_params.append(('fromTime', local_var_params['from_time']))  # noqa: E501
+        if 'to_time' in local_var_params and local_var_params['to_time'] is not None:  # noqa: E501
+            query_params.append(('toTime', local_var_params['to_time']))  # noqa: E501
         if 'detailed' in local_var_params and local_var_params['detailed'] is not None:  # noqa: E501
             query_params.append(('detailed', local_var_params['detailed']))  # noqa: E501
 
