@@ -75,6 +75,7 @@ class VoiceCall(object):
         'voicemail_transcript': 'str',
         'voicemail_uuid': 'str',
         'word_cloud': 'list[WordCloudItem]',
+        'abandoned': 'bool',
         'account_id': 'str',
         'aivr_transfer_dest_type': 'str',
         'call_id': 'str',
@@ -90,6 +91,7 @@ class VoiceCall(object):
         'num_segments': 'int',
         'outbound_rtp_quality': 'RtpQuality',
         'progress_phase': 'ProgressPhase',
+        'queue_wait_ms': 'int',
         'recompute_phase': 'str',
         'review_status': 'str',
         'sa_session_id': 'str',
@@ -142,6 +144,7 @@ class VoiceCall(object):
         'voicemail_transcript': 'voicemailTranscript',
         'voicemail_uuid': 'voicemailUuid',
         'word_cloud': 'wordCloud',
+        'abandoned': 'abandoned',
         'account_id': 'accountId',
         'aivr_transfer_dest_type': 'aivrTransferDestType',
         'call_id': 'callId',
@@ -157,6 +160,7 @@ class VoiceCall(object):
         'num_segments': 'numSegments',
         'outbound_rtp_quality': 'outboundRtpQuality',
         'progress_phase': 'progressPhase',
+        'queue_wait_ms': 'queueWaitMs',
         'recompute_phase': 'recomputePhase',
         'review_status': 'reviewStatus',
         'sa_session_id': 'saSessionId',
@@ -167,7 +171,7 @@ class VoiceCall(object):
         'voicebot_duration': 'voicebotDuration'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -214,6 +218,7 @@ class VoiceCall(object):
         self._voicemail_transcript = None
         self._voicemail_uuid = None
         self._word_cloud = None
+        self._abandoned = None
         self._account_id = None
         self._aivr_transfer_dest_type = None
         self._call_id = None
@@ -229,6 +234,7 @@ class VoiceCall(object):
         self._num_segments = None
         self._outbound_rtp_quality = None
         self._progress_phase = None
+        self._queue_wait_ms = None
         self._recompute_phase = None
         self._review_status = None
         self._sa_session_id = None
@@ -321,6 +327,8 @@ class VoiceCall(object):
             self.voicemail_uuid = voicemail_uuid
         if word_cloud is not None:
             self.word_cloud = word_cloud
+        if abandoned is not None:
+            self.abandoned = abandoned
         if account_id is not None:
             self.account_id = account_id
         if aivr_transfer_dest_type is not None:
@@ -351,6 +359,8 @@ class VoiceCall(object):
             self.outbound_rtp_quality = outbound_rtp_quality
         if progress_phase is not None:
             self.progress_phase = progress_phase
+        if queue_wait_ms is not None:
+            self.queue_wait_ms = queue_wait_ms
         if recompute_phase is not None:
             self.recompute_phase = recompute_phase
         if review_status is not None:
@@ -1376,6 +1386,29 @@ class VoiceCall(object):
         self._word_cloud = word_cloud
 
     @property
+    def abandoned(self):
+        """Gets the abandoned of this VoiceCall.  # noqa: E501
+
+        True when the call was abandoned — i.e. the caller hung up while waiting in the ACD queue before any agent answered. For contact center (CCaaS) calls this is the primary signal used to compute the abandon/disconnect rate. Absent or false for answered calls.   # noqa: E501
+
+        :return: The abandoned of this VoiceCall.  # noqa: E501
+        :rtype: bool
+        """
+        return self._abandoned
+
+    @abandoned.setter
+    def abandoned(self, abandoned):
+        """Sets the abandoned of this VoiceCall.
+
+        True when the call was abandoned — i.e. the caller hung up while waiting in the ACD queue before any agent answered. For contact center (CCaaS) calls this is the primary signal used to compute the abandon/disconnect rate. Absent or false for answered calls.   # noqa: E501
+
+        :param abandoned: The abandoned of this VoiceCall.  # noqa: E501
+        :type: bool
+        """
+
+        self._abandoned = abandoned
+
+    @property
     def account_id(self):
         """Gets the account_id of this VoiceCall.  # noqa: E501
 
@@ -1752,6 +1785,29 @@ class VoiceCall(object):
         """
 
         self._progress_phase = progress_phase
+
+    @property
+    def queue_wait_ms(self):
+        """Gets the queue_wait_ms of this VoiceCall.  # noqa: E501
+
+        Time the caller spent waiting in the ACD queue, in milliseconds (queue-only, excluding IVR time). Set for abandoned calls and computed as `disconnectTime - (interactionStart + queueOffset)`. Compare against a threshold (e.g. 5000 ms) to distinguish short abandons from long abandons.   # noqa: E501
+
+        :return: The queue_wait_ms of this VoiceCall.  # noqa: E501
+        :rtype: int
+        """
+        return self._queue_wait_ms
+
+    @queue_wait_ms.setter
+    def queue_wait_ms(self, queue_wait_ms):
+        """Sets the queue_wait_ms of this VoiceCall.
+
+        Time the caller spent waiting in the ACD queue, in milliseconds (queue-only, excluding IVR time). Set for abandoned calls and computed as `disconnectTime - (interactionStart + queueOffset)`. Compare against a threshold (e.g. 5000 ms) to distinguish short abandons from long abandons.   # noqa: E501
+
+        :param queue_wait_ms: The queue_wait_ms of this VoiceCall.  # noqa: E501
+        :type: int
+        """
+
+        self._queue_wait_ms = queue_wait_ms
 
     @property
     def recompute_phase(self):
