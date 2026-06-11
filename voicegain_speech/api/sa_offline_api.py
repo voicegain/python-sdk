@@ -785,10 +785,10 @@ class SaOfflineApi(object):
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param bool from_all_contexts: If `true` then results from all contexts will be retrieved
-        :param int limit: set the maximum number of returned results
+        :param int limit: Set the maximum number of returned results. Defaults to `1000` when not specified; maximum is `10000`. 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](#section/Date-and-Time-Formats/string-lessdate-timegreater) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](#section/Date-and-Time-Formats/string-lessdate-timegreater) 
-        :param bool detailed: If `true` then detailed results will be returned including per channel data. Set to `false` if you need the results for just the table of available results w/o detail. 
+        :param bool detailed: **Deprecated &mdash; no longer supported.** This parameter has in fact already been removed and is ignored; detailed (per-channel) results are no longer returned by this endpoint. To obtain the detail for an individual result, use [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) or [GET /sa/offline/{saSessionId}/data](#tag/sa-offline/operation/saOfflineGetData) instead. 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -796,7 +796,7 @@ class SaOfflineApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: OneOfarrayarray
+        :return: list[OfflineSpeechAnalyticsCoreResult]
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -815,10 +815,10 @@ class SaOfflineApi(object):
         :param async_req bool: execute request asynchronously
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param bool from_all_contexts: If `true` then results from all contexts will be retrieved
-        :param int limit: set the maximum number of returned results
+        :param int limit: Set the maximum number of returned results. Defaults to `1000` when not specified; maximum is `10000`. 
         :param datetime from_time: Start (the oldest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](#section/Date-and-Time-Formats/string-lessdate-timegreater) 
         :param datetime to_time: End (the newest value) of the time range for the query. </br> Format as defined in [RFC 3339, section 5.6](#section/Date-and-Time-Formats/string-lessdate-timegreater) 
-        :param bool detailed: If `true` then detailed results will be returned including per channel data. Set to `false` if you need the results for just the table of available results w/o detail. 
+        :param bool detailed: **Deprecated &mdash; no longer supported.** This parameter has in fact already been removed and is ignored; detailed (per-channel) results are no longer returned by this endpoint. To obtain the detail for an individual result, use [GET /sa/offline/{saSessionId}](#tag/sa-offline/operation/saOfflineGet) or [GET /sa/offline/{saSessionId}/data](#tag/sa-offline/operation/saOfflineGetData) instead. 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -828,7 +828,7 @@ class SaOfflineApi(object):
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
                                  (connection, read) timeouts.
-        :return: tuple(OneOfarrayarray, status_code(int), headers(HTTPHeaderDict))
+        :return: tuple(list[OfflineSpeechAnalyticsCoreResult], status_code(int), headers(HTTPHeaderDict))
                  If the method is called asynchronously,
                  returns the request thread.
         """
@@ -905,7 +905,7 @@ class SaOfflineApi(object):
             body=body_params,
             post_params=form_params,
             files=local_var_files,
-            response_type='OneOfarrayarray',  # noqa: E501
+            response_type='list[OfflineSpeechAnalyticsCoreResult]',  # noqa: E501
             auth_settings=auth_settings,
             async_req=local_var_params.get('async_req'),
             _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
