@@ -34,23 +34,51 @@ class SpeechAnalyticsConfigModifiableCoreKbRecommendation(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'agent_email_regex': 'str',
         'tenant_name': 'str'
     }
 
     attribute_map = {
+        'agent_email_regex': 'agentEmailRegex',
         'tenant_name': 'tenantName'
     }
 
-    def __init__(self, tenant_name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent_email_regex=None, tenant_name=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiableCoreKbRecommendation - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._agent_email_regex = None
         self._tenant_name = None
         self.discriminator = None
 
+        if agent_email_regex is not None:
+            self.agent_email_regex = agent_email_regex
         self.tenant_name = tenant_name
+
+    @property
+    def agent_email_regex(self):
+        """Gets the agent_email_regex of this SpeechAnalyticsConfigModifiableCoreKbRecommendation.  # noqa: E501
+
+        (optional) Regular expression used to match the Agent's email. When present, Knowledge Base recommendations are computed and sent to the Copilot only for Agents whose email matches this regular expression.</br> When omitted, all Agents receive the Knowledge Base recommendations.   # noqa: E501
+
+        :return: The agent_email_regex of this SpeechAnalyticsConfigModifiableCoreKbRecommendation.  # noqa: E501
+        :rtype: str
+        """
+        return self._agent_email_regex
+
+    @agent_email_regex.setter
+    def agent_email_regex(self, agent_email_regex):
+        """Sets the agent_email_regex of this SpeechAnalyticsConfigModifiableCoreKbRecommendation.
+
+        (optional) Regular expression used to match the Agent's email. When present, Knowledge Base recommendations are computed and sent to the Copilot only for Agents whose email matches this regular expression.</br> When omitted, all Agents receive the Knowledge Base recommendations.   # noqa: E501
+
+        :param agent_email_regex: The agent_email_regex of this SpeechAnalyticsConfigModifiableCoreKbRecommendation.  # noqa: E501
+        :type: str
+        """
+
+        self._agent_email_regex = agent_email_regex
 
     @property
     def tenant_name(self):
