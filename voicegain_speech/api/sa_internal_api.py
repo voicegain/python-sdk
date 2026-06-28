@@ -744,7 +744,7 @@ class SaInternalApi(object):
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
-        :param list[str] sort_by: By what value(s) should the results be sorted. </br> If not provided then the results are sorted by `callId`, unless a Text Search Query is provided, in which case the results are sorted by relevance/rank (with `callId` used as the final tie-breaker).</br> When `sort_by` is provided, `callId` is always applied as the final tie-breaker to order rows that have equal values for the specified sort field(s). 
+        :param list[str] sort_by: By what value(s) should the results be sorted. </br> If not provided then the results are sorted by `callId`, unless a Text Search Query is provided, in which case the results are sorted by relevance/rank (with `callId` used as the final tie-breaker).</br> When `sort_by` is provided, `callId` is always applied as the final tie-breaker to order rows that have equal values for the specified sort field(s).</br> Note: `sentiment` is the caller's final sentiment. 
         :param CQuery c_query: Structured search query tree
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
@@ -775,7 +775,7 @@ class SaInternalApi(object):
         :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
         :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
         :param list[str] sort_dir: direction of sort - asccending or descending - elements must match the elements in `sort_by`
-        :param list[str] sort_by: By what value(s) should the results be sorted. </br> If not provided then the results are sorted by `callId`, unless a Text Search Query is provided, in which case the results are sorted by relevance/rank (with `callId` used as the final tie-breaker).</br> When `sort_by` is provided, `callId` is always applied as the final tie-breaker to order rows that have equal values for the specified sort field(s). 
+        :param list[str] sort_by: By what value(s) should the results be sorted. </br> If not provided then the results are sorted by `callId`, unless a Text Search Query is provided, in which case the results are sorted by relevance/rank (with `callId` used as the final tie-breaker).</br> When `sort_by` is provided, `callId` is always applied as the final tie-breaker to order rows that have equal values for the specified sort field(s).</br> Note: `sentiment` is the caller's final sentiment. 
         :param CQuery c_query: Structured search query tree
         :param _return_http_data_only: response data without head status code
                                        and headers
