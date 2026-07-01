@@ -37,6 +37,7 @@ class AsyncAudioInputSource(object):
         'data_store': 'DataObjRef',
         'from_url': 'AudioResourceUri',
         'greg': 'GregAudioInput',
+        'grpc': 'GrpcAudioInput',
         'inline': 'InlineData',
         'phone': 'PhoneAudioInput',
         's3': 'S3AudioInput',
@@ -47,13 +48,14 @@ class AsyncAudioInputSource(object):
         'data_store': 'dataStore',
         'from_url': 'fromUrl',
         'greg': 'greg',
+        'grpc': 'grpc',
         'inline': 'inline',
         'phone': 'phone',
         's3': 's3',
         'stream': 'stream'
     }
 
-    def __init__(self, data_store=None, from_url=None, greg=None, inline=None, phone=None, s3=None, stream=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, data_store=None, from_url=None, greg=None, grpc=None, inline=None, phone=None, s3=None, stream=None, local_vars_configuration=None):  # noqa: E501
         """AsyncAudioInputSource - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -62,6 +64,7 @@ class AsyncAudioInputSource(object):
         self._data_store = None
         self._from_url = None
         self._greg = None
+        self._grpc = None
         self._inline = None
         self._phone = None
         self._s3 = None
@@ -74,6 +77,8 @@ class AsyncAudioInputSource(object):
             self.from_url = from_url
         if greg is not None:
             self.greg = greg
+        if grpc is not None:
+            self.grpc = grpc
         if inline is not None:
             self.inline = inline
         if phone is not None:
@@ -145,6 +150,27 @@ class AsyncAudioInputSource(object):
         """
 
         self._greg = greg
+
+    @property
+    def grpc(self):
+        """Gets the grpc of this AsyncAudioInputSource.  # noqa: E501
+
+
+        :return: The grpc of this AsyncAudioInputSource.  # noqa: E501
+        :rtype: GrpcAudioInput
+        """
+        return self._grpc
+
+    @grpc.setter
+    def grpc(self, grpc):
+        """Sets the grpc of this AsyncAudioInputSource.
+
+
+        :param grpc: The grpc of this AsyncAudioInputSource.  # noqa: E501
+        :type: GrpcAudioInput
+        """
+
+        self._grpc = grpc
 
     @property
     def inline(self):
