@@ -104,7 +104,7 @@ class AudioInputAsyncWithCallback(object):
     def capture(self):
         """Gets the capture of this AudioInputAsyncWithCallback.  # noqa: E501
 
-        If **true** then Audio data will be captured, exactly as it was sent to ASR.  The captured audio data can be retrieved using a **uuid** of a DataObject,  which will be returned in the **response** to this request in a field **audio.capturedAudio**   # noqa: E501
+        If **true** then Audio data will be captured, exactly as it was sent to ASR.  The captured audio data can be retrieved using a **uuid** of a DataObject, which will be returned in the **response** to this request in a field **audio.capturedAudio**  **Note:** the Context (Configuration Group) provides a default for this field (`audioCapture`). Moreover, if the Context has `audioCaptureOverride` set to **true**, then the Context `audioCapture` value takes precedence over any value provided here.   # noqa: E501
 
         :return: The capture of this AudioInputAsyncWithCallback.  # noqa: E501
         :rtype: bool
@@ -115,7 +115,7 @@ class AudioInputAsyncWithCallback(object):
     def capture(self, capture):
         """Sets the capture of this AudioInputAsyncWithCallback.
 
-        If **true** then Audio data will be captured, exactly as it was sent to ASR.  The captured audio data can be retrieved using a **uuid** of a DataObject,  which will be returned in the **response** to this request in a field **audio.capturedAudio**   # noqa: E501
+        If **true** then Audio data will be captured, exactly as it was sent to ASR.  The captured audio data can be retrieved using a **uuid** of a DataObject, which will be returned in the **response** to this request in a field **audio.capturedAudio**  **Note:** the Context (Configuration Group) provides a default for this field (`audioCapture`). Moreover, if the Context has `audioCaptureOverride` set to **true**, then the Context `audioCapture` value takes precedence over any value provided here.   # noqa: E501
 
         :param capture: The capture of this AudioInputAsyncWithCallback.  # noqa: E501
         :type: bool
