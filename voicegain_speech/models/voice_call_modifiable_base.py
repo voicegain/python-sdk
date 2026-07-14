@@ -247,7 +247,7 @@ class VoiceCallModifiableBase(object):
         :param aivr_platform: The aivr_platform of this VoiceCallModifiableBase.  # noqa: E501
         :type: str
         """
-        allowed_values = ["freeSwitch", "vonageVcca", "five9VoiceStream"]  # noqa: E501
+        allowed_values = ["freeSwitch", "vonageVcca", "five9VoiceStream", "trampoline"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and aivr_platform not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `aivr_platform` ({0}), must be one of {1}"  # noqa: E501

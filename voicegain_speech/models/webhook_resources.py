@@ -37,6 +37,7 @@ class WebhookResources(object):
         'context': 'WebhookResourcesContext',
         'meeting': 'WebhookResourcesMeeting',
         'sa_offline': 'WebhookResourcesSaOffline',
+        'transcribe': 'WebhookResourcesTranscribe',
         'user': 'WebhookResourcesUser'
     }
 
@@ -44,10 +45,11 @@ class WebhookResources(object):
         'context': 'context',
         'meeting': 'meeting',
         'sa_offline': 'sa_offline',
+        'transcribe': 'transcribe',
         'user': 'user'
     }
 
-    def __init__(self, context=None, meeting=None, sa_offline=None, user=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, context=None, meeting=None, sa_offline=None, transcribe=None, user=None, local_vars_configuration=None):  # noqa: E501
         """WebhookResources - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -56,6 +58,7 @@ class WebhookResources(object):
         self._context = None
         self._meeting = None
         self._sa_offline = None
+        self._transcribe = None
         self._user = None
         self.discriminator = None
 
@@ -65,6 +68,8 @@ class WebhookResources(object):
             self.meeting = meeting
         if sa_offline is not None:
             self.sa_offline = sa_offline
+        if transcribe is not None:
+            self.transcribe = transcribe
         if user is not None:
             self.user = user
 
@@ -130,6 +135,27 @@ class WebhookResources(object):
         """
 
         self._sa_offline = sa_offline
+
+    @property
+    def transcribe(self):
+        """Gets the transcribe of this WebhookResources.  # noqa: E501
+
+
+        :return: The transcribe of this WebhookResources.  # noqa: E501
+        :rtype: WebhookResourcesTranscribe
+        """
+        return self._transcribe
+
+    @transcribe.setter
+    def transcribe(self, transcribe):
+        """Sets the transcribe of this WebhookResources.
+
+
+        :param transcribe: The transcribe of this WebhookResources.  # noqa: E501
+        :type: WebhookResourcesTranscribe
+        """
+
+        self._transcribe = transcribe
 
     @property
     def user(self):

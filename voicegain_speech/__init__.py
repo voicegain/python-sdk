@@ -703,6 +703,7 @@ from voicegain_speech.models.webhook_resources import WebhookResources
 from voicegain_speech.models.webhook_resources_context import WebhookResourcesContext
 from voicegain_speech.models.webhook_resources_meeting import WebhookResourcesMeeting
 from voicegain_speech.models.webhook_resources_sa_offline import WebhookResourcesSaOffline
+from voicegain_speech.models.webhook_resources_transcribe import WebhookResourcesTranscribe
 from voicegain_speech.models.webhook_resources_user import WebhookResourcesUser
 from voicegain_speech.models.websocket import Websocket
 from voicegain_speech.models.websocket_init import WebsocketInit

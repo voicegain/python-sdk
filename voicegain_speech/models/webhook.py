@@ -34,6 +34,7 @@ class Webhook(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'contexts': 'list[str]',
         'failed': 'bool',
         'format': 'str',
         'jwt_ttl': 'int',
@@ -46,6 +47,7 @@ class Webhook(object):
     }
 
     attribute_map = {
+        'contexts': 'contexts',
         'failed': 'failed',
         'format': 'format',
         'jwt_ttl': 'jwtTTL',
@@ -57,12 +59,13 @@ class Webhook(object):
         'webhook_uuid': 'webhookUuid'
     }
 
-    def __init__(self, failed=None, format='form_urlencoded', jwt_ttl=600, name=None, receiver_token=None, resources=None, send_jwt=False, url=None, webhook_uuid=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, contexts=None, failed=None, format='form_urlencoded', jwt_ttl=600, name=None, receiver_token=None, resources=None, send_jwt=False, url=None, webhook_uuid=None, local_vars_configuration=None):  # noqa: E501
         """Webhook - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._contexts = None
         self._failed = None
         self._format = None
         self._jwt_ttl = None
@@ -74,6 +77,8 @@ class Webhook(object):
         self._webhook_uuid = None
         self.discriminator = None
 
+        if contexts is not None:
+            self.contexts = contexts
         if failed is not None:
             self.failed = failed
         if format is not None:
@@ -92,6 +97,29 @@ class Webhook(object):
             self.url = url
         if webhook_uuid is not None:
             self.webhook_uuid = webhook_uuid
+
+    @property
+    def contexts(self):
+        """Gets the contexts of this Webhook.  # noqa: E501
+
+        (optional) Restricts webhook delivery to events for resources that belong to one of the listed Contexts (Configuration Groups), identified by `confGroupId`.</br> If absent or empty then events from all Contexts on the account are delivered.</br> Applies to context-scoped resources (e.g. transcribe, sa_offline, meeting); account-scoped resources (e.g. user) are not affected by this filter.   # noqa: E501
+
+        :return: The contexts of this Webhook.  # noqa: E501
+        :rtype: list[str]
+        """
+        return self._contexts
+
+    @contexts.setter
+    def contexts(self, contexts):
+        """Sets the contexts of this Webhook.
+
+        (optional) Restricts webhook delivery to events for resources that belong to one of the listed Contexts (Configuration Groups), identified by `confGroupId`.</br> If absent or empty then events from all Contexts on the account are delivered.</br> Applies to context-scoped resources (e.g. transcribe, sa_offline, meeting); account-scoped resources (e.g. user) are not affected by this filter.   # noqa: E501
+
+        :param contexts: The contexts of this Webhook.  # noqa: E501
+        :type: list[str]
+        """
+
+        self._contexts = contexts
 
     @property
     def failed(self):
