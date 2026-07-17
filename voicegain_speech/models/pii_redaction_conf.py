@@ -88,7 +88,7 @@ class PIIRedactionConf(object):
     def redact_audio(self):
         """Gets the redact_audio of this PIIRedactionConf.  # noqa: E501
 
-        if not null then the audio for the matching entity will be replaced with either silence or beep  # noqa: E501
+        If not null then the audio for the matching entity will be replaced with either silence or beep. Audio redaction produces a redacted copy stored as a new Data Store object, referenced from the SA result (see also `mergedAudioId` on the SA Call); the original source recording object is never modified.   # noqa: E501
 
         :return: The redact_audio of this PIIRedactionConf.  # noqa: E501
         :rtype: str
@@ -99,7 +99,7 @@ class PIIRedactionConf(object):
     def redact_audio(self, redact_audio):
         """Sets the redact_audio of this PIIRedactionConf.
 
-        if not null then the audio for the matching entity will be replaced with either silence or beep  # noqa: E501
+        If not null then the audio for the matching entity will be replaced with either silence or beep. Audio redaction produces a redacted copy stored as a new Data Store object, referenced from the SA result (see also `mergedAudioId` on the SA Call); the original source recording object is never modified.   # noqa: E501
 
         :param redact_audio: The redact_audio of this PIIRedactionConf.  # noqa: E501
         :type: str

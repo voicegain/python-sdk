@@ -85,7 +85,7 @@ class DtmfSettings(object):
     def redact(self):
         """Gets the redact of this DtmfSettings.  # noqa: E501
 
-        If set to `true` then detected DTMF tones will be redacted from the audio. If you do not want them in the transcript then set `recognize` to `false`.</br> Currently all DTMF tones are redacted. Future releases will support redacting only specific sequences of digits, e.g., CVV.   # noqa: E501
+        If set to `true` then detected DTMF tones will be redacted from the audio delivered via the `audio.callback` (see Audio Input Callback) — the source audio and the captured audio are not modified. If you do not want them in the transcript then set `recognize` to `false`.</br> Currently all DTMF tones are redacted. Future releases will support redacting only specific sequences of digits, e.g., CVV.   # noqa: E501
 
         :return: The redact of this DtmfSettings.  # noqa: E501
         :rtype: bool
@@ -96,7 +96,7 @@ class DtmfSettings(object):
     def redact(self, redact):
         """Sets the redact of this DtmfSettings.
 
-        If set to `true` then detected DTMF tones will be redacted from the audio. If you do not want them in the transcript then set `recognize` to `false`.</br> Currently all DTMF tones are redacted. Future releases will support redacting only specific sequences of digits, e.g., CVV.   # noqa: E501
+        If set to `true` then detected DTMF tones will be redacted from the audio delivered via the `audio.callback` (see Audio Input Callback) — the source audio and the captured audio are not modified. If you do not want them in the transcript then set `recognize` to `false`.</br> Currently all DTMF tones are redacted. Future releases will support redacting only specific sequences of digits, e.g., CVV.   # noqa: E501
 
         :param redact: The redact of this DtmfSettings.  # noqa: E501
         :type: bool

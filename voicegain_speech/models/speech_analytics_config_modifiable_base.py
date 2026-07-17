@@ -672,7 +672,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def pii_redaction(self):
         """Gets the pii_redaction of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
 
-        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transctipt and/or audio</br> Default no PII redaction is performed.   # noqa: E501
+        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transcript and/or audio</br> Default no PII redaction is performed.   # noqa: E501
 
         :return: The pii_redaction of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :rtype: list[PIIRedactionConf]
@@ -683,7 +683,7 @@ class SpeechAnalyticsConfigModifiableBase(object):
     def pii_redaction(self, pii_redaction):
         """Sets the pii_redaction of this SpeechAnalyticsConfigModifiableBase.
 
-        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transctipt and/or audio</br> Default no PII redaction is performed.   # noqa: E501
+        _(optional, not for real-time mode yet)_ List specifying the types of entities to be redacted from the transcript and/or audio</br> Default no PII redaction is performed.   # noqa: E501
 
         :param pii_redaction: The pii_redaction of this SpeechAnalyticsConfigModifiableBase.  # noqa: E501
         :type: list[PIIRedactionConf]

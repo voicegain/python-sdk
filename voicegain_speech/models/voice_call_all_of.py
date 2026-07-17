@@ -461,7 +461,7 @@ class VoiceCallAllOf(object):
     def merged_audio_id(self):
         """Gets the merged_audio_id of this VoiceCallAllOf.  # noqa: E501
 
-        Data UUID - reference to the merged call audio in Voicegain Data Store. This comes from the mergedAudio field in Speech Analytics session. If PII redaction was enbabled on the SA session then this audio will be redacted. This field will be absent if Speech Analytics has not been run on the call.   # noqa: E501
+        Data UUID - reference to the merged call audio in Voicegain Data Store. This comes from the mergedAudio field in Speech Analytics session. If PII redaction was enabled on the SA session then this audio will be redacted. This field will be absent if Speech Analytics has not been run on the call.   # noqa: E501
 
         :return: The merged_audio_id of this VoiceCallAllOf.  # noqa: E501
         :rtype: str
@@ -472,7 +472,7 @@ class VoiceCallAllOf(object):
     def merged_audio_id(self, merged_audio_id):
         """Sets the merged_audio_id of this VoiceCallAllOf.
 
-        Data UUID - reference to the merged call audio in Voicegain Data Store. This comes from the mergedAudio field in Speech Analytics session. If PII redaction was enbabled on the SA session then this audio will be redacted. This field will be absent if Speech Analytics has not been run on the call.   # noqa: E501
+        Data UUID - reference to the merged call audio in Voicegain Data Store. This comes from the mergedAudio field in Speech Analytics session. If PII redaction was enabled on the SA session then this audio will be redacted. This field will be absent if Speech Analytics has not been run on the call.   # noqa: E501
 
         :param merged_audio_id: The merged_audio_id of this VoiceCallAllOf.  # noqa: E501
         :type: str
