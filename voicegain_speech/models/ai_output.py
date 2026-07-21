@@ -280,7 +280,7 @@ class AiOutput(object):
     def content(self):
         """Gets the content of this AiOutput.  # noqa: E501
 
-        The AI-generated content itself. Captured verbatim so this record is self-contained.</br> Shape depends on `type`: + `summary`, `suggestion` → typically a string. + `callInsightAnswer`, `callReviewAnswer` → typically an object containing fields like `answerValue`, `answerChoice`, `notApplicable`, `notes`, `llmJustification`. + `sentiment` → typically an object (e.g. `{\"value\": 0.42, \"label\": \"positive\", \"justification\": \"...\"}`) or a string. + `piiRedaction` → typically an object (e.g. `{\"redactedText\": \"...\", \"spans\": [...]}`). + To capture a list, wrap it in an object (e.g. `{\"items\": [...]}`).   # noqa: E501
+        The AI-generated content itself. Captured verbatim so this record is self-contained.</br> Shape depends on `type`: + `summary`, `suggestion` → typically a string. + `kbSuggestion` → typically an object describing the suggested Knowledge Base article (e.g. `{\"articleId\": \"...\", \"title\": \"...\", \"url\": \"...\", \"snippet\": \"...\"}`). + `callInsightAnswer`, `callReviewAnswer` → typically an object containing fields like `answerValue`, `answerChoice`, `notApplicable`, `notes`, `llmJustification`. + `sentiment` → typically an object (e.g. `{\"value\": 0.42, \"label\": \"positive\", \"justification\": \"...\"}`) or a string. + `piiRedaction` → typically an object (e.g. `{\"redactedText\": \"...\", \"spans\": [...]}`). + To capture a list, wrap it in an object (e.g. `{\"items\": [...]}`).   # noqa: E501
 
         :return: The content of this AiOutput.  # noqa: E501
         :rtype: OneOfstringobject
@@ -291,7 +291,7 @@ class AiOutput(object):
     def content(self, content):
         """Sets the content of this AiOutput.
 
-        The AI-generated content itself. Captured verbatim so this record is self-contained.</br> Shape depends on `type`: + `summary`, `suggestion` → typically a string. + `callInsightAnswer`, `callReviewAnswer` → typically an object containing fields like `answerValue`, `answerChoice`, `notApplicable`, `notes`, `llmJustification`. + `sentiment` → typically an object (e.g. `{\"value\": 0.42, \"label\": \"positive\", \"justification\": \"...\"}`) or a string. + `piiRedaction` → typically an object (e.g. `{\"redactedText\": \"...\", \"spans\": [...]}`). + To capture a list, wrap it in an object (e.g. `{\"items\": [...]}`).   # noqa: E501
+        The AI-generated content itself. Captured verbatim so this record is self-contained.</br> Shape depends on `type`: + `summary`, `suggestion` → typically a string. + `kbSuggestion` → typically an object describing the suggested Knowledge Base article (e.g. `{\"articleId\": \"...\", \"title\": \"...\", \"url\": \"...\", \"snippet\": \"...\"}`). + `callInsightAnswer`, `callReviewAnswer` → typically an object containing fields like `answerValue`, `answerChoice`, `notApplicable`, `notes`, `llmJustification`. + `sentiment` → typically an object (e.g. `{\"value\": 0.42, \"label\": \"positive\", \"justification\": \"...\"}`) or a string. + `piiRedaction` → typically an object (e.g. `{\"redactedText\": \"...\", \"spans\": [...]}`). + To capture a list, wrap it in an object (e.g. `{\"items\": [...]}`).   # noqa: E501
 
         :param content: The content of this AiOutput.  # noqa: E501
         :type: OneOfstringobject
@@ -434,7 +434,7 @@ class AiOutput(object):
     def last_modified_epoch(self):
         """Gets the last_modified_epoch of this AiOutput.  # noqa: E501
 
-        Epoch ms when this record was last modified. Since AI Output records are immutable, this is updated only when a feedback entry is added via [POST /aiOutput/{aiOutputId}/feedback](#tag/aiOutput/operation/aiOutputFeedbackPost).   # noqa: E501
+        Epoch ms when this record was last modified: when a feedback entry is added via [POST /aiOutput/{aiOutputId}/feedback](#tag/aiOutput/operation/aiOutputFeedbackPost), or when the back end back-fills linkage fields / appends tags (internal operation).   # noqa: E501
 
         :return: The last_modified_epoch of this AiOutput.  # noqa: E501
         :rtype: int
@@ -445,7 +445,7 @@ class AiOutput(object):
     def last_modified_epoch(self, last_modified_epoch):
         """Sets the last_modified_epoch of this AiOutput.
 
-        Epoch ms when this record was last modified. Since AI Output records are immutable, this is updated only when a feedback entry is added via [POST /aiOutput/{aiOutputId}/feedback](#tag/aiOutput/operation/aiOutputFeedbackPost).   # noqa: E501
+        Epoch ms when this record was last modified: when a feedback entry is added via [POST /aiOutput/{aiOutputId}/feedback](#tag/aiOutput/operation/aiOutputFeedbackPost), or when the back end back-fills linkage fields / appends tags (internal operation).   # noqa: E501
 
         :param last_modified_epoch: The last_modified_epoch of this AiOutput.  # noqa: E501
         :type: int

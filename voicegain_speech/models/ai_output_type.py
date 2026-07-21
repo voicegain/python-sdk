@@ -33,10 +33,11 @@ class AiOutputType(object):
     CALLINSIGHTANSWER = "callInsightAnswer"
     CALLREVIEWANSWER = "callReviewAnswer"
     SUGGESTION = "suggestion"
+    KBSUGGESTION = "kbSuggestion"
     SENTIMENT = "sentiment"
     PIIREDACTION = "piiRedaction"
 
-    allowable_values = [SUMMARY, CALLINSIGHTANSWER, CALLREVIEWANSWER, SUGGESTION, SENTIMENT, PIIREDACTION]  # noqa: E501
+    allowable_values = [SUMMARY, CALLINSIGHTANSWER, CALLREVIEWANSWER, SUGGESTION, KBSUGGESTION, SENTIMENT, PIIREDACTION]  # noqa: E501
 
     """
     Attributes:

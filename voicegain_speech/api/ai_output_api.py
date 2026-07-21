@@ -411,8 +411,8 @@ class AiOutputApi(object):
                                                         len(local_var_params['custom_unique_id']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `custom_unique_id` when calling `ai_output_query`, length must be greater than or equal to `1`")  # noqa: E501
         if self.api_client.client_side_validation and ('type' in local_var_params and  # noqa: E501
-                                                        len(local_var_params['type']) > 6):  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `type` when calling `ai_output_query`, number of items must be less than or equal to `6`")  # noqa: E501
+                                                        len(local_var_params['type']) > 7):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `type` when calling `ai_output_query`, number of items must be less than or equal to `7`")  # noqa: E501
         if self.api_client.client_side_validation and ('type' in local_var_params and  # noqa: E501
                                                         len(local_var_params['type']) < 1):  # noqa: E501
             raise ApiValueError("Invalid value for parameter `type` when calling `ai_output_query`, number of items must be greater than or equal to `1`")  # noqa: E501
