@@ -34,47 +34,131 @@ class TraceCopilotIn(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'tbd': 'str'
+        'action': 'str',
+        'channel': 'str',
+        'detail': 'object',
+        'suggestion_id': 'str'
     }
 
     attribute_map = {
-        'tbd': 'tbd'
+        'action': 'action',
+        'channel': 'channel',
+        'detail': 'detail',
+        'suggestion_id': 'suggestionId'
     }
 
-    def __init__(self, tbd=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, action=None, channel=None, detail=None, suggestion_id=None, local_vars_configuration=None):  # noqa: E501
         """TraceCopilotIn - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._tbd = None
+        self._action = None
+        self._channel = None
+        self._detail = None
+        self._suggestion_id = None
         self.discriminator = None
 
-        if tbd is not None:
-            self.tbd = tbd
+        if action is not None:
+            self.action = action
+        if channel is not None:
+            self.channel = channel
+        if detail is not None:
+            self.detail = detail
+        if suggestion_id is not None:
+            self.suggestion_id = suggestion_id
 
     @property
-    def tbd(self):
-        """Gets the tbd of this TraceCopilotIn.  # noqa: E501
+    def action(self):
+        """Gets the action of this TraceCopilotIn.  # noqa: E501
 
-        still to-be-determined  # noqa: E501
+        Action the Agent performed on the Copilot. Currently used values: + **suggestionDisplayed** - the AI (KB) suggestion card was rendered in the Copilot side panel + **suggestionThumbsUp** / **suggestionThumbsDown** - the agent voted on the suggestion + **suggestionLinkOpened** - the agent opened the suggestion link as a web page + **suggestionSavedToCase** - the suggestion article was saved to a Salesforce Case  More actions may be added in the future.   # noqa: E501
 
-        :return: The tbd of this TraceCopilotIn.  # noqa: E501
+        :return: The action of this TraceCopilotIn.  # noqa: E501
         :rtype: str
         """
-        return self._tbd
+        return self._action
 
-    @tbd.setter
-    def tbd(self, tbd):
-        """Sets the tbd of this TraceCopilotIn.
+    @action.setter
+    def action(self, action):
+        """Sets the action of this TraceCopilotIn.
 
-        still to-be-determined  # noqa: E501
+        Action the Agent performed on the Copilot. Currently used values: + **suggestionDisplayed** - the AI (KB) suggestion card was rendered in the Copilot side panel + **suggestionThumbsUp** / **suggestionThumbsDown** - the agent voted on the suggestion + **suggestionLinkOpened** - the agent opened the suggestion link as a web page + **suggestionSavedToCase** - the suggestion article was saved to a Salesforce Case  More actions may be added in the future.   # noqa: E501
 
-        :param tbd: The tbd of this TraceCopilotIn.  # noqa: E501
+        :param action: The action of this TraceCopilotIn.  # noqa: E501
         :type: str
         """
 
-        self._tbd = tbd
+        self._action = action
+
+    @property
+    def channel(self):
+        """Gets the channel of this TraceCopilotIn.  # noqa: E501
+
+        Channel name identifying the Copilot user, e.g. Agent email address — mirrors `trace_copilot_out.channel`.  # noqa: E501
+
+        :return: The channel of this TraceCopilotIn.  # noqa: E501
+        :rtype: str
+        """
+        return self._channel
+
+    @channel.setter
+    def channel(self, channel):
+        """Sets the channel of this TraceCopilotIn.
+
+        Channel name identifying the Copilot user, e.g. Agent email address — mirrors `trace_copilot_out.channel`.  # noqa: E501
+
+        :param channel: The channel of this TraceCopilotIn.  # noqa: E501
+        :type: str
+        """
+
+        self._channel = channel
+
+    @property
+    def detail(self):
+        """Gets the detail of this TraceCopilotIn.  # noqa: E501
+
+        Additional action-specific data. Not used by the current actions; room for future ones.  # noqa: E501
+
+        :return: The detail of this TraceCopilotIn.  # noqa: E501
+        :rtype: object
+        """
+        return self._detail
+
+    @detail.setter
+    def detail(self, detail):
+        """Sets the detail of this TraceCopilotIn.
+
+        Additional action-specific data. Not used by the current actions; room for future ones.  # noqa: E501
+
+        :param detail: The detail of this TraceCopilotIn.  # noqa: E501
+        :type: object
+        """
+
+        self._detail = detail
+
+    @property
+    def suggestion_id(self):
+        """Gets the suggestion_id of this TraceCopilotIn.  # noqa: E501
+
+        Id of the AI (KB) suggestion the action relates to. Equals `customUniqueId` of the AI Output record that captured the suggestion — joins this trace entry to the AI Output record.   # noqa: E501
+
+        :return: The suggestion_id of this TraceCopilotIn.  # noqa: E501
+        :rtype: str
+        """
+        return self._suggestion_id
+
+    @suggestion_id.setter
+    def suggestion_id(self, suggestion_id):
+        """Sets the suggestion_id of this TraceCopilotIn.
+
+        Id of the AI (KB) suggestion the action relates to. Equals `customUniqueId` of the AI Output record that captured the suggestion — joins this trace entry to the AI Output record.   # noqa: E501
+
+        :param suggestion_id: The suggestion_id of this TraceCopilotIn.  # noqa: E501
+        :type: str
+        """
+
+        self._suggestion_id = suggestion_id
 
     def to_dict(self):
         """Returns the model properties as a dict"""
