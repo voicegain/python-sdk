@@ -80,6 +80,7 @@ class VoiceCallSearchResult(object):
         'aivr_transfer_dest_type': 'str',
         'call_id': 'str',
         'context_id': 'str',
+        'copilot_display': 'CopilotDisplayResolved',
         'copilot_sent': 'float',
         'copilot_un_ack': 'float',
         'csat': 'float',
@@ -150,6 +151,7 @@ class VoiceCallSearchResult(object):
         'aivr_transfer_dest_type': 'aivrTransferDestType',
         'call_id': 'callId',
         'context_id': 'contextId',
+        'copilot_display': 'copilotDisplay',
         'copilot_sent': 'copilotSent',
         'copilot_un_ack': 'copilotUnAck',
         'csat': 'csat',
@@ -173,7 +175,7 @@ class VoiceCallSearchResult(object):
         'headline': 'headline'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, headline=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, headline=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallSearchResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -225,6 +227,7 @@ class VoiceCallSearchResult(object):
         self._aivr_transfer_dest_type = None
         self._call_id = None
         self._context_id = None
+        self._copilot_display = None
         self._copilot_sent = None
         self._copilot_un_ack = None
         self._csat = None
@@ -340,6 +343,8 @@ class VoiceCallSearchResult(object):
             self.call_id = call_id
         if context_id is not None:
             self.context_id = context_id
+        if copilot_display is not None:
+            self.copilot_display = copilot_display
         if copilot_sent is not None:
             self.copilot_sent = copilot_sent
         if copilot_un_ack is not None:
@@ -1528,6 +1533,27 @@ class VoiceCallSearchResult(object):
             raise ValueError("Invalid value for `context_id`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._context_id = context_id
+
+    @property
+    def copilot_display(self):
+        """Gets the copilot_display of this VoiceCallSearchResult.  # noqa: E501
+
+
+        :return: The copilot_display of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: CopilotDisplayResolved
+        """
+        return self._copilot_display
+
+    @copilot_display.setter
+    def copilot_display(self, copilot_display):
+        """Sets the copilot_display of this VoiceCallSearchResult.
+
+
+        :param copilot_display: The copilot_display of this VoiceCallSearchResult.  # noqa: E501
+        :type: CopilotDisplayResolved
+        """
+
+        self._copilot_display = copilot_display
 
     @property
     def copilot_sent(self):
