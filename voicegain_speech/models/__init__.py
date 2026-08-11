@@ -173,6 +173,7 @@ from voicegain_speech.models.audio_resource_uri import AudioResourceUri
 from voicegain_speech.models.audio_time_zone import AudioTimeZone
 from voicegain_speech.models.audio_zone_class import AudioZoneClass
 from voicegain_speech.models.audio_zone_item import AudioZoneItem
+from voicegain_speech.models.audit_status import AuditStatus
 from voicegain_speech.models.builtin import BUILTIN
 from voicegain_speech.models.builtin_all_of import BUILTINAllOf
 from voicegain_speech.models.base_sentence_hypothesis_or_recognition import BaseSentenceHypothesisOrRecognition

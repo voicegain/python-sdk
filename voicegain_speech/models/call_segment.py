@@ -52,6 +52,7 @@ class CallSegment(object):
         'agent_feedback': 'CallSegmentAllOfAgentFeedback',
         'aivr_vars': 'dict(str, object)',
         'answering_endpoint': 'str',
+        'audit_status': 'AuditStatus',
         'business_open_state': 'str',
         'call_center_call_segment_id': 'str',
         'duration': 'float',
@@ -94,6 +95,7 @@ class CallSegment(object):
         'agent_feedback': 'agentFeedback',
         'aivr_vars': 'aivrVars',
         'answering_endpoint': 'answeringEndpoint',
+        'audit_status': 'auditStatus',
         'business_open_state': 'businessOpenState',
         'call_center_call_segment_id': 'callCenterCallSegmentId',
         'duration': 'duration',
@@ -117,7 +119,7 @@ class CallSegment(object):
         'voicebot_vars': 'voicebotVars'
     }
 
-    def __init__(self, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, progress_phase=None, queue=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, audit_status=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, progress_phase=None, queue=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, local_vars_configuration=None):  # noqa: E501
         """CallSegment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -141,6 +143,7 @@ class CallSegment(object):
         self._agent_feedback = None
         self._aivr_vars = None
         self._answering_endpoint = None
+        self._audit_status = None
         self._business_open_state = None
         self._call_center_call_segment_id = None
         self._duration = None
@@ -200,6 +203,8 @@ class CallSegment(object):
             self.aivr_vars = aivr_vars
         if answering_endpoint is not None:
             self.answering_endpoint = answering_endpoint
+        if audit_status is not None:
+            self.audit_status = audit_status
         if business_open_state is not None:
             self.business_open_state = business_open_state
         if call_center_call_segment_id is not None:
@@ -676,6 +681,29 @@ class CallSegment(object):
             raise ValueError("Invalid value for `answering_endpoint`, length must be less than or equal to `128`")  # noqa: E501
 
         self._answering_endpoint = answering_endpoint
+
+    @property
+    def audit_status(self):
+        """Gets the audit_status of this CallSegment.  # noqa: E501
+
+        State of the manual Call Review **audit** of this segment — `not_started` when the segment has never been audited, so the field is always present.</br> Set when an audit is created from the Call Review Answers attached to this segment (`crAnswersId`), and advanced to `complete` when that audit is completed. Also rolls up to the parent call's `auditStatus`.</br> Use this to filter an audit worklist — see the `AUDIT_STATUS` field of [POST /sa/call/segment/search](#tag/sa-internal/operation/saCallSegmentSearchPost).</br> **Note:** reset when the call is reprocessed (recompute / rerun re-creates the segments), in the same way as `score`. The audit records themselves are unaffected.   # noqa: E501
+
+        :return: The audit_status of this CallSegment.  # noqa: E501
+        :rtype: AuditStatus
+        """
+        return self._audit_status
+
+    @audit_status.setter
+    def audit_status(self, audit_status):
+        """Sets the audit_status of this CallSegment.
+
+        State of the manual Call Review **audit** of this segment — `not_started` when the segment has never been audited, so the field is always present.</br> Set when an audit is created from the Call Review Answers attached to this segment (`crAnswersId`), and advanced to `complete` when that audit is completed. Also rolls up to the parent call's `auditStatus`.</br> Use this to filter an audit worklist — see the `AUDIT_STATUS` field of [POST /sa/call/segment/search](#tag/sa-internal/operation/saCallSegmentSearchPost).</br> **Note:** reset when the call is reprocessed (recompute / rerun re-creates the segments), in the same way as `score`. The audit records themselves are unaffected.   # noqa: E501
+
+        :param audit_status: The audit_status of this CallSegment.  # noqa: E501
+        :type: AuditStatus
+        """
+
+        self._audit_status = audit_status
 
     @property
     def business_open_state(self):
