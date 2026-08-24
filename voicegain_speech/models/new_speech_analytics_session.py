@@ -45,6 +45,7 @@ class NewSpeechAnalyticsSession(object):
         'notify_stomp_topic': 'str',
         'persist': 'float',
         'sa_config': 'str',
+        'segment_analytics_config': 'list[SegmentAnalyticsConfig]',
         'speaker_channels': 'list[SpeechAnalyticsChannel]',
         'tags': 'list[str]',
         'topic_discovery_config': 'str',
@@ -63,13 +64,14 @@ class NewSpeechAnalyticsSession(object):
         'notify_stomp_topic': 'notifyStompTopic',
         'persist': 'persist',
         'sa_config': 'saConfig',
+        'segment_analytics_config': 'segmentAnalyticsConfig',
         'speaker_channels': 'speakerChannels',
         'tags': 'tags',
         'topic_discovery_config': 'topicDiscoveryConfig',
         'virtual_dual_channel_enabled': 'virtualDualChannelEnabled'
     }
 
-    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, creator=None, insights_config=None, label=None, metadata=None, notify_stomp_topic=None, persist=3600000, sa_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, virtual_dual_channel_enabled=True, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, asr=None, async_mode=None, audio=None, call_review_config=None, creator=None, insights_config=None, label=None, metadata=None, notify_stomp_topic=None, persist=3600000, sa_config=None, segment_analytics_config=None, speaker_channels=None, tags=None, topic_discovery_config=None, virtual_dual_channel_enabled=True, local_vars_configuration=None):  # noqa: E501
         """NewSpeechAnalyticsSession - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -86,6 +88,7 @@ class NewSpeechAnalyticsSession(object):
         self._notify_stomp_topic = None
         self._persist = None
         self._sa_config = None
+        self._segment_analytics_config = None
         self._speaker_channels = None
         self._tags = None
         self._topic_discovery_config = None
@@ -113,6 +116,8 @@ class NewSpeechAnalyticsSession(object):
         if persist is not None:
             self.persist = persist
         self.sa_config = sa_config
+        if segment_analytics_config is not None:
+            self.segment_analytics_config = segment_analytics_config
         if speaker_channels is not None:
             self.speaker_channels = speaker_channels
         if tags is not None:
@@ -408,6 +413,29 @@ class NewSpeechAnalyticsSession(object):
             raise ValueError("Invalid value for `sa_config`, length must be greater than or equal to `16`")  # noqa: E501
 
         self._sa_config = sa_config
+
+    @property
+    def segment_analytics_config(self):
+        """Gets the segment_analytics_config of this NewSpeechAnalyticsSession.  # noqa: E501
+
+        (optional) Per-segment Speech Analytics configuration; `saConfig` is switched as the call moves between segments. An entry that omits `saConfig` inherits the request-level `saConfig`.</br> If not provided, the Context's `defaultSegmentAnalyticsConfig` is used.</br> Note: `insightsConfig` and `callReviewConfig` on an entry are validated but not yet applied in real-time mode.   # noqa: E501
+
+        :return: The segment_analytics_config of this NewSpeechAnalyticsSession.  # noqa: E501
+        :rtype: list[SegmentAnalyticsConfig]
+        """
+        return self._segment_analytics_config
+
+    @segment_analytics_config.setter
+    def segment_analytics_config(self, segment_analytics_config):
+        """Sets the segment_analytics_config of this NewSpeechAnalyticsSession.
+
+        (optional) Per-segment Speech Analytics configuration; `saConfig` is switched as the call moves between segments. An entry that omits `saConfig` inherits the request-level `saConfig`.</br> If not provided, the Context's `defaultSegmentAnalyticsConfig` is used.</br> Note: `insightsConfig` and `callReviewConfig` on an entry are validated but not yet applied in real-time mode.   # noqa: E501
+
+        :param segment_analytics_config: The segment_analytics_config of this NewSpeechAnalyticsSession.  # noqa: E501
+        :type: list[SegmentAnalyticsConfig]
+        """
+
+        self._segment_analytics_config = segment_analytics_config
 
     @property
     def speaker_channels(self):
