@@ -38,7 +38,8 @@ class AIVRNewSessionAllOf(object):
         'default_voice': 'str',
         'estimated_queue_wait_seconds': 'EstimatedQueueWait',
         'logic_type': 'AIVRLogicType',
-        'media': 'AIVRLogicMedia'
+        'media': 'AIVRLogicMedia',
+        'sa_config': 'str'
     }
 
     attribute_map = {
@@ -46,10 +47,11 @@ class AIVRNewSessionAllOf(object):
         'default_voice': 'defaultVoice',
         'estimated_queue_wait_seconds': 'estimatedQueueWaitSeconds',
         'logic_type': 'logicType',
-        'media': 'media'
+        'media': 'media',
+        'sa_config': 'saConfig'
     }
 
-    def __init__(self, async_aivr_cmd_url=None, default_voice=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, async_aivr_cmd_url=None, default_voice=None, estimated_queue_wait_seconds=None, logic_type=None, media=None, sa_config=None, local_vars_configuration=None):  # noqa: E501
         """AIVRNewSessionAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -60,6 +62,7 @@ class AIVRNewSessionAllOf(object):
         self._estimated_queue_wait_seconds = None
         self._logic_type = None
         self._media = None
+        self._sa_config = None
         self.discriminator = None
 
         if async_aivr_cmd_url is not None:
@@ -72,6 +75,8 @@ class AIVRNewSessionAllOf(object):
             self.logic_type = logic_type
         if media is not None:
             self.media = media
+        if sa_config is not None:
+            self.sa_config = sa_config
 
     @property
     def async_aivr_cmd_url(self):
@@ -181,6 +186,35 @@ class AIVRNewSessionAllOf(object):
         """
 
         self._media = media
+
+    @property
+    def sa_config(self):
+        """Gets the sa_config of this AIVRNewSessionAllOf.  # noqa: E501
+
+        id of the Speech Analytics configuration that applies while the voicebot is handling the caller — taken from the `saConfig` of the AIVR App's `segmentAnalyticsConfig` entry with `segmentType=bot`.</br> Absent when the AIVR App has no `segmentAnalyticsConfig` entry for the `bot` segment type, or when that entry does not specify an `saConfig`.   # noqa: E501
+
+        :return: The sa_config of this AIVRNewSessionAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._sa_config
+
+    @sa_config.setter
+    def sa_config(self, sa_config):
+        """Sets the sa_config of this AIVRNewSessionAllOf.
+
+        id of the Speech Analytics configuration that applies while the voicebot is handling the caller — taken from the `saConfig` of the AIVR App's `segmentAnalyticsConfig` entry with `segmentType=bot`.</br> Absent when the AIVR App has no `segmentAnalyticsConfig` entry for the `bot` segment type, or when that entry does not specify an `saConfig`.   # noqa: E501
+
+        :param sa_config: The sa_config of this AIVRNewSessionAllOf.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                sa_config is not None and len(sa_config) > 48):
+            raise ValueError("Invalid value for `sa_config`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                sa_config is not None and len(sa_config) < 16):
+            raise ValueError("Invalid value for `sa_config`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._sa_config = sa_config
 
     def to_dict(self):
         """Returns the model properties as a dict"""
