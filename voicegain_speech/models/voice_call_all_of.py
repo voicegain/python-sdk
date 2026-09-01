@@ -54,6 +54,7 @@ class VoiceCallAllOf(object):
         'progress_phase': 'ProgressPhase',
         'queue_wait_ms': 'int',
         'recompute_phase': 'str',
+        'reference_number': 'str',
         'review_status': 'str',
         'sa_session_id': 'str',
         'segments': 'list[CallSegment]',
@@ -84,6 +85,7 @@ class VoiceCallAllOf(object):
         'progress_phase': 'progressPhase',
         'queue_wait_ms': 'queueWaitMs',
         'recompute_phase': 'recomputePhase',
+        'reference_number': 'referenceNumber',
         'review_status': 'reviewStatus',
         'sa_session_id': 'saSessionId',
         'segments': 'segments',
@@ -93,7 +95,7 @@ class VoiceCallAllOf(object):
         'voicebot_duration': 'voicebotDuration'
     }
 
-    def __init__(self, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_status=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_status=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -119,6 +121,7 @@ class VoiceCallAllOf(object):
         self._progress_phase = None
         self._queue_wait_ms = None
         self._recompute_phase = None
+        self._reference_number = None
         self._review_status = None
         self._sa_session_id = None
         self._segments = None
@@ -168,6 +171,8 @@ class VoiceCallAllOf(object):
             self.queue_wait_ms = queue_wait_ms
         if recompute_phase is not None:
             self.recompute_phase = recompute_phase
+        if reference_number is not None:
+            self.reference_number = reference_number
         if review_status is not None:
             self.review_status = review_status
         if sa_session_id is not None:
@@ -679,6 +684,35 @@ class VoiceCallAllOf(object):
             )
 
         self._recompute_phase = recompute_phase
+
+    @property
+    def reference_number(self):
+        """Gets the reference_number of this VoiceCallAllOf.  # noqa: E501
+
+        Caller-facing reference number that the voicebot generates and reads out to the caller (e.g. `CASEY2509241520`).</br> This is a promoted copy of the `referenceNumber` entry of `aivrVars`, surfaced as a first-class field so it can be shown as a column without reading the free-form map. It is the same value that the `REFERENCE_NUMBER` search field filters on, so a column and a filter cannot disagree.</br> Read-only and derived - `aivrVars` remains the single source of truth, and a PUT that needs to change the reference number changes it there.</br> Absent for agent-only calls, which have no voicebot part.   # noqa: E501
+
+        :return: The reference_number of this VoiceCallAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._reference_number
+
+    @reference_number.setter
+    def reference_number(self, reference_number):
+        """Sets the reference_number of this VoiceCallAllOf.
+
+        Caller-facing reference number that the voicebot generates and reads out to the caller (e.g. `CASEY2509241520`).</br> This is a promoted copy of the `referenceNumber` entry of `aivrVars`, surfaced as a first-class field so it can be shown as a column without reading the free-form map. It is the same value that the `REFERENCE_NUMBER` search field filters on, so a column and a filter cannot disagree.</br> Read-only and derived - `aivrVars` remains the single source of truth, and a PUT that needs to change the reference number changes it there.</br> Absent for agent-only calls, which have no voicebot part.   # noqa: E501
+
+        :param reference_number: The reference_number of this VoiceCallAllOf.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                reference_number is not None and len(reference_number) > 128):
+            raise ValueError("Invalid value for `reference_number`, length must be less than or equal to `128`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                reference_number is not None and len(reference_number) < 1):
+            raise ValueError("Invalid value for `reference_number`, length must be greater than or equal to `1`")  # noqa: E501
+
+        self._reference_number = reference_number
 
     @property
     def review_status(self):

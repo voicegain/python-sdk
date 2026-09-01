@@ -142,7 +142,7 @@ class CallSearchField(object):
     def has_null_value(self):
         """Gets the has_null_value of this CallSearchField.  # noqa: E501
 
-        Indicates if the field has null values. Returned for fields that can have null values. </br> Returned for: CC_CALL_ID, QUEUE_ID, AGENT_USER_ID, CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, TAG, KEYWORD, NOTES, NOTES_STATUS, SCORE, CSAT, NPS   # noqa: E501
+        Indicates if the field has null values. Returned for fields that can have null values. </br> Returned for: CC_CALL_ID, QUEUE_ID, AGENT_USER_ID, CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, REFERENCE_NUMBER, AIVR_TRANSFER, TAG, KEYWORD, NOTES, NOTES_STATUS, SCORE, CSAT, NPS   # noqa: E501
 
         :return: The has_null_value of this CallSearchField.  # noqa: E501
         :rtype: bool
@@ -153,7 +153,7 @@ class CallSearchField(object):
     def has_null_value(self, has_null_value):
         """Sets the has_null_value of this CallSearchField.
 
-        Indicates if the field has null values. Returned for fields that can have null values. </br> Returned for: CC_CALL_ID, QUEUE_ID, AGENT_USER_ID, CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, TAG, KEYWORD, NOTES, NOTES_STATUS, SCORE, CSAT, NPS   # noqa: E501
+        Indicates if the field has null values. Returned for fields that can have null values. </br> Returned for: CC_CALL_ID, QUEUE_ID, AGENT_USER_ID, CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, REFERENCE_NUMBER, AIVR_TRANSFER, TAG, KEYWORD, NOTES, NOTES_STATUS, SCORE, CSAT, NPS   # noqa: E501
 
         :param has_null_value: The has_null_value of this CallSearchField.  # noqa: E501
         :type: bool
@@ -234,7 +234,7 @@ class CallSearchField(object):
     def possible_values(self):
         """Gets the possible_values of this CallSearchField.  # noqa: E501
 
-        List of all possible values for the field. Present only if the number of values is limited. The values are expressed as strings. Returned for: CONTEXT_ID, AGENT_USER_ID, QUEUE_ID, DIRECTION, INTERNAL_ENDPOINT (but not EXTERNAL_ENDPOINT, or FROM, or TO), SPEAKER (returns Agent, Caller, Calee), TAG (returns individual tag values), KEYWORD (returns individual keyword values), CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, NOTES_STATUS, CALL_INSIGHT_BOOL (returns the names of all Call Insights questions configured in the contextId(s) whose `llm.responseFormat` is `yesNo`)   # noqa: E501
+        List of all possible values for the field. Present only if the number of values is limited. The values are expressed as strings. Returned for: CONTEXT_ID, AGENT_USER_ID, QUEUE_ID, DIRECTION, INTERNAL_ENDPOINT (but not EXTERNAL_ENDPOINT, or FROM, or TO), SPEAKER (returns Agent, Caller, Calee), TAG (returns individual tag values), KEYWORD (returns individual keyword values), CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, NOTES_STATUS, CALL_INSIGHT_BOOL (returns the names of all Call Insights questions configured in the contextId(s) whose `llm.responseFormat` is `yesNo`)</br> **Not** returned for REFERENCE_NUMBER: it is effectively unique per call, so enumerating its values is neither useful nor affordable.   # noqa: E501
 
         :return: The possible_values of this CallSearchField.  # noqa: E501
         :rtype: list[str]
@@ -245,7 +245,7 @@ class CallSearchField(object):
     def possible_values(self, possible_values):
         """Sets the possible_values of this CallSearchField.
 
-        List of all possible values for the field. Present only if the number of values is limited. The values are expressed as strings. Returned for: CONTEXT_ID, AGENT_USER_ID, QUEUE_ID, DIRECTION, INTERNAL_ENDPOINT (but not EXTERNAL_ENDPOINT, or FROM, or TO), SPEAKER (returns Agent, Caller, Calee), TAG (returns individual tag values), KEYWORD (returns individual keyword values), CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, NOTES_STATUS, CALL_INSIGHT_BOOL (returns the names of all Call Insights questions configured in the contextId(s) whose `llm.responseFormat` is `yesNo`)   # noqa: E501
+        List of all possible values for the field. Present only if the number of values is limited. The values are expressed as strings. Returned for: CONTEXT_ID, AGENT_USER_ID, QUEUE_ID, DIRECTION, INTERNAL_ENDPOINT (but not EXTERNAL_ENDPOINT, or FROM, or TO), SPEAKER (returns Agent, Caller, Calee), TAG (returns individual tag values), KEYWORD (returns individual keyword values), CALLER_TYPE, CALLER_INTENT, CALLER_VERIFY, AIVR_TRANSFER, NOTES_STATUS, CALL_INSIGHT_BOOL (returns the names of all Call Insights questions configured in the contextId(s) whose `llm.responseFormat` is `yesNo`)</br> **Not** returned for REFERENCE_NUMBER: it is effectively unique per call, so enumerating its values is neither useful nor affordable.   # noqa: E501
 
         :param possible_values: The possible_values of this CallSearchField.  # noqa: E501
         :type: list[str]
