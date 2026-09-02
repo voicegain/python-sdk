@@ -90,7 +90,7 @@ class CallSearchField(object):
     def collection_type(self):
         """Gets the collection_type of this CallSearchField.  # noqa: E501
 
-        Collection Type of the field. For some fields, the values are held in collections,  e.g. `TAG` and `KEYWORD` have a set of values , and (future) `METADATA` has a map of values. + none - single value + set - set of values + map - map of values   # noqa: E501
+        Collection Type of the field. For some fields, the values are held in collections,  e.g. `TAG` and `KEYWORD` have a set of values , and (future) `METADATA` has a map of values.</br> `REFERENCE_NUMBER` is also a `set`: it is stored as one comma-separated string but matched per value, so a call with two reference numbers is found by either of them. + none - single value + set - set of values + map - map of values   # noqa: E501
 
         :return: The collection_type of this CallSearchField.  # noqa: E501
         :rtype: str
@@ -101,7 +101,7 @@ class CallSearchField(object):
     def collection_type(self, collection_type):
         """Sets the collection_type of this CallSearchField.
 
-        Collection Type of the field. For some fields, the values are held in collections,  e.g. `TAG` and `KEYWORD` have a set of values , and (future) `METADATA` has a map of values. + none - single value + set - set of values + map - map of values   # noqa: E501
+        Collection Type of the field. For some fields, the values are held in collections,  e.g. `TAG` and `KEYWORD` have a set of values , and (future) `METADATA` has a map of values.</br> `REFERENCE_NUMBER` is also a `set`: it is stored as one comma-separated string but matched per value, so a call with two reference numbers is found by either of them. + none - single value + set - set of values + map - map of values   # noqa: E501
 
         :param collection_type: The collection_type of this CallSearchField.  # noqa: E501
         :type: str
