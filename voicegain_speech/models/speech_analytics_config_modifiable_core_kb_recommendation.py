@@ -50,13 +50,14 @@ class SpeechAnalyticsConfigModifiableCoreKbRecommendation(object):
         self._tenant_name = None
         self.discriminator = None
 
-        self.tenant_name = tenant_name
+        if tenant_name is not None:
+            self.tenant_name = tenant_name
 
     @property
     def tenant_name(self):
         """Gets the tenant_name of this SpeechAnalyticsConfigModifiableCoreKbRecommendation.  # noqa: E501
 
-        Name of the tenant whose Knowledge Base should be used for recommendations. Must be a known tenant name, otherwise the feature is not activated.   # noqa: E501
+        Name of the tenant whose Knowledge Base should be used for recommendations. Must be a known tenant name, otherwise the feature is not activated.</br> May be absent or empty — the feature is then not activated.   # noqa: E501
 
         :return: The tenant_name of this SpeechAnalyticsConfigModifiableCoreKbRecommendation.  # noqa: E501
         :rtype: str
@@ -67,16 +68,11 @@ class SpeechAnalyticsConfigModifiableCoreKbRecommendation(object):
     def tenant_name(self, tenant_name):
         """Sets the tenant_name of this SpeechAnalyticsConfigModifiableCoreKbRecommendation.
 
-        Name of the tenant whose Knowledge Base should be used for recommendations. Must be a known tenant name, otherwise the feature is not activated.   # noqa: E501
+        Name of the tenant whose Knowledge Base should be used for recommendations. Must be a known tenant name, otherwise the feature is not activated.</br> May be absent or empty — the feature is then not activated.   # noqa: E501
 
         :param tenant_name: The tenant_name of this SpeechAnalyticsConfigModifiableCoreKbRecommendation.  # noqa: E501
         :type: str
         """
-        if self.local_vars_configuration.client_side_validation and tenant_name is None:  # noqa: E501
-            raise ValueError("Invalid value for `tenant_name`, must not be `None`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                tenant_name is not None and len(tenant_name) < 1):
-            raise ValueError("Invalid value for `tenant_name`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._tenant_name = tenant_name
 
