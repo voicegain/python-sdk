@@ -79,6 +79,7 @@ class VoiceCall(object):
         'account_id': 'str',
         'aivr_transfer_dest_type': 'str',
         'audit_status': 'AuditStatus',
+        'billing': 'CallBilling',
         'call_id': 'str',
         'context_id': 'str',
         'copilot_display': 'CopilotDisplayResolved',
@@ -151,6 +152,7 @@ class VoiceCall(object):
         'account_id': 'accountId',
         'aivr_transfer_dest_type': 'aivrTransferDestType',
         'audit_status': 'auditStatus',
+        'billing': 'billing',
         'call_id': 'callId',
         'context_id': 'contextId',
         'copilot_display': 'copilotDisplay',
@@ -177,7 +179,7 @@ class VoiceCall(object):
         'voicebot_duration': 'voicebotDuration'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_status=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -228,6 +230,7 @@ class VoiceCall(object):
         self._account_id = None
         self._aivr_transfer_dest_type = None
         self._audit_status = None
+        self._billing = None
         self._call_id = None
         self._context_id = None
         self._copilot_display = None
@@ -344,6 +347,8 @@ class VoiceCall(object):
             self.aivr_transfer_dest_type = aivr_transfer_dest_type
         if audit_status is not None:
             self.audit_status = audit_status
+        if billing is not None:
+            self.billing = billing
         if call_id is not None:
             self.call_id = call_id
         if context_id is not None:
@@ -1503,6 +1508,27 @@ class VoiceCall(object):
         """
 
         self._audit_status = audit_status
+
+    @property
+    def billing(self):
+        """Gets the billing of this VoiceCall.  # noqa: E501
+
+
+        :return: The billing of this VoiceCall.  # noqa: E501
+        :rtype: CallBilling
+        """
+        return self._billing
+
+    @billing.setter
+    def billing(self, billing):
+        """Sets the billing of this VoiceCall.
+
+
+        :param billing: The billing of this VoiceCall.  # noqa: E501
+        :type: CallBilling
+        """
+
+        self._billing = billing
 
     @property
     def call_id(self):

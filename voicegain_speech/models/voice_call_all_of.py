@@ -38,6 +38,7 @@ class VoiceCallAllOf(object):
         'account_id': 'str',
         'aivr_transfer_dest_type': 'str',
         'audit_status': 'AuditStatus',
+        'billing': 'CallBilling',
         'call_id': 'str',
         'context_id': 'str',
         'copilot_display': 'CopilotDisplayResolved',
@@ -69,6 +70,7 @@ class VoiceCallAllOf(object):
         'account_id': 'accountId',
         'aivr_transfer_dest_type': 'aivrTransferDestType',
         'audit_status': 'auditStatus',
+        'billing': 'billing',
         'call_id': 'callId',
         'context_id': 'contextId',
         'copilot_display': 'copilotDisplay',
@@ -95,7 +97,7 @@ class VoiceCallAllOf(object):
         'voicebot_duration': 'voicebotDuration'
     }
 
-    def __init__(self, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_status=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -105,6 +107,7 @@ class VoiceCallAllOf(object):
         self._account_id = None
         self._aivr_transfer_dest_type = None
         self._audit_status = None
+        self._billing = None
         self._call_id = None
         self._context_id = None
         self._copilot_display = None
@@ -139,6 +142,8 @@ class VoiceCallAllOf(object):
             self.aivr_transfer_dest_type = aivr_transfer_dest_type
         if audit_status is not None:
             self.audit_status = audit_status
+        if billing is not None:
+            self.billing = billing
         if call_id is not None:
             self.call_id = call_id
         if context_id is not None:
@@ -291,6 +296,27 @@ class VoiceCallAllOf(object):
         """
 
         self._audit_status = audit_status
+
+    @property
+    def billing(self):
+        """Gets the billing of this VoiceCallAllOf.  # noqa: E501
+
+
+        :return: The billing of this VoiceCallAllOf.  # noqa: E501
+        :rtype: CallBilling
+        """
+        return self._billing
+
+    @billing.setter
+    def billing(self, billing):
+        """Sets the billing of this VoiceCallAllOf.
+
+
+        :param billing: The billing of this VoiceCallAllOf.  # noqa: E501
+        :type: CallBilling
+        """
+
+        self._billing = billing
 
     @property
     def call_id(self):

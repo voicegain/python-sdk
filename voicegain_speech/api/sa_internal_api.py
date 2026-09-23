@@ -164,7 +164,7 @@ class SaInternalApi(object):
     def sa_call_get(self, call_id, **kwargs):  # noqa: E501
         """Get Call Details  # noqa: E501
 
-        Retrieve detailed information for a specific call record by its ID.  Returns the full call record including metadata, analytics results, and optionally transcript segments. Use the `inclSegments` parameter to control whether segments are included.   # noqa: E501
+        Retrieve detailed information for a specific call record by its ID.  Returns the full call record including metadata, analytics results, and optionally transcript segments. Use the `inclSegments` parameter to control whether segments are included.  Use `inclBilling=true` to also get the call's billing result in `billing`. It is computed the same way as in [GET /sa/call/billing](#operation/saCallBillingQuery), so a call shows the same billing class and transactions in both places. `billing` is left out if it was not requested, or if the user does not have the `billing.view` permission.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_get(call_id, async_req=True)
@@ -174,6 +174,7 @@ class SaInternalApi(object):
         :param str call_id: Voice Call Id. (required)
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param bool incl_segments: If set to true, the response will include the `segments` field containing detailed data for each segment (bot, agent, or system portion) of the call.</br> Default is false to reduce response size for queries that don't need segment details. 
+        :param bool incl_billing: If set to true, the response includes the `billing` field: the call's billing class, its billable Automated and Augmented transactions, and the facts they are based on. Requires the `billing.view` permission. If the user does not have it, `billing` is left out and the call is still returned (no error). 
         :param _preload_content: if False, the urllib3.HTTPResponse object will
                                  be returned without reading/decoding response
                                  data. Default is True.
@@ -191,7 +192,7 @@ class SaInternalApi(object):
     def sa_call_get_with_http_info(self, call_id, **kwargs):  # noqa: E501
         """Get Call Details  # noqa: E501
 
-        Retrieve detailed information for a specific call record by its ID.  Returns the full call record including metadata, analytics results, and optionally transcript segments. Use the `inclSegments` parameter to control whether segments are included.   # noqa: E501
+        Retrieve detailed information for a specific call record by its ID.  Returns the full call record including metadata, analytics results, and optionally transcript segments. Use the `inclSegments` parameter to control whether segments are included.  Use `inclBilling=true` to also get the call's billing result in `billing`. It is computed the same way as in [GET /sa/call/billing](#operation/saCallBillingQuery), so a call shows the same billing class and transactions in both places. `billing` is left out if it was not requested, or if the user does not have the `billing.view` permission.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_get_with_http_info(call_id, async_req=True)
@@ -201,6 +202,7 @@ class SaInternalApi(object):
         :param str call_id: Voice Call Id. (required)
         :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
         :param bool incl_segments: If set to true, the response will include the `segments` field containing detailed data for each segment (bot, agent, or system portion) of the call.</br> Default is false to reduce response size for queries that don't need segment details. 
+        :param bool incl_billing: If set to true, the response includes the `billing` field: the call's billing class, its billable Automated and Augmented transactions, and the facts they are based on. Requires the `billing.view` permission. If the user does not have it, `billing` is left out and the call is still returned (no error). 
         :param _return_http_data_only: response data without head status code
                                        and headers
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -217,7 +219,7 @@ class SaInternalApi(object):
 
         local_var_params = locals()
 
-        all_params = ['call_id', 'context_id', 'incl_segments']  # noqa: E501
+        all_params = ['call_id', 'context_id', 'incl_segments', 'incl_billing']  # noqa: E501
         all_params.append('async_req')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -259,6 +261,8 @@ class SaInternalApi(object):
             query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
         if 'incl_segments' in local_var_params and local_var_params['incl_segments'] is not None:  # noqa: E501
             query_params.append(('inclSegments', local_var_params['incl_segments']))  # noqa: E501
+        if 'incl_billing' in local_var_params and local_var_params['incl_billing'] is not None:  # noqa: E501
+            query_params.append(('inclBilling', local_var_params['incl_billing']))  # noqa: E501
 
         header_params = {}
 

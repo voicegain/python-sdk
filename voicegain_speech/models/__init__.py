@@ -182,6 +182,15 @@ from voicegain_speech.models.base_stomp_word_correction import BaseStompWordCorr
 from voicegain_speech.models.base_stomp_word_correction_without_spk import BaseStompWordCorrectionWithoutSpk
 from voicegain_speech.models.base_term import BaseTerm
 from voicegain_speech.models.basic_success_response import BasicSuccessResponse
+from voicegain_speech.models.billed_call_counts import BilledCallCounts
+from voicegain_speech.models.billed_transaction import BilledTransaction
+from voicegain_speech.models.billed_transaction_agent import BilledTransactionAgent
+from voicegain_speech.models.billed_transaction_queue import BilledTransactionQueue
+from voicegain_speech.models.billed_transaction_type import BilledTransactionType
+from voicegain_speech.models.billing_agent_source import BillingAgentSource
+from voicegain_speech.models.billing_basis import BillingBasis
+from voicegain_speech.models.billing_class import BillingClass
+from voicegain_speech.models.billing_rule import BillingRule
 from voicegain_speech.models.c_and_query import CAndQuery
 from voicegain_speech.models.c_and_query_all_of import CAndQueryAllOf
 from voicegain_speech.models.c_base_term import CBaseTerm
@@ -203,6 +212,7 @@ from voicegain_speech.models.c_txt_search_term import CTxtSearchTerm
 from voicegain_speech.models.c_txt_search_term_all_of import CTxtSearchTermAllOf
 from voicegain_speech.models.call_analytics_base import CallAnalyticsBase
 from voicegain_speech.models.call_attributes import CallAttributes
+from voicegain_speech.models.call_billing import CallBilling
 from voicegain_speech.models.call_field import CallField
 from voicegain_speech.models.call_field_for_time import CallFieldForTime
 from voicegain_speech.models.call_field_for_txt_search import CallFieldForTxtSearch
