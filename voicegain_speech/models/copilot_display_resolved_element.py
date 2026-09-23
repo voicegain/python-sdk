@@ -39,6 +39,7 @@ class CopilotDisplayResolvedElement(object):
         'id': 'str',
         'label': 'str',
         'label_style': 'list[str]',
+        'max_lines': 'int',
         'transform': 'str',
         'values': 'list[CopilotDisplayResolvedValue]'
     }
@@ -49,11 +50,12 @@ class CopilotDisplayResolvedElement(object):
         'id': 'id',
         'label': 'label',
         'label_style': 'labelStyle',
+        'max_lines': 'maxLines',
         'transform': 'transform',
         'values': 'values'
     }
 
-    def __init__(self, copiable=None, format=None, id=None, label=None, label_style=None, transform=None, values=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, copiable=None, format=None, id=None, label=None, label_style=None, max_lines=None, transform=None, values=None, local_vars_configuration=None):  # noqa: E501
         """CopilotDisplayResolvedElement - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -64,6 +66,7 @@ class CopilotDisplayResolvedElement(object):
         self._id = None
         self._label = None
         self._label_style = None
+        self._max_lines = None
         self._transform = None
         self._values = None
         self.discriminator = None
@@ -75,6 +78,7 @@ class CopilotDisplayResolvedElement(object):
             self.id = id
         self.label = label
         self.label_style = label_style
+        self.max_lines = max_lines
         self.transform = transform
         if values is not None:
             self.values = values
@@ -104,7 +108,7 @@ class CopilotDisplayResolvedElement(object):
     def format(self):
         """Gets the format of this CopilotDisplayResolvedElement.  # noqa: E501
 
-        FE render selector - open, code-owned catalog (value/phone/link/yesNo/tag/chips/claim_numbers/...).  # noqa: E501
+        FE render selector - open, code-owned catalog (value/phone/link/yesNo/tag/chips/claim_numbers/multiline/...).</br> `multiline` renders long text line-clamped with expand/collapse (e.g. the voicebot's \"Notes for Agent\"); see `maxLines`. Copilot builds older than 1.141.0 don't recognize it.   # noqa: E501
 
         :return: The format of this CopilotDisplayResolvedElement.  # noqa: E501
         :rtype: str
@@ -115,7 +119,7 @@ class CopilotDisplayResolvedElement(object):
     def format(self, format):
         """Sets the format of this CopilotDisplayResolvedElement.
 
-        FE render selector - open, code-owned catalog (value/phone/link/yesNo/tag/chips/claim_numbers/...).  # noqa: E501
+        FE render selector - open, code-owned catalog (value/phone/link/yesNo/tag/chips/claim_numbers/multiline/...).</br> `multiline` renders long text line-clamped with expand/collapse (e.g. the voicebot's \"Notes for Agent\"); see `maxLines`. Copilot builds older than 1.141.0 don't recognize it.   # noqa: E501
 
         :param format: The format of this CopilotDisplayResolvedElement.  # noqa: E501
         :type: str
@@ -193,6 +197,32 @@ class CopilotDisplayResolvedElement(object):
             )
 
         self._label_style = label_style
+
+    @property
+    def max_lines(self):
+        """Gets the max_lines of this CopilotDisplayResolvedElement.  # noqa: E501
+
+        Line-clamp hint for `format: multiline`, passed through as authored in the display YAML - the server never truncates the value. Absent when the YAML doesn't set it, in which case the FE default (3 lines) applies.   # noqa: E501
+
+        :return: The max_lines of this CopilotDisplayResolvedElement.  # noqa: E501
+        :rtype: int
+        """
+        return self._max_lines
+
+    @max_lines.setter
+    def max_lines(self, max_lines):
+        """Sets the max_lines of this CopilotDisplayResolvedElement.
+
+        Line-clamp hint for `format: multiline`, passed through as authored in the display YAML - the server never truncates the value. Absent when the YAML doesn't set it, in which case the FE default (3 lines) applies.   # noqa: E501
+
+        :param max_lines: The max_lines of this CopilotDisplayResolvedElement.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                max_lines is not None and max_lines < 1):  # noqa: E501
+            raise ValueError("Invalid value for `max_lines`, must be a value greater than or equal to `1`")  # noqa: E501
+
+        self._max_lines = max_lines
 
     @property
     def transform(self):
