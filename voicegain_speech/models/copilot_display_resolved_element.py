@@ -34,6 +34,7 @@ class CopilotDisplayResolvedElement(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'auto_open': 'str',
         'copiable': 'bool',
         'format': 'str',
         'id': 'str',
@@ -45,6 +46,7 @@ class CopilotDisplayResolvedElement(object):
     }
 
     attribute_map = {
+        'auto_open': 'autoOpen',
         'copiable': 'copiable',
         'format': 'format',
         'id': 'id',
@@ -55,12 +57,13 @@ class CopilotDisplayResolvedElement(object):
         'values': 'values'
     }
 
-    def __init__(self, copiable=None, format=None, id=None, label=None, label_style=None, max_lines=None, transform=None, values=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, auto_open='never', copiable=None, format=None, id=None, label=None, label_style=None, max_lines=None, transform=None, values=None, local_vars_configuration=None):  # noqa: E501
         """CopilotDisplayResolvedElement - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._auto_open = None
         self._copiable = None
         self._format = None
         self._id = None
@@ -71,6 +74,7 @@ class CopilotDisplayResolvedElement(object):
         self._values = None
         self.discriminator = None
 
+        self.auto_open = auto_open
         self.copiable = copiable
         if format is not None:
             self.format = format
@@ -82,6 +86,35 @@ class CopilotDisplayResolvedElement(object):
         self.transform = transform
         if values is not None:
             self.values = values
+
+    @property
+    def auto_open(self):
+        """Gets the auto_open of this CopilotDisplayResolvedElement.  # noqa: E501
+
+        Automatic opening of the link. Applies to `format: link` only and is ignored for any other format. + **never** (default) - the link opens only when the agent clicks it. + **newTabBackground** - Copilot opens the URL in a new browser tab **without** taking focus,   leaving the agent on the tab they are working in (typically the CCaaS/softphone page).   Recommended when auto-opening during a live call. + **newTabForeground** - Copilot opens the URL in a new browser tab and switches to it. Copilot   itself stays visible either way, since it runs as a browser side panel rather than in a tab.  **Fires at most once per call**, the first time this element appears in the resolved display (i.e. its card's conditions are met and the element has a value). Later re-resolutions - as call variables update - never re-open it: from that point the element behaves as an ordinary clickable link.</br> If a tab opened by this element's earlier auto-open is still open, it is reused rather than a second tab being opened. Tabs are never closed automatically when the call ends.</br> If the element resolves to several `values`, only the first is auto-opened.</br> Auto-opening requires the Copilot browser extension to hold permission to open tabs. Where it does not - or on a host that cannot open tabs - the element still renders as an ordinary clickable link, so the URL is never silently dropped. Copilot builds predating this field likewise ignore it and render a normal link.   # noqa: E501
+
+        :return: The auto_open of this CopilotDisplayResolvedElement.  # noqa: E501
+        :rtype: str
+        """
+        return self._auto_open
+
+    @auto_open.setter
+    def auto_open(self, auto_open):
+        """Sets the auto_open of this CopilotDisplayResolvedElement.
+
+        Automatic opening of the link. Applies to `format: link` only and is ignored for any other format. + **never** (default) - the link opens only when the agent clicks it. + **newTabBackground** - Copilot opens the URL in a new browser tab **without** taking focus,   leaving the agent on the tab they are working in (typically the CCaaS/softphone page).   Recommended when auto-opening during a live call. + **newTabForeground** - Copilot opens the URL in a new browser tab and switches to it. Copilot   itself stays visible either way, since it runs as a browser side panel rather than in a tab.  **Fires at most once per call**, the first time this element appears in the resolved display (i.e. its card's conditions are met and the element has a value). Later re-resolutions - as call variables update - never re-open it: from that point the element behaves as an ordinary clickable link.</br> If a tab opened by this element's earlier auto-open is still open, it is reused rather than a second tab being opened. Tabs are never closed automatically when the call ends.</br> If the element resolves to several `values`, only the first is auto-opened.</br> Auto-opening requires the Copilot browser extension to hold permission to open tabs. Where it does not - or on a host that cannot open tabs - the element still renders as an ordinary clickable link, so the URL is never silently dropped. Copilot builds predating this field likewise ignore it and render a normal link.   # noqa: E501
+
+        :param auto_open: The auto_open of this CopilotDisplayResolvedElement.  # noqa: E501
+        :type: str
+        """
+        allowed_values = [None,"never", "newTabBackground", "newTabForeground"]  # noqa: E501
+        if self.local_vars_configuration.client_side_validation and auto_open not in allowed_values:  # noqa: E501
+            raise ValueError(
+                "Invalid value for `auto_open` ({0}), must be one of {1}"  # noqa: E501
+                .format(auto_open, allowed_values)
+            )
+
+        self._auto_open = auto_open
 
     @property
     def copiable(self):
