@@ -38,6 +38,8 @@ class CallSegmentAllOf(object):
         'agent_feedback': 'CallSegmentAllOfAgentFeedback',
         'aivr_vars': 'dict(str, object)',
         'answering_endpoint': 'str',
+        'audit_completed_by': 'str',
+        'audit_completed_date': 'datetime',
         'audit_status': 'AuditStatus',
         'business_open_state': 'str',
         'call_center_call_segment_id': 'str',
@@ -70,6 +72,8 @@ class CallSegmentAllOf(object):
         'agent_feedback': 'agentFeedback',
         'aivr_vars': 'aivrVars',
         'answering_endpoint': 'answeringEndpoint',
+        'audit_completed_by': 'auditCompletedBy',
+        'audit_completed_date': 'auditCompletedDate',
         'audit_status': 'auditStatus',
         'business_open_state': 'businessOpenState',
         'call_center_call_segment_id': 'callCenterCallSegmentId',
@@ -97,7 +101,7 @@ class CallSegmentAllOf(object):
         'voicemail_transcript': 'voicemailTranscript'
     }
 
-    def __init__(self, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, audit_status=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, notes=None, progress_phase=None, queue=None, review_notes=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, voicemail_transcript=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, audit_completed_by=None, audit_completed_date=None, audit_status=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, notes=None, progress_phase=None, queue=None, review_notes=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, voicemail_transcript=None, local_vars_configuration=None):  # noqa: E501
         """CallSegmentAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -107,6 +111,8 @@ class CallSegmentAllOf(object):
         self._agent_feedback = None
         self._aivr_vars = None
         self._answering_endpoint = None
+        self._audit_completed_by = None
+        self._audit_completed_date = None
         self._audit_status = None
         self._business_open_state = None
         self._call_center_call_segment_id = None
@@ -142,6 +148,10 @@ class CallSegmentAllOf(object):
             self.aivr_vars = aivr_vars
         if answering_endpoint is not None:
             self.answering_endpoint = answering_endpoint
+        if audit_completed_by is not None:
+            self.audit_completed_by = audit_completed_by
+        if audit_completed_date is not None:
+            self.audit_completed_date = audit_completed_date
         if audit_status is not None:
             self.audit_status = audit_status
         if business_open_state is not None:
@@ -277,6 +287,58 @@ class CallSegmentAllOf(object):
             raise ValueError("Invalid value for `answering_endpoint`, length must be less than or equal to `128`")  # noqa: E501
 
         self._answering_endpoint = answering_endpoint
+
+    @property
+    def audit_completed_by(self):
+        """Gets the audit_completed_by of this CallSegmentAllOf.  # noqa: E501
+
+        `userId` of the reviewer who completed the audit of this segment - the `auditCompletedBy` of the underlying audit record (see the Call Review Answers object).</br> Present only while this segment's `auditStatus` is `complete`; absent for `not_started` and `in_progress`.</br> A segment's Call Review Answers may have been audited **more than once** (audits by different reviewers are allowed). This field reports the **most recently completed** audit - the one whose completion last set `auditStatus` to `complete`. To see every auditor, read the audit records via `auditIds` on the segment's `crAnswers`.</br> Follows `auditStatus` exactly: cleared when the audit is discarded via [DELETE /sa/call/review/answers/{crAnswersId}](#tag/call-review/operation/saCallReviewAnswersDelete) and the segment returns to `not_started`, and reset when the call is reprocessed (recompute / rerun re-creates the segments).   # noqa: E501
+
+        :return: The audit_completed_by of this CallSegmentAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._audit_completed_by
+
+    @audit_completed_by.setter
+    def audit_completed_by(self, audit_completed_by):
+        """Sets the audit_completed_by of this CallSegmentAllOf.
+
+        `userId` of the reviewer who completed the audit of this segment - the `auditCompletedBy` of the underlying audit record (see the Call Review Answers object).</br> Present only while this segment's `auditStatus` is `complete`; absent for `not_started` and `in_progress`.</br> A segment's Call Review Answers may have been audited **more than once** (audits by different reviewers are allowed). This field reports the **most recently completed** audit - the one whose completion last set `auditStatus` to `complete`. To see every auditor, read the audit records via `auditIds` on the segment's `crAnswers`.</br> Follows `auditStatus` exactly: cleared when the audit is discarded via [DELETE /sa/call/review/answers/{crAnswersId}](#tag/call-review/operation/saCallReviewAnswersDelete) and the segment returns to `not_started`, and reset when the call is reprocessed (recompute / rerun re-creates the segments).   # noqa: E501
+
+        :param audit_completed_by: The audit_completed_by of this CallSegmentAllOf.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                audit_completed_by is not None and len(audit_completed_by) > 48):
+            raise ValueError("Invalid value for `audit_completed_by`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                audit_completed_by is not None and len(audit_completed_by) < 16):
+            raise ValueError("Invalid value for `audit_completed_by`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._audit_completed_by = audit_completed_by
+
+    @property
+    def audit_completed_date(self):
+        """Gets the audit_completed_date of this CallSegmentAllOf.  # noqa: E501
+
+        Timestamp at which the audit reported by `auditCompletedBy` was completed - the same (most recently completed) audit record.</br> Present only while this segment's `auditStatus` is `complete`, and follows the same lifecycle.   # noqa: E501
+
+        :return: The audit_completed_date of this CallSegmentAllOf.  # noqa: E501
+        :rtype: datetime
+        """
+        return self._audit_completed_date
+
+    @audit_completed_date.setter
+    def audit_completed_date(self, audit_completed_date):
+        """Sets the audit_completed_date of this CallSegmentAllOf.
+
+        Timestamp at which the audit reported by `auditCompletedBy` was completed - the same (most recently completed) audit record.</br> Present only while this segment's `auditStatus` is `complete`, and follows the same lifecycle.   # noqa: E501
+
+        :param audit_completed_date: The audit_completed_date of this CallSegmentAllOf.  # noqa: E501
+        :type: datetime
+        """
+
+        self._audit_completed_date = audit_completed_date
 
     @property
     def audit_status(self):
