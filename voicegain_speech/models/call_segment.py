@@ -44,6 +44,7 @@ class CallSegment(object):
         'score': 'float',
         'sentiments': 'list[SpeakerSentimentItem]',
         'topics': 'list[str]',
+        'unaudited_score': 'float',
         'voicemail_duration': 'float',
         'voicemail_transcript': 'str',
         'voicemail_uuid': 'str',
@@ -89,6 +90,7 @@ class CallSegment(object):
         'score': 'score',
         'sentiments': 'sentiments',
         'topics': 'topics',
+        'unaudited_score': 'unauditedScore',
         'voicemail_duration': 'voicemailDuration',
         'voicemail_transcript': 'voicemailTranscript',
         'voicemail_uuid': 'voicemailUuid',
@@ -123,7 +125,7 @@ class CallSegment(object):
         'voicebot_vars': 'voicebotVars'
     }
 
-    def __init__(self, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, audit_completed_by=None, audit_completed_date=None, audit_status=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, progress_phase=None, queue=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, unaudited_score=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, audit_completed_by=None, audit_completed_date=None, audit_status=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, progress_phase=None, queue=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, local_vars_configuration=None):  # noqa: E501
         """CallSegment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -139,6 +141,7 @@ class CallSegment(object):
         self._score = None
         self._sentiments = None
         self._topics = None
+        self._unaudited_score = None
         self._voicemail_duration = None
         self._voicemail_transcript = None
         self._voicemail_uuid = None
@@ -193,6 +196,8 @@ class CallSegment(object):
             self.sentiments = sentiments
         if topics is not None:
             self.topics = topics
+        if unaudited_score is not None:
+            self.unaudited_score = unaudited_score
         if voicemail_duration is not None:
             self.voicemail_duration = voicemail_duration
         if voicemail_transcript is not None:
@@ -435,7 +440,7 @@ class CallSegment(object):
     def score(self):
         """Gets the score of this CallSegment.  # noqa: E501
 
-        Score computed from Call Review  # noqa: E501
+        **Final** QA score from the Call Review - the authoritative score to report on.</br> It starts as the score of the Call Review Answers (`crAnswers`) created during Speech Analytics processing, and becomes the **human-audited** score once a manual audit of those answers is completed (`auditStatus: complete`). Compare with `unauditedScore`, which always keeps the original pre-audit value, to see what an audit changed.</br> Where the audited `crAnswers` are attached to call **segments** rather than to the call, the call-level score aggregates over its segments in the same way `auditStatus` does - so a call's score reflects completed segment audits.</br> If a segment's `crAnswers` has been audited **more than once**, the **most recently completed** audit is the one reflected here (the same audit reported by `auditCompletedBy`).</br> Reverts to `unauditedScore` if the audit is discarded via [DELETE /sa/call/review/answers/{crAnswersId}](#tag/call-review/operation/saCallReviewAnswersDelete) and the call / segment returns to `not_started`, and is recomputed together with `unauditedScore` when the call is reprocessed (recompute / rerun).   # noqa: E501
 
         :return: The score of this CallSegment.  # noqa: E501
         :rtype: float
@@ -446,7 +451,7 @@ class CallSegment(object):
     def score(self, score):
         """Sets the score of this CallSegment.
 
-        Score computed from Call Review  # noqa: E501
+        **Final** QA score from the Call Review - the authoritative score to report on.</br> It starts as the score of the Call Review Answers (`crAnswers`) created during Speech Analytics processing, and becomes the **human-audited** score once a manual audit of those answers is completed (`auditStatus: complete`). Compare with `unauditedScore`, which always keeps the original pre-audit value, to see what an audit changed.</br> Where the audited `crAnswers` are attached to call **segments** rather than to the call, the call-level score aggregates over its segments in the same way `auditStatus` does - so a call's score reflects completed segment audits.</br> If a segment's `crAnswers` has been audited **more than once**, the **most recently completed** audit is the one reflected here (the same audit reported by `auditCompletedBy`).</br> Reverts to `unauditedScore` if the audit is discarded via [DELETE /sa/call/review/answers/{crAnswersId}](#tag/call-review/operation/saCallReviewAnswersDelete) and the call / segment returns to `not_started`, and is recomputed together with `unauditedScore` when the call is reprocessed (recompute / rerun).   # noqa: E501
 
         :param score: The score of this CallSegment.  # noqa: E501
         :type: float
@@ -499,6 +504,29 @@ class CallSegment(object):
         """
 
         self._topics = topics
+
+    @property
+    def unaudited_score(self):
+        """Gets the unaudited_score of this CallSegment.  # noqa: E501
+
+        QA score of the **original**, pre-audit Call Review Answers (`crAnswers`) - the score produced by Speech Analytics processing, before any human audit.</br> Unlike `score`, it is **never** changed by an audit, so `score` - `unauditedScore` is the effect the audit had. On a call or segment that has never been audited the two are equal.</br> Present whenever `score` is present; aggregated over segments at call level on the same basis as `score`.</br> **Note:** on calls and segments whose audit completed **before this field was introduced**, `unauditedScore` is populated with the stored (unaudited) `score` and `score` is **not** retroactively recomputed - so for those records the two are equal even though an audit exists.   # noqa: E501
+
+        :return: The unaudited_score of this CallSegment.  # noqa: E501
+        :rtype: float
+        """
+        return self._unaudited_score
+
+    @unaudited_score.setter
+    def unaudited_score(self, unaudited_score):
+        """Sets the unaudited_score of this CallSegment.
+
+        QA score of the **original**, pre-audit Call Review Answers (`crAnswers`) - the score produced by Speech Analytics processing, before any human audit.</br> Unlike `score`, it is **never** changed by an audit, so `score` - `unauditedScore` is the effect the audit had. On a call or segment that has never been audited the two are equal.</br> Present whenever `score` is present; aggregated over segments at call level on the same basis as `score`.</br> **Note:** on calls and segments whose audit completed **before this field was introduced**, `unauditedScore` is populated with the stored (unaudited) `score` and `score` is **not** retroactively recomputed - so for those records the two are equal even though an audit exists.   # noqa: E501
+
+        :param unaudited_score: The unaudited_score of this CallSegment.  # noqa: E501
+        :type: float
+        """
+
+        self._unaudited_score = unaudited_score
 
     @property
     def voicemail_duration(self):
