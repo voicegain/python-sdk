@@ -72,7 +72,7 @@ class TraceCopilotIn(object):
     def action(self):
         """Gets the action of this TraceCopilotIn.  # noqa: E501
 
-        Action the Agent performed on the Copilot. Currently used values: + **suggestionDisplayed** - the AI (KB) suggestion card was rendered in the Copilot side panel + **suggestionThumbsUp** / **suggestionThumbsDown** - the agent voted on the suggestion + **suggestionLinkOpened** - the agent opened the suggestion link as a web page + **suggestionSavedToCase** - the suggestion article was saved to a Salesforce Case  More actions may be added in the future.   # noqa: E501
+        Action the Agent performed on the Copilot. Currently used values: + **suggestionDisplayed** - the AI (KB) suggestion card was rendered in the Copilot side panel + **suggestionThumbsUp** / **suggestionThumbsDown** - the agent voted on the suggestion + **suggestionLinkOpened** - the agent opened the suggestion link as a web page + **suggestionSavedToCase** - the suggestion article was saved to a Salesforce Case + **saInput** - the agent sent an input into the real-time SA session via   [POST /public-asr/{ccaas}/user/sa-input](#operation/publicCCaaSUserSaInputPost); see `detail`  More actions may be added in the future.   # noqa: E501
 
         :return: The action of this TraceCopilotIn.  # noqa: E501
         :rtype: str
@@ -83,7 +83,7 @@ class TraceCopilotIn(object):
     def action(self, action):
         """Sets the action of this TraceCopilotIn.
 
-        Action the Agent performed on the Copilot. Currently used values: + **suggestionDisplayed** - the AI (KB) suggestion card was rendered in the Copilot side panel + **suggestionThumbsUp** / **suggestionThumbsDown** - the agent voted on the suggestion + **suggestionLinkOpened** - the agent opened the suggestion link as a web page + **suggestionSavedToCase** - the suggestion article was saved to a Salesforce Case  More actions may be added in the future.   # noqa: E501
+        Action the Agent performed on the Copilot. Currently used values: + **suggestionDisplayed** - the AI (KB) suggestion card was rendered in the Copilot side panel + **suggestionThumbsUp** / **suggestionThumbsDown** - the agent voted on the suggestion + **suggestionLinkOpened** - the agent opened the suggestion link as a web page + **suggestionSavedToCase** - the suggestion article was saved to a Salesforce Case + **saInput** - the agent sent an input into the real-time SA session via   [POST /public-asr/{ccaas}/user/sa-input](#operation/publicCCaaSUserSaInputPost); see `detail`  More actions may be added in the future.   # noqa: E501
 
         :param action: The action of this TraceCopilotIn.  # noqa: E501
         :type: str
@@ -118,7 +118,7 @@ class TraceCopilotIn(object):
     def detail(self):
         """Gets the detail of this TraceCopilotIn.  # noqa: E501
 
-        Additional action-specific data. Not used by the current actions; room for future ones.  # noqa: E501
+        Additional action-specific data. Used by action **saInput**, where it carries: + `requestId` - the `requestId` of the sa-input request + `inputType` - the input type (`kbRecommendation` or `question`) + `name` - the recommendation name, for input type `kbRecommendation` only  The text of a `question` input is not recorded. The suggestion actions do not use `detail`.   # noqa: E501
 
         :return: The detail of this TraceCopilotIn.  # noqa: E501
         :rtype: object
@@ -129,7 +129,7 @@ class TraceCopilotIn(object):
     def detail(self, detail):
         """Sets the detail of this TraceCopilotIn.
 
-        Additional action-specific data. Not used by the current actions; room for future ones.  # noqa: E501
+        Additional action-specific data. Used by action **saInput**, where it carries: + `requestId` - the `requestId` of the sa-input request + `inputType` - the input type (`kbRecommendation` or `question`) + `name` - the recommendation name, for input type `kbRecommendation` only  The text of a `question` input is not recorded. The suggestion actions do not use `detail`.   # noqa: E501
 
         :param detail: The detail of this TraceCopilotIn.  # noqa: E501
         :type: object
