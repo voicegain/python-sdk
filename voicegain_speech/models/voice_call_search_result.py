@@ -1625,6 +1625,7 @@ class VoiceCallSearchResult(object):
     def copilot_display(self):
         """Gets the copilot_display of this VoiceCallSearchResult.  # noqa: E501
 
+        The resolved AI Copilot card last shown to the agent on this call, as persisted on the call record: the AIVR App's `copilotDisplayYaml` configuration evaluated against the call's voicebot variables **at the moment of hand-off**, using the display configuration that matches the **connected agent's Copilot version** (the config set is tagged per `minCopilotVersion`).</br> Written when the call is handed off from the voicebot to an agent, and **overwritten on every later hand-off** - a transfer to a second agent replaces it - so it reflects the **last** card an agent was shown, not a history of every card shown during the call.</br> Absent when the call never reached an agent, when the AIVR App has no `copilotDisplayYaml` configuration, or when no configuration matched the agent's Copilot version.   # noqa: E501
 
         :return: The copilot_display of this VoiceCallSearchResult.  # noqa: E501
         :rtype: CopilotDisplayResolved
@@ -1635,6 +1636,7 @@ class VoiceCallSearchResult(object):
     def copilot_display(self, copilot_display):
         """Sets the copilot_display of this VoiceCallSearchResult.
 
+        The resolved AI Copilot card last shown to the agent on this call, as persisted on the call record: the AIVR App's `copilotDisplayYaml` configuration evaluated against the call's voicebot variables **at the moment of hand-off**, using the display configuration that matches the **connected agent's Copilot version** (the config set is tagged per `minCopilotVersion`).</br> Written when the call is handed off from the voicebot to an agent, and **overwritten on every later hand-off** - a transfer to a second agent replaces it - so it reflects the **last** card an agent was shown, not a history of every card shown during the call.</br> Absent when the call never reached an agent, when the AIVR App has no `copilotDisplayYaml` configuration, or when no configuration matched the agent's Copilot version.   # noqa: E501
 
         :param copilot_display: The copilot_display of this VoiceCallSearchResult.  # noqa: E501
         :type: CopilotDisplayResolved
