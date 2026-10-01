@@ -105,6 +105,7 @@ class VoiceCallSearchResult(object):
         'spawned_calls': 'list[str]',
         'version': 'int',
         'voicebot_duration': 'float',
+        'vonage_call_stats': 'VonageCallStats',
         'headline': 'str'
     }
 
@@ -180,10 +181,11 @@ class VoiceCallSearchResult(object):
         'spawned_calls': 'spawnedCalls',
         'version': 'version',
         'voicebot_duration': 'voicebotDuration',
+        'vonage_call_stats': 'vonageCallStats',
         'headline': 'headline'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, unaudited_score=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, headline=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, unaudited_score=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, vonage_call_stats=None, headline=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallSearchResult - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -260,6 +262,7 @@ class VoiceCallSearchResult(object):
         self._spawned_calls = None
         self._version = None
         self._voicebot_duration = None
+        self._vonage_call_stats = None
         self._headline = None
         self.discriminator = None
 
@@ -405,6 +408,8 @@ class VoiceCallSearchResult(object):
             self.version = version
         if voicebot_duration is not None:
             self.voicebot_duration = voicebot_duration
+        if vonage_call_stats is not None:
+            self.vonage_call_stats = vonage_call_stats
         if headline is not None:
             self.headline = headline
 
@@ -1442,7 +1447,7 @@ class VoiceCallSearchResult(object):
     def abandoned(self):
         """Gets the abandoned of this VoiceCallSearchResult.  # noqa: E501
 
-        True when the call was abandoned — i.e. the caller hung up while waiting in the ACD queue before any agent answered. For contact center (CCaaS) calls this is the primary signal used to compute the abandon/disconnect rate. Absent or false for answered calls.   # noqa: E501
+        True when the call was abandoned — i.e. the caller hung up while waiting in the ACD queue before any agent answered. For contact center (CCaaS) calls this is the primary signal used to compute the abandon/disconnect rate. Absent or false for answered calls.</br> When `vonageCallStats` is present this value is taken from `vonageCallStats.derived.abandonedInQueue` and is authoritative. Without it the value is derived from the live call events, which can be wrong in two known ways: an abandon is missed when the queue event had not been written yet, and a queue breakout to voicemail (`QueueTimeBreakout`) is reported as an abandon although it is not one.   # noqa: E501
 
         :return: The abandoned of this VoiceCallSearchResult.  # noqa: E501
         :rtype: bool
@@ -1453,7 +1458,7 @@ class VoiceCallSearchResult(object):
     def abandoned(self, abandoned):
         """Sets the abandoned of this VoiceCallSearchResult.
 
-        True when the call was abandoned — i.e. the caller hung up while waiting in the ACD queue before any agent answered. For contact center (CCaaS) calls this is the primary signal used to compute the abandon/disconnect rate. Absent or false for answered calls.   # noqa: E501
+        True when the call was abandoned — i.e. the caller hung up while waiting in the ACD queue before any agent answered. For contact center (CCaaS) calls this is the primary signal used to compute the abandon/disconnect rate. Absent or false for answered calls.</br> When `vonageCallStats` is present this value is taken from `vonageCallStats.derived.abandonedInQueue` and is authoritative. Without it the value is derived from the live call events, which can be wrong in two known ways: an abandon is missed when the queue event had not been written yet, and a queue breakout to voicemail (`QueueTimeBreakout`) is reported as an abandon although it is not one.   # noqa: E501
 
         :param abandoned: The abandoned of this VoiceCallSearchResult.  # noqa: E501
         :type: bool
@@ -1910,7 +1915,7 @@ class VoiceCallSearchResult(object):
     def queue_wait_ms(self):
         """Gets the queue_wait_ms of this VoiceCallSearchResult.  # noqa: E501
 
-        Time the caller spent waiting in the ACD queue, in milliseconds (queue-only, excluding IVR time). Set for abandoned calls and computed as `disconnectTime - (interactionStart + queueOffset)`. Compare against a threshold (e.g. 5000 ms) to distinguish short abandons from long abandons.   # noqa: E501
+        Time the caller spent waiting in the ACD queue, in milliseconds (queue-only, excluding IVR time). Set for abandoned calls and computed as `disconnectTime - (interactionStart + queueOffset)`. Compare against a threshold (e.g. 5000 ms) to distinguish short abandons from long abandons.</br> When `vonageCallStats` is present this value is taken from `vonageCallStats.derived.abandonTimeMs` and is authoritative. The equivalent for answered calls - how long the caller waited before an agent picked up - is `vonageCallStats.derived.answerTimeMs`.   # noqa: E501
 
         :return: The queue_wait_ms of this VoiceCallSearchResult.  # noqa: E501
         :rtype: int
@@ -1921,7 +1926,7 @@ class VoiceCallSearchResult(object):
     def queue_wait_ms(self, queue_wait_ms):
         """Sets the queue_wait_ms of this VoiceCallSearchResult.
 
-        Time the caller spent waiting in the ACD queue, in milliseconds (queue-only, excluding IVR time). Set for abandoned calls and computed as `disconnectTime - (interactionStart + queueOffset)`. Compare against a threshold (e.g. 5000 ms) to distinguish short abandons from long abandons.   # noqa: E501
+        Time the caller spent waiting in the ACD queue, in milliseconds (queue-only, excluding IVR time). Set for abandoned calls and computed as `disconnectTime - (interactionStart + queueOffset)`. Compare against a threshold (e.g. 5000 ms) to distinguish short abandons from long abandons.</br> When `vonageCallStats` is present this value is taken from `vonageCallStats.derived.abandonTimeMs` and is authoritative. The equivalent for answered calls - how long the caller waited before an agent picked up - is `vonageCallStats.derived.answerTimeMs`.   # noqa: E501
 
         :param queue_wait_ms: The queue_wait_ms of this VoiceCallSearchResult.  # noqa: E501
         :type: int
@@ -2159,6 +2164,29 @@ class VoiceCallSearchResult(object):
         """
 
         self._voicebot_duration = voicebot_duration
+
+    @property
+    def vonage_call_stats(self):
+        """Gets the vonage_call_stats of this VoiceCallSearchResult.  # noqa: E501
+
+        Finalized post-call statistics for this call, as delivered by the Vonage call statistics webhook <a href=\"#tag/ccaas-webhook/operation/publicWebhookVonageCallStats\">POST /public/webhook/vonage/call-stats</a>.</br> Present only for calls on an AIVR App whose `aivrPlatform` is `vonageVcca`.</br> </br> These statistics are built from the **finalized** Vonage Stats record, so where they overlap with values derived from the live Vonage events - `abandoned` and `queueWaitMs` - they supersede them.</br> </br> They arrive **asynchronously, after the call has ended** - seconds, sometimes many minutes later - so this field can be absent on a call that is otherwise fully processed. Three states are distinguishable: + **absent** - no statistics have been received. They may still arrive later, or never: Vonage does   not always finalize the record. Reports must tolerate calls with no statistics. + **present with `interaction.status` = `Completed`** - final and complete. + **present with `interaction.status` = `Ongoing`** - a partial snapshot, sent because the Vonage   record never finalized within the sender's polling window. `outcome` is `null` and the call must   not be counted as answered or abandoned. A later `Completed` payload replaces it.  A call whose record exists **only** because these statistics arrived - an abandon, or an IVR-only call, that never produced a `channel.connected.v1` - has no transcript, no AIVR session and no recording.   # noqa: E501
+
+        :return: The vonage_call_stats of this VoiceCallSearchResult.  # noqa: E501
+        :rtype: VonageCallStats
+        """
+        return self._vonage_call_stats
+
+    @vonage_call_stats.setter
+    def vonage_call_stats(self, vonage_call_stats):
+        """Sets the vonage_call_stats of this VoiceCallSearchResult.
+
+        Finalized post-call statistics for this call, as delivered by the Vonage call statistics webhook <a href=\"#tag/ccaas-webhook/operation/publicWebhookVonageCallStats\">POST /public/webhook/vonage/call-stats</a>.</br> Present only for calls on an AIVR App whose `aivrPlatform` is `vonageVcca`.</br> </br> These statistics are built from the **finalized** Vonage Stats record, so where they overlap with values derived from the live Vonage events - `abandoned` and `queueWaitMs` - they supersede them.</br> </br> They arrive **asynchronously, after the call has ended** - seconds, sometimes many minutes later - so this field can be absent on a call that is otherwise fully processed. Three states are distinguishable: + **absent** - no statistics have been received. They may still arrive later, or never: Vonage does   not always finalize the record. Reports must tolerate calls with no statistics. + **present with `interaction.status` = `Completed`** - final and complete. + **present with `interaction.status` = `Ongoing`** - a partial snapshot, sent because the Vonage   record never finalized within the sender's polling window. `outcome` is `null` and the call must   not be counted as answered or abandoned. A later `Completed` payload replaces it.  A call whose record exists **only** because these statistics arrived - an abandon, or an IVR-only call, that never produced a `channel.connected.v1` - has no transcript, no AIVR session and no recording.   # noqa: E501
+
+        :param vonage_call_stats: The vonage_call_stats of this VoiceCallSearchResult.  # noqa: E501
+        :type: VonageCallStats
+        """
+
+        self._vonage_call_stats = vonage_call_stats
 
     @property
     def headline(self):
