@@ -67,7 +67,7 @@ class Output(object):
     def end_reason(self):
         """Gets the end_reason of this Output.  # noqa: E501
 
-        applies only to played prompt  # noqa: E501
+        Applies only to a played prompt:</br> - `completed` - the prompt played to the end</br> - `bargeIn` - the caller barged in</br> - `interrupted` - the prompt was interrupted by the bot logic</br> - `hangup` - the caller hung up while the prompt was playing. `timeMsec - actionStartMsec` is how much of the prompt was played.   No further callback is made for that turn; the next request is the DELETE, which carries this event followed by a `hangup` event.</br>   # noqa: E501
 
         :return: The end_reason of this Output.  # noqa: E501
         :rtype: str
@@ -78,12 +78,12 @@ class Output(object):
     def end_reason(self, end_reason):
         """Sets the end_reason of this Output.
 
-        applies only to played prompt  # noqa: E501
+        Applies only to a played prompt:</br> - `completed` - the prompt played to the end</br> - `bargeIn` - the caller barged in</br> - `interrupted` - the prompt was interrupted by the bot logic</br> - `hangup` - the caller hung up while the prompt was playing. `timeMsec - actionStartMsec` is how much of the prompt was played.   No further callback is made for that turn; the next request is the DELETE, which carries this event followed by a `hangup` event.</br>   # noqa: E501
 
         :param end_reason: The end_reason of this Output.  # noqa: E501
         :type: str
         """
-        allowed_values = ["completed", "bargeIn"]  # noqa: E501
+        allowed_values = ["completed", "bargeIn", "interrupted", "hangup"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and end_reason not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `end_reason` ({0}), must be one of {1}"  # noqa: E501
