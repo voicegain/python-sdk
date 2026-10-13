@@ -36,6 +36,7 @@ class Silence(object):
     openapi_types = {
         'incident_count': 'int',
         'maximum_msec': 'str',
+        'normal_msec': 'int',
         'percentage': 'str',
         'total_msec': 'str'
     }
@@ -43,11 +44,12 @@ class Silence(object):
     attribute_map = {
         'incident_count': 'incidentCount',
         'maximum_msec': 'maximumMsec',
+        'normal_msec': 'normalMsec',
         'percentage': 'percentage',
         'total_msec': 'totalMsec'
     }
 
-    def __init__(self, incident_count=None, maximum_msec=None, percentage=None, total_msec=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, incident_count=None, maximum_msec=None, normal_msec=None, percentage=None, total_msec=None, local_vars_configuration=None):  # noqa: E501
         """Silence - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -55,6 +57,7 @@ class Silence(object):
 
         self._incident_count = None
         self._maximum_msec = None
+        self._normal_msec = None
         self._percentage = None
         self._total_msec = None
         self.discriminator = None
@@ -63,6 +66,8 @@ class Silence(object):
             self.incident_count = incident_count
         if maximum_msec is not None:
             self.maximum_msec = maximum_msec
+        if normal_msec is not None:
+            self.normal_msec = normal_msec
         if percentage is not None:
             self.percentage = percentage
         if total_msec is not None:
@@ -119,6 +124,32 @@ class Silence(object):
             raise ValueError("Invalid value for `maximum_msec`, length must be less than or equal to `64`")  # noqa: E501
 
         self._maximum_msec = maximum_msec
+
+    @property
+    def normal_msec(self):
+        """Gets the normal_msec of this Silence.  # noqa: E501
+
+        (optional) Combined length of normal silence, in milliseconds - i.e. silence that is **not** classified as excessive (not counted in `totalMsec`).</br> Scope follows the containing object: for the whole call when returned at the call level, for a single segment when returned in `segments[].silence`.</br> Not evaluated against thresholds, hence a plain number rather than `val|range|eval`.   # noqa: E501
+
+        :return: The normal_msec of this Silence.  # noqa: E501
+        :rtype: int
+        """
+        return self._normal_msec
+
+    @normal_msec.setter
+    def normal_msec(self, normal_msec):
+        """Sets the normal_msec of this Silence.
+
+        (optional) Combined length of normal silence, in milliseconds - i.e. silence that is **not** classified as excessive (not counted in `totalMsec`).</br> Scope follows the containing object: for the whole call when returned at the call level, for a single segment when returned in `segments[].silence`.</br> Not evaluated against thresholds, hence a plain number rather than `val|range|eval`.   # noqa: E501
+
+        :param normal_msec: The normal_msec of this Silence.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                normal_msec is not None and normal_msec < 0):  # noqa: E501
+            raise ValueError("Invalid value for `normal_msec`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._normal_msec = normal_msec
 
     @property
     def percentage(self):
