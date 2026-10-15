@@ -55,6 +55,7 @@ class CallSegment(object):
         'answering_endpoint': 'str',
         'audit_completed_by': 'str',
         'audit_completed_date': 'datetime',
+        'audit_started_by': 'str',
         'audit_status': 'AuditStatus',
         'business_open_state': 'str',
         'call_center_call_segment_id': 'str',
@@ -101,6 +102,7 @@ class CallSegment(object):
         'answering_endpoint': 'answeringEndpoint',
         'audit_completed_by': 'auditCompletedBy',
         'audit_completed_date': 'auditCompletedDate',
+        'audit_started_by': 'auditStartedBy',
         'audit_status': 'auditStatus',
         'business_open_state': 'businessOpenState',
         'call_center_call_segment_id': 'callCenterCallSegmentId',
@@ -125,7 +127,7 @@ class CallSegment(object):
         'voicebot_vars': 'voicebotVars'
     }
 
-    def __init__(self, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, unaudited_score=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, audit_completed_by=None, audit_completed_date=None, audit_status=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, progress_phase=None, queue=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, unaudited_score=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, agent=None, agent_feedback=None, aivr_vars=None, answering_endpoint=None, audit_completed_by=None, audit_completed_date=None, audit_started_by=None, audit_status=None, business_open_state=None, call_center_call_segment_id=None, duration=None, end_ms=None, end_time=None, markers=None, modifiable_note=None, progress_phase=None, queue=None, review_status=None, sa_session_id=None, sa_session_segment_seq=None, segment_seq=None, start_ms=None, start_time=None, tags=None, team=None, transfer_dest=None, transfer_dest_type=None, type=None, voicebot_vars=None, local_vars_configuration=None):  # noqa: E501
         """CallSegment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -152,6 +154,7 @@ class CallSegment(object):
         self._answering_endpoint = None
         self._audit_completed_by = None
         self._audit_completed_date = None
+        self._audit_started_by = None
         self._audit_status = None
         self._business_open_state = None
         self._call_center_call_segment_id = None
@@ -218,6 +221,8 @@ class CallSegment(object):
             self.audit_completed_by = audit_completed_by
         if audit_completed_date is not None:
             self.audit_completed_date = audit_completed_date
+        if audit_started_by is not None:
+            self.audit_started_by = audit_started_by
         if audit_status is not None:
             self.audit_status = audit_status
         if business_open_state is not None:
@@ -771,6 +776,35 @@ class CallSegment(object):
         """
 
         self._audit_completed_date = audit_completed_date
+
+    @property
+    def audit_started_by(self):
+        """Gets the audit_started_by of this CallSegment.  # noqa: E501
+
+        `userId` of the reviewer who **started** the audit that `auditStatus` describes - the `createdBy` of the underlying audit record (see the Call Review Answers object): + `in_progress` - the starter of the **most recently started** audit of this segment; + `complete` - the starter of the **most recently completed** audit, i.e. the same audit reported by   `auditCompletedBy` (the two userIds differ when one reviewer starts an audit and another completes it); + `not_started` - absent.  Unlike `auditCompletedBy`, it is present for both `in_progress` and `complete`, so a worklist can show who has picked a segment up. Absent when the audit was started with a service (API key) token rather than by a user, and may be absent on a segment whose audit predates this field.</br> Searchable as the `AUDITED_BY` field of [POST /sa/call/segment/search](#tag/sa-internal/operation/saCallSegmentSearchPost).</br> Follows `auditStatus` exactly: when an audit is discarded via [DELETE /sa/call/review/answers/{crAnswersId}](#tag/call-review/operation/saCallReviewAnswersDelete) it is recomputed from the surviving audits (cleared when the segment returns to `not_started`), and it is reset when the call is reprocessed (recompute / rerun re-creates the segments).   # noqa: E501
+
+        :return: The audit_started_by of this CallSegment.  # noqa: E501
+        :rtype: str
+        """
+        return self._audit_started_by
+
+    @audit_started_by.setter
+    def audit_started_by(self, audit_started_by):
+        """Sets the audit_started_by of this CallSegment.
+
+        `userId` of the reviewer who **started** the audit that `auditStatus` describes - the `createdBy` of the underlying audit record (see the Call Review Answers object): + `in_progress` - the starter of the **most recently started** audit of this segment; + `complete` - the starter of the **most recently completed** audit, i.e. the same audit reported by   `auditCompletedBy` (the two userIds differ when one reviewer starts an audit and another completes it); + `not_started` - absent.  Unlike `auditCompletedBy`, it is present for both `in_progress` and `complete`, so a worklist can show who has picked a segment up. Absent when the audit was started with a service (API key) token rather than by a user, and may be absent on a segment whose audit predates this field.</br> Searchable as the `AUDITED_BY` field of [POST /sa/call/segment/search](#tag/sa-internal/operation/saCallSegmentSearchPost).</br> Follows `auditStatus` exactly: when an audit is discarded via [DELETE /sa/call/review/answers/{crAnswersId}](#tag/call-review/operation/saCallReviewAnswersDelete) it is recomputed from the surviving audits (cleared when the segment returns to `not_started`), and it is reset when the call is reprocessed (recompute / rerun re-creates the segments).   # noqa: E501
+
+        :param audit_started_by: The audit_started_by of this CallSegment.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                audit_started_by is not None and len(audit_started_by) > 48):
+            raise ValueError("Invalid value for `audit_started_by`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                audit_started_by is not None and len(audit_started_by) < 16):
+            raise ValueError("Invalid value for `audit_started_by`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._audit_started_by = audit_started_by
 
     @property
     def audit_status(self):
