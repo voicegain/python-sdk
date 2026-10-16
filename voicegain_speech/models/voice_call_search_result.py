@@ -78,7 +78,7 @@ class VoiceCallSearchResult(object):
         'word_cloud': 'list[WordCloudItem]',
         'abandoned': 'bool',
         'account_id': 'str',
-        'aivr_transfer_dest_type': 'str',
+        'aivr_transfer_dest_type': 'TransferDestType',
         'audit_status': 'AuditStatus',
         'billing': 'CallBilling',
         'call_id': 'str',
@@ -1499,10 +1499,10 @@ class VoiceCallSearchResult(object):
     def aivr_transfer_dest_type(self):
         """Gets the aivr_transfer_dest_type of this VoiceCallSearchResult.  # noqa: E501
 
-        Short string describing the type of destination for the AIVR transfer. Will be absent if the call did not come from an AIVR App. Example values are: + Internal - if the transfer was done to internal call center + Agency - if the transfer was done to an external agency   # noqa: E501
+        Type of destination for the AIVR transfer. Will be absent if the call did not come from an AIVR App.   # noqa: E501
 
         :return: The aivr_transfer_dest_type of this VoiceCallSearchResult.  # noqa: E501
-        :rtype: str
+        :rtype: TransferDestType
         """
         return self._aivr_transfer_dest_type
 
@@ -1510,17 +1510,11 @@ class VoiceCallSearchResult(object):
     def aivr_transfer_dest_type(self, aivr_transfer_dest_type):
         """Sets the aivr_transfer_dest_type of this VoiceCallSearchResult.
 
-        Short string describing the type of destination for the AIVR transfer. Will be absent if the call did not come from an AIVR App. Example values are: + Internal - if the transfer was done to internal call center + Agency - if the transfer was done to an external agency   # noqa: E501
+        Type of destination for the AIVR transfer. Will be absent if the call did not come from an AIVR App.   # noqa: E501
 
         :param aivr_transfer_dest_type: The aivr_transfer_dest_type of this VoiceCallSearchResult.  # noqa: E501
-        :type: str
+        :type: TransferDestType
         """
-        if (self.local_vars_configuration.client_side_validation and
-                aivr_transfer_dest_type is not None and len(aivr_transfer_dest_type) > 32):
-            raise ValueError("Invalid value for `aivr_transfer_dest_type`, length must be less than or equal to `32`")  # noqa: E501
-        if (self.local_vars_configuration.client_side_validation and
-                aivr_transfer_dest_type is not None and len(aivr_transfer_dest_type) < 1):
-            raise ValueError("Invalid value for `aivr_transfer_dest_type`, length must be greater than or equal to `1`")  # noqa: E501
 
         self._aivr_transfer_dest_type = aivr_transfer_dest_type
 

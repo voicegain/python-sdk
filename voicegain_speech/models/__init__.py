@@ -664,6 +664,7 @@ from voicegain_speech.models.transcript_position_range_for_phrase_with_chn impor
 from voicegain_speech.models.transcript_position_range_simple import TranscriptPositionRangeSimple
 from voicegain_speech.models.transfer import Transfer
 from voicegain_speech.models.transfer_all_of import TransferAllOf
+from voicegain_speech.models.transfer_dest_type import TransferDestType
 from voicegain_speech.models.txt_search_term import TxtSearchTerm
 from voicegain_speech.models.txt_search_term_all_of import TxtSearchTermAllOf
 from voicegain_speech.models.typed_sentence import TypedSentence

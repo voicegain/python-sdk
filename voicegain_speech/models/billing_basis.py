@@ -49,7 +49,7 @@ class BillingBasis(object):
         'reached_agent': 'bool',
         'rule': 'BillingRule',
         'segment_seconds': 'int',
-        'transfer_dest_type': 'str',
+        'transfer_dest_type': 'TransferDestType',
         'who_hung_up': 'str'
     }
 
@@ -495,10 +495,10 @@ class BillingBasis(object):
     def transfer_dest_type(self):
         """Gets the transfer_dest_type of this BillingBasis.  # noqa: E501
 
-        Stored transfer destination type - `Agency` for a bridge, `Internal` for a phone transfer. This does not distinguish a warm transfer from a CTI call; use `platform` for that.   # noqa: E501
+        Stored transfer destination type - `agency` for a bridge, `internal` for a phone transfer. This does not distinguish a warm transfer from a CTI call; use `platform` for that.   # noqa: E501
 
         :return: The transfer_dest_type of this BillingBasis.  # noqa: E501
-        :rtype: str
+        :rtype: TransferDestType
         """
         return self._transfer_dest_type
 
@@ -506,10 +506,10 @@ class BillingBasis(object):
     def transfer_dest_type(self, transfer_dest_type):
         """Sets the transfer_dest_type of this BillingBasis.
 
-        Stored transfer destination type - `Agency` for a bridge, `Internal` for a phone transfer. This does not distinguish a warm transfer from a CTI call; use `platform` for that.   # noqa: E501
+        Stored transfer destination type - `agency` for a bridge, `internal` for a phone transfer. This does not distinguish a warm transfer from a CTI call; use `platform` for that.   # noqa: E501
 
         :param transfer_dest_type: The transfer_dest_type of this BillingBasis.  # noqa: E501
-        :type: str
+        :type: TransferDestType
         """
 
         self._transfer_dest_type = transfer_dest_type

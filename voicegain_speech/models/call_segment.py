@@ -75,7 +75,7 @@ class CallSegment(object):
         'tags': 'list[str]',
         'team': 'str',
         'transfer_dest': 'str',
-        'transfer_dest_type': 'str',
+        'transfer_dest_type': 'TransferDestType',
         'type': 'SegmentType',
         'voicebot_vars': 'dict(str, object)'
     }
@@ -1280,10 +1280,10 @@ class CallSegment(object):
     def transfer_dest_type(self):
         """Gets the transfer_dest_type of this CallSegment.  # noqa: E501
 
-        Type of transfer destination: \"internal\" or \"external\"   # noqa: E501
+        Type of transfer destination  # noqa: E501
 
         :return: The transfer_dest_type of this CallSegment.  # noqa: E501
-        :rtype: str
+        :rtype: TransferDestType
         """
         return self._transfer_dest_type
 
@@ -1291,14 +1291,11 @@ class CallSegment(object):
     def transfer_dest_type(self, transfer_dest_type):
         """Sets the transfer_dest_type of this CallSegment.
 
-        Type of transfer destination: \"internal\" or \"external\"   # noqa: E501
+        Type of transfer destination  # noqa: E501
 
         :param transfer_dest_type: The transfer_dest_type of this CallSegment.  # noqa: E501
-        :type: str
+        :type: TransferDestType
         """
-        if (self.local_vars_configuration.client_side_validation and
-                transfer_dest_type is not None and len(transfer_dest_type) > 32):
-            raise ValueError("Invalid value for `transfer_dest_type`, length must be less than or equal to `32`")  # noqa: E501
 
         self._transfer_dest_type = transfer_dest_type
 
