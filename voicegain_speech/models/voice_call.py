@@ -79,6 +79,7 @@ class VoiceCall(object):
         'abandoned': 'bool',
         'account_id': 'str',
         'aivr_transfer_dest_type': 'TransferDestType',
+        'audit_started_by': 'str',
         'audit_status': 'AuditStatus',
         'billing': 'CallBilling',
         'call_id': 'str',
@@ -154,6 +155,7 @@ class VoiceCall(object):
         'abandoned': 'abandoned',
         'account_id': 'accountId',
         'aivr_transfer_dest_type': 'aivrTransferDestType',
+        'audit_started_by': 'auditStartedBy',
         'audit_status': 'auditStatus',
         'billing': 'billing',
         'call_id': 'callId',
@@ -183,7 +185,7 @@ class VoiceCall(object):
         'vonage_call_stats': 'vonageCallStats'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, unaudited_score=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, vonage_call_stats=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, unaudited_score=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_started_by=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, vonage_call_stats=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -234,6 +236,7 @@ class VoiceCall(object):
         self._abandoned = None
         self._account_id = None
         self._aivr_transfer_dest_type = None
+        self._audit_started_by = None
         self._audit_status = None
         self._billing = None
         self._call_id = None
@@ -353,6 +356,8 @@ class VoiceCall(object):
             self.account_id = account_id
         if aivr_transfer_dest_type is not None:
             self.aivr_transfer_dest_type = aivr_transfer_dest_type
+        if audit_started_by is not None:
+            self.audit_started_by = audit_started_by
         if audit_status is not None:
             self.audit_status = audit_status
         if billing is not None:
@@ -1512,6 +1517,35 @@ class VoiceCall(object):
         """
 
         self._aivr_transfer_dest_type = aivr_transfer_dest_type
+
+    @property
+    def audit_started_by(self):
+        """Gets the audit_started_by of this VoiceCall.  # noqa: E501
+
+        `userId` of the reviewer who **started** the audit that `auditStatus` describes - the `createdBy` of the underlying audit record (see the Call Review Answers object). Taken over **every** audit of the call - those on the call itself and those on any of its segments - in the same way `auditStatus` rolls them up: + `in_progress` - the starter of the **most recently started** audit of the call or any of its segments; + `complete` - the starter of the **most recently completed** audit, even while another segment still   has an audit in progress; + `not_started` - absent.  Present for both `in_progress` and `complete`, so a worklist can show who has picked a call up. Absent when the audit was started with a service (API key) token rather than by a user, and may be absent on a call whose audit predates this field (there is no backfill). Per-segment detail is in `auditStartedBy` on the Call Segment object.</br> Searchable as the `AUDITED_BY` field of [POST /sa/call/search](#tag/sa-internal/operation/saCallSearchPost).</br> Follows `auditStatus` exactly: when an audit is discarded via [DELETE /sa/call/review/answers/{crAnswersId}](#tag/call-review/operation/saCallReviewAnswersDelete) it is recomputed from the surviving audits (cleared when the call returns to `not_started`), and it is reset when the call is reprocessed (recompute / rerun re-creates the call's segments).   # noqa: E501
+
+        :return: The audit_started_by of this VoiceCall.  # noqa: E501
+        :rtype: str
+        """
+        return self._audit_started_by
+
+    @audit_started_by.setter
+    def audit_started_by(self, audit_started_by):
+        """Sets the audit_started_by of this VoiceCall.
+
+        `userId` of the reviewer who **started** the audit that `auditStatus` describes - the `createdBy` of the underlying audit record (see the Call Review Answers object). Taken over **every** audit of the call - those on the call itself and those on any of its segments - in the same way `auditStatus` rolls them up: + `in_progress` - the starter of the **most recently started** audit of the call or any of its segments; + `complete` - the starter of the **most recently completed** audit, even while another segment still   has an audit in progress; + `not_started` - absent.  Present for both `in_progress` and `complete`, so a worklist can show who has picked a call up. Absent when the audit was started with a service (API key) token rather than by a user, and may be absent on a call whose audit predates this field (there is no backfill). Per-segment detail is in `auditStartedBy` on the Call Segment object.</br> Searchable as the `AUDITED_BY` field of [POST /sa/call/search](#tag/sa-internal/operation/saCallSearchPost).</br> Follows `auditStatus` exactly: when an audit is discarded via [DELETE /sa/call/review/answers/{crAnswersId}](#tag/call-review/operation/saCallReviewAnswersDelete) it is recomputed from the surviving audits (cleared when the call returns to `not_started`), and it is reset when the call is reprocessed (recompute / rerun re-creates the call's segments).   # noqa: E501
+
+        :param audit_started_by: The audit_started_by of this VoiceCall.  # noqa: E501
+        :type: str
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                audit_started_by is not None and len(audit_started_by) > 48):
+            raise ValueError("Invalid value for `audit_started_by`, length must be less than or equal to `48`")  # noqa: E501
+        if (self.local_vars_configuration.client_side_validation and
+                audit_started_by is not None and len(audit_started_by) < 16):
+            raise ValueError("Invalid value for `audit_started_by`, length must be greater than or equal to `16`")  # noqa: E501
+
+        self._audit_started_by = audit_started_by
 
     @property
     def audit_status(self):
