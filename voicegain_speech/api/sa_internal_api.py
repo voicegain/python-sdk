@@ -622,7 +622,7 @@ class SaInternalApi(object):
     def sa_call_search_fields_get(self, **kwargs):  # noqa: E501
         """Get Search Field Metadata  # noqa: E501
 
-        Retrieve field types and enumerable values that can be used in call search queries.</br> If the request is made with an HMAC signature, only fields searchable by the user are returned (may be further restricted by the `contextId` list).</br> If the request is made with a JWT token, all fields within the account are returned (unless restricted by the `contextId` list).</br>   # noqa: E501
+        Retrieve field types and enumerable values that can be used in call search queries.</br> If the request is made with an HMAC signature, only fields searchable by the user are returned (may be further restricted by the `contextId` list).</br> If the request is made with a JWT token, all fields within the account are returned (unless restricted by the `contextId` list).</br> Fields `CALL_ID`, `CC_CALL_ID` and `EXTERNAL_ENDPOINT` are not returned, even when requested via `field`: they have roughly one value per call, so there is no useful field metadata for them. They can still be used in call search queries.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_fields_get(async_req=True)
@@ -649,7 +649,7 @@ class SaInternalApi(object):
     def sa_call_search_fields_get_with_http_info(self, **kwargs):  # noqa: E501
         """Get Search Field Metadata  # noqa: E501
 
-        Retrieve field types and enumerable values that can be used in call search queries.</br> If the request is made with an HMAC signature, only fields searchable by the user are returned (may be further restricted by the `contextId` list).</br> If the request is made with a JWT token, all fields within the account are returned (unless restricted by the `contextId` list).</br>   # noqa: E501
+        Retrieve field types and enumerable values that can be used in call search queries.</br> If the request is made with an HMAC signature, only fields searchable by the user are returned (may be further restricted by the `contextId` list).</br> If the request is made with a JWT token, all fields within the account are returned (unless restricted by the `contextId` list).</br> Fields `CALL_ID`, `CC_CALL_ID` and `EXTERNAL_ENDPOINT` are not returned, even when requested via `field`: they have roughly one value per call, so there is no useful field metadata for them. They can still be used in call search queries.</br>   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_fields_get_with_http_info(async_req=True)
