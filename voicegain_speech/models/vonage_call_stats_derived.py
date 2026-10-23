@@ -35,11 +35,13 @@ class VonageCallStatsDerived(object):
     """
     openapi_types = {
         'abandon_time_ms': 'int',
+        'abandoned_by_agent': 'bool',
         'abandoned_in_ivr': 'bool',
         'abandoned_in_queue': 'bool',
         'answer_time_ms': 'int',
         'answered': 'bool',
         'blocked': 'bool',
+        'caller_dwell_after_agent_ms': 'int',
         'first_agent_ring_offset_ms': 'int',
         'handled_by_ivr': 'bool',
         'hold_time_ms': 'int',
@@ -48,16 +50,19 @@ class VonageCallStatsDerived(object):
         'ringing_time_ms': 'int',
         'talk_time_ms': 'int',
         'transfers_out': 'int',
+        'utterance_count': 'int',
         'wrap_time_ms': 'int'
     }
 
     attribute_map = {
         'abandon_time_ms': 'abandonTimeMs',
+        'abandoned_by_agent': 'abandonedByAgent',
         'abandoned_in_ivr': 'abandonedInIvr',
         'abandoned_in_queue': 'abandonedInQueue',
         'answer_time_ms': 'answerTimeMs',
         'answered': 'answered',
         'blocked': 'blocked',
+        'caller_dwell_after_agent_ms': 'callerDwellAfterAgentMs',
         'first_agent_ring_offset_ms': 'firstAgentRingOffsetMs',
         'handled_by_ivr': 'handledByIvr',
         'hold_time_ms': 'holdTimeMs',
@@ -66,21 +71,24 @@ class VonageCallStatsDerived(object):
         'ringing_time_ms': 'ringingTimeMs',
         'talk_time_ms': 'talkTimeMs',
         'transfers_out': 'transfersOut',
+        'utterance_count': 'utteranceCount',
         'wrap_time_ms': 'wrapTimeMs'
     }
 
-    def __init__(self, abandon_time_ms=None, abandoned_in_ivr=None, abandoned_in_queue=None, answer_time_ms=None, answered=None, blocked=None, first_agent_ring_offset_ms=None, handled_by_ivr=None, hold_time_ms=None, message_taken=None, on_hold=None, ringing_time_ms=None, talk_time_ms=None, transfers_out=None, wrap_time_ms=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, abandon_time_ms=None, abandoned_by_agent=None, abandoned_in_ivr=None, abandoned_in_queue=None, answer_time_ms=None, answered=None, blocked=None, caller_dwell_after_agent_ms=None, first_agent_ring_offset_ms=None, handled_by_ivr=None, hold_time_ms=None, message_taken=None, on_hold=None, ringing_time_ms=None, talk_time_ms=None, transfers_out=None, utterance_count=None, wrap_time_ms=None, local_vars_configuration=None):  # noqa: E501
         """VonageCallStatsDerived - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._abandon_time_ms = None
+        self._abandoned_by_agent = None
         self._abandoned_in_ivr = None
         self._abandoned_in_queue = None
         self._answer_time_ms = None
         self._answered = None
         self._blocked = None
+        self._caller_dwell_after_agent_ms = None
         self._first_agent_ring_offset_ms = None
         self._handled_by_ivr = None
         self._hold_time_ms = None
@@ -89,11 +97,14 @@ class VonageCallStatsDerived(object):
         self._ringing_time_ms = None
         self._talk_time_ms = None
         self._transfers_out = None
+        self._utterance_count = None
         self._wrap_time_ms = None
         self.discriminator = None
 
         if abandon_time_ms is not None:
             self.abandon_time_ms = abandon_time_ms
+        if abandoned_by_agent is not None:
+            self.abandoned_by_agent = abandoned_by_agent
         if abandoned_in_ivr is not None:
             self.abandoned_in_ivr = abandoned_in_ivr
         if abandoned_in_queue is not None:
@@ -104,6 +115,7 @@ class VonageCallStatsDerived(object):
             self.answered = answered
         if blocked is not None:
             self.blocked = blocked
+        self.caller_dwell_after_agent_ms = caller_dwell_after_agent_ms
         self.first_agent_ring_offset_ms = first_agent_ring_offset_ms
         if handled_by_ivr is not None:
             self.handled_by_ivr = handled_by_ivr
@@ -118,6 +130,7 @@ class VonageCallStatsDerived(object):
         self.talk_time_ms = talk_time_ms
         if transfers_out is not None:
             self.transfers_out = transfers_out
+        self.utterance_count = utterance_count
         if wrap_time_ms is not None:
             self.wrap_time_ms = wrap_time_ms
 
@@ -143,6 +156,29 @@ class VonageCallStatsDerived(object):
         """
 
         self._abandon_time_ms = abandon_time_ms
+
+    @property
+    def abandoned_by_agent(self):
+        """Gets the abandoned_by_agent of this VonageCallStatsDerived.  # noqa: E501
+
+        The agent left a caller who was still on the line, without a word being transcribed. True when all of: + `answered` is true + Vonage sent zero utterances for the interaction (`utteranceCount` is `0`) + there was no transfer or consult + the caller's leg outlived the last connected agent's connection by at least 5 s   (`callerDwellAfterAgentMs` >= 5000) + that agent connection lasted at most 60 s - this only guards against a long call whose   transcription failed.  False when `utteranceCount` is `null`.   # noqa: E501
+
+        :return: The abandoned_by_agent of this VonageCallStatsDerived.  # noqa: E501
+        :rtype: bool
+        """
+        return self._abandoned_by_agent
+
+    @abandoned_by_agent.setter
+    def abandoned_by_agent(self, abandoned_by_agent):
+        """Sets the abandoned_by_agent of this VonageCallStatsDerived.
+
+        The agent left a caller who was still on the line, without a word being transcribed. True when all of: + `answered` is true + Vonage sent zero utterances for the interaction (`utteranceCount` is `0`) + there was no transfer or consult + the caller's leg outlived the last connected agent's connection by at least 5 s   (`callerDwellAfterAgentMs` >= 5000) + that agent connection lasted at most 60 s - this only guards against a long call whose   transcription failed.  False when `utteranceCount` is `null`.   # noqa: E501
+
+        :param abandoned_by_agent: The abandoned_by_agent of this VonageCallStatsDerived.  # noqa: E501
+        :type: bool
+        """
+
+        self._abandoned_by_agent = abandoned_by_agent
 
     @property
     def abandoned_in_ivr(self):
@@ -258,6 +294,29 @@ class VonageCallStatsDerived(object):
         """
 
         self._blocked = blocked
+
+    @property
+    def caller_dwell_after_agent_ms(self):
+        """Gets the caller_dwell_after_agent_ms of this VonageCallStatsDerived.  # noqa: E501
+
+        End of the caller's leg minus the end of the last connected agent's connection, in milliseconds - the value `abandonedByAgent` tests, so the flag can be audited.</br> `null` when no agent connected.   # noqa: E501
+
+        :return: The caller_dwell_after_agent_ms of this VonageCallStatsDerived.  # noqa: E501
+        :rtype: int
+        """
+        return self._caller_dwell_after_agent_ms
+
+    @caller_dwell_after_agent_ms.setter
+    def caller_dwell_after_agent_ms(self, caller_dwell_after_agent_ms):
+        """Sets the caller_dwell_after_agent_ms of this VonageCallStatsDerived.
+
+        End of the caller's leg minus the end of the last connected agent's connection, in milliseconds - the value `abandonedByAgent` tests, so the flag can be audited.</br> `null` when no agent connected.   # noqa: E501
+
+        :param caller_dwell_after_agent_ms: The caller_dwell_after_agent_ms of this VonageCallStatsDerived.  # noqa: E501
+        :type: int
+        """
+
+        self._caller_dwell_after_agent_ms = caller_dwell_after_agent_ms
 
     @property
     def first_agent_ring_offset_ms(self):
@@ -442,6 +501,29 @@ class VonageCallStatsDerived(object):
         """
 
         self._transfers_out = transfers_out
+
+    @property
+    def utterance_count(self):
+        """Gets the utterance_count of this VonageCallStatsDerived.  # noqa: E501
+
+        Number of utterance events Vonage sent for the interaction, from the counter the sender keeps on every inbound event, whether forwarded or not.</br> `null` when the sender's cache item for the interaction has expired; `abandonedByAgent` is then false.   # noqa: E501
+
+        :return: The utterance_count of this VonageCallStatsDerived.  # noqa: E501
+        :rtype: int
+        """
+        return self._utterance_count
+
+    @utterance_count.setter
+    def utterance_count(self, utterance_count):
+        """Sets the utterance_count of this VonageCallStatsDerived.
+
+        Number of utterance events Vonage sent for the interaction, from the counter the sender keeps on every inbound event, whether forwarded or not.</br> `null` when the sender's cache item for the interaction has expired; `abandonedByAgent` is then false.   # noqa: E501
+
+        :param utterance_count: The utterance_count of this VonageCallStatsDerived.  # noqa: E501
+        :type: int
+        """
+
+        self._utterance_count = utterance_count
 
     @property
     def wrap_time_ms(self):
