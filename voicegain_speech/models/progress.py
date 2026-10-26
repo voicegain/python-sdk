@@ -253,7 +253,7 @@ class Progress(object):
     def message(self):
         """Gets the message of this Progress.  # noqa: E501
 
-        (optional) free-form message (e.g. reason for error if phase is ERROR)  # noqa: E501
+        (optional) free-form message (e.g. reason for error if phase is ERROR).</br> One value is fixed: `NO_AUDIO` - a session whose audio was to arrive on a stream (websocket or RTP) was closed without ever receiving a single packet of audio, typically on the stream's `noAudioTimeout`. The phase is then `ERROR` and `audioDuration` is `0`, and the session's `transcribe` webhook is `modify.progress.error`. A session that received audio and failed later carries the engine's own message instead.   # noqa: E501
 
         :return: The message of this Progress.  # noqa: E501
         :rtype: str
@@ -264,7 +264,7 @@ class Progress(object):
     def message(self, message):
         """Sets the message of this Progress.
 
-        (optional) free-form message (e.g. reason for error if phase is ERROR)  # noqa: E501
+        (optional) free-form message (e.g. reason for error if phase is ERROR).</br> One value is fixed: `NO_AUDIO` - a session whose audio was to arrive on a stream (websocket or RTP) was closed without ever receiving a single packet of audio, typically on the stream's `noAudioTimeout`. The phase is then `ERROR` and `audioDuration` is `0`, and the session's `transcribe` webhook is `modify.progress.error`. A session that received audio and failed later carries the engine's own message instead.   # noqa: E501
 
         :param message: The message of this Progress.  # noqa: E501
         :type: str
