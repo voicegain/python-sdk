@@ -37,6 +37,7 @@ class VoiceCallAllOf(object):
         'abandoned': 'bool',
         'account_id': 'str',
         'aivr_transfer_dest_type': 'TransferDestType',
+        'audio_clock_gap_ms': 'int',
         'audit_started_by': 'str',
         'audit_status': 'AuditStatus',
         'billing': 'CallBilling',
@@ -71,6 +72,7 @@ class VoiceCallAllOf(object):
         'abandoned': 'abandoned',
         'account_id': 'accountId',
         'aivr_transfer_dest_type': 'aivrTransferDestType',
+        'audio_clock_gap_ms': 'audioClockGapMs',
         'audit_started_by': 'auditStartedBy',
         'audit_status': 'auditStatus',
         'billing': 'billing',
@@ -101,7 +103,7 @@ class VoiceCallAllOf(object):
         'vonage_call_stats': 'vonageCallStats'
     }
 
-    def __init__(self, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_started_by=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, vonage_call_stats=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audio_clock_gap_ms=None, audit_started_by=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, vonage_call_stats=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -110,6 +112,7 @@ class VoiceCallAllOf(object):
         self._abandoned = None
         self._account_id = None
         self._aivr_transfer_dest_type = None
+        self._audio_clock_gap_ms = None
         self._audit_started_by = None
         self._audit_status = None
         self._billing = None
@@ -146,6 +149,8 @@ class VoiceCallAllOf(object):
             self.account_id = account_id
         if aivr_transfer_dest_type is not None:
             self.aivr_transfer_dest_type = aivr_transfer_dest_type
+        if audio_clock_gap_ms is not None:
+            self.audio_clock_gap_ms = audio_clock_gap_ms
         if audit_started_by is not None:
             self.audit_started_by = audit_started_by
         if audit_status is not None:
@@ -277,6 +282,32 @@ class VoiceCallAllOf(object):
         """
 
         self._aivr_transfer_dest_type = aivr_transfer_dest_type
+
+    @property
+    def audio_clock_gap_ms(self):
+        """Gets the audio_clock_gap_ms of this VoiceCallAllOf.  # noqa: E501
+
+        How far, in milliseconds, the IvrSession clock runs ahead of the recording clock. This is the offset used when the call was cut into segments by segment analytics.</br> A call carries two clocks: + **IvrSession clock**: `markers[].time` (including DTMF and transfer markers) and the segment   `startMs` / `endMs`. + **Recording clock**: word times, `segmentStarts` / `segmentEnds` of the segment analytics results,   and `duration`. The recording starts later than the IvrSession (ring, SIP setup, TTS start-up),   which is why this gap is non-zero.  `markers[].time` stays on the IvrSession clock. To place a marker on the recording (audio player, transcript), the client converts it with `audioTime = marker.time - audioClockGapMs`. For every segment except the first, `startMs - segmentStarts == audioClockGapMs`.</br> Values: + absent - never computed: an older call, or a call that has not had segment analytics run. + `0` - segments were cut on the markers as stored. This happens for producers whose markers are   already on the recording clock (Five9 VoiceStream, Trampoline, Vonage VCCA, calls uploaded with   `POST /sa/call`), or when the gap could not be derived (no linked IvrSession, no bot words, or an   implausible value over 30 s). + `> 0` - the gap for a FreeSWITCH AIVR call.  Set by the backend only. Ignored if sent on `POST /sa/call` or `PUT /sa/call/{callId}`.   # noqa: E501
+
+        :return: The audio_clock_gap_ms of this VoiceCallAllOf.  # noqa: E501
+        :rtype: int
+        """
+        return self._audio_clock_gap_ms
+
+    @audio_clock_gap_ms.setter
+    def audio_clock_gap_ms(self, audio_clock_gap_ms):
+        """Sets the audio_clock_gap_ms of this VoiceCallAllOf.
+
+        How far, in milliseconds, the IvrSession clock runs ahead of the recording clock. This is the offset used when the call was cut into segments by segment analytics.</br> A call carries two clocks: + **IvrSession clock**: `markers[].time` (including DTMF and transfer markers) and the segment   `startMs` / `endMs`. + **Recording clock**: word times, `segmentStarts` / `segmentEnds` of the segment analytics results,   and `duration`. The recording starts later than the IvrSession (ring, SIP setup, TTS start-up),   which is why this gap is non-zero.  `markers[].time` stays on the IvrSession clock. To place a marker on the recording (audio player, transcript), the client converts it with `audioTime = marker.time - audioClockGapMs`. For every segment except the first, `startMs - segmentStarts == audioClockGapMs`.</br> Values: + absent - never computed: an older call, or a call that has not had segment analytics run. + `0` - segments were cut on the markers as stored. This happens for producers whose markers are   already on the recording clock (Five9 VoiceStream, Trampoline, Vonage VCCA, calls uploaded with   `POST /sa/call`), or when the gap could not be derived (no linked IvrSession, no bot words, or an   implausible value over 30 s). + `> 0` - the gap for a FreeSWITCH AIVR call.  Set by the backend only. Ignored if sent on `POST /sa/call` or `PUT /sa/call/{callId}`.   # noqa: E501
+
+        :param audio_clock_gap_ms: The audio_clock_gap_ms of this VoiceCallAllOf.  # noqa: E501
+        :type: int
+        """
+        if (self.local_vars_configuration.client_side_validation and
+                audio_clock_gap_ms is not None and audio_clock_gap_ms < 0):  # noqa: E501
+            raise ValueError("Invalid value for `audio_clock_gap_ms`, must be a value greater than or equal to `0`")  # noqa: E501
+
+        self._audio_clock_gap_ms = audio_clock_gap_ms
 
     @property
     def audit_started_by(self):
