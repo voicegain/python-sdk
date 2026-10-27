@@ -50,6 +50,7 @@ class VoiceCall(object):
         'internal_endpoint': 'str',
         'language': 'Language',
         'markers': 'list[CallMarker]',
+        'metadata': 'list[CallMetadataItem]',
         'modifiable_note': 'str',
         'num_audio_channels': 'int',
         'num_spk_channels': 'int',
@@ -126,6 +127,7 @@ class VoiceCall(object):
         'internal_endpoint': 'internalEndpoint',
         'language': 'language',
         'markers': 'markers',
+        'metadata': 'metadata',
         'modifiable_note': 'modifiableNote',
         'num_audio_channels': 'numAudioChannels',
         'num_spk_channels': 'numSpkChannels',
@@ -185,7 +187,7 @@ class VoiceCall(object):
         'vonage_call_stats': 'vonageCallStats'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, unaudited_score=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_started_by=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, vonage_call_stats=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, metadata=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, call_resolved=None, ci_answers_id=None, cr_answers_id=None, incidents=None, keywords=None, notes=None, review_notes=None, score=None, sentiments=None, topics=None, unaudited_score=None, voicemail_duration=None, voicemail_transcript=None, voicemail_uuid=None, word_cloud=None, abandoned=None, account_id=None, aivr_transfer_dest_type=None, audit_started_by=None, audit_status=None, billing=None, call_id=None, context_id=None, copilot_display=None, copilot_sent=None, copilot_un_ack=None, csat=None, duration=None, inbound_rtp_quality=None, last_recompute_time=None, merged_audio_id=None, nps=None, num_segments=None, outbound_rtp_quality=None, progress_phase=None, queue_wait_ms=None, recompute_phase=None, reference_number=None, review_status=None, sa_session_id=None, segments=None, sentiment=None, spawned_calls=None, version=1, voicebot_duration=None, vonage_call_stats=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCall - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -207,6 +209,7 @@ class VoiceCall(object):
         self._internal_endpoint = None
         self._language = None
         self._markers = None
+        self._metadata = None
         self._modifiable_note = None
         self._num_audio_channels = None
         self._num_spk_channels = None
@@ -298,6 +301,8 @@ class VoiceCall(object):
             self.language = language
         if markers is not None:
             self.markers = markers
+        if metadata is not None:
+            self.metadata = metadata
         if modifiable_note is not None:
             self.modifiable_note = modifiable_note
         if num_audio_channels is not None:
@@ -803,6 +808,29 @@ class VoiceCall(object):
         """
 
         self._markers = markers
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this VoiceCall.  # noqa: E501
+
+        Free-form name/value attributes attached to the call, e.g. identifiers of the call on other systems.</br> Unlike `tags` these are key/value pairs and do not show in the tag facet / tag cloud.</br> + Names are unique within a call. They are case-sensitive. + At most 32 entries per call. + Can be set on `POST /sa/call` and modified with   <a href=\"#tag/sa-internal/operation/saCallMetadataPut\">PUT /sa/call/{callId}/metadata</a>. + Searchable in the advanced call search with the `METADATA` field (see `CallField`).  Absent (or empty) for calls without metadata.   # noqa: E501
+
+        :return: The metadata of this VoiceCall.  # noqa: E501
+        :rtype: list[CallMetadataItem]
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this VoiceCall.
+
+        Free-form name/value attributes attached to the call, e.g. identifiers of the call on other systems.</br> Unlike `tags` these are key/value pairs and do not show in the tag facet / tag cloud.</br> + Names are unique within a call. They are case-sensitive. + At most 32 entries per call. + Can be set on `POST /sa/call` and modified with   <a href=\"#tag/sa-internal/operation/saCallMetadataPut\">PUT /sa/call/{callId}/metadata</a>. + Searchable in the advanced call search with the `METADATA` field (see `CallField`).  Absent (or empty) for calls without metadata.   # noqa: E501
+
+        :param metadata: The metadata of this VoiceCall.  # noqa: E501
+        :type: list[CallMetadataItem]
+        """
+
+        self._metadata = metadata
 
     @property
     def modifiable_note(self):

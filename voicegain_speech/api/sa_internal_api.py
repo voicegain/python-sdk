@@ -293,6 +293,146 @@ class SaInternalApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def sa_call_metadata_put(self, call_id, call_metadata_item, **kwargs):  # noqa: E501
+        """Update Call Metadata  # noqa: E501
+
+        Update the free-form name/value `metadata` attached to a specific call record, e.g. to attach the identifier of the call on another system.  Use the `merge` parameter to control how the provided entries are applied: + `merge=true` - entries are upserted **by name**: an entry with a name already present on the call   overwrites its value, a new name is added, and all other existing entries are left untouched. + `merge=false` (default) - the provided list **replaces** the call's metadata. An empty list removes all metadata.  Names must be unique within the request. The result may hold at most 32 entries; a request that would exceed this (after merging) is rejected with 400 and the call is not modified.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_call_metadata_put(call_id, call_metadata_item, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str call_id: Voice Call Id. (required)
+        :param list[CallMetadataItem] call_metadata_item: Metadata entries to apply to the call (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param bool merge: If true then new data will be merged with the old, if false then old data will be replaced by new.
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[CallMetadataItem]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.sa_call_metadata_put_with_http_info(call_id, call_metadata_item, **kwargs)  # noqa: E501
+
+    def sa_call_metadata_put_with_http_info(self, call_id, call_metadata_item, **kwargs):  # noqa: E501
+        """Update Call Metadata  # noqa: E501
+
+        Update the free-form name/value `metadata` attached to a specific call record, e.g. to attach the identifier of the call on another system.  Use the `merge` parameter to control how the provided entries are applied: + `merge=true` - entries are upserted **by name**: an entry with a name already present on the call   overwrites its value, a new name is added, and all other existing entries are left untouched. + `merge=false` (default) - the provided list **replaces** the call's metadata. An empty list removes all metadata.  Names must be unique within the request. The result may hold at most 32 entries; a request that would exceed this (after merging) is rejected with 400 and the call is not modified.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_call_metadata_put_with_http_info(call_id, call_metadata_item, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param str call_id: Voice Call Id. (required)
+        :param list[CallMetadataItem] call_metadata_item: Metadata entries to apply to the call (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param bool merge: If true then new data will be merged with the old, if false then old data will be replaced by new.
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[CallMetadataItem], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['call_id', 'call_metadata_item', 'context_id', 'merge']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method sa_call_metadata_put" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'call_id' is set
+        if self.api_client.client_side_validation and ('call_id' not in local_var_params or  # noqa: E501
+                                                        local_var_params['call_id'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `call_id` when calling `sa_call_metadata_put`")  # noqa: E501
+        # verify the required parameter 'call_metadata_item' is set
+        if self.api_client.client_side_validation and ('call_metadata_item' not in local_var_params or  # noqa: E501
+                                                        local_var_params['call_metadata_item'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `call_metadata_item` when calling `sa_call_metadata_put`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['call_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `call_id` when calling `sa_call_metadata_put`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['call_id']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `call_id` when calling `sa_call_metadata_put`, length must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_call_metadata_put`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_call_metadata_put`, length must be greater than or equal to `16`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+        if 'call_id' in local_var_params:
+            path_params['callId'] = local_var_params['call_id']  # noqa: E501
+
+        query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+        if 'merge' in local_var_params and local_var_params['merge'] is not None:  # noqa: E501
+            query_params.append(('merge', local_var_params['merge']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        if 'call_metadata_item' in local_var_params:
+            body_params = local_var_params['call_metadata_item']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # HTTP header `Content-Type`
+        header_params['Content-Type'] = self.api_client.select_header_content_type(  # noqa: E501
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/sa/call/{callId}/metadata', 'PUT',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[CallMetadataItem]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def sa_call_post(self, **kwargs):  # noqa: E501
         """Create Call Record  # noqa: E501
 
@@ -736,7 +876,7 @@ class SaInternalApi(object):
     def sa_call_search_post(self, **kwargs):  # noqa: E501
         """Search Call Records  # noqa: E501
 
-        Search all Speech Analytics call records for the given account using a structured query.</br> The search query is included in the request body (hence POST instead of GET).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead of relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"python\"     }   ] } </pre>  To search for calls where a boolean (yes/no) Call Insight has answer **Yes**, use the `CALL_INSIGHT_BOOL` field with the question `name` (case-insensitive) in `otherValue`: <pre> {   \"type\" : \"EqTerm\",   \"field\" : \"CALL_INSIGHT_BOOL\",   \"otherValue\" : \"ESCALATION\" } </pre>  See `CALL_INSIGHT_BOOL` in the `CallField` enum for the supported query types and their semantics.   This method supports [Pagination](#section/Pagination/Direct-pagination).  If you want to retrieve a specific number of results, you can use `page=1` and `per_page=<number>`, this gets translated into sql query with `LIMIT <number>` and `OFFSET 0`.   # noqa: E501
+        Search all Speech Analytics call records for the given account using a structured query.</br> The search query is included in the request body (hence POST instead of GET).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead of relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"python\"     }   ] } </pre>  To search for calls where a boolean (yes/no) Call Insight has answer **Yes**, use the `CALL_INSIGHT_BOOL` field with the question `name` (case-insensitive) in `otherValue`: <pre> {   \"type\" : \"EqTerm\",   \"field\" : \"CALL_INSIGHT_BOOL\",   \"otherValue\" : \"ESCALATION\" } </pre>  See `CALL_INSIGHT_BOOL` in the `CallField` enum for the supported query types and their semantics.  To find calls carrying a given name/value pair in their `metadata`, use the `METADATA` field with `name=value` in `otherValue` (only `EqTerm` is supported): <pre> {   \"type\" : \"EqTerm\",   \"field\" : \"METADATA\",   \"otherValue\" : \"five9.callId=4D58089E0B2A40FA8F7AE879D0EA422B\" } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination).  If you want to retrieve a specific number of results, you can use `page=1` and `per_page=<number>`, this gets translated into sql query with `LIMIT <number>` and `OFFSET 0`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_post(async_req=True)
@@ -767,7 +907,7 @@ class SaInternalApi(object):
     def sa_call_search_post_with_http_info(self, **kwargs):  # noqa: E501
         """Search Call Records  # noqa: E501
 
-        Search all Speech Analytics call records for the given account using a structured query.</br> The search query is included in the request body (hence POST instead of GET).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead of relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"python\"     }   ] } </pre>  To search for calls where a boolean (yes/no) Call Insight has answer **Yes**, use the `CALL_INSIGHT_BOOL` field with the question `name` (case-insensitive) in `otherValue`: <pre> {   \"type\" : \"EqTerm\",   \"field\" : \"CALL_INSIGHT_BOOL\",   \"otherValue\" : \"ESCALATION\" } </pre>  See `CALL_INSIGHT_BOOL` in the `CallField` enum for the supported query types and their semantics.   This method supports [Pagination](#section/Pagination/Direct-pagination).  If you want to retrieve a specific number of results, you can use `page=1` and `per_page=<number>`, this gets translated into sql query with `LIMIT <number>` and `OFFSET 0`.   # noqa: E501
+        Search all Speech Analytics call records for the given account using a structured query.</br> The search query is included in the request body (hence POST instead of GET).</br> The query is built as a tree, e.g., OR query to match any of two keywords can be represented like this: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"java\"     },     {       \"type\" : \"EqTerm\",       \"field\" : \"KEYWORD\",       \"otherValue\" : \"python\"     }   ] } </pre>  BTW, the same could be achieved using IN query: <pre> {   \"type\" : \"InTerm\",    \"field\" : \"KEYWORD\",    \"otherValues\" : [\"java\", \"python\"] } </pre>  Instead of relying on extracted Keywords, we can search for java or python using text query: <pre> {   \"type\" : \"OrQuery\",   \"disjuncts\" : [     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"java\"     },     {       \"type\" : \"TxtSearchTerm\",       \"field\" : \"TEXT\",       \"txtQuery\" : \"python\"     }   ] } </pre>  To search for calls where a boolean (yes/no) Call Insight has answer **Yes**, use the `CALL_INSIGHT_BOOL` field with the question `name` (case-insensitive) in `otherValue`: <pre> {   \"type\" : \"EqTerm\",   \"field\" : \"CALL_INSIGHT_BOOL\",   \"otherValue\" : \"ESCALATION\" } </pre>  See `CALL_INSIGHT_BOOL` in the `CallField` enum for the supported query types and their semantics.  To find calls carrying a given name/value pair in their `metadata`, use the `METADATA` field with `name=value` in `otherValue` (only `EqTerm` is supported): <pre> {   \"type\" : \"EqTerm\",   \"field\" : \"METADATA\",   \"otherValue\" : \"five9.callId=4D58089E0B2A40FA8F7AE879D0EA422B\" } </pre>   This method supports [Pagination](#section/Pagination/Direct-pagination).  If you want to retrieve a specific number of results, you can use `page=1` and `per_page=<number>`, this gets translated into sql query with `LIMIT <number>` and `OFFSET 0`.   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
         >>> thread = api.sa_call_search_post_with_http_info(async_req=True)

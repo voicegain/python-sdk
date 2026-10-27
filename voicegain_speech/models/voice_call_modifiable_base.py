@@ -50,6 +50,7 @@ class VoiceCallModifiableBase(object):
         'internal_endpoint': 'str',
         'language': 'Language',
         'markers': 'list[CallMarker]',
+        'metadata': 'list[CallMetadataItem]',
         'modifiable_note': 'str',
         'num_audio_channels': 'int',
         'num_spk_channels': 'int',
@@ -80,6 +81,7 @@ class VoiceCallModifiableBase(object):
         'internal_endpoint': 'internalEndpoint',
         'language': 'language',
         'markers': 'markers',
+        'metadata': 'metadata',
         'modifiable_note': 'modifiableNote',
         'num_audio_channels': 'numAudioChannels',
         'num_spk_channels': 'numSpkChannels',
@@ -93,7 +95,7 @@ class VoiceCallModifiableBase(object):
         'who_hung_up': 'whoHungUp'
     }
 
-    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, aivr_app_id=None, aivr_platform=None, aivr_session_id=None, aivr_vars=None, business_open_state=None, call_center_call_id=None, daily_repeat_calls=None, direction=None, dtmf_events=None, end_time=None, expiry_time=None, external_endpoint=None, internal_endpoint=None, language=None, markers=None, metadata=None, modifiable_note=None, num_audio_channels=2, num_spk_channels=2, originating_call_id=None, queue=None, recording=None, start_time=None, tags=None, team=None, voicebot_vars=None, who_hung_up=None, local_vars_configuration=None):  # noqa: E501
         """VoiceCallModifiableBase - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -115,6 +117,7 @@ class VoiceCallModifiableBase(object):
         self._internal_endpoint = None
         self._language = None
         self._markers = None
+        self._metadata = None
         self._modifiable_note = None
         self._num_audio_channels = None
         self._num_spk_channels = None
@@ -160,6 +163,8 @@ class VoiceCallModifiableBase(object):
             self.language = language
         if markers is not None:
             self.markers = markers
+        if metadata is not None:
+            self.metadata = metadata
         if modifiable_note is not None:
             self.modifiable_note = modifiable_note
         if num_audio_channels is not None:
@@ -573,6 +578,29 @@ class VoiceCallModifiableBase(object):
         """
 
         self._markers = markers
+
+    @property
+    def metadata(self):
+        """Gets the metadata of this VoiceCallModifiableBase.  # noqa: E501
+
+        Free-form name/value attributes attached to the call, e.g. identifiers of the call on other systems.</br> Unlike `tags` these are key/value pairs and do not show in the tag facet / tag cloud.</br> + Names are unique within a call. They are case-sensitive. + At most 32 entries per call. + Can be set on `POST /sa/call` and modified with   <a href=\"#tag/sa-internal/operation/saCallMetadataPut\">PUT /sa/call/{callId}/metadata</a>. + Searchable in the advanced call search with the `METADATA` field (see `CallField`).  Absent (or empty) for calls without metadata.   # noqa: E501
+
+        :return: The metadata of this VoiceCallModifiableBase.  # noqa: E501
+        :rtype: list[CallMetadataItem]
+        """
+        return self._metadata
+
+    @metadata.setter
+    def metadata(self, metadata):
+        """Sets the metadata of this VoiceCallModifiableBase.
+
+        Free-form name/value attributes attached to the call, e.g. identifiers of the call on other systems.</br> Unlike `tags` these are key/value pairs and do not show in the tag facet / tag cloud.</br> + Names are unique within a call. They are case-sensitive. + At most 32 entries per call. + Can be set on `POST /sa/call` and modified with   <a href=\"#tag/sa-internal/operation/saCallMetadataPut\">PUT /sa/call/{callId}/metadata</a>. + Searchable in the advanced call search with the `METADATA` field (see `CallField`).  Absent (or empty) for calls without metadata.   # noqa: E501
+
+        :param metadata: The metadata of this VoiceCallModifiableBase.  # noqa: E501
+        :type: list[CallMetadataItem]
+        """
+
+        self._metadata = metadata
 
     @property
     def modifiable_note(self):
