@@ -38,6 +38,7 @@ class CallSearchField(object):
         'field': 'CallField',
         'has_null_value': 'bool',
         'intermediate_values': 'list[str]',
+        'keys': 'list[CallSearchFieldKeys]',
         'max_value': 'str',
         'min_value': 'str',
         'possible_values': 'list[str]',
@@ -49,13 +50,14 @@ class CallSearchField(object):
         'field': 'field',
         'has_null_value': 'hasNullValue',
         'intermediate_values': 'intermediateValues',
+        'keys': 'keys',
         'max_value': 'maxValue',
         'min_value': 'minValue',
         'possible_values': 'possibleValues',
         'type': 'type'
     }
 
-    def __init__(self, collection_type=None, field=None, has_null_value=None, intermediate_values=None, max_value=None, min_value=None, possible_values=None, type=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, collection_type=None, field=None, has_null_value=None, intermediate_values=None, keys=None, max_value=None, min_value=None, possible_values=None, type=None, local_vars_configuration=None):  # noqa: E501
         """CallSearchField - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -65,6 +67,7 @@ class CallSearchField(object):
         self._field = None
         self._has_null_value = None
         self._intermediate_values = None
+        self._keys = None
         self._max_value = None
         self._min_value = None
         self._possible_values = None
@@ -78,6 +81,8 @@ class CallSearchField(object):
             self.has_null_value = has_null_value
         if intermediate_values is not None:
             self.intermediate_values = intermediate_values
+        if keys is not None:
+            self.keys = keys
         if max_value is not None:
             self.max_value = max_value
         if min_value is not None:
@@ -90,7 +95,7 @@ class CallSearchField(object):
     def collection_type(self):
         """Gets the collection_type of this CallSearchField.  # noqa: E501
 
-        Collection Type of the field. For some fields, the values are held in collections,  e.g. `TAG` and `KEYWORD` have a set of values , and (future) `METADATA` has a map of values.</br> `REFERENCE_NUMBER` is also a `set`: it is stored as one comma-separated string but matched per value, so a call with two reference numbers is found by either of them. + none - single value + set - set of values + map - map of values   # noqa: E501
+        Collection Type of the field. For some fields, the values are held in collections, e.g. `TAG` and `KEYWORD` have a set of values , `CALL_INSIGHT` has a map of values (see `keys`), and (future) `METADATA` has a map of values.</br> `REFERENCE_NUMBER` is also a `set`: it is stored as one comma-separated string but matched per value, so a call with two reference numbers is found by either of them. + none - single value + set - set of values + map - map of values   # noqa: E501
 
         :return: The collection_type of this CallSearchField.  # noqa: E501
         :rtype: str
@@ -101,7 +106,7 @@ class CallSearchField(object):
     def collection_type(self, collection_type):
         """Sets the collection_type of this CallSearchField.
 
-        Collection Type of the field. For some fields, the values are held in collections,  e.g. `TAG` and `KEYWORD` have a set of values , and (future) `METADATA` has a map of values.</br> `REFERENCE_NUMBER` is also a `set`: it is stored as one comma-separated string but matched per value, so a call with two reference numbers is found by either of them. + none - single value + set - set of values + map - map of values   # noqa: E501
+        Collection Type of the field. For some fields, the values are held in collections, e.g. `TAG` and `KEYWORD` have a set of values , `CALL_INSIGHT` has a map of values (see `keys`), and (future) `METADATA` has a map of values.</br> `REFERENCE_NUMBER` is also a `set`: it is stored as one comma-separated string but matched per value, so a call with two reference numbers is found by either of them. + none - single value + set - set of values + map - map of values   # noqa: E501
 
         :param collection_type: The collection_type of this CallSearchField.  # noqa: E501
         :type: str
@@ -185,6 +190,29 @@ class CallSearchField(object):
         self._intermediate_values = intermediate_values
 
     @property
+    def keys(self):
+        """Gets the keys of this CallSearchField.  # noqa: E501
+
+        Present only for a field of type `map` (`CALL_INSIGHT`). The keys a search term on the field can use, i.e. the names of the Call Insights questions in the call-level Call Insights config (the default Call Insights config) of each accessible Context, with the type of their answer. Questions with `json` or `custom` response format are not listed. A name that has a different type in different Contexts is listed once per type.   # noqa: E501
+
+        :return: The keys of this CallSearchField.  # noqa: E501
+        :rtype: list[CallSearchFieldKeys]
+        """
+        return self._keys
+
+    @keys.setter
+    def keys(self, keys):
+        """Sets the keys of this CallSearchField.
+
+        Present only for a field of type `map` (`CALL_INSIGHT`). The keys a search term on the field can use, i.e. the names of the Call Insights questions in the call-level Call Insights config (the default Call Insights config) of each accessible Context, with the type of their answer. Questions with `json` or `custom` response format are not listed. A name that has a different type in different Contexts is listed once per type.   # noqa: E501
+
+        :param keys: The keys of this CallSearchField.  # noqa: E501
+        :type: list[CallSearchFieldKeys]
+        """
+
+        self._keys = keys
+
+    @property
     def max_value(self):
         """Gets the max_value of this CallSearchField.  # noqa: E501
 
@@ -257,7 +285,7 @@ class CallSearchField(object):
     def type(self):
         """Gets the type of this CallSearchField.  # noqa: E501
 
-        Value Type of the field.  + uuid - id value + datetime - date and time value + string - string value + number - number value + duration - duration value, e.g. 1m3s + size - byte size value, e.g. 1.5M   # noqa: E501
+        Value Type of the field. + uuid - id value + datetime - date and time value + string - string value + number - number value + duration - duration value, e.g. 1m3s + size - byte size value, e.g. 1.5M + map - the value is looked up by a `key` (only `CALL_INSIGHT`); the available keys are in `keys`   # noqa: E501
 
         :return: The type of this CallSearchField.  # noqa: E501
         :rtype: str
@@ -268,14 +296,14 @@ class CallSearchField(object):
     def type(self, type):
         """Sets the type of this CallSearchField.
 
-        Value Type of the field.  + uuid - id value + datetime - date and time value + string - string value + number - number value + duration - duration value, e.g. 1m3s + size - byte size value, e.g. 1.5M   # noqa: E501
+        Value Type of the field. + uuid - id value + datetime - date and time value + string - string value + number - number value + duration - duration value, e.g. 1m3s + size - byte size value, e.g. 1.5M + map - the value is looked up by a `key` (only `CALL_INSIGHT`); the available keys are in `keys`   # noqa: E501
 
         :param type: The type of this CallSearchField.  # noqa: E501
         :type: str
         """
         if self.local_vars_configuration.client_side_validation and type is None:  # noqa: E501
             raise ValueError("Invalid value for `type`, must not be `None`")  # noqa: E501
-        allowed_values = ["uuid", "string", "datetime", "number", "duration", "size"]  # noqa: E501
+        allowed_values = ["uuid", "string", "datetime", "number", "duration", "size", "map"]  # noqa: E501
         if self.local_vars_configuration.client_side_validation and type not in allowed_values:  # noqa: E501
             raise ValueError(
                 "Invalid value for `type` ({0}), must be one of {1}"  # noqa: E501

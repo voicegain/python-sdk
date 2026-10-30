@@ -220,6 +220,7 @@ from voicegain_speech.models.call_marker import CallMarker
 from voicegain_speech.models.call_metadata_item import CallMetadataItem
 from voicegain_speech.models.call_review_answer_type import CallReviewAnswerType
 from voicegain_speech.models.call_search_field import CallSearchField
+from voicegain_speech.models.call_search_field_keys import CallSearchFieldKeys
 from voicegain_speech.models.call_segment import CallSegment
 from voicegain_speech.models.call_segment_all_of import CallSegmentAllOf
 from voicegain_speech.models.call_segment_all_of_agent_feedback import CallSegmentAllOfAgentFeedback
