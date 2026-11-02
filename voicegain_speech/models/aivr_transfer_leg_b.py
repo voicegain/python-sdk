@@ -77,7 +77,7 @@ class AIVRTransferLegB(object):
     def agent_code_bad_prompt(self):
         """Gets the agent_code_bad_prompt of this AIVRTransferLegB.  # noqa: E501
 
-        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
+        Prompt to be played to leg B (called party) during transfer. One of: + the name (filestem) of an audio file preloaded on the Telephony Platform - this is the **preferred**   option. Some of the preloaded audio files are:   + botMusic - electronic music (bot), to be used e.g. as whisper prompt   + badAlert - buzzer sound to indicate entry of bad DTMF code   + successChime - chime sound to indicate entry of good DTMF code + an absolute `http://` or `https://` URL of an audio file. The Telephony Platform downloads the file   before it is played - once, after which it is cached and only re-validated against the URL, not   downloaded on every play. A URL that cannot be fetched (unreachable, HTTP error, file too large) means   the prompt is not played; the transfer itself proceeds.  **Audio format:** only **16-bit 8 kHz mono WAV** is officially guaranteed to play. Any other format or sample rate (e.g. mp3, 16 kHz, stereo) must be tested before it is used.   # noqa: E501
 
         :return: The agent_code_bad_prompt of this AIVRTransferLegB.  # noqa: E501
         :rtype: str
@@ -88,14 +88,14 @@ class AIVRTransferLegB(object):
     def agent_code_bad_prompt(self, agent_code_bad_prompt):
         """Sets the agent_code_bad_prompt of this AIVRTransferLegB.
 
-        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
+        Prompt to be played to leg B (called party) during transfer. One of: + the name (filestem) of an audio file preloaded on the Telephony Platform - this is the **preferred**   option. Some of the preloaded audio files are:   + botMusic - electronic music (bot), to be used e.g. as whisper prompt   + badAlert - buzzer sound to indicate entry of bad DTMF code   + successChime - chime sound to indicate entry of good DTMF code + an absolute `http://` or `https://` URL of an audio file. The Telephony Platform downloads the file   before it is played - once, after which it is cached and only re-validated against the URL, not   downloaded on every play. A URL that cannot be fetched (unreachable, HTTP error, file too large) means   the prompt is not played; the transfer itself proceeds.  **Audio format:** only **16-bit 8 kHz mono WAV** is officially guaranteed to play. Any other format or sample rate (e.g. mp3, 16 kHz, stereo) must be tested before it is used.   # noqa: E501
 
         :param agent_code_bad_prompt: The agent_code_bad_prompt of this AIVRTransferLegB.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                agent_code_bad_prompt is not None and len(agent_code_bad_prompt) > 32):
-            raise ValueError("Invalid value for `agent_code_bad_prompt`, length must be less than or equal to `32`")  # noqa: E501
+                agent_code_bad_prompt is not None and len(agent_code_bad_prompt) > 2048):
+            raise ValueError("Invalid value for `agent_code_bad_prompt`, length must be less than or equal to `2048`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 agent_code_bad_prompt is not None and len(agent_code_bad_prompt) < 1):
             raise ValueError("Invalid value for `agent_code_bad_prompt`, length must be greater than or equal to `1`")  # noqa: E501
@@ -106,7 +106,7 @@ class AIVRTransferLegB(object):
     def agent_code_good_prompt(self):
         """Gets the agent_code_good_prompt of this AIVRTransferLegB.  # noqa: E501
 
-        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
+        Prompt to be played to leg B (called party) during transfer. One of: + the name (filestem) of an audio file preloaded on the Telephony Platform - this is the **preferred**   option. Some of the preloaded audio files are:   + botMusic - electronic music (bot), to be used e.g. as whisper prompt   + badAlert - buzzer sound to indicate entry of bad DTMF code   + successChime - chime sound to indicate entry of good DTMF code + an absolute `http://` or `https://` URL of an audio file. The Telephony Platform downloads the file   before it is played - once, after which it is cached and only re-validated against the URL, not   downloaded on every play. A URL that cannot be fetched (unreachable, HTTP error, file too large) means   the prompt is not played; the transfer itself proceeds.  **Audio format:** only **16-bit 8 kHz mono WAV** is officially guaranteed to play. Any other format or sample rate (e.g. mp3, 16 kHz, stereo) must be tested before it is used.   # noqa: E501
 
         :return: The agent_code_good_prompt of this AIVRTransferLegB.  # noqa: E501
         :rtype: str
@@ -117,14 +117,14 @@ class AIVRTransferLegB(object):
     def agent_code_good_prompt(self, agent_code_good_prompt):
         """Sets the agent_code_good_prompt of this AIVRTransferLegB.
 
-        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
+        Prompt to be played to leg B (called party) during transfer. One of: + the name (filestem) of an audio file preloaded on the Telephony Platform - this is the **preferred**   option. Some of the preloaded audio files are:   + botMusic - electronic music (bot), to be used e.g. as whisper prompt   + badAlert - buzzer sound to indicate entry of bad DTMF code   + successChime - chime sound to indicate entry of good DTMF code + an absolute `http://` or `https://` URL of an audio file. The Telephony Platform downloads the file   before it is played - once, after which it is cached and only re-validated against the URL, not   downloaded on every play. A URL that cannot be fetched (unreachable, HTTP error, file too large) means   the prompt is not played; the transfer itself proceeds.  **Audio format:** only **16-bit 8 kHz mono WAV** is officially guaranteed to play. Any other format or sample rate (e.g. mp3, 16 kHz, stereo) must be tested before it is used.   # noqa: E501
 
         :param agent_code_good_prompt: The agent_code_good_prompt of this AIVRTransferLegB.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                agent_code_good_prompt is not None and len(agent_code_good_prompt) > 32):
-            raise ValueError("Invalid value for `agent_code_good_prompt`, length must be less than or equal to `32`")  # noqa: E501
+                agent_code_good_prompt is not None and len(agent_code_good_prompt) > 2048):
+            raise ValueError("Invalid value for `agent_code_good_prompt`, length must be less than or equal to `2048`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 agent_code_good_prompt is not None and len(agent_code_good_prompt) < 1):
             raise ValueError("Invalid value for `agent_code_good_prompt`, length must be greater than or equal to `1`")  # noqa: E501
@@ -181,7 +181,7 @@ class AIVRTransferLegB(object):
     def whisper_prompt(self):
         """Gets the whisper_prompt of this AIVRTransferLegB.  # noqa: E501
 
-        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
+        Prompt to be played to leg B (called party) during transfer. One of: + the name (filestem) of an audio file preloaded on the Telephony Platform - this is the **preferred**   option. Some of the preloaded audio files are:   + botMusic - electronic music (bot), to be used e.g. as whisper prompt   + badAlert - buzzer sound to indicate entry of bad DTMF code   + successChime - chime sound to indicate entry of good DTMF code + an absolute `http://` or `https://` URL of an audio file. The Telephony Platform downloads the file   before it is played - once, after which it is cached and only re-validated against the URL, not   downloaded on every play. A URL that cannot be fetched (unreachable, HTTP error, file too large) means   the prompt is not played; the transfer itself proceeds.  **Audio format:** only **16-bit 8 kHz mono WAV** is officially guaranteed to play. Any other format or sample rate (e.g. mp3, 16 kHz, stereo) must be tested before it is used.   # noqa: E501
 
         :return: The whisper_prompt of this AIVRTransferLegB.  # noqa: E501
         :rtype: str
@@ -192,14 +192,14 @@ class AIVRTransferLegB(object):
     def whisper_prompt(self, whisper_prompt):
         """Sets the whisper_prompt of this AIVRTransferLegB.
 
-        Prompt to be played to leg B (called party) during transfer. The prompt name is the filestem of the audio that has been preloaded on the Telephony Platform. Some of the preloaded audio files are: + botMusic - electronic music (bot), to be used e.g. as whisper prompt + badAlert - buzzer sound to indicate entry of bad DTMF code + successChime - chime sound to indicate entry of good DTMF code    # noqa: E501
+        Prompt to be played to leg B (called party) during transfer. One of: + the name (filestem) of an audio file preloaded on the Telephony Platform - this is the **preferred**   option. Some of the preloaded audio files are:   + botMusic - electronic music (bot), to be used e.g. as whisper prompt   + badAlert - buzzer sound to indicate entry of bad DTMF code   + successChime - chime sound to indicate entry of good DTMF code + an absolute `http://` or `https://` URL of an audio file. The Telephony Platform downloads the file   before it is played - once, after which it is cached and only re-validated against the URL, not   downloaded on every play. A URL that cannot be fetched (unreachable, HTTP error, file too large) means   the prompt is not played; the transfer itself proceeds.  **Audio format:** only **16-bit 8 kHz mono WAV** is officially guaranteed to play. Any other format or sample rate (e.g. mp3, 16 kHz, stereo) must be tested before it is used.   # noqa: E501
 
         :param whisper_prompt: The whisper_prompt of this AIVRTransferLegB.  # noqa: E501
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                whisper_prompt is not None and len(whisper_prompt) > 32):
-            raise ValueError("Invalid value for `whisper_prompt`, length must be less than or equal to `32`")  # noqa: E501
+                whisper_prompt is not None and len(whisper_prompt) > 2048):
+            raise ValueError("Invalid value for `whisper_prompt`, length must be less than or equal to `2048`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 whisper_prompt is not None and len(whisper_prompt) < 1):
             raise ValueError("Invalid value for `whisper_prompt`, length must be greater than or equal to `1`")  # noqa: E501
