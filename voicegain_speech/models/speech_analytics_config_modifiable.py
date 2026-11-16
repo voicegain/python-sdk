@@ -57,6 +57,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'pii_redaction': 'list[PIIRedactionConf]',
         'profanity': 'bool',
         'published': 'bool',
+        'realtime_insight_questions': 'list[RealtimeInsightQuestion]',
         'sentiment': 'bool',
         'silence_single_duration_maximum_threshold': 'float',
         'silence_total_percentage_threshold': 'float',
@@ -91,6 +92,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'pii_redaction': 'piiRedaction',
         'profanity': 'profanity',
         'published': 'published',
+        'realtime_insight_questions': 'realtimeInsightQuestions',
         'sentiment': 'sentiment',
         'silence_single_duration_maximum_threshold': 'silenceSingleDurationMaximumThreshold',
         'silence_total_percentage_threshold': 'silenceTotalPercentageThreshold',
@@ -101,7 +103,7 @@ class SpeechAnalyticsConfigModifiable(object):
         'name': 'name'
     }
 
-    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, kb_recommendation=None, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, nps_question=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, topics=None, word_cloud=False, context_id=None, name=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, age=False, call_resolution_criteria=None, call_resolution_question_id=None, competitor_keyword_groups=None, criteria=None, csat_question=None, entities=None, gender=False, kb_recommendation=None, keyword_groups=None, keywords=None, llm_copilot_notes_prompt='Generate brief notes for the record of this call in the CRM.', llm_summary_prompt='Generate a one-sentence summary of the call.', meeting_minutes=None, moods=None, nps_question=None, overtalk_single_duration_maximum_threshold=1000, overtalk_total_percentage_threshold=2.5, phrase_groups=None, phrases=None, pii_redaction=None, profanity=False, published=False, realtime_insight_questions=None, sentiment=False, silence_single_duration_maximum_threshold=10000, silence_total_percentage_threshold=10.0, summary=False, topics=None, word_cloud=False, context_id=None, name=None, local_vars_configuration=None):  # noqa: E501
         """SpeechAnalyticsConfigModifiable - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -130,6 +132,7 @@ class SpeechAnalyticsConfigModifiable(object):
         self._pii_redaction = None
         self._profanity = None
         self._published = None
+        self._realtime_insight_questions = None
         self._sentiment = None
         self._silence_single_duration_maximum_threshold = None
         self._silence_total_percentage_threshold = None
@@ -186,6 +189,8 @@ class SpeechAnalyticsConfigModifiable(object):
             self.profanity = profanity
         if published is not None:
             self.published = published
+        if realtime_insight_questions is not None:
+            self.realtime_insight_questions = realtime_insight_questions
         if sentiment is not None:
             self.sentiment = sentiment
         if silence_single_duration_maximum_threshold is not None:
@@ -741,6 +746,29 @@ class SpeechAnalyticsConfigModifiable(object):
         """
 
         self._published = published
+
+    @property
+    def realtime_insight_questions(self):
+        """Gets the realtime_insight_questions of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+
+        _(real-time Speech Analytics only)_ Questions that are answered **during** the call, so the Agent sees the results live. Examples: \"List every CPT code mentioned so far.\" or \"The caller expresses a grievance.\"</br> Each result is sent over the websocket as an `insight` item (see the `insight` field in the [Speech Analytics Websocket Payload](#tag/sa)).</br> These questions are not the Call Insights questions. Call Insights questions are answered once, after the call. To get an answer after the call too, add the question to Call Insights as well.</br> Offline Speech Analytics ignores this list.</br> Each question `id` must be unique in the list. To remove all questions, send an empty list.   # noqa: E501
+
+        :return: The realtime_insight_questions of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :rtype: list[RealtimeInsightQuestion]
+        """
+        return self._realtime_insight_questions
+
+    @realtime_insight_questions.setter
+    def realtime_insight_questions(self, realtime_insight_questions):
+        """Sets the realtime_insight_questions of this SpeechAnalyticsConfigModifiable.
+
+        _(real-time Speech Analytics only)_ Questions that are answered **during** the call, so the Agent sees the results live. Examples: \"List every CPT code mentioned so far.\" or \"The caller expresses a grievance.\"</br> Each result is sent over the websocket as an `insight` item (see the `insight` field in the [Speech Analytics Websocket Payload](#tag/sa)).</br> These questions are not the Call Insights questions. Call Insights questions are answered once, after the call. To get an answer after the call too, add the question to Call Insights as well.</br> Offline Speech Analytics ignores this list.</br> Each question `id` must be unique in the list. To remove all questions, send an empty list.   # noqa: E501
+
+        :param realtime_insight_questions: The realtime_insight_questions of this SpeechAnalyticsConfigModifiable.  # noqa: E501
+        :type: list[RealtimeInsightQuestion]
+        """
+
+        self._realtime_insight_questions = realtime_insight_questions
 
     @property
     def sentiment(self):
