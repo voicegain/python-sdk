@@ -497,6 +497,7 @@ from voicegain_speech.models.quartiles_energy import QuartilesEnergy
 from voicegain_speech.models.quartiles_pitch import QuartilesPitch
 from voicegain_speech.models.query import Query
 from voicegain_speech.models.queue import Queue
+from voicegain_speech.models.recent_period_day import RecentPeriodDay
 from voicegain_speech.models.recent_period_optional import RecentPeriodOptional
 from voicegain_speech.models.reco_alt import RecoAlt
 from voicegain_speech.models.recog_nlsml import RecogNlsml
@@ -678,6 +679,8 @@ from voicegain_speech.models.vad_mode import VadMode
 from voicegain_speech.models.version import Version
 from voicegain_speech.models.voice_call import VoiceCall
 from voicegain_speech.models.voice_call_all_of import VoiceCallAllOf
+from voicegain_speech.models.voice_call_light import VoiceCallLight
+from voicegain_speech.models.voice_call_light_voicebot_vars import VoiceCallLightVoicebotVars
 from voicegain_speech.models.voice_call_modifiable_base import VoiceCallModifiableBase
 from voicegain_speech.models.voice_call_modifiable_base_voicebot_vars import VoiceCallModifiableBaseVoicebotVars
 from voicegain_speech.models.voice_call_search_result import VoiceCallSearchResult

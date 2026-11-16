@@ -293,6 +293,149 @@ class SaInternalApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
+    def sa_call_light_query(self, period, **kwargs):  # noqa: E501
+        """Query Recent Call Records (lightweight)  # noqa: E501
+
+        Return lightweight records of recent calls: calls that started today or in the last 24 hours. Use it to follow the current state of recent calls without the cost of the full call record.  It is a sibling of [GET /sa/call](#operation/saCallQuery) and differs from it in three ways: + **Period.** `period` is required and must be `today` or `last24hours`. There is no   `fromTime` / `toTime`. `today` starts at midnight in the time zone of the Context. + **Record.** Each call is returned as a lightweight record. It has the fields of the full call   record except `wordCloud`, `voicemailTranscript`, `segments`, `copilotDisplay`,   `vonageCallStats`, `audioClockGapMs`, `billing`, `dtmfEvents`, `markers`, `aivrVars`,   `reviewStatus`, `auditStatus`, `auditStartedBy`, `notes`, `reviewNotes` and `modifiableNote`.   `referenceNumber` and `transferTime` are still returned. + **Filters.** The only filter is `callId`. There are no agent, queue, AIVR App or direction   filters, no sorting parameters and no CSV output.  **Selecting calls.** Without `callId`, every call in the period is returned. With `callId`, only those of the listed calls that fall in the period are returned. A listed call that is outside the period, that belongs to another Context or Account, or that the user is not allowed to see is left out of the result. It does not cause an error.  **Access.** The same rules as [GET /sa/call](#operation/saCallQuery): only calls of the given Context are returned, and a user who may see only their own calls gets only those.  **Order and paging.** Calls are returned newest first, by `startTime`. The result is paginated. The total number of matching calls across all pages is returned in the `X-Total-Count` header. For additional info about paginated response and the returned response Headers see [Pagination section](#section/Pagination) at the top of document.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_call_light_query(period, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param RecentPeriodDay period: Recent period over which to return the calls, by call start time. Only `today` and `last24hours` are accepted.</br> `today` starts at midnight in the time zone of the Context.  (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param list[str] call_id: (optional) Ids of the calls to return. If given, only those of the listed calls that fall in the `period` are returned. If omitted, every call in the `period` is returned.</br> Can be repeated (`callId=13570&callId=13571`) or given as one comma-separated value (`callId=13570,13571`).</br> At most 200 ids per request. 
+        :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
+        :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: list[VoiceCallLight]
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+        kwargs['_return_http_data_only'] = True
+        return self.sa_call_light_query_with_http_info(period, **kwargs)  # noqa: E501
+
+    def sa_call_light_query_with_http_info(self, period, **kwargs):  # noqa: E501
+        """Query Recent Call Records (lightweight)  # noqa: E501
+
+        Return lightweight records of recent calls: calls that started today or in the last 24 hours. Use it to follow the current state of recent calls without the cost of the full call record.  It is a sibling of [GET /sa/call](#operation/saCallQuery) and differs from it in three ways: + **Period.** `period` is required and must be `today` or `last24hours`. There is no   `fromTime` / `toTime`. `today` starts at midnight in the time zone of the Context. + **Record.** Each call is returned as a lightweight record. It has the fields of the full call   record except `wordCloud`, `voicemailTranscript`, `segments`, `copilotDisplay`,   `vonageCallStats`, `audioClockGapMs`, `billing`, `dtmfEvents`, `markers`, `aivrVars`,   `reviewStatus`, `auditStatus`, `auditStartedBy`, `notes`, `reviewNotes` and `modifiableNote`.   `referenceNumber` and `transferTime` are still returned. + **Filters.** The only filter is `callId`. There are no agent, queue, AIVR App or direction   filters, no sorting parameters and no CSV output.  **Selecting calls.** Without `callId`, every call in the period is returned. With `callId`, only those of the listed calls that fall in the period are returned. A listed call that is outside the period, that belongs to another Context or Account, or that the user is not allowed to see is left out of the result. It does not cause an error.  **Access.** The same rules as [GET /sa/call](#operation/saCallQuery): only calls of the given Context are returned, and a user who may see only their own calls gets only those.  **Order and paging.** Calls are returned newest first, by `startTime`. The result is paginated. The total number of matching calls across all pages is returned in the `X-Total-Count` header. For additional info about paginated response and the returned response Headers see [Pagination section](#section/Pagination) at the top of document.   # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+        >>> thread = api.sa_call_light_query_with_http_info(period, async_req=True)
+        >>> result = thread.get()
+
+        :param async_req bool: execute request asynchronously
+        :param RecentPeriodDay period: Recent period over which to return the calls, by call start time. Only `today` and `last24hours` are accepted.</br> `today` starts at midnight in the time zone of the Context.  (required)
+        :param str context_id: Context Id. Only needed if making a request without JWT but using MAC Access Authentication instead.
+        :param list[str] call_id: (optional) Ids of the calls to return. If given, only those of the listed calls that fall in the `period` are returned. If omitted, every call in the `period` is returned.</br> Can be repeated (`callId=13570&callId=13571`) or given as one comma-separated value (`callId=13570,13571`).</br> At most 200 ids per request. 
+        :param int page: Which page from the results to include in response. Page numbering starts from 1.</br> Note: we are not using offsets, so we assume that all pages have the same size as the current page. 
+        :param int per_page: What is the page size in paginated response.</br> For more info see: [Pagination](#section/Pagination) 
+        :param _return_http_data_only: response data without head status code
+                                       and headers
+        :param _preload_content: if False, the urllib3.HTTPResponse object will
+                                 be returned without reading/decoding response
+                                 data. Default is True.
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :return: tuple(list[VoiceCallLight], status_code(int), headers(HTTPHeaderDict))
+                 If the method is called asynchronously,
+                 returns the request thread.
+        """
+
+        local_var_params = locals()
+
+        all_params = ['period', 'context_id', 'call_id', 'page', 'per_page']  # noqa: E501
+        all_params.append('async_req')
+        all_params.append('_return_http_data_only')
+        all_params.append('_preload_content')
+        all_params.append('_request_timeout')
+
+        for key, val in six.iteritems(local_var_params['kwargs']):
+            if key not in all_params:
+                raise ApiTypeError(
+                    "Got an unexpected keyword argument '%s'"
+                    " to method sa_call_light_query" % key
+                )
+            local_var_params[key] = val
+        del local_var_params['kwargs']
+        # verify the required parameter 'period' is set
+        if self.api_client.client_side_validation and ('period' not in local_var_params or  # noqa: E501
+                                                        local_var_params['period'] is None):  # noqa: E501
+            raise ApiValueError("Missing the required parameter `period` when calling `sa_call_light_query`")  # noqa: E501
+
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) > 48):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_call_light_query`, length must be less than or equal to `48`")  # noqa: E501
+        if self.api_client.client_side_validation and ('context_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['context_id']) < 16):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `context_id` when calling `sa_call_light_query`, length must be greater than or equal to `16`")  # noqa: E501
+        if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['call_id']) > 200):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `call_id` when calling `sa_call_light_query`, number of items must be less than or equal to `200`")  # noqa: E501
+        if self.api_client.client_side_validation and ('call_id' in local_var_params and  # noqa: E501
+                                                        len(local_var_params['call_id']) < 1):  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `call_id` when calling `sa_call_light_query`, number of items must be greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `sa_call_light_query`, must be a value greater than or equal to `1`")  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] > 10000:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `per_page` when calling `sa_call_light_query`, must be a value less than or equal to `10000`")  # noqa: E501
+        if self.api_client.client_side_validation and 'per_page' in local_var_params and local_var_params['per_page'] < 1:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `per_page` when calling `sa_call_light_query`, must be a value greater than or equal to `1`")  # noqa: E501
+        collection_formats = {}
+
+        path_params = {}
+
+        query_params = []
+        if 'context_id' in local_var_params and local_var_params['context_id'] is not None:  # noqa: E501
+            query_params.append(('contextId', local_var_params['context_id']))  # noqa: E501
+        if 'period' in local_var_params and local_var_params['period'] is not None:  # noqa: E501
+            query_params.append(('period', local_var_params['period']))  # noqa: E501
+        if 'call_id' in local_var_params and local_var_params['call_id'] is not None:  # noqa: E501
+            query_params.append(('callId', local_var_params['call_id']))  # noqa: E501
+            collection_formats['callId'] = 'csv'  # noqa: E501
+        if 'page' in local_var_params and local_var_params['page'] is not None:  # noqa: E501
+            query_params.append(('page', local_var_params['page']))  # noqa: E501
+        if 'per_page' in local_var_params and local_var_params['per_page'] is not None:  # noqa: E501
+            query_params.append(('per_page', local_var_params['per_page']))  # noqa: E501
+
+        header_params = {}
+
+        form_params = []
+        local_var_files = {}
+
+        body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
+        # Authentication setting
+        auth_settings = ['bearerJWTAuth', 'macSignature']  # noqa: E501
+
+        return self.api_client.call_api(
+            '/sa/call/light', 'GET',
+            path_params,
+            query_params,
+            header_params,
+            body=body_params,
+            post_params=form_params,
+            files=local_var_files,
+            response_type='list[VoiceCallLight]',  # noqa: E501
+            auth_settings=auth_settings,
+            async_req=local_var_params.get('async_req'),
+            _return_http_data_only=local_var_params.get('_return_http_data_only'),  # noqa: E501
+            _preload_content=local_var_params.get('_preload_content', True),
+            _request_timeout=local_var_params.get('_request_timeout'),
+            collection_formats=collection_formats)
+
     def sa_call_metadata_put(self, call_id, call_metadata_item, **kwargs):  # noqa: E501
         """Update Call Metadata  # noqa: E501
 
