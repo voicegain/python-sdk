@@ -38,6 +38,7 @@ class TraceTransferAllOf(object):
         'call_id': 'int',
         'call_uuid': 'str',
         'destination_number': 'str',
+        'extension': 'str',
         'origin_number': 'str',
         'queue': 'Queue'
     }
@@ -47,11 +48,12 @@ class TraceTransferAllOf(object):
         'call_id': 'call_id',
         'call_uuid': 'call_uuid',
         'destination_number': 'destination_number',
+        'extension': 'extension',
         'origin_number': 'origin_number',
         'queue': 'queue'
     }
 
-    def __init__(self, agent=None, call_id=None, call_uuid=None, destination_number=None, origin_number=None, queue=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, agent=None, call_id=None, call_uuid=None, destination_number=None, extension=None, origin_number=None, queue=None, local_vars_configuration=None):  # noqa: E501
         """TraceTransferAllOf - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
@@ -61,6 +63,7 @@ class TraceTransferAllOf(object):
         self._call_id = None
         self._call_uuid = None
         self._destination_number = None
+        self._extension = None
         self._origin_number = None
         self._queue = None
         self.discriminator = None
@@ -73,6 +76,8 @@ class TraceTransferAllOf(object):
             self.call_uuid = call_uuid
         if destination_number is not None:
             self.destination_number = destination_number
+        if extension is not None:
+            self.extension = extension
         if origin_number is not None:
             self.origin_number = origin_number
         if queue is not None:
@@ -149,7 +154,7 @@ class TraceTransferAllOf(object):
     def destination_number(self):
         """Gets the destination_number of this TraceTransferAllOf.  # noqa: E501
 
-        Destination number of the transferred call.  # noqa: E501
+        Destination number of the transferred call: where this transfer sent the call.</br> Not the extension the agent answered the call on - that is `extension`.   # noqa: E501
 
         :return: The destination_number of this TraceTransferAllOf.  # noqa: E501
         :rtype: str
@@ -160,13 +165,36 @@ class TraceTransferAllOf(object):
     def destination_number(self, destination_number):
         """Sets the destination_number of this TraceTransferAllOf.
 
-        Destination number of the transferred call.  # noqa: E501
+        Destination number of the transferred call: where this transfer sent the call.</br> Not the extension the agent answered the call on - that is `extension`.   # noqa: E501
 
         :param destination_number: The destination_number of this TraceTransferAllOf.  # noqa: E501
         :type: str
         """
 
         self._destination_number = destination_number
+
+    @property
+    def extension(self):
+        """Gets the extension of this TraceTransferAllOf.  # noqa: E501
+
+        The extension the agent answered the call on, when the platform reports one: + Five9 (legacy integration and VoiceStream) - the agent's station ID + RingCentral - the agent's extension number (not the internal extension id) + Sangoma CX - the agent's extension + Voicegain WebRTC softphone - the agent's `webRtcExtension`  Not where the transfer went - that is `destination_number`.</br> Absent when not recorded: the other platforms do not report an extension, and traces written before this field was introduced do not have it.   # noqa: E501
+
+        :return: The extension of this TraceTransferAllOf.  # noqa: E501
+        :rtype: str
+        """
+        return self._extension
+
+    @extension.setter
+    def extension(self, extension):
+        """Sets the extension of this TraceTransferAllOf.
+
+        The extension the agent answered the call on, when the platform reports one: + Five9 (legacy integration and VoiceStream) - the agent's station ID + RingCentral - the agent's extension number (not the internal extension id) + Sangoma CX - the agent's extension + Voicegain WebRTC softphone - the agent's `webRtcExtension`  Not where the transfer went - that is `destination_number`.</br> Absent when not recorded: the other platforms do not report an extension, and traces written before this field was introduced do not have it.   # noqa: E501
+
+        :param extension: The extension of this TraceTransferAllOf.  # noqa: E501
+        :type: str
+        """
+
+        self._extension = extension
 
     @property
     def origin_number(self):
